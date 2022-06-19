@@ -1,28 +1,27 @@
-{ lib
-, stdenv
-, fetchFromGitHub
-, autoPatchelfHook
-, git
-, utillinux
-, glib
-, gnome2
-, harfbuzz
-, cairo
-, gdk-pixbuf
-, atk
-, pkg-config
-, nodejs
-, gnumake
-, clang
-, xorg
-, alsaLib
-, gtk3-x11
-, udev
-
-, makeDesktopItem
-, copyDesktopItems
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  autoPatchelfHook,
+  git,
+  utillinux,
+  glib,
+  gnome2,
+  harfbuzz,
+  cairo,
+  gdk-pixbuf,
+  atk,
+  pkg-config,
+  nodejs,
+  gnumake,
+  clang,
+  xorg,
+  alsaLib,
+  gtk3-x11,
+  udev,
+  makeDesktopItem,
+  copyDesktopItems,
 }:
-
 stdenv.mkDerivation rec {
   pname = "armorpaint";
   version = "21.10";
@@ -38,12 +37,12 @@ stdenv.mkDerivation rec {
 
   desktopItems = [
     (makeDesktopItem {
-     desktopName="ArmorPaint";
-     exec = "armorpaint";
-     name = "ArmorPaint";
-     icon= "armorpaint";
-     })
-    ];
+      desktopName = "ArmorPaint";
+      exec = "armorpaint";
+      name = "ArmorPaint";
+      icon = "armorpaint";
+    })
+  ];
   patchPhase = ''
     sed -i "s_exec('lscpu.*_'6'_" armorcore/Kinc/Tools/kincmake/node_modules/physical-cpu-count/index.js
     substituteInPlace armorcore/kincfile.js \
@@ -59,21 +58,23 @@ stdenv.mkDerivation rec {
     copyDesktopItems
   '';
 
-  buildInputs = [
-    git
-    utillinux.bin
-    glib
-    nodejs
-    gnumake
-    alsaLib
-    gtk3-x11.dev
-    udev.dev
-  ] ++ (with xorg; [
-    libXinerama
-    xrandr
-    libXi
-    libXcursor
-  ]);
+  buildInputs =
+    [
+      git
+      utillinux.bin
+      glib
+      nodejs
+      gnumake
+      alsaLib
+      gtk3-x11.dev
+      udev.dev
+    ]
+    ++ (with xorg; [
+      libXinerama
+      xrandr
+      libXi
+      libXcursor
+    ]);
 
   nativeBuildInputs = [
     autoPatchelfHook
@@ -108,7 +109,7 @@ stdenv.mkDerivation rec {
     description = "3D PBR Texture Painting Software";
     homepage = "https://github.com/armory3d/armorpaint";
     license = licenses.zlib;
-    maintainers = with maintainers; [ shou ];
+    maintainers = with maintainers; [shou];
     platforms = platforms.unix;
   };
 }
