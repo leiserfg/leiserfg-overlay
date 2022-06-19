@@ -52,8 +52,7 @@ buildInputs = [
   ];
 
   installPhase = ''
-    mkdir -p $out/bin/ $out/share/pixmaps/
-    # cp material_maker.x86_64  $out/bin/material_maker
+    mkdir -p $out/bin/ $out/share/icons/hicolor/256x256/apps/
     cp -r . $out/material_maker/
 
     cat <<-EOF > $out/bin/material_maker
@@ -62,7 +61,7 @@ buildInputs = [
     EOF
 
     chmod +x $out/bin/material_maker
-    cp $out/material_maker/examples/mm_icon.png   $out/share/pixmaps/material_maker.png
+    cp $out/material_maker/examples/mm_icon.png   $out/share/icons/hicolor/256x256/apps/material_maker.png
     copyDesktopItems
   '';
 
