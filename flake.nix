@@ -12,9 +12,9 @@
 
         in {
             overlays.default = final: prev:  {
-                armourpaint = pkgs.callPackage ./pkgs/armourpaint {};
-                glslviewer = pkgs.callPackage ./pkgs/glslviewer {};
-                nsxiv-extras = pkgs.callPackage ./pkgs/nsxiv-extras {};
+                armourpaint = (pkgs.callPackage ./pkgs/armourpaint {});
+                glslviewer = (pkgs.callPackage ./pkgs/glslviewer {});
+                nsxiv-extras = (pkgs.callPackage ./pkgs/nsxiv-extras {});
 
             };
             packages.x86_64-linux = rec {
