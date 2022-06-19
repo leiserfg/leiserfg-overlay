@@ -16,12 +16,13 @@
                 glslviewer = pkgs.callPackage ./pkgs/glslviewer {};
                 nsxiv-extras = pkgs.callPackage ./pkgs/nsxiv-extras {};
 
-                packages.x86_64-linux = rec {
-                    inherit (pkgs)
+            };
+            packages.x86_64-linux = rec {
+                inherit (pkgs)
                     armourpaint
                     glslviewer
                     nsxiv-extras;
-                };
+                default = glslviewer;
             };
         };
 }
