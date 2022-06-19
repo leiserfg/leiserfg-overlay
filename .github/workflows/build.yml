@@ -1,0 +1,38 @@
+name: "Build"
+
+on:
+  # Build on push to master
+  push:
+    branches:
+      - master
+
+  # Build on internal pull requests
+  pull_request:
+
+  # Allow to trigger for external PRs
+  workflow_dispatch:
+
+  # Also run regularly because pushes initiated by GitHub Actions don't
+  # trigger the above events.
+  # schedule:
+  #   # every day at 8am UTC
+  #   - cron: '10 8 * * *'
+
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    steps:
+    - uses: actions/checkout@v3
+    - uses: cachix/install-nix-action@v16
+      with:
+        extra_nix_config: |
+          access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+    - uses: cachix/cachix-action@v10
+      with:
+        name: leiserfg
+        authToken: '${{ secrets.CACHIX_TOKEN }}'
+    - run: nix build 
