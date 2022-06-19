@@ -29,9 +29,9 @@ stdenv.mkDerivation rec {
   desktopItems = [
     (makeDesktopItem {
       desktopName = "MaterialMaker";
-      exec = "material-maker";
+      exec = "material_maker";
       name = "MaterialMaker";
-      icon = "material-maker";
+      icon = "material_maker";
     })
   ];
 
