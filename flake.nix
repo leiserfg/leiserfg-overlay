@@ -16,6 +16,7 @@
       glslviewer = pkgs.callPackage ./pkgs/glslviewer {};
       nsxiv-extras = pkgs.callPackage ./pkgs/nsxiv-extras {};
       material-maker = pkgs.callPackage ./pkgs/material-maker {};
+      dwarfs = pkgs.callPackage ./pkgs/dwarfs {};
     };
     packages.x86_64-linux = rec {
       inherit
@@ -24,6 +25,7 @@
         glslviewer
         nsxiv-extras
         material-maker
+        dwarfs
         ;
       default = material-maker;
     };
