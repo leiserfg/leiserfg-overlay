@@ -17,6 +17,7 @@
       nsxiv-extras = pkgs.callPackage ./pkgs/nsxiv-extras {};
       material-maker = pkgs.callPackage ./pkgs/material-maker {};
       dwarfs = pkgs.callPackage ./pkgs/dwarfs {};
+      wasm2luajit  = pkgs.callPackage ./pkgs/wasm2luajit {};
     };
     packages.x86_64-linux = rec {
       inherit
@@ -26,8 +27,8 @@
         nsxiv-extras
         material-maker
         dwarfs
-        ;
-      default = dwarfs;
+        wasm2luajit ;
+      default = wasm2luajit;
     };
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
   };
