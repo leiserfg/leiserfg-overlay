@@ -1,5 +1,5 @@
 {
-  description = "My home brew packages";
+  description = "My home-brew packages";
   inputs.nixpkgs.url = "nixpkgs/nixos-22.05";
 
   outputs = {
@@ -28,7 +28,7 @@
         material-maker
         dwarfs
         wasm2luajit ;
-      default = wasm2luajit;
+        default = dwarfs;
     };
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
   };
