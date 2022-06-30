@@ -12,7 +12,7 @@
     };
   in {
     overlays.default = final: prev: {
-      armourpaint = pkgs.callPackage ./pkgs/armourpaint {};
+      # armourpaint = pkgs.callPackage ./pkgs/armourpaint {};   It's failing to build now
       glslviewer = pkgs.callPackage ./pkgs/glslviewer {};
       nsxiv-extras = pkgs.callPackage ./pkgs/nsxiv-extras {};
       material-maker = pkgs.callPackage ./pkgs/material-maker {};
@@ -22,7 +22,7 @@
     packages.x86_64-linux = rec {
       inherit
         (pkgs)
-        armourpaint
+        # armourpaint
         glslviewer
         nsxiv-extras
         material-maker
