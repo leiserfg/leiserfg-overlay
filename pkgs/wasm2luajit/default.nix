@@ -5,10 +5,10 @@
   autoPatchelfHook,
 }: stdenv.mkDerivation rec {
     pname = "wasm2luajit";
-    version = "0.10.0";
+    version = "0.11.0";
     src = fetchurl {
       url = "https://github.com/Rerumu/Wasynth/releases/download/v${version}/wasm2luajit";
-      sha256 = "sha256-9Cj8SnVwfbMxKI3O+4wZytsJGL3V1xhQ0bay9zGOpRs=";
+      sha256 = "sha256-QR8cfJGEnqmwNwPW6v8a+KW5NSsCg6BqdZHf5eyygak=";
     };
     nativeBuildInputs = [
       autoPatchelfHook
