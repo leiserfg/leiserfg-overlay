@@ -18,6 +18,7 @@
       material-maker = pkgs.callPackage ./pkgs/material-maker {};
       dwarfs = pkgs.callPackage ./pkgs/dwarfs {};
       wasm2luajit  = pkgs.callPackage ./pkgs/wasm2luajit {};
+      darktable_4 = prev.darktable.overrideAttrs (old: rec {version="4.0.0";});
     };
     packages.x86_64-linux = rec {
       inherit
@@ -27,6 +28,7 @@
         nsxiv-extras
         material-maker
         dwarfs
+        darktable_4
         wasm2luajit ;
         default = dwarfs;
     };
