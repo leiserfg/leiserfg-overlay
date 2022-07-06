@@ -26,7 +26,8 @@
         };
       }));
       awesome = (prev.awesome.overrideAttrs (old: rec {
-        version = "4.0.0";
+        version = "4.3.0.alpha";
+        patchse = [];
         src = pkgs.fetchFromGitHub { 
             owner = "awesomewm";
             repo = "awesome";
@@ -44,8 +45,8 @@
         material-maker
         dwarfs
         darktable
-       awesome
-       wasm2luajit
+        awesome
+        wasm2luajit
         ;
       default = awesome;
     };
