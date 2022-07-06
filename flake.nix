@@ -24,7 +24,16 @@
           url = "https://github.com/darktable-org/darktable/releases/download/release-${version}/darktable-${version}.tar.xz";
           sha256 = "0bfcag6bj5vcmg4z4xjirs43iafcx89al6jl41i5mrhpjzszh5hl";
         };
-      })).override {lua=pkgs.lua5_4;};
+      }));
+      awesome = (prev.awesome.overrideAttrs (old: rec {
+        version = "4.0.0";
+        src = pkgs.fetchFromGitHub { 
+            owner = "awesomewm";
+            repo = "awesome";
+            rev = "9ca7bb4";
+            sha256 = "sha256-RRpwAIYNLkovXI0y/eXO9uRDqB4qQcXlnYYUCEmx/EA="; 
+        };
+      })).override{lua=pkgs.luajit;};
     };
     packages.x86_64-linux = rec {
       inherit
@@ -35,9 +44,10 @@
         material-maker
         dwarfs
         darktable
-        wasm2luajit
+       awesome
+       wasm2luajit
         ;
-      default = dwarfs;
+      default = awesome;
     };
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
   };
