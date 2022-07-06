@@ -26,7 +26,7 @@
         };
       }));
       awesome = (prev.awesome.overrideAttrs (old: rec {
-        version = "4.4.0.alpha";
+        version = "4.4.0.alpha-lj";
         patchse = [];
         src = pkgs.fetchFromGitHub { 
             owner = "awesomewm";
