@@ -26,7 +26,7 @@
         };
       }));
       awesome = (prev.awesome.overrideAttrs (old: rec {
-        version = "4.3.0.alpha";
+        version = "4.4.0.alpha";
         patchse = [];
         src = pkgs.fetchFromGitHub { 
             owner = "awesomewm";
@@ -34,7 +34,7 @@
             rev = "9ca7bb4";
             sha256 = "sha256-RRpwAIYNLkovXI0y/eXO9uRDqB4qQcXlnYYUCEmx/EA="; 
         };
-      })).override{lua=pkgs.luajit;};
+      }));
     };
     packages.x86_64-linux = rec {
       inherit
