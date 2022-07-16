@@ -18,13 +18,13 @@
 }:
 stdenv.mkDerivation rec {
   pname = "glslViewer";
-  version = "2.1.2-b5ddbb3 ";
+  version = "2.1.2-f4d6790";
   src = fetchFromGitHub {
     owner = "patriciogonzalezvivo";
     repo = pname;
     fetchSubmodules = true;
-    rev = "d12fff0";
-    sha256 = "sha256-qwT2fyznMkmyls4wUmBKZDIMo35qEfKjLkUYWd+UTLE=";
+    rev = "f4d6790";
+    sha256 = "sha256-0xQEtWyy4bYvLph5bj4Wn09hNnMJlgtuiHe1DviG21U=";
   };
   nativeBuildInputs = [cmake ninja pkg-config];
   buildInputs =
