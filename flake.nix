@@ -1,6 +1,6 @@
 {
   description = "My home-brew packages";
-  inputs.nixpkgs.url = "nixpkgs/nixos-22.05";
+  inputs.nixpkgs.url = "nixpkgs/nixos-unstable";
 
   outputs = {
     self,
@@ -16,7 +16,7 @@
       glslviewer = pkgs.callPackage ./pkgs/glslviewer {};
       nsxiv-extras = pkgs.callPackage ./pkgs/nsxiv-extras {};
       material-maker = pkgs.callPackage ./pkgs/material-maker {};
-      # dwarfs = pkgs.callPackage ./pkgs/dwarfs {};
+      dwarfs = pkgs.callPackage ./pkgs/dwarfs {};
       wasm2luajit = pkgs.callPackage ./pkgs/wasm2luajit {};
       darktable = (prev.darktable.overrideAttrs (old: rec {
         version = "4.0.0";
@@ -43,7 +43,7 @@
         glslviewer
         nsxiv-extras
         material-maker
-        # dwarfs
+        dwarfs
         darktable
         awesome
         wasm2luajit
