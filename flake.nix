@@ -30,6 +30,8 @@
       #   };
       # }));
 
+      fzf = pkgs.callPackage ./pkgs/fzf {};
+
       yuzu-ea = (prev.yuzu-ea.overrideAttrs (old: rec {
             version = "2845";
             pname = "yuzu-ea";
@@ -52,7 +54,8 @@
         material-maker
         dwarfs
         # awesome
-        # wasm2luajit
+       # wasm2luajit
+        fzf 
         yuzu-ea
         ;
       default = yuzu-ea;
