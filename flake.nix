@@ -36,7 +36,7 @@
     #       udevSupport=true;
     # };
 
-      SDL2 = (prev.SDL2.overrideAttrs (oa: rec { udevSupport = true; }));
+      # SDL2 = (prev.SDL2.overrideAttrs (oa: rec { udevSupport = true; }));
       yuzu-ea = (prev.yuzu-ea.overrideAttrs (old: rec {
             version = "2845";
             pname = "yuzu-ea";
@@ -64,7 +64,6 @@
        # wasm2luajit
         fzf
         yuzu-ea
-        SDL2
         ;
       default = yuzu-ea;
     };
