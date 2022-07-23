@@ -17,6 +17,7 @@
       nsxiv-extras = pkgs.callPackage ./pkgs/nsxiv-extras {};
       material-maker = pkgs.callPackage ./pkgs/material-maker {};
       dwarfs = pkgs.callPackage ./pkgs/dwarfs {};
+      yuzu-bin = pkgs.libsForQt5.callPackage ./pkgs/yuzu-bin {};
       # wasm2luajit = pkgs.callPackage ./pkgs/wasm2luajit {};
 
       # awesome = (prev.awesome.overrideAttrs (old: rec {
@@ -64,6 +65,7 @@
        # wasm2luajit
         fzf
         yuzu-ea
+        # yuzu-bin
         ;
       default = yuzu-ea;
     };

@@ -13,6 +13,8 @@
   libXext,
   libGLU,
   libXrender,
+  libva,
+  openssl
 }: let
   _tr = text: (builtins.replaceStrings ["." "-"] ["_" "_"] text);
 in
@@ -42,6 +44,8 @@ in
       libXext
       libGLU
       libXrender
+      libva
+      openssl
     ];
 
     nativeBuildInputs = [
