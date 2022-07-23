@@ -31,7 +31,12 @@
       # }));
 
       fzf = pkgs.callPackage ./pkgs/fzf {};
+    #   SDL2 = pkgs.callPackage ./pkgs/SDL2 {
+    #       inherit (pkgs.darwin.apple_sdk.frameworks) AudioUnit Cocoa CoreAudio CoreServices ForceFeedback OpenGL;
+    #       udevSupport=true;
+    # };
 
+      SDL2 = (prev.SDL2.overrideAttrs (oa: rec { udevSupport = true; }));
       yuzu-ea = (prev.yuzu-ea.overrideAttrs (old: rec {
             version = "2845";
             pname = "yuzu-ea";
@@ -43,8 +48,10 @@
           sha256 = "sha256-+eH0H/cTCpHz6NUncaza4A1o58D4ozFvMBeQGJoct+E=";
           fetchSubmodules = true;
         };
-      }));
+        }));
     };
+
+
     packages.x86_64-linux = rec {
       inherit
         (pkgs)
@@ -55,8 +62,9 @@
         dwarfs
         # awesome
        # wasm2luajit
-        fzf 
+        fzf
         yuzu-ea
+        SDL2
         ;
       default = yuzu-ea;
     };
