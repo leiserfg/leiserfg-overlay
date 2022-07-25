@@ -19,6 +19,10 @@
       dwarfs = pkgs.callPackage ./pkgs/dwarfs {};
       yuzu-bin = pkgs.libsForQt5.callPackage ./pkgs/yuzu-bin {};
       # wasm2luajit = pkgs.callPackage ./pkgs/wasm2luajit {};
+      sdl-jstest = (prev.sdl-jstest.override (old: rec {
+        SDL2 = (prev.SDL2.override { udevSupport = true; });
+        }
+      ));
 
       # awesome = (prev.awesome.overrideAttrs (old: rec {
       #   version = "4.4.0.alpha-lj";
@@ -32,24 +36,7 @@
       # }));
 
       fzf = pkgs.callPackage ./pkgs/fzf {};
-    #   SDL2 = pkgs.callPackage ./pkgs/SDL2 {
-    #       inherit (pkgs.darwin.apple_sdk.frameworks) AudioUnit Cocoa CoreAudio CoreServices ForceFeedback OpenGL;
-    #       udevSupport=true;
-    # };
-
-      # SDL2 = (prev.SDL2.overrideAttrs (oa: rec { udevSupport = true; }));
-      yuzu-ea = (prev.yuzu-ea.overrideAttrs (old: rec {
-            version = "2845";
-            pname = "yuzu-ea";
-
-        src = pkgs.fetchFromGitHub {
-          owner = "pineappleEA";
-          repo = "pineapple-src";
-          rev = "EA-${version}";
-          sha256 = "sha256-+eH0H/cTCpHz6NUncaza4A1o58D4ozFvMBeQGJoct+E=";
-          fetchSubmodules = true;
-        };
-        }));
+      yuzu-ea = pkgs.callPackage ./pkgs/yuzu { branch = "early-access"; };
     };
 
 
@@ -65,7 +52,7 @@
        # wasm2luajit
         fzf
         yuzu-ea
-        # yuzu-bin
+        sdl-jstest
         ;
       default = yuzu-ea;
     };
