@@ -37,6 +37,7 @@
       # }));
 
       fzf = pkgs.callPackage ./pkgs/fzf {};
+      controllermap = pkgs.callPackage ./pkgs/controllermap {};
       yuzu-ea = pkgs.callPackage ./pkgs/yuzu { branch = "early-access"; };
     };
 
@@ -55,6 +56,7 @@
         yuzu-ea
         sdl-jstest
         xmake
+        controllermap
         ;
       default = yuzu-ea;
     };
