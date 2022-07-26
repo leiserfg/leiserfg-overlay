@@ -17,8 +17,9 @@
       nsxiv-extras = pkgs.callPackage ./pkgs/nsxiv-extras {};
       material-maker = pkgs.callPackage ./pkgs/material-maker {};
       dwarfs = pkgs.callPackage ./pkgs/dwarfs {};
-      yuzu-bin = pkgs.libsForQt5.callPackage ./pkgs/yuzu-bin {};
+      yuzu = pkgs.libsForQt5.callPackage ./pkgs/yuzu {};
       # wasm2luajit = pkgs.callPackage ./pkgs/wasm2luajit {};
+      xmake = pkgs.callPackage ./pkgs/xmake {};
       sdl-jstest = (prev.sdl-jstest.override (old: rec {
         SDL2 = (prev.SDL2.override { udevSupport = true; });
         }
@@ -53,6 +54,7 @@
         fzf
         yuzu-ea
         sdl-jstest
+        xmake
         ;
       default = yuzu-ea;
     };
