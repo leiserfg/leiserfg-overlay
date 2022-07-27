@@ -38,6 +38,21 @@
 
       fzf = pkgs.callPackage ./pkgs/fzf {};
       controllermap = pkgs.callPackage ./pkgs/controllermap {};
+      antimicrox = (
+        prev.antimicrox.override (old: rec {
+            SDL2 = (prev.SDL2.override { udevSupport = true; });
+
+        })
+      ).overrideAttrs (old: rec {
+          version = "3.2.5";
+
+          src = pkgs.fetchFromGitHub {
+          owner = "AntiMicroX";
+          repo = old.pname;
+          rev = version;
+          sha256 = "sha256-Lc23VvIZguE6nRHeGDW3pL4exKtJtF8XmFkN2SxUL0g=";
+          };
+      });
       yuzu-ea = pkgs.callPackage ./pkgs/yuzu { branch = "early-access"; };
     };
 
@@ -45,6 +60,7 @@
     packages.x86_64-linux = rec {
       inherit
         (pkgs)
+        antimicrox
         # armourpaint
         glslviewer
         nsxiv-extras
