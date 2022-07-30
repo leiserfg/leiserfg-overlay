@@ -25,16 +25,16 @@
         }
       ));
 
-      # awesome = (prev.awesome.overrideAttrs (old: rec {
-      #   version = "4.4.0.alpha-lj";
-      #   patchse = [];
-      #   src = pkgs.fetchFromGitHub { 
-      #       owner = "awesomewm";
-      #       repo = "awesome";
-      #       rev = "9ca7bb4";
-      #       sha256 = "sha256-RRpwAIYNLkovXI0y/eXO9uRDqB4qQcXlnYYUCEmx/EA="; 
-      #   };
-      # }));
+      awesome = (prev.awesome.overrideAttrs (old: rec {
+        version = "4.4.0.alpha-lj";
+        patches = [];
+        src = pkgs.fetchFromGitHub { 
+            owner = "awesomewm";
+            repo = "awesome";
+            rev = "9ca7bb4";
+            sha256 = "sha256-RRpwAIYNLkovXI0y/eXO9uRDqB4qQcXlnYYUCEmx/EA="; 
+        };
+      }));
 
       fzf = pkgs.callPackage ./pkgs/fzf {};
       controllermap = pkgs.callPackage ./pkgs/controllermap {};
@@ -66,7 +66,7 @@
         nsxiv-extras
         material-maker
         dwarfs
-        # awesome
+        awesome
        # wasm2luajit
         fzf
         yuzu-ea
