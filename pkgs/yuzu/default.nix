@@ -30,13 +30,13 @@ in {
 
   early-access = libsForQt5.callPackage ./generic.nix rec {
     pname = "yuzu-ea";
-    version = "2845";
+    version = "2890";
 
     src = fetchFromGitHub {
       owner = "pineappleEA";
       repo = "pineapple-src";
       rev = "EA-${version}";
-      sha256 = "sha256-+eH0H/cTCpHz6NUncaza4A1o58D4ozFvMBeQGJoct+E=";
+      sha256 = "sha256-Dq8WhAyfXdXTXpFLgSH2awVB4WpndcG0McmE7DUOHik=";
       fetchSubmodules = true;
     };
 
