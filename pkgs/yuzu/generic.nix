@@ -49,7 +49,7 @@ stdenv.mkDerivation rec {
   # for binary redistribution: https://github.com/yuzu-emu/yuzu/pull/8104
   # The patch hosted on GitHub has the binary information stripped, so
   # it has been regenerated with "git format-patch --text --full-index --binary"
-  patches = [ ./yuzu-free-icons.patch ];
+  # patches = [ ./yuzu-free-icons.patch ];
 
   nativeBuildInputs = [
     cmake
