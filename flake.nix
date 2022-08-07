@@ -54,6 +54,21 @@
           };
       });
       yuzu-ea = pkgs.callPackage ./pkgs/yuzu { branch = "early-access"; };
+
+      # javx = (
+      #   prev.j.override (old: rec {
+      #       avxSupport = true;
+      #   })
+      # ).overrideAttrs (old: rec {
+      #       installPhase = ''
+      #           runHook preInstall
+      #           mkdir -p "$out/share/j/"
+      #           cp -r $JLIB/{addons,system} "$out"
+      #           cp -r $JLIB/bin "$out"
+      #           runHook postInstall
+      #         '';
+      # });
+      javx = pkgs.callPackage ./pkgs/j-with-addons {};
     };
 
 
@@ -72,6 +87,7 @@
         yuzu-ea
         sdl-jstest
         xmake
+        javx
         controllermap
         ;
       default = yuzu-ea;
