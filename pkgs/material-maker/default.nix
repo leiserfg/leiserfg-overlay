@@ -14,7 +14,7 @@
   libGLU,
   libXrender,
   libva,
-  openssl
+  openssl,
 }: let
   _tr = text: (builtins.replaceStrings ["." "-"] ["_" "_"] text);
 in

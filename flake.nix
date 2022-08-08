@@ -20,40 +20,42 @@
       yuzu = pkgs.libsForQt5.callPackage ./pkgs/yuzu {};
       # wasm2luajit = pkgs.callPackage ./pkgs/wasm2luajit {};
       xmake = pkgs.callPackage ./pkgs/xmake {};
-      sdl-jstest = (prev.sdl-jstest.override (old: rec {
-        SDL2 = (prev.SDL2.override { udevSupport = true; });
+      sdl-jstest = prev.sdl-jstest.override (
+        old: rec {
+          SDL2 = prev.SDL2.override {udevSupport = true;};
         }
-      ));
+      );
 
-      awesome = (prev.awesome.overrideAttrs (old: rec {
+      awesome = prev.awesome.overrideAttrs (old: rec {
         version = "4.4.0.alpha-lj";
         patches = [];
-        src = pkgs.fetchFromGitHub { 
-            owner = "awesomewm";
-            repo = "awesome";
-            rev = "9ca7bb4";
-            sha256 = "sha256-RRpwAIYNLkovXI0y/eXO9uRDqB4qQcXlnYYUCEmx/EA="; 
+        src = pkgs.fetchFromGitHub {
+          owner = "awesomewm";
+          repo = "awesome";
+          rev = "9ca7bb4";
+          sha256 = "sha256-RRpwAIYNLkovXI0y/eXO9uRDqB4qQcXlnYYUCEmx/EA=";
         };
-      }));
+      });
 
       fzf = pkgs.callPackage ./pkgs/fzf {};
       controllermap = pkgs.callPackage ./pkgs/controllermap {};
-      antimicrox = (
-        prev.antimicrox.override (old: rec {
-            SDL2 = (prev.SDL2.override { udevSupport = true; });
-
-        })
-      ).overrideAttrs (old: rec {
+      antimicrox =
+        (
+          prev.antimicrox.override (old: rec {
+            SDL2 = prev.SDL2.override {udevSupport = true;};
+          })
+        )
+        .overrideAttrs (old: rec {
           version = "3.2.5";
 
           src = pkgs.fetchFromGitHub {
-          owner = "AntiMicroX";
-          repo = old.pname;
-          rev = version;
-          sha256 = "sha256-Lc23VvIZguE6nRHeGDW3pL4exKtJtF8XmFkN2SxUL0g=";
+            owner = "AntiMicroX";
+            repo = old.pname;
+            rev = version;
+            sha256 = "sha256-Lc23VvIZguE6nRHeGDW3pL4exKtJtF8XmFkN2SxUL0g=";
           };
-      });
-      yuzu-ea = pkgs.callPackage ./pkgs/yuzu { branch = "early-access"; };
+        });
+      yuzu-ea = pkgs.callPackage ./pkgs/yuzu {branch = "early-access";};
 
       # javx = (
       #   prev.j.override (old: rec {
@@ -71,18 +73,19 @@
       javx = pkgs.callPackage ./pkgs/j-with-addons {};
     };
 
-
     packages.x86_64-linux = rec {
       inherit
         (pkgs)
         antimicrox
         # armourpaint
+        
         glslviewer
         nsxiv-extras
         material-maker
         dwarfs
         awesome
-       # wasm2luajit
+        # wasm2luajit
+        
         fzf
         yuzu-ea
         sdl-jstest

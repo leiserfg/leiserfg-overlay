@@ -1,5 +1,12 @@
-{ lib, buildGoModule, fetchFromGitHub, writeText, runtimeShell, ncurses, perl }:
-
+{
+  lib,
+  buildGoModule,
+  fetchFromGitHub,
+  writeText,
+  runtimeShell,
+  ncurses,
+  perl,
+}:
 buildGoModule rec {
   pname = "fzf";
   version = "0.31.0";
@@ -13,14 +20,16 @@ buildGoModule rec {
 
   vendorSha256 = "sha256-3ry93xV3KKtFoFGt2yxzMd4jx3QG2+8TBrEEywj7HPQ=";
 
-  outputs = [ "out" "man" ];
+  outputs = ["out" "man"];
 
   fishHook = writeText "load-fzf-keybindings.fish" "fzf_key_bindings";
 
-  buildInputs = [ ncurses ];
+  buildInputs = [ncurses];
 
   ldflags = [
-    "-s" "-w" "-X main.version=${version} -X main.revision=${src.rev}"
+    "-s"
+    "-w"
+    "-X main.version=${version} -X main.revision=${src.rev}"
   ];
 
   # The vim plugin expects a relative path to the binary; patch it to abspath.
@@ -64,7 +73,7 @@ buildGoModule rec {
     homepage = "https://github.com/junegunn/fzf";
     description = "A command-line fuzzy finder written in Go";
     license = licenses.mit;
-    maintainers = with maintainers; [ Br1ght0ne ma27 zowoq ];
+    maintainers = with maintainers; [Br1ght0ne ma27 zowoq];
     platforms = platforms.unix;
     changelog = "https://github.com/junegunn/fzf/blob/${version}/CHANGELOG.md";
   };

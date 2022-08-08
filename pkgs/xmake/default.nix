@@ -1,4 +1,8 @@
-{ lib, stdenv, fetchFromGitHub }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+}:
 stdenv.mkDerivation rec {
   pname = "xmake";
   version = "2.6.7";
@@ -13,12 +17,12 @@ stdenv.mkDerivation rec {
 
   enableParallelBuilding = true;
 
-  installFlags = [ "prefix=${placeholder "out"}" ];
+  installFlags = ["prefix=${placeholder "out"}"];
 
   meta = with lib; {
     description = "A cross-platform build utility based on Lua";
-    homepage    = "https://xmake.io/";
-    license     = licenses.asl20;
-    platforms   = platforms.all;
+    homepage = "https://xmake.io/";
+    license = licenses.asl20;
+    platforms = platforms.all;
   };
 }

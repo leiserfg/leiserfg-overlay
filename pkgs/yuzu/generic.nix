@@ -1,47 +1,46 @@
-{ pname
-, version
-, src
-, branch
-, compat-list
-
-, lib
-, stdenv
-, runCommandLocal
-, substituteAll
-, wrapQtAppsHook
-, alsa-lib
-, boost
-, catch2
-, cmake
-, doxygen
-, ffmpeg
-, fmt_8
-, glslang
-, libjack2
-, libopus
-, libpulseaudio
-, libusb1
-, libva
-, libzip
-, lz4
-, nlohmann_json
-, perl
-, pkg-config
-, python3
-, qtbase
-, qttools
-, qtwebengine
-, rapidjson
-, SDL2
-, sndio
-, speexdsp
-, udev
-, vulkan-headers
-, vulkan-loader
-, zlib
-, zstd
+{
+  pname,
+  version,
+  src,
+  branch,
+  compat-list,
+  lib,
+  stdenv,
+  runCommandLocal,
+  substituteAll,
+  wrapQtAppsHook,
+  alsa-lib,
+  boost,
+  catch2,
+  cmake,
+  doxygen,
+  ffmpeg,
+  fmt_8,
+  glslang,
+  libjack2,
+  libopus,
+  libpulseaudio,
+  libusb1,
+  libva,
+  libzip,
+  lz4,
+  nlohmann_json,
+  perl,
+  pkg-config,
+  python3,
+  qtbase,
+  qttools,
+  qtwebengine,
+  rapidjson,
+  SDL2,
+  sndio,
+  speexdsp,
+  udev,
+  vulkan-headers,
+  vulkan-loader,
+  zlib,
+  zstd,
 }:
-
 stdenv.mkDerivation rec {
   inherit pname version src;
 
@@ -79,7 +78,7 @@ stdenv.mkDerivation rec {
     qttools
     qtwebengine
     rapidjson
-    (SDL2.override { udevSupport = true; })
+    (SDL2.override {udevSupport = true;})
     sndio
     speexdsp
     udev
@@ -148,11 +147,13 @@ stdenv.mkDerivation rec {
       Using the early-access branch is recommanded if you would like to try out experimental features, with a cost of stability.
     '';
     mainProgram = "yuzu";
-    platforms = [ "x86_64-linux" ];
+    platforms = ["x86_64-linux"];
     license = with licenses; [
       gpl3Plus
       # Icons. Note that this would be cc0 and cc-by-nd-30 without the "yuzu-free-icons" patch
-      asl20 mit cc0
+      asl20
+      mit
+      cc0
     ];
     maintainers = with maintainers; [
       ashley
