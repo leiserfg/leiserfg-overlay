@@ -20,6 +20,7 @@
       yuzu = pkgs.libsForQt5.callPackage ./pkgs/yuzu {};
       # wasm2luajit = pkgs.callPackage ./pkgs/wasm2luajit {};
       xmake = pkgs.callPackage ./pkgs/xmake {};
+      doggo = pkgs.callPackage ./pkgs/doggo {};
       sdl-jstest = prev.sdl-jstest.override (
         old: rec {
           SDL2 = prev.SDL2.override {udevSupport = true;};
@@ -92,6 +93,7 @@
         xmake
         javx
         controllermap
+        doggo
         ;
       default = yuzu-ea;
     };
