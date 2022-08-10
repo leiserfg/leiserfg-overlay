@@ -2,10 +2,6 @@
   lib,
   buildGoModule,
   fetchFromGitHub,
-  writeText,
-  runtimeShell,
-  ncurses,
-  perl,
 }:
 buildGoModule rec {
   pname = "doggo";
