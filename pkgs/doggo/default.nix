@@ -16,8 +16,6 @@ buildGoModule rec {
 
   vendorSha256 = "sha256-pyzu89HDFrMQqYJZC2vdqzOc6PiAbqhaTgYakmN0qj8=";
 
-  # buildInputs = [ncurses];
-
   ldflags = [
     "-s"
     "-w"
