@@ -18,7 +18,7 @@
       material-maker = pkgs.callPackage ./pkgs/material-maker {};
       dwarfs = pkgs.callPackage ./pkgs/dwarfs {};
       yuzu = pkgs.libsForQt5.callPackage ./pkgs/yuzu {};
-      # wasm2luajit = pkgs.callPackage ./pkgs/wasm2luajit {};
+      wasm2luajit = pkgs.callPackage ./pkgs/wasm2luajit {};
       xmake = pkgs.callPackage ./pkgs/xmake {};
       doggo = pkgs.callPackage ./pkgs/doggo {};
       sdl-jstest = prev.sdl-jstest.override (
@@ -85,7 +85,7 @@
         material-maker
         dwarfs
         awesome
-        # wasm2luajit
+        wasm2luajit
         
         fzf
         yuzu-ea
