@@ -72,6 +72,8 @@
       #         '';
       # });
       javx = pkgs.callPackage ./pkgs/j-with-addons {};
+      godot = pkgs.callPackage ./pkgs/godot {};
+      
     };
 
     packages.x86_64-linux = rec {
@@ -86,7 +88,7 @@
         dwarfs
         awesome
         wasm2luajit
-        
+        godot
         fzf
         yuzu-ea
         sdl-jstest
