@@ -73,7 +73,6 @@
       # });
       javx = pkgs.callPackage ./pkgs/j-with-addons {};
       godot = pkgs.callPackage ./pkgs/godot {};
-      
     };
 
     packages.x86_64-linux = rec {
