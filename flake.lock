@@ -1,6 +1,40 @@
 {
   "nodes": {
+    "nix-gaming": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1660758526,
+        "narHash": "sha256-w3Chwi62hampmgkXBhdEhJJzKQnHM+UCwSLcyHbfxsk=",
+        "owner": "fufexan",
+        "repo": "nix-gaming",
+        "rev": "92cb8bc09a6d96427a18b3dddcc23b10a82856c9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fufexan",
+        "repo": "nix-gaming",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
+      "locked": {
+        "lastModified": 1656401090,
+        "narHash": "sha256-bUS2nfQsvTQW2z8SK7oEFSElbmoBahOPtbXPm0AL3I4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "16de63fcc54e88b9a106a603038dd5dd2feb21eb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1660646295,
         "narHash": "sha256-V4G+egGRc3elXPTr7QLJ7r7yrYed0areIKDiIAlMLC8=",
@@ -17,7 +51,8 @@
     },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "nix-gaming": "nix-gaming",
+        "nixpkgs": "nixpkgs_2"
       }
     }
   },

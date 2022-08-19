@@ -1,10 +1,11 @@
 {
   description = "My home-brew packages";
   inputs.nixpkgs.url = "nixpkgs/nixos-unstable";
-
+  inputs.nix-gaming.url = github:fufexan/nix-gaming;
   outputs = {
     self,
     nixpkgs,
+    nix-gaming
   }: let
     pkgs = import nixpkgs {
       system = "x86_64-linux";
@@ -73,6 +74,8 @@
       # });
       javx = pkgs.callPackage ./pkgs/j-with-addons {};
       godot = pkgs.callPackage ./pkgs/godot {};
+      zoxide = pkgs.zoxide;
+      wine-ge = nix-gaming.packages.${pkgs.system}.wine-ge;
     };
 
     packages.x86_64-linux = rec {
@@ -80,7 +83,7 @@
         (pkgs)
         antimicrox
         # armourpaint
-        
+        zoxide
         glslviewer
         nsxiv-extras
         material-maker
@@ -95,6 +98,7 @@
         javx
         controllermap
         doggo
+        wine-ge
         ;
       default = yuzu-ea;
     };
