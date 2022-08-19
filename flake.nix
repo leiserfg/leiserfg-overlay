@@ -74,7 +74,7 @@
       # });
       javx = pkgs.callPackage ./pkgs/j-with-addons {};
       godot = pkgs.callPackage ./pkgs/godot {};
-      zoxide = pkgs.zoxide;
+      # zoxide = pkgs.zoxide;
       wine-ge = nix-gaming.packages.${pkgs.system}.wine-ge;
     };
 
@@ -83,7 +83,7 @@
         (pkgs)
         antimicrox
         # armourpaint
-        zoxide
+        # zoxide
         glslviewer
         nsxiv-extras
         material-maker
