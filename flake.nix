@@ -85,6 +85,7 @@
         antimicrox
         # armourpaint
         # zoxide
+        darktable
         glslviewer
         nsxiv-extras
         material-maker
@@ -100,6 +101,7 @@
         controllermap
         doggo
         # wineStaging
+        zint
         ;
       default = yuzu-ea;
     };
