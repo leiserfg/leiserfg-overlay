@@ -77,6 +77,7 @@
       # zoxide = pkgs.zoxide;
       # wineStagingFull = pkgs.wineWowPackages.stagingFull;
       # wineStaging = pkgs.wineWowPackages.staging;
+      darktable4 = pkgs.darktable;
     };
 
     packages.x86_64-linux = rec {
@@ -85,7 +86,7 @@
         antimicrox
         # armourpaint
         # zoxide
-        darktable
+        darktable4
         glslviewer
         nsxiv-extras
         material-maker
