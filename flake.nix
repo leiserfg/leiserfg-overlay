@@ -85,7 +85,7 @@
         (pkgs)
         antimicrox
         # armourpaint
-        # zoxide
+        zoxide
         darktable4
         glslviewer
         nsxiv-extras
