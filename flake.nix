@@ -5,7 +5,7 @@
   outputs = {
     self,
     nixpkgs,
-    nix-gaming
+    nix-gaming,
   }: let
     pkgs = import nixpkgs {
       system = "x86_64-linux";
@@ -85,6 +85,7 @@
         (pkgs)
         antimicrox
         # armourpaint
+        
         zoxide
         darktable4
         glslviewer
@@ -102,6 +103,7 @@
         controllermap
         doggo
         # wineStaging
+        
         zint
         ;
       default = yuzu-ea;
