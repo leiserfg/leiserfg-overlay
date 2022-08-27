@@ -58,6 +58,7 @@
           };
         });
       yuzu-ea = pkgs.callPackage ./pkgs/yuzu {branch = "early-access";};
+      # cemu-emu = pkgs.callPackage ./pkgs/cemu-wip {};
 
       # javx = (
       #   prev.j.override (old: rec {
@@ -83,6 +84,7 @@
     packages.x86_64-linux = rec {
       inherit
         (pkgs)
+        cemu-emu
         antimicrox
         # armourpaint
         
