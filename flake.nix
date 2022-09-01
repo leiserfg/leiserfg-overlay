@@ -18,7 +18,7 @@
       nsxiv-extras = pkgs.callPackage ./pkgs/nsxiv-extras {};
       material-maker = pkgs.callPackage ./pkgs/material-maker {};
       dwarfs = pkgs.callPackage ./pkgs/dwarfs {};
-      yuzu = pkgs.libsForQt5.callPackage ./pkgs/yuzu {};
+      yuzu-ea = prev.yuzu-ea;
       wasm2luajit = pkgs.callPackage ./pkgs/wasm2luajit {};
       xmake = pkgs.callPackage ./pkgs/xmake {};
       doggo = pkgs.callPackage ./pkgs/doggo {};
@@ -57,7 +57,6 @@
             sha256 = "sha256-Lc23VvIZguE6nRHeGDW3pL4exKtJtF8XmFkN2SxUL0g=";
           };
         });
-      yuzu-ea = pkgs.callPackage ./pkgs/yuzu {branch = "early-access";};
       # cemu-emu = pkgs.callPackage ./pkgs/cemu-wip {};
 
       # javx = (
