@@ -5,7 +5,7 @@
   stdenv,
   fetchFromGitHub,
 }: let
-  imgFormats = ["bmp" "gif" "jpeg" "jpg" "png" "tiff" "x-bmp" "x-portable-anymap" "x-portable-bitmap" "x-portable-graymap" "x-tga" "x-xpixmap" "webp"];
+  imgFormats = ["bmp" "gif" "jpeg" "jpg" "png" "tiff" "x-bmp" "x-portable-anymap" "x-portable-bitmap" "x-portable-graymap" "x-tga" "x-xpixmap" "webp" "svg+xml"];
 in
   stdenv.mkDerivation rec {
     pname = "nsxiv-extra";
