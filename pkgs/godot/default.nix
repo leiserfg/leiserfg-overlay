@@ -17,6 +17,7 @@
 , openssl
 , alsa-lib
 , alsa-plugins
+, vulkan-loader
 , makeWrapper
 , libGLU
 , zlib
@@ -83,10 +84,11 @@ stdenv.mkDerivation rec {
     cp bin/godot.* $out/bin/godot
 
     wrapProgram "$out/bin/godot" \
-      --set ALSA_PLUGIN_DIR ${alsa-plugins}/lib/alsa-lib
+      --set ALSA_PLUGIN_DIR ${alsa-plugins}/lib/alsa-lib \
+      --prefix LD_LIBRARY_PATH : ${vulkan-loader}/lib
 
     mkdir "$dev"
-    cp -r modules/gdnative/include $dev
+    # cp -r modules/gdnative/include $dev
 
     mkdir -p "$man/share/man/man6"
     cp misc/dist/linux/godot.6 "$man/share/man/man6/"
