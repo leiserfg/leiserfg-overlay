@@ -73,11 +73,12 @@
       #         '';
       # });
       javx = pkgs.callPackage ./pkgs/j-with-addons {};
-      godot = pkgs.callPackage ./pkgs/godot {};
+      godot4 = pkgs.callPackage ./pkgs/godot {};
       # zoxide = pkgs.zoxide;
       # wineStagingFull = pkgs.wineWowPackages.stagingFull;
       # wineStaging = pkgs.wineWowPackages.staging;
       darktable4 = pkgs.darktable;
+      godot35 = prev.godot;
     };
 
     packages.x86_64-linux = rec {
@@ -86,7 +87,7 @@
         cemu-emu
         antimicrox
         # armourpaint
-        
+
         zoxide
         darktable4
         glslviewer
@@ -95,7 +96,8 @@
         dwarfs
         awesome
         wasm2luajit
-        godot
+        godot4
+        godot35
         fzf
         yuzu-ea
         sdl-jstest
@@ -104,7 +106,6 @@
         controllermap
         doggo
         # wineStaging
-        
         zint
         ;
       default = yuzu-ea;
