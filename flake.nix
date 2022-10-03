@@ -79,6 +79,7 @@
       # wineStaging = pkgs.wineWowPackages.staging;
       darktable4 = pkgs.darktable;
       godot35 = prev.godot;
+      krita51 = prev.krita;
     };
 
     packages.x86_64-linux = rec {
@@ -86,6 +87,7 @@
         (pkgs)
         cemu-emu
         antimicrox
+        krita51
         # armourpaint
 
         zoxide
