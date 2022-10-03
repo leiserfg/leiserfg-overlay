@@ -86,13 +86,14 @@
     packages.x86_64-linux = rec {
       inherit
         (pkgs)
-        cemu-emu
+        # cemu-emu
+        
         antimicrox
         krita-fresh
         # armourpaint
-
+        
         zoxide
-        darktable4
+        darktable-fresh
         glslviewer
         nsxiv-extras
         material-maker
@@ -100,7 +101,8 @@
         awesome
         wasm2luajit
         godot4
-        godot35
+        godot-fresh
+        tdesktop-fresh
         fzf
         yuzu-ea
         sdl-jstest
@@ -109,6 +111,7 @@
         controllermap
         doggo
         # wineStaging
+        
         zint
         ;
       default = yuzu-ea;

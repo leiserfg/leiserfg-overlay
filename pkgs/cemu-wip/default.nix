@@ -32,7 +32,7 @@
       sha256 = "sha256-qsUn2aOeMeGJKmxJ2Hf9jDbfwvS3REUes1eNkQFq62I=";
     };
     patchPhase = ''
-    substituteInPlace ./CMakeLists.txt --replace libzstd_static libzstd_shared
+      substituteInPlace ./CMakeLists.txt --replace libzstd_static libzstd_shared
     '';
     nativeBuildInputs = [cmake ninja];
     buildInputs = [zstd];
@@ -75,22 +75,22 @@ in
     ];
     patches = [./no-vcpkg.patch];
     buildInputs = [
-        SDL2
-            fmt
-            glm
-            curl.dev
-            pugixml
-            imgui
-            rapidjson
-            cubeb
-            boost
-            libzip
-            glslang
-            vulkan-headers
-            vulkan-loader
-            wxGTK31-gtk3
-            zarchive
-            xorg.libXrender
+      SDL2
+      fmt
+      glm
+      curl.dev
+      pugixml
+      imgui
+      rapidjson
+      cubeb
+      boost
+      libzip
+      glslang
+      vulkan-headers
+      vulkan-loader
+      wxGTK31-gtk3
+      zarchive
+      xorg.libXrender
     ];
 
     meta = with lib; {
