@@ -16,7 +16,7 @@
   libiberty,
   lz4,
   zstd,
-  lzma,
+  xz,
   openssl,
   libunwind,
   libdwarf_0_4,
@@ -51,7 +51,7 @@ stdenv.mkDerivation rec {
     double-conversion
     libiberty
     lz4
-    lzma
+    xz
     openssl
     libunwind
     libdwarf_0_4
