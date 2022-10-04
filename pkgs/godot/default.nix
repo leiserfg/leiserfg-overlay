@@ -33,14 +33,14 @@
 in
   stdenv.mkDerivation rec {
     pname = "godot";
-    version = "4.0-d1b2a19";
+    version = "4.0-0056acf";
 
     src = fetchFromGitHub {
       owner = "godotengine";
       repo = "godot";
       # rev = "${version}-stable";
-      rev = "d1b2a19";
-      sha256 = "sha256-3x6a69L+eKCVuJGbEc7IhCuMIOExPM8XKiSlGXLUk6Y=";
+      rev = "0056acf";
+      sha256 = "sha256-siEnuBaIRFZP8rZpxhjRvWc6Dp4tqYdiUQJUZr2KmaE=";
     };
 
     nativeBuildInputs = [pkg-config makeWrapper];
@@ -68,7 +68,7 @@ in
 
     enableParallelBuilding = true;
 
-    sconsFlags = "target=release_debug platform=x11";
+    sconsFlags = "target=editor platform=x11";
     preConfigure = ''
       sconsFlags+=" ${
         lib.concatStringsSep " "

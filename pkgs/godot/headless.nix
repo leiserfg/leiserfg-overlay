@@ -4,7 +4,7 @@
 }:
 godot.overrideAttrs (oldAttrs: rec {
   pname = "godot-headless";
-  sconsFlags = "target=release_debug platform=server tools=yes";
+  sconsFlags = "target=editor platform=server tools=yes";
   installPhase = ''
     mkdir -p "$out/bin"
     cp bin/godot_server.* $out/bin/godot-headless
