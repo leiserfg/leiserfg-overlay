@@ -18,7 +18,7 @@
       nsxiv-extras = pkgs.callPackage ./pkgs/nsxiv-extras {};
       material-maker = pkgs.callPackage ./pkgs/material-maker {};
       dwarfs = pkgs.callPackage ./pkgs/dwarfs {};
-      yuzu-early-access = prev.yuzu-early-access;
+      # yuzu-early-access = prev.yuzu-early-access;
       wasm2luajit = pkgs.callPackage ./pkgs/wasm2luajit {};
       xmake = pkgs.callPackage ./pkgs/xmake {};
       doggo = pkgs.callPackage ./pkgs/doggo {};
@@ -87,9 +87,11 @@
       inherit
         (pkgs)
         # cemu-emu
+        
         antimicrox
         krita-fresh
         # armourpaint
+        
         zoxide
         darktable-fresh
         glslviewer
@@ -102,16 +104,17 @@
         godot-fresh
         tdesktop-fresh
         fzf
-        yuzu-early-access
+        # yuzu-early-access
         sdl-jstest
         xmake
         javx
         controllermap
         doggo
         # wineStaging
+        
         zint
         ;
-      default = yuzu-early-access;
+      default = zint;
     };
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
   };
