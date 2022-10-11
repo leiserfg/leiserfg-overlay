@@ -18,7 +18,7 @@
       nsxiv-extras = pkgs.callPackage ./pkgs/nsxiv-extras {};
       material-maker = pkgs.callPackage ./pkgs/material-maker {};
       dwarfs = pkgs.callPackage ./pkgs/dwarfs {};
-      yuzu-ea = prev.yuzu-ea;
+      yuzu-early-access = prev.yuzu-early-access;
       wasm2luajit = pkgs.callPackage ./pkgs/wasm2luajit {};
       xmake = pkgs.callPackage ./pkgs/xmake {};
       doggo = pkgs.callPackage ./pkgs/doggo {};
@@ -104,7 +104,7 @@
         godot-fresh
         tdesktop-fresh
         fzf
-        yuzu-ea
+        yuzu-early-access
         sdl-jstest
         xmake
         javx
@@ -114,7 +114,7 @@
         
         zint
         ;
-      default = yuzu-ea;
+      default = yuzu-early-access;
     };
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
   };
