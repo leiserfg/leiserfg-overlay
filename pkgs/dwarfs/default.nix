@@ -19,7 +19,7 @@
   xz,
   openssl,
   libunwind,
-  libdwarf_0_4,
+  libdwarf,
   fuse3,
   glog,
   libarchive,
@@ -54,7 +54,7 @@ stdenv.mkDerivation rec {
     xz
     openssl
     libunwind
-    libdwarf_0_4
+    libdwarf
     fuse3
     glog
     zstd
