@@ -87,11 +87,9 @@
       inherit
         (pkgs)
         # cemu-emu
-        
         antimicrox
         krita-fresh
         # armourpaint
-        
         zoxide
         darktable-fresh
         glslviewer
@@ -111,7 +109,6 @@
         controllermap
         doggo
         # wineStaging
-        
         zint
         ;
       default = yuzu-early-access;
