@@ -72,6 +72,7 @@
       #           runHook postInstall
       #         '';
       # });
+      pmenu = pkgs.callPackage ./pkgs/pmenu {};
       javx = pkgs.callPackage ./pkgs/j-with-addons {};
       godot4 = pkgs.callPackage ./pkgs/godot {};
       # zoxide = pkgs.zoxide;
@@ -87,7 +88,7 @@
       inherit
         (pkgs)
         # cemu-emu
-        
+        pmenu
         antimicrox
         krita-fresh
         # armourpaint
