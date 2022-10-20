@@ -13,18 +13,18 @@
   libXi,
   libXext,
   libGLU,
-  ffmpeg,
+  ffmpeg-full,
   ncurses,
 }:
 stdenv.mkDerivation rec {
   pname = "glslViewer";
-  version = "2.1.2-f4d6790";
+  version = "3.0.1";
   src = fetchFromGitHub {
     owner = "patriciogonzalezvivo";
     repo = pname;
     fetchSubmodules = true;
-    rev = "f4d6790";
-    sha256 = "sha256-0xQEtWyy4bYvLph5bj4Wn09hNnMJlgtuiHe1DviG21U=";
+    rev = version;
+    sha256 = "sha256-ob24yUPlR1ki0EX/cX+meLai3E2cRnBF1MdH/i9hgX0=";
   };
   nativeBuildInputs = [cmake ninja pkg-config];
   buildInputs =
@@ -38,7 +38,7 @@ stdenv.mkDerivation rec {
       libGLU
       ncurses
     ]
-    ++ lib.optional withFFMPG ffmpeg;
+    ++ lib.optional withFFMPG ffmpeg-full;
 
   cmakeFlags = [
     "-DCMAKE_BUILD_TYPE='Release'"
