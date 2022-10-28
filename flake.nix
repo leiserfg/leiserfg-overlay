@@ -81,7 +81,7 @@
       darktable-fresh = pkgs.darktable;
       godot-fresh = prev.godot;
       krita-fresh = prev.krita;
-      tdesktop-fresh = prev.tdesktop;
+      tdesktop-fresh = pkgs.tdesktop;
     };
 
     packages.x86_64-linux = rec {
