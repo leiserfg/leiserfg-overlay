@@ -15,7 +15,6 @@
       nsxiv-extras = pkgs.callPackage ./pkgs/nsxiv-extras {};
       material-maker = pkgs.callPackage ./pkgs/material-maker {};
       dwarfs = pkgs.callPackage ./pkgs/dwarfs {};
-      # yuzu-early-access = prev.yuzu-early-access;
       wasm2luajit = pkgs.callPackage ./pkgs/wasm2luajit {};
       doggo = pkgs.callPackage ./pkgs/doggo {};
       awesome = prev.awesome.overrideAttrs (old: rec {
@@ -28,8 +27,6 @@
           sha256 = "sha256-RRpwAIYNLkovXI0y/eXO9uRDqB4qQcXlnYYUCEmx/EA=";
         };
       });
-
-      controllermap = pkgs.callPackage ./pkgs/controllermap {};
       pmenu = pkgs.callPackage ./pkgs/pmenu {};
       godot4 = pkgs.callPackage ./pkgs/godot {};
     };
@@ -46,9 +43,6 @@
         awesome
         wasm2luajit
         godot4
-        tdesktop-fresh
-        fzf
-        controllermap
         doggo
         ;
       default = doggo;
