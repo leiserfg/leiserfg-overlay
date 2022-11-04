@@ -1,11 +1,9 @@
 {
   description = "My home-brew packages";
   inputs.nixpkgs.url = "nixpkgs/nixos-unstable";
-  inputs.nix-gaming.url = github:fufexan/nix-gaming;
   outputs = {
     self,
     nixpkgs,
-    nix-gaming,
   }: let
     pkgs = import nixpkgs {
       system = "x86_64-linux";
@@ -13,21 +11,13 @@
     };
   in {
     overlays.default = final: prev: {
-      # armourpaint = pkgs.callPackage ./pkgs/armourpaint {};   It's failing to build now
       glslviewer = pkgs.callPackage ./pkgs/glslviewer {};
       nsxiv-extras = pkgs.callPackage ./pkgs/nsxiv-extras {};
       material-maker = pkgs.callPackage ./pkgs/material-maker {};
       dwarfs = pkgs.callPackage ./pkgs/dwarfs {};
       # yuzu-early-access = prev.yuzu-early-access;
       wasm2luajit = pkgs.callPackage ./pkgs/wasm2luajit {};
-      xmake = pkgs.callPackage ./pkgs/xmake {};
       doggo = pkgs.callPackage ./pkgs/doggo {};
-      sdl-jstest = prev.sdl-jstest.override (
-        old: rec {
-          SDL2 = prev.SDL2.override {udevSupport = true;};
-        }
-      );
-
       awesome = prev.awesome.overrideAttrs (old: rec {
         version = "4.4.0.alpha-lj";
         patches = [];
@@ -39,62 +29,16 @@
         };
       });
 
-      fzf = pkgs.callPackage ./pkgs/fzf {};
       controllermap = pkgs.callPackage ./pkgs/controllermap {};
-      antimicrox =
-        (
-          prev.antimicrox.override (old: rec {
-            SDL2 = prev.SDL2.override {udevSupport = true;};
-          })
-        )
-        .overrideAttrs (old: rec {
-          version = "3.2.5";
-
-          src = pkgs.fetchFromGitHub {
-            owner = "AntiMicroX";
-            repo = old.pname;
-            rev = version;
-            sha256 = "sha256-Lc23VvIZguE6nRHeGDW3pL4exKtJtF8XmFkN2SxUL0g=";
-          };
-        });
-      # cemu-emu = pkgs.callPackage ./pkgs/cemu-wip {};
-
-      # javx = (
-      #   prev.j.override (old: rec {
-      #       avxSupport = true;
-      #   })
-      # ).overrideAttrs (old: rec {
-      #       installPhase = ''
-      #           runHook preInstall
-      #           mkdir -p "$out/share/j/"
-      #           cp -r $JLIB/{addons,system} "$out"
-      #           cp -r $JLIB/bin "$out"
-      #           runHook postInstall
-      #         '';
-      # });
       pmenu = pkgs.callPackage ./pkgs/pmenu {};
-      javx = pkgs.callPackage ./pkgs/j-with-addons {};
       godot4 = pkgs.callPackage ./pkgs/godot {};
-      # zoxide = pkgs.zoxide;
-      # wineStagingFull = pkgs.wineWowPackages.stagingFull;
-      # wineStaging = pkgs.wineWowPackages.staging;
-      darktable-fresh = pkgs.darktable;
-      godot-fresh = prev.godot;
-      krita-fresh = prev.krita;
-      tdesktop-fresh = pkgs.tdesktop;
     };
 
     packages.x86_64-linux = rec {
       inherit
         (pkgs)
-        # cemu-emu
         pmenu
-        antimicrox
-        krita-fresh
         # armourpaint
-        
-        zoxide
-        darktable-fresh
         glslviewer
         nsxiv-extras
         material-maker
@@ -102,20 +46,12 @@
         awesome
         wasm2luajit
         godot4
-        godot-fresh
         tdesktop-fresh
         fzf
-        # yuzu-early-access
-        sdl-jstest
-        xmake
-        javx
         controllermap
         doggo
-        # wineStaging
-        
-        zint
         ;
-      default = zint;
+      default = doggo;
     };
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
   };
