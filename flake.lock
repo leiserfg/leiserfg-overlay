@@ -1,6 +1,38 @@
 {
   "nodes": {
+    "git-branchless": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1668564762,
+        "narHash": "sha256-PHiYyYgotKmJ1hMjbjRpiZV57Ig4CH09ax6DjGZlS5M=",
+        "owner": "arxanas",
+        "repo": "git-branchless",
+        "rev": "6efd6de3bd6f201cc1d511fb6c0bbbf48ea4596a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "arxanas",
+        "repo": "git-branchless",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
+      "locked": {
+        "lastModified": 1654682581,
+        "narHash": "sha256-Jb1PQCwKgwdNAp907eR5zPzuxV+kRroA3UIxUxCMJ9s=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "e0169d7a9d324afebf5679551407756c77af8930",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1665259268,
         "narHash": "sha256-ONFhHBLv5nZKhwV/F2GOH16197PbvpyWhoO0AOyktkU=",
@@ -17,7 +49,8 @@
     },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "git-branchless": "git-branchless",
+        "nixpkgs": "nixpkgs_2"
       }
     }
   },

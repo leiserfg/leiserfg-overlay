@@ -1,13 +1,16 @@
 {
   description = "My home-brew packages";
   inputs.nixpkgs.url = "nixpkgs/nixos-unstable";
+  inputs.git-branchless.url = "github:arxanas/git-branchless";
+
   outputs = {
     self,
     nixpkgs,
+    git-branchless
   }: let
     pkgs = import nixpkgs {
       system = "x86_64-linux";
-      overlays = [self.overlays.default];
+      overlays = [self.overlays.default git-branchless.overlay ];
     };
   in {
     overlays.default = final: prev: {
@@ -44,6 +47,7 @@
         wasm2luajit
         godot4
         doggo
+        git-branchless
         ;
       default = doggo;
     };
