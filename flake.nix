@@ -2,12 +2,15 @@
   description = "My home-brew packages";
   inputs.nixpkgs.url = "nixpkgs/nixos-unstable";
   inputs.git-branchless.url = "github:arxanas/git-branchless";
+  inputs.emanote.url = "github:EmaApps/emanote";
 
   outputs = {
     self,
     nixpkgs,
-    git-branchless
-  }: let
+    git-branchless,
+    emanote,
+    ...
+  } @ inputs: let
     pkgs = import nixpkgs {
       system = "x86_64-linux";
       overlays = [self.overlays.default git-branchless.overlay ];
@@ -32,6 +35,7 @@
       });
       pmenu = pkgs.callPackage ./pkgs/pmenu {};
       godot4 = pkgs.callPackage ./pkgs/godot {};
+      emanote = emanote.packages.x86_64-linux.default;
     };
 
     packages.x86_64-linux = rec {
@@ -48,6 +52,7 @@
         godot4
         doggo
         git-branchless
+        emanote
         ;
       default = doggo;
     };
