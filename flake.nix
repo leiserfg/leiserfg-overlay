@@ -1,6 +1,6 @@
 {
   description = "My home-brew packages";
-  inputs.nixpkgs.url = "nixpkgs/nixos-unstable";
+  inputs.nixpkgs.url = "nixpkgs/nixos-22.11";
   inputs.git-branchless.url = "github:arxanas/git-branchless";
   inputs.emanote.url = "github:EmaApps/emanote";
 
