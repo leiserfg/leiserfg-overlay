@@ -35,6 +35,7 @@
       });
       pmenu = pkgs.callPackage ./pkgs/pmenu {};
       godot4 = pkgs.callPackage ./pkgs/godot {};
+      ansel = pkgs.callPackage ./pkgs/ansel {};
       emanote = emanote.packages.x86_64-linux.default;
     };
 
@@ -53,6 +54,7 @@
         doggo
         git-branchless
         emanote
+        ansel
         ;
       default = doggo;
     };
