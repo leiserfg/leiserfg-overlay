@@ -25,11 +25,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1675011228,
-        "narHash": "sha256-SCYow151vDxW/BEUu2g8pVG7hPrn8iHfy9QpB2R7nYg=",
+        "lastModified": 1675720684,
+        "narHash": "sha256-Zu6J7jlZyt3UhLZaga3cDu0ajkI4vr6AaKAniQ1/Vkw=",
         "owner": "EmaApps",
         "repo": "emanote",
-        "rev": "1a24258057e18c3b03b2465a33f4f56aca9d48c0",
+        "rev": "a6f21458536d9630657d36209225d3dd37363cda",
         "type": "github"
       },
       "original": {
@@ -76,11 +76,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1674271740,
-        "narHash": "sha256-/1jSohKFYrcWmC2EhdPM5qm+iQOjBTQxBiBptlb4I9M=",
+        "lastModified": 1676096893,
+        "narHash": "sha256-6AtVi1uhb80pG2AHlbZwTrdmf/1Xz70xX4f7iH7Mi3s=",
         "owner": "arxanas",
         "repo": "git-branchless",
-        "rev": "43f8bda3ee9eb13d8fd32e56ed9eb9e4152a5bb8",
+        "rev": "55ba3f495475a128b289ed716ff70b11a09074aa",
         "type": "github"
       },
       "original": {
@@ -154,11 +154,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1674242456,
-        "narHash": "sha256-yBy7rCH7EiBe9+CHZm9YB5ii5GRa+MOxeW0oDEBO8SE=",
+        "lastModified": 1675918889,
+        "narHash": "sha256-hy7re4F9AEQqwZxubct7jBRos6md26bmxnCjxf5utJA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "cdead16a444a3e5de7bc9b0af8e198b11bb01804",
+        "rev": "49efda9011e8cdcd6c1aad30384cb1dc230c82fe",
         "type": "github"
       },
       "original": {
@@ -175,12 +175,18 @@
       }
     },
     "treefmt-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "emanote",
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1671882555,
-        "narHash": "sha256-43HxY5gNaDMkKckeEXbhua4Ay1/S1HnYzqZBIVhzeqI=",
+        "lastModified": 1675588998,
+        "narHash": "sha256-CLeFLmah0mxNp/EIW0PMG3YutKxVIIs4B0f5oJhwe8E=",
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "rev": "97981314ddf673803a1d5f966014f444a1054b1e",
+        "rev": "70e03145e26c2f3199f4320ecd9fd343f1129c60",
         "type": "github"
       },
       "original": {
