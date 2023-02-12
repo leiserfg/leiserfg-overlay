@@ -64,8 +64,8 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "aurelienpierreeng";
     repo = "ansel";
-    rev = "d6dac29";
-    sha256 = "sha256-fSRbKSn5JmdjnZcAau9RJ4dH0OaLxwX00b1l79YPedY=";
+    rev = "d9e1b5a";
+    sha256 = "sha256-EpQKgqNbgK/iwtXE8wBticXX/wftwpMk2c9vCV3zq4g=";
     fetchSubmodules = true;
   };
 
