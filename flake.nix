@@ -13,7 +13,7 @@
   } @ inputs: let
     pkgs = import nixpkgs {
       system = "x86_64-linux";
-      overlays = [self.overlays.default git-branchless.overlay ];
+      overlays = [self.overlays.default git-branchless.overlay];
     };
   in {
     overlays.default = final: prev: {
@@ -23,16 +23,18 @@
       dwarfs = pkgs.callPackage ./pkgs/dwarfs {};
       wasm2luajit = pkgs.callPackage ./pkgs/wasm2luajit {};
       doggo = pkgs.callPackage ./pkgs/doggo {};
-      awesome = prev.awesome.overrideAttrs (old: rec {
-        version = "4.4.0.alpha-lj";
-        patches = [];
-        src = pkgs.fetchFromGitHub {
-          owner = "awesomewm";
-          repo = "awesome";
-          rev = "9ca7bb4";
-          sha256 = "sha256-RRpwAIYNLkovXI0y/eXO9uRDqB4qQcXlnYYUCEmx/EA=";
-        };
-      });
+      awesome =
+        (prev.awesome.overrideAttrs (old: rec {
+          version = "4.4.0.alpha-lj";
+          patches = [];
+          src = pkgs.fetchFromGitHub {
+            owner = "awesomewm";
+            repo = "awesome";
+            rev = "9ca7bb4";
+            sha256 = "sha256-RRpwAIYNLkovXI0y/eXO9uRDqB4qQcXlnYYUCEmx/EA=";
+          };
+        }))
+        .override {lua = pkgs.luajit;};
       pmenu = pkgs.callPackage ./pkgs/pmenu {};
       godot4 = pkgs.callPackage ./pkgs/godot {};
       ansel = pkgs.callPackage ./pkgs/ansel {};
@@ -44,6 +46,7 @@
         (pkgs)
         pmenu
         # armourpaint
+        
         glslviewer
         nsxiv-extras
         material-maker
@@ -56,7 +59,7 @@
         emanote
         ansel
         ;
-      default = doggo;
+      default = awesome;
     };
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
   };

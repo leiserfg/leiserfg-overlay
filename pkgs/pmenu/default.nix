@@ -1,17 +1,17 @@
-{ lib
-, stdenv
-, fetchFromGitHub
-, writeText
-, fontconfig
-, imlib2
-, libX11
-, libXext
-, libXft
-, libXinerama
-, libXrender
-, conf ? null
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  writeText,
+  fontconfig,
+  imlib2,
+  libX11,
+  libXext,
+  libXft,
+  libXinerama,
+  libXrender,
+  conf ? null,
 }:
-
 stdenv.mkDerivation rec {
   pname = "pmenu";
   version = "3.0.1";
@@ -34,10 +34,11 @@ stdenv.mkDerivation rec {
   ];
 
   postPatch = let
-      configFile =
-        if lib.isDerivation conf || builtins.isPath conf
-        then conf else writeText "config.h" conf;
-    in
+    configFile =
+      if lib.isDerivation conf || builtins.isPath conf
+      then conf
+      else writeText "config.h" conf;
+  in
     lib.optionalString (conf != null) "mv ${configFile} config.h";
 
   makeFlags = [
@@ -54,7 +55,7 @@ stdenv.mkDerivation rec {
     '';
     homepage = "https://github.com/phillbush/pmenu";
     license = licenses.mit;
-    maintainers = with maintainers; [ azahi ];
+    maintainers = with maintainers; [azahi];
     platforms = platforms.unix;
   };
 }
