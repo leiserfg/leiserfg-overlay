@@ -33,8 +33,8 @@
             rev = "9ca7bb4";
             sha256 = "sha256-RRpwAIYNLkovXI0y/eXO9uRDqB4qQcXlnYYUCEmx/EA=";
           };
-        }))
-        .override {lua = pkgs.luajit;};
+        }));
+        /* .override {lua = pkgs.luajit;}; */
       pmenu = pkgs.callPackage ./pkgs/pmenu {};
       godot4 = pkgs.callPackage ./pkgs/godot {};
       ansel = pkgs.callPackage ./pkgs/ansel {};
@@ -46,7 +46,6 @@
         (pkgs)
         pmenu
         # armourpaint
-        
         glslviewer
         nsxiv-extras
         material-maker
