@@ -38,6 +38,10 @@
       pmenu = pkgs.callPackage ./pkgs/pmenu {};
       godot4 = pkgs.callPackage ./pkgs/godot {};
       ansel = pkgs.callPackage ./pkgs/ansel {};
+      vokoscreen-ng = pkgs.libsForQt5.callPackage  ./pkgs/vokoscreen-ng (with pkgs;{
+    inherit (gst_all_1) gstreamer gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly;
+  });
+
       emanote = emanote.packages.x86_64-linux.default;
     };
 
@@ -57,6 +61,7 @@
         git-branchless
         emanote
         ansel
+        vokoscreen-ng
         ;
       default = awesome;
     };
