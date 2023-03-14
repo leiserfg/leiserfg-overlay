@@ -34,6 +34,7 @@
           rustc = fenix.packages.x86_64-linux.minimal.toolchain;
         };
       };
+
       awesome = prev.awesome.overrideAttrs (old: rec {
         version = "4.4.0.alpha-lj";
         patches = [];
@@ -42,6 +43,16 @@
           repo = "awesome";
           rev = "9ca7bb4";
           sha256 = "sha256-RRpwAIYNLkovXI0y/eXO9uRDqB4qQcXlnYYUCEmx/EA=";
+        };
+      });
+      pasystray = prev.pasystray.overrideAttrs (old: rec {
+        pname = "pasystray";
+        version = "0.8.2";
+        src = pkgs.fetchFromGitHub {
+        owner = "christophgysin";
+        repo = "pasystray";
+        rev = version;
+        sha256 = "sha256-QaTQ8yUviJaFEQaQm2vYAUngqHliKe8TDYqfWt1Nx/0=";
         };
       });
       /*
@@ -74,6 +85,7 @@
         ansel
         vokoscreen-ng
         /* llama-rs */
+        pasystray
         ;
       default = awesome;
     };
