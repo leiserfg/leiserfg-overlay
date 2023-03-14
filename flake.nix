@@ -61,7 +61,7 @@
         (pkgs)
         pmenu
         # armourpaint
-        
+
         glslviewer
         nsxiv-extras
         material-maker
@@ -73,7 +73,7 @@
         emanote
         ansel
         vokoscreen-ng
-        llama-rs
+        /* llama-rs */
         ;
       default = awesome;
     };
