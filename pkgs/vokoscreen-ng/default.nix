@@ -1,25 +1,24 @@
-{ lib
-, mkDerivation
-, fetchFromGitHub
-, pkg-config
-, qmake
-, qttools
-, gstreamer
-, libX11
-, pulseaudio
-, qtbase
-, qtmultimedia
-, qtx11extras
-
-, gst-plugins-base
-, gst-plugins-good
-, gst-plugins-bad
-, gst-plugins-ugly
-, wayland
-, wrapQtAppsHook
+{
+  lib,
+  mkDerivation,
+  fetchFromGitHub,
+  pkg-config,
+  qmake,
+  qttools,
+  gstreamer,
+  libX11,
+  pulseaudio,
+  qtbase,
+  qtmultimedia,
+  qtx11extras,
+  gst-plugins-base,
+  gst-plugins-good,
+  gst-plugins-bad,
+  gst-plugins-ugly,
+  wayland,
+  wrapQtAppsHook,
 }:
 mkDerivation rec {
-
   pname = "vokoscreen-ng";
   version = "3.5.0";
 
@@ -33,12 +32,14 @@ mkDerivation rec {
   patches = [
     # Adaptation of previously used https://github.com/City-busz/vokoscreenNG/commit/0a3784095ecca582f7eb09551ceb34c309d83637 patch
     # used for 3.0.5 but incompatible at least since 3.0.8. The issue is addressed here https://github.com/vkohaupt/vokoscreenNG/issues/139
-    /* ./linux-support-installation-target.patch */
+    /*
+    ./linux-support-installation-target.patch
+    */
   ];
 
-  qmakeFlags = [ "src/vokoscreenNG.pro" ];
+  qmakeFlags = ["src/vokoscreenNG.pro"];
 
-  nativeBuildInputs = [ qttools pkg-config qmake wrapQtAppsHook ];
+  nativeBuildInputs = [qttools pkg-config qmake wrapQtAppsHook];
   buildInputs = [
     gstreamer
     libX11
@@ -71,7 +72,7 @@ mkDerivation rec {
     description = "User friendly Open Source screencaster for Linux and Windows";
     license = licenses.gpl2Plus;
     homepage = "https://github.com/vkohaupt/vokoscreenNG";
-    maintainers = with maintainers; [ shamilton ];
+    maintainers = with maintainers; [shamilton];
     platforms = platforms.linux;
   };
 }
