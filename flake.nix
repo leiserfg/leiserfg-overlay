@@ -84,7 +84,7 @@
         emanote
         ansel
         vokoscreen-ng
-        /* llama-rs */
+        llama-rs
         pasystray
         ;
       default = awesome;
