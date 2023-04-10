@@ -35,6 +35,7 @@
         };
       };
 
+
       pylyzer = pkgs.callPackage ./pkgs/pylyzer {
         rustPlatform = pkgs.makeRustPlatform {
           cargo = fenix.packages.x86_64-linux.minimal.toolchain;
@@ -96,8 +97,9 @@
         llama-rs
         pasystray
         pylyzer
+        erg
         ;
-      default = awesome;
+      default = pylyzer;
     };
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
   };
