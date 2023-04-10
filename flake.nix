@@ -35,6 +35,13 @@
         };
       };
 
+      pylyzer = pkgs.callPackage ./pkgs/pylyzer {
+        rustPlatform = pkgs.makeRustPlatform {
+          cargo = fenix.packages.x86_64-linux.minimal.toolchain;
+          rustc = fenix.packages.x86_64-linux.minimal.toolchain;
+        };
+      };
+
       awesome = prev.awesome.overrideAttrs (old: rec {
         version = "4.4.0.alpha-lj";
         patches = [];
@@ -88,6 +95,7 @@
         vokoscreen-ng
         llama-rs
         pasystray
+        pylyzer
         ;
       default = awesome;
     };
