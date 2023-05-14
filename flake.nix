@@ -1,6 +1,6 @@
 {
   description = "My home-brew packages";
-  inputs.nixpkgs.url = "nixpkgs/nixos-22.11";
+  inputs.nixpkgs.url = "nixpkgs/nixos-unstable";
   inputs.git-branchless.url = "github:arxanas/git-branchless";
   inputs.emanote.url = "github:EmaApps/emanote";
   inputs.fenix = {
@@ -35,7 +35,7 @@
         };
       };
 
-
+      yuzu = pkgs.callPackage ./pkgs/yuzu {branch="early-access";};
       pylyzer = pkgs.callPackage ./pkgs/pylyzer {
         rustPlatform = pkgs.makeRustPlatform {
           cargo = fenix.packages.x86_64-linux.minimal.toolchain;
@@ -93,6 +93,7 @@
         pasystray
         pylyzer
         erg
+        yuzu
         ;
       default = pylyzer;
     };
