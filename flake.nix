@@ -35,7 +35,7 @@
         };
       };
 
-      yuzu = pkgs.callPackage ./pkgs/yuzu {branch="early-access";};
+      yuzu = pkgs.callPackage ./pkgs/yuzu {branch = "early-access";};
       pylyzer = pkgs.callPackage ./pkgs/pylyzer {
         rustPlatform = pkgs.makeRustPlatform {
           cargo = fenix.packages.x86_64-linux.minimal.toolchain;
@@ -57,10 +57,10 @@
         pname = "pasystray";
         version = "0.8.2";
         src = pkgs.fetchFromGitHub {
-        owner = "christophgysin";
-        repo = "pasystray";
-        rev = version;
-        sha256 = "sha256-QaTQ8yUviJaFEQaQm2vYAUngqHliKe8TDYqfWt1Nx/0=";
+          owner = "christophgysin";
+          repo = "pasystray";
+          rev = version;
+          sha256 = "sha256-QaTQ8yUviJaFEQaQm2vYAUngqHliKe8TDYqfWt1Nx/0=";
         };
       });
       /*
@@ -70,6 +70,8 @@
       ansel = pkgs.callPackage ./pkgs/ansel {};
       alpaca-cpp = pkgs.callPackage ./pkgs/alpaca.cpp {};
       emanote = emanote.packages.x86_64-linux.default;
+      inkscape = pkgs.callPackage ./pkgs/inkscape {};
+      lib2geom = pkgs.callPackage ./pkgs/lib2geom {};
     };
 
     packages.x86_64-linux = rec {
@@ -77,7 +79,7 @@
         (pkgs)
         pmenu
         # armourpaint
-
+        lib2geom
         glslviewer
         nsxiv-extras
         alpaca-cpp
@@ -94,6 +96,7 @@
         pylyzer
         erg
         yuzu
+        inkscape
         ;
       default = pylyzer;
     };
