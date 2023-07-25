@@ -111,6 +111,11 @@ in stdenv.mkDerivation {
   # making the build fail, as that path does not exist
   dontFixCmake = true;
 
+  postPatch =  ''
+    substituteInPlace     externals/Vulkan-Headers/CMakeLists.txt \
+    --replace "add_library(Vulkan::Headers ALIAS Vulkan-Headers)" ""
+  '' ;
+
   cmakeFlags = [
     # actually has a noticeable performance impact
     "-DYUZU_ENABLE_LTO=ON"
@@ -134,6 +139,7 @@ in stdenv.mkDerivation {
     # We dont want to bother upstream with potentially outdated compat reports
     "-DYUZU_ENABLE_COMPATIBILITY_REPORTING=OFF"
     "-DENABLE_COMPATIBILITY_LIST_DOWNLOAD=OFF" # We provide this deterministically
+    "-DYUZU_USE_EXTERNAL_VULKAN_HEADERS=ON"
   ];
 
   # Fixes vulkan detection.
