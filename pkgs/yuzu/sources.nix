@@ -2,18 +2,18 @@
 # Last updated: 2023-07-31
 {
   compatList = {
-    rev = "c7edd3cd29fbcc6cf852b5d45e9748625d4e9eda";
+    rev = "c40af830523cf820b6a391a3ef420bcc1b68b367";
     hash = "sha256:1hdsza3wf9a0yvj6h55gsl7xqvhafvbz1i8paz9kg7l49b0gnlh1";
   };
 
   mainline = {
-    version = "1512";
-    hash = "sha256:06hri87jxwwnwc6p0w4py9n5924znjw2zl98nsfvzx6c7wwsrb1c";
+    version = "1513";
+    hash = "sha256:0mqrdsl55aimm39rws7ap6rw9qq6m4pzp7zlyvp3dchh1x58zzgq";
   };
 
   ea = {
-    version = "3782";
-    distHash = "sha256:0b2i5gy29qw6fv70sphlxva9n2alchkrmi31j4zgh0f6ry4s448y";
-    fullHash = "sha256:11hjxqd7yi3xgh69n33cwzn5nblq11x9shfgjr0flvipsg4cqf3b";
+    version = "3783";
+    distHash = "sha256:01prkdximgypikgggq2y53hlpf7gmg1z7zfbc9yi18f6s5cncs18";
+    fullHash = "sha256:0pggknr2sxlc3pdy3jh423318z8rr8f0iz43zw85qwhqnj1h9q19";
   };
 }
