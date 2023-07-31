@@ -112,8 +112,8 @@ in stdenv.mkDerivation {
   dontFixCmake = true;
 
   postPatch =  ''
-    substituteInPlace     externals/Vulkan-Headers/CMakeLists.txt \
-    --replace "add_library(Vulkan::Headers ALIAS Vulkan-Headers)" ""
+    substituteInPlace externals/CMakeLists.txt \
+      --replace "add_subdirectory(Vulkan-Headers)" ""
   '' ;
 
   cmakeFlags = [
@@ -139,7 +139,7 @@ in stdenv.mkDerivation {
     # We dont want to bother upstream with potentially outdated compat reports
     "-DYUZU_ENABLE_COMPATIBILITY_REPORTING=OFF"
     "-DENABLE_COMPATIBILITY_LIST_DOWNLOAD=OFF" # We provide this deterministically
-    "-DYUZU_USE_EXTERNAL_VULKAN_HEADERS=ON"
+    "-DYUZU_USE_EXTERNAL_VULKAN_HEADERS=ON"  # To avoid checking the version of vulkan
   ];
 
   # Fixes vulkan detection.
