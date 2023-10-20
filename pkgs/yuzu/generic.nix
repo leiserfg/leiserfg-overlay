@@ -49,10 +49,16 @@
 }:
 
 let
-  tzinfoVersion = "220816";
-  tzinfo = fetchurl {
-    url = "https://github.com/lat9nq/tzdb_to_nx/releases/download/${tzinfoVersion}/${tzinfoVersion}.zip";
+  tzinfoVersion_main = "220816";
+  tzinfo_main = fetchurl {
+    url = "https://github.com/lat9nq/tzdb_to_nx/releases/download/${tzinfoVersion_main}/${tzinfoVersion_main}.zip";
     hash = "sha256-yv8ykEYPu9upeXovei0u16iqQ7NasH6873KnQy4+KwI=";
+  };
+
+  tzinfoVersion_ea = "221202";
+  tzinfo_ea = fetchurl {
+    url = "https://github.com/lat9nq/tzdb_to_nx/releases/download/${tzinfoVersion_ea}/${tzinfoVersion_ea}.zip";
+    hash = "sha256-mRzW+iIwrU1zsxHmf+0RArU8BShAoEMvCz+McXFFK3c=+KwI=";
   };
 in stdenv.mkDerivation {
   pname = "yuzu-${branch}";
@@ -110,7 +116,7 @@ in stdenv.mkDerivation {
   # This changes `ir/opt` to `ir/var/empty` in `externals/dynarmic/src/dynarmic/CMakeLists.txt`
   # making the build fail, as that path does not exist
   dontFixCmake = true;
-  patches = [./vulkan_version.patch];
+
   cmakeFlags = [
     # actually has a noticeable performance impact
     "-DYUZU_ENABLE_LTO=ON"
@@ -151,7 +157,8 @@ in stdenv.mkDerivation {
 
     # provide pre-downloaded tz data
     mkdir -p build/externals/nx_tzdb
-    ln -sf ${tzinfo} build/externals/nx_tzdb/${tzinfoVersion}.zip
+    ln -sf ${tzinfo_main} build/externals/nx_tzdb/${tzinfoVersion_main}.zip
+    ln -sf ${tzinfo_ea} build/externals/nx_tzdb/${tzinfoVersion_ea}.zip
   '';
 
   # This must be done after cmake finishes as it overwrites the file

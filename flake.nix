@@ -1,24 +1,16 @@
 {
   description = "My home-brew packages";
   inputs.nixpkgs.url = "nixpkgs/nixos-unstable";
-  inputs.git-branchless.url = "github:arxanas/git-branchless";
-  inputs.emanote.url = "github:EmaApps/emanote";
-  inputs.fenix = {
-    url = "github:nix-community/fenix";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
+
 
   outputs = {
     self,
     nixpkgs,
-    git-branchless,
-    emanote,
-    fenix,
     ...
   } @ inputs: let
     pkgs = import nixpkgs {
       system = "x86_64-linux";
-      overlays = [self.overlays.default git-branchless.overlay fenix.overlays.default];
+      overlays = [self.overlays.default];
     };
   in {
     overlays.default = final: prev: {
@@ -28,20 +20,13 @@
       dwarfs = pkgs.callPackage ./pkgs/dwarfs {};
       wasm2luajit = pkgs.callPackage ./pkgs/wasm2luajit {};
       doggo = pkgs.callPackage ./pkgs/doggo {};
-      llama-rs = pkgs.callPackage ./pkgs/llama-rs {
-        rustPlatform = pkgs.makeRustPlatform {
-          cargo = fenix.packages.x86_64-linux.minimal.toolchain;
-          rustc = fenix.packages.x86_64-linux.minimal.toolchain;
-        };
-      };
-
       yuzu = pkgs.callPackage ./pkgs/yuzu {branch = "early-access";};
-      pylyzer = pkgs.callPackage ./pkgs/pylyzer {
-        rustPlatform = pkgs.makeRustPlatform {
-          cargo = fenix.packages.x86_64-linux.minimal.toolchain;
-          rustc = fenix.packages.x86_64-linux.minimal.toolchain;
-        };
-      };
+      # pylyzer = pkgs.callPackage ./pkgs/pylyzer {
+      #   rustPlatform = pkgs.makeRustPlatform {
+      #     cargo = fenix.packages.x86_64-linux.minimal.toolchain;
+      #     rustc = fenix.packages.x86_64-linux.minimal.toolchain;
+      #   };
+      # };
 
       awesome = prev.awesome.overrideAttrs (old: rec {
         version = "4.4.0.alpha-lj";
@@ -68,8 +53,6 @@
       */
       pmenu = pkgs.callPackage ./pkgs/pmenu {};
       ansel = pkgs.callPackage ./pkgs/ansel {};
-      alpaca-cpp = pkgs.callPackage ./pkgs/alpaca.cpp {};
-      emanote = emanote.packages.x86_64-linux.default;
       inkscape = pkgs.callPackage ./pkgs/inkscape {};
       lib2geom = pkgs.callPackage ./pkgs/lib2geom {};
     };
@@ -82,23 +65,18 @@
         lib2geom
         glslviewer
         nsxiv-extras
-        alpaca-cpp
         material-maker
         dwarfs
         awesome
         wasm2luajit
         doggo
         git-branchless
-        emanote
         ansel
-        llama-rs
         pasystray
-        pylyzer
-        erg
         yuzu
         inkscape
         ;
-      default = pylyzer;
+      default = yuzu;
     };
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
   };
