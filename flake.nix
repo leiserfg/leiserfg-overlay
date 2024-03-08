@@ -15,6 +15,7 @@
     overlays.default = final: prev: {
       glslviewer = pkgs.callPackage ./pkgs/glslviewer {};
       material-maker = pkgs.callPackage ./pkgs/material-maker {};
+      waydroid-script = pkgs.callPackage ./pkgs/waydroid-script {};
       doggo = pkgs.callPackage ./pkgs/doggo {};
     };
 
@@ -25,6 +26,7 @@
         material-maker
         doggo
         yuzu-early-access
+        waydroid-script
         ;
       default = yuzu-early-access;
     };
