@@ -20,7 +20,6 @@
       glslviewer = pkgs.callPackage ./pkgs/glslviewer {};
       material-maker = pkgs.callPackage ./pkgs/material-maker {};
       waydroid-script = pkgs.callPackage ./pkgs/waydroid-script {};
-      doggo = pkgs.callPackage ./pkgs/doggo {};
       suyu = inputs.suyu-flake.packages.x86_64-linux.suyu;
     };
 
@@ -29,7 +28,6 @@
         (pkgs)
         glslviewer
         material-maker
-        doggo
         yuzu-early-access
         waydroid-script
         suyu
