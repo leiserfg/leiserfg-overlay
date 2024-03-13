@@ -20,6 +20,7 @@
       glslviewer = pkgs.callPackage ./pkgs/glslviewer {};
       material-maker = pkgs.callPackage ./pkgs/material-maker {};
       waydroid-script = pkgs.callPackage ./pkgs/waydroid-script {};
+      kitty = pkgs.callPackage ./pkgs/kitty {};
       suyu = inputs.suyu-flake.packages.x86_64-linux.suyu;
     };
 
@@ -31,6 +32,7 @@
         yuzu-early-access
         waydroid-script
         suyu
+        kitty
         ;
       default = yuzu-early-access;
     };
