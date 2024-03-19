@@ -22,6 +22,7 @@
       waydroid-script = pkgs.callPackage ./pkgs/waydroid-script {};
       kitty = pkgs.callPackage ./pkgs/kitty {};
       suyu = inputs.suyu-flake.packages.x86_64-linux.suyu;
+      basedpyright = pkgs.callPackage ./pkgs/basedpyright {};
     };
 
     packages.x86_64-linux = rec {
@@ -33,6 +34,7 @@
         waydroid-script
         suyu
         kitty
+        basedpyright
         ;
       default = yuzu-early-access;
     };
