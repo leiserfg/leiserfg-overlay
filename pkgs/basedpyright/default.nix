@@ -14,11 +14,15 @@ stdenv.mkDerivation rec {
   preInstall = ''
     mkdir -p $out/{shared,bin}/
     mv  basedpyright/ $out/shared/basedpyright
-    chmod +x  $out/shared/basedpyright/index.js
+    chmod +x  $out/shared/basedpyright/*.js
+    ln -s $out/shared/basedpyright/langserver.index.js $out/bin/basedpyright-langserver
     ln -s $out/shared/basedpyright/index.js $out/bin/basedpyright
 
     # replace shebang
     substituteInPlace $out/shared/basedpyright/index.js \
+        --replace '/usr/bin/env node' ${nodejs}/bin/node
+
+    substituteInPlace $out/shared/basedpyright/langserver.index.js \
         --replace '/usr/bin/env node' ${nodejs}/bin/node
   '';
 }
