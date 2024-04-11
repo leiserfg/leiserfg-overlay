@@ -1,16 +1,16 @@
 {pkgs, ...}: let
   lib = pkgs.lib;
-nx_tzdb = pkgs.callPackage ./nx_tzdb.nix {};
+  nx_tzdb = pkgs.callPackage ./nx_tzdb.nix {};
 in
   pkgs.stdenv.mkDerivation rec {
     pname = "sudachi";
     version = "vedd7896";
 
-    src = pkgs.fetchFromGitea {
-      domain = "git.sudachi.dev";
+    src = pkgs.fetchFromGitHub {
       owner = "sudachi-emu";
       repo = "sudachi";
-      hash = "sha256-rrrrrrrrrrrrrrrrrrr9hYDta/0Ad7BL+XlMW/Hz870=";
+      rev = version;
+      hash = "sha256-hM2+uqJFpSmAO+E+4E0FeC8IasCYvax1UD45jVtkt3A=";
       fetchSubmodules = true;
     };
 
@@ -63,13 +63,15 @@ in
     cmakeFlags = [
       # actually has a noticeable performance impact
       "-DSUDACHI_ENABLE_LTO=ON"
+      "-DCMAKE_COMPILE_WARNING_AS_ERROR=OFF"
 
       # build with qt6
       "-DENABLE_QT6=ON"
+      "-DENABLE_LIBUSB=OFF"
       "-DENABLE_QT_TRANSLATION=ON"
 
       # use system libraries
-      "-DSUDACHI_USE_EXTERNAL_SDL2=ON"
+      "-DSUDACHI_USE_EXTERNAL_SDL2=OFF"
       "-DSUDACHI_USE_EXTERNAL_VULKAN_HEADERS=OFF"
 
       "-DSUDACHI_USE_BUNDLED_FFMPEG=OFF"

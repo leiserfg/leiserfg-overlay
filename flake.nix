@@ -22,6 +22,7 @@
       waydroid-script = pkgs.callPackage ./pkgs/waydroid-script {};
       kitty = pkgs.callPackage ./pkgs/kitty {};
       suyu = inputs.suyu-flake.packages.x86_64-linux.suyu;
+      sudachi = pkgs.callPackage ./pkgs/sudachi {};
       basedpyright = pkgs.callPackage ./pkgs/basedpyright {};
     };
 
@@ -33,6 +34,7 @@
         yuzu-early-access
         waydroid-script
         suyu
+        sudachi
         kitty
         basedpyright
         ;
