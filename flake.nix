@@ -34,7 +34,7 @@
         yuzu-early-access
         waydroid-script
         suyu
-        sudachi
+        # sudachi
         kitty
         basedpyright
         ;

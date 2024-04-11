@@ -63,7 +63,7 @@ in
     cmakeFlags = [
       # actually has a noticeable performance impact
       "-DSUDACHI_ENABLE_LTO=ON"
-      "-DCMAKE_COMPILE_WARNING_AS_ERROR=OFF"
+
 
       # build with qt6
       "-DENABLE_QT6=ON"
