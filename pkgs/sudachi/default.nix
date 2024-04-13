@@ -20,6 +20,7 @@ in
       glslang
       kdePackages.wrapQtAppsHook
       kdePackages.qttools
+      # breakpointHook
     ];
 
     buildInputs = with pkgs; [
@@ -88,6 +89,7 @@ in
       "-DSUDACHI_ENABLE_COMPATIBILITY_REPORTING=OFF"
       "-DENABLE_COMPATIBILITY_LIST_DOWNLOAD=OFF" # We provide this deterministically
     ];
+
 
     qtWrapperArgs = [
       "--prefix LD_LIBRARY_PATH : ${pkgs.vulkan-loader}/lib"
