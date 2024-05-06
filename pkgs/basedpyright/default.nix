@@ -5,10 +5,10 @@
 }:
 stdenv.mkDerivation rec {
   name = "basedpyright";
-  version = "1.8.0";
+  version = "1.11.0";
   src = fetchzip {
     url = "https://github.com/DetachHead/basedpyright/releases/download/v${version}/basedpyright-${version}.tar.gz";
-    hash = "sha256-OkKbZr9w1YEJG+tZsuyL39zRQXrme5fgTtuKjsTGtzA=";
+    hash = "sha256-zLy8BTrhtFkgY9y/s57TASZeOvmPRq7EHnovGXOM35Q=";
   };
   buildNativeInpute = [nodejs];
   preInstall = ''
