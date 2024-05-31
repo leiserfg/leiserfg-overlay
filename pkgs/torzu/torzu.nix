@@ -45,8 +45,8 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "litucks";
     repo = "torzu";
-    sha256 = "sha256-/I0CJLa+nGjEA9KuJzLdVgzTOs2q+6q29ENZJrF5KMk=";
-    rev = "94c7db2";
+    sha256 = "sha256-pgAR+a9eq5BvdCTiMPuQgaW83tEc1QDpN0seeF7gwLU=";
+    rev = "f16bd49";
     fetchSubmodules = true;
   };
 
