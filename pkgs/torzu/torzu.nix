@@ -30,12 +30,13 @@
   qtwayland,
   qtwebengine,
   SDL2,
-  vulkan-headers,
   vulkan-loader,
+  vulkan-headers,
   yasm,
   zlib,
   zstd,
   fetchFromGitHub,
+  vulkan-utility-libraries,
   ...
 }:
 stdenv.mkDerivation (finalAttrs: {
@@ -63,7 +64,7 @@ stdenv.mkDerivation (finalAttrs: {
     # vulkan-headers must come first, so the older propagated versions
     # don't get picked up by accident
     vulkan-headers
-
+    vulkan-utility-libraries
     boost
     catch2_3
     cpp-jwt
@@ -80,7 +81,6 @@ stdenv.mkDerivation (finalAttrs: {
     nv-codec-headers-12 # for accelerated video decode on nvidia
     ffmpeg-headless
     # end ffmpeg deps
-
     fmt
     # intentionally omitted: gamemode - loaded dynamically at runtime
     # intentionally omitted: httplib - upstream requires an older version than what we have
@@ -120,6 +120,7 @@ stdenv.mkDerivation (finalAttrs: {
     # so "off" means "use system"
     "-DYUZU_USE_EXTERNAL_SDL2=OFF"
     "-DYUZU_USE_EXTERNAL_VULKAN_HEADERS=OFF"
+    "-DYUZU_USE_EXTERNAL_VULKAN_UTILITY_LIBRARIES=OFF"
 
     # # don't use system ffmpeg, suyu uses internal APIs
     # "-DYUZU_USE_BUNDLED_FFMPEG=ON"
