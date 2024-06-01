@@ -20,12 +20,11 @@
 in
   stdenv.mkDerivation rec {
     pname = "material-maker";
-    version = "1.2";
+    version = "1.3";
 
     src = fetchurl {
-      # url = "https://github.com/RodZill4/${pname}/releases/download/${version}/${_tr pname}_${_tr version}_linux.tar.gz";
-      url = "https://github.com/RodZill4/${pname}/releases/download/${version}/${_tr pname}_1_2_linux.tar.gz";
-      sha256 = "sha256-vaTwgFnzzOXYIsQ1bgMvl+GX+83XI0qLyKUX91shs6I=";
+      url = "https://github.com/RodZill4/${pname}/releases/download/${version}/${_tr pname}_${_tr version}_linux.tar.gz";
+      sha256 = "sha256-Y8+ZwXy3zqnsxqqaZeVgFSxLzmUkq+rBzbq8tEDc8/g=";
     };
     desktopItems = [
       (makeDesktopItem {

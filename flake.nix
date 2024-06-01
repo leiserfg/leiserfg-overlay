@@ -21,7 +21,9 @@
     suyu-deps = pkgs.kdePackages // {inherit (self.packages.${system}) nx_tzdb compat-list;};
   in {
     overlays.default = final: prev: {
-      glslviewer = pkgs.callPackage ./pkgs/glslviewer {};
+      glslviewer = pkgs.callPackage ./pkgs/glslviewer {
+        inherit (pkgs.darwin.apple_sdk.frameworks) Cocoa;
+      };
       material-maker = pkgs.callPackage ./pkgs/material-maker {};
       waydroid-script = pkgs.callPackage ./pkgs/waydroid-script {};
 
