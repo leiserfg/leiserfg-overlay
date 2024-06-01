@@ -1,5 +1,4 @@
 {
-  withFFMPG ? true,
   stdenv,
   cmake,
   ninja,
@@ -13,7 +12,7 @@
   libXi,
   libXext,
   libGLU,
-  ffmpeg-full,
+  ffmpeg,
   ncurses,
 }:
 stdenv.mkDerivation rec {
@@ -27,22 +26,16 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-Ve3wmX5+kABCu8IRe4ySrwsBJm47g1zvMqDbqrpQl88=";
   };
   nativeBuildInputs = [cmake ninja pkg-config];
-  buildInputs =
-    [
-      libX11
-      libXrandr
-      libXinerama
-      libXcursor
-      libXi
-      libXext
-      libGLU
-      ncurses
-    ]
-    ++ lib.optional withFFMPG ffmpeg-full;
-
-  cmakeFlags = [
-    "-DCMAKE_BUILD_TYPE='Release'"
-    "-GNinja"
+  buildInputs = [
+    libX11
+    libXrandr
+    libXinerama
+    libXcursor
+    libXi
+    libXext
+    libGLU
+    ncurses
+    ffmpeg
   ];
 
   meta = with lib; {
