@@ -35,7 +35,7 @@
   yasm,
   zlib,
   zstd,
-  fetchFromGitHub,
+  fetchgit,
   vulkan-utility-libraries,
   ...
 }:
@@ -43,11 +43,10 @@ stdenv.mkDerivation (finalAttrs: {
   pname = "torzu";
   version = "0.0.1";
 
-  src = fetchFromGitHub {
-    owner = "litucks";
-    repo = "torzu";
-    sha256 = "sha256-M13972aTj1ygkkJ3PVsNaO8ua2iV/h3XwI23XG862Pk=";
-    rev = "75fa664";
+  src = fetchgit {
+    url = "https://codeberg.org/litucks/torzu";
+    sha256 = "sha256-tkBkgDG8jgOPDH4EQv6J71Yeg6RPlH+ppnMvjgSNrIM=";
+    rev = "1b51d49e16";
     fetchSubmodules = true;
   };
 
