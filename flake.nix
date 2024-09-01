@@ -26,6 +26,7 @@
       nx_tzdb = pkgs.callPackage ./pkgs/torzu/nx_tzdb.nix {};
       compat-list = pkgs.callPackage ./pkgs/torzu/compat-list.nix {};
       torzu = pkgs.callPackage ./pkgs/torzu/torzu.nix suyu-deps;
+      pyglossary = pkgs.callPackage ./pkgs/pyglossary {};
     };
 
     packages.x86_64-linux = rec {
@@ -37,6 +38,7 @@
         torzu
         nx_tzdb
         compat-list
+        pyglossary
         ;
       # default = yuzu-early-access;
       default = torzu;
