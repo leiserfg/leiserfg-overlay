@@ -44,7 +44,7 @@ stdenv.mkDerivation (finalAttrs: {
   version = "0.0.1";
 
   src = fetchgit {
-    url = "https://codeberg.org/litucks/torzu";
+    url = "https://notabug.org/litucks/torzu";
     sha256 = "sha256-ykM+vQTLw8BYQJkO1MZqbj57xF29Q3+rLywShDvHhaY=";
     rev = "e157415bd9";
     fetchSubmodules = true;
