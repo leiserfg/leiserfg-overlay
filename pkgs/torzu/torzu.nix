@@ -109,6 +109,7 @@ stdenv.mkDerivation (finalAttrs: {
   cmakeFlags = [
     # actually has a noticeable performance impact
     "-DYUZU_ENABLE_LTO=ON"
+    "-DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON" # We provide this deterministically
 
     # build with qt6
     "-DENABLE_QT6=ON"
