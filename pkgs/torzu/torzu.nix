@@ -105,7 +105,7 @@ stdenv.mkDerivation (finalAttrs: {
   # This changes `ir/opt` to `ir/var/empty` in `externals/dynarmic/src/dynarmic/CMakeLists.txt`
   # making the build fail, as that path does not exist
   dontFixCmake = true;
-
+  # znver4
   cmakeFlags = [
     # actually has a noticeable performance impact
     "-DYUZU_ENABLE_LTO=ON"
@@ -135,10 +135,16 @@ stdenv.mkDerivation (finalAttrs: {
     # We dont want to bother upstream with potentially outdated compat reports
     "-DYUZU_ENABLE_COMPATIBILITY_REPORTING=OFF"
     "-DENABLE_COMPATIBILITY_LIST_DOWNLOAD=OFF" # We provide this deterministically
+
+    # Optimizations
+    # "-DCMAKE_C_FLAGS=\"-march=x86-64-v3 -mtune=znver4\""
+    # "-DCMAKE_CXX_FLAGS=\"-march=x86-64-v3 -mtune=znver4\""
   ];
 
-  # Does some handrolled SIMD
-  env.NIX_CFLAGS_COMPILE = lib.optionalString stdenv.hostPlatform.isx86_64 "-msse4.1";
+  # Goes brr
+  # env.NIX_CFLAGS_COMPILE = lib.optionalString stdenv.hostPlatform.isx86_64 "-msse4.1";
+    env.NIX_CFLAGS_COMPILE = lib.optionalString stdenv.hostPlatform.isx86_64 "-march=x86-64-v3 -mtune=znver4 -Ofast";
+    env.NIX_CXX_FLAGS_COMPILE = lib.optionalString stdenv.hostPlatform.isx86_64 "-march=x86-64-v3 -mtune=znver4 -Ofast";
 
   # Fixes vulkan detection.
   # FIXME: patchelf --add-rpath corrupts the binary for some reason, investigate
