@@ -13,7 +13,7 @@
   discord-rpc,
   enet,
   ffmpeg-headless,
-  fmt,
+  fmt_11,
   glslang,
   libopus,
   libusb1,
@@ -45,8 +45,8 @@ stdenv.mkDerivation (finalAttrs: {
 
   src = fetchgit {
     url = "https://notabug.org/litucks/torzu";
-    sha256 = "sha256-9UjbiU4OmhklgGAToMuF4a6bYa3NfFWz/83Rhsel0+c=";
-    rev = "5de1cb53bb";
+    sha256 = "sha256-Wlt4jwOvfwwouIhEfps+3hveKF0cMJVT3vgieaRsJ1M=";
+    rev = "bb142c9657";
     fetchSubmodules = true;
   };
 
@@ -80,7 +80,7 @@ stdenv.mkDerivation (finalAttrs: {
     nv-codec-headers-12 # for accelerated video decode on nvidia
     ffmpeg-headless
     # end ffmpeg deps
-    fmt
+    fmt_11
     # intentionally omitted: gamemode - loaded dynamically at runtime
     # intentionally omitted: httplib - upstream requires an older version than what we have
     libopus
@@ -144,8 +144,8 @@ stdenv.mkDerivation (finalAttrs: {
 
   # Goes brr
   # env.NIX_CFLAGS_COMPILE = lib.optionalString stdenv.hostPlatform.isx86_64 "-msse4.1";
-    env.NIX_CFLAGS_COMPILE = lib.optionalString stdenv.hostPlatform.isx86_64 "-march=x86-64-v3 -mtune=znver4 -Ofast";
-    env.NIX_CXX_FLAGS_COMPILE = lib.optionalString stdenv.hostPlatform.isx86_64 "-march=x86-64-v3 -mtune=znver4 -Ofast";
+  env.NIX_CFLAGS_COMPILE = lib.optionalString stdenv.hostPlatform.isx86_64 "-march=x86-64-v3 -mtune=znver4 -Ofast";
+  env.NIX_CXX_FLAGS_COMPILE = lib.optionalString stdenv.hostPlatform.isx86_64 "-march=x86-64-v3 -mtune=znver4 -Ofast";
 
   # Fixes vulkan detection.
   # FIXME: patchelf --add-rpath corrupts the binary for some reason, investigate
