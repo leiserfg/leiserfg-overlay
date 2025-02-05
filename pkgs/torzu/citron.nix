@@ -13,7 +13,7 @@
   discord-rpc,
   enet,
   ffmpeg-headless,
-  fmt_11,
+  fmt,
   glslang,
   libopus,
   libusb1,
@@ -82,7 +82,7 @@ stdenv.mkDerivation (finalAttrs: {
     nv-codec-headers-12 # for accelerated video decode on nvidia
     ffmpeg-headless
     # end ffmpeg deps
-    fmt_11
+    fmt
     # intentionally omitted: gamemode - loaded dynamically at runtime
     # intentionally omitted: httplib - upstream requires an older version than what we have
     libopus
@@ -172,7 +172,7 @@ stdenv.mkDerivation (finalAttrs: {
   '';
 
   postInstall = "
-    install -Dm444 $src/dist/72-yuzu-input.rules $out/lib/udev/rules.d/72-yuzu-input.rules
+    install -Dm444 $src/dist/72-citron-input.rules $out/lib/udev/rules.d/72-citron-input.rules
   ";
 
   passthru.updateScript = nix-update-script {

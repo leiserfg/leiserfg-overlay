@@ -37,7 +37,7 @@
         material-maker
         waydroid-script
         torzu
-        # citron
+        citron
         nx_tzdb
         compat-list
         pyglossary
