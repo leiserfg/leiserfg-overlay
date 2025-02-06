@@ -26,7 +26,7 @@
       nx_tzdb = pkgs.callPackage ./pkgs/torzu/nx_tzdb.nix {};
       compat-list = pkgs.callPackage ./pkgs/torzu/compat-list.nix {};
       torzu = pkgs.callPackage ./pkgs/torzu/torzu.nix suyu-deps;
-      citron = pkgs.callPackage ./pkgs/torzu/citron.nix suyu-deps; # WIP
+      # citron = pkgs.callPackage ./pkgs/torzu/citron.nix suyu-deps; # WIP
       pyglossary = pkgs.callPackage ./pkgs/pyglossary {};
     };
 
@@ -37,7 +37,7 @@
         material-maker
         waydroid-script
         torzu
-        citron
+        # citron
         nx_tzdb
         compat-list
         pyglossary
