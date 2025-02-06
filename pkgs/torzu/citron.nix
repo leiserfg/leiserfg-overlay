@@ -46,8 +46,11 @@ stdenv.mkDerivation (finalAttrs: {
 
   src = fetchgit {
     url = "https://git.citron-emu.org/Citron/Citron";
-    sha256 = "sha256-eZNV5awKNAGxsOUu//3REhkFotjWzi/sQEUkU1n5k6I=";
-    rev = "d4eca46bba";
+    sha256 = "sha256-S9d1yWKvhzLwEIY7rqfD6Z4HljysEXkAFEUWq+hURlo=";
+    rev = "df1ae19742";
+
+    # rev = "d4eca46bba";
+    # sha256 = "sha256-eZNV5awKNAGxsOUu//3REhkFotjWzi/sQEUkU1n5k6I=";
     fetchSubmodules = true;
   };
 
@@ -146,7 +149,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   # Goes brr
   # env.NIX_CFLAGS_COMPILE = lib.optionalString stdenv.hostPlatform.isx86_64 "-msse4.1";
-  env.NIX_CFLAGS_COMPILE = lib.optionalString stdenv.hostPlatform.isx86_64 "-march=x86-64-v3 -mtune=znver4 -Ofast  -fpermissive";
+  env.NIX_CFLAGS_COMPILE = lib.optionalString stdenv.hostPlatform.isx86_64 "-march=x86-64-v3 -mtune=znver4 -Ofast";
   env.NIX_CXX_FLAGS_COMPILE = lib.optionalString stdenv.hostPlatform.isx86_64 "-march=x86-64-v3 -mtune=znver4 -Ofast -fpermissive";
 
   # Fixes vulkan detection.
