@@ -37,4 +37,5 @@ jobs:
       with:
         name: leiserfg
         authToken: '${{ secrets.CACHIX_TOKEN }}'
+    - run: git clone 'https://git.citron-emu.org/Citron/Citron.git'
     - run: nix flake show --json | jq  '.packages."x86_64-linux"|keys[]'| xargs -I {} nix build .#{}
