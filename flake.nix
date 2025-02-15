@@ -25,7 +25,7 @@
 
       nx_tzdb = pkgs.callPackage ./pkgs/torzu/nx_tzdb.nix {};
       compat-list = pkgs.callPackage ./pkgs/torzu/compat-list.nix {};
-      torzu = pkgs.callPackage ./pkgs/torzu/torzu.nix suyu-deps;
+      # torzu = pkgs.callPackage ./pkgs/torzu/torzu.nix suyu-deps;
       # citron = pkgs.callPackage ./pkgs/torzu/citron.nix suyu-deps; # WIP
       pyglossary = pkgs.callPackage ./pkgs/pyglossary {};
     };
@@ -36,14 +36,14 @@
         glslviewer
         material-maker
         waydroid-script
-        torzu
+        # torzu
         # citron
         nx_tzdb
         compat-list
         pyglossary
         ;
       # default = yuzu-early-access;
-      default = torzu;
+      default = glslviewer;
     };
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
   };
