@@ -5,15 +5,9 @@
   lib,
   fetchFromGitHub,
   pkg-config,
-  libX11,
-  libXrandr,
-  libXinerama,
-  libXcursor,
-  libXi,
-  libXext,
-  libGLU,
   ffmpeg,
   ncurses,
+  glfw,
   Cocoa,
 }:
 stdenv.mkDerivation rec {
@@ -29,17 +23,14 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [cmake ninja pkg-config];
   buildInputs =
     [
-      libX11
-      libXrandr
-      libXinerama
-      libXcursor
-      libXi
-      libXext
-      libGLU
       ncurses
       ffmpeg
+      glfw
     ]
     ++ lib.optional stdenv.isDarwin Cocoa;
+  patchPhase = ''
+    echo "" > ./deps/vera/deps/CMakeLists.txt
+  '';
 
   meta = with lib; {
     description = "Live GLSL coding renderer";
