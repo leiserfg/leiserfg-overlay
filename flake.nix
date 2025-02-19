@@ -22,7 +22,7 @@
       };
       material-maker = pkgs.callPackage ./pkgs/material-maker {};
       waydroid-script = pkgs.callPackage ./pkgs/waydroid-script {};
-
+      stable-diffusion-cpp = pkgs.callPackage ./pkgs/stable-diffusion-cpp {};
       nx_tzdb = pkgs.callPackage ./pkgs/torzu/nx_tzdb.nix {};
       compat-list = pkgs.callPackage ./pkgs/torzu/compat-list.nix {};
       # torzu = pkgs.callPackage ./pkgs/torzu/torzu.nix suyu-deps;
@@ -41,6 +41,7 @@
         nx_tzdb
         compat-list
         pyglossary
+        stable-diffusion-cpp
         ;
       # default = yuzu-early-access;
       default = glslviewer;
