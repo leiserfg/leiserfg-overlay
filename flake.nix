@@ -20,12 +20,14 @@
       glslviewer = pkgs.callPackage ./pkgs/glslviewer {
         inherit (pkgs.darwin.apple_sdk.frameworks) Cocoa;
       };
+
+      # jpegli = pkgs.callPackage ./pkgs/jpgli {};
       material-maker = pkgs.callPackage ./pkgs/material-maker {};
       waydroid-script = pkgs.callPackage ./pkgs/waydroid-script {};
-      stable-diffusion-cpp = pkgs.callPackage ./pkgs/stable-diffusion-cpp {};
+      # stable-diffusion-cpp = pkgs.callPackage ./pkgs/stable-diffusion-cpp {};
       nx_tzdb = pkgs.callPackage ./pkgs/torzu/nx_tzdb.nix {};
       compat-list = pkgs.callPackage ./pkgs/torzu/compat-list.nix {};
-      # torzu = pkgs.callPackage ./pkgs/torzu/torzu.nix suyu-deps;
+      torzu = pkgs.callPackage ./pkgs/torzu/torzu.nix {};
       # citron = pkgs.callPackage ./pkgs/torzu/citron.nix suyu-deps; # WIP
       pyglossary = pkgs.callPackage ./pkgs/pyglossary {};
     };
@@ -36,12 +38,12 @@
         glslviewer
         material-maker
         waydroid-script
-        # torzu
+        torzu
         # citron
         nx_tzdb
         compat-list
         pyglossary
-        stable-diffusion-cpp
+                # jpegli
         ;
       # default = yuzu-early-access;
       default = glslviewer;

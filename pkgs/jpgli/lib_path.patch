@@ -1,0 +1,17 @@
+diff --git i/lib/CMakeLists.txt w/lib/CMakeLists.txt
+index ec04ce8..0461043 100644
+--- i/lib/CMakeLists.txt
++++ w/lib/CMakeLists.txt
+@@ -158,11 +158,7 @@ if(IS_ABSOLUTE "${CMAKE_INSTALL_INCLUDEDIR}")
+ else()
+     set(PKGCONFIG_TARGET_INCLUDES "\${prefix}/${CMAKE_INSTALL_INCLUDEDIR}")
+ endif()
+-if(IS_ABSOLUTE "${CMAKE_INSTALL_LIBDIR}")
+-    set(PKGCONFIG_TARGET_LIBS "${CMAKE_INSTALL_LIBDIR}")
+-else()
+-    set(PKGCONFIG_TARGET_LIBS "\${exec_prefix}/${CMAKE_INSTALL_LIBDIR}")
+-endif()
++set(PKGCONFIG_TARGET_LIBS "${CMAKE_INSTALL_FULL_LIBDIR}")
+ 
+ include(CheckCXXSymbolExists)
+ set(PKGCONFIG_CXX_LIB "")
