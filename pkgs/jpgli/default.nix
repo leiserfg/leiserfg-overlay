@@ -1,43 +1,84 @@
 {
-  clangStdenv,
-  cmake,
-  ninja,
+  stdenv,
   lib,
-  fetchFromGitHub,
-  pkg-config,
-  libpng,
-  giflib,
-  lcms2,
+  asciidoc,
   brotli,
+  cmake,
+  fetchFromGitHub,
+  giflib,
+  gtest,
+  lcms2,
+  libjpeg,
   libhwy,
+  libpng,
+  ninja,
+  openexr,
+  pkg-config,
+  python3,
+  unstableGitUpdater,
 }:
-clangStdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "jpegli";
-  version = "0.1.0-bc19ca2";
+  version = "0-unstable-2025-02-11";
+
   src = fetchFromGitHub {
     owner = "google";
-    repo = pname;
-    rev = "bc19ca2";
-    sha256 = "sha256-8th+QHLOoAIbSJwFyaBxUXoCXwj7K7rgg/cCK7LgOb0=";
+    repo = "jpegli";
+    rev = "bc19ca2393f79bfe0a4a9518f77e4ad33ce1ab7a";
+    hash = "sha256-8th+QHLOoAIbSJwFyaBxUXoCXwj7K7rgg/cCK7LgOb0=";
+    fetchSubmodules = true;
   };
-    patches = [./lib_path.patch];
+
+  outputs = [
+    "out"
+    "man"
+  ];
 
   nativeBuildInputs = [
+    asciidoc
     cmake
+    gtest
     ninja
     pkg-config
+    python3
   ];
+
   buildInputs = [
-    libhwy
-    libpng
+    brotli
     giflib
     lcms2
-    brotli
+    libhwy
+    libjpeg
+    libpng
+    openexr
   ];
-  meta = with lib; {
-    description = "Live GLSL coding renderer";
+
+  cmakeFlags = [
+    "-DJPEGXL_ENABLE_JPEGLI_LIBJPEG=No"
+    "-DJPEGXL_BUNDLE_LIBPNG=No"
+    "-DJPEGXL_FORCE_SYSTEM_BROTLI=Yes"
+    "-DJPEGXL_FORCE_SYSTEM_GTEST=Yes"
+    "-DJPEGXL_FORCE_SYSTEM_LCMS2=Yes"
+    "-DJPEGXL_FORCE_SYSTEM_HWY=Yes"
+    # Enable hardware-dependent optimizations
+    "-DJPEGXL_ENABLE_SIZELESS_VECTORS=Yes"
+    "-DJPEGXL_ENABLE_AVX512=Yes"
+    "-DJPEGXL_ENABLE_AVX512_SPR=Yes"
+    "-DJPEGXL_ENABLE_AVX512_ZEN4=Yes"
+  ];
+
+  doCheck = true;
+
+  passthru = {
+    updateScript = unstableGitUpdater { hardcodeZeroVersion = true; };
+  };
+
+  meta = {
+    description = "Improved JPEG encoder and decoder implementation";
     homepage = "https://github.com/google/jpegli";
-    license = "JPEG XL Project Authors.";
-    platforms = platforms.unix;
+    license = lib.licenses.bsd3;
+    platforms = lib.platforms.all;
+    maintainers = with lib.maintainers; [ jwillikers ];
+    mainProgram = "cjpegli";
   };
 }

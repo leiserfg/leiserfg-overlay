@@ -21,7 +21,7 @@
         inherit (pkgs.darwin.apple_sdk.frameworks) Cocoa;
       };
 
-      # jpegli = pkgs.callPackage ./pkgs/jpgli {};
+      jpegli = pkgs.callPackage ./pkgs/jpgli {};
       material-maker = pkgs.callPackage ./pkgs/material-maker {};
       waydroid-script = pkgs.callPackage ./pkgs/waydroid-script {};
       # stable-diffusion-cpp = pkgs.callPackage ./pkgs/stable-diffusion-cpp {};
@@ -43,7 +43,7 @@
         nx_tzdb
         compat-list
         pyglossary
-                # jpegli
+        jpegli
         ;
       # default = yuzu-early-access;
       default = glslviewer;
