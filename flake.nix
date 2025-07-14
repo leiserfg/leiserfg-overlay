@@ -22,8 +22,8 @@
       };
 
       jpegli = pkgs.callPackage ./pkgs/jpgli {};
-      material-maker = pkgs.callPackage ./pkgs/material-maker {};
-      waydroid-script = pkgs.callPackage ./pkgs/waydroid-script {};
+      # material-maker = pkgs.callPackage ./pkgs/material-maker {};
+      # waydroid-script = pkgs.callPackage ./pkgs/waydroid-script {};
       # stable-diffusion-cpp = pkgs.callPackage ./pkgs/stable-diffusion-cpp {};
       nx_tzdb = pkgs.callPackage ./pkgs/torzu/nx_tzdb.nix {};
       compat-list = pkgs.callPackage ./pkgs/torzu/compat-list.nix {};
@@ -36,8 +36,8 @@
       inherit
         (pkgs)
         glslviewer
-        material-maker
-        waydroid-script
+        # material-maker
+        # waydroid-script
         torzu
         # citron
         nx_tzdb
