@@ -33,7 +33,7 @@
         nx_tzdb = pkgs.callPackage ./pkgs/torzu/nx_tzdb.nix { };
         compat-list = pkgs.callPackage ./pkgs/torzu/compat-list.nix { };
         torzu = pkgs.callPackage ./pkgs/torzu/torzu.nix { };
-        # citron = pkgs.callPackage ./pkgs/torzu/citron.nix suyu-deps; # WIP
+        eden-emu = pkgs.callPackage ./pkgs/torzu/eden.nix suyu-deps; # WIP
         pyglossary = pkgs.callPackage ./pkgs/pyglossary { };
 
         quickshell = prev.quickshell.overrideAttrs rec {
@@ -50,6 +50,7 @@
 
       packages.x86_64-linux = rec {
         inherit (pkgs)
+          eden-emu
           glslviewer
           quickshell
           # material-maker

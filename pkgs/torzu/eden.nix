@@ -38,19 +38,17 @@
   zstd,
   fetchgit,
   vulkan-utility-libraries,
+  kdePackages,
   ...
 }:
 stdenv.mkDerivation (finalAttrs: {
-  pname = "citron";
-  version = "0.4";
+  pname = "eden";
+  version = "0.3-rc";
 
   src = fetchgit {
-    url = "https://git.citron-emu.org/Citron/Citron";
-    sha256 = "sha256-S9d1yWKvhzLwEIY7rqfD6Z4HljysEXkAFEUWq+hURlo=";
-    rev = "df1ae19742";
-
-    # rev = "d4eca46bba";
-    # sha256 = "sha256-eZNV5awKNAGxsOUu//3REhkFotjWzi/sQEUkU1n5k6I=";
+    url = "https://git.eden-emu.dev/eden-emu/eden";
+    sha256 = "sha256-aaBUIUf/uuohVA3MT1pMzLIuwAa/1QXdOd8TzYMl0z8=";
+    rev = "b2914247c3f6bff2b2aa0f17d46f7b197ab1821d";
     fetchSubmodules = true;
   };
 
@@ -90,6 +88,7 @@ stdenv.mkDerivation (finalAttrs: {
     # intentionally omitted: httplib - upstream requires an older version than what we have
     libopus
     libusb1
+    kdePackages.quazip
     # intentionally omitted: LLVM - heavy, only used for stack traces in the debugger
     lz4
     nlohmann_json
@@ -113,7 +112,7 @@ stdenv.mkDerivation (finalAttrs: {
   # znver4
   cmakeFlags = [
     # actually has a noticeable performance impact
-    "-DCITRON_ENABLE_LTO=ON"
+    "-DYUZU_ENABLE_LTO=ON"
     "-DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON" # We provide this deterministically
 
     # build with qt6
@@ -123,23 +122,24 @@ stdenv.mkDerivation (finalAttrs: {
     # use system libraries
     # NB: "external" here means "from the externals/ directory in the source",
     # so "off" means "use system"
-    "-DCITRON_USE_EXTERNAL_SDL2=OFF"
-    "-DCITRON_USE_EXTERNAL_VULKAN_HEADERS=ON"
-    "-DCITRON_USE_EXTERNAL_VULKAN_UTILITY_LIBRARIES=OFF"
+    "-DYUZU_USE_EXTERNAL_SDL2=OFF"
+    "-DYUZU_USE_EXTERNAL_VULKAN_HEADERS=OFF"
+    "-DYUZU_USE_EXTERNAL_VULKAN_UTILITY_LIBRARIES=OFF"
+    "-DYUZU_USE_EXTERNAL_VULKAN_SPIRV_TOOLS=OFF"
 
     # # don't use system ffmpeg, suyu uses internal APIs
-    # "-DCITRON_USE_BUNDLED_FFMPEG=ON"
+    # "-DYUZU_USE_BUNDLED_FFMPEG=ON"
 
     # don't check for missing submodules
-    "-DCITRON_CHECK_SUBMODULES=OFF"
+    "-DYUZU_CHECK_SUBMODULES=OFF"
 
     # enable some optional features
-    "-DCITRON_USE_QT_WEB_ENGINE=ON"
-    "-DCITRON_USE_QT_MULTIMEDIA=ON"
+    "-DYUZU_USE_QT_WEB_ENGINE=ON"
+    "-DYUZU_USE_QT_MULTIMEDIA=ON"
     # "-DUSE_DISCORD_PRESENCE=ON"
 
     # We dont want to bother upstream with potentially outdated compat reports
-    "-DCITRON_ENABLE_COMPATIBILITY_REPORTING=OFF"
+    "-DYUZU_ENABLE_COMPATIBILITY_REPORTING=OFF"
     "-DENABLE_COMPATIBILITY_LIST_DOWNLOAD=OFF" # We provide this deterministically
 
     # Optimizations
@@ -158,6 +158,11 @@ stdenv.mkDerivation (finalAttrs: {
     "--prefix LD_LIBRARY_PATH : ${vulkan-loader}/lib"
   ];
 
+  patches = [ ./no_cpm.patch ];
+  postPatch = ''
+    cat $src/src/yuzu/externals/CMakeLists.txt
+  '';
+
   preConfigure = ''
     # see https://github.com/NixOS/nixpkgs/issues/114044, setting this through cmakeFlags does not work.
     cmakeFlagsArray+=(
@@ -168,6 +173,7 @@ stdenv.mkDerivation (finalAttrs: {
     # provide pre-downloaded tz data
     mkdir -p build/externals/nx_tzdb
     ln -s ${nx_tzdb} build/externals/nx_tzdb/nx_tzdb
+
   '';
 
   postConfigure = ''
@@ -175,11 +181,14 @@ stdenv.mkDerivation (finalAttrs: {
   '';
 
   postInstall = "
-    install -Dm444 $src/dist/72-citron-input.rules $out/lib/udev/rules.d/72-citron-input.rules
+    install -Dm444 $src/dist/72-yuzu-input.rules $out/lib/udev/rules.d/72-yuzu-input.rules
   ";
 
   passthru.updateScript = nix-update-script {
-    extraArgs = ["--version-regex" "mainline-0-(.*)"];
+    extraArgs = [
+      "--version-regex"
+      "mainline-0-(.*)"
+    ];
   };
 
   meta = with lib; {
@@ -191,7 +200,10 @@ stdenv.mkDerivation (finalAttrs: {
       Using the dev branch is recommended if you would like to try out experimental features, with a cost of stability.
     '';
     mainProgram = "citron";
-    platforms = ["aarch64-linux" "x86_64-linux"];
+    platforms = [
+      "aarch64-linux"
+      "x86_64-linux"
+    ];
     license = with licenses; [
       gpl3Plus
       # Icons
