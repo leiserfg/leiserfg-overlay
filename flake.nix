@@ -35,17 +35,7 @@
         torzu = pkgs.callPackage ./pkgs/torzu/torzu.nix { };
         eden-emu = pkgs.callPackage ./pkgs/torzu/eden.nix suyu-deps; # WIP
         pyglossary = pkgs.callPackage ./pkgs/pyglossary { };
-
-        quickshell = prev.quickshell.overrideAttrs rec {
-          version = "0.2.0";
-          src = pkgs.fetchFromGitea {
-            domain = "git.outfoxxed.me";
-            owner = "quickshell";
-            repo = "quickshell";
-            tag = "v${version}";
-            hash = "sha256-vqkSDvh7hWhPvNjMjEDV4KbSCv2jyl2Arh73ZXe274k=";
-          };
-        };
+        wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
       };
 
       packages.x86_64-linux = rec {
@@ -61,6 +51,7 @@
           compat-list
           pyglossary
           jpegli
+          wl_shimeji
           ;
         # default = yuzu-early-access;
         default = glslviewer;
