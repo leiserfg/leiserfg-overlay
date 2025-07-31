@@ -74,9 +74,6 @@ stdenv.mkDerivation (finalAttrs: {
     discord-rpc
     # intentionally omitted: dynarmic - prefer vendored version for compatibility
     enet
-
-    # ffmpeg deps (also includes vendored)
-    # we do not use internal ffmpeg because cuda errors
     autoconf
     yasm
     libva # for accelerated video decode on non-nvidia
@@ -126,9 +123,7 @@ stdenv.mkDerivation (finalAttrs: {
     "-DYUZU_USE_EXTERNAL_VULKAN_HEADERS=OFF"
     "-DYUZU_USE_EXTERNAL_VULKAN_UTILITY_LIBRARIES=OFF"
     "-DYUZU_USE_EXTERNAL_VULKAN_SPIRV_TOOLS=OFF"
-
-    # # don't use system ffmpeg, suyu uses internal APIs
-    # "-DYUZU_USE_BUNDLED_FFMPEG=ON"
+    "-DYUZU_USE_BUNDLED_FFMPEG=OFF"
 
     # don't check for missing submodules
     "-DYUZU_CHECK_SUBMODULES=OFF"
@@ -142,9 +137,6 @@ stdenv.mkDerivation (finalAttrs: {
     "-DYUZU_ENABLE_COMPATIBILITY_REPORTING=OFF"
     "-DENABLE_COMPATIBILITY_LIST_DOWNLOAD=OFF" # We provide this deterministically
 
-    # Optimizations
-    # "-DCMAKE_C_FLAGS=\"-march=x86-64-v3 -mtune=znver4\""
-    # "-DCMAKE_CXX_FLAGS=\"-march=x86-64-v3 -mtune=znver4\""
   ];
 
   # Goes brr
@@ -157,7 +149,7 @@ stdenv.mkDerivation (finalAttrs: {
   qtWrapperArgs = [
     "--prefix LD_LIBRARY_PATH : ${vulkan-loader}/lib"
   ];
-
+  useMoldLinker = true;
   patches = [ ./no_cpm.patch ];
   postPatch = ''
     cat $src/src/yuzu/externals/CMakeLists.txt
