@@ -47,8 +47,8 @@ stdenv.mkDerivation (finalAttrs: {
 
   src = fetchgit {
     url = "https://git.eden-emu.dev/eden-emu/eden";
-    sha256 = "sha256-aaBUIUf/uuohVA3MT1pMzLIuwAa/1QXdOd8TzYMl0z8=";
-    rev = "b2914247c3f6bff2b2aa0f17d46f7b197ab1821d";
+    sha256 = "sha256-RWJNSOWwVaNgB/rXB+VCM1rXQEMiDKTc/Z226wkVA2I=";
+    rev = "c609389ec1e1744a5d024c5c6811cc7cea1ba113";
     fetchSubmodules = true;
   };
 
