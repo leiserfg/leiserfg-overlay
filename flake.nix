@@ -36,6 +36,7 @@
         eden-emu = pkgs.callPackage ./pkgs/torzu/eden.nix suyu-deps; # WIP
         pyglossary = pkgs.callPackage ./pkgs/pyglossary { };
         wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
+        pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
       };
 
       packages.x86_64-linux = rec {
@@ -52,6 +53,7 @@
           pyglossary
           jpegli
           wl_shimeji
+          pixieditor
           ;
         # default = yuzu-early-access;
         default = glslviewer;
