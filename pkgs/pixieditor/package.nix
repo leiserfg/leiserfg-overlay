@@ -33,13 +33,13 @@ let
 in
 buildDotnetModule (finalAttrs: {
   pname = "pixieditor";
-  version = "2.0.1.2";
+  version = "2.0.1.9";
 
   src = fetchFromGitHub {
     owner = "PixiEditor";
     repo = "PixiEditor";
     tag = finalAttrs.version;
-    hash = "sha256-o23fUqwca+rmQUuktC9H8gwyeds/7tp2tcyD0axboAA=";
+    hash = "sha256-U7HrqFgwwgRS7VCzNzLr2FD59CjwsJq0elSJxGn2QfY=";
     fetchSubmodules = true;
   };
 
@@ -47,9 +47,7 @@ buildDotnetModule (finalAttrs: {
     ./patches/0000-fix-protogen.patch
     ./patches/0001-fix-nix-bin-path.patch
     ./patches/0002-set-build-id.patch
-    (replaceVars ./patches/0003-use-sys-ffmpeg.patch {
-      binaryPath = "${ffmpeg-headless}/bin";
-    })
+    (replaceVars ./patches/0003-use-sys-ffmpeg.patch { binaryPath = "${ffmpeg-headless}/bin/"; })
   ];
   postPatch = ''
     # ./patches/0001-fix-nix-bin-path.patch
