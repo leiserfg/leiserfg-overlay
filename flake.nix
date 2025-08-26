@@ -33,8 +33,8 @@
         nx_tzdb = pkgs.callPackage ./pkgs/torzu/nx_tzdb.nix { };
         compat-list = pkgs.callPackage ./pkgs/torzu/compat-list.nix { };
         torzu = pkgs.callPackage ./pkgs/torzu/torzu.nix { };
-        eden-emu = pkgs.callPackage ./pkgs/torzu/eden.nix suyu-deps; # WIP
-        # eden-emu = pkgs.callPackage ./pkgs/torzu/eden_appimage.nix {}; # WIP
+        # eden-emu = pkgs.callPackage ./pkgs/torzu/eden.nix suyu-deps; # WIP
+        eden-emu = pkgs.kdePackages.callPackage ./pkgs/torzu/eden_appimage.nix {}; # WIP
         pyglossary = pkgs.callPackage ./pkgs/pyglossary { };
         # wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
         friction-graphics = pkgs.callPackage ./pkgs/friction-graphics { };
