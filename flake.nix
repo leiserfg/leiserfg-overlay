@@ -1,7 +1,7 @@
 {
   description = "My home-brew packages";
 
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+  inputs.nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
 
   outputs =
     {
@@ -36,10 +36,12 @@
         eden-emu = pkgs.callPackage ./pkgs/torzu/eden.nix suyu-deps; # WIP
         pyglossary = pkgs.callPackage ./pkgs/pyglossary { };
         wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
+        friction-graphics = pkgs.callPackage ./pkgs/friction-graphics { };
       };
 
       packages.x86_64-linux = rec {
         inherit (pkgs)
+          friction-graphics
           eden-emu
           glslviewer
           quickshell
@@ -53,7 +55,6 @@
           jpegli
           wl_shimeji
           ;
-        # default = yuzu-early-access;
         default = glslviewer;
       };
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;

@@ -199,7 +199,7 @@ stdenv.mkDerivation (finalAttrs: {
       Using the master/ branch is recommended for general usage.
       Using the dev branch is recommended if you would like to try out experimental features, with a cost of stability.
     '';
-    mainProgram = "citron";
+    mainProgram = "eden";
     platforms = [
       "aarch64-linux"
       "x86_64-linux"
