@@ -1,5 +1,4 @@
 {
-  appimageTools,
   makeWrapper,
   fetchurl,
   lib,
@@ -17,6 +16,9 @@
   vulkan-headers,
   glslang,
   spirv-tools,
+  alsa-plugins,
+  alsa-lib,
+  libpulseaudio
 }:
 
 let
@@ -38,6 +40,7 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [
     autoPatchelfHook
     wrapQtAppsHook
+    makeWrapper
   ];
   # autoPatchelfIgnoreMissingDeps = true;
   buildInputs = [
@@ -67,6 +70,13 @@ stdenv.mkDerivation rec {
     install -D ./AppDir/org.eden_emu.eden.desktop $out/share/applications/org.eden_emu.eden.desktop
     install -D ./AppDir/org.eden_emu.eden.svg $out/share/icons/hicolor/scalable/apps/org.eden_emu.eden.svg
 
+    wrapProgram "$out/bin/eden" \
+        --set ALSA_PLUGIN_DIR ${alsa-plugins}/lib/alsa-lib \
+       --suffix LD_LIBRARY_PATH : ${
+            lib.makeLibraryPath [
+              libpulseaudio
+              alsa-lib]};
+
     for f in ./AppDir/usr/lib/libSPIRV*; do
          install -Dm755 "$f" "$out/lib/$(basename "$f")"
     done
@@ -74,8 +84,6 @@ stdenv.mkDerivation rec {
   '';
 
   meta = with lib; {
-    # homepage = "https://studio-link.com";
-    # description = "Voip transfer";
     platforms = platforms.linux;
   };
 }
