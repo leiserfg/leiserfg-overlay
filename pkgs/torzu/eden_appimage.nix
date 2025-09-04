@@ -24,11 +24,11 @@
 let
   pname = "eden-emulator";
   version = "0.0.3-rc3";
-  sha256 = "sha256-JUTcwjqswdAibxw2UWU/zucCMnSAqtybMfhjOaxfnxc=";
+  sha256 = "sha256-y/HgQWsnUUL+zSeVtEkT4Dr32e6OtHfhO3lSbSGKPAo=";
 
   src = fetchurl {
     # url = "https://github.com/eden-emulator/Releases/releases/download/v${version}/Eden-Linux-v${version}-steamdeck.AppImage";
-    url = "https://github.com/pflyly/eden-nightly/releases/download/2025-08-25-27626/Eden-27626-Steamdeck-light-x86_64.AppImage";
+    url = "https://github.com/pflyly/eden-nightly/releases/download/2025-09-03-27673/Eden-27673-Steamdeck-x86_64.AppImage";
     inherit sha256;
   };
 
@@ -65,10 +65,10 @@ stdenv.mkDerivation rec {
     chmod +x ./appimage
     ./appimage --appimage-extract
     rm ./appimage
-
-    install -D ./AppDir/usr/bin/eden $out/bin/eden
-    install -D ./AppDir/org.eden_emu.eden.desktop $out/share/applications/org.eden_emu.eden.desktop
-    install -D ./AppDir/org.eden_emu.eden.svg $out/share/icons/hicolor/scalable/apps/org.eden_emu.eden.svg
+    ls ./AppDir/
+    install -D ./AppDir/shared/bin/eden $out/bin/eden
+    install -D ./AppDir/dev.eden_emu.eden.desktop $out/share/applications/org.eden_emu.eden.desktop
+    install -D ./AppDir/dev.eden_emu.eden.svg $out/share/icons/hicolor/scalable/apps/org.eden_emu.eden.svg
 
     wrapProgram "$out/bin/eden" \
         --set ALSA_PLUGIN_DIR ${alsa-plugins}/lib/alsa-lib \
@@ -77,7 +77,7 @@ stdenv.mkDerivation rec {
               libpulseaudio
               alsa-lib]};
 
-    for f in ./AppDir/usr/lib/libSPIRV*; do
+    for f in ./AppDir/shared/lib/libSPIRV*; do
          install -Dm755 "$f" "$out/lib/$(basename "$f")"
     done
     runHook postInstall
