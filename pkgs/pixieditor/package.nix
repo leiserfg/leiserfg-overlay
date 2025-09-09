@@ -33,13 +33,13 @@ let
 in
 buildDotnetModule (finalAttrs: {
   pname = "pixieditor";
-  version = "2.0.1.9";
+  version = "2.0.1.13";
 
   src = fetchFromGitHub {
     owner = "PixiEditor";
     repo = "PixiEditor";
     tag = finalAttrs.version;
-    hash = "sha256-U7HrqFgwwgRS7VCzNzLr2FD59CjwsJq0elSJxGn2QfY=";
+    hash = "sha256-EMzfEuw2CEkIc5B/q+TITf55hWqe4Dw3YVV7tPstthE=";
     fetchSubmodules = true;
   };
 
@@ -128,7 +128,7 @@ buildDotnetModule (finalAttrs: {
     install -Dm644 ${./resources/mimeinfo.xml} $out/share/mime/packages/pixieditor.xml
 
     mkdir -p $out/share/icons/hicolor/scalable/apps
-    install -Dm644 ${./resources/pixieditor.svg} $out/share/icons/hicolor/scalable/apps/pixieditor.svg
+    install -Dm644 src/PixiEditor/Images/PixiEditorLogo.svg $out/share/icons/hicolor/scalable/apps/pixieditor.svg
   '';
 
   postFixup = ''
@@ -146,9 +146,5 @@ buildDotnetModule (finalAttrs: {
     changelog = "https://github.com/PixiEditor/PixiEditor/releases/tag/${finalAttrs.version}";
     mainProgram = "pixieditor";
     license = lib.licenses.lgpl3Only;
-    maintainers = with lib.maintainers; [
-      griffi-gh
-    ];
-    platforms = lib.platforms.linux;
   };
 })

@@ -655,31 +655,6 @@
     "hash": "sha256-+ldOojWMQi51wK88msauHBnzNqyRW6RRokF6+yn4nwo="
   },
   {
-    "pname": "StyleCop.Analyzers",
-    "version": "1.1.118",
-    "hash": "sha256-CjC1f5z0sP15F6FeXqIDOtZLHqgjmQTzpsIrRkxXREI="
-  },
-  {
-    "pname": "StyleCop.Analyzers",
-    "version": "1.2.0-beta.435",
-    "hash": "sha256-XufJWNfjDQvw3LJhIf6nHFJOfAla3wfPFLoRsRX4OTY="
-  },
-  {
-    "pname": "StyleCop.Analyzers",
-    "version": "1.2.0-beta.507",
-    "hash": "sha256-KitdUzydteSrQfBNNqJRMU+efkNSHASlY4TIzS/rXww="
-  },
-  {
-    "pname": "StyleCop.Analyzers.Unstable",
-    "version": "1.2.0.435",
-    "hash": "sha256-sKb7IwKT+Yb1L/Mh8ZFyGMU63W7C+SCsECkx4YmCZMs="
-  },
-  {
-    "pname": "StyleCop.Analyzers.Unstable",
-    "version": "1.2.0.507",
-    "hash": "sha256-4+PFBqOC3rlQAZkrCITEsJNBGR7q5TUACyECAZv0K8E="
-  },
-  {
     "pname": "Svg.Controls.Skia.Avalonia",
     "version": "11.3.0.1",
     "hash": "sha256-e+GW+mFWFvw/Dzhf7xVQnZMCCn1e9Po6XKtHCd11GfY="
