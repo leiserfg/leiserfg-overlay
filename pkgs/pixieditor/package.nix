@@ -130,7 +130,7 @@ buildDotnetModule (finalAttrs: {
     install -Dm644 ${./resources/mimeinfo.xml} $out/share/mime/packages/pixieditor.xml
 
     mkdir -p $out/share/icons/hicolor/scalable/apps
-    install -Dm644 ${./resources/pixieditor.svg} $out/share/icons/hicolor/scalable/apps/pixieditor.svg
+    install -Dm644 src/PixiEditor/Images/PixiEditorLogo.svg $out/share/icons/hicolor/scalable/apps/pixieditor.svg
   '';
 
   postFixup = ''
