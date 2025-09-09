@@ -24,11 +24,11 @@
 let
   pname = "eden-emulator";
   version = "0.0.3-rc3";
-  sha256 = "sha256-y/HgQWsnUUL+zSeVtEkT4Dr32e6OtHfhO3lSbSGKPAo=";
+  sha256 = "sha256-m5TOQmQ3HOuqRe475VBosugYMkBzH2HlW5mhWYkgeEA=";
 
   src = fetchurl {
     # url = "https://github.com/eden-emulator/Releases/releases/download/v${version}/Eden-Linux-v${version}-steamdeck.AppImage";
-    url = "https://github.com/pflyly/eden-nightly/releases/download/2025-09-03-27673/Eden-27673-Steamdeck-x86_64.AppImage";
+    url = "https://github.com/pflyly/eden-nightly/releases/download/2025-09-05-27675/Eden-27675-Steamdeck-x86_64.AppImage";
     inherit sha256;
   };
 
