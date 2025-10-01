@@ -27,17 +27,15 @@
         };
 
         jpegli = pkgs.callPackage ./pkgs/jpgli { };
-        # material-maker = pkgs.callPackage ./pkgs/material-maker {};
-        # waydroid-script = pkgs.callPackage ./pkgs/waydroid-script {};
-        # stable-diffusion-cpp = pkgs.callPackage ./pkgs/stable-diffusion-cpp {};
         nx_tzdb = pkgs.callPackage ./pkgs/torzu/nx_tzdb.nix { };
         compat-list = pkgs.callPackage ./pkgs/torzu/compat-list.nix { };
         torzu = pkgs.callPackage ./pkgs/torzu/torzu.nix { };
         # eden-emu = pkgs.callPackage ./pkgs/torzu/eden.nix suyu-deps; # WIP
-        eden-emu = pkgs.kdePackages.callPackage ./pkgs/torzu/eden_appimage.nix { }; # WIP
+        eden-emu = pkgs.kdePackages.callPackage ./pkgs/torzu/eden_appimage.nix { };
         pyglossary = pkgs.callPackage ./pkgs/pyglossary { };
-        # wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
+        # friction-graphics = pkgs.libsForQt5.callPackage ./pkgs/friction-graphics/friction_appimagen.nix { };
         friction-graphics = pkgs.callPackage ./pkgs/friction-graphics { };
+
         pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
       };
 
@@ -46,16 +44,11 @@
           friction-graphics
           eden-emu
           glslviewer
-          quickshell
-          # material-maker
-          # waydroid-script
           torzu
-          # citron
           nx_tzdb
           compat-list
           pyglossary
           jpegli
-          # wl_shimeji
           pixieditor
           ;
         default = glslviewer;
