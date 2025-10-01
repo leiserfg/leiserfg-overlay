@@ -34,14 +34,14 @@
         eden-emu = pkgs.kdePackages.callPackage ./pkgs/torzu/eden_appimage.nix { };
         pyglossary = pkgs.callPackage ./pkgs/pyglossary { };
         # friction-graphics = pkgs.libsForQt5.callPackage ./pkgs/friction-graphics/friction_appimagen.nix { };
-        friction-graphics = pkgs.callPackage ./pkgs/friction-graphics { };
+        # friction-graphics = pkgs.callPackage ./pkgs/friction-graphics { };
 
         pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
       };
 
       packages.x86_64-linux = rec {
         inherit (pkgs)
-          friction-graphics
+          # friction-graphics
           eden-emu
           glslviewer
           torzu
