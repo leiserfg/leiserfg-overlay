@@ -39,7 +39,7 @@ stdenv.mkDerivation rec {
   postInstall = ''
     # No idea why patchShebangs is not doing it
     sed -i "1s|/usr.*|$(which python)|"  $out/bin/shimejictl
-    sed -i "s|ExecStart=.*|ExecStart=|$out/bin/shimeji-overlayd|"  $out/share/systemd/user/wl_shimeji.service
+    # sed -i "s|ExecStart=.*|ExecStart=|$out/bin/shimeji-overlayd|"  $out/share/systemd/user/wl_shimeji.service
   '';
   meta = with lib; {
     description = "Run a fast ChatGPT-like model locally on your device";

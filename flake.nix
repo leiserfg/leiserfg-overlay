@@ -3,7 +3,6 @@
 
   inputs.nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
   inputs.typsite.url = "git+https://github.com/Glomzzz/typsite?shallow=1";
-  inputs.typsite.inputs.nixpkgs.follows = "nixpkgs";
 
   outputs =
     {
@@ -37,9 +36,8 @@
         pyglossary = pkgs.callPackage ./pkgs/pyglossary { };
         # friction-graphics = pkgs.libsForQt5.callPackage ./pkgs/friction-graphics/friction_appimagen.nix { };
         # friction-graphics = pkgs.callPackage ./pkgs/friction-graphics { };
-
+        wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
         pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
-        typsite = inputs.typsite.packages.x86_64-linux.typsite;
       };
 
       packages.x86_64-linux = rec {
@@ -53,7 +51,7 @@
           pyglossary
           jpegli
           pixieditor
-          typsite
+          wl_shimeji
           ;
         default = glslviewer;
       };
