@@ -39,7 +39,7 @@
         # friction-graphics = pkgs.callPackage ./pkgs/friction-graphics { };
 
         pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
-        typsite = inputs.typsite.packages.${pkgs.system}.typsite;
+        typsite = inputs.typsite.packages.x86_64-linux.typsite;
       };
 
       packages.x86_64-linux = rec {
