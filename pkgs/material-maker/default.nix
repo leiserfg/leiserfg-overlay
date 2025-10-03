@@ -1,76 +1,102 @@
 {
   lib,
   stdenv,
-  fetchurl,
-  autoPatchelfHook,
-  makeDesktopItem,
-  copyDesktopItems,
+  fetchFromGitHub,
+  godot,
+  godotPackages,
+  # godot4-export-templates,
+  libglvnd,
   libX11,
-  libXrandr,
-  libXinerama,
   libXcursor,
-  libXi,
   libXext,
-  libGLU,
+  libXfixes,
+  libXi,
+  libXinerama,
+  libXrandr,
   libXrender,
-  libva,
-  openssl,
-}: let
-  _tr = text: (builtins.replaceStrings ["." "-"] ["_" "_"] text);
-in
-  stdenv.mkDerivation rec {
-    pname = "material-maker";
-    version = "1.3";
+  nix-update-script,
+}:
 
-    src = fetchurl {
-      url = "https://github.com/RodZill4/${pname}/releases/download/${version}/${_tr pname}_${_tr version}_linux.tar.gz";
-      sha256 = "sha256-Y8+ZwXy3zqnsxqqaZeVgFSxLzmUkq+rBzbq8tEDc8/g=";
-    };
-    desktopItems = [
-      (makeDesktopItem {
-        desktopName = "MaterialMaker";
-        exec = "material_maker";
-        name = "MaterialMaker";
-        icon = "material_maker";
-      })
-    ];
+stdenv.mkDerivation (finalAttrs: {
+  pname = "material-maker";
+  version = "1.4";
 
-    buildInputs = [
-      libX11
-      libXrandr
-      libXinerama
-      libXcursor
-      libXi
-      libXext
-      libGLU
-      libXrender
-      libva
-      openssl
-    ];
+  src = fetchFromGitHub {
+    owner = "RodZill4";
+    repo = "material-maker";
+    rev = finalAttrs.version;
+    hash = "sha256-33MR57etKX7Hv3lwYVZ8Pwj5Krs7uhP7UY5vTbAMcSI=";
+  };
 
-    nativeBuildInputs = [
-      autoPatchelfHook
-      copyDesktopItems
-    ];
+  nativeBuildInputs = [ godot ];
 
-    installPhase = ''
-      mkdir -p $out/bin/ $out/share/icons/hicolor/256x256/apps/
-      cp -r . $out/material_maker/
+  buildInputs = [
+    libglvnd
 
-      cat <<-EOF > $out/bin/material_maker
-      #!/usr/bin/env bash
-      $out/material_maker/material_maker.x86_64
-      EOF
+    libXinerama
+    libXcursor
+    libXext
+    libXrandr
+    libXrender
+    libX11
+    libXi
+    libXfixes
+  ];
 
-      chmod +x $out/bin/material_maker
-      cp $out/material_maker/examples/mm_icon.png   $out/share/icons/hicolor/256x256/apps/material_maker.png
-      copyDesktopItems
-    '';
+  buildPhase = ''
+    runHook preBuild
 
-    meta = with lib; {
-      description = "This is a tool based on Godot Engine that can be used to create textures procedurally and paint 3D models.";
-      homepage = "https://www.materialmaker.org/";
-      license = licenses.mit;
-      platforms = platforms.unix;
-    };
-  }
+    export HOME=$TMPDIR
+
+    # Link the export-templates to the expected location. The --export-* commands
+    # expects the template-file at .../templates/{godot-version}.stable/
+    mkdir -p $HOME/.local/share/godot
+    ln -s ${godotPackages.export-template}/share/godot/templates $HOME/.local/share/godot
+
+    mkdir -vp build
+    godot --headless -v --export-release 'Linux/X11' build/material-maker
+    runHook postBuild
+  '';
+
+  installPhase = ''
+    runHook preInstall
+
+    mkdir -vp $out/share/material-maker
+    cp -vr \
+      ./build/* \
+      ./addons/material_maker/nodes  \
+      ./material_maker/environments  \
+      ./material_maker/examples  \
+      ./material_maker/library  \
+      ./material_maker/meshes  \
+      ./material_maker/misc/export \
+      $out/share/material-maker
+
+    mkdir -vp $out/bin
+    ln -vs $out/share/material-maker/material-maker $out/bin/material-maker
+
+    runHook postInstall
+  '';
+
+  fixupPhase = ''
+    runHook preFixup
+
+    # patchelf \
+    #   --set-interpreter '${stdenv.cc.bintools.dynamicLinker}' \
+    #   --set-rpath ${lib.makeLibraryPath finalAttrs.buildInputs} \
+    #   $out/share/material-maker/material-maker
+
+    runHook postFixup
+  '';
+  dontStrip = true;
+  passthru.updateScript = nix-update-script { };
+
+  meta = {
+    description = "Procedural materials authoring tool";
+    mainProgram = "material-maker";
+    homepage = "https://www.materialmaker.org";
+    license = lib.licenses.mit;
+    platforms = [ "x86_64-linux" ];
+    maintainers = with lib.maintainers; [ lelgenio ];
+  };
+})

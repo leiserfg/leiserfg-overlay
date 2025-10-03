@@ -1,8 +1,6 @@
 {
   description = "My home-brew packages";
-
   inputs.nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
-  inputs.typsite.url = "git+https://github.com/Glomzzz/typsite?shallow=1";
 
   outputs =
     {
@@ -37,12 +35,14 @@
         # friction-graphics = pkgs.libsForQt5.callPackage ./pkgs/friction-graphics/friction_appimagen.nix { };
         # friction-graphics = pkgs.callPackage ./pkgs/friction-graphics { };
         wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
+        # material-maker = pkgs.callPackage ./pkgs/material-maker { };
         pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
       };
 
       packages.x86_64-linux = rec {
         inherit (pkgs)
           # friction-graphics
+          # material-maker
           eden-emu
           glslviewer
           torzu
