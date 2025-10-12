@@ -65,6 +65,8 @@ stdenv.mkDerivation {
     "-DJPEGXL_ENABLE_AVX512=Yes"
     "-DJPEGXL_ENABLE_AVX512_SPR=Yes"
     "-DJPEGXL_ENABLE_AVX512_ZEN4=Yes"
+
+    "-DCMAKE_POLICY_VERSION_MINIMUM=3.20"
   ];
 
   doCheck = true;
