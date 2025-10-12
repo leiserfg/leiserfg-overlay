@@ -32,6 +32,8 @@ stdenv.mkDerivation rec {
     echo "" > ./deps/vera/deps/CMakeLists.txt
   '';
 
+  cmakeFlags = [ "-DCMAKE_POLICY_VERSION_MINIMUM=3.20" ];
+
   meta = with lib; {
     description = "Live GLSL coding renderer";
     homepage = "http://patriciogonzalezvivo.com/2015/glslViewer/";
