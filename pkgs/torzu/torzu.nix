@@ -188,6 +188,8 @@ stdenv.mkDerivation (finalAttrs: {
 
     (lib.cmakeFeature "TITLE_BAR_FORMAT_IDLE" "${finalAttrs.pname} | ${finalAttrs.version} (nixpkgs) {}")
     (lib.cmakeFeature "TITLE_BAR_FORMAT_RUNNING" "${finalAttrs.pname} | ${finalAttrs.version} (nixpkgs) | {}")
+
+    "-DCMAKE_POLICY_VERSION_MINIMUM=3.20"
   ];
 
   env = {
@@ -231,6 +233,3 @@ stdenv.mkDerivation (finalAttrs: {
     ];
   };
 })
-
-
-
