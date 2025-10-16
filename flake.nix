@@ -37,6 +37,7 @@
         wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
         # material-maker = pkgs.callPackage ./pkgs/material-maker { };
         pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
+        vicinae = pkgs.callPackage ./pkgs/vicinae { };
       };
 
       packages.x86_64-linux = rec {
@@ -52,6 +53,7 @@
           jpegli
           pixieditor
           wl_shimeji
+          vicinae
           ;
         default = glslviewer;
       };
