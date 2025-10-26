@@ -33,6 +33,7 @@
   zlib,
   vulkan-memory-allocator,
   zstd,
+  httplib,
 }:
 
 let
@@ -86,18 +87,18 @@ stdenv.mkDerivation (finalAttrs: {
 
   src = fetchgit {
     url = "https://git.ynh.ovh/liberodark/torzu.git";
-    rev = "eaa9c9e3a46eb5099193b11d620ddfe96b6aec83";
-    hash = "sha256-KxLRXM8Y+sIW5L9oYMSeK95HRb30zGRRSfil9DO+utU=";
+    rev = "63f808b365";
+    hash = "sha256-An2VIogJo1IUzl0b7a7270wQeK83vhtphmesnY+OU9Q=";
     fetchSubmodules = true;
   };
 
   patches = [
     # Remove coroutines from debugger to fix boost::asio compatibility issues
-    ./fix-debugger.patch
+    # ./fix-debugger.patch
     # Add explicit cast for CRC checksum value
     ./fix-udp-protocol.patch
     # Use specific boost::asio includes and update to modern io_context
-    ./fix-udp-client.patch
+    # ./fix-udp-client.patch
     # Updates suppressed diagnostics
     ./fix-aarch64-linux-build.patch
   ];

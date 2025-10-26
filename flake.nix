@@ -28,7 +28,8 @@
         jpegli = pkgs.callPackage ./pkgs/jpgli { };
         nx_tzdb = pkgs.callPackage ./pkgs/torzu/nx_tzdb.nix { };
         compat-list = pkgs.callPackage ./pkgs/torzu/compat-list.nix { };
-        torzu = pkgs.callPackage ./pkgs/torzu/torzu.nix { };
+        # torzu = pkgs.callPackage ./pkgs/torzu/torzu.nix { };
+
         # eden-emu = pkgs.callPackage ./pkgs/torzu/eden.nix suyu-deps; # WIP
         eden-emu = pkgs.kdePackages.callPackage ./pkgs/torzu/eden_appimage.nix { };
         pyglossary = pkgs.callPackage ./pkgs/pyglossary { };
@@ -46,7 +47,7 @@
           # material-maker
           eden-emu
           glslviewer
-          torzu
+          # torzu
           nx_tzdb
           compat-list
           pyglossary
