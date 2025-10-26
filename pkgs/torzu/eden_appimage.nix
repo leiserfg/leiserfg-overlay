@@ -12,7 +12,7 @@
   qtwebengine,
   libopus,
   libusb1,
-  fmt_11,
+  fmt_12,
   vulkan-headers,
   glslang,
   spirv-tools,
@@ -24,11 +24,11 @@
 let
   pname = "eden-emulator";
   version = "0.0.4-rc3";
-  sha256 = "sha256-Qm+N36RTjg+H4P/fA5WeUtGZ+nKN+QQvFdqGBABJTco=";
+  sha256 = "sha256-Y0sHMxcxOj1FdTUFxXX8skXHJg2btwLJhuCD0Z2Trc8=";
 
   src = fetchurl {
     # url = "https://github.com/eden-emulator/Releases/releases/download/v${version}/Eden-Linux-v${version}-steamdeck.AppImage";
-    url = "https://github.com/pflyly/eden-nightly/releases/download/2025-09-28-27748/Eden-27748-Steamdeck-PGO-x86_64.AppImage";
+    url = "https://github.com/pflyly/eden-nightly/releases/download/2025-10-26-27884/Eden-27884-Steamdeck-PGO-x86_64.AppImage";
     inherit sha256;
   };
 
@@ -44,7 +44,7 @@ stdenv.mkDerivation rec {
   ];
   # autoPatchelfIgnoreMissingDeps = true;
   buildInputs = [
-    fmt_11
+    fmt_12
     vulkan-utility-libraries
     glslang
     libopus
