@@ -1,11 +1,14 @@
 {
   description = "My home-brew packages";
   inputs.nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
+  inputs.vicinae.url = "git+https://github.com/vicinaehq/vicinae?shallow=1";
+  inputs.vicinae.inputs.nixpkgs.follows = "nixpkgs";
 
   outputs =
     {
       self,
       nixpkgs,
+      vicinae,
       ...
     }@inputs:
     let
@@ -24,7 +27,7 @@
         glslviewer = pkgs.callPackage ./pkgs/glslviewer {
           inherit (pkgs.darwin.apple_sdk.frameworks) Cocoa;
         };
-
+        vicinae = vicinae.packages.x86_64-linux.default;
         jpegli = pkgs.callPackage ./pkgs/jpgli { };
         nx_tzdb = pkgs.callPackage ./pkgs/torzu/nx_tzdb.nix { };
         compat-list = pkgs.callPackage ./pkgs/torzu/compat-list.nix { };
@@ -38,7 +41,6 @@
         wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
         # material-maker = pkgs.callPackage ./pkgs/material-maker { };
         pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
-        vicinae = pkgs.callPackage ./pkgs/vicinae { };
       };
 
       packages.x86_64-linux = rec {
