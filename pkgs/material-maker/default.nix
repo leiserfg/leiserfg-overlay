@@ -2,9 +2,7 @@
   lib,
   stdenv,
   fetchFromGitHub,
-  godot,
-  godotPackages,
-  # godot4-export-templates,
+  godotPackages_4_5,
   libglvnd,
   libX11,
   libXcursor,
@@ -25,10 +23,12 @@ stdenv.mkDerivation (finalAttrs: {
     owner = "RodZill4";
     repo = "material-maker";
     rev = finalAttrs.version;
+
     hash = "sha256-33MR57etKX7Hv3lwYVZ8Pwj5Krs7uhP7UY5vTbAMcSI=";
+
   };
 
-  nativeBuildInputs = [ godot ];
+  nativeBuildInputs = [ godotPackages_4_5.godot ];
 
   buildInputs = [
     libglvnd
@@ -51,7 +51,7 @@ stdenv.mkDerivation (finalAttrs: {
     # Link the export-templates to the expected location. The --export-* commands
     # expects the template-file at .../templates/{godot-version}.stable/
     mkdir -p $HOME/.local/share/godot
-    ln -s ${godotPackages.export-template}/share/godot/templates $HOME/.local/share/godot
+    ln -s ${godotPackages_4_5.export-template}/share/godot/templates $HOME/.local/share/godot
 
     mkdir -vp build
     godot --headless -v --export-release 'Linux/X11' build/material-maker
@@ -81,10 +81,10 @@ stdenv.mkDerivation (finalAttrs: {
   fixupPhase = ''
     runHook preFixup
 
-    # patchelf \
-    #   --set-interpreter '${stdenv.cc.bintools.dynamicLinker}' \
-    #   --set-rpath ${lib.makeLibraryPath finalAttrs.buildInputs} \
-    #   $out/share/material-maker/material-maker
+    patchelf \
+      --set-interpreter '${stdenv.cc.bintools.dynamicLinker}' \
+      --set-rpath ${lib.makeLibraryPath finalAttrs.buildInputs} \
+      $out/share/material-maker/material-maker
 
     runHook postFixup
   '';
