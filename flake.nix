@@ -40,7 +40,7 @@
         # friction-graphics = pkgs.callPackage ./pkgs/friction-graphics { };
         wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
         # material-maker = pkgs.callPackage ./pkgs/material-maker { };
-        pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
+        # pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
         # kitty = pkgs.callPackage ./pkgs/kitty/package.nix {
         #   inherit (pkgs.darwin) autoSignDarwinBinariesHook;
         # };
@@ -59,7 +59,7 @@
           # compat-list
           # pyglossary
           jpegli
-          pixieditor
+          # pixieditor
           wl_shimeji
           vicinae
           ;
