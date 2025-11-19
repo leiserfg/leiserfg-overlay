@@ -20,10 +20,10 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1762844143,
-        "narHash": "sha256-SlybxLZ1/e4T2lb1czEtWVzDCVSTvk9WLwGhmxFmBxI=",
+        "lastModified": 1763421233,
+        "narHash": "sha256-Stk9ZYRkGrnnpyJ4eqt9eQtdFWRRIvMxpNRf4sIegnw=",
         "ref": "nixos-unstable",
-        "rev": "9da7f1cf7f8a6e2a7cb3001b048546c92a8258b4",
+        "rev": "89c2b2330e733d6cdb5eae7b899326930c2c0648",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/NixOS/nixpkgs"
@@ -64,10 +64,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1762946496,
-        "narHash": "sha256-1I3MYXT/tc//ljO887yV/6z/nFLib2Y9aUumX20owR0=",
+        "lastModified": 1763505293,
+        "narHash": "sha256-huleUPkt0iZJZy4e/KPhcHK4ueeqaqiMUu7Ft6NVDFU=",
         "ref": "refs/heads/main",
-        "rev": "4da216d79b51c7c50b018a064530d52e98bacd7c",
+        "rev": "e600ffc4ad1e87f3389327adfab8bb8d2f34261e",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/vicinaehq/vicinae"
