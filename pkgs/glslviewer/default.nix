@@ -5,7 +5,7 @@
   lib,
   fetchFromGitHub,
   pkg-config,
-  ffmpeg,
+  ffmpeg_6,
   ncurses,
   glfw,
   Cocoa,
@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
   buildInputs =
     [
       ncurses
-      ffmpeg
+      ffmpeg_6
       glfw
     ]
     ++ lib.optional stdenv.isDarwin Cocoa;
