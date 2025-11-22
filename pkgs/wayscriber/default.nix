@@ -34,6 +34,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     maintainers = with lib.maintainers; [
       leiserfg
     ];
+    mainProgram = "wayscriber";
     platforms = lib.platforms.unix;
   };
 })
