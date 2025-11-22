@@ -39,6 +39,7 @@
         # friction-graphics = pkgs.libsForQt5.callPackage ./pkgs/friction-graphics/friction_appimagen.nix { };
         # friction-graphics = pkgs.callPackage ./pkgs/friction-graphics { };
         wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
+        wayscriber = pkgs.callPackage ./pkgs/wayscriber { };
         # material-maker = pkgs.callPackage ./pkgs/material-maker { };
         # pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
         # kitty = pkgs.callPackage ./pkgs/kitty/package.nix {
@@ -49,7 +50,7 @@
       packages.x86_64-linux = rec {
         inherit (pkgs)
           # kitty
-
+          wayscriber
           # friction-graphics
           # material-maker
           eden-emu
