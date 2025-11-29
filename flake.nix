@@ -3,7 +3,6 @@
 
   inputs.nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
   inputs.vicinae.url = "git+https://github.com/vicinaehq/vicinae?shallow=1";
-  inputs.vicinae.inputs.nixpkgs.follows = "nixpkgs";
   inputs.tola = {
     url = "github:kawayww/tola";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -13,7 +12,6 @@
     {
       self,
       nixpkgs,
-      vicinae,
       tola,
       ...
     }@inputs:
@@ -33,7 +31,6 @@
         glslviewer = pkgs.callPackage ./pkgs/glslviewer {
           inherit (pkgs.darwin.apple_sdk.frameworks) Cocoa;
         };
-        vicinae = vicinae.packages.x86_64-linux.default;
         tola = tola.packages.x86_64-linux.default;
         jpegli = pkgs.callPackage ./pkgs/jpgli { };
         # nx_tzdb = pkgs.callPackage ./pkgs/torzu/nx_tzdb.nix { };
@@ -69,7 +66,6 @@
           jpegli
           # pixieditor
           wl_shimeji
-          vicinae
           tola
           ;
         default = glslviewer;
