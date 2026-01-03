@@ -31,7 +31,7 @@
         glslviewer = pkgs.callPackage ./pkgs/glslviewer {
           inherit (pkgs.darwin.apple_sdk.frameworks) Cocoa;
         };
-        tola = tola.packages.x86_64-linux.default;
+        # tola = tola.packages.x86_64-linux.default;
         jpegli = pkgs.callPackage ./pkgs/jpgli { };
         # nx_tzdb = pkgs.callPackage ./pkgs/torzu/nx_tzdb.nix { };
         # compat-list = pkgs.callPackage ./pkgs/torzu/compat-list.nix { };
@@ -66,7 +66,7 @@
           jpegli
           # pixieditor
           wl_shimeji
-          tola
+          # tola
           ;
         default = glslviewer;
       };
