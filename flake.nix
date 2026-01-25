@@ -44,6 +44,7 @@
         # friction-graphics = pkgs.callPackage ./pkgs/friction-graphics { };
         wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
         wayscriber = pkgs.callPackage ./pkgs/wayscriber { };
+        voxtype = pkgs.callPackage ./pkgs/voxtype { };
         # material-maker = pkgs.callPackage ./pkgs/material-maker { };
         # pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
         # kitty = pkgs.callPackage ./pkgs/kitty/package.nix {
@@ -66,6 +67,7 @@
           jpegli
           # pixieditor
           wl_shimeji
+          voxtype
           # tola
           ;
         default = glslviewer;
