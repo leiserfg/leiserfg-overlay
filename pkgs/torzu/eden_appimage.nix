@@ -19,16 +19,18 @@
   alsa-plugins,
   alsa-lib,
   libpulseaudio,
+  enet,
+  boost189,
 }:
 
 let
   pname = "eden-emulator";
-  version = "0.0.4-1";
-  sha256 = "sha256-Fy8pgvY25A6WssNKI06HqdoRFor9vC5p1u8MPkJdb60=";
+  version = "0.1.1";
+  sha256 = "sha256-29OWAyJZdKGFT59dN8QuCKMOMvRFCErQH4I5GEbT2Ak==";
 
   src = fetchurl {
     # url = "https://github.com/eden-emulator/Releases/releases/download/v${version}/Eden-Linux-v${version}-steamdeck.AppImage";
-    url = "https://github.com/pflyly/eden-nightly/releases/download/2026-01-03-28159/Eden-28159-Steamdeck-PGO-x86_64.AppImage";
+    url = "https://github.com/Eden-CI/Nightly/releases/download/v1770316725.5acddfde16/Eden-Linux-5acddfde16-steamdeck-clang-pgo.AppImage";
     inherit sha256;
   };
 
@@ -44,6 +46,7 @@ stdenv.mkDerivation rec {
   ];
   # autoPatchelfIgnoreMissingDeps = true;
   buildInputs = [
+    enet
     fmt_12
     vulkan-utility-libraries
     glslang
@@ -55,6 +58,7 @@ stdenv.mkDerivation rec {
     qtmultimedia
     qtwayland
     qtwebengine
+    boost189
   ];
 
   sourceRoot = ".";
