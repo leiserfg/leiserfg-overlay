@@ -20,10 +20,10 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1767116409,
-        "narHash": "sha256-5vKw92l1GyTnjoLzEagJy5V5mDFck72LiQWZSOnSicw=",
+        "lastModified": 1771008912,
+        "narHash": "sha256-gf2AmWVTs8lEq7z/3ZAsgnZDhWIckkb+ZnAo5RzSxJg=",
         "ref": "nixos-unstable",
-        "rev": "cad22e7d996aea55ecab064e84834289143e44a0",
+        "rev": "a82ccc39b39b621151d6732718e3e250109076fa",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/NixOS/nixpkgs"
@@ -118,11 +118,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1767355039,
-        "narHash": "sha256-oCyqUWKtQ+oBiFND1MxLtzUHXew/UXKUFhPJ04zpb9o=",
+        "lastModified": 1769903942,
+        "narHash": "sha256-KPzwN5u8eXC3obNQOSautIOPbdf+kTo89J+S272bifY=",
         "owner": "kawayww",
         "repo": "tola",
-        "rev": "d092e4d74ed87179651cab643834102250c87a09",
+        "rev": "6433d60f4b3a8dfeceb6743862f59f0b75c7e9e7",
         "type": "github"
       },
       "original": {
@@ -137,10 +137,10 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1767426624,
-        "narHash": "sha256-gT3Z562yfQFyNrzxt2HasJBjmdZKai3ZeRJROA0NkkQ=",
+        "lastModified": 1771036703,
+        "narHash": "sha256-tfKkIWZQBpevF03/8m1yEKbkNUCr01MV48lkx+353I4=",
         "ref": "refs/heads/main",
-        "rev": "e9a71e694cbe9b4a6f5b8521e363240f32c7acbc",
+        "rev": "586bb62d2ed6aaa9d4dbd0440955e41cc9a3be1f",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/vicinaehq/vicinae"
