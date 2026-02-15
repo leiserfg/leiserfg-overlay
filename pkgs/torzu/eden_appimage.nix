@@ -26,11 +26,10 @@
 let
   pname = "eden-emulator";
   version = "0.1.1";
-  sha256 = "sha256-29OWAyJZdKGFT59dN8QuCKMOMvRFCErQH4I5GEbT2Ak==";
+  sha256 = "sha256-V3XmpR45qzjjwXgKCxamzZwObHh23CL6brr9nfYITmM=";
 
   src = fetchurl {
-    # url = "https://github.com/eden-emulator/Releases/releases/download/v${version}/Eden-Linux-v${version}-steamdeck.AppImage";
-    url = "https://github.com/Eden-CI/Nightly/releases/download/v1770316725.5acddfde16/Eden-Linux-5acddfde16-steamdeck-clang-pgo.AppImage";
+    url = "https://github.com/Eden-CI/Nightly/releases/download/v1771093428.19e2dba35a/Eden-Linux-19e2dba35a-steamdeck-clang-pgo.AppImage";
     inherit sha256;
   };
 
@@ -39,53 +38,18 @@ stdenv.mkDerivation rec {
   inherit src version pname;
 
   dontUnpack = true;
-  nativeBuildInputs = [
-    autoPatchelfHook
-    wrapQtAppsHook
-    makeWrapper
-  ];
-  # autoPatchelfIgnoreMissingDeps = true;
-  buildInputs = [
-    enet
-    fmt_12
-    vulkan-utility-libraries
-    glslang
-    libopus
-    libusb1
-    spirv-tools
-    vulkan-headers
-    qtbase
-    qtmultimedia
-    qtwayland
-    qtwebengine
-    boost189
-  ];
-
+  dontStrip = true;
   sourceRoot = ".";
 
   installPhase = ''
     runHook preInstall
-    cp $src ./appimage
-    chmod +x ./appimage
-    ./appimage --appimage-extract
-    rm ./appimage
-    ls ./AppDir/
-    install -D ./AppDir/shared/bin/eden $out/bin/eden
+    install -D $src $out/bin/eden
+    chmod +x $out/bin/eden
+    $out/bin/eden --appimage-extract
+
     install -D ./AppDir/dev.eden_emu.eden.desktop $out/share/applications/dev.eden_emu.eden.desktop
     install -D ./AppDir/dev.eden_emu.eden.svg $out/share/icons/hicolor/scalable/apps/dev.eden_emu.eden.svg
 
-    wrapProgram "$out/bin/eden" \
-        --set ALSA_PLUGIN_DIR ${alsa-plugins}/lib/alsa-lib \
-       --suffix LD_LIBRARY_PATH : ${
-         lib.makeLibraryPath [
-           libpulseaudio
-           alsa-lib
-         ]
-       };
-
-    for f in ./AppDir/shared/lib/libSPIRV*; do
-         install -Dm755 "$f" "$out/lib/$(basename "$f")"
-    done
     runHook postInstall
   '';
 
