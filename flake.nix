@@ -2,11 +2,11 @@
   description = "My home-brew packages";
 
   inputs.nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
-  inputs.vicinae.url = "git+https://github.com/vicinaehq/vicinae?shallow=1";
-  inputs.tola = {
-    url = "github:kawayww/tola";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
+  # inputs.vicinae.url = "git+https://github.com/vicinaehq/vicinae?shallow=1";
+  # inputs.tola = {
+  #   url = "github:kawayww/tola";
+  #   inputs.nixpkgs.follows = "nixpkgs";
+  # };
 
   outputs =
     {
