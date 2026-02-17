@@ -35,18 +35,18 @@ let
 in
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "voxtype";
-  version = "0.5.6";
+  version = "0.6.0";
 
   src = fetchFromGitHub {
     owner = "peteonrails";
     repo = "voxtype";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-taPmGWRQGIXxWCl4+1KL609LDBDj6HpxIxFrRr5M86E=";
+    hash = "sha256-CEiS3E2Pd55F82oww64t2WJCtDsrkWbD1oPCiQ6yQ0A=";
   };
 
   buildFeatures = lib.optionals vulkanEnabled [ "gpu-vulkan" ];
 
-  cargoHash = "sha256-p6VLVya8yw+a/ZVM4WP4Th8cScVDX1o89A9v+0+5vIQ=";
+  cargoHash = "sha256-+8yVeB3MSt6l/UACpN89y8D+eCt4ZdUiJyegKTFPGUg=";
 
   nativeBuildInputs = [
     git # Required by whisper.cpp cmake
