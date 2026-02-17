@@ -12,7 +12,7 @@
     {
       self,
       nixpkgs,
-      tola,
+      # tola,
       ...
     }@inputs:
     let
