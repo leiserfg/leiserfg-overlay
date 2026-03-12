@@ -8,11 +8,15 @@
   #   inputs.nixpkgs.follows = "nixpkgs";
   # };
 
+  inputs.llm-agents = {
+    url = "github:numtide/llm-agents.nix";
+    inputs.nixpkgs.follows = "nixpkgs"; # I don't wanna use the cache
+  };
   outputs =
     {
       self,
       nixpkgs,
-      # tola,
+      llm-agents,
       ...
     }@inputs:
     let
@@ -31,20 +35,12 @@
         glslviewer = pkgs.callPackage ./pkgs/glslviewer {
           inherit (pkgs.darwin.apple_sdk.frameworks) Cocoa;
         };
-        # tola = tola.packages.x86_64-linux.default;
+        pi = llm-agents.packages.x86_64-linux.pi;
         jpegli = pkgs.callPackage ./pkgs/jpgli { };
-        # nx_tzdb = pkgs.callPackage ./pkgs/torzu/nx_tzdb.nix { };
-        # compat-list = pkgs.callPackage ./pkgs/torzu/compat-list.nix { };
-        # torzu = pkgs.callPackage ./pkgs/torzu/torzu.nix { };
 
-        # eden-emu = pkgs.callPackage ./pkgs/torzu/eden.nix suyu-deps; # WIP
         eden-emu = pkgs.kdePackages.callPackage ./pkgs/torzu/eden_appimage.nix { };
-        # pyglossary = pkgs.callPackage ./pkgs/pyglossary { };
-        # friction-graphics = pkgs.libsForQt5.callPackage ./pkgs/friction-graphics/friction_appimagen.nix { };
-        # friction-graphics = pkgs.callPackage ./pkgs/friction-graphics { };
         wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
         wayscriber = pkgs.callPackage ./pkgs/wayscriber { };
-        voxtype = pkgs.callPackage ./pkgs/voxtype { };
         # material-maker = pkgs.callPackage ./pkgs/material-maker { };
         # pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
         # kitty = pkgs.callPackage ./pkgs/kitty/package.nix {
@@ -54,7 +50,7 @@
 
       packages.x86_64-linux = rec {
         inherit (pkgs)
-          # kitty
+          pi
           wayscriber
           # friction-graphics
           # material-maker
