@@ -100,7 +100,7 @@ jobs:
           git checkout -b "$BRANCH"
           git add flake.lock pkgs/torzu/eden_appimage.nix
           git commit -m "chore: update flake.lock and Eden AppImage ($DATE)"
-          git push origin "$BRANCH"
+          git push --force origin "$BRANCH"
 
           # Create PR with auto-merge enabled
           gh pr create \
