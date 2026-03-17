@@ -18,6 +18,40 @@ jobs:
       - uses: cachix/install-nix-action@v31
         with:
           nix_path: nixpkgs=channel:nixos-unstable
+      - name: Update Eden AppImage
+        id: eden
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Get the latest release info
+          LATEST_RELEASE=$(gh api repos/Eden-CI/Nightly/releases/latest)
+
+          # Find the asset with steamdeck-clang-pgo in the name (excluding .zsync files)
+          ASSET_URL=$(echo "$LATEST_RELEASE" | jq -r '.assets[] | select(.name | contains("steamdeck-clang-pgo") and endswith(".AppImage")) | .url')
+          ASSET_NAME=$(echo "$LATEST_RELEASE" | jq -r '.assets[] | select(.name | contains("steamdeck-clang-pgo") and endswith(".AppImage")) | .name')
+
+          if [ -z "$ASSET_URL" ]; then
+            echo "ERROR: No steamdeck-clang-pgo asset found in latest release"
+            exit 1
+          fi
+
+          echo "Found asset: $ASSET_NAME"
+          echo "Asset URL: $ASSET_URL"
+
+          # Download the file to compute sha256
+          curl -L -o /tmp/eden.appimage "$ASSET_URL"
+          NEW_SHA256=$(nix-hash --type sha256 --base32 --flat /tmp/eden.appimage)
+
+          echo "New SHA256: $NEW_SHA256"
+          echo "New URL: $ASSET_URL"
+
+          EDEN_FILE="pkgs/torzu/eden_appimage.nix"
+          sed -i "s|sha256 = \"[^\"]*\";|sha256 = \"$NEW_SHA256\";|" "$EDEN_FILE"
+          sed -i "s|url = \"[^\"]*\";|url = \"$ASSET_URL\";|" "$EDEN_FILE"
+
+          echo "Updated $EDEN_FILE"
+          echo "new_sha256=$NEW_SHA256" >> $GITHUB_OUTPUT
+          echo "new_url=$ASSET_URL" >> $GITHUB_OUTPUT
       - name: Update flake
         id: update
         run: |
@@ -25,16 +59,30 @@ jobs:
           nix flake update
 
           # Check if there are changes
-          if git diff --quiet flake.lock; then
-            echo "No updates available"
-            echo "has_updates=false" >> $GITHUB_OUTPUT
-          else
-            echo "Updates found"
+          EDEN_CHANGED=false
+          FLAKE_CHANGED=false
+
+          if ! git diff --quiet pkgs/torzu/eden_appimage.nix; then
+            EDEN_CHANGED=true
+            echo "Eden AppImage changed"
+          fi
+
+          if ! git diff --quiet flake.lock; then
+            FLAKE_CHANGED=true
+            echo "Flake lock changed"
+          fi
+
+          if [ "$EDEN_CHANGED" = "true" ] || [ "$FLAKE_CHANGED" = "true" ]; then
             echo "has_updates=true" >> $GITHUB_OUTPUT
+            echo "eden_changed=$EDEN_CHANGED" >> $GITHUB_OUTPUT
+            echo "flake_changed=$FLAKE_CHANGED" >> $GITHUB_OUTPUT
 
             # Get the date for branch name
             DATE=$(date +%Y-%m-%d)
             echo "date=$DATE" >> $GITHUB_OUTPUT
+          else
+            echo "No updates available"
+            echo "has_updates=false" >> $GITHUB_OUTPUT
           fi
       - name: Create Pull Request
         if: steps.update.outputs.has_updates == 'true'
@@ -50,8 +98,8 @@ jobs:
 
           # Create and push branch
           git checkout -b "$BRANCH"
-          git add flake.lock
-          git commit -m "chore: update flake.lock ($DATE)"
+          git add flake.lock pkgs/torzu/eden_appimage.nix
+          git commit -m "chore: update flake.lock and Eden AppImage ($DATE)"
           git push origin "$BRANCH"
 
           # Create PR with auto-merge enabled
@@ -61,9 +109,13 @@ jobs:
           This PR updates all flake inputs to their latest versions.
           - If CI passes, this PR will be automatically merged.
           - If CI fails, manual review is required.
-          Changes:
+
+          **Changes:**
+          - Eden AppImage: ${{ steps.eden.outputs.new_url }}
+          - Flake lock: Updated$([ \"${{ steps.update.outputs.flake_changed }}\" = \"true\" ] && echo '' || echo ' (no changes)')
+
           \`\`\`
-          $(git diff origin/master flake.lock | head -50)
+          $(git diff origin/master -- flake.lock pkgs/torzu/eden_appimage.nix | head -50)
           \`\`\`" \
             --base master \
             --head "$BRANCH"
@@ -73,5 +125,8 @@ jobs:
       - name: Summary
         if: steps.update.outputs.has_updates == 'true'
         run: |-
-          echo "✅ Created PR for flake updates" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Created PR for updates" >> $GITHUB_STEP_SUMMARY
+          echo "- Eden AppImage: ${{ steps.eden.outputs.new_url }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Flake lock: ${{ steps.update.outputs.flake_changed }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
           echo "The PR will automatically merge if CI passes" >> $GITHUB_STEP_SUMMARY
