@@ -102,10 +102,13 @@ jobs:
           git commit -m "chore: update flake.lock and Eden AppImage ($DATE)"
           git push --force origin "$BRANCH"
 
-          # Create PR with auto-merge enabled
-          gh pr create \
-            --title "chore: update flake inputs ($DATE)" \
-            --body "Automated weekly flake update.
+          # Create PR with auto-merge enabled (if not already exists)
+          if gh pr view "$BRANCH" --json number >/dev/null 2>&1; then
+            echo "PR already exists for branch $BRANCH, updating it"
+          else
+            gh pr create \
+              --title "chore: update flake inputs ($DATE)" \
+              --body "Automated weekly flake update.
           This PR updates all flake inputs to their latest versions.
           - If CI passes, this PR will be automatically merged.
           - If CI fails, manual review is required.
@@ -117,11 +120,12 @@ jobs:
           \`\`\`
           $(git diff origin/master -- flake.lock pkgs/torzu/eden_appimage.nix | head -50)
           \`\`\`" \
-            --base master \
-            --head "$BRANCH"
+              --base master \
+              --head "$BRANCH"
 
-          # Enable auto-merge (will merge when all checks pass)
-          gh pr merge "$BRANCH" --auto --squash
+            # Enable auto-merge (will merge when all checks pass)
+            gh pr merge "$BRANCH" --auto --squash
+          fi
       - name: Summary
         if: steps.update.outputs.has_updates == 'true'
         run: |-
