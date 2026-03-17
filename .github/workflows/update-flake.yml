@@ -27,7 +27,7 @@ jobs:
           LATEST_RELEASE=$(gh api repos/Eden-CI/Nightly/releases/latest)
 
           # Find the asset with steamdeck-clang-pgo in the name (excluding .zsync files)
-          ASSET_URL=$(echo "$LATEST_RELEASE" | jq -r '.assets[] | select(.name | contains("steamdeck-clang-pgo") and endswith(".AppImage")) | .url')
+          ASSET_URL=$(echo "$LATEST_RELEASE" | jq -r '.assets[] | select(.name | contains("steamdeck-clang-pgo") and endswith(".AppImage")) | .browser_download_url')
           ASSET_NAME=$(echo "$LATEST_RELEASE" | jq -r '.assets[] | select(.name | contains("steamdeck-clang-pgo") and endswith(".AppImage")) | .name')
 
           if [ -z "$ASSET_URL" ]; then
