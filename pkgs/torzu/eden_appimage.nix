@@ -26,10 +26,10 @@
 let
   pname = "eden-emulator";
   version = "0.2.0";
-  sha256 = "07924jw727adyf5sqid77cd7bkvzv6yw2kkbchw2d0n88bwy3j69";
+  sha256 = "0nyqvqdvz59l9lbfrcc6m1w4jcg6w0w0s28mk4sf4pi9bd35czi9";
 
   src = fetchurl {
-    url = "https://github.com/Eden-CI/Nightly/releases/download/v1773776627.af554c0baa/Eden-Linux-af554c0baa-steamdeck-clang-pgo.AppImage";
+    url = "https://github.com/Eden-CI/Nightly/releases/download/v1773945891.844e0360c7/Eden-Linux-844e0360c7-steamdeck-clang-pgo.AppImage";
     inherit sha256;
   };
 
