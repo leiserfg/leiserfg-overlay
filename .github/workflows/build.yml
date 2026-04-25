@@ -31,7 +31,7 @@ jobs:
       # with:
       #   extra_nix_config: |
       #     access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
-    - uses: cachix/cachix-action@v16
+    - uses: cachix/cachix-action@v17
       with:
         name: leiserfg
         authToken: '${{ secrets.CACHIX_TOKEN }}'
