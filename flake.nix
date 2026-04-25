@@ -29,7 +29,7 @@
         jpegli = pkgs.callPackage ./pkgs/jpgli { };
 
         ansel = prev.ansel.overrideAttrs (old: {
-          src = fetchFromGitHub {
+          src = prev.fetchFromGitHub {
             owner = "aurelienpierreeng";
             repo = "ansel";
             rev = "01022024bc001987ac69308c8a5d1b2b4063f239";
