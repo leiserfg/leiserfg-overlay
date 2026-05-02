@@ -41,15 +41,17 @@ stdenv.mkDerivation rec {
   dontUnpack = true;
   dontStrip = true;
   sourceRoot = ".";
-
+  nativeBuildInputs = [ makeWrapper ];
   installPhase = ''
     runHook preInstall
-    install -D $src $out/bin/eden
-    chmod +x $out/bin/eden
-    $out/bin/eden --appimage-extract
+    install -D $src $out/bin/eden-unwrapped
+    chmod +x $out/bin/eden-unwrapped
+    $out/bin/eden-unwrapped --appimage-extract
 
     install -D ./AppDir/dev.eden_emu.eden.desktop $out/share/applications/dev.eden_emu.eden.desktop
     install -D ./AppDir/dev.eden_emu.eden.svg $out/share/icons/hicolor/scalable/apps/dev.eden_emu.eden.svg
+
+    makeWrapper  $out/bin/eden-unwrapped  $out/bin/eden --set ALSA_PLUGIN_DIR ${alsa-plugins}/lib/alsa-lib/ 
 
     runHook postInstall
   '';
