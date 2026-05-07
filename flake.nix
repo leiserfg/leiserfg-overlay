@@ -45,7 +45,7 @@
           wl_shimeji
           voxtype
           pixieditor
-          # kitty
+          kitty
           # ansel
           ;
         default = glslviewer;
