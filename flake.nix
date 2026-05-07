@@ -32,6 +32,7 @@
         wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
         wayscriber = pkgs.callPackage ./pkgs/wayscriber { };
         pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
+        kitty = pkgs.callPackage ./pkgs/kitty/package.nix { };
       };
 
       packages.x86_64-linux = rec {
@@ -44,6 +45,7 @@
           wl_shimeji
           voxtype
           pixieditor
+          # kitty
           # ansel
           ;
         default = glslviewer;
