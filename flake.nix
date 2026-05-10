@@ -34,10 +34,10 @@
         pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
         kitty = pkgs.callPackage ./pkgs/kitty/package.nix { };
 
-        llama-cpp-vulkan = pkgs.llama-cpp-vulkan.overrideAttrs (
+        llama-cpp-vulkan = prev.llama-cpp-vulkan.overrideAttrs (
           final: prev: {
             version = "b9085";
-            src = prev.fetchFromGitHub {
+            src = pkgs.fetchFromGitHub {
               owner = "Indras-Mirror";
               repo = "llama.cpp-mtp";
               rev = "e2170c42ebb0fb7719e0ecc268826cd08f492e2b";
