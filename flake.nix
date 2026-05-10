@@ -36,7 +36,7 @@
 
         llama-cpp-vulkan = prev.llama-cpp-vulkan.overrideAttrs (
           final: prev: {
-            version = "b9085";
+            version = "9085";
             src = pkgs.fetchFromGitHub {
               owner = "Indras-Mirror";
               repo = "llama.cpp-mtp";
