@@ -33,6 +33,24 @@
         wayscriber = pkgs.callPackage ./pkgs/wayscriber { };
         pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
         kitty = pkgs.callPackage ./pkgs/kitty/package.nix { };
+
+        llama-cpp-vulkan = pkgs.llama-cpp-vulkan.overrideAttrs (
+          final: prev: {
+            version = "b9085";
+            src = prev.fetchFromGitHub {
+              owner = "Indras-Mirror";
+              repo = "llama.cpp-mtp";
+              rev = "e2170c42ebb0fb7719e0ecc268826cd08f492e2b";
+              hash = "sha256-bQQ4noE761NzBpxJMzoJD+ejMZUdX/gfmxcf2UaMipw=";
+              leaveDotGit = true;
+              postFetch = ''
+                git -C "$out" rev-parse --short HEAD > $out/COMMIT
+                find "$out" -name .git -print0 | xargs -0 rm -rf
+              '';
+            };
+            npmDepsHash = "sha256-k62LIbyY2DXvs7XXbX0lNPiYxuYzeJUyQtS4eA+68f8=";
+          }
+        );
       };
 
       packages.x86_64-linux = rec {
@@ -46,7 +64,7 @@
           voxtype
           pixieditor
           kitty
-          # ansel
+          llama-cpp-vulkan
           ;
         default = glslviewer;
       };
