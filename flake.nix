@@ -26,7 +26,7 @@
           inherit (pkgs.darwin.apple_sdk.frameworks) Cocoa;
         };
         pi = llm-agents.packages.x86_64-linux.pi;
-        jpegli = pkgs.callPackage ./pkgs/jpgli { };
+        # jpegli = pkgs.callPackage ./pkgs/jpgli { };
 
         eden-emu = pkgs.kdePackages.callPackage ./pkgs/torzu/eden_appimage.nix { };
         wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
@@ -59,7 +59,7 @@
           wayscriber
           eden-emu
           glslviewer
-          jpegli
+          # jpegli
           wl_shimeji
           voxtype
           pixieditor
