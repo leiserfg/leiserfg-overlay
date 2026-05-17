@@ -6,6 +6,7 @@
   llvmPackages,
   lld,
   gcc,
+  autoPatchelfHook,
   nix-update-script,
 }:
 
@@ -24,6 +25,7 @@ stdenv.mkDerivation (finalAttrs: {
     zig_0_16
     llvmPackages.llvm
     gcc
+    autoPatchelfHook
   ];
 
   buildInputs = [
