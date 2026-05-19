@@ -37,19 +37,25 @@
 
         llama-cpp-vulkan = prev.llama-cpp-vulkan.overrideAttrs (
           final: prev: {
-            version = "9085";
+            version = "9222";
             src = pkgs.fetchFromGitHub {
-              owner = "Indras-Mirror";
-              repo = "llama.cpp-mtp";
-              rev = "e2170c42ebb0fb7719e0ecc268826cd08f492e2b";
-              hash = "sha256-bQQ4noE761NzBpxJMzoJD+ejMZUdX/gfmxcf2UaMipw=";
+              owner = "ggml-org";
+              repo = "llama.cpp";
+              tag = "b${final.version}";
+              hash = "sha256-Ws0a2qkgTFoeUuzg6tKbY6PfDP+0/9D9DTx21fLoFak=";
               leaveDotGit = true;
               postFetch = ''
                 git -C "$out" rev-parse --short HEAD > $out/COMMIT
                 find "$out" -name .git -print0 | xargs -0 rm -rf
               '';
             };
-            npmDepsHash = "sha256-k62LIbyY2DXvs7XXbX0lNPiYxuYzeJUyQtS4eA+68f8=";
+            cmakeFlags = [
+              (pkgs.lib.cmakeBool "GGML_CPU_ALL_VARIANTS" true)
+              (pkgs.lib.cmakeBool "GGML_BACKEND_DL" true)
+            ]
+            ++ prev.cmakeFlags;
+            npmDepsHash = "sha256-Po5SWJv3vmcBR7y62G9/CfvI3Lk/MYdjFMTTy2dsgoY=";
+            npmRoot = "tools/ui";
           }
         );
       };
