@@ -26,7 +26,8 @@ stdenv.mkDerivation (finalAttrs: {
     llvmPackages.llvm
     gcc
     autoPatchelfHook
-  ];
+  ]
+  ++ lib.optional stdenv.isLinux [ ];
 
   buildInputs = [
     llvmPackages.libllvm
@@ -35,13 +36,21 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   buildPhase = ''
-    cd bootstrap
-    zig build -Doptimize=ReleaseFast
+    sed 's|/bin/bash|${stdenv.shell}|g' -i Makefile
+    make build
   '';
 
   installPhase = ''
     mkdir -p $out/bin
-    cp zig-out/bin/openjai $out/bin/
+    mv out/bootstrap/bin/openjai $out/bin/.openjai-unwrapped
+    mkdir -p $out/lib
+    mv out/bootstrap/lib/openjai_runtime.o $out/lib/openjai_runtime.o
+
+    cat > $out/bin/openjai << EOF
+#!/bin/sh
+exec $out/bin/.openjai-unwrapped "\$@" --runtime $out/lib/openjai_runtime.o
+EOF
+    chmod +x $out/bin/openjai
   '';
 
   passthru.updateScript = nix-update-script { };

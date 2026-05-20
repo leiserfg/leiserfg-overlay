@@ -33,7 +33,7 @@
         wayscriber = pkgs.callPackage ./pkgs/wayscriber { };
         pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
         kitty = pkgs.callPackage ./pkgs/kitty/package.nix { };
-        open-jai = pkgs.callPackage ./pkgs/open-jai { };
+        # open-jai = pkgs.callPackage ./pkgs/open-jai { };
 
         llama-cpp-vulkan = prev.llama-cpp-vulkan.overrideAttrs (
           final: prev: {
@@ -72,7 +72,7 @@
           pixieditor
           kitty
           llama-cpp-vulkan
-          open-jai
+          # open-jai
           ;
         default = glslviewer;
       };
