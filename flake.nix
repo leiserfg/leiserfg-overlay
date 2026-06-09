@@ -3,14 +3,21 @@
 
   inputs.nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
   inputs.llm-agents = {
-    url = "github:numtide/llm-agents.nix";
+    url = "git+https://github.com/numtide/llm-agents.nix?shallow=1";
     inputs.nixpkgs.follows = "nixpkgs"; # I don't wanna use the cache
   };
+
+  inputs.noctalia = {
+    url = "git+https://github.com/noctalia-dev/noctalia?shallow=1";
+    inputs.nixpkgs.follows = "nixpkgs"; # I don't wanna use the cache
+  };
+
   outputs =
     {
       self,
       nixpkgs,
       llm-agents,
+      noctalia,
       ...
     }@inputs:
     let
@@ -26,6 +33,7 @@
           inherit (pkgs.darwin.apple_sdk.frameworks) Cocoa;
         };
         pi = llm-agents.packages.x86_64-linux.pi;
+        noctalia_5 = noctalia.packages.x86_64-linux.default;
         # jpegli = pkgs.callPackage ./pkgs/jpgli { };
 
         eden-emu = pkgs.kdePackages.callPackage ./pkgs/torzu/eden_appimage.nix { };
@@ -41,6 +49,7 @@
           pi
           wayscriber
           eden-emu
+          noctalia_5
           glslviewer
           # jpegli
           wl_shimeji

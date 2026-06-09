@@ -91,17 +91,18 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1780623844,
-        "narHash": "sha256-OhaF729h7D4s7wlvxe7fomPqsByaS9UxxyNmWjDCIjo=",
-        "owner": "numtide",
-        "repo": "llm-agents.nix",
-        "rev": "82622a6ac0d1c0a0e982e036cbe2e09ea6daac1e",
-        "type": "github"
+        "lastModified": 1780984090,
+        "narHash": "sha256-b0K1GfAO/0ZHarb8bKU7xCo+qV8Q1NBT/eB9I8RoWoI=",
+        "ref": "refs/heads/main",
+        "rev": "ccd30237f9cf64835a536a20a3546b1112934a62",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/numtide/llm-agents.nix"
       },
       "original": {
-        "owner": "numtide",
-        "repo": "llm-agents.nix",
-        "type": "github"
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/numtide/llm-agents.nix"
       }
     },
     "nixpkgs": {
@@ -121,10 +122,32 @@
         "url": "https://github.com/NixOS/nixpkgs"
       }
     },
+    "noctalia": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780972344,
+        "narHash": "sha256-sHsorKFgW0jUvAjzRGgJ6FOMWSkgwBydtjkSh9FwpPI=",
+        "ref": "refs/heads/main",
+        "rev": "65b228b950225ae7e4b212930a7a42f9248d24d9",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/noctalia-dev/noctalia"
+      },
+      "original": {
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/noctalia-dev/noctalia"
+      }
+    },
     "root": {
       "inputs": {
         "llm-agents": "llm-agents",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "noctalia": "noctalia"
       }
     },
     "systems": {
