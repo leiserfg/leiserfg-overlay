@@ -37,25 +37,24 @@
         # jpegli = pkgs.callPackage ./pkgs/jpgli { };
 
         eden-emu = pkgs.kdePackages.callPackage ./pkgs/torzu/eden_appimage.nix { };
-        wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
-        wayscriber = pkgs.callPackage ./pkgs/wayscriber { };
-        pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
-        kitty = pkgs.callPackage ./pkgs/kitty/package.nix { };
+        # wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
+        # wayscriber = pkgs.callPackage ./pkgs/wayscriber { };
+        # pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
+        # kitty = pkgs.callPackage ./pkgs/kitty/package.nix { };
         # open-jai = pkgs.callPackage ./pkgs/open-jai { };
       };
 
       packages.x86_64-linux = rec {
         inherit (pkgs)
           pi
-          wayscriber
+          # wayscriber
           eden-emu
           noctalia_5
           glslviewer
           # jpegli
-          wl_shimeji
-          voxtype
-          pixieditor
-          kitty
+          # wl_shimeji
+          # pixieditor
+          # kitty
           # open-jai
           ;
         default = glslviewer;
