@@ -31,8 +31,20 @@ echo "Download URL: $DOWNLOAD_URL"
 
 # Prefetch the AppImage to the Nix store
 echo "Prefetching AppImage to Nix store..."
-if ! NEW_SHA256=$(nix-prefetch-url --type sha256 "$DOWNLOAD_URL" 2>/dev/null); then
+PREFETCH_OUTPUT=$(nix-prefetch-url --type sha256 "$DOWNLOAD_URL" 2>&1)
+PREFETCH_EXIT=$?
+if [ $PREFETCH_EXIT -ne 0 ]; then
     echo "Error: Failed to prefetch AppImage from $DOWNLOAD_URL"
+    echo "Output: $PREFETCH_OUTPUT"
+    exit 1
+fi
+
+# Extract just the hash (last line of output, which is the base64 hash without prefix)
+NEW_SHA256=$(echo "$PREFETCH_OUTPUT" | tail -n 1 | tr -d ' ')
+
+# Validate hash looks reasonable (should be base64)
+if ! echo "$NEW_SHA256" | grep -qE '^[A-Za-z0-9+/=]+$'; then
+    echo "Error: Invalid hash format: $NEW_SHA256"
     exit 1
 fi
 
@@ -42,11 +54,25 @@ echo "File is now in the Nix store!"
 # Update the nix file
 echo "Updating $NIX_FILE..."
 
-# Replace the URL
-sed -i "s|url = \"https://nightly\.eden-emu\.dev/[^\"]*\"|url = \"$DOWNLOAD_URL\"|" "$NIX_FILE"
+# Escape special characters in DOWNLOAD_URL for sed
+ESCAPED_URL=$(printf '%s\n' "$DOWNLOAD_URL" | sed -e 's/[\/&]/\\&/g')
 
-# Replace the SHA256 hash
-sed -i "s|sha256 = \"sha256-[^\"]*\"|sha256 = \"sha256-$NEW_SHA256\"|" "$NIX_FILE"
+# Replace the URL - use a more specific pattern to avoid unintended replacements
+sed -i "s|url = \"https://nightly\.eden-emu\.dev/v[^/]*/[^\"]*\"|url = \"$ESCAPED_URL\"|" "$NIX_FILE"
+
+# Replace the SHA256 hash - match the complete line with proper anchoring
+sed -i "s/sha256 = \"sha256-[^\"]*\";/sha256 = \"sha256-$NEW_SHA256\";/" "$NIX_FILE"
+
+# Verify the changes were made
+if ! grep -q "sha256 = \"sha256-$NEW_SHA256\"" "$NIX_FILE"; then
+    echo "Error: Failed to update hash in $NIX_FILE"
+    exit 1
+fi
+
+if ! grep -q "$DOWNLOAD_URL" "$NIX_FILE"; then
+    echo "Error: Failed to update URL in $NIX_FILE"
+    exit 1
+fi
 
 echo "✓ Update complete!"
 echo ""
@@ -57,4 +83,4 @@ echo ""
 echo "File is already cached in the Nix store, so builds will be fast!"
 echo ""
 echo "Please verify the changes and test the package:"
-echo "  nix build -f pkgs/torzu/eden_appimage.nix"
+echo "  nix build '.#eden-emu' --dry-run"
