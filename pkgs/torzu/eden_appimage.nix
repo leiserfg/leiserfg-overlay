@@ -26,7 +26,7 @@
 let
   pname = "eden-emulator";
   version = "0.2.0";
-  sha256 = "sha256-1ydr17wrvg53krhj6x82qnl4zsr1lms9fd0fiy20qajvvcmiqcfh";
+  sha256 = "sha256-0DEcK9tbKgyEjw40l3SlIetPqMUCdSNhnqO8nfkJufk=";
 
   src = fetchurl {
 
