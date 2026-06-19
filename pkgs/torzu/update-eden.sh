@@ -31,20 +31,20 @@ echo "Download URL: $DOWNLOAD_URL"
 
 # Prefetch the AppImage to the Nix store
 echo "Prefetching AppImage to Nix store..."
-PREFETCH_OUTPUT=$(nix-prefetch-url --type sha256 "$DOWNLOAD_URL" 2>&1)
+STORE_PATH=$(nix-prefetch-url --print-path --type sha256 "$DOWNLOAD_URL" 2>&1 | tail -n 1)
 PREFETCH_EXIT=$?
-if [ $PREFETCH_EXIT -ne 0 ]; then
+if [ $PREFETCH_EXIT -ne 0 ] || [ -z "$STORE_PATH" ] || [ ! -f "$STORE_PATH" ]; then
     echo "Error: Failed to prefetch AppImage from $DOWNLOAD_URL"
-    echo "Output: $PREFETCH_OUTPUT"
+    echo "Store path: $STORE_PATH"
     exit 1
 fi
 
-# Extract just the hash (last line of output, which is the base64 hash without prefix)
-NEW_SHA256=$(echo "$PREFETCH_OUTPUT" | tail -n 1 | tr -d ' ')
+# Compute the actual hash from the downloaded file using nix hash file
+NEW_SHA256=$(nix hash file "$STORE_PATH" 2>/dev/null | sed 's/^sha256-//')
 
-# Validate hash looks reasonable (should be base64)
-if ! echo "$NEW_SHA256" | grep -qE '^[A-Za-z0-9+/=]+$'; then
-    echo "Error: Invalid hash format: $NEW_SHA256"
+# Validate hash looks reasonable (should be base64, around 43 chars)
+if ! echo "$NEW_SHA256" | grep -qE '^[A-Za-z0-9+/=]{43}=$'; then
+    echo "Error: Invalid hash format or length: $NEW_SHA256 (length: ${#NEW_SHA256})"
     exit 1
 fi
 
