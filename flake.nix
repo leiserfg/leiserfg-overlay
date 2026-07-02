@@ -17,6 +17,11 @@
     flake = false;
   };
 
+  inputs.pytest-language-server = {
+    url = "git+https://github.com/bellini666/pytest-language-server?shallow=1";
+    flake = false;
+  };
+
   outputs =
     {
       self,
@@ -24,6 +29,7 @@
       llm-agents,
       noctalia,
       calepin,
+      pytest-language-server,
       ...
     }@inputs:
     let
@@ -39,6 +45,7 @@
           inherit (pkgs.darwin.apple_sdk.frameworks) Cocoa;
         };
         calepin = pkgs.callPackage ./pkgs/calepin { src = calepin; };
+        pytest-language-server = pkgs.callPackage ./pkgs/pytest-language-server { src = pytest-language-server; };
         pi = llm-agents.packages.x86_64-linux.pi;
         noctalia_5 = noctalia.packages.x86_64-linux.default;
         # jpegli = pkgs.callPackage ./pkgs/jpgli { };
@@ -59,6 +66,7 @@
           noctalia_5
           glslviewer
           calepin
+          pytest-language-server
           # jpegli
           # wl_shimeji
           # pixieditor
