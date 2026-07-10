@@ -108,10 +108,10 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1783603646,
-        "narHash": "sha256-plXAK4U32Kub++YIs9zPYMfE2y6GAAcKjjY8yuqOkWE=",
+        "lastModified": 1783638456,
+        "narHash": "sha256-OULxF6RbMhB5K7la4R9b2k+Zl8d0PIjoRgt5g26JrOI=",
         "ref": "refs/heads/main",
-        "rev": "89b3d6ef814f387a2c6b574a0153a8fb40db7bf7",
+        "rev": "a24d0399998f138ba535a1653b3a49cf80dfeb5c",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/numtide/llm-agents.nix"
@@ -146,10 +146,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1783609831,
-        "narHash": "sha256-dRvGsRCSWjWn05qaB2cE/ft3QCtyP/U/FZNLbjoF5qw=",
+        "lastModified": 1783618499,
+        "narHash": "sha256-UwLxkIz9HDiARFVocKnGR6OAMs9XAuFRke+InNBmL1A=",
         "ref": "refs/heads/main",
-        "rev": "0571a4523bc5efaef901c084a7fae16ee6b8231a",
+        "rev": "313732302e6432d7ce41a9ce2334fdaca879dcd7",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/noctalia-dev/noctalia"
