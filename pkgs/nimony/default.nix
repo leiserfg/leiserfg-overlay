@@ -14,6 +14,8 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [nim];
 
+  buildInputs = [];
+
   configurePhase = ":";
 
   unpackPhase = ''
@@ -29,6 +31,8 @@ stdenv.mkDerivation rec {
     # Use mimalloc from nixpkgs instead of git submodule
     rm -rf vendor/mimalloc
     ln -s ${mimalloc.src} vendor/mimalloc
+    # Disable git submodule update since we're using nixpkgs version
+    sed -i 's/exec "git submodule update --init"/# git submodule disabled in nix build/' src/hastur.nim
   '';
 
   buildPhase = ''
