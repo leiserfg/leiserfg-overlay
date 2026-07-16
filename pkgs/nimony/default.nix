@@ -2,7 +2,6 @@
   stdenv,
   lib,
   nim,
-  git,
   fetchFromGitHub,
   mimalloc,
   src,
@@ -13,7 +12,7 @@ stdenv.mkDerivation rec {
 
   inherit src;
 
-  nativeBuildInputs = [nim git];
+  nativeBuildInputs = [nim];
 
   configurePhase = ":";
 
@@ -27,17 +26,10 @@ stdenv.mkDerivation rec {
   env.XDG_CACHE_HOME = "/tmp/.cache";
 
   patchPhase = ''
-    git init
-    git config user.email "nobody@example.com"
-    git config user.name "Nobody"
-    git add .
-    git commit -m "Initial commit"
     # Use mimalloc from nixpkgs instead of git submodule
     rm -rf vendor/mimalloc
     ln -s ${mimalloc.src} vendor/mimalloc
   '';
-
-  preBuildPhase = "";
 
   buildPhase = ''
     nim c -r --warnings:off src/hastur build all
