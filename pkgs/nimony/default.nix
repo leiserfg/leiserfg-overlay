@@ -17,25 +17,24 @@ stdenv.mkDerivation rec {
   env.XDG_CACHE_HOME = "/tmp/.cache";
 
   preBuildPhase = ''
-    cd $src
+    cp -r $src builddir
+    cd builddir
     git init
     git config user.email "nobody@example.com"
     git config user.name "Nobody"
     git add .
     git commit -m "Initial commit"
-    cd -
   '';
 
   buildPhase = ''
-    cd $src
     nim c -r --warnings:off src/hastur build all
   '';
 
   installPhase = ''
     mkdir -p $out/bin
-    cp -r bin/* $out/bin/
+    cp -r builddir/bin/* $out/bin/
     mkdir -p $out/lib
-    cp -r lib/* $out/lib/
+    cp -r builddir/lib/* $out/lib/
   '';
 
   meta = with lib; {
