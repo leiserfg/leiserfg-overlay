@@ -11,16 +11,17 @@ stdenv.mkDerivation rec {
 
   inherit src;
 
-  sourceRoot = "builddir";
-
   nativeBuildInputs = [nim git];
+
+  unpackPhase = ''
+    cp -r $src builddir
+    sourceRoot=builddir
+  '';
 
   env.HOME = "/tmp";
   env.XDG_CACHE_HOME = "/tmp/.cache";
 
   preBuildPhase = ''
-    cp -r $src builddir
-    cd builddir
     git init
     git config user.email "nobody@example.com"
     git config user.name "Nobody"
@@ -34,9 +35,9 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out/bin
-    cp -r builddir/bin/* $out/bin/
+    cp -r bin/* $out/bin/
     mkdir -p $out/lib
-    cp -r builddir/lib/* $out/lib/
+    cp -r lib/* $out/lib/
   '';
 
   meta = with lib; {
