@@ -17,6 +17,7 @@ stdenv.mkDerivation rec {
 
   unpackPhase = ''
     cp -r $src builddir
+    chmod -R u+w builddir
     cd builddir
   '';
 
