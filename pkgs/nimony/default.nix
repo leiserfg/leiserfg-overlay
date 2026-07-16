@@ -16,12 +16,6 @@ stdenv.mkDerivation rec {
 
   configurePhase = ":";
 
-  unpackPhase = ''
-    cp -r $src builddir
-    chmod -R u+w builddir
-    cd builddir
-  '';
-
   env.HOME = "/tmp";
   env.XDG_CACHE_HOME = "/tmp/.cache";
 
