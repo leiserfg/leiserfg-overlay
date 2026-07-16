@@ -1,19 +1,14 @@
 {
   stdenv,
   lib,
-  fetchFromGitHub,
   nim,
+  src,
 }:
 stdenv.mkDerivation rec {
   pname = "nimony";
   version = "unstable-2024-07-16";
 
-  src = fetchFromGitHub {
-    owner = "nim-lang";
-    repo = "nimony";
-    rev = "969dbfdda799dd1d5a122dfedd278313bb20f608";
-    hash = "sha256-oAnNDgMSVvdMyFbx+bBxR4zLfbiVmtdvQuSTttzCBd8=";
-  };
+  inherit src;
 
   nativeBuildInputs = [nim];
 
