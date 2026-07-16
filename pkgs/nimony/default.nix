@@ -13,7 +13,7 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [nim];
 
   buildPhase = ''
-    nim c -r src/hastur build all
+    nim c -r --warnings:off src/hastur build all
   '';
 
   installPhase = ''
