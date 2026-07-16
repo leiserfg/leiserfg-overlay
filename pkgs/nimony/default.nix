@@ -11,6 +11,8 @@ stdenv.mkDerivation rec {
 
   inherit src;
 
+  sourceRoot = "builddir";
+
   nativeBuildInputs = [nim git];
 
   env.HOME = "/tmp";
