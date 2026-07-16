@@ -14,8 +14,6 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [nim];
 
-  buildInputs = [];
-
   configurePhase = ":";
 
   unpackPhase = ''
