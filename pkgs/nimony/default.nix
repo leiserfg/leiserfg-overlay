@@ -2,17 +2,16 @@
   stdenv,
   lib,
   nim,
-  fetchFromGitHub,
   mimalloc,
   src,
 }:
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "nimony";
   version = "unstable-2024-07-16";
 
   inherit src;
 
-  nativeBuildInputs = [nim];
+  nativeBuildInputs = [ nim ];
 
   configurePhase = ":";
 
