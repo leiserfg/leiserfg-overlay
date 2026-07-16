@@ -3,6 +3,7 @@
   lib,
   nim,
   git,
+  fetchFromGitHub,
   src,
 }:
 stdenv.mkDerivation rec {
@@ -30,6 +31,14 @@ stdenv.mkDerivation rec {
     git config user.name "Nobody"
     git add .
     git commit -m "Initial commit"
+    # Fetch mimalloc submodule
+    mkdir -p vendor/mimalloc
+    cd vendor/mimalloc
+    git init
+    git remote add origin https://github.com/nim-lang/mimalloc
+    git fetch origin HEAD
+    git checkout FETCH_HEAD
+    cd ../..
   '';
 
   preBuildPhase = "";
