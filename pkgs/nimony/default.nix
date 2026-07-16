@@ -17,14 +17,17 @@ stdenv.mkDerivation rec {
   env.XDG_CACHE_HOME = "/tmp/.cache";
 
   preBuildPhase = ''
+    cd $src
     git init
     git config user.email "nobody@example.com"
     git config user.name "Nobody"
     git add .
     git commit -m "Initial commit"
+    cd -
   '';
 
   buildPhase = ''
+    cd $src
     nim c -r --warnings:off src/hastur build all
   '';
 
