@@ -22,6 +22,11 @@
     flake = false;
   };
 
+  inputs.nimony = {
+    url = "git+https://github.com/nim-lang/nimony?shallow=1";
+    flake = false;
+  };
+
   outputs =
     {
       self,
@@ -30,6 +35,7 @@
       noctalia,
       calepin,
       pytest-language-server,
+      nimony,
       ...
     }@inputs:
     let
@@ -51,6 +57,7 @@
         # jpegli = pkgs.callPackage ./pkgs/jpgli { };
 
         eden-emu = pkgs.kdePackages.callPackage ./pkgs/torzu/eden_appimage.nix { };
+        nimony = pkgs.callPackage ./pkgs/nimony { src = nimony; };
         # wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
         # wayscriber = pkgs.callPackage ./pkgs/wayscriber { };
         # pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
@@ -67,6 +74,7 @@
           glslviewer
           calepin
           pytest-language-server
+          nimony
           # jpegli
           # wl_shimeji
           # pixieditor
