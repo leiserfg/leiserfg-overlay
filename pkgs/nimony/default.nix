@@ -12,6 +12,9 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [nim];
 
+  env.HOME = "/tmp";
+  env.XDG_CACHE_HOME = "/tmp/.cache";
+
   buildPhase = ''
     nim c -r --warnings:off src/hastur build all
   '';
