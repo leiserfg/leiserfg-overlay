@@ -13,9 +13,11 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [nim git];
 
+  configurePhase = ":";
+
   unpackPhase = ''
     cp -r $src builddir
-    sourceRoot=builddir
+    cd builddir
   '';
 
   env.HOME = "/tmp";
