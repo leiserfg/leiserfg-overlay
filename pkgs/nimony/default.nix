@@ -2,6 +2,7 @@
   stdenv,
   lib,
   nim,
+  git,
   src,
 }:
 stdenv.mkDerivation rec {
@@ -10,7 +11,7 @@ stdenv.mkDerivation rec {
 
   inherit src;
 
-  nativeBuildInputs = [nim];
+  nativeBuildInputs = [nim git];
 
   env.HOME = "/tmp";
   env.XDG_CACHE_HOME = "/tmp/.cache";
