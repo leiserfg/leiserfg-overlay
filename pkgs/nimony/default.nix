@@ -25,7 +25,7 @@ stdenv.mkDerivation {
     # Disable git submodule update since we're using nixpkgs version
     sed -i 's/exec "git submodule update --init"/# git submodule disabled in nix build/' src/hastur.nim
     # Fix nimcache_static to use XDG_CACHE_HOME instead of a read-only location
-    sed -i 's|result = parentDir(stdlibDir()) / "nimcache_static"|result = (getEnv("XDG_CACHE_HOME", getEnv("HOME") / ".cache")) / "nimony" / "cache_static"|' src/nimony/deps.nim
+    sed -i 's|result = parentDir(stdlibDir()) / "nimcache_static"|result = getCacheDir("nimony") / "cache_static"|' src/nimony/deps.nim
   '';
 
   buildPhase = ''
