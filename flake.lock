@@ -1,30 +1,5 @@
 {
   "nodes": {
-    "blueprint": {
-      "inputs": {
-        "nixpkgs": [
-          "llm-agents",
-          "nixpkgs"
-        ],
-        "systems": [
-          "llm-agents",
-          "systems"
-        ]
-      },
-      "locked": {
-        "lastModified": 1776249299,
-        "narHash": "sha256-Dt9t1TGRmJFc0xVYhttNBD6QsAgHOHCArqGa0AyjrJY=",
-        "owner": "numtide",
-        "repo": "blueprint",
-        "rev": "56131e8628f173d24a27f6d27c0215eff57e40dd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "blueprint",
-        "type": "github"
-      }
-    },
     "bun2nix": {
       "inputs": {
         "flake-parts": [
@@ -61,10 +36,10 @@
     "calepin": {
       "flake": false,
       "locked": {
-        "lastModified": 1783401489,
-        "narHash": "sha256-GIGoRopDUe776DG+A/umCr6sqWVZ/aZAvU2DtL2lUnY=",
+        "lastModified": 1784219509,
+        "narHash": "sha256-sR5JR0nSKxwLHQsd3Y7QSlw2LInISsJFKGDv8z2X6VY=",
         "ref": "refs/heads/main",
-        "rev": "feb49df004ebfc46557637c22613674a6bfb2591",
+        "rev": "86048bc571f7fb41f40e13b392012ce2e2d2de33",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/vincentarelbundock/calepin"
@@ -98,7 +73,6 @@
     },
     "llm-agents": {
       "inputs": {
-        "blueprint": "blueprint",
         "bun2nix": "bun2nix",
         "flake-parts": "flake-parts",
         "nixpkgs": [
@@ -108,10 +82,10 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1783603646,
-        "narHash": "sha256-plXAK4U32Kub++YIs9zPYMfE2y6GAAcKjjY8yuqOkWE=",
+        "lastModified": 1784240587,
+        "narHash": "sha256-U02S4TzJ0OUyAF60dtzWaCtfKsjj0Vjywqt1aj9Fegc=",
         "ref": "refs/heads/main",
-        "rev": "89b3d6ef814f387a2c6b574a0153a8fb40db7bf7",
+        "rev": "b384352cb2f0bfd8ec2ce984f87ec2ad0a293e2c",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/numtide/llm-agents.nix"
@@ -122,12 +96,29 @@
         "url": "https://github.com/numtide/llm-agents.nix"
       }
     },
+    "nimony": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1784242754,
+        "narHash": "sha256-+GwNjurlhvqUIz8KsqdDgkKCL2emGsNJCff8IlgPEK4=",
+        "ref": "refs/heads/master",
+        "rev": "63a36b22346659ee91ef1ffe456e0bf2c5f5737a",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/nim-lang/nimony"
+      },
+      "original": {
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/nim-lang/nimony"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1783224372,
-        "narHash": "sha256-8i/87eeoqiGE4yOTjwSA3Eh/ziJRQEmd/unYU+K27sk=",
+        "lastModified": 1784120854,
+        "narHash": "sha256-KesHgItiZPgGX740axSiQLcIQ8D24MDqNpkKYWIek8k=",
         "ref": "nixos-unstable",
-        "rev": "d407951447dcd00442e97087bf374aad70c04cea",
+        "rev": "753cc8a3a87467296ddd1fa93f0cc3e81120ee46",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/NixOS/nixpkgs"
@@ -146,10 +137,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1784210019,
-        "narHash": "sha256-DfE6kFtK8RG4I9EQplJzUUjb16CG1alx5rprs2cibE0=",
+        "lastModified": 1784252352,
+        "narHash": "sha256-MS/1y450HN8pbPTqRXc8dvLFUOdlPNn/oq/V0JwM8Dk=",
         "ref": "refs/heads/main",
-        "rev": "cb15ce1c85a5e8c652f8aabc3ccd6f266b344e57",
+        "rev": "4eac686952ceb9ddb06519cf5ac3f6501425962c",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/noctalia-dev/noctalia"
@@ -163,10 +154,10 @@
     "pytest-language-server": {
       "flake": false,
       "locked": {
-        "lastModified": 1782640681,
-        "narHash": "sha256-a+b+A6tF/mXFkK08ooHiQdHl/CU+EgmChH6pfX7Mwao=",
+        "lastModified": 1784045039,
+        "narHash": "sha256-SFgIb/ymgi1SIe7cyH8kcuRQWYjfajqhQz/eQxbTnvM=",
         "ref": "refs/heads/master",
-        "rev": "9d95a505db2b844fcb6564961aa1576e180684bd",
+        "rev": "7f3b2641b1c45e571ae448a673ff10e64cd03022",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/bellini666/pytest-language-server"
@@ -181,6 +172,7 @@
       "inputs": {
         "calepin": "calepin",
         "llm-agents": "llm-agents",
+        "nimony": "nimony",
         "nixpkgs": "nixpkgs",
         "noctalia": "noctalia",
         "pytest-language-server": "pytest-language-server"
