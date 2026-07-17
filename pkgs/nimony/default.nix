@@ -29,7 +29,7 @@ stdenv.mkDerivation {
   '';
 
   buildPhase = ''
-    nim c -r --warnings:off src/hastur build all
+    nim c -r --warnings:off -d:release src/hastur build all
   '';
 
   installPhase = ''
