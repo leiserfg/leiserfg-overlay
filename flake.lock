@@ -122,6 +122,23 @@
         "url": "https://github.com/numtide/llm-agents.nix"
       }
     },
+    "nimony": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1784397453,
+        "narHash": "sha256-HwHe91rlw2i1ENgwe5+Z6fbPhe5RnF3GkMg0rKc3aR4=",
+        "ref": "refs/heads/master",
+        "rev": "684d9d4d2a648421f40371b761f543ebb9791999",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/nim-lang/nimony"
+      },
+      "original": {
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/nim-lang/nimony"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1783224372,
@@ -181,6 +198,7 @@
       "inputs": {
         "calepin": "calepin",
         "llm-agents": "llm-agents",
+        "nimony": "nimony",
         "nixpkgs": "nixpkgs",
         "noctalia": "noctalia",
         "pytest-language-server": "pytest-language-server"
