@@ -27,6 +27,11 @@
     flake = false;
   };
 
+  inputs.hyprland = {
+    url = "github:hyprwm/Hyprland/v0.56.0";
+    inputs.nixpkgs.follows = "nixpkgs"; # I don't wanna use the cache
+  };
+
   outputs =
     {
       self,
@@ -51,11 +56,13 @@
           inherit (pkgs.darwin.apple_sdk.frameworks) Cocoa;
         };
         calepin = pkgs.callPackage ./pkgs/calepin { src = calepin; };
-        pytest-language-server = pkgs.callPackage ./pkgs/pytest-language-server { src = pytest-language-server; };
+        pytest-language-server = pkgs.callPackage ./pkgs/pytest-language-server {
+          src = pytest-language-server;
+        };
         pi = llm-agents.packages.x86_64-linux.pi;
         noctalia_5 = noctalia.packages.x86_64-linux.default;
         # jpegli = pkgs.callPackage ./pkgs/jpgli { };
-
+        hyprland = inputs.hyprland.packages.x86_64-linux.default;
         eden-emu = pkgs.kdePackages.callPackage ./pkgs/torzu/eden_appimage.nix { };
         nimony = pkgs.callPackage ./pkgs/nimony { src = nimony; };
         # wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
@@ -68,6 +75,7 @@
       packages.x86_64-linux = rec {
         inherit (pkgs)
           pi
+          hyprland
           # wayscriber
           eden-emu
           noctalia_5
