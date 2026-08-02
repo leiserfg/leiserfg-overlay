@@ -61,7 +61,8 @@ ESCAPED_URL=$(printf '%s\n' "$DOWNLOAD_URL" | sed -e 's/[\/&]/\\&/g')
 sed -i "s|url = \"https://nightly\.eden-emu\.dev/v[^/]*/[^\"]*\"|url = \"$ESCAPED_URL\"|" "$NIX_FILE"
 
 # Replace the SHA256 hash - match the complete line with proper anchoring
-sed -i "s/sha256 = \"sha256-[^\"]*\";/sha256 = \"sha256-$NEW_SHA256\";/" "$NIX_FILE"
+# Use @ delimiter to avoid conflicts with / in base64 hashes
+sed -i "s@sha256 = \"sha256-[^\"]*\"@sha256 = \"sha256-$NEW_SHA256\"@" "$NIX_FILE"
 
 # Verify the changes were made
 if ! grep -q "sha256 = \"sha256-$NEW_SHA256\"" "$NIX_FILE"; then
