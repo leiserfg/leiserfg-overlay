@@ -99,16 +99,18 @@
     "nimony": {
       "flake": false,
       "locked": {
-        "lastModified": 1785693768,
-        "narHash": "sha256-50l4LKicDkrUD+PbbTcYzFNyru7lV5Ixcj+MSTT6qTI=",
+        "lastModified": 1785742993,
+        "narHash": "sha256-aiIijHh8xVWcsbi3M5ysg2LOptoXYXU+SaWrvaNU9cY=",
         "ref": "refs/heads/master",
-        "rev": "d5888d785e3beda14764a023f7c295509cc3448f",
+        "rev": "547cdc35737388e4450020888a6b1a4b6d48113a",
         "shallow": true,
+        "submodules": true,
         "type": "git",
         "url": "https://github.com/nim-lang/nimony"
       },
       "original": {
         "shallow": true,
+        "submodules": true,
         "type": "git",
         "url": "https://github.com/nim-lang/nimony"
       }

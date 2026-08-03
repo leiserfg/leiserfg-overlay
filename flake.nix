@@ -23,7 +23,7 @@
   };
 
   inputs.nimony = {
-    url = "git+https://github.com/nim-lang/nimony?shallow=1";
+    url = "git+https://github.com/nim-lang/nimony?shallow=1&submodules=1";
     flake = false;
   };
 
@@ -52,9 +52,9 @@
     in
     {
       overlays.default = final: prev: {
-        glslviewer = pkgs.callPackage ./pkgs/glslviewer {
-          inherit (pkgs.darwin.apple_sdk.frameworks) Cocoa;
-        };
+        # glslviewer = pkgs.callPackage ./pkgs/glslviewer {
+        #   inherit (pkgs.darwin.apple_sdk.frameworks) Cocoa;
+        # };
         calepin = pkgs.callPackage ./pkgs/calepin { src = calepin; };
         pytest-language-server = pkgs.callPackage ./pkgs/pytest-language-server {
           src = pytest-language-server;
@@ -79,7 +79,7 @@
           # wayscriber
           eden-emu
           noctalia_5
-          glslviewer
+          # glslviewer
           calepin
           pytest-language-server
           nimony
@@ -89,7 +89,7 @@
           # kitty
           # open-jai
           ;
-        default = glslviewer;
+        default = nimony;
       };
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     };

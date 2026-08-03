@@ -2,7 +2,6 @@
   stdenv,
   lib,
   nim,
-  mimalloc,
   src,
 }:
 stdenv.mkDerivation {
@@ -17,14 +16,6 @@ stdenv.mkDerivation {
 
   env.HOME = "/tmp";
   env.XDG_CACHE_HOME = "/tmp/.cache";
-
-  patchPhase = ''
-    # Use mimalloc from nixpkgs instead of git submodule
-    rm -rf vendor/mimalloc
-    ln -s ${mimalloc.src} vendor/mimalloc
-    # Disable git submodule update since we're using nixpkgs version
-    sed -i 's/exec "git submodule update --init"/# git submodule disabled in nix build/' src/hastur.nim
-  '';
 
   buildPhase = ''
     nim c -r --warnings:off -d:release src/hastur build all
