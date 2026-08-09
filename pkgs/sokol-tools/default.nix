@@ -1,7 +1,6 @@
 {
   stdenv,
   lib,
-  zig,
   src,
 }:
 
@@ -11,14 +10,20 @@ stdenv.mkDerivation {
 
   inherit src;
 
-  nativeBuildInputs = [ zig ];
+  dontConfigure = true;
+  dontBuild = true;
 
-  dontUseZigCheck = true;
+  installPhase = ''
+    mkdir -p $out/bin
+    cp sokol-shdc $out/bin/sokol-shdc
+    chmod +x $out/bin/sokol-shdc
+  '';
 
   meta = with lib; {
     description = "Shader cross-compiler and code-generator for sokol_gfx.h";
-    homepage = "https://github.com/floooh/sokol-tools";
+    homepage = "https://github.com/floooh/sokol-tools-bin";
     license = licenses.zlib;
-    platforms = platforms.unix;
+    platforms = [ "x86_64-linux" ];
+    mainProgram = "sokol-shdc";
   };
 }

@@ -177,7 +177,27 @@
         "nimony": "nimony",
         "nixpkgs": "nixpkgs",
         "noctalia": "noctalia",
-        "pytest-language-server": "pytest-language-server"
+        "pytest-language-server": "pytest-language-server",
+        "sokol-tools-bin": "sokol-tools-bin"
+      }
+    },
+    "sokol-tools-bin": {
+      "flake": false,
+      "locked": {
+        "dir": "bin/linux",
+        "lastModified": 1786285306,
+        "narHash": "sha256-tYlwaY7RS8vR+dutMoKvE5bJFpMEdK1QVHK3wFjNGO8=",
+        "ref": "refs/heads/master",
+        "rev": "af9a893b745c9302114791cde57371b66af9aed6",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/floooh/sokol-tools-bin"
+      },
+      "original": {
+        "dir": "bin/linux",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/floooh/sokol-tools-bin"
       }
     },
     "systems": {

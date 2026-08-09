@@ -27,6 +27,11 @@
     flake = false;
   };
 
+  inputs.sokol-tools-bin = {
+    url = "git+https://github.com/floooh/sokol-tools-bin?shallow=1&dir=bin/linux";
+    flake = false;
+  };
+
   # inputs.hyprland = {
   #   url = "github:hyprwm/Hyprland/v0.56.0";
   #   inputs.nixpkgs.follows = "nixpkgs"; # I don't wanna use the cache
@@ -41,6 +46,7 @@
       calepin,
       pytest-language-server,
       nimony,
+      sokol-tools-bin,
       ...
     }@inputs:
     let
@@ -65,6 +71,7 @@
         # hyprland = inputs.hyprland.packages.x86_64-linux.default;
         eden-emu = pkgs.kdePackages.callPackage ./pkgs/torzu/eden_appimage.nix { };
         nimony = pkgs.callPackage ./pkgs/nimony { src = nimony; };
+        sokol-shdc = pkgs.callPackage ./pkgs/sokol-tools { src = sokol-tools-bin; };
         # wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
         # wayscriber = pkgs.callPackage ./pkgs/wayscriber { };
         # pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
@@ -83,6 +90,7 @@
           calepin
           pytest-language-server
           nimony
+          sokol-shdc
           # jpegli
           # wl_shimeji
           # pixieditor
