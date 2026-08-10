@@ -99,10 +99,10 @@
     "nimony": {
       "flake": false,
       "locked": {
-        "lastModified": 1786028528,
-        "narHash": "sha256-o4DjWWdKgcXQFV8VNTRANfbbpFMve3krwS/9G1zkvCY=",
+        "lastModified": 1786346108,
+        "narHash": "sha256-cdO6KbeJRmvWbB7zJ7NsFWzB1SLzO3AP1npvIQ9KlZY=",
         "ref": "refs/heads/master",
-        "rev": "b7e5691070024bfed80919cb51862be6fd02e3ab",
+        "rev": "5ffd643d84e5cd6ee9a923e2e5116dcfe2248307",
         "shallow": true,
         "submodules": true,
         "type": "git",
