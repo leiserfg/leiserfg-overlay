@@ -75,10 +75,10 @@
       packages.x86_64-linux = rec {
         inherit (pkgs)
           pi
-          # hyprland
+          hyprland
           # wayscriber
           eden-emu
-          noctalia_5
+          # noctalia_5
           # glslviewer
           calepin
           pytest-language-server
