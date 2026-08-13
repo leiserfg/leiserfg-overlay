@@ -32,10 +32,10 @@
     flake = false;
   };
 
-  # inputs.hyprland = {
-  #   url = "github:hyprwm/Hyprland/v0.56.0";
-  #   inputs.nixpkgs.follows = "nixpkgs"; # I don't wanna use the cache
-  # };
+  inputs.hyprland = {
+    url = "github:hyprwm/Hyprland/?shallow=1";
+    inputs.nixpkgs.follows = "nixpkgs"; # I don't wanna use the cache
+  };
 
   outputs =
     {
@@ -68,7 +68,7 @@
         pi = llm-agents.packages.x86_64-linux.pi;
         noctalia_5 = noctalia.packages.x86_64-linux.default;
         # jpegli = pkgs.callPackage ./pkgs/jpgli { };
-        # hyprland = inputs.hyprland.packages.x86_64-linux.default;
+        hyprland = inputs.hyprland.packages.x86_64-linux.default;
         eden-emu = pkgs.kdePackages.callPackage ./pkgs/torzu/eden_appimage.nix { };
         nimony = pkgs.callPackage ./pkgs/nimony { src = nimony; };
         sokol-shdc = pkgs.callPackage ./pkgs/sokol-tools { src = sokol-tools-bin; };
