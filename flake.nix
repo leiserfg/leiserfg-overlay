@@ -7,11 +7,6 @@
     inputs.nixpkgs.follows = "nixpkgs"; # I don't wanna use the cache
   };
 
-  inputs.noctalia = {
-    url = "git+https://github.com/noctalia-dev/noctalia?shallow=1";
-    inputs.nixpkgs.follows = "nixpkgs"; # I don't wanna use the cache
-  };
-
   inputs.calepin = {
     url = "git+https://github.com/vincentarelbundock/calepin?shallow=1";
     flake = false;
@@ -42,7 +37,6 @@
       self,
       nixpkgs,
       llm-agents,
-      noctalia,
       calepin,
       pytest-language-server,
       nimony,
@@ -66,7 +60,6 @@
           src = pytest-language-server;
         };
         pi = llm-agents.packages.x86_64-linux.pi;
-        noctalia_5 = noctalia.packages.x86_64-linux.default;
         # jpegli = pkgs.callPackage ./pkgs/jpgli { };
         hyprland = inputs.hyprland.packages.x86_64-linux.default;
         eden-emu = pkgs.kdePackages.callPackage ./pkgs/torzu/eden_appimage.nix { };
