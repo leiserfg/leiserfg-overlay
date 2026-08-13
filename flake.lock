@@ -199,15 +199,16 @@
       "locked": {
         "lastModified": 1786561078,
         "narHash": "sha256-pQZdky4fH4jGqoIWy20g7bNgC8bLC4vEOIyRsfjp7qI=",
-        "owner": "hyprwm",
-        "repo": "Hyprland",
+        "ref": "refs/heads/main",
         "rev": "6d43ce8453f2d34b82b3da5ed9415f6fc3046ce4",
-        "type": "github"
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/hyprwm/Hyprland/"
       },
       "original": {
-        "owner": "hyprwm",
-        "repo": "Hyprland",
-        "type": "github"
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/hyprwm/Hyprland/"
       }
     },
     "hyprland-guiutils": {
@@ -502,27 +503,6 @@
         "url": "https://github.com/NixOS/nixpkgs"
       }
     },
-    "noctalia": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1786620772,
-        "narHash": "sha256-r+rijNjl9Q+3V0Z+E+dvOgc/XbWJ6UoK/B9c/zCJpBs=",
-        "ref": "refs/heads/main",
-        "rev": "713e6caa3ac6e9d5bf3aba678e150df6c1555194",
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/noctalia-dev/noctalia"
-      },
-      "original": {
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/noctalia-dev/noctalia"
-      }
-    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -569,7 +549,6 @@
         "llm-agents": "llm-agents",
         "nimony": "nimony",
         "nixpkgs": "nixpkgs",
-        "noctalia": "noctalia",
         "pytest-language-server": "pytest-language-server",
         "sokol-tools-bin": "sokol-tools-bin"
       }

@@ -28,7 +28,7 @@
   };
 
   inputs.hyprland = {
-    url = "github:hyprwm/Hyprland/?shallow=1";
+    url = "git+https://github.com/hyprwm/Hyprland/?shallow=1";
     inputs.nixpkgs.follows = "nixpkgs"; # I don't wanna use the cache
   };
 
