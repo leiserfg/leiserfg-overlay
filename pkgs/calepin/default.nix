@@ -1,4 +1,4 @@
-{ lib, rustPlatform, src }:
+{ lib, rustPlatform, src, typst }:
 
 rustPlatform.buildRustPackage rec {
   pname = "calepin";
@@ -11,6 +11,8 @@ rustPlatform.buildRustPackage rec {
   # Build from workspace
   cargoBuildFlags = [ "-p" "calepin" ];
   cargoTestFlags = [ "-p" "calepin" ];
+
+  nativeBuildInputs = [ typst ];
 
   meta = with lib; {
     description = "A Rust CLI for preprocessing Typst documents with executable code chunks";
