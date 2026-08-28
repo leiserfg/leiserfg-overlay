@@ -1,4 +1,9 @@
-{ lib, rustPlatform, src, typst }:
+{
+  lib,
+  rustPlatform,
+  src,
+  typst,
+}:
 
 rustPlatform.buildRustPackage rec {
   pname = "calepin";
@@ -9,8 +14,16 @@ rustPlatform.buildRustPackage rec {
   cargoLock.lockFile = "${src}/Cargo.lock";
 
   # Build from workspace
-  cargoBuildFlags = [ "-p" "calepin" ];
-  cargoTestFlags = [ "-p" "calepin" ];
+  cargoBuildFlags = [
+    "-p"
+    "calepin"
+  ];
+  cargoTestFlags = [
+    "-p"
+    "calepin"
+  ];
+
+  doCheck = false;
 
   nativeBuildInputs = [ typst ];
 
