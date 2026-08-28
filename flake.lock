@@ -36,10 +36,10 @@
     "calepin": {
       "flake": false,
       "locked": {
-        "lastModified": 1787242786,
-        "narHash": "sha256-a3gsPWlAVkEkxc5muP31tVEuk5BoiwfpDkn2dlv4x4E=",
+        "lastModified": 1787749412,
+        "narHash": "sha256-sVNztDK/VdWCEe2WJ8qz+zQnlz8kHnJYOPws67/T/vY=",
         "ref": "refs/heads/main",
-        "rev": "070912ea7ffa22c6758485be6243f11ed33edb82",
+        "rev": "75300a70881af3b5547cc3d4686a0bbf3a2261c8",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/vincentarelbundock/calepin"
@@ -58,11 +58,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785627969,
-        "narHash": "sha256-4dtXQk/NMePegK/nWp5NSeuZKLATItOq61lpEvmXqGw=",
+        "lastModified": 1787559586,
+        "narHash": "sha256-onL0VLf9vPllmT0H/OlURIU5r5t5WIEl7t4tVNKT0Nw=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "427bf4bd9435fdf21321c8cc628c24efc14c0f7a",
+        "rev": "9d0d87172c374f89da73c1cfe6d81ae62feac1f1",
         "type": "github"
       },
       "original": {
@@ -82,10 +82,10 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1787272342,
-        "narHash": "sha256-fJXZTsi2oshLEUZTJc30WFoSi2AnHcr+hL66D2ihmSE=",
+        "lastModified": 1787901029,
+        "narHash": "sha256-hS4KfOSDbV6QErkm2b1kMPl9me3SeWUBcyrznb9XfoU=",
         "ref": "refs/heads/main",
-        "rev": "5ea650441a7590b4673f8479e15c434b7f969a83",
+        "rev": "1c66a00ce5a9a98e7bfc94647cfbd49e1b8d30cd",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/numtide/llm-agents.nix"
@@ -99,10 +99,10 @@
     "nimony": {
       "flake": false,
       "locked": {
-        "lastModified": 1787257558,
-        "narHash": "sha256-cfK5wEddp5ez7v/ppAQPkMslAMwdttnkmcVEWdCWu+w=",
+        "lastModified": 1787906117,
+        "narHash": "sha256-dL+K1BM+/Nsw7zGW06sNeJcqZFBfXWUSFIIgBdL3Hzk=",
         "ref": "refs/heads/master",
-        "rev": "fee40b7425186fbb7a052d51639756e10b350753",
+        "rev": "58562564973b506e798da5c4a74b34678b072be0",
         "shallow": true,
         "submodules": true,
         "type": "git",
@@ -117,10 +117,10 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1787135253,
-        "narHash": "sha256-RD2kNWCG+Bjo6h+JVjWVNntZs2GtRoeY2xHjts/FNkA=",
+        "lastModified": 1787736819,
+        "narHash": "sha256-cV5xEJJK3BvhU8rEd4mC9UsmDi5qscv/kzGPhBRC5WA=",
         "ref": "nixos-unstable",
-        "rev": "ffb3c9b700e759be2ef13237c9d8f953b32a1e46",
+        "rev": "9fbb54b33e91ee4ca368e35a78e0613c720600b3",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/NixOS/nixpkgs"
@@ -135,10 +135,10 @@
     "pytest-language-server": {
       "flake": false,
       "locked": {
-        "lastModified": 1786957343,
-        "narHash": "sha256-dBfQ3VHfheS/m1zAGAcQh5nf8JSWooKHFKWL+Fjrvzw=",
+        "lastModified": 1787566986,
+        "narHash": "sha256-RQE3onoFqRgmtnE0s6eD5j9nwaXUarqAgA4NxT6pwUk=",
         "ref": "refs/heads/master",
-        "rev": "02f8b3ea4768b6816ac94058eded9c41a9392670",
+        "rev": "513ea18b05c63165196f274db4cda7154f603023",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/bellini666/pytest-language-server"
