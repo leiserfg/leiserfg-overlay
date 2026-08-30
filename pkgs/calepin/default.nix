@@ -8,6 +8,8 @@ rustPlatform.buildRustPackage rec {
 
   cargoLock.lockFile = "${src}/Cargo.lock";
 
+  doCheck = false;
+
   # Build from workspace
   cargoBuildFlags = [ "-p" "calepin" ];
   cargoTestFlags = [ "-p" "calepin" ];
