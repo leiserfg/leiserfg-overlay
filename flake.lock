@@ -114,6 +114,23 @@
         "url": "https://github.com/numtide/llm-agents.nix"
       }
     },
+    "nim2-nimony-lsp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1788539354,
+        "narHash": "sha256-FD+e5KQ/7JDVcxT4z0QT9f0JM1pEgt3XULExWZIVWnU=",
+        "ref": "refs/heads/main",
+        "rev": "3f9bf79ce7426b1686d07e1845265137c4fd618b",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/leiserfg/nim2-nimony-lsp"
+      },
+      "original": {
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/leiserfg/nim2-nimony-lsp"
+      }
+    },
     "nimony": {
       "flake": false,
       "locked": {
@@ -172,6 +189,7 @@
         "calepin": "calepin",
         "kcd": "kcd",
         "llm-agents": "llm-agents",
+        "nim2-nimony-lsp": "nim2-nimony-lsp",
         "nimony": "nimony",
         "nixpkgs": "nixpkgs",
         "pytest-language-server": "pytest-language-server",
