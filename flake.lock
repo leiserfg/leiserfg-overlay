@@ -20,15 +20,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1784665499,
-        "narHash": "sha256-9BMxlTxCCDAeoNLtb1a/st7udtTIJep+wpUzquA29VU=",
-        "owner": "nix-community",
+        "lastModified": 1788011267,
+        "narHash": "sha256-mEq2kU+ljompTToZ44Afvm7d/rHJ5iMBl0tjZuyShJs=",
+        "owner": "Mic92",
         "repo": "bun2nix",
-        "rev": "0f2a1f0b6f42cebe3b149bf62d38754c5e0e9729",
+        "rev": "5765b0614591f75ee8ba5596e81ae85c167d1071",
         "type": "github"
       },
       "original": {
-        "owner": "nix-community",
+        "owner": "Mic92",
+        "ref": "fix-structured-attrs-hook",
         "repo": "bun2nix",
         "type": "github"
       }
@@ -36,10 +37,10 @@
     "calepin": {
       "flake": false,
       "locked": {
-        "lastModified": 1787242786,
-        "narHash": "sha256-a3gsPWlAVkEkxc5muP31tVEuk5BoiwfpDkn2dlv4x4E=",
+        "lastModified": 1788290894,
+        "narHash": "sha256-e74EPKHPGEAzrtpA2ZNMqB9f7NdKAlYfHVNhPh62z1M=",
         "ref": "refs/heads/main",
-        "rev": "070912ea7ffa22c6758485be6243f11ed33edb82",
+        "rev": "df8268c620483ea778597b65510872c930287cf3",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/vincentarelbundock/calepin"
@@ -58,11 +59,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785627969,
-        "narHash": "sha256-4dtXQk/NMePegK/nWp5NSeuZKLATItOq61lpEvmXqGw=",
+        "lastModified": 1788450739,
+        "narHash": "sha256-glZLQlzIn1fXH6PazR2iUmTo7kzzyYSshrWhLS9TqCU=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "427bf4bd9435fdf21321c8cc628c24efc14c0f7a",
+        "rev": "31729ca8cbdb4fa927b34e5f4353e6a83f39e993",
         "type": "github"
       },
       "original": {
@@ -82,10 +83,10 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1787272342,
-        "narHash": "sha256-fJXZTsi2oshLEUZTJc30WFoSi2AnHcr+hL66D2ihmSE=",
+        "lastModified": 1788481344,
+        "narHash": "sha256-3jEfPEkegrp3ps+VuNT0i+kI4hhfDKoSICoUzZrXDOE=",
         "ref": "refs/heads/main",
-        "rev": "5ea650441a7590b4673f8479e15c434b7f969a83",
+        "rev": "496d8f2d508dcd4673a1480cd58b3e9bf3400c15",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/numtide/llm-agents.nix"
@@ -99,10 +100,10 @@
     "nimony": {
       "flake": false,
       "locked": {
-        "lastModified": 1787257558,
-        "narHash": "sha256-cfK5wEddp5ez7v/ppAQPkMslAMwdttnkmcVEWdCWu+w=",
+        "lastModified": 1788476531,
+        "narHash": "sha256-oXgtNW0H6yZg68mUVq1+e2ZKkKqNFb2QrYFZipuMPPc=",
         "ref": "refs/heads/master",
-        "rev": "fee40b7425186fbb7a052d51639756e10b350753",
+        "rev": "ae40e8daa13c440bf223347f061127ccd8a9db25",
         "shallow": true,
         "submodules": true,
         "type": "git",
@@ -117,10 +118,10 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1787135253,
-        "narHash": "sha256-RD2kNWCG+Bjo6h+JVjWVNntZs2GtRoeY2xHjts/FNkA=",
+        "lastModified": 1788316716,
+        "narHash": "sha256-bc7rSpXIdn9QWGNqfWcPZWOhEVF8NoeAZkWq0XWnf/k=",
         "ref": "nixos-unstable",
-        "rev": "ffb3c9b700e759be2ef13237c9d8f953b32a1e46",
+        "rev": "3ed67ec0a4d3c7ab4ae1f04f8ee8df07bfa506a2",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/NixOS/nixpkgs"
@@ -135,10 +136,10 @@
     "pytest-language-server": {
       "flake": false,
       "locked": {
-        "lastModified": 1786957343,
-        "narHash": "sha256-dBfQ3VHfheS/m1zAGAcQh5nf8JSWooKHFKWL+Fjrvzw=",
+        "lastModified": 1788428261,
+        "narHash": "sha256-jSbixrsfdh/X/6AqHRT/Ss1J+Yv/NewkwDpdHEaDH9o=",
         "ref": "refs/heads/master",
-        "rev": "02f8b3ea4768b6816ac94058eded9c41a9392670",
+        "rev": "f673ec4e6f2499c1c3c3b4ee08d31790b226bfc0",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/bellini666/pytest-language-server"
@@ -163,10 +164,10 @@
       "flake": false,
       "locked": {
         "dir": "bin/linux",
-        "lastModified": 1786285306,
-        "narHash": "sha256-tYlwaY7RS8vR+dutMoKvE5bJFpMEdK1QVHK3wFjNGO8=",
+        "lastModified": 1788012901,
+        "narHash": "sha256-vzRbYv7VaL+bK3VJxrDya58Egnn6HnxMO8pZ0ADwrbw=",
         "ref": "refs/heads/master",
-        "rev": "af9a893b745c9302114791cde57371b66af9aed6",
+        "rev": "11d0cf678105d614d675e6d9bd2aaf3eeff12f8c",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/floooh/sokol-tools-bin"
