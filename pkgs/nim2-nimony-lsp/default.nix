@@ -26,6 +26,7 @@ stdenv.mkDerivation {
 
   installPhase = ''
     mkdir -p $out/bin
+    ls ./
     cp bin/nimony_lsp $out/bin/nimony-lsp
   '';
 
