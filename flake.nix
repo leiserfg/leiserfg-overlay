@@ -27,6 +27,11 @@
     flake = false;
   };
 
+  inputs.kcd = {
+    url = "git+https://github.com/bethropolis/kcd?shallow=1";
+    flake = false;
+  };
+
   # inputs.hyprland = {
   #   url = "git+https://github.com/hyprwm/Hyprland/?shallow=1";
   #   inputs.nixpkgs.follows = "nixpkgs"; # I don't wanna use the cache
@@ -41,6 +46,7 @@
       pytest-language-server,
       nimony,
       sokol-tools-bin,
+      kcd,
       ...
     }@inputs:
     let
@@ -65,6 +71,7 @@
         eden-emu = pkgs.kdePackages.callPackage ./pkgs/torzu/eden_appimage.nix { };
         nimony = pkgs.callPackage ./pkgs/nimony { src = nimony; };
         sokol-shdc = pkgs.callPackage ./pkgs/sokol-tools { src = sokol-tools-bin; };
+        kcd = pkgs.callPackage ./pkgs/kcd { src = kcd; };
         # wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
         # wayscriber = pkgs.callPackage ./pkgs/wayscriber { };
         # pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
@@ -84,6 +91,7 @@
           pytest-language-server
           nimony
           sokol-shdc
+          kcd
           # jpegli
           # wl_shimeji
           # pixieditor

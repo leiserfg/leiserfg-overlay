@@ -72,6 +72,23 @@
         "type": "github"
       }
     },
+    "kcd": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1786574357,
+        "narHash": "sha256-k0jtAerlhTni4YY1LyUifJDAuBClYYprF4PKjVaGEgc=",
+        "ref": "refs/heads/main",
+        "rev": "6bd0d7a213123a490dd572bd48c15982497a67cc",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/bethropolis/kcd"
+      },
+      "original": {
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/bethropolis/kcd"
+      }
+    },
     "llm-agents": {
       "inputs": {
         "bun2nix": "bun2nix",
@@ -153,6 +170,7 @@
     "root": {
       "inputs": {
         "calepin": "calepin",
+        "kcd": "kcd",
         "llm-agents": "llm-agents",
         "nimony": "nimony",
         "nixpkgs": "nixpkgs",
