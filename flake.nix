@@ -18,7 +18,7 @@
   };
 
   inputs.nimony = {
-    url = "git+https://github.com/nim-lang/nimony?shallow=1&submodules=1";
+    url = "git+https://github.com/nim-lang/nimony?shallow=1&submodules=1&rev=034dd8343aed630676a7b06a7bd5416508c2842f";
     flake = false;
   };
 
