@@ -21,12 +21,12 @@ stdenv.mkDerivation {
   sourceRoot = "source/server";
 
   buildPhase = ''
-    nim c -r --warnings:off -d:release --path:${nimony-src}/src/lib src/nimony_lsp.nim
+    mkdir -p bin
+    nim c --warnings:off -d:release --path:${nimony-src}/src/lib --out:bin/nimony_lsp src/nimony_lsp.nim
   '';
 
   installPhase = ''
     mkdir -p $out/bin
-    ls ./
     cp bin/nimony_lsp $out/bin/nimony-lsp
   '';
 
