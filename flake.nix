@@ -32,10 +32,6 @@
     flake = false;
   };
 
-  inputs.nim2-nimony-lsp = {
-    url = "git+https://github.com/leiserfg/nim2-nimony-lsp?shallow=1";
-    flake = false;
-  };
 
   # inputs.hyprland = {
   #   url = "git+https://github.com/hyprwm/Hyprland/?shallow=1";
@@ -52,7 +48,6 @@
       nimony,
       sokol-tools-bin,
       kcd,
-      nim2-nimony-lsp,
       ...
     }@inputs:
     let
@@ -78,10 +73,6 @@
         nimony = pkgs.callPackage ./pkgs/nimony { src = nimony; };
         sokol-shdc = pkgs.callPackage ./pkgs/sokol-tools { src = sokol-tools-bin; };
         kcd = pkgs.callPackage ./pkgs/kcd { src = kcd; };
-        nim2-nimony-lsp = pkgs.callPackage ./pkgs/nim2-nimony-lsp {
-          src = nim2-nimony-lsp;
-          nimony-src = nimony;
-        };
         # wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
         # wayscriber = pkgs.callPackage ./pkgs/wayscriber { };
         # pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
@@ -102,7 +93,6 @@
           nimony
           sokol-shdc
           kcd
-          nim2-nimony-lsp
           # jpegli
           # wl_shimeji
           # pixieditor
