@@ -134,10 +134,10 @@
     "nimony": {
       "flake": false,
       "locked": {
-        "lastModified": 1788593026,
-        "narHash": "sha256-OzBrGEHj3hfrhpwi3kPENS/TYOoFafm/JRZ1F9aMh2s=",
+        "lastModified": 1788598903,
+        "narHash": "sha256-81/e6+Jwu1XX7zKhLVfBgVQbsyw4d8Okw55L5Z9RMf0=",
         "ref": "refs/heads/master",
-        "rev": "eebec442a7ea9292979aba9f24eaebc12f13db28",
+        "rev": "8c3bc0528e670e8aeeea7e847022bcab255541ab",
         "shallow": true,
         "submodules": true,
         "type": "git",

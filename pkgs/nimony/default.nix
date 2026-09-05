@@ -6,7 +6,7 @@
 }:
 stdenv.mkDerivation {
   pname = "nimony";
-  version = "unstable-2024-07-16";
+  version = "0.6.0";
 
   inherit src;
 

@@ -1,0 +1,21 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-deps")
+(stmts
+ (import
+  (infix as
+   (infix / sokol log)slog))
+ (import
+  (infix as
+   (infix / sokol gfx)sg))
+ (import
+  (infix as
+   (infix / sokol app)sapp))
+ (import
+  (infix as
+   (infix / sokol gl)sgl))
+ (import
+  (infix as
+   (infix / sokol glue)sglue))
+ (import
+  (infix / std math)))
