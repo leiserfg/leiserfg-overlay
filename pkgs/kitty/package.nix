@@ -2,6 +2,7 @@
   lib,
   stdenv,
   fetchFromGitHub,
+  replaceVars,
   python3Packages,
   libunistring,
   harfbuzz,
@@ -45,27 +46,28 @@
   makeBinaryWrapper,
   darwin,
   cairo,
-  fetchpatch,
+  shader-slang,
 }:
 
 with python3Packages;
 buildPythonApplication rec {
   pname = "kitty";
-  version = "0.46.2";
+  version = "0.48.1-unstable";
   pyproject = false;
 
   src = fetchFromGitHub {
     owner = "kovidgoyal";
     repo = "kitty";
-    rev = "b85ec2b8c6ff195dafcb83415f1eacd80714b814";
-    hash = "sha256-xKHLZcyBW6hWH/WkIm3a2Kyty5FYBCWvQ7GX1DJFUx0=";
+    rev = "df2986feb37cd7f107de50358322df4d3d591069";
+    hash = "sha256-jAx71obFxz6hsUobvK5rYV/uukAySJO66EVXitNissI=";
+
   };
 
   goModules =
     (buildGo126Module {
       pname = "kitty-go-modules";
       inherit src version;
-      vendorHash = "sha256-sFHkzman6L+jIXvRzOPAyKQCbqxNQxNoUj30JZSg8rQ=";
+      vendorHash = "sha256-12d6+MX/fijASzj4svdc8+bjjUmnkS1lQ4uGPTove7I=";
     }).goModules;
 
   buildInputs = [
@@ -77,6 +79,7 @@ buildPythonApplication rec {
     matplotlib
     openssl.dev
     xxhash
+    shader-slang
   ]
   ++ lib.optionals stdenv.hostPlatform.isDarwin [
     libpng
@@ -108,11 +111,13 @@ buildPythonApplication rec {
     sphinx
     furo
     sphinx-copybutton
+    sphinx-design
     sphinxext-opengraph
     sphinx-inline-tabs
     go_1_26
     fontconfig
     makeBinaryWrapper
+    shader-slang
   ]
   ++ lib.optionals stdenv.hostPlatform.isDarwin [
     imagemagick
@@ -143,6 +148,9 @@ buildPythonApplication rec {
     # OSError: master_fd is in error condition
     ./disable-test_ssh_bootstrap_with_different_launchers.patch
 
+    (replaceVars ./libxkbcommon-runtime-path.patch {
+      libxkbcommon = "${lib.getLib libxkbcommon}/lib/libxkbcommon.so.0";
+    })
   ];
 
   hardeningDisable = [
@@ -153,6 +161,7 @@ buildPythonApplication rec {
   env = {
     CGO_ENABLED = 0;
     GOFLAGS = "-trimpath";
+    GOTOOLCHAIN = "local";
   };
 
   configurePhase = ''
@@ -215,28 +224,51 @@ buildPythonApplication rec {
   ];
 
   # skip failing tests due to darwin sandbox
-  preCheck = lib.optionalString stdenv.hostPlatform.isDarwin ''
+  preCheck =
+    lib.optionalString stdenv.hostPlatform.isDarwin ''
+      substituteInPlace kitty_tests/check_build.py \
+        --replace test_macos_dictation_forwarding no_test_macos_dictation_forwarding
 
-    substituteInPlace kitty_tests/file_transmission.py \
-      --replace test_transfer_send dont_test_transfer_send
+      substituteInPlace kitty_tests/file_transmission.py \
+        --replace test_transfer_send dont_test_transfer_send
 
-    substituteInPlace kitty_tests/ssh.py \
-      --replace test_ssh_connection_data no_test_ssh_connection_data \
-      --replace test_ssh_shell_integration no_test_ssh_shell_integration \
-      --replace test_ssh_copy no_test_ssh_copy \
-      --replace test_ssh_env_vars no_test_ssh_env_vars
+      substituteInPlace kitty_tests/ssh.py \
+        --replace test_ssh_connection_data no_test_ssh_connection_data \
+        --replace test_ssh_shell_integration no_test_ssh_shell_integration \
+        --replace test_ssh_copy no_test_ssh_copy \
+        --replace test_ssh_env_vars no_test_ssh_env_vars
 
-    substituteInPlace kitty_tests/shell_integration.py \
-      --replace test_fish_integration no_test_fish_integration \
-      --replace test_zsh_integration no_test_zsh_integration
+      substituteInPlace kitty_tests/shell_integration.py \
+        --replace test_fish_integration no_test_fish_integration \
+        --replace test_zsh_integration no_test_zsh_integration
 
-    substituteInPlace kitty_tests/fonts.py \
-      --replace test_fallback_font_not_last_resort no_test_fallback_font_not_last_resort
+      substituteInPlace kitty_tests/fonts.py \
+        --replace test_fallback_font_not_last_resort no_test_fallback_font_not_last_resort
 
-    # theme collection test starts an http server
-    rm tools/themes/collection_test.go
-    # passwd_test tries to exec /usr/bin/dscl
-    rm tools/utils/passwd_test.go
+
+      # theme collection test starts an http server
+      rm tools/themes/collection_test.go
+      # passwd_test tries to exec /usr/bin/dscl
+      rm tools/utils/passwd_test.go
+    ''
+    + ''
+      # These depend on files that are not available in the sandbox
+      rm tools/utils/machine_id/api_test.go
+
+      # Memory cgroup tests do not work in the sandbox
+      rm kitty_tests/child.py
+    '';
+
+  checkPhase = ''
+    runHook preCheck
+
+    # Fontconfig error: Cannot load default config file: No such file: (null)
+    export FONTCONFIG_FILE=${fontconfig.out}/etc/fonts/fonts.conf
+    # Required for `test_ssh_shell_integration` to pass.
+    export TERM=kitty
+
+    make test
+    runHook postCheck
   '';
 
   installPhase = ''
@@ -264,12 +296,14 @@ buildPythonApplication rec {
 
     # dereference the `kitty` symlink to make sure the actual executable
     # is wrapped on macOS as well (and not just the symlink)
-    wrapProgram $(realpath "$out/bin/kitty") --suffix PATH : "$out/bin:${
-      lib.makeBinPath [
-        imagemagick
-        ncurses.dev
-      ]
-    }"
+    wrapProgram $(realpath "$out/bin/kitty") \
+      --suffix PATH : "$out/bin:${
+        lib.makeBinPath [
+          imagemagick
+          ncurses.dev
+        ]
+      }" \
+      --set SLANGC "${shader-slang}/bin/slangc"
 
     installShellCompletion --cmd kitty \
       --bash <("$out/bin/kitty" +complete setup bash) \
