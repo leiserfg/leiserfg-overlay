@@ -100,10 +100,10 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1788481344,
-        "narHash": "sha256-3jEfPEkegrp3ps+VuNT0i+kI4hhfDKoSICoUzZrXDOE=",
+        "lastModified": 1788684345,
+        "narHash": "sha256-+3tYyzbgr5LdaqPDQ9tHM1JuXx7DVQqZH8MeQ7ooStI=",
         "ref": "refs/heads/main",
-        "rev": "496d8f2d508dcd4673a1480cd58b3e9bf3400c15",
+        "rev": "76e610601903fd31e82b996b28a49c6d1adb559c",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/numtide/llm-agents.nix"
@@ -117,17 +117,16 @@
     "nimony": {
       "flake": false,
       "locked": {
-        "lastModified": 1787976927,
-        "narHash": "sha256-3J/e9O3US0CXPswIjhxJGHdbnL2RugxUvroh2J0EMg8=",
+        "lastModified": 1788729145,
+        "narHash": "sha256-KdVvi8tGQSJEBpc58sw+dHLVuI3oWmf+rLmL6wO2kb0=",
         "ref": "refs/heads/master",
-        "rev": "034dd8343aed630676a7b06a7bd5416508c2842f",
+        "rev": "b7c7daa67de1aa2c7164497b599912b10bd1dcb4",
         "shallow": true,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/nim-lang/nimony"
       },
       "original": {
-        "rev": "034dd8343aed630676a7b06a7bd5416508c2842f",
         "shallow": true,
         "submodules": true,
         "type": "git",
@@ -136,10 +135,10 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1788316716,
-        "narHash": "sha256-bc7rSpXIdn9QWGNqfWcPZWOhEVF8NoeAZkWq0XWnf/k=",
+        "lastModified": 1788614874,
+        "narHash": "sha256-7QYjT2vHLuX9Z1pdxHXDKCbh1CR3D/2rywB9Tx0MPRg=",
         "ref": "nixos-unstable",
-        "rev": "3ed67ec0a4d3c7ab4ae1f04f8ee8df07bfa506a2",
+        "rev": "c043004d1c6985732bcc1cbc5a9c9aecbbb4e0f0",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/NixOS/nixpkgs"
@@ -154,10 +153,10 @@
     "pytest-language-server": {
       "flake": false,
       "locked": {
-        "lastModified": 1788428261,
-        "narHash": "sha256-jSbixrsfdh/X/6AqHRT/Ss1J+Yv/NewkwDpdHEaDH9o=",
+        "lastModified": 1788597703,
+        "narHash": "sha256-Qb0l0UkoHlQS+Lt+6ubyj4sIjHZwnVd43KkT5tORvx4=",
         "ref": "refs/heads/master",
-        "rev": "f673ec4e6f2499c1c3c3b4ee08d31790b226bfc0",
+        "rev": "5766d6347dc3efe8cacceb67c95942ceb43b7b91",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/bellini666/pytest-language-server"

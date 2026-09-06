@@ -18,7 +18,9 @@ stdenv.mkDerivation {
   env.XDG_CACHE_HOME = "/tmp/.cache";
 
   buildPhase = ''
-    nim c -r --warnings:off -d:release src/hastur/hastur build all
+    cp ${./parser.nim} src/nifler/nimparser/parser.nim
+
+    nim c -r  -d:release src/hastur/hastur build all
   '';
 
   installPhase = ''
