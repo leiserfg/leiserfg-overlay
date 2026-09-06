@@ -58,8 +58,8 @@ buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "kovidgoyal";
     repo = "kitty";
-    rev = "df2986feb37cd7f107de50358322df4d3d591069";
-    hash = "sha256-jAx71obFxz6hsUobvK5rYV/uukAySJO66EVXitNissI=";
+    rev = "d124d4f0976720a127c022e967d30f05df99399e";
+    hash = "sha256-HX4Gn3XuiLR+Yw5UfI+A3Yn2KkQ5i+lGYngKQb3nal4=";
 
   };
 
