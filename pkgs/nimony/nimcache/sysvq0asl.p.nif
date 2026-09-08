@@ -1,0 +1,1339 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+ (comment)
+ (pragmas@,2
+  (kv@9 feature~7 "lenientnils"@2))
+ (include@,4 "system/basic_types"@8)
+ (iterator@,6 unpack@9 x . .
+  (params@G)untyped@4
+  (pragmas@S
+   (kv@7 magic~5 Unpack@2)). .)
+ (func@,8 unpackToCall@5 . . .
+  (params@H
+   (param@1 fn . . untyped@4 .)).
+  (pragmas@V
+   (kv@7 magic~5 Unpack@2)). .)
+ (const@G,B isMainModule~E x
+  (pragmas
+   (kv@7 magic~5 "IsMainModule"@2))bool@R false@Y)
+ (const@7,C Inf~5 x
+  (pragmas
+   (kv@7 magic~5 "Inf"@2))float64@I 0.0@S)
+ (const@7,E NaN~5 x
+  (pragmas
+   (kv@7 magic~5 "NaN"@2))float64@I 0.0@S)
+ (func@,L
+  (quoted@5 \5B\5D@1) x .
+  (typevars@A
+   (typevar@1 T . .
+    (tuple@8).))
+  (params@K
+   (param@1 x . . T@3 .)
+   (param@7 i . . int@3 .))untyped@G
+  (pragmas@i
+   (kv@7 magic~5 "TupAt"@2)). .)
+ (func@,M
+  (quoted@5 \5B\5D@1) x .
+  (typevars@A
+   (typevar@1 I . . . .)
+   (typevar@4 T . . . .))
+  (params@G
+   (param@1 x . .
+    (at@8 array~5 I@1 T@4).)
+   (param@H i . . I@3 .))
+  (mut@O T@4)
+  (pragmas@k
+   (kv@7 magic~5 "ArrAt"@2)). .)
+ (func@,N
+  (quoted@5 \5B\5D@1) x . .
+  (params@A
+   (param@1 x . . cstring@3 .)
+   (param@D i . . int@3 .))
+  (mut@M char@4)
+  (pragmas@f
+   (kv@7 magic~5 "Pat"@2)). .)
+ (func@,O
+  (quoted@5 \5B\5D@1) x .
+  (typevars@A
+   (typevar@1 T . . . .))
+  (params@D
+   (param@1 x . .
+    (ptr@3
+     (at@I UncheckedArray~E T@1)).)
+   (param@R i . . int@3 .))
+  (mut@a T@4)
+  (pragmas@t
+   (kv@7 magic~5 "Pat"@2)). .)
+ (func@,P
+  (quoted@5 \5B\5D@1) x .
+  (typevars@A
+   (typevar@1 T . . . .))
+  (params@D
+   (param@1 x . .
+    (at@H UncheckedArray~E T@1).)
+   (param@N i . . int@3 .))
+  (mut@W T@4)
+  (pragmas@p
+   (kv@7 magic~5 "Pat"@2)). .)
+ (template@,Q
+  (quoted@9 \5B\5D=@1) x .
+  (typevars@F
+   (typevar@1 T . .
+    (tuple@8).))
+  (params@P
+   (param@1 x . . T@3 .)
+   (param@7 i . . int@3 .)
+   (param@F elem . . typed@6 .)). . .
+  (stmts@2,1
+   (asgn@7
+    (par~7
+     (at@2 x~1 i@1))elem@2)))
+ (template@,S
+  (quoted@9 \5B\5D=@1) x .
+  (typevars@F
+   (typevar@1 I . . . .)
+   (typevar@4 T . . . .))
+  (params@L
+   (param@1 x . .
+    (at@8 array~5 I@1 T@4).)
+   (param@H i . . I@3 .)
+   (param@N elem . . T@6 .)). . .
+  (stmts@2,1
+   (asgn@7
+    (par~7
+     (at@2 x~1 i@1))elem@2)))
+ (template@,U
+  (quoted@9 \5B\5D=@1) x . .
+  (params@F
+   (param@1 x . . cstring@3 .)
+   (param@D i . . int@3 .)
+   (param@L elem . . char@6 .)). . .
+  (stmts@2,1
+   (asgn@7
+    (par~7
+     (at@2 x~1 i@1))elem@2)))
+ (template@,W
+  (quoted@9 \5B\5D=@1) x .
+  (typevars@F
+   (typevar@1 T . . . .))
+  (params@I
+   (param@1 x . .
+    (ptr@3
+     (at@I UncheckedArray~E T@1)).)
+   (param@R i . . int@3 .)
+   (param@Z elem . . T@6 .)). . .
+  (stmts@2,1
+   (asgn@7
+    (par~7
+     (at@2 x~1 i@1))elem@2)))
+ (template@,Y
+  (quoted@9 \5B\5D=@1) x .
+  (typevars@F
+   (typevar@1 T . . . .))
+  (params@I
+   (param@1 x . .
+    (at@H UncheckedArray~E T@1).)
+   (param@N i . . int@3 .)
+   (param@V elem . . T@6 .)). . .
+  (stmts@2,1
+   (asgn@7
+    (par~7
+     (at@2 x~1 i@1))elem@2)))
+ (func@,b
+  (quoted@5 \5B\5D@1) x .
+  (typevars@A
+   (typevar@1 T . . . .))
+  (params@D
+   (param@1 x . .
+    (ptr@3 T@4).))
+  (mut@C T@4)
+  (pragmas@V
+   (kv@7 magic~5 "Deref"@2)noSideEffect@I). .)
+ (func@,c
+  (quoted@5 \5B\5D@1) x .
+  (typevars@A
+   (typevar@1 T . . . .))
+  (params@D
+   (param@1 x . .
+    (ref@3 T@4).))
+  (mut@C T@4)
+  (pragmas@V
+   (kv@7 magic~5 "Deref"@2)noSideEffect@I). .)
+ (template@,d
+  (quoted@9 \5B\5D=@1) x .
+  (typevars@F
+   (typevar@1 T . . . .))
+  (params@I
+   (param@1 x . .
+    (ptr@3 T@4).)
+   (param@B val . . T@5 .)). . .
+  (stmts@2,1
+   (asgn@6
+    (par~6
+     (at@2 x~1))val@2)))
+ (template@,f
+  (quoted@9 \5B\5D=@1) x .
+  (typevars@F
+   (typevar@1 T . . . .))
+  (params@I
+   (param@1 x . .
+    (ref@3 T@4).)
+   (param@B val . . T@5 .)). . .
+  (stmts@2,1
+   (asgn@6
+    (par~6
+     (at@2 x~1))val@2)))
+ (include@,i "system/arithmetics"@8)
+ (include@,k "system/comparisons"@8)
+ (func@,m defined@5 x . .
+  (params@D
+   (param@1 x . . untyped@3 .))bool@E
+  (pragmas@W
+   (kv@7 magic~5 Defined@2)). .)
+ (func@,o declared@5 x . .
+  (params@E
+   (param@1 x . . untyped@3 .))bool@E
+  (pragmas@X
+   (kv@7 magic~5 Declared@2)). .)
+ (func@,r astToStr@5 x .
+  (typevars@E
+   (typevar@1 T . . . .))
+  (params@H
+   (param@1 x . . T@3 .))string@8
+  (pragmas@W
+   (kv@7 magic~5 AstToStr@2)). .)
+ (func@,v compiles@5 x . .
+  (params@E
+   (param@1 x . . untyped@3 .))bool@E
+  (pragmas@X
+   (kv@7 magic~5 Compiles@2)). .)
+ (const@2,17 NegTen . . .
+  (bracket@9 "-0"~7,1 "-1"~1,1 "-2"@5,1 "-3"@B,1 "-4"@H,1 "-5"~7,2 "-6"~1,2 "-7"@5,2 "-8"@B,2 "-9"@H,2))
+ (func@,1B
+  (quoted@5 $@1) x . .
+  (params@9
+   (param@1 x . . uint64@3 .))string@D . .
+  (stmts@2,1
+   (asgn@7 result~7 ""@2)
+   (if@,1
+    (elif@3
+     (infix@2 < x~2 10@2)
+     (stmts~1,1
+      (asgn@7 result~7
+       (call@M
+        (dot~7
+         (at~7 NegTen~6
+          (cmd@5 int~4 x))substr@1)1@1 1@4))))
+    (else@,2
+     (stmts@2,1
+      (var@4 y . . . x@4)
+      (while@,1 true@6
+       (stmts@2,1
+        (cmd@6
+         (dot result~6 add@1)
+         (call@9 char~4
+          (infix@E \2B
+           (par~D
+            (infix@3 mod y~2 10u@4))
+           (call@6 uint~4 '0'@1))))
+        (asgn@2,1 y~2
+         (infix@4 div y~2 10u@4))
+        (if@,2
+         (elif@3
+          (infix@2 == y~2 0u@3)
+          (stmts@A
+           (break .))))))
+      (let@4,5 last . . .
+       (infix@H \2D
+        (dot~4 result~6 len@1)1@1))
+      (var@4,6 i . . . 0@4)
+      (let@4,7 b . . .
+       (infix@F div
+        (dot~5 result~6 len@1)2@4))
+      (while@,8
+       (infix@8 < i~2 b@2)
+       (stmts@2,1
+        (let@4 ch . . .
+         (at@B result~6 i@1))
+        (asgn@A,1
+         (at~4 result~6 i@1)
+         (at@8 result~6
+          (infix@5 \2D last~4 i@1)))
+        (asgn@F,2
+         (at~9 result~6
+          (infix@5 \2D last~4 i@1))ch@2)
+        (cmd@,3 inc i@4))))))))
+ (func@,1U
+  (quoted@5 $@1) x . .
+  (params@9
+   (param@1 x . . int64@3 .))string@C . .
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@2 < x~2 0@2)
+     (stmts~1,1
+      (if
+       (elif@3
+        (infix@2 > x~2 -10@2)
+        (stmts~1,1
+         (asgn@7 result~7
+          (at@8 NegTen~6
+           (call@4 int~3
+            (prefix@1 \2D x@1))))))
+       (elif@5,2
+        (infix@2 == x~2
+         (suf@3 -9223372036854775808 "i64"))
+        (stmts~3,1
+         (asgn@7 result~7
+          (infix@6 & "-"~4
+           (prefix@2 $
+            (cast@1 uint64@5 x@D))))))
+       (else@,4
+        (stmts@2,1
+         (asgn@7 result~7
+          (infix@6 & "-"~4
+           (prefix@2 $
+            (par@1
+             (infix@2 \2D 0~1 x@1))))))))))
+    (elif@5,7
+     (infix@2 < x~2 10@2)
+     (stmts~3,1
+      (asgn@7 result~7 ""@2)
+      (cmd@6,1
+       (dot result~6 add@1)
+       (call@9 char~4
+        (infix@3 \2B x~2
+         (call@7 int64~5 '0'@1))))))
+    (else@,A
+     (stmts@2,1
+      (asgn@7 result~7
+       (prefix@2 $
+        (cast@1 uint64@5 x@D))))))))
+ (func@,1i
+  (quoted@5 $@1) x . .
+  (params@9
+   (param@1 x . . int32@3 .))string@C . .
+  (stmts@2,1
+   (prefix $
+    (par@1
+     (call@6 int64~5 x@1)))))
+ (func@,1l addInt@5 x . .
+  (params@C
+   (param@1 s . .
+    (mut@3 string@4).)
+   (param@G x . . int64@3 .)).
+  (pragmas@c inline@2).
+  (stmts@2,1
+   (cmd@1
+    (dot s~1 add@1)
+    (prefix@5 $ x@1))))
+ (func@,1o addInt@5 x . .
+  (params@C
+   (param@1 s . .
+    (mut@3 string@4).)
+   (param@G x . . uint64@3 .)).
+  (pragmas@d inline@2).
+  (stmts@2,1
+   (cmd@1
+    (dot s~1 add@1)
+    (prefix@5 $ x@1))))
+ (func@,1r
+  (quoted@5 $@1) x . .
+  (params@9
+   (param@1 b . . bool@3 .))string@B . .
+  (stmts@2,1
+   (if
+    (elif@3 b
+     (stmts@3 "true"))
+    (else@D
+     (stmts@6 "false")))))
+ (func@,1u
+  (quoted@5 $@1) x .
+  (typevars@9
+   (typevar@1 T . . enum@3 .))
+  (params@I
+   (param@1 x . . T@3 .))string@8
+  (pragmas@X
+   (kv@7 magic~5 "EnumToStr"@2)noSideEffect@M). .)
+ (type@H,1x Stringable~C x . .
+  (concept@2 . . .
+   (stmts~H,1
+    (comment)
+    (func@,3
+     (quoted@5 $@1). . .
+     (params@8
+      (param@1 x . . Self@3 .))string@B . . .))))
+ (func@,23 addr@5 x .
+  (typevars@A
+   (typevar@1 T . . . .))
+  (params@D
+   (param@1 x . . T@3 .))
+  (ptr@8 T@4)
+  (pragmas@R
+   (kv@7 magic~5 "Addr"@2)noSideEffect@H). .)
+ (func@,25 unsafeAddr@5 x .
+  (typevars@G
+   (typevar@1 T . . . .))
+  (params@J
+   (param@1 x . . T@3 .))
+  (ptr@8 T@4)
+  (pragmas@X
+   (kv@7 magic~5 "Addr"@2)noSideEffect@H). .)
+ (func@,27 sizeof@5 x .
+  (typevars@C
+   (typevar@1 T . . . .))
+  (params@F
+   (param@1 x . .
+    (at@B typedesc~8 T@1).))int@I
+  (pragmas@b
+   (kv@7 magic~5 "SizeOf"@2)noSideEffect@J). .)
+ (template@,2A sizeof@9 x .
+  (typevars@G
+   (typevar@1 T . . . .))
+  (params@J
+   (param@1 _ . . T@3 .))int@8 . .
+  (stmts@2,1
+   (comment)
+   (call@6,1 sizeof~6 T@1)))
+ (func@,2E
+  (quoted@5 =@1 destroy@2) x .
+  (typevars@G
+   (typevar@1 T . . . .))
+  (params@J
+   (param@1 x . . T@3 .)).
+  (pragmas@Q
+   (kv@7 magic~5 "Destroy"@2)noSideEffect@K). .)
+ (func@,2F
+  (quoted@5 =@1 dup@2) x .
+  (typevars@C
+   (typevar@1 T . . . .))
+  (params@F
+   (param@1 x . . T@3 .))T@8
+  (pragmas@P
+   (kv@7 magic~5 "Dup"@2)noSideEffect@G). .)
+ (func@,2G
+  (quoted@5 =@1 copy@2) x .
+  (typevars@D
+   (typevar@1 T . . . .))
+  (params@G
+   (param@1 dest . .
+    (mut@6 T@4).)
+   (param@E src . . T@5 .)).
+  (pragmas@c
+   (kv@7 magic~5 "Copy"@2)noSideEffect@H). .)
+ (func@,2H
+  (quoted@5 =@1 wasMoved@2) x .
+  (typevars@H
+   (typevar@1 T . . . .))
+  (params@K
+   (param@1 x . .
+    (mut@3 T@4).)).
+  (pragmas@V
+   (kv@7 magic~5 "WasMoved"@2)noSideEffect@L). .)
+ (func@,2I
+  (quoted@5 =@1 sink@2) x .
+  (typevars@D
+   (typevar@1 T . . . .))
+  (params@G
+   (param@1 dest . .
+    (mut@6 T@4).)
+   (param@E src . . T@5 .)).
+  (pragmas@c
+   (kv@7 magic~5 "SinkHook"@2)noSideEffect@L). .)
+ (func@,2J
+  (quoted@5 =@1 trace@2) x .
+  (typevars@E
+   (typevar@1 T . . . .))
+  (params@H
+   (param@1 x . .
+    (mut@3 T@4).)
+   (param@B env . . pointer@5 .)).
+  (pragmas@g
+   (kv@7 magic~5 "Trace"@2)noSideEffect@I). .)
+ (func@,2L ensureMove@5 x .
+  (typevars@G
+   (typevar@1 T . . . .))
+  (params@J
+   (param@1 x . . T@3 .))T@8
+  (pragmas@T
+   (kv@7 magic~5 "EnsureMove"@2)noSideEffect@N). .)
+ (func@,2O move@5 x .
+  (typevars@A
+   (typevar@1 T . . . .))
+  (params@D
+   (param@1 x . .
+    (mut@3 T@4).))T@C
+  (pragmas@R nodestroy@2 inline@D noSideEffect@L).
+  (stmts@2,1
+   (comment)
+   (asgn@7,1 result~7 x@2)
+   (call@B,2
+    (quoted~B =@1 wasMoved@2)x@1)))
+ (template@,2T len@9 x .
+  (typevars@D
+   (typevar@1 I . . . .)
+   (typevar@4 T . . . .))
+  (params@J
+   (param@1 x . .
+    (at@B typedesc~8
+     (at@6 array~5 I@1 T@4)).))int@S . .
+  (stmts@2,1
+   (comment)
+   (infix@j,2 \2B
+    (infix~N \2D
+     (dot~5
+      (call~D high~4
+       (at@6 array~5 I@1 T@4))int@1)
+     (dot@I
+      (call~D low~3
+       (at@6 array~5 I@1 T@4))int@1))1@2)))
+ (template@,2X len@9 x .
+  (typevars@D
+   (typevar@1 I . . . .)
+   (typevar@4 T . . . .))
+  (params@J
+   (param@1 x . .
+    (at@8 array~5 I@1 T@4).))int@I . .
+  (stmts@2,1
+   (comment)
+   (call@3,2 len~3
+    (at@6 array~5 I@1 T@4))))
+ (func@,2c swap@5 x .
+  (typevars@A
+   (typevar@1 T . . . .))
+  (params@D
+   (param@1 x . .
+    (mut@6 T@4).)
+   (param@4 y . .
+    (mut@3 T@4).)).
+  (pragmas@R inline@2 nodestroy@A).
+  (stmts@2,1
+   (comment)
+   (let@4,1 tmp . . . x@6)
+   (asgn@2,2 x~2 y@2)
+   (asgn@2,3 y~2 tmp@2)))
+ (template@,2i
+  (quoted@9 in@1) x . .
+  (params@E
+   (param@1 x . . untyped@6 .)
+   (param@4 y . . untyped@3 .))untyped@H . .
+  (stmts@2,1
+   (call@8 contains~8 y@1 x@4)))
+ (template@,2l
+  (quoted@9 notin@1) x . .
+  (params@H
+   (param@1 x . . untyped@6 .)
+   (param@4 y . . untyped@3 .))untyped@H . .
+  (stmts@2,1
+   (prefix not
+    (call@C contains~8 y@1 x@4))))
+ (func@,2o
+  (quoted@5 is@1) x .
+  (typevars@A
+   (typevar@1 T . . . .)
+   (typevar@4 S . . . .))
+  (params@G
+   (param@1 x . . T@3 .)
+   (param@7 y . . S@3 .))bool@E
+  (pragmas@Z
+   (kv@7 magic~5 "Is"@2)noSideEffect@F). .)
+ (template@,2q
+  (quoted@9 isnot@1) x . .
+  (params@H
+   (param@1 x . . untyped@6 .)
+   (param@4 y . . untyped@3 .))untyped@H . .
+  (stmts@2,1
+   (prefix not
+    (par@4
+     (infix@3 is x~2 y@3)))))
+ (include@,2t "system/iterators"@8)
+ (include@,2u "system/defaults"@8)
+ (include@,2w "system/countbits_impl"@8)
+ (include@,2x "system/setops"@8)
+ (include@,2z "system/ctypes"@8)
+ (when@,31
+  (elif@5
+   (call@7 defined~7 embedded@1)
+   (stmts~3,3
+    (include "system/semihosting"@8))))
+ (include@,36 "system/exits"@8)
+ (include@,37 "system/atomintrin"@8)
+ (include@,38 "system/memory"@8)
+ (template@,3A linear@9 x . .
+  (params@G).
+  (pragmas@J pragma@2). .)
+ (include@,3H "system/seqimpl"@8)
+ (include@,3I "system/stringimpl"@8)
+ (include@,3J "system/openarrays"@8)
+ (include@,3K "system/hashes"@8)
+ (include@,3O "$MM"@8)
+ (include@,3P "system/refops"@8)
+ (func@,3R newConstr@5 . .
+  (typevars@E
+   (typevar@1 T . . . .))
+  (params@H
+   (param@1 t . .
+    (at@B typedesc~8 T@1).))T@I
+  (pragmas@b
+   (kv@7 magic~5 "NewRef"@2)nodecl@J). .)
+ (func@,3S new@5 x .
+  (typevars@9
+   (typevar@1 T . .
+    (ref@3).))
+  (params@H
+   (param@1 x . .
+    (out@3 T@4).)).
+  (pragmas@S inline@2).
+  (stmts@f
+   (asgn@2 x~2
+    (call@B newConstr~9 T@1))))
+ (template@,3U runnableExamples@9 x . .
+  (params@Q
+   (param@1 body . . untyped@6 .)).
+  (pragmas@g untyped@2).
+  (stmts@2,1
+   (discard "ignore runnable examples"@8)))
+ (func@,3X overflowFlag@5 x . .
+  (params@I)bool@4
+  (pragmas@R
+   (kv@7 magic~5 "OverflowFlag"@2)). .)
+ (template@,3Z ord@9 x .
+  (typevars@D
+   (typevar@1 T . .
+    (infix@A | Ordinal~7 enum@1).))
+  (params@U
+   (param@1 x . . T@3 .))int@8 . .
+  (stmts@2,1
+   (comment)
+   (call@3,2 int~3 x@1)))
+ (include@,3e "system/panics"@8)
+ (include@,3g "system/dyncalls"@8)
+ (func@,3i
+  (quoted@5 of@1) x .
+  (typevars@A
+   (typevar@1 T . . . .)
+   (typevar@4 S . . . .))
+  (params@G
+   (param@1 x . . T@3 .)
+   (param@7 y . .
+    (at@B typedesc~8 S@1).))bool@O
+  (pragmas@j
+   (kv@7 magic~5 "Of"@2)noSideEffect@F). .)
+ (func@,3k procCall@5 x .
+  (typevars@E
+   (typevar@1 T . . . .))
+  (params@H
+   (param@1 x . . T@3 .))untyped@8
+  (pragmas@X
+   (kv@7 magic~5 "ProcCall"@2)). .)
+ (type@8,3n Rtti~6 x . .
+  (object@2 .
+   (fld~6,1 dl . . int@4 .)
+   (fld~6,2 dy . .
+    (ptr@4
+     (at@I UncheckedArray~E uint32@1)).)
+   (fld~6,3 mt . .
+    (at@I UncheckedArray~E pointer@1).)))
+ (func@,3s getRtti@5 . . .
+  (params@C
+   (param@1 dummy . . pointer@7 .))
+  (ptr@I Rtti@4)
+  (pragmas@d nodecl@2 noinit@A).
+  (stmts@y
+   (discard "patched by vtables.nim"@8)))
+ (type@P,3v ComparableAndNegatable~N . . .
+  (concept@2 . . .
+   (stmts~N,1
+    (func
+     (quoted@5 <@1). . .
+     (params@8
+      (param@1 x . . Self@6 .)
+      (param@4 y . . Self@3 .))bool@E . . .)
+    (func@,1
+     (quoted@5 \2D@1). . .
+     (params@8
+      (param@1 x . . Self@3 .))Self@B . . .))))
+ (func@,3z abs@5 x .
+  (typevars@9
+   (typevar@1 T . . ComparableAndNegatable@3 .))
+  (params@a
+   (param@1 x . . T@3 .))T@8
+  (pragmas@k inline@2).
+  (stmts@2,1
+   (comment)
+   (if@,1
+    (elif@3
+     (infix@2 < x~2 0@2)
+     (stmts@7
+      (prefix \2D x@1)))
+    (else@D
+     (stmts@6 x)))))
+ (template@,43 isNil@9 x . .
+  (params@F
+   (param@1 s . . cstring@3 .))bool@E . .
+  (stmts@a
+   (infix@2 == s~2
+    (nil@3))))
+ (func@,45 chr@5 x . .
+  (params@9
+   (param@1 u . .
+    (at@8 range~5
+     (infix@2 \2E\2E 0~1 255@2)).))char@K
+  (pragmas@Y inline@2).
+  (stmts@2,1
+   (comment)
+   (call@4,1 char~4
+    (dot@2 u~1 int@1))))
+ (include@,49 "system/formatfloat"@8)
+ (include@,4B "errorcodes/errorcodes"@8)
+ (var@E,4D localErr~A x
+  (pragmas threadvar@2)ErrorCode@F .)
+ (type@K,4G ContinuationProc~I x . .
+  (proctype@7 ....
+   (params
+    (param@1 coro . .
+     (ptr@6 CoroutineBase@4).))Continuation@R
+   (pragmas@e nimcall@2)..))
+ (type@G,4H Continuation~E x . .
+  (object@2 .
+   (fld~C,1 fn~2 x . ContinuationProc@3 .)
+   (fld~B,2 env~3 x .
+    (ptr@3 CoroutineBase@4).)))
+ (type@H,4K CoroutineBase~F x . .
+  (object@2 RootObj@A
+   (fld~9,1 caller~6 x . Continuation@3 .)
+   (fld~9,2 callee~6 x .
+    (ptr@3 CoroutineBase@4).)))
+ (method@,4O cancel@7 x . .
+  (params@E
+   (param@1 coro . .
+    (ptr@6 CoroutineBase@4).)). . .
+  (stmts@2,1
+   (discard "to override"@8)))
+ (func@,4R delay@5 x . .
+  (params@B)Continuation@4
+  (pragmas@S
+   (kv@7 magic~5 "Delay"@2)). .)
+ (func@,4W delay@5 x . .
+  (params@B
+   (param@1 x . . typed@3 .))Continuation@C
+  (pragmas@a
+   (kv@7 magic~5 "Delay"@2)). .)
+ (proc@,4a suspend@5 x . .
+  (params@D).
+  (pragmas@G
+   (kv@7 magic~5 "Suspend"@2)). .)
+ (proc@,4e trivialTick@5 . . .
+  (params@G
+   (param@1 c . . Continuation@3 .))Continuation@J . .
+  (stmts@2,1
+   (asgn@7 result~7
+    (call@6
+     (dot~3 c~1 fn@1)
+     (dot@2 c~1 env@1)))))
+ (type@D,4l Scheduler~B x . .
+  (proctype@7 ....
+   (params
+    (param@1 c . . Continuation@3 .))Continuation@J
+   (pragmas@W nimcall@2)..))
+ (var@4,4o scheduler . . Scheduler@B trivialTick@N)
+ (proc@,4p setScheduler@5 x . .
+  (params@I
+   (param@1 handler . . Scheduler@9 .)).
+  (pragmas@d inline@2).
+  (stmts@2,2
+   (asgn@A scheduler~A handler@2)))
+ (proc@,4t advance@5 x . .
+  (params@D
+   (param@1 c . . Continuation@3 .))Continuation@J . .
+  (stmts@2,1
+   (comment)
+   (asgn@7,2 result~7
+    (call@B scheduler~9 c@1))))
+ (proc@,4y complete@5 x . .
+  (params@E
+   (param@1 c . . Continuation@3 .)). . .
+  (stmts@2,1
+   (comment)
+   (var@4,7 c . . . c@4)
+   (while@,8
+    (prefix@6 not
+     (call@C stopping~8 c@1))
+    (stmts@2,1
+     (asgn@2 c~2
+      (call@B scheduler~9 c@1))))))
+ (proc@,5A parked@5 x . .
+  (params@C
+   (param@1 c . . Continuation@3 .))bool@J
+  (pragmas@a inline@2).
+  (stmts@2,1
+   (comment)
+   (infix@C,2 and
+    (infix~7 ==
+     (dot~4 c~1 fn@1)
+     (nil@3))
+    (infix@A !=
+     (dot~5 c~1 env@1)
+     (nil@3)))))
+ (proc@,5F stopping@5 x . .
+  (params@E
+   (param@1 c . . Continuation@3 .))bool@J
+  (pragmas@c inline@2).
+  (stmts@2,1
+   (comment)
+   (infix@5,1 ==
+    (dot~4 c~1 fn@1)
+    (nil@3))))
+ (proc@,5J finished@5 x . .
+  (params@E
+   (param@1 c . . Continuation@3 .))bool@J
+  (pragmas@c inline@2).
+  (stmts@2,1
+   (comment)
+   (infix@C,7 and
+    (infix~7 ==
+     (dot~4 c~1 fn@1)
+     (nil@3))
+    (infix@A ==
+     (dot~5 c~1 env@1)
+     (nil@3)))))
+ (proc@,5T finalizeCoroutine@5 x . .
+  (params@N
+   (param@1 c . .
+    (mut@3 Continuation@4).)). . .
+  (stmts@2,1
+   (comment)
+   (if@,C
+    (elif@3
+     (infix@6 !=
+      (dot~5 c~1 env@1)
+      (nil@3))
+     (stmts~1,1
+      (call@6 cancel~6
+       (dot@2 c~1 env@1))
+      (if@,1
+       (elif@3
+        (infix@H ==
+         (dot~5
+          (dot~7
+           (dot~4 c~1 env@1)caller@1)env@1)
+         (nil@3))
+        (stmts~1,1
+         (call@C deallocFrame~C
+          (dot@2 c~1 env@1)))))
+      (asgn@5,3
+       (dot~4 c~1 fn@1)
+       (nil@2))
+      (asgn@6,4
+       (dot~5 c~1 env@1)
+       (nil@2)))))))
+ (func@,5n
+  (quoted@5 ==@1) x .
+  (typevars@A
+   (typevar@1 T . .
+    (infix@8 |
+     (tuple)
+     (object@1)).))
+  (params@R
+   (param@1 x . . T@6 .)
+   (param@4 y . . T@3 .))bool@B . .
+  (stmts@2,1
+   (comment)
+   (for@4,1
+    (call@G fields~6 x@1 y@4)
+    (unpackflat
+     (let xf . . ..)
+     (let yf@4 . . ..))
+    (stmts~2,1
+     (if
+      (elif@3
+       (infix@3 != xf~3 yf@3)
+       (stmts@A
+        (ret false@7))))))
+   (ret@,3 true@7)))
+ (func@,5t
+  (quoted@5 ==@1) x .
+  (typevars@A
+   (typevar@1 T . . Equatable@3 .))
+  (params@O
+   (param@1 x . .
+    (at@9 seq~3 T@1).)
+   (param@4 y . .
+    (at@6 seq~3 T@1).))bool@G . .
+  (stmts@2,1
+   (comment)
+   (if@,2
+    (elif@3
+     (infix@A ==
+      (dot~9 y~1 rawData@1)
+      (dot@4 x~1 rawData@1))
+     (stmts~1,1
+      (ret true@7))))
+   (if@,5
+    (elif@3
+     (infix@6 !=
+      (dot~5 x~1 len@1)
+      (dot@4 y~1 len@1))
+     (stmts~1,1
+      (ret false@7))))
+   (for@4,8
+    (infix@6 \2E\2E 0~1
+     (infix@7 \2D
+      (dot~4 x~1 len@1)1@1))
+    (unpackflat
+     (let i . . ..))
+    (stmts~2,1
+     (if
+      (elif@3
+       (infix@5 !=
+        (at~4 x~1 i@1)
+        (at@4 y~1 i@1))
+       (stmts~1,1
+        (ret false@7))))))
+   (ret@,C true@7)))
+ (const@6,68 HexChars . . . "0123456789ABCDEF"@B)
+ (func@,6A addEscapedChar@5 x . .
+  (params@K
+   (param@1 s . .
+    (mut@3 string@4).)
+   (param@G c . . char@3 .)).
+  (pragmas@j noSideEffect@2 inline@G).
+  (stmts@2,1
+   (comment)
+   (case@,L c@5
+    (of@,1
+     (ranges '\07'@3)
+     (stmts@9
+      (cmd@1
+       (dot s~1 add@1)"\5Ca"@5)))
+    (of@,2
+     (ranges '\08'@3)
+     (stmts@9
+      (cmd@1
+       (dot s~1 add@1)"\5Cb"@5)))
+    (of@,3
+     (ranges '\09'@3)
+     (stmts@9
+      (cmd@1
+       (dot s~1 add@1)"\5Ct"@5)))
+    (of@,4
+     (ranges '\0A'@3)
+     (stmts@9
+      (cmd@1
+       (dot s~1 add@1)"\5Cn"@5)))
+    (of@,5
+     (ranges '\0B'@3)
+     (stmts@9
+      (cmd@1
+       (dot s~1 add@1)"\5Cv"@5)))
+    (of@,6
+     (ranges '\0C'@3)
+     (stmts@9
+      (cmd@1
+       (dot s~1 add@1)"\5Cf"@5)))
+    (of@,7
+     (ranges '\0D'@3)
+     (stmts@9
+      (expr
+       (stmts)
+       (when@1
+        (elif@5
+         (call@7 defined~7 nimLegacyAddEscapedCharx0D@1)
+         (cmd@c
+          (dot s~1 add@1)"\5Cc"@5))
+        (else@s
+         (cmd@7
+          (dot s~1 add@1)"\5Cr"@5))))))
+    (of@,8
+     (ranges '\1B'@3)
+     (stmts@9
+      (cmd@1
+       (dot s~1 add@1)"\5Ce"@5)))
+    (of@,9
+     (ranges '\5C'@3)
+     (stmts@9
+      (call@5
+       (dot~4 s~1 add@1)"\5C\5C"@1)))
+    (of@,A
+     (ranges '\27'@3)
+     (stmts@9
+      (call@5
+       (dot~4 s~1 add@1)"\5C\27"@1)))
+    (of@,B
+     (ranges '\22'@3)
+     (stmts@9
+      (call@5
+       (dot~4 s~1 add@1)"\5C\22"@1)))
+    (of@,C
+     (ranges
+      (infix@J \2D
+       (curly~G
+        (infix@6 \2E\2E ' '~5 '\7E'@2))
+       (curly@2 '\5C'@1 '\27'@7 '\22'@D)))
+     (stmts@f
+      (call@5
+       (dot~4 s~1 add@1)c@1)))
+    (else@,D
+     (stmts@2,1
+      (call@5
+       (dot~4 s~1 add@1)"\5Cx"@1)
+      (let@4,1 n . . .
+       (call@7 ord~3 c@1))
+      (call@5,2
+       (dot~4 s~1 add@1)
+       (at@9 HexChars~8
+        (call@4 int~3
+         (infix@E shr
+          (par~D
+           (infix@3 and n~2 240@4))4@4))))
+      (call@5,3
+       (dot~4 s~1 add@1)
+       (at@9 HexChars~8
+        (call@4 int~3
+         (infix@3 and n~2 15@4)))))))))
+ (func@,6p addQuoted@5 x .
+  (typevars@F
+   (typevar@1 T . . . .))
+  (params@I
+   (param@1 s . .
+    (mut@3 string@4).)
+   (param@G x . . T@3 .)). . .
+  (stmts@2,1
+   (comment)
+   (when@,O
+    (elif@5
+     (infix@C or
+      (infix~A is T~2 string@3)
+      (infix@5 is T~2 cstring@3))
+     (stmts~3,1
+      (call@5
+       (dot~4 s~1 add@1)"\22"@1)
+      (for@4,1 x@5
+       (unpackflat
+        (let c . . ..))
+       (stmts~2,3
+        (if
+         (elif@3
+          (infix@2 <= c~2
+           (dot@6 127~3 char@1))
+          (stmts~1,1
+           (call@G
+            (dot~F s~1 addEscapedChar@1)c@1)))
+         (else@,2
+          (stmts@2,1
+           (cmd@1
+            (dot s~1 add@1)c@5))))))
+      (call@5,8
+       (dot~4 s~1 add@1)"\22"@1)))
+    (elif@5,A
+     (infix@2 is T~2 char@3)
+     (stmts~3,1
+      (call@5
+       (dot~4 s~1 add@1)"\27"@1)
+      (call@G,1
+       (dot~F s~1 addEscapedChar@1)x@1)
+      (call@5,2
+       (dot~4 s~1 add@1)"\27"@1)))
+    (elif@5,F
+     (infix@2 is T~2 SomeInteger@3)
+     (stmts~3,1
+      (call@8
+       (dot~7 s~1 addInt@1)x@1)))
+    (elif@5,H
+     (infix@2 is T~2 SomeFloat@3)
+     (stmts~3,1
+      (call@A
+       (dot~9 s~1 addFloat@1)x@1)))
+    (elif@5,J
+     (call@8 compiles~8
+      (call@6
+       (dot~4 s~1 add@1)x@1))
+     (stmts~3,1
+      (call@5
+       (dot~4 s~1 add@1)x@1)))
+    (else@,L
+     (stmts@2,1
+      (call@5
+       (dot~4 s~1 add@1)
+       (prefix@1 $ x@1)))))))
+ (type@B,7e Natural~9 x . . int@2)
+ (type@C,7j Positive~A x . . int@2)
+ (type@G,7n HSlice~E x
+  (typevars~7
+   (typevar@1 T . . . .)
+   (typevar@4 U . . . .)).
+  (object@2 .
+   (fld~D,1 a~1 x . T@3 .)
+   (fld~D,2 b~1 x . U@3 .)))
+ (type@C,7q Slice~A x
+  (typevars~4
+   (typevar@1 T . . . .)).
+  (at@8 HSlice~6 T@1 T@4))
+ (func@,7s
+  (quoted@5 \2E\2E@1) x .
+  (typevars@A
+   (typevar@1 T . . . .)
+   (typevar@4 U . . . .))
+  (params@G
+   (param@1 a . .
+    (cmd@8 sink~5 T).)
+   (param@C b . .
+    (cmd@8 sink~5 U).))
+  (at@U HSlice~6 T@1 U@4)
+  (pragmas@r inline@2).
+  (stmts@2,1
+   (comment)
+   (asgn@7,9 result~7
+    (oconstr@E
+     (at~6 HSlice~6 T@1 U@4)
+     (kv@2 a~1 a@2)
+     (kv@8 b~1 b@2)))))
+ (func@,84
+  (quoted@5 \2E\2E<@1) x .
+  (typevars@B
+   (typevar@1 T . . Ordinal@6 .)
+   (typevar@4 U . . Ordinal@3 .))
+  (params@Q
+   (param@1 a . .
+    (cmd@8 sink~5 T).)
+   (param@C b . .
+    (cmd@8 sink~5 U).))
+  (at@U HSlice~6 T@1 U@4)
+  (pragmas@11 inline@2).
+  (stmts@2,1
+   (comment)
+   (asgn@7,5 result~7
+    (oconstr@E
+     (at~6 HSlice~6 T@1 U@4)
+     (kv@2 a~1 a@2)
+     (kv@8 b~1
+      (call@6 pred~4 b@1))))))
+ (func@,8C contains@5 x .
+  (typevars@E
+   (typevar@1 T . . Comparable@3 .))
+  (params@T
+   (param@1 s . .
+    (at@8 Slice~5 T@1).)
+   (param@E x . . T@3 .))bool@L
+  (pragmas@t inline@2).
+  (stmts@2,1
+   (comment)
+   (infix@E,1 and
+    (prefix~E not
+     (par@4
+      (infix@3 < x~2
+       (dot@3 s~1 a@1))))
+    (prefix@4 not
+     (par@4
+      (infix@5 <
+       (dot~3 s~1 b@1)x@2))))))
+ (type@I,8H BackwardsIndex~G x . .
+  (distinct@2 int@9))
+ (template@,8K
+  (quoted@9 ^@1) x . .
+  (params@D
+   (param@1 x . . int@3 .))BackwardsIndex@A . .
+  (stmts@e
+   (call@E BackwardsIndex~E x@1)))
+ (template@,8N
+  (quoted@9 \5B\5D@1) x .
+  (typevars@E
+   (typevar@1 T . . . .))
+  (params@H
+   (param@1 s . .
+    (at@6 seq~3 T@1).)
+   (param@C i . . BackwardsIndex@3 .))
+  (mut@W T@4). .
+  (stmts@2,1
+   (at@1 s~1
+    (infix@7 \2D
+     (dot~5 s~1 len@1)
+     (call@5 int~3 i@1)))))
+ (template@,8Q
+  (quoted@9 \5B\5D@1) x .
+  (typevars@E
+   (typevar@1 T . . . .))
+  (params@H
+   (param@1 s . .
+    (at@C openArray~9 T@1).)
+   (param@I i . . BackwardsIndex@3 .))
+  (mut@c T@4). .
+  (stmts@2,1
+   (at@1 s~1
+    (infix@7 \2D
+     (dot~5 s~1 len@1)
+     (call@5 int~3 i@1)))))
+ (template@,8T
+  (quoted@9 \5B\5D@1) x . .
+  (params@E
+   (param@1 s . . string@3 .)
+   (param@C i . . BackwardsIndex@3 .))
+  (mut@W char@4). .
+  (stmts@2,1
+   (at@1 s~1
+    (infix@7 \2D
+     (dot~5 s~1 len@1)
+     (call@5 int~3 i@1)))))
+ (template@,8W
+  (quoted@9 \2E\2E^@1) x . .
+  (params@F
+   (param@1 a . . untyped@6 .)
+   (param@4 b . . untyped@3 .))untyped@H . .
+  (stmts@2,1
+   (comment)
+   (infix@2,2 \2E\2E a~2
+    (prefix@3 ^ b@1))))
+ (func@,8h
+  (quoted@5 \5B\5D@1) x . .
+  (params@A
+   (param@1 s . . string@3 .)
+   (param@C x . .
+    (at@9 HSlice~6 int@1 int@6).))string@Y
+  (pragmas@p inline@2).
+  (stmts@2,1
+   (comment)
+   (asgn@7,2 result~7
+    (call@8 substr~6 s@1
+     (dot@5 x~1 a@1)
+     (dot@A x~1 b@1)))))
+ (func@,8m
+  (quoted@5 \5B\5D@1) x . .
+  (params@A
+   (param@1 s . . string@3 .)
+   (param@C x . .
+    (at@9 HSlice~6 int@1 BackwardsIndex@6).))string@j
+  (pragmas@10 inline@2).
+  (stmts@2,1
+   (comment)
+   (asgn@7,1 result~7
+    (call@8 substr~6 s@1
+     (dot@5 x~1 a@1)
+     (infix@F \2D
+      (dot~5 s~1 len@1)
+      (call@5 int~3
+       (dot@2 x~1 b@1)))))))
+ (func@,8q
+  (quoted@5 \5B\5D@1) x .
+  (typevars@A
+   (typevar@1 T . . . .))
+  (params@D
+   (param@1 s . .
+    (at@6 seq~3 T@1).)
+   (param@C x . .
+    (at@9 HSlice~6 int@1 int@6).))
+  (at@b seq~3 T@1)
+  (pragmas@s nodestroy@2).
+  (stmts@2,1
+   (comment)
+   (let@4,2 a . . .
+    (call@7 max~3
+     (dot@2 x~1 a@1)0@6))
+   (let@4,3 b . . .
+    (call@7 min~3
+     (dot@2 x~1 b@1)
+     (infix@C \2D
+      (dot~5 s~1 len@1)1@2)))
+   (let@4,4 n . . .
+    (if@4
+     (elif@3
+      (infix@2 >= b~2 a@3)
+      (stmts@8
+       (infix@8 \2B
+        (par~8
+         (infix@3 \2D b~2 a@2))1@2)))
+     (else@N
+      (stmts@6 0))))
+   (asgn@7,5 result~7
+    (call@H
+     (at~3 newSeqUninit~C T@1)n@1))
+   (var@4,6 i . . . 0@4)
+   (while@,7
+    (infix@8 < i~2 n@2)
+    (stmts@2,1
+     (asgn@K
+      (par~K
+       (at@F
+        (dot~8 result~6 rawData@1)i@1))
+      (call@8
+       (quoted~6 =@1 dup@2)
+       (at@A
+        (dot~8 s~1 rawData@1)
+        (infix@2 \2B a~1 i@1))))
+     (cmd@,1 inc i@4)))))
+ (func@,92
+  (quoted@5 \5B\5D@1) x .
+  (typevars@A
+   (typevar@1 T . . . .))
+  (params@D
+   (param@1 s . .
+    (at@6 seq~3 T@1).)
+   (param@C x . .
+    (at@9 HSlice~6 int@1 BackwardsIndex@6).))
+  (at@m seq~3 T@1)
+  (pragmas@13 inline@2).
+  (stmts@2,1
+   (comment)
+   (asgn@7,1 result~7
+    (at@3 s~1
+     (infix@5 \2E\2E
+      (dot~3 x~1 a@1)
+      (par@3
+       (infix@7 \2D
+        (dot~5 s~1 len@1)
+        (call@5 int~3
+         (dot@2 x~1 b@1)))))))))
+ (type@E,97 TypeOfMode~C x . .
+  (enum@2 .
+   (efld~C,1 typeOfProc . . . .)
+   (efld~C,2 typeOfIter . . . .)))
+ (proc@,9B typeof@5 x . .
+  (params@C
+   (param@1 x . . untyped@3 .)
+   (param@D mode . . . typeOfIter@7))typedesc@X
+  (pragmas@s
+   (kv@7 magic~5 TypeOf@2)). .)
+ (proc@,9E allocFrame@5 x . .
+  (params@G
+   (param@1 size . . int@6 .))
+  (ptr@D CoroutineBase@4). .
+  (stmts@2,1
+   (comment)
+   (asgn@7,J result~7
+    (cast@2
+     (ptr@5 CoroutineBase@4)
+     (call@U alloc0~6 size@1)))))
+ (proc@,9a deallocFrame@5 x . .
+  (params@I
+   (param@1 frame . .
+    (ptr@7 CoroutineBase@4).)). . .
+  (stmts@2,1
+   (comment)
+   (if@,1
+    (elif@3
+     (infix@D !=
+      (dot~8 frame~5 callee@1)
+      (nil@3))
+     (stmts~1,1
+      (call@7 dealloc~7 frame@1))))))
+ (type@D,9g Exception~B x . .
+  (object@2 RootObj@A
+   (fld~8,1 msg~3 x . string@3 .)))
+ (var@9,9j exc~5 x
+  (pragmas threadvar@2)
+  (ref@F Exception@4).)
+ (proc@,9l newException@5 x .
+  (typevars@I
+   (typevar@1 T . . . .))
+  (params@L
+   (param@1 exceptn . .
+    (at@H typedesc~8 T@1).)
+   (param@N message . . string@9 .))
+  (ref@f T@4)
+  (pragmas@16 inline@2 untyped@A).
+  (stmts@2,1
+   (comment)
+   (call@3,2 new~3 result@1)
+   (asgn@B,3
+    (dot~5 result~6 msg@1)message@2))))

@@ -1,0 +1,11 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-deps")
+(stmts
+ (include
+  (when
+   (infix and
+    (call defined genode)
+    (prefix not
+     (call defined StandaloneHeapSize))))
+  (infix / genode alloc)))

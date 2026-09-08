@@ -100,10 +100,10 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1788684345,
-        "narHash": "sha256-+3tYyzbgr5LdaqPDQ9tHM1JuXx7DVQqZH8MeQ7ooStI=",
+        "lastModified": 1788858717,
+        "narHash": "sha256-lNh6z7qJ35S8msz4kH3xNxXTN7PLENpesL5LatpNBGA=",
         "ref": "refs/heads/main",
-        "rev": "76e610601903fd31e82b996b28a49c6d1adb559c",
+        "rev": "30e001e67438ab6ba024fa8d4f2e9be0ba7548af",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/numtide/llm-agents.nix"
@@ -114,13 +114,32 @@
         "url": "https://github.com/numtide/llm-agents.nix"
       }
     },
+    "nativenif": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1788845110,
+        "narHash": "sha256-2RifOduodg6epN2QP6F+H1J8urEE6TECOGyC+PSQ+yg=",
+        "ref": "refs/heads/master",
+        "rev": "0cd0dfbf10f589a987044cae6c0f93d7ee8bc83a",
+        "shallow": true,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/nim-lang/nativenif"
+      },
+      "original": {
+        "shallow": true,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/nim-lang/nativenif"
+      }
+    },
     "nimony": {
       "flake": false,
       "locked": {
-        "lastModified": 1788729145,
-        "narHash": "sha256-KdVvi8tGQSJEBpc58sw+dHLVuI3oWmf+rLmL6wO2kb0=",
+        "lastModified": 1788890648,
+        "narHash": "sha256-d/wO5yUszT9nfrdWp62Q1HGDifBYboVKrzkUuZGhHAM=",
         "ref": "refs/heads/master",
-        "rev": "b7c7daa67de1aa2c7164497b599912b10bd1dcb4",
+        "rev": "db9cb13bc05a077f9d6d163d5b3cf2d175eb0413",
         "shallow": true,
         "submodules": true,
         "type": "git",
@@ -135,10 +154,10 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1788614874,
-        "narHash": "sha256-7QYjT2vHLuX9Z1pdxHXDKCbh1CR3D/2rywB9Tx0MPRg=",
+        "lastModified": 1788752844,
+        "narHash": "sha256-VaWGJ6+cIYN2erfSecbRV+4ljI185Ty2wUrXyvQbgOw=",
         "ref": "nixos-unstable",
-        "rev": "c043004d1c6985732bcc1cbc5a9c9aecbbb4e0f0",
+        "rev": "dc5d91f840324650bac8c379428c7037a416959a",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/NixOS/nixpkgs"
@@ -172,6 +191,7 @@
         "calepin": "calepin",
         "kcd": "kcd",
         "llm-agents": "llm-agents",
+        "nativenif": "nativenif",
         "nimony": "nimony",
         "nixpkgs": "nixpkgs",
         "pytest-language-server": "pytest-language-server",

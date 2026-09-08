@@ -1,0 +1,6 @@
+(stmts
+ (roots)
+ (uses raiseAssert.0. write.0.syn1lfpjv string.0.sysvq0asl quit.0.syn1lfpjv stdout.0.syn1lfpjv write.7.syn1lfpjv strlit.0.I14676000009897902695.)
+ (uses `ini.0. `ini.0.syn1lfpjv `iniGuard.0. `ini.0.sysvq0asl)
+ (uses strlit.0.I14676000009897902695. LongString.0.sysvq0asl)
+ (offers strlit.0.I14676000009897902695.))

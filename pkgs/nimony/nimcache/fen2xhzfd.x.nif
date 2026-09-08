@@ -1,0 +1,33 @@
+(.nif27)
+(.indexat 659              )
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/fenv.nim
+ (const@2,6 :FLT_MIN.0. .
+  (f@M,6 32)
+  (suf@A 1.17549435E-38 "f32"))
+ (const@2,7 :FLT_EPSILON.0. .
+  (f@M,5 32)
+  (suf@E 0.00000011920929 "f32"))
+ (const@2,9 :DBL_MIN.0. .
+  (f@M,A 64)2.2250738585072014E-308@A)
+ (const@2,A :DBL_EPSILON.0. .
+  (f@M,9 64)2.220446049250313E-16@E)
+ (gvar :`iniGuard.0. .
+  (bool).)
+ (proc :`ini.0.
+  (params).
+  (pragmas
+   (smry writeGlobal callsUnknown))
+  (stmts
+   (if
+    (elif `iniGuard.0.
+     (stmts
+      (ret .))))
+   (asgn `iniGuard.0.
+    (true))
+   (call `ini.0.sysvq0asl))))(.index@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/fenv.nim
+ (h FLT_MIN.0. 138)
+ (h FLT_EPSILON.0. 71)
+ (h DBL_MIN.0. 77)
+ (h DBL_EPSILON.0. 65)
+ (h `iniGuard.0. 67)
+ (x `ini.0. 34))

@@ -1,0 +1,240 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,4,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/countbits_impl.nim
+ (const@6 useBuiltins . . .
+  (prefix@E not
+   (call@B defined~7 noIntrinsicsBitOpts@1)))
+ (const@6,1 useGCC_builtins . . .
+  (infix@Z,1 and
+   (par~H,~1
+    (infix@Z or
+     (infix~L or
+      (call~6 defined~7 gcc@1)
+      (call@A defined~7 llvm_gcc@1))
+     (call~R,1 defined~7 clang@1)))useBuiltins@4))
+ (const@6,3 useICC_builtins . . .
+  (infix@V and
+   (call~6 defined~7 icc@1)useBuiltins@4))
+ (const@6,4 useVCC_builtins . . .
+  (infix@V and
+   (call~6 defined~7 vcc@1)useBuiltins@4))
+ (const@6,5 arch64 . . . true@9)
+ (template@,7 countBitsImpl@9 . . .
+  (params@M
+   (param@1 n . . uint32@3 .))int@D . .
+  (stmts@2,2
+   (var@4 v . . .
+    (call@A uint32~6 n@1))
+   (asgn@2,1 v~2
+    (infix@4 \2D v~2
+     (par@2
+      (infix@B and
+       (par~A
+        (infix@3 shr v~2 1@4))
+       (suf@4 1431655765u "u32")))))
+   (asgn@2,2 v~2
+    (infix@P \2B
+     (par~N
+      (infix@3 and v~2
+       (suf@4 858993459u "u32")))
+     (par@2
+      (infix@B and
+       (par~A
+        (infix@3 shr v~2 2@4))
+       (suf@4 858993459u "u32")))))
+   (dot@y,3
+    (par~y
+     (infix@r shr
+      (par~q
+       (infix@Z *
+        (par~Y
+         (infix@F and
+          (infix~C \2B v~2
+           (par@2
+            (infix@3 shr v~2 4@4)))
+          (suf@4 252645135u "u32")))
+        (suf@2 16843009u "u32")))24@4))int@1)))
+ (template@,E countBitsImpl@9 . . .
+  (params@M
+   (param@1 n . . uint64@3 .))int@D . .
+  (stmts@2,2
+   (var@4 v . . .
+    (call@A uint64~6 n@1))
+   (asgn@2,1 v~2
+    (infix@4 \2D v~2
+     (par@2
+      (infix@B and
+       (par~A
+        (infix@3 shr v~2 1@4))
+       (suf@4 6148914691236517205u "u64")))))
+   (asgn@2,2 v~2
+    (infix@X \2B
+     (par~V
+      (infix@3 and v~2
+       (suf@4 3689348814741910323u "u64")))
+     (par@2
+      (infix@B and
+       (par~A
+        (infix@3 shr v~2 2@4))
+       (suf@4 3689348814741910323u "u64")))))
+   (asgn@2,3 v~2
+    (par@2
+     (infix@F and
+      (infix~C \2B v~2
+       (par@2
+        (infix@3 shr v~2 4@4)))
+      (suf@4 1085102592571150095u "u64"))))
+   (dot@b,4
+    (par~b
+     (infix@U shr
+      (par~T
+       (infix@3 * v~2
+        (suf@2 72340172838076673u "u64")))56@4))int@1)))
+ (when@,N
+  (elif@5 useGCC_builtins
+   (stmts~3,2
+    (func builtin_popcount@5 . . .
+     (params@L
+      (param@1 x . . cuint@3 .))cint@C
+     (pragmas@c
+      (kv@9 importc~7 "__builtin_popcount"@2)cdecl@X). .)
+    (func@,1 builtin_popcountll@5 . . .
+     (params@N
+      (param@1 x . . culonglong@3 .))cint@H
+     (pragmas@j
+      (kv~Y,1 importc~7 "__builtin_popcountll"@2)cdecl~8,1). .)))
+  (elif@5,6 useVCC_builtins
+   (stmts~3,2
+    (func builtin_popcnt16@5 . . .
+     (params@L
+      (param@1 a2 . . uint16@4 .))uint16@E
+     (pragmas@g
+      (kv~V,1 importc~7 "__popcnt16"@2)
+      (kv~9,1 header~6 "<intrin.h>"@2)). .)
+    (func@,2 builtin_popcnt32@5 . . .
+     (params@L
+      (param@1 a2 . . uint32@4 .))uint32@E
+     (pragmas@g
+      (kv~V,1 importc~7 "__popcnt"@2)
+      (kv~B,1 header~6 "<intrin.h>"@2)). .)
+    (func@,4 builtin_popcnt64@5 . . .
+     (params@L
+      (param@1 a2 . . uint64@4 .))uint64@E
+     (pragmas@g
+      (kv~V,1 importc~7 "__popcnt64"@2)
+      (kv~9,1 header~6 "<intrin.h>"@2)). .)))
+  (elif@5,F useICC_builtins
+   (stmts~3,4
+    (func builtin_popcnt32@5 . . .
+     (params@L
+      (param@1 a . . cint@3 .))cint@B
+     (pragmas@b
+      (kv~Q,1 importc~7 "_popcnt"@2)
+      (kv~7,1 header~6 "<immintrin.h>"@2)). .)
+    (func@,2 builtin_popcnt64@5 . . .
+     (params@L
+      (param@1 a . . uint64@3 .))cint@D
+     (pragmas@d
+      (kv~S,1 importc~7 "_popcnt64"@2)
+      (kv~7,1 header~6 "<immintrin.h>"@2)). .))))
+ (func@,l countBits32@5 x . .
+  (params@H
+   (param@1 x . . uint32@3 .))int@D
+  (pragmas@Y inline@2).
+  (stmts@2,1
+   (when
+    (elif@5 useGCC_builtins
+     (stmts~3,1
+      (asgn@7 result~7
+       (dot@R
+        (call~9 builtin_popcount~G
+         (dot@2 x~1 cuint@1))int@1))))
+    (elif@5,2 useVCC_builtins
+     (stmts~3,1
+      (asgn@7 result~7
+       (dot@S
+        (call~A builtin_popcnt32~G
+         (dot@2 x~1 uint32@1))int@1))))
+    (elif@5,4 useICC_builtins
+     (stmts~3,1
+      (asgn@7 result~7
+       (dot@Q
+        (call~8 builtin_popcnt32~G
+         (dot@2 x~1 cint@1))int@1))))
+    (else@,6
+     (stmts@2,1
+      (asgn@7 result~7
+       (call@F countBitsImpl~D
+        (dot@2 x~1 uint32@1))))))))
+ (func@,v countBits64@5 x . .
+  (params@H
+   (param@1 x . . uint64@3 .))int@D
+  (pragmas@Y inline@2).
+  (stmts@2,1
+   (when
+    (elif@5 useGCC_builtins
+     (stmts~3,1
+      (asgn@7 result~7
+       (dot@Y
+        (call~E builtin_popcountll~I
+         (dot@2 x~1 culonglong@1))int@1))))
+    (elif@5,2 useVCC_builtins
+     (stmts~3,1
+      (when
+       (elif@5 arch64
+        (stmts@8
+         (asgn@7 result~7
+          (dot@S
+           (call~A builtin_popcnt64~G
+            (dot@2 x~1 uint64@1))int@1))))
+       (else@,1
+        (stmts@6
+         (asgn@7 result~7
+          (infix@z \2B
+           (dot~5
+            (call~c builtin_popcnt32~G
+             (dot@U
+              (par~T
+               (infix@A and
+                (dot~8 x~1 uint64@1)
+                (suf@4 4294967295u "u64")))uint32@1))int@1)
+           (dot~C,1
+            (call~U builtin_popcnt32~G
+             (dot@M
+              (par~L
+               (infix@A shr
+                (dot~8 x~1 uint64@1)
+                (suf@4 32u "u64")))uint32@1))int@1))))))))
+    (elif@5,6 useICC_builtins
+     (stmts~3,1
+      (when
+       (elif@5 arch64
+        (stmts@8
+         (asgn@7 result~7
+          (dot@S
+           (call~A builtin_popcnt64~G
+            (dot@2 x~1 uint64@1))int@1))))
+       (else@,1
+        (stmts@6
+         (asgn@7 result~7
+          (infix@x \2B
+           (dot~5
+            (call~a builtin_popcnt32~G
+             (dot@U
+              (par~T
+               (infix@A and
+                (dot~8 x~1 uint64@1)
+                (suf@4 4294967295u "u64")))cint@1))int@1)
+           (dot~C,1
+            (call~S builtin_popcnt32~G
+             (dot@M
+              (par~L
+               (infix@A shr
+                (dot~8 x~1 uint64@1)
+                (suf@4 32u "u64")))cint@1))int@1))))))))
+    (else@,A
+     (stmts@2,1
+      (asgn@7 result~7
+       (call@F countBitsImpl~D
+        (dot@2 x~1 uint64@1)))))))))

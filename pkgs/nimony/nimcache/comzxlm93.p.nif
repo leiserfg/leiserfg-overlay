@@ -1,0 +1,710 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,4,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+ (proc
+  (quoted@5 ==@1) x .
+  (typevars@A
+   (typevar@1 T . . Ordinal@3 .))
+  (params@M
+   (param@1 x . . T@6 .)
+   (param@4 y . . T@3 .))bool@B
+  (pragmas@c
+   (kv@7 magic~5 "EqI"@2)noSideEffect@G). .)
+ (proc@,3
+  (quoted@5 ==@1) x .
+  (typevars@A
+   (typevar@1 Enum . . OrdinalEnum@6 .))
+  (params@T
+   (param@1 x . . Enum@6 .)
+   (param@4 y . . Enum@3 .))bool@E
+  (pragmas@m
+   (kv@7 magic~5 "EqEnum"@2)noSideEffect@J). .)
+ (proc@,5
+  (quoted@5 ==@1) x .
+  (typevars@A
+   (typevar@1 Enum . . HoleyEnum@6 .))
+  (params@R
+   (param@1 x . . Enum@6 .)
+   (param@4 y . . Enum@3 .))bool@E
+  (pragmas@k
+   (kv@7 magic~5 "EqEnum"@2)noSideEffect@J). .)
+ (proc@,7
+  (quoted@5 ==@1) x . .
+  (params@A
+   (param@1 x . .
+    (cmd@A
+     (nil~4)pointer).)
+   (param@4 y . .
+    (cmd@7
+     (nil~4)pointer).))bool@L
+  (pragmas@a
+   (kv@7 magic~5 "EqRef"@2)noSideEffect@I). .)
+ (proc@,A
+  (quoted@5 ==@1) x . .
+  (params@A
+   (param@1 x . . char@6 .)
+   (param@4 y . . char@3 .))bool@E
+  (pragmas@T
+   (kv@7 magic~5 "EqCh"@2)noSideEffect@H). .)
+ (proc@,C
+  (quoted@5 ==@1) x . .
+  (params@A
+   (param@1 x . . bool@6 .)
+   (param@4 y . . bool@3 .))bool@E
+  (pragmas@T
+   (kv@7 magic~5 "EqB"@2)noSideEffect@G). .)
+ (proc@,E
+  (quoted@5 ==@1) x .
+  (typevars@A
+   (typevar@1 T . . . .))
+  (params@D
+   (param@1 x . .
+    (at@9 set~3 T@1).)
+   (param@4 y . .
+    (at@6 set~3 T@1).))bool@G
+  (pragmas@Y
+   (kv@7 magic~5 "EqSet"@2)noSideEffect@I). .)
+ (proc@,H
+  (quoted@5 ==@1) x .
+  (typevars@A
+   (typevar@1 T . . . .))
+  (params@D
+   (param@1 x . .
+    (ref@6 T@4).)
+   (param@4 y . .
+    (ref@3 T@4).))bool@F
+  (pragmas@X
+   (kv@7 magic~5 "EqRef"@2)noSideEffect@I). .)
+ (proc@,J
+  (quoted@5 ==@1) x .
+  (typevars@A
+   (typevar@1 T . . . .))
+  (params@D
+   (param@1 x . .
+    (ptr@6 T@4).)
+   (param@4 y . .
+    (ptr@3 T@4).))bool@F
+  (pragmas@X
+   (kv@7 magic~5 "EqRef"@2)noSideEffect@I). .)
+ (proc@,N
+  (quoted@5 <=@1) x .
+  (typevars@A
+   (typevar@1 T . . Ordinal@3 .))
+  (params@M
+   (param@1 x . . T@6 .)
+   (param@4 y . . T@3 .))bool@B
+  (pragmas@c
+   (kv@7 magic~5 "LeI"@2)noSideEffect@G). .)
+ (proc@,Q
+  (quoted@5 <=@1) x .
+  (typevars@A
+   (typevar@1 Enum . . OrdinalEnum@6 .))
+  (params@T
+   (param@1 x . . Enum@6 .)
+   (param@4 y . . Enum@3 .))bool@E
+  (pragmas@m
+   (kv@7 magic~5 "LeEnum"@2)noSideEffect@J). .)
+ (proc@,R
+  (quoted@5 <=@1) x .
+  (typevars@A
+   (typevar@1 Enum . . HoleyEnum@6 .))
+  (params@R
+   (param@1 x . . Enum@6 .)
+   (param@4 y . . Enum@3 .))bool@E
+  (pragmas@k
+   (kv@7 magic~5 "LeEnum"@2)noSideEffect@J). .)
+ (proc@,T
+  (quoted@5 <=@1) x . .
+  (params@A
+   (param@1 x . . char@6 .)
+   (param@4 y . . char@3 .))bool@E
+  (pragmas@T
+   (kv@7 magic~5 "LeCh"@2)noSideEffect@H). .)
+ (proc@,X
+  (quoted@5 <=@1) x .
+  (typevars@A
+   (typevar@1 T . . . .))
+  (params@D
+   (param@1 x . .
+    (at@9 set~3 T@1).)
+   (param@4 y . .
+    (at@6 set~3 T@1).))bool@G
+  (pragmas@Y
+   (kv@7 magic~5 "LeSet"@2)noSideEffect@I). .)
+ (proc@,d
+  (quoted@5 <=@1) x . .
+  (params@A
+   (param@1 x . . bool@6 .)
+   (param@4 y . . bool@3 .))bool@E
+  (pragmas@T
+   (kv@7 magic~5 "LeB"@2)noSideEffect@G). .)
+ (proc@,e
+  (quoted@5 <=@1) x .
+  (typevars@A
+   (typevar@1 T . . . .))
+  (params@D
+   (param@1 x . .
+    (ref@6 T@4).)
+   (param@4 y . .
+    (ref@3 T@4).))bool@F
+  (pragmas@X
+   (kv@7 magic~5 "LePtr"@2)noSideEffect@I). .)
+ (proc@,f
+  (quoted@5 <=@1) x . .
+  (params@A
+   (param@1 x . . pointer@6 .)
+   (param@4 y . . pointer@3 .))bool@H
+  (pragmas@W
+   (kv@7 magic~5 "LePtr"@2)noSideEffect@I). .)
+ (proc@,i
+  (quoted@5 <@1) x .
+  (typevars@9
+   (typevar@1 T . . Ordinal@3 .))
+  (params@L
+   (param@1 x . . T@6 .)
+   (param@4 y . . T@3 .))bool@B
+  (pragmas@b
+   (kv@7 magic~5 "LtI"@2)noSideEffect@G). .)
+ (proc@,l
+  (quoted@5 <@1) x .
+  (typevars@9
+   (typevar@1 Enum . . OrdinalEnum@6 .))
+  (params@S
+   (param@1 x . . Enum@6 .)
+   (param@4 y . . Enum@3 .))bool@E
+  (pragmas@l
+   (kv@7 magic~5 "LtEnum"@2)noSideEffect@J). .)
+ (proc@,m
+  (quoted@5 <@1) x .
+  (typevars@9
+   (typevar@1 Enum . . HoleyEnum@6 .))
+  (params@Q
+   (param@1 x . . Enum@6 .)
+   (param@4 y . . Enum@3 .))bool@E
+  (pragmas@j
+   (kv@7 magic~5 "LtEnum"@2)noSideEffect@J). .)
+ (proc@,o
+  (quoted@5 <@1) x . .
+  (params@9
+   (param@1 x . . char@6 .)
+   (param@4 y . . char@3 .))bool@E
+  (pragmas@S
+   (kv@7 magic~5 "LtCh"@2)noSideEffect@H). .)
+ (proc@,s
+  (quoted@5 <@1) x .
+  (typevars@9
+   (typevar@1 T . . . .))
+  (params@C
+   (param@1 x . .
+    (at@9 set~3 T@1).)
+   (param@4 y . .
+    (at@6 set~3 T@1).))bool@G
+  (pragmas@X
+   (kv@7 magic~5 "LtSet"@2)noSideEffect@I). .)
+ (proc@,y
+  (quoted@5 <@1) x . .
+  (params@9
+   (param@1 x . . pointer@6 .)
+   (param@4 y . . pointer@3 .))bool@H
+  (pragmas@V
+   (kv@7 magic~5 "LtPtr"@2)noSideEffect@I). .)
+ (proc@,10
+  (quoted@5 ==@1) x . .
+  (params@A
+   (param@1 x . . int8@6 .)
+   (param@4 y . . int8@3 .))bool@E
+  (pragmas@T
+   (kv@7 magic~5 "EqI"@2)noSideEffect@G). .)
+ (proc@,11
+  (quoted@5 ==@1) x . .
+  (params@A
+   (param@1 x . . int16@6 .)
+   (param@4 y . . int16@3 .))bool@F
+  (pragmas@U
+   (kv@7 magic~5 "EqI"@2)noSideEffect@G). .)
+ (proc@,12
+  (quoted@5 ==@1) x . .
+  (params@A
+   (param@1 x . . int32@6 .)
+   (param@4 y . . int32@3 .))bool@F
+  (pragmas@U
+   (kv@7 magic~5 "EqI"@2)noSideEffect@G). .)
+ (proc@,13
+  (quoted@5 ==@1) x . .
+  (params@A
+   (param@1 x . . int64@6 .)
+   (param@4 y . . int64@3 .))bool@F
+  (pragmas@U
+   (kv@7 magic~5 "EqI"@2)noSideEffect@G). .)
+ (proc@,15
+  (quoted@5 <=@1) x . .
+  (params@A
+   (param@1 x . . int8@6 .)
+   (param@4 y . . int8@3 .))bool@E
+  (pragmas@T
+   (kv@7 magic~5 "LeI"@2)noSideEffect@G). .)
+ (proc@,16
+  (quoted@5 <=@1) x . .
+  (params@A
+   (param@1 x . . int16@6 .)
+   (param@4 y . . int16@3 .))bool@F
+  (pragmas@U
+   (kv@7 magic~5 "LeI"@2)noSideEffect@G). .)
+ (proc@,17
+  (quoted@5 <=@1) x . .
+  (params@A
+   (param@1 x . . int32@6 .)
+   (param@4 y . . int32@3 .))bool@F
+  (pragmas@U
+   (kv@7 magic~5 "LeI"@2)noSideEffect@G). .)
+ (proc@,18
+  (quoted@5 <=@1) x . .
+  (params@A
+   (param@1 x . . int64@6 .)
+   (param@4 y . . int64@3 .))bool@F
+  (pragmas@U
+   (kv@7 magic~5 "LeI"@2)noSideEffect@G). .)
+ (proc@,1A
+  (quoted@5 <@1) x . .
+  (params@9
+   (param@1 x . . int8@6 .)
+   (param@4 y . . int8@3 .))bool@E
+  (pragmas@S
+   (kv@7 magic~5 "LtI"@2)noSideEffect@G). .)
+ (proc@,1B
+  (quoted@5 <@1) x . .
+  (params@9
+   (param@1 x . . int16@6 .)
+   (param@4 y . . int16@3 .))bool@F
+  (pragmas@T
+   (kv@7 magic~5 "LtI"@2)noSideEffect@G). .)
+ (proc@,1C
+  (quoted@5 <@1) x . .
+  (params@9
+   (param@1 x . . int32@6 .)
+   (param@4 y . . int32@3 .))bool@F
+  (pragmas@T
+   (kv@7 magic~5 "LtI"@2)noSideEffect@G). .)
+ (proc@,1D
+  (quoted@5 <@1) x . .
+  (params@9
+   (param@1 x . . int64@6 .)
+   (param@4 y . . int64@3 .))bool@F
+  (pragmas@T
+   (kv@7 magic~5 "LtI"@2)noSideEffect@G). .)
+ (proc@,1F
+  (quoted@5 <=@1) x . .
+  (params@A
+   (param@1 x . . uint8@6 .)
+   (param@4 y . . uint8@3 .))bool@F
+  (pragmas@U
+   (kv@7 magic~5 "LeU"@2)noSideEffect@G). .)
+ (proc@,1G
+  (quoted@5 <=@1) x . .
+  (params@A
+   (param@1 x . . uint16@6 .)
+   (param@4 y . . uint16@3 .))bool@G
+  (pragmas@V
+   (kv@7 magic~5 "LeU"@2)noSideEffect@G). .)
+ (proc@,1H
+  (quoted@5 <=@1) x . .
+  (params@A
+   (param@1 x . . uint32@6 .)
+   (param@4 y . . uint32@3 .))bool@G
+  (pragmas@V
+   (kv@7 magic~5 "LeU"@2)noSideEffect@G). .)
+ (proc@,1I
+  (quoted@5 <=@1) x . .
+  (params@A
+   (param@1 x . . uint64@6 .)
+   (param@4 y . . uint64@3 .))bool@G
+  (pragmas@V
+   (kv@7 magic~5 "LeU"@2)noSideEffect@G). .)
+ (proc@,1K
+  (quoted@5 <@1) x . .
+  (params@9
+   (param@1 x . . uint8@6 .)
+   (param@4 y . . uint8@3 .))bool@F
+  (pragmas@T
+   (kv@7 magic~5 "LtU"@2)noSideEffect@G). .)
+ (proc@,1L
+  (quoted@5 <@1) x . .
+  (params@9
+   (param@1 x . . uint16@6 .)
+   (param@4 y . . uint16@3 .))bool@G
+  (pragmas@U
+   (kv@7 magic~5 "LtU"@2)noSideEffect@G). .)
+ (proc@,1M
+  (quoted@5 <@1) x . .
+  (params@9
+   (param@1 x . . uint32@6 .)
+   (param@4 y . . uint32@3 .))bool@G
+  (pragmas@U
+   (kv@7 magic~5 "LtU"@2)noSideEffect@G). .)
+ (proc@,1N
+  (quoted@5 <@1) x . .
+  (params@9
+   (param@1 x . . uint64@6 .)
+   (param@4 y . . uint64@3 .))bool@G
+  (pragmas@U
+   (kv@7 magic~5 "LtU"@2)noSideEffect@G). .)
+ (proc@,1P
+  (quoted@5 ==@1) x . .
+  (params@A
+   (param@1 x . . uint8@6 .)
+   (param@4 y . . uint8@3 .))bool@F
+  (pragmas@U
+   (kv@7 magic~5 "EqI"@2)noSideEffect@G). .)
+ (proc@,1Q
+  (quoted@5 ==@1) x . .
+  (params@A
+   (param@1 x . . uint16@6 .)
+   (param@4 y . . uint16@3 .))bool@G
+  (pragmas@V
+   (kv@7 magic~5 "EqI"@2)noSideEffect@G). .)
+ (proc@,1R
+  (quoted@5 ==@1) x . .
+  (params@A
+   (param@1 x . . uint32@6 .)
+   (param@4 y . . uint32@3 .))bool@G
+  (pragmas@V
+   (kv@7 magic~5 "EqI"@2)noSideEffect@G). .)
+ (proc@,1S
+  (quoted@5 ==@1) x . .
+  (params@A
+   (param@1 x . . uint64@6 .)
+   (param@4 y . . uint64@3 .))bool@G
+  (pragmas@V
+   (kv@7 magic~5 "EqI"@2)noSideEffect@G). .)
+ (proc@,1U
+  (quoted@5 <=@1) x . .
+  (params@A
+   (param@1 x . . float32@6 .)
+   (param@4 y . . float32@3 .))bool@H
+  (pragmas@W
+   (kv@7 magic~5 "LeF64"@2)noSideEffect@I). .)
+ (proc@,1V
+  (quoted@5 <=@1) x . .
+  (params@A
+   (param@1 x . . float@6 .)
+   (param@4 y . . float@3 .))bool@F
+  (pragmas@U
+   (kv@7 magic~5 "LeF64"@2)noSideEffect@I). .)
+ (proc@,1Y
+  (quoted@5 <@1) x . .
+  (params@9
+   (param@1 x . . float32@6 .)
+   (param@4 y . . float32@3 .))bool@H
+  (pragmas@V
+   (kv@7 magic~5 "LtF64"@2)noSideEffect@I). .)
+ (proc@,1Z
+  (quoted@5 <@1) x . .
+  (params@9
+   (param@1 x . . float@6 .)
+   (param@4 y . . float@3 .))bool@F
+  (pragmas@T
+   (kv@7 magic~5 "LtF64"@2)noSideEffect@I). .)
+ (proc@,1c
+  (quoted@5 ==@1) x . .
+  (params@A
+   (param@1 x . . float32@6 .)
+   (param@4 y . . float32@3 .))bool@H
+  (pragmas@W
+   (kv@7 magic~5 "EqF64"@2)noSideEffect@I). .)
+ (proc@,1d
+  (quoted@5 ==@1) x . .
+  (params@A
+   (param@1 x . . float@6 .)
+   (param@4 y . . float@3 .))bool@F
+  (pragmas@U
+   (kv@7 magic~5 "EqF64"@2)noSideEffect@I). .)
+ (template@,1g
+  (quoted@9 !=@1) x . .
+  (params@E
+   (param@1 x . . untyped@6 .)
+   (param@4 y . . untyped@3 .))untyped@H . .
+  (stmts@2,1
+   (comment)
+   (prefix@,1 not
+    (par@4
+     (infix@3 == x~2 y@3)))))
+ (template@,1k
+  (quoted@9 >=@1) x . .
+  (params@E
+   (param@1 x . . untyped@6 .)
+   (param@4 y . . untyped@3 .))untyped@H . .
+  (stmts@2,1
+   (comment)
+   (infix@2,1 <= y~2 x@3)))
+ (template@,1o
+  (quoted@9 >@1) x . .
+  (params@D
+   (param@1 x . . untyped@6 .)
+   (param@4 y . . untyped@3 .))untyped@H . .
+  (stmts@2,1
+   (comment)
+   (infix@2,1 < y~2 x@2)))
+ (type@G,1s Orderable~B x . .
+  (concept@2 . . .
+   (stmts~G,1
+    (proc
+     (quoted@5 <=@1). . .
+     (params@9
+      (param@1 x . . Self@6 .)
+      (param@4 y . . Self@3 .))bool@E . . .))))
+ (proc@,1v min@5 x . .
+  (params@9
+   (param@1 x . . int8@6 .)
+   (param@4 y . . int8@3 .))int8@E
+  (pragmas@S noSideEffect@2 inline@G).
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@2 <= x~2 y@3)
+     (stmts@8 x))
+    (else@D
+     (stmts@6 y)))))
+ (proc@,1x min@5 x . .
+  (params@9
+   (param@1 x . . int16@6 .)
+   (param@4 y . . int16@3 .))int16@F
+  (pragmas@U noSideEffect@2 inline@G).
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@2 <= x~2 y@3)
+     (stmts@8 x))
+    (else@D
+     (stmts@6 y)))))
+ (proc@,1z min@5 x . .
+  (params@9
+   (param@1 x . . int32@6 .)
+   (param@4 y . . int32@3 .))int32@F
+  (pragmas@U noSideEffect@2 inline@G).
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@2 <= x~2 y@3)
+     (stmts@8 x))
+    (else@D
+     (stmts@6 y)))))
+ (proc@,21 min@5 x . .
+  (params@9
+   (param@1 x . . int64@6 .)
+   (param@4 y . . int64@3 .))int64@F
+  (pragmas@U noSideEffect@2 inline@G).
+  (stmts@2,1
+   (comment)
+   (if@,1
+    (elif@3
+     (infix@2 <= x~2 y@3)
+     (stmts@8 x))
+    (else@D
+     (stmts@6 y)))))
+ (proc@,24 min@5 x . .
+  (params@9
+   (param@1 x . . float32@6 .)
+   (param@4 y . . float32@3 .))float32@H
+  (pragmas@Y noSideEffect@2 inline@G).
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@7 or
+      (infix~5 <= x~2 y@3)
+      (infix@5 != y~2 y@3))
+     (stmts@I x))
+    (else@N
+     (stmts@6 y)))))
+ (proc@,26 min@5 x . .
+  (params@9
+   (param@1 x . . float@6 .)
+   (param@4 y . . float@3 .))float@F
+  (pragmas@U noSideEffect@2 inline@G).
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@7 or
+      (infix~5 <= x~2 y@3)
+      (infix@5 != y~2 y@3))
+     (stmts@I x))
+    (else@N
+     (stmts@6 y)))))
+ (proc@,29 min@5 x .
+  (typevars@9
+   (typevar@1 T . . Orderable@3 .))
+  (params@N
+   (param@1 x . . T@6 .)
+   (param@4 y . . T@3 .))T@B
+  (pragmas@a inline@2).
+  (stmts@2,1
+   (comment)
+   (if@,1
+    (elif@3
+     (infix@2 <= x~2 y@3)
+     (stmts@8 x))
+    (else@D
+     (stmts@6 y)))))
+ (proc@,2D max@5 x . .
+  (params@9
+   (param@1 x . . int8@6 .)
+   (param@4 y . . int8@3 .))int8@E
+  (pragmas@S noSideEffect@2 inline@G).
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@2 <= y~2 x@3)
+     (stmts@8 x))
+    (else@D
+     (stmts@6 y)))))
+ (proc@,2F max@5 x . .
+  (params@9
+   (param@1 x . . int16@6 .)
+   (param@4 y . . int16@3 .))int16@F
+  (pragmas@U noSideEffect@2 inline@G).
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@2 <= y~2 x@3)
+     (stmts@8 x))
+    (else@D
+     (stmts@6 y)))))
+ (proc@,2H max@5 x . .
+  (params@9
+   (param@1 x . . int32@6 .)
+   (param@4 y . . int32@3 .))int32@F
+  (pragmas@U noSideEffect@2 inline@G).
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@2 <= y~2 x@3)
+     (stmts@8 x))
+    (else@D
+     (stmts@6 y)))))
+ (proc@,2J max@5 x . .
+  (params@9
+   (param@1 x . . int64@6 .)
+   (param@4 y . . int64@3 .))int64@F
+  (pragmas@U noSideEffect@2 inline@G).
+  (stmts@2,1
+   (comment)
+   (if@,1
+    (elif@3
+     (infix@2 <= y~2 x@3)
+     (stmts@8 x))
+    (else@D
+     (stmts@6 y)))))
+ (proc@,2M max@5 x . .
+  (params@9
+   (param@1 x . . float32@6 .)
+   (param@4 y . . float32@3 .))float32@H
+  (pragmas@Y noSideEffect@2 inline@G).
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@7 or
+      (infix~5 <= y~2 x@3)
+      (infix@5 != y~2 y@3))
+     (stmts@I x))
+    (else@N
+     (stmts@6 y)))))
+ (proc@,2O max@5 x . .
+  (params@9
+   (param@1 x . . float@6 .)
+   (param@4 y . . float@3 .))float@F
+  (pragmas@U noSideEffect@2 inline@G).
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@7 or
+      (infix~5 <= y~2 x@3)
+      (infix@5 != y~2 y@3))
+     (stmts@I x))
+    (else@N
+     (stmts@6 y)))))
+ (proc@,2R max@5 x .
+  (typevars@9
+   (typevar@1 T . . Orderable@3 .))
+  (params@N
+   (param@1 x . . T@6 .)
+   (param@4 y . . T@3 .))T@B
+  (pragmas@a inline@2).
+  (stmts@2,1
+   (comment)
+   (if@,1
+    (elif@3
+     (infix@2 <= y~2 x@3)
+     (stmts@8 x))
+    (else@D
+     (stmts@6 y)))))
+ (type@E,2W Comparable~C x . .
+  (concept@2 . . .
+   (stmts~C,1
+    (func
+     (quoted@5 ==@1). . .
+     (params@9
+      (param@1 x . . Self@6 .)
+      (param@4 y . . Self@3 .))bool@E . . .)
+    (func@,1
+     (quoted@5 <@1). . .
+     (params@8
+      (param@1 x . . Self@6 .)
+      (param@4 y . . Self@3 .))bool@E . . .))))
+ (func@,2a cmp@5 x .
+  (typevars@9
+   (typevar@1 T . . Comparable@3 .))
+  (params@O
+   (param@1 x . . T@6 .)
+   (param@4 y . . T@3 .))int@B . .
+  (stmts@2,1
+   (comment)
+   (if@,D
+    (elif@3
+     (infix@2 == x~2 y@3)
+     (stmts@8
+      (ret 0@7))))
+   (if@,E
+    (elif@3
+     (infix@2 < x~2 y@2)
+     (stmts@7
+      (ret -1@7))))
+   (ret@,F 1@7)))
+ (proc@,2s clamp@5 x .
+  (typevars@B
+   (typevar@1 T . . Orderable@3 .))
+  (params@P
+   (param@1 x . . T@9 .)
+   (param@4 a . . T@6 .)
+   (param@7 b . . T@3 .))T@E
+  (pragmas@f noSideEffect@2 inline@G).
+  (stmts@2,1
+   (comment)
+   (if@,5
+    (elif@3
+     (infix@2 <= x~2 a@3)
+     (stmts@8 a))
+    (elif@5,1
+     (infix@2 <= b~2 x@3)
+     (stmts@8 b))
+    (else@,2
+     (stmts@6 x)))))
+ (proc@,35
+  (quoted@5 ==@1) x .
+  (typevars@A
+   (typevar@1 T . .
+    (proctype@7).))
+  (params@J
+   (param@1 x . . T@6 .)
+   (param@4 y . . T@3 .))bool@B
+  (pragmas@Z
+   (kv@7 magic~5 "EqProc"@2)noSideEffect@J). .)
+ (proc@,3B
+  (quoted@5 ==@1) x .
+  (typevars@A
+   (typevar@1 T . .
+    (itertype@B).))
+  (params@N
+   (param@1 x . . T@6 .)
+   (param@4 y . . T@3 .))bool@B
+  (pragmas@d
+   (kv@7 magic~5 "EqProc"@2)noSideEffect@J). .))

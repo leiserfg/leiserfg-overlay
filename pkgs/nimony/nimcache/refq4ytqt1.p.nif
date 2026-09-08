@@ -1,0 +1,27 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,5,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/refops.nim
+ (proc GC_ref@5 x .
+  (typevars@C
+   (typevar@1 T . . . .))
+  (params@F
+   (param@1 x . .
+    (ref@3 T@4).)).
+  (pragmas@Q nodestroy@2 inline@D).
+  (stmts@2,1
+   (comment)
+   (discard@,6
+    (call@E
+     (quoted~6 =@1 dup@2)x@1))))
+ (proc@,9 GC_unref@5 x .
+  (typevars@E
+   (typevar@1 T . . . .))
+  (params@H
+   (param@1 x . .
+    (ref@3 T@4).)).
+  (pragmas@S inline@2).
+  (stmts@2,1
+   (comment)
+   (call@A,3
+    (quoted~A =@1 destroy@2)x@1))))

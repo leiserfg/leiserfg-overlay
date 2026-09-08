@@ -1,0 +1,902 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+ (func succ@5 x .
+  (typevars@A
+   (typevar@1 T . . Ordinal@6 .)
+   (typevar@4 V . . Ordinal@3 .))
+  (params@P
+   (param@1 x . . T@3 .)
+   (param@7 y . . V@3
+    (call@8 T~1 1@1)))T@L
+  (pragmas@m
+   (kv@7 magic~5 "Succ"@2)noSideEffect@H). .)
+ (func@,2 pred@5 x .
+  (typevars@A
+   (typevar@1 T . . Ordinal@6 .)
+   (typevar@4 V . . Ordinal@3 .))
+  (params@P
+   (param@1 x . . T@3 .)
+   (param@7 y . . V@3
+    (call@8 T~1 1@1)))T@L
+  (pragmas@m
+   (kv@7 magic~5 "Pred"@2)noSideEffect@H). .)
+ (func@,5 inc@5 x .
+  (typevars@9
+   (typevar@1 T . . Ordinal@6 .)
+   (typevar@4 V . . Ordinal@3 .))
+  (params@O
+   (param@1 x . .
+    (mut@3 T@4).)
+   (param@B y . . V@3 .)).
+  (pragmas@f inline@2).
+  (stmts@2,1
+   (comment)
+   (asgn@2,1 x~2
+    (call@6 succ~4 x@1 y@4))))
+ (func@,9 dec@5 x .
+  (typevars@9
+   (typevar@1 T . . Ordinal@6 .)
+   (typevar@4 V . . Ordinal@3 .))
+  (params@O
+   (param@1 x . .
+    (mut@3 T@4).)
+   (param@B y . . V@3 .)).
+  (pragmas@f inline@2).
+  (stmts@2,1
+   (comment)
+   (asgn@2,1 x~2
+    (call@6 pred~4 x@1 y@4))))
+ (func@,D inc@5 x .
+  (typevars@9
+   (typevar@1 T . . Ordinal@3 .))
+  (params@L
+   (param@1 x . .
+    (mut@3 T@4).)).
+  (pragmas@W inline@2).
+  (stmts@2,1
+   (comment)
+   (asgn@2,1 x~2
+    (call@6 succ~4 x@1))))
+ (func@,H dec@5 x .
+  (typevars@9
+   (typevar@1 T . . Ordinal@3 .))
+  (params@L
+   (param@1 x . .
+    (mut@3 T@4).)).
+  (pragmas@W inline@2).
+  (stmts@2,1
+   (comment)
+   (asgn@2,1 x~2
+    (call@6 pred~4 x@1))))
+ (template@,P
+  (quoted@9 \2B@1) x . .
+  (params@D
+   (param@1 x . . int8@3 .))int8@B . .
+  (stmts@V x))
+ (template@,Q
+  (quoted@9 \2B@1) x . .
+  (params@D
+   (param@1 x . . int16@3 .))int16@C . .
+  (stmts@X x))
+ (template@,R
+  (quoted@9 \2B@1) x . .
+  (params@D
+   (param@1 x . . int32@3 .))int32@C . .
+  (stmts@X x))
+ (template@,S
+  (quoted@9 \2B@1) x . .
+  (params@D
+   (param@1 x . . int64@3 .))int64@C . .
+  (stmts@X x))
+ (func@,V
+  (quoted@5 \2D@1) x . .
+  (params@9
+   (param@1 x . . int8@3 .))int8@B
+  (pragmas@P
+   (kv@7 magic~5 "UnaryMinusI"@2)noSideEffect@O). .)
+ (func@,W
+  (quoted@5 \2D@1) x . .
+  (params@9
+   (param@1 x . . int16@3 .))int16@C
+  (pragmas@R
+   (kv@7 magic~5 "UnaryMinusI"@2)noSideEffect@O). .)
+ (func@,X
+  (quoted@5 \2D@1) x . .
+  (params@9
+   (param@1 x . . int32@3 .))int32@C
+  (pragmas@R
+   (kv@7 magic~5 "UnaryMinusI"@2)noSideEffect@O). .)
+ (func@,Y
+  (quoted@5 \2D@1) x . .
+  (params@9
+   (param@1 x . . int64@3 .))int64@C
+  (pragmas@R
+   (kv@7 magic~5 "UnaryMinusI"@2)noSideEffect@O). .)
+ (func@,b
+  (quoted@5 not@1) x . .
+  (params@B
+   (param@1 x . . int8@3 .))int8@B
+  (pragmas@R
+   (kv@7 magic~5 "BitnotI"@2)noSideEffect@K). .)
+ (func@,c
+  (quoted@5 not@1) x . .
+  (params@B
+   (param@1 x . . int16@3 .))int16@C
+  (pragmas@T
+   (kv@7 magic~5 "BitnotI"@2)noSideEffect@K). .)
+ (func@,d
+  (quoted@5 not@1) x . .
+  (params@B
+   (param@1 x . . int32@3 .))int32@C
+  (pragmas@T
+   (kv@7 magic~5 "BitnotI"@2)noSideEffect@K). .)
+ (func@,e
+  (quoted@5 not@1) x . .
+  (params@B
+   (param@1 x . . int64@3 .))int64@C
+  (pragmas@T
+   (kv@7 magic~5 "BitnotI"@2)noSideEffect@K). .)
+ (func@,h
+  (quoted@5 \2B@1) x . .
+  (params@9
+   (param@1 x . . int8@6 .)
+   (param@4 y . . int8@3 .))int8@E
+  (pragmas@S
+   (kv@7 magic~5 "AddI"@2)noSideEffect@H). .)
+ (func@,i
+  (quoted@5 \2B@1) x . .
+  (params@9
+   (param@1 x . . int16@6 .)
+   (param@4 y . . int16@3 .))int16@F
+  (pragmas@U
+   (kv@7 magic~5 "AddI"@2)noSideEffect@H). .)
+ (func@,j
+  (quoted@5 \2B@1) x . .
+  (params@9
+   (param@1 x . . int32@6 .)
+   (param@4 y . . int32@3 .))int32@F
+  (pragmas@U
+   (kv@7 magic~5 "AddI"@2)noSideEffect@H). .)
+ (func@,k
+  (quoted@5 \2B@1) x . .
+  (params@9
+   (param@1 x . . int64@6 .)
+   (param@4 y . . int64@3 .))int64@F
+  (pragmas@U
+   (kv@7 magic~5 "AddI"@2)noSideEffect@H). .)
+ (func@,n
+  (quoted@5 \2D@1) x . .
+  (params@9
+   (param@1 x . . int8@6 .)
+   (param@4 y . . int8@3 .))int8@E
+  (pragmas@S
+   (kv@7 magic~5 "SubI"@2)noSideEffect@H). .)
+ (func@,o
+  (quoted@5 \2D@1) x . .
+  (params@9
+   (param@1 x . . int16@6 .)
+   (param@4 y . . int16@3 .))int16@F
+  (pragmas@U
+   (kv@7 magic~5 "SubI"@2)noSideEffect@H). .)
+ (func@,p
+  (quoted@5 \2D@1) x . .
+  (params@9
+   (param@1 x . . int32@6 .)
+   (param@4 y . . int32@3 .))int32@F
+  (pragmas@U
+   (kv@7 magic~5 "SubI"@2)noSideEffect@H). .)
+ (func@,q
+  (quoted@5 \2D@1) x . .
+  (params@9
+   (param@1 x . . int64@6 .)
+   (param@4 y . . int64@3 .))int64@F
+  (pragmas@U
+   (kv@7 magic~5 "SubI"@2)noSideEffect@H). .)
+ (func@,t
+  (quoted@5 *@1) x . .
+  (params@9
+   (param@1 x . . int8@6 .)
+   (param@4 y . . int8@3 .))int8@E
+  (pragmas@S
+   (kv@7 magic~5 "MulI"@2)noSideEffect@H). .)
+ (func@,u
+  (quoted@5 *@1) x . .
+  (params@9
+   (param@1 x . . int16@6 .)
+   (param@4 y . . int16@3 .))int16@F
+  (pragmas@U
+   (kv@7 magic~5 "MulI"@2)noSideEffect@H). .)
+ (func@,v
+  (quoted@5 *@1) x . .
+  (params@9
+   (param@1 x . . int32@6 .)
+   (param@4 y . . int32@3 .))int32@F
+  (pragmas@U
+   (kv@7 magic~5 "MulI"@2)noSideEffect@H). .)
+ (func@,w
+  (quoted@5 *@1) x . .
+  (params@9
+   (param@1 x . . int64@6 .)
+   (param@4 y . . int64@3 .))int64@F
+  (pragmas@U
+   (kv@7 magic~5 "MulI"@2)noSideEffect@H). .)
+ (func@,z
+  (quoted@5 div@1) x . .
+  (params@B
+   (param@1 x . . int8@6 .)
+   (param@4 y . . int8@3 .))int8@E
+  (pragmas@U
+   (kv@7 magic~5 "DivI"@2)noSideEffect@H). .)
+ (func@,10
+  (quoted@5 div@1) x . .
+  (params@B
+   (param@1 x . . int16@6 .)
+   (param@4 y . . int16@3 .))int16@F
+  (pragmas@W
+   (kv@7 magic~5 "DivI"@2)noSideEffect@H). .)
+ (func@,11
+  (quoted@5 div@1) x . .
+  (params@B
+   (param@1 x . . int32@6 .)
+   (param@4 y . . int32@3 .))int32@F
+  (pragmas@W
+   (kv@7 magic~5 "DivI"@2)noSideEffect@H). .)
+ (func@,12
+  (quoted@5 div@1) x . .
+  (params@B
+   (param@1 x . . int64@6 .)
+   (param@4 y . . int64@3 .))int64@F
+  (pragmas@W
+   (kv@7 magic~5 "DivI"@2)noSideEffect@H). .)
+ (func@,15
+  (quoted@5 mod@1) x . .
+  (params@B
+   (param@1 x . . int8@6 .)
+   (param@4 y . . int8@3 .))int8@E
+  (pragmas@U
+   (kv@7 magic~5 "ModI"@2)noSideEffect@H). .)
+ (func@,16
+  (quoted@5 mod@1) x . .
+  (params@B
+   (param@1 x . . int16@6 .)
+   (param@4 y . . int16@3 .))int16@F
+  (pragmas@W
+   (kv@7 magic~5 "ModI"@2)noSideEffect@H). .)
+ (func@,17
+  (quoted@5 mod@1) x . .
+  (params@B
+   (param@1 x . . int32@6 .)
+   (param@4 y . . int32@3 .))int32@F
+  (pragmas@W
+   (kv@7 magic~5 "ModI"@2)noSideEffect@H). .)
+ (func@,18
+  (quoted@5 mod@1) x . .
+  (params@B
+   (param@1 x . . int64@6 .)
+   (param@4 y . . int64@3 .))int64@F
+  (pragmas@W
+   (kv@7 magic~5 "ModI"@2)noSideEffect@H). .)
+ (func@,1E
+  (quoted@5 shr@1) x .
+  (typevars@B
+   (typevar@1 I . . SomeInteger@3 .))
+  (params@R
+   (param@1 x . . int8@3 .)
+   (param@A y . . I@3 .))int8@H
+  (pragmas@n
+   (kv@7 magic~5 "AshrI"@2)noSideEffect@I). .)
+ (func@,1F
+  (quoted@5 shr@1) x .
+  (typevars@B
+   (typevar@1 I . . SomeInteger@3 .))
+  (params@R
+   (param@1 x . . int16@3 .)
+   (param@B y . . I@3 .))int16@I
+  (pragmas@p
+   (kv@7 magic~5 "AshrI"@2)noSideEffect@I). .)
+ (func@,1G
+  (quoted@5 shr@1) x .
+  (typevars@B
+   (typevar@1 I . . SomeInteger@3 .))
+  (params@R
+   (param@1 x . . int32@3 .)
+   (param@B y . . I@3 .))int32@I
+  (pragmas@p
+   (kv@7 magic~5 "AshrI"@2)noSideEffect@I). .)
+ (func@,1H
+  (quoted@5 shr@1) x .
+  (typevars@B
+   (typevar@1 I . . SomeInteger@3 .))
+  (params@R
+   (param@1 x . . int64@3 .)
+   (param@B y . . I@3 .))int64@I
+  (pragmas@p
+   (kv@7 magic~5 "AshrI"@2)noSideEffect@I). .)
+ (func@,1L
+  (quoted@5 shl@1) x .
+  (typevars@B
+   (typevar@1 I . . SomeInteger@3 .))
+  (params@R
+   (param@1 x . . int8@3 .)
+   (param@A y . . I@3 .))int8@H
+  (pragmas@n
+   (kv@7 magic~5 "ShlI"@2)noSideEffect@H). .)
+ (func@,1M
+  (quoted@5 shl@1) x .
+  (typevars@B
+   (typevar@1 I . . SomeInteger@3 .))
+  (params@R
+   (param@1 x . . int16@3 .)
+   (param@B y . . I@3 .))int16@I
+  (pragmas@p
+   (kv@7 magic~5 "ShlI"@2)noSideEffect@H). .)
+ (func@,1N
+  (quoted@5 shl@1) x .
+  (typevars@B
+   (typevar@1 I . . SomeInteger@3 .))
+  (params@R
+   (param@1 x . . int32@3 .)
+   (param@B y . . I@3 .))int32@I
+  (pragmas@p
+   (kv@7 magic~5 "ShlI"@2)noSideEffect@H). .)
+ (func@,1O
+  (quoted@5 shl@1) x .
+  (typevars@B
+   (typevar@1 I . . SomeInteger@3 .))
+  (params@R
+   (param@1 x . . int64@3 .)
+   (param@B y . . I@3 .))int64@I
+  (pragmas@p
+   (kv@7 magic~5 "ShlI"@2)noSideEffect@H). .)
+ (func@,1R ashr@5 x .
+  (typevars@A
+   (typevar@1 I . . SomeInteger@3 .))
+  (params@Q
+   (param@1 x . . int8@3 .)
+   (param@A y . . I@3 .))int8@H
+  (pragmas@m
+   (kv@7 magic~5 "AshrI"@2)noSideEffect@I). .)
+ (func@,1S ashr@5 x .
+  (typevars@A
+   (typevar@1 I . . SomeInteger@3 .))
+  (params@Q
+   (param@1 x . . int16@3 .)
+   (param@B y . . I@3 .))int16@I
+  (pragmas@o
+   (kv@7 magic~5 "AshrI"@2)noSideEffect@I). .)
+ (func@,1T ashr@5 x .
+  (typevars@A
+   (typevar@1 I . . SomeInteger@3 .))
+  (params@Q
+   (param@1 x . . int32@3 .)
+   (param@B y . . I@3 .))int32@I
+  (pragmas@o
+   (kv@7 magic~5 "AshrI"@2)noSideEffect@I). .)
+ (func@,1U ashr@5 x .
+  (typevars@A
+   (typevar@1 I . . SomeInteger@3 .))
+  (params@Q
+   (param@1 x . . int64@3 .)
+   (param@B y . . I@3 .))int64@I
+  (pragmas@o
+   (kv@7 magic~5 "AshrI"@2)noSideEffect@I). .)
+ (func@,1X
+  (quoted@5 and@1) x . .
+  (params@B
+   (param@1 x . . int8@6 .)
+   (param@4 y . . int8@3 .))int8@E
+  (pragmas@U
+   (kv@7 magic~5 "BitandI"@2)noSideEffect@K). .)
+ (func@,1Y
+  (quoted@5 and@1) x . .
+  (params@B
+   (param@1 x . . int16@6 .)
+   (param@4 y . . int16@3 .))int16@F
+  (pragmas@W
+   (kv@7 magic~5 "BitandI"@2)noSideEffect@K). .)
+ (func@,1Z
+  (quoted@5 and@1) x . .
+  (params@B
+   (param@1 x . . int32@6 .)
+   (param@4 y . . int32@3 .))int32@F
+  (pragmas@W
+   (kv@7 magic~5 "BitandI"@2)noSideEffect@K). .)
+ (func@,1a
+  (quoted@5 and@1) x . .
+  (params@B
+   (param@1 x . . int64@6 .)
+   (param@4 y . . int64@3 .))int64@F
+  (pragmas@W
+   (kv@7 magic~5 "BitandI"@2)noSideEffect@K). .)
+ (func@,1d
+  (quoted@5 or@1) x . .
+  (params@A
+   (param@1 x . . int8@6 .)
+   (param@4 y . . int8@3 .))int8@E
+  (pragmas@T
+   (kv@7 magic~5 "BitorI"@2)noSideEffect@J). .)
+ (func@,1e
+  (quoted@5 or@1) x . .
+  (params@A
+   (param@1 x . . int16@6 .)
+   (param@4 y . . int16@3 .))int16@F
+  (pragmas@V
+   (kv@7 magic~5 "BitorI"@2)noSideEffect@J). .)
+ (func@,1f
+  (quoted@5 or@1) x . .
+  (params@A
+   (param@1 x . . int32@6 .)
+   (param@4 y . . int32@3 .))int32@F
+  (pragmas@V
+   (kv@7 magic~5 "BitorI"@2)noSideEffect@J). .)
+ (func@,1g
+  (quoted@5 or@1) x . .
+  (params@A
+   (param@1 x . . int64@6 .)
+   (param@4 y . . int64@3 .))int64@F
+  (pragmas@V
+   (kv@7 magic~5 "BitorI"@2)noSideEffect@J). .)
+ (func@,1j
+  (quoted@5 xor@1) x . .
+  (params@B
+   (param@1 x . . int8@6 .)
+   (param@4 y . . int8@3 .))int8@E
+  (pragmas@U
+   (kv@7 magic~5 "BitxorI"@2)noSideEffect@K). .)
+ (func@,1k
+  (quoted@5 xor@1) x . .
+  (params@B
+   (param@1 x . . int16@6 .)
+   (param@4 y . . int16@3 .))int16@F
+  (pragmas@W
+   (kv@7 magic~5 "BitxorI"@2)noSideEffect@K). .)
+ (func@,1l
+  (quoted@5 xor@1) x . .
+  (params@B
+   (param@1 x . . int32@6 .)
+   (param@4 y . . int32@3 .))int32@F
+  (pragmas@W
+   (kv@7 magic~5 "BitxorI"@2)noSideEffect@K). .)
+ (func@,1m
+  (quoted@5 xor@1) x . .
+  (params@B
+   (param@1 x . . int64@6 .)
+   (param@4 y . . int64@3 .))int64@F
+  (pragmas@W
+   (kv@7 magic~5 "BitxorI"@2)noSideEffect@K). .)
+ (func@,1r
+  (quoted@5 not@1) x . .
+  (params@B
+   (param@1 x . . uint8@3 .))uint8@C
+  (pragmas@T
+   (kv@7 magic~5 "BitnotI"@2)noSideEffect@K). .)
+ (func@,1s
+  (quoted@5 not@1) x . .
+  (params@B
+   (param@1 x . . uint16@3 .))uint16@D
+  (pragmas@V
+   (kv@7 magic~5 "BitnotI"@2)noSideEffect@K). .)
+ (func@,1t
+  (quoted@5 not@1) x . .
+  (params@B
+   (param@1 x . . uint32@3 .))uint32@D
+  (pragmas@V
+   (kv@7 magic~5 "BitnotI"@2)noSideEffect@K). .)
+ (func@,1u
+  (quoted@5 not@1) x . .
+  (params@B
+   (param@1 x . . uint64@3 .))uint64@D
+  (pragmas@V
+   (kv@7 magic~5 "BitnotI"@2)noSideEffect@K). .)
+ (func@,1w
+  (quoted@5 shr@1) x .
+  (typevars@B
+   (typevar@1 I . . SomeInteger@3 .))
+  (params@R
+   (param@1 x . . uint8@3 .)
+   (param@B y . . I@3 .))uint8@I
+  (pragmas@p
+   (kv@7 magic~5 "ShrI"@2)noSideEffect@H). .)
+ (func@,1x
+  (quoted@5 shr@1) x .
+  (typevars@B
+   (typevar@1 I . . SomeInteger@3 .))
+  (params@R
+   (param@1 x . . uint16@3 .)
+   (param@C y . . I@3 .))uint16@J
+  (pragmas@r
+   (kv@7 magic~5 "ShrI"@2)noSideEffect@H). .)
+ (func@,1y
+  (quoted@5 shr@1) x .
+  (typevars@B
+   (typevar@1 I . . SomeInteger@3 .))
+  (params@R
+   (param@1 x . . uint32@3 .)
+   (param@C y . . I@3 .))uint32@J
+  (pragmas@r
+   (kv@7 magic~5 "ShrI"@2)noSideEffect@H). .)
+ (func@,1z
+  (quoted@5 shr@1) x .
+  (typevars@B
+   (typevar@1 I . . SomeInteger@3 .))
+  (params@R
+   (param@1 x . . uint64@3 .)
+   (param@C y . . I@3 .))uint64@J
+  (pragmas@r
+   (kv@7 magic~5 "ShrI"@2)noSideEffect@H). .)
+ (func@,21
+  (quoted@5 shl@1) x .
+  (typevars@B
+   (typevar@1 I . . SomeInteger@3 .))
+  (params@R
+   (param@1 x . . uint8@3 .)
+   (param@B y . . I@3 .))uint8@I
+  (pragmas@p
+   (kv@7 magic~5 "ShlI"@2)noSideEffect@H). .)
+ (func@,22
+  (quoted@5 shl@1) x .
+  (typevars@B
+   (typevar@1 I . . SomeInteger@3 .))
+  (params@R
+   (param@1 x . . uint16@3 .)
+   (param@C y . . I@3 .))uint16@J
+  (pragmas@r
+   (kv@7 magic~5 "ShlI"@2)noSideEffect@H). .)
+ (func@,23
+  (quoted@5 shl@1) x .
+  (typevars@B
+   (typevar@1 I . . SomeInteger@3 .))
+  (params@R
+   (param@1 x . . uint32@3 .)
+   (param@C y . . I@3 .))uint32@J
+  (pragmas@r
+   (kv@7 magic~5 "ShlI"@2)noSideEffect@H). .)
+ (func@,24
+  (quoted@5 shl@1) x .
+  (typevars@B
+   (typevar@1 I . . SomeInteger@3 .))
+  (params@R
+   (param@1 x . . uint64@3 .)
+   (param@C y . . I@3 .))uint64@J
+  (pragmas@r
+   (kv@7 magic~5 "ShlI"@2)noSideEffect@H). .)
+ (func@,26
+  (quoted@5 and@1) x . .
+  (params@B
+   (param@1 x . . uint8@6 .)
+   (param@4 y . . uint8@3 .))uint8@F
+  (pragmas@W
+   (kv@7 magic~5 "BitandI"@2)noSideEffect@K). .)
+ (func@,27
+  (quoted@5 and@1) x . .
+  (params@B
+   (param@1 x . . uint16@6 .)
+   (param@4 y . . uint16@3 .))uint16@G
+  (pragmas@Y
+   (kv@7 magic~5 "BitandI"@2)noSideEffect@K). .)
+ (func@,28
+  (quoted@5 and@1) x . .
+  (params@B
+   (param@1 x . . uint32@6 .)
+   (param@4 y . . uint32@3 .))uint32@G
+  (pragmas@Y
+   (kv@7 magic~5 "BitandI"@2)noSideEffect@K). .)
+ (func@,29
+  (quoted@5 and@1) x . .
+  (params@B
+   (param@1 x . . uint64@6 .)
+   (param@4 y . . uint64@3 .))uint64@G
+  (pragmas@Y
+   (kv@7 magic~5 "BitandI"@2)noSideEffect@K). .)
+ (func@,2C
+  (quoted@5 or@1) x . .
+  (params@A
+   (param@1 x . . uint8@6 .)
+   (param@4 y . . uint8@3 .))uint8@F
+  (pragmas@V
+   (kv@7 magic~5 "BitorI"@2)noSideEffect@J). .)
+ (func@,2D
+  (quoted@5 or@1) x . .
+  (params@A
+   (param@1 x . . uint16@6 .)
+   (param@4 y . . uint16@3 .))uint16@G
+  (pragmas@X
+   (kv@7 magic~5 "BitorI"@2)noSideEffect@J). .)
+ (func@,2E
+  (quoted@5 or@1) x . .
+  (params@A
+   (param@1 x . . uint32@6 .)
+   (param@4 y . . uint32@3 .))uint32@G
+  (pragmas@X
+   (kv@7 magic~5 "BitorI"@2)noSideEffect@J). .)
+ (func@,2F
+  (quoted@5 or@1) x . .
+  (params@A
+   (param@1 x . . uint64@6 .)
+   (param@4 y . . uint64@3 .))uint64@G
+  (pragmas@X
+   (kv@7 magic~5 "BitorI"@2)noSideEffect@J). .)
+ (func@,2I
+  (quoted@5 xor@1) x . .
+  (params@B
+   (param@1 x . . uint8@6 .)
+   (param@4 y . . uint8@3 .))uint8@F
+  (pragmas@W
+   (kv@7 magic~5 "BitxorI"@2)noSideEffect@K). .)
+ (func@,2J
+  (quoted@5 xor@1) x . .
+  (params@B
+   (param@1 x . . uint16@6 .)
+   (param@4 y . . uint16@3 .))uint16@G
+  (pragmas@Y
+   (kv@7 magic~5 "BitxorI"@2)noSideEffect@K). .)
+ (func@,2K
+  (quoted@5 xor@1) x . .
+  (params@B
+   (param@1 x . . uint32@6 .)
+   (param@4 y . . uint32@3 .))uint32@G
+  (pragmas@Y
+   (kv@7 magic~5 "BitxorI"@2)noSideEffect@K). .)
+ (func@,2L
+  (quoted@5 xor@1) x . .
+  (params@B
+   (param@1 x . . uint64@6 .)
+   (param@4 y . . uint64@3 .))uint64@G
+  (pragmas@Y
+   (kv@7 magic~5 "BitxorI"@2)noSideEffect@K). .)
+ (func@,2O
+  (quoted@5 \2B@1) x . .
+  (params@9
+   (param@1 x . . uint8@6 .)
+   (param@4 y . . uint8@3 .))uint8@F
+  (pragmas@U
+   (kv@7 magic~5 "AddU"@2)noSideEffect@H). .)
+ (func@,2P
+  (quoted@5 \2B@1) x . .
+  (params@9
+   (param@1 x . . uint16@6 .)
+   (param@4 y . . uint16@3 .))uint16@G
+  (pragmas@W
+   (kv@7 magic~5 "AddU"@2)noSideEffect@H). .)
+ (func@,2Q
+  (quoted@5 \2B@1) x . .
+  (params@9
+   (param@1 x . . uint32@6 .)
+   (param@4 y . . uint32@3 .))uint32@G
+  (pragmas@W
+   (kv@7 magic~5 "AddU"@2)noSideEffect@H). .)
+ (func@,2R
+  (quoted@5 \2B@1) x . .
+  (params@9
+   (param@1 x . . uint64@6 .)
+   (param@4 y . . uint64@3 .))uint64@G
+  (pragmas@W
+   (kv@7 magic~5 "AddU"@2)noSideEffect@H). .)
+ (func@,2T
+  (quoted@5 \2D@1) x . .
+  (params@9
+   (param@1 x . . uint8@6 .)
+   (param@4 y . . uint8@3 .))uint8@F
+  (pragmas@U
+   (kv@7 magic~5 "SubU"@2)noSideEffect@H). .)
+ (func@,2U
+  (quoted@5 \2D@1) x . .
+  (params@9
+   (param@1 x . . uint16@6 .)
+   (param@4 y . . uint16@3 .))uint16@G
+  (pragmas@W
+   (kv@7 magic~5 "SubU"@2)noSideEffect@H). .)
+ (func@,2V
+  (quoted@5 \2D@1) x . .
+  (params@9
+   (param@1 x . . uint32@6 .)
+   (param@4 y . . uint32@3 .))uint32@G
+  (pragmas@W
+   (kv@7 magic~5 "SubU"@2)noSideEffect@H). .)
+ (func@,2W
+  (quoted@5 \2D@1) x . .
+  (params@9
+   (param@1 x . . uint64@6 .)
+   (param@4 y . . uint64@3 .))uint64@G
+  (pragmas@W
+   (kv@7 magic~5 "SubU"@2)noSideEffect@H). .)
+ (func@,2Y
+  (quoted@5 *@1) x . .
+  (params@9
+   (param@1 x . . uint8@6 .)
+   (param@4 y . . uint8@3 .))uint8@F
+  (pragmas@U
+   (kv@7 magic~5 "MulU"@2)noSideEffect@H). .)
+ (func@,2Z
+  (quoted@5 *@1) x . .
+  (params@9
+   (param@1 x . . uint16@6 .)
+   (param@4 y . . uint16@3 .))uint16@G
+  (pragmas@W
+   (kv@7 magic~5 "MulU"@2)noSideEffect@H). .)
+ (func@,2a
+  (quoted@5 *@1) x . .
+  (params@9
+   (param@1 x . . uint32@6 .)
+   (param@4 y . . uint32@3 .))uint32@G
+  (pragmas@W
+   (kv@7 magic~5 "MulU"@2)noSideEffect@H). .)
+ (func@,2b
+  (quoted@5 *@1) x . .
+  (params@9
+   (param@1 x . . uint64@6 .)
+   (param@4 y . . uint64@3 .))uint64@G
+  (pragmas@W
+   (kv@7 magic~5 "MulU"@2)noSideEffect@H). .)
+ (func@,2d
+  (quoted@5 div@1) x . .
+  (params@B
+   (param@1 x . . uint8@6 .)
+   (param@4 y . . uint8@3 .))uint8@F
+  (pragmas@W
+   (kv@7 magic~5 "DivU"@2)noSideEffect@H). .)
+ (func@,2e
+  (quoted@5 div@1) x . .
+  (params@B
+   (param@1 x . . uint16@6 .)
+   (param@4 y . . uint16@3 .))uint16@G
+  (pragmas@Y
+   (kv@7 magic~5 "DivU"@2)noSideEffect@H). .)
+ (func@,2f
+  (quoted@5 div@1) x . .
+  (params@B
+   (param@1 x . . uint32@6 .)
+   (param@4 y . . uint32@3 .))uint32@G
+  (pragmas@Y
+   (kv@7 magic~5 "DivU"@2)noSideEffect@H). .)
+ (func@,2g
+  (quoted@5 div@1) x . .
+  (params@B
+   (param@1 x . . uint64@6 .)
+   (param@4 y . . uint64@3 .))uint64@G
+  (pragmas@Y
+   (kv@7 magic~5 "DivU"@2)noSideEffect@H). .)
+ (func@,2j
+  (quoted@5 mod@1) x . .
+  (params@B
+   (param@1 x . . uint8@6 .)
+   (param@4 y . . uint8@3 .))uint8@F
+  (pragmas@W
+   (kv@7 magic~5 "ModU"@2)noSideEffect@H). .)
+ (func@,2k
+  (quoted@5 mod@1) x . .
+  (params@B
+   (param@1 x . . uint16@6 .)
+   (param@4 y . . uint16@3 .))uint16@G
+  (pragmas@Y
+   (kv@7 magic~5 "ModU"@2)noSideEffect@H). .)
+ (func@,2l
+  (quoted@5 mod@1) x . .
+  (params@B
+   (param@1 x . . uint32@6 .)
+   (param@4 y . . uint32@3 .))uint32@G
+  (pragmas@Y
+   (kv@7 magic~5 "ModU"@2)noSideEffect@H). .)
+ (func@,2m
+  (quoted@5 mod@1) x . .
+  (params@B
+   (param@1 x . . uint64@6 .)
+   (param@4 y . . uint64@3 .))uint64@G
+  (pragmas@Y
+   (kv@7 magic~5 "ModU"@2)noSideEffect@H). .)
+ (template@,2q
+  (quoted@9 \2B@1) x . .
+  (params@D
+   (param@1 x . . float32@3 .))float32@E . .
+  (stmts@b x))
+ (func@,2r
+  (quoted@5 \2D@1) x . .
+  (params@9
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@V
+   (kv@7 magic~5 "UnaryMinusF64"@2)noSideEffect@Q). .)
+ (func@,2s
+  (quoted@5 \2B@1) x . .
+  (params@9
+   (param@1 x . . float32@6 .)
+   (param@4 y . . float32@3 .))float32@H
+  (pragmas@Y
+   (kv@7 magic~5 "AddF64"@2)noSideEffect@J). .)
+ (func@,2t
+  (quoted@5 \2D@1) x . .
+  (params@9
+   (param@1 x . . float32@6 .)
+   (param@4 y . . float32@3 .))float32@H
+  (pragmas@Y
+   (kv@7 magic~5 "SubF64"@2)noSideEffect@J). .)
+ (func@,2u
+  (quoted@5 *@1) x . .
+  (params@9
+   (param@1 x . . float32@6 .)
+   (param@4 y . . float32@3 .))float32@H
+  (pragmas@Y
+   (kv@7 magic~5 "MulF64"@2)noSideEffect@J). .)
+ (func@,2v
+  (quoted@5 /@1) x . .
+  (params@9
+   (param@1 x . . float32@6 .)
+   (param@4 y . . float32@3 .))float32@H
+  (pragmas@Y
+   (kv@7 magic~5 "DivF64"@2)noSideEffect@J). .)
+ (template@,2x
+  (quoted@9 \2B@1) x . .
+  (params@D
+   (param@1 x . . float@3 .))float@C . .
+  (stmts@X x))
+ (func@,2y
+  (quoted@5 \2D@1) x . .
+  (params@9
+   (param@1 x . . float@3 .))float@C
+  (pragmas@R
+   (kv@7 magic~5 "UnaryMinusF64"@2)noSideEffect@Q). .)
+ (func@,2z
+  (quoted@5 \2B@1) x . .
+  (params@9
+   (param@1 x . . float@6 .)
+   (param@4 y . . float@3 .))float@F
+  (pragmas@U
+   (kv@7 magic~5 "AddF64"@2)noSideEffect@J). .)
+ (func@,30
+  (quoted@5 \2D@1) x . .
+  (params@9
+   (param@1 x . . float@6 .)
+   (param@4 y . . float@3 .))float@F
+  (pragmas@U
+   (kv@7 magic~5 "SubF64"@2)noSideEffect@J). .)
+ (func@,31
+  (quoted@5 *@1) x . .
+  (params@9
+   (param@1 x . . float@6 .)
+   (param@4 y . . float@3 .))float@F
+  (pragmas@U
+   (kv@7 magic~5 "MulF64"@2)noSideEffect@J). .)
+ (func@,32
+  (quoted@5 /@1) x . .
+  (params@9
+   (param@1 x . . float@6 .)
+   (param@4 y . . float@3 .))float@F
+  (pragmas@U
+   (kv@7 magic~5 "DivF64"@2)noSideEffect@J). .)
+ (func@,35
+  (quoted@5 \2B=@1) x .
+  (typevars@A
+   (typevar@1 T . . SomeNumber@3 .))
+  (params@P
+   (param@1 x . .
+    (mut@3 T@4).)
+   (param@B y . . T@3 .)).
+  (pragmas@g untyped@2 inline@B).
+  (stmts@2,1
+   (asgn@2 x~2
+    (infix@4 \2B x~2 y@2))))
+ (func@,38
+  (quoted@5 \2D=@1) x .
+  (typevars@A
+   (typevar@1 T . . SomeNumber@3 .))
+  (params@P
+   (param@1 x . .
+    (mut@3 T@4).)
+   (param@B y . . T@3 .)).
+  (pragmas@g untyped@2 inline@B).
+  (stmts@2,1
+   (asgn@2 x~2
+    (infix@4 \2D x~2 y@2))))
+ (func@,3B
+  (quoted@5 *=@1) x .
+  (typevars@A
+   (typevar@1 T . . SomeNumber@3 .))
+  (params@P
+   (param@1 x . .
+    (mut@3 T@4).)
+   (param@B y . . T@3 .)).
+  (pragmas@g untyped@2 inline@B).
+  (stmts@2,1
+   (asgn@2 x~2
+    (infix@4 * x~2 y@2)))))

@@ -1,0 +1,2303 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+ (import
+  (infix@A / std~3
+   (bracket@1 assertions@1 fenv@D)))
+ (type@E,3 Arithmetic~C x . .
+  (concept@2 . . .
+   (stmts~C,2
+    (func
+     (quoted@5 \2B@1). . .
+     (params@8
+      (param@1 x . . Self@6 .)
+      (param@4 y . . Self@3 .))Self@E . . .)
+    (func@,1
+     (quoted@5 \2D@1). . .
+     (params@8
+      (param@1 x . . Self@6 .)
+      (param@4 y . . Self@3 .))Self@E . . .)
+    (func@,2
+     (quoted@5 *@1). . .
+     (params@8
+      (param@1 x . . Self@6 .)
+      (param@4 y . . Self@3 .))Self@E . . .)
+    (func@,3
+     (quoted@5 mod@1). . .
+     (params@A
+      (param@1 x . . Self@6 .)
+      (param@4 y . . Self@3 .))Self@E . . .)
+    (func@,4
+     (quoted@5 ==@1). . .
+     (params@9
+      (param@1 x . . Self@6 .)
+      (param@4 y . . Self@3 .))bool@E . . .)
+    (func@,5
+     (quoted@5 <@1). . .
+     (params@8
+      (param@1 x . . Self@6 .)
+      (param@4 y . . Self@3 .))bool@E . . .)
+    (func@,6
+     (quoted@5 >@1). . .
+     (params@8
+      (param@1 x . . Self@6 .)
+      (param@4 y . . Self@3 .))bool@E . . .))))
+ (type@L,D IntegerArithmetic~J x . .
+  (concept@2 . . Arithmetic@B
+   (stmts~J,1
+    (func
+     (quoted@5 div@1). . .
+     (params@A
+      (param@1 x . . Self@6 .)
+      (param@4 y . . Self@3 .))Self@E . . .)
+    (func@,1 inc@5 . . .
+     (params@8
+      (param@1 x . .
+       (mut@3 Self@4).)
+      (param@E y . . Self@3 .)). . . .)
+    (func@,2 dec@5 . . .
+     (params@8
+      (param@1 x . .
+       (mut@3 Self@4).)
+      (param@E y . . Self@3 .)). . . .))))
+ (type@K,I SignedArithmetic~I x . .
+  (concept@2 . . Arithmetic@B
+   (stmts~I,1
+    (func
+     (quoted@5 \2D@1). . .
+     (params@8
+      (param@1 x . . Self@3 .))Self@B . . .))))
+ (type@J,L FloatArithmetic~H x . .
+  (concept@2 . . SignedArithmetic@B
+   (stmts~H,1
+    (func
+     (quoted@5 /@1). . .
+     (params@8
+      (param@1 x . . Self@6 .)
+      (param@4 y . . Self@3 .))Self@E . . .))))
+ (type@B,R HasSqrt~9 x . .
+  (concept@2 . . .
+   (stmts~9,1
+    (func sqrt@5 . . .
+     (params@9
+      (param@1 x . . Self@3 .))Self@B . . .))))
+ (type@A,T HasExp~8 x . .
+  (concept@2 . . .
+   (stmts~8,1
+    (func exp@5 . . .
+     (params@8
+      (param@1 x . . Self@3 .))Self@B . . .))))
+ (type@9,V HasLn~7 x . .
+  (concept@2 . . .
+   (stmts~7,1
+    (func ln@5 . . .
+     (params@7
+      (param@1 x . . Self@3 .))Self@B . . .))))
+ (type@A,X HasSin~8 x . .
+  (concept@2 . . .
+   (stmts~8,1
+    (func sin@5 . . .
+     (params@8
+      (param@1 x . . Self@3 .))Self@B . . .))))
+ (type@A,Z HasCos~8 x . .
+  (concept@2 . . .
+   (stmts~8,1
+    (func cos@5 . . .
+     (params@8
+      (param@1 x . . Self@3 .))Self@B . . .))))
+ (type@C,b HasHypot~A x . .
+  (concept@2 . . .
+   (stmts~A,1
+    (func hypot@5 . . .
+     (params@A
+      (param@1 x . . Self@6 .)
+      (param@4 y . . Self@3 .))Self@E . . .))))
+ (type@E,d HasArctan2~C x . .
+  (concept@2 . . .
+   (stmts~C,1
+    (func arctan2@5 . . .
+     (params@C
+      (param@1 y . . Self@6 .)
+      (param@4 x . . Self@3 .))Self@E . . .))))
+ (const@4,h PI~2 x . . 3.141592653589793@4)
+ (const@5,i TAU~3 x . .
+  (infix@8 * 2.0~4 PI@2))
+ (const@3,j E~1 x . . 2.718281828459045@4)
+ (const@L,l MaxFloat64Precision~J x . . 16@4)
+ (const@L,o MaxFloat32Precision~J x . . 8@4)
+ (const@J,r MaxFloatPrecision~H x . . MaxFloat64Precision@4)
+ (const@G,v MinFloatNormal~E x . . 2.225073858507201E-308@4)
+ (when@,y
+  (elif@5
+   (infix@d and
+    (infix~O and
+     (call~8 defined~7 posix@1)
+     (prefix@4 not
+      (call@B defined~7 genode@1)))
+    (prefix@4 not
+     (call@B defined~7 macosx@1)))
+   (stmts~3,1
+    (pragmas
+     (kv@7 passL~5 "-lm"@2)))))
+ (const@6,11 CMathHeader . . . "<math.h>"@E)
+ (when@,13
+  (elif@5
+   (call@7 defined~7 nimNativeIo@1)
+   (stmts~3,4
+    (const@2,1 c_fpNormal . . . 0@D)
+    (const@2,2 c_fpSubnormal . . . 1@G)
+    (const@2,3 c_fpZero . . . 2@B)
+    (const@2,4 c_fpInfinite . . . 3@F)
+    (const@2,5 c_fpNan . . . 4@A)
+    (func@,6 c_signbit@5 . .
+     (typevars@E
+      (typevar@1 T . . SomeFloat@3 .))
+     (params@S
+      (param@1 x . . T@3 .))int@8 . .
+     (stmts@2,1
+      (when
+       (elif@5
+        (infix@2 is T~2 float32@3)
+        (stmts@E
+         (asgn@7 result~7
+          (expr
+           (stmts@2)
+           (if@1
+            (elif@3
+             (infix@P !=
+              (par~P
+               (infix@H shr
+                (cast~G uint32@5 x@D)31@4))
+              (suf@3 0u "u32"))1@Z)
+            (else@e 0@6))))))
+       (else@,1
+        (stmts@6
+         (asgn@7 result~7
+          (expr
+           (stmts@2)
+           (if@1
+            (elif@3
+             (infix@P !=
+              (par~P
+               (infix@H shr
+                (cast~G uint64@5 x@D)63@4))
+              (suf@3 0u "u64"))1@Z)
+            (else@e 0@6)))))))))
+    (func@,9 c_isnan@5 . .
+     (typevars@C
+      (typevar@1 T . . SomeFloat@3 .))
+     (params@Q
+      (param@1 x . . T@3 .))int@8 . .
+     (stmts@2,1
+      (when
+       (elif@5
+        (infix@2 is T~2 float32@3)
+        (stmts~3,1
+         (let@4 b . . .
+          (cast@4 uint32@5 x@D))
+         (asgn@7,1 result~7
+          (expr
+           (stmts@2)
+           (if@1
+            (elif@3
+             (infix@c and
+              (infix~C ==
+               (par~Q
+                (infix@C and
+                 (par~B
+                  (infix@3 shr b~2 23@4))
+                 (suf@4 255u "u32")))
+               (suf@3 255u "u32"))
+              (infix@P !=
+               (par~L
+                (infix@3 and b~2
+                 (suf@4 8388607u "u32")))
+               (suf@3 0u "u32")))1@1B)
+            (else@1G 0@6))))))
+       (else@,3
+        (stmts@2,1
+         (let@4 b . . .
+          (cast@4 uint64@5 x@D))
+         (asgn@7,1 result~7
+          (expr
+           (stmts@2)
+           (if@1
+            (elif@3
+             (infix@e and
+              (infix~D ==
+               (par~R
+                (infix@C and
+                 (par~B
+                  (infix@3 shr b~2 52@4))
+                 (suf@4 2047u "u64")))
+               (suf@3 2047u "u64"))
+              (infix@W !=
+               (par~S
+                (infix@3 and b~2
+                 (suf@4 4503599627370495u "u64")))
+               (suf@3 0u "u64")))1@1K)
+            (else@1P 0@6)))))))))
+    (func@,G c_fpclassify@5 . .
+     (typevars@H
+      (typevar@1 T . . SomeFloat@3 .))
+     (params@V
+      (param@1 x . . T@3 .))int@8 . .
+     (stmts@2,1
+      (when
+       (elif@5
+        (infix@2 is T~2 float32@3)
+        (stmts~3,1
+         (let@4 b . . .
+          (cast@4 uint32@5 x@D))
+         (let@4,1 exp . . .
+          (infix@H and
+           (par~B
+            (infix@3 shr b~2 23@4))
+           (suf@4 255u "u32")))
+         (let@4,2 mant . . .
+          (infix@9 and b~2
+           (suf@4 8388607u "u32")))
+         (asgn@7,3 result~7
+          (if~5,1
+           (elif@3
+            (infix@4 == exp~4
+             (suf@3 255u "u32"))
+            (stmts@H
+             (expr
+              (stmts)
+              (if@1
+               (elif@3
+                (infix@5 == mant~5
+                 (suf@3 0u "u32"))c_fpInfinite@F)
+               (else@V c_fpNan@6)))))
+           (elif@5,1
+            (infix@4 == exp~4
+             (suf@3 0u "u32"))
+            (stmts@E
+             (expr
+              (stmts)
+              (if@1
+               (elif@3
+                (infix@5 == mant~5
+                 (suf@3 0u "u32"))c_fpZero@F)
+               (else@R c_fpSubnormal@6)))))
+           (else@,2
+            (stmts@6 c_fpNormal))))))
+       (else@,8
+        (stmts@2,1
+         (let@4 b . . .
+          (cast@4 uint64@5 x@D))
+         (let@4,1 exp . . .
+          (infix@H and
+           (par~B
+            (infix@3 shr b~2 52@4))
+           (suf@4 2047u "u64")))
+         (let@4,2 mant . . .
+          (infix@9 and b~2
+           (suf@4 4503599627370495u "u64")))
+         (asgn@7,3 result~7
+          (if~5,1
+           (elif@3
+            (infix@4 == exp~4
+             (suf@3 2047u "u64"))
+            (stmts@I
+             (expr
+              (stmts)
+              (if@1
+               (elif@3
+                (infix@5 == mant~5
+                 (suf@3 0u "u64"))c_fpInfinite@F)
+               (else@V c_fpNan@6)))))
+           (elif@5,1
+            (infix@4 == exp~4
+             (suf@3 0u "u64"))
+            (stmts@E
+             (expr
+              (stmts)
+              (if@1
+               (elif@3
+                (infix@5 == mant~5
+                 (suf@3 0u "u64"))c_fpZero@F)
+               (else@R c_fpSubnormal@6)))))
+           (else@,2
+            (stmts@6 c_fpNormal)))))))))
+    (pragmas@,X push@2
+     (kv@D header~6 CMathHeader@2))
+    (func@,Y c_frexp@5 . . .
+     (params@C
+      (param@1 x . . float32@3 .)
+      (param@D exponent . .
+       (ptr@A cint@4).))float32@Y
+     (pragmas@s
+      (kv@9 importc~7 "frexpf"@2)). .)
+    (func@,Z c_frexp@5 . . .
+     (params@C
+      (param@1 x . . float64@3 .)
+      (param@D exponent . .
+       (ptr@A cint@4).))float64@Y
+     (pragmas@s
+      (kv@9 importc~7 "frexp"@2)). .)
+    (pragmas@,a pop@2)))
+  (else@,f
+   (stmts@2,1
+    (pragmas push@2
+     (kv@D header~6 CMathHeader@2))
+    (func@,2 c_signbit@5 . .
+     (typevars@E
+      (typevar@1 T . . SomeFloat@3 .))
+     (params@S
+      (param@1 x . . T@3 .))int@8
+     (pragmas@e
+      (kv@9 importc~7 "signbit"@2)). .)
+    (func@,3 c_fpclassify@5 . .
+     (typevars@H
+      (typevar@1 T . . SomeFloat@3 .))
+     (params@V
+      (param@1 x . . T@3 .))int@8
+     (pragmas@h
+      (kv@9 importc~7 "fpclassify"@2)). .)
+    (func@,4 c_isnan@5 . .
+     (typevars@C
+      (typevar@1 T . . SomeFloat@3 .))
+     (params@Q
+      (param@1 x . . T@3 .))int@8
+     (pragmas@c
+      (kv@9 importc~7 "isnan"@2)). .)
+    (func@,6 c_frexp@5 . . .
+     (params@C
+      (param@1 x . . float32@3 .)
+      (param@D exponent . .
+       (ptr@A cint@4).))float32@Y
+     (pragmas@s
+      (kv@9 importc~7 "frexpf"@2)). .)
+    (func@,7 c_frexp@5 . . .
+     (params@C
+      (param@1 x . . float64@3 .)
+      (param@D exponent . .
+       (ptr@A cint@4).))float64@Y
+     (pragmas@s
+      (kv@9 importc~7 "frexp"@2)). .)
+    (pragmas@,8 pop@2)
+    (let@G,C c_fpNormal~E .
+     (pragmas
+      (kv@9 importc~7 "FP_NORMAL"@2)
+      (kv@U header~6 CMathHeader@2))int@l .)
+    (let@G,D c_fpSubnormal~E .
+     (pragmas
+      (kv@9 importc~7 "FP_SUBNORMAL"@2)
+      (kv@X header~6 CMathHeader@2))int@o .)
+    (let@G,E c_fpZero~E .
+     (pragmas
+      (kv@9 importc~7 "FP_ZERO"@2)
+      (kv@S header~6 CMathHeader@2))int@j .)
+    (let@G,F c_fpInfinite~E .
+     (pragmas
+      (kv@9 importc~7 "FP_INFINITE"@2)
+      (kv@W header~6 CMathHeader@2))int@n .)
+    (let@G,G c_fpNan~E .
+     (pragmas
+      (kv@9 importc~7 "FP_NAN"@2)
+      (kv@R header~6 CMathHeader@2))int@i .))))
+ (type@E,22 FloatClass~C x . .
+  (enum@2 .
+   (efld~C,3 fcNormal . . . .)
+   (efld~C,4 fcSubnormal . . . .)
+   (efld~C,5 fcZero . . . .)
+   (efld~C,6 fcNegZero . . . .)
+   (efld~C,7 fcNan . . . .)
+   (efld~C,8 fcInf . . . .)
+   (efld~C,9 fcNegInf . . . .)))
+ (func@,2D signbit@5 x .
+  (typevars@D
+   (typevar@1 T . . SomeFloat@3 .))
+  (params@R
+   (param@1 x . . T@3 .))bool@8
+  (pragmas@e inline@2).
+  (stmts@2,1
+   (comment)
+   (call@,1 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (prefix@7 not
+       (call@B signbit~7 0.0@1)))
+     (cmd@,2 assert
+      (call@E signbit~7 -0.1@1))
+     (cmd@,3 assert
+      (prefix@7 not
+       (call@B signbit~7 0.1@1)))))
+   (infix@D,7 !=
+    (call~4 c_signbit~9 x@1)0@3)))
+ (pragmas@,2N push@2
+  (kv@D header~6 CMathHeader@2))
+ (func@,2O copySign@5 x . .
+  (params@E
+   (param@1 x . . float32@6 .)
+   (param@4 y . . float32@3 .))float32@H
+  (pragmas@d
+   (kv@9 importc~7 "copysignf"@2)). .)
+ (func@,2P copySign@5 x . .
+  (params@E
+   (param@1 x . . float64@6 .)
+   (param@4 y . . float64@3 .))float64@H
+  (pragmas@d
+   (kv@9 importc~7 "copysign"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,2 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@R ==
+       (call~C copySign~8 10.0@1 1.0@7)10.0@3))
+     (cmd@,1 assert
+      (infix@S ==
+       (call~D copySign~8 10.0@1 -1.0@7)-10.0@3))
+     (cmd@,2 assert
+      (infix@S ==
+       (call~D copySign~8
+        (prefix@1 \2D Inf@1)-0.0@7)
+       (prefix@3 \2D Inf@1)))
+     (cmd@,3 assert
+      (dot@P
+       (call~A copySign~8 NaN@1 1.0@6)isNaN@1))
+     (cmd@,4 assert
+      (infix@g ==
+       (call~R copySign~8 1.0@1
+        (call@E copySign~8 NaN@1 -1.0@6))-1.0@3))))))
+ (pragmas@,2Y pop@2)
+ (func@,2a classify@5 x .
+  (typevars@E
+   (typevar@1 T . . SomeFloat@3 .))
+  (params@S
+   (param@1 x . . T@3 .))FloatClass@8
+  (pragmas@l inline@2).
+  (stmts@2,1
+   (comment)
+   (call@,3 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@L ==
+       (call~6 classify~8 0.3@1)fcNormal@3))
+     (cmd@,1 assert
+      (infix@L ==
+       (call~6 classify~8 0.0@1)fcZero@3))
+     (cmd@,2 assert
+      (infix@R ==
+       (call~C classify~8
+        (infix@5 / 0.3~4 0.0@2))fcInf@3))
+     (cmd@,3 assert
+      (infix@S ==
+       (call~D classify~8
+        (infix@6 / -0.3~5 0.0@2))fcNegInf@3))))
+   (let@4,9 r . . .
+    (call@G c_fpclassify~C x@1))
+   (if@,A
+    (elif@3
+     (infix@2 == r~2 c_fpNormal@3)
+     (stmts~1,1
+      (asgn@7 result~7 fcNormal@2)))
+    (elif@5,2
+     (infix@2 == r~2 c_fpSubnormal@3)
+     (stmts~3,1
+      (asgn@7 result~7 fcSubnormal@2)))
+    (elif@5,4
+     (infix@2 == r~2 c_fpZero@3)
+     (stmts~3,1
+      (asgn@7 result~7
+       (if@2
+        (elif@3
+         (call@7 signbit~7 x@1)
+         (stmts@C fcNegZero))
+        (else@P
+         (stmts@6 fcZero))))))
+    (elif@5,6
+     (infix@2 == r~2 c_fpNan@3)
+     (stmts~3,1
+      (asgn@7 result~7 fcNan@2)))
+    (elif@5,8
+     (infix@2 == r~2 c_fpInfinite@3)
+     (stmts~3,1
+      (asgn@7 result~7
+       (if@2
+        (elif@3
+         (call@7 signbit~7 x@1)
+         (stmts@C fcNegInf))
+        (else@O
+         (stmts@6 fcInf))))))
+    (else@,A
+     (stmts@2,2
+      (asgn@7 result~7 fcNan@2))))))
+ (func@,2z isNaN@5 x .
+  (typevars@B
+   (typevar@1 T . . SomeFloat@3 .))
+  (params@P
+   (param@1 x . . T@3 .))bool@8
+  (pragmas@c inline@2).
+  (stmts@2,1
+   (comment)
+   (call@,1 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (dot@A NaN~3 isNaN@1))
+     (cmd@,1 assert
+      (prefix@7 not
+       (dot@7 Inf~3 isNaN@1)))
+     (cmd@,2 assert
+      (prefix@7 not
+       (call@9 isNaN~5 3.1415926@1)))))
+   (infix@B,6 !=
+    (call~4 c_isnan~7 x@1)0@3)))
+ (func@,38 almostEqual@5 x .
+  (typevars@H
+   (typevar@1 T . . SomeFloat@3 .))
+  (params@V
+   (param@1 x . . T@6 .)
+   (param@4 y . . T@3 .)
+   (param@A unitsInLastPlace . . int@I 4@O))bool@c
+  (pragmas@1C untyped~18,1).
+  (stmts@2,2
+   (comment)
+   (call@,E runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B PI@1 3.14159265358979@5))
+     (cmd@,1 assert
+      (call@I almostEqual~B Inf@1 Inf@6))
+     (cmd@,2 assert
+      (prefix@7 not
+       (call@F almostEqual~B NaN@1 NaN@6)))))
+   (if@,J
+    (elif@3
+     (infix@2 == x~2 y@3)
+     (stmts~1,3
+      (ret true@7))))
+   (let@4,N diff . . .
+    (call@A abs~3
+     (infix@3 \2D x~2 y@2)))
+   (ret@,O
+    (infix@z or
+     (infix~n <= diff~5
+      (infix@R *
+       (infix~D *
+        (call~4 epsilon~7 T@1)
+        (call@5 abs~3
+         (infix@3 \2B x~2 y@2)))
+       (call@3 T~1 unitsInLastPlace@1)))
+     (infix@8 < diff~5
+      (call@M minimumPositiveValue~K T@1))))))
+ (func@,3a sgn@5 x .
+  (typevars@9
+   (typevar@1 T . .
+    (infix@E and SomeNumber~B Comparable@4).))
+  (params@d
+   (param@1 x . . T@3 .))int@8
+  (pragmas@p inline@2).
+  (stmts@2,1
+   (comment)
+   (call@,6 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@E ==
+       (call~4 sgn~3 5@1)1@3))
+     (cmd@,1 assert
+      (infix@E ==
+       (call~4 sgn~3 0@1)0@3))
+     (cmd@,2 assert
+      (infix@H ==
+       (call~7 sgn~3 -4.1@1)-1@3))))
+   (infix@E,B \2D
+    (call~B ord~3
+     (infix@6 <
+      (call~4 T~1 0@1)x@2))
+    (call@5 ord~3
+     (infix@3 < x~2
+      (call@3 T~1 0@1))))))
+ (func@,3o frexp@5 x .
+  (typevars@B
+   (typevar@1 T . . SomeFloat@3 .))
+  (params@P
+   (param@1 x . . T@3 .))
+  (tuple@8
+   (kv@E frac T@6)
+   (kv@N exp int@5))
+  (pragmas@w inline@2 untyped@A).
+  (stmts@2,1
+   (comment)
+   (call@,3 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@I ==
+       (call~6 frexp~5 8.0@1)
+       (tup@3 0.5@1 4@6)))
+     (cmd@,1 assert
+      (infix@J ==
+       (call~7 frexp~5 -8.0@1)
+       (tup@3 -0.5@1 4@7)))
+     (cmd@,2 assert
+      (infix@I ==
+       (call~6 frexp~5 0.0@1)
+       (tup@3 0.0@1 0@6)))
+     (cmd@,5 assert
+      (dot@N
+       (dot~5
+        (call~6 frexp~5 -0.0@1)frac@1)signbit@1))
+     (cmd@,6 assert
+      (infix@N ==
+       (dot~6
+        (call~5 frexp~5 Inf@1)frac@1)Inf@3))
+     (cmd@,7 assert
+      (dot@M
+       (dot~5
+        (call~5 frexp~5 NaN@1)frac@1)isNaN@1))))
+   (var@4,D exp . . .
+    (call@A cint~4 0@1))
+   (let@4,E frac . . .
+    (call@E c_frexp~7 x@1
+     (cmd@9 addr~5 exp)))
+   (asgn@7,F result~7
+    (tup@2
+     (kv@5 frac~4 frac@2)
+     (kv@G exp~3
+      (dot@5 exp~3 int@1))))))
+ (pragmas@,46 push@2
+  (kv@D header~6 CMathHeader@2))
+ (func@,47 floor@5 x . .
+  (params@B
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@X
+   (kv@9 importc~7 "floorf"@2)). .)
+ (func@,48 floor@5 x . .
+  (params@B
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@X
+   (kv@9 importc~7 "floor"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,6 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@J ==
+       (call~7 floor~5 2.1@1)2.0@3))
+     (cmd@,1 assert
+      (infix@J ==
+       (call~7 floor~5 2.9@1)2.0@3))
+     (cmd@,2 assert
+      (infix@J ==
+       (call~7 floor~5 -3.5@1)-4.0@3))))))
+ (func@,4K ceil@5 x . .
+  (params@A
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@W
+   (kv@9 importc~7 "ceilf"@2)). .)
+ (func@,4L ceil@5 x . .
+  (params@A
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@W
+   (kv@9 importc~7 "ceil"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,7 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@I ==
+       (call~7 ceil~4 2.1@1)3.0@3))
+     (cmd@,1 assert
+      (infix@I ==
+       (call~7 ceil~4 2.9@1)3.0@3))
+     (cmd@,2 assert
+      (infix@I ==
+       (call~7 ceil~4 -2.1@1)-2.0@3))))))
+ (func@,4Y round@5 x . .
+  (params@B
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@X
+   (kv@9 importc~7 "roundf"@2)). .)
+ (func@,4Z round@5 x . .
+  (params@B
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@X
+   (kv@9 importc~7 "round"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,6 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@I ==
+       (call~6 round~5 3.4@1)3.0@3))
+     (cmd@,1 assert
+      (infix@I ==
+       (call~6 round~5 3.5@1)4.0@3))
+     (cmd@,2 assert
+      (infix@I ==
+       (call~6 round~5 4.5@1)5.0@3))))))
+ (func@,4l trunc@5 x . .
+  (params@B
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@X
+   (kv@9 importc~7 "truncf"@2)). .)
+ (func@,4m trunc@5 x . .
+  (params@B
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@X
+   (kv@9 importc~7 "trunc"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,6 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@H ==
+       (call~5 trunc~5 PI@1)3.0@3))
+     (cmd@,1 assert
+      (infix@K ==
+       (call~8 trunc~5 -1.85@1)-1.0@3))))))
+ (func@,4x
+  (quoted@5 mod@1) x . .
+  (params@B
+   (param@1 x . . float32@6 .)
+   (param@4 y . . float32@3 .))float32@H
+  (pragmas@a
+   (kv@9 importc~7 "fmodf"@2)). .)
+ (func@,4y
+  (quoted@5 mod@1) x . .
+  (params@B
+   (param@1 x . . float64@6 .)
+   (param@4 y . . float64@3 .))float64@H
+  (pragmas@a
+   (kv@9 importc~7 "fmod"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,4 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@L ==
+       (infix~9 mod 6.5~4 2.5@5)1.5@4))
+     (cmd@,1 assert
+      (infix@L ==
+       (infix~9 mod -6.5~5 2.5@5)-1.5@3))
+     (cmd@,2 assert
+      (infix@L ==
+       (infix~9 mod 6.5~4 -2.5@4)1.5@4))
+     (cmd@,3 assert
+      (infix@L ==
+       (infix~9 mod -6.5~5 -2.5@4)-1.5@3))))))
+ (pragmas@,58 pop@2)
+ (func@,5A floorMod@5 x .
+  (typevars@E
+   (typevar@1 T . .
+    (infix@E and SomeNumber~B Arithmetic@4).))
+  (params@i
+   (param@1 x . . T@6 .)
+   (param@4 y . . T@3 .))T@B
+  (pragmas@v inline@2).
+  (stmts@2,1
+   (comment)
+   (call@,7 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@P ==
+       (call~A floorMod~8 13@2 3@7)1@4))
+     (cmd@,1 assert
+      (infix@P ==
+       (call~A floorMod~8 -13@1 3@7)2@4))
+     (cmd@,2 assert
+      (infix@P ==
+       (call~A floorMod~8 13@2 -3@6)-2@3))
+     (cmd@,3 assert
+      (infix@P ==
+       (call~A floorMod~8 -13@1 -3@6)-1@3))))
+   (asgn@7,D result~7
+    (infix@4 mod x~2 y@4))
+   (if@,E
+    (elif@3
+     (infix@T or
+      (par~T
+       (infix@F and
+        (infix~7 > result~7
+         (call@3 T~1 0@1))
+        (infix@6 < y~2
+         (call@3 T~1 0@1))))
+      (par@3
+       (infix@F and
+        (infix~7 < result~7
+         (call@3 T~1 0@1))
+        (infix@6 > y~2
+         (call@3 T~1 0@1)))))
+     (stmts~1,1
+      (asgn@7 result~7
+       (infix@9 \2B result~7 y@2)))))))
+ (func@,5S floorDiv@5 x .
+  (typevars@E
+   (typevar@1 T . .
+    (infix@F and SomeInteger~C IntegerArithmetic@4).))
+  (params@q
+   (param@1 x . . T@6 .)
+   (param@4 y . . T@3 .))T@B
+  (pragmas@13 inline@2).
+  (stmts@2,1
+   (comment)
+   (call@,9 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@P ==
+       (call~A floorDiv~8 13@2 3@7)4@4))
+     (cmd@,1 assert
+      (infix@P ==
+       (call~A floorDiv~8 -13@1 3@7)-5@3))
+     (cmd@,2 assert
+      (infix@P ==
+       (call~A floorDiv~8 13@2 -3@6)-5@3))
+     (cmd@,3 assert
+      (infix@P ==
+       (call~A floorDiv~8 -13@1 -3@6)4@4))))
+   (asgn@7,F result~7
+    (infix@4 div x~2 y@4))
+   (let@4,G r . . .
+    (infix@6 mod x~2 y@4))
+   (if@,H
+    (elif@3
+     (infix@O or
+      (par~O
+       (infix@A and
+        (infix~7 > r~2
+         (call@3 T~1 0@1))
+        (infix@6 < y~2
+         (call@3 T~1 0@1))))
+      (par@3
+       (infix@A and
+        (infix~7 < r~2
+         (call@3 T~1 0@1))
+        (infix@6 > y~2
+         (call@3 T~1 0@1)))))
+     (stmts~1,1
+      (asgn@7 result~7
+       (infix@9 \2D result~7
+        (call@3 T~1 1@1))))))))
+ (func@,5n euclDiv@5 x .
+  (typevars@D
+   (typevar@1 T . .
+    (infix@F and SomeInteger~C IntegerArithmetic@4).))
+  (params@p
+   (param@1 x . . T@6 .)
+   (param@4 y . . T@3 .))T@B
+  (pragmas@12 inline@2).
+  (stmts@2,1
+   (comment)
+   (call@,1 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@M ==
+       (call~8 euclDiv~7 13@1 3@5)4@3))
+     (cmd@,1 assert
+      (infix@N ==
+       (call~9 euclDiv~7 -13@1 3@6)-5@3))
+     (cmd@,2 assert
+      (infix@N ==
+       (call~9 euclDiv~7 13@1 -3@5)-4@3))
+     (cmd@,3 assert
+      (infix@O ==
+       (call~A euclDiv~7 -13@1 -3@6)5@3))))
+   (asgn@7,7 result~7
+    (infix@4 div x~2 y@4))
+   (if@,8
+    (elif@3
+     (infix@8 <
+      (infix~6 mod x~2 y@4)0@2)
+     (stmts~1,1
+      (if
+       (elif@3
+        (infix@2 > y~2
+         (call@3 T~1 0@1))
+        (stmts~1,1
+         (cmd dec result@4)))
+       (else@,2
+        (stmts@2,1
+         (cmd inc result@4)))))))))
+ (func@,62 euclMod@5 x .
+  (typevars@D
+   (typevar@1 T . .
+    (infix@E and SomeNumber~B SignedArithmetic@4).))
+  (params@n
+   (param@1 x . . T@6 .)
+   (param@4 y . . T@3 .))T@B
+  (pragmas@10 inline@2).
+  (stmts@2,1
+   (comment)
+   (call@,2 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@M ==
+       (call~8 euclMod~7 13@1 3@5)1@3))
+     (cmd@,1 assert
+      (infix@N ==
+       (call~9 euclMod~7 -13@1 3@6)2@3))
+     (cmd@,2 assert
+      (infix@N ==
+       (call~9 euclMod~7 13@1 -3@5)1@3))
+     (cmd@,3 assert
+      (infix@O ==
+       (call~A euclMod~7 -13@1 -3@6)2@3))))
+   (asgn@7,8 result~7
+    (infix@4 mod x~2 y@4))
+   (if@,9
+    (elif@3
+     (infix@7 < result~7 0@2)
+     (stmts~1,1
+      (asgn@7 result~7
+       (infix@9 \2B result~7
+        (call@5 abs~3 y@1))))))))
+ (template@,6F ceilDivUint@9 . .
+  (typevars@K
+   (typevar@1 T . .
+    (infix@J and SomeUnsignedInt~G IntegerArithmetic@4).))
+  (params@10
+   (param@1 x . . T@6 .)
+   (param@4 y . . T@3 .))T@B . .
+  (stmts@2,E
+   (infix@H div
+    (par~H
+     (infix@3 \2B x~2
+      (par@2
+       (infix@3 \2D y~2
+        (call@3 T~1 1@1)))))y@4)))
+ (template@,6V ceilDivSigned@9 . .
+  (typevars@M
+   (typevar@1 T . . SomeInteger@3 .))
+  (params@c
+   (param@1 x . . T@6 .)
+   (param@4 y . . T@3 .)
+   (param@A U . . untyped@3 .))T@N
+  (pragmas@11 untyped@2).
+  (stmts@2,1
+   (call@1 T~1
+    (call@C ceilDivUint~B
+     (dot@2 x~1 U@1)
+     (dot@7 y~1 U@1)))))
+ (func@,6Y ceilDiv@5 x .
+  (typevars@D
+   (typevar@1 T . .
+    (infix@F and SomeInteger~C IntegerArithmetic@4).))
+  (params@p
+   (param@1 x . . T@6 .)
+   (param@4 y . . T@3 .))T@B
+  (pragmas@12 inline@2 raises@A).
+  (stmts@2,1
+   (comment)
+   (call@,H runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@M ==
+       (call~8 ceilDiv~7 12@1 3@5)4@4))
+     (cmd@,1 assert
+      (infix@M ==
+       (call~8 ceilDiv~7 13@1 3@5)5@4))))
+   (if@,L
+    (elif@3
+     (infix@A and
+      (infix~8 >= x~2
+       (call@4 T~1 0@1))
+      (infix@6 > y~2
+       (call@3 T~1 0@1)))
+     (stmts~1,1
+      (discard .)))
+    (else@,2
+     (stmts@2,1
+      (raise RangeError@6))))
+   (when@,P
+    (elif@5
+     (infix@2 is T~2 SomeUnsignedInt@3)
+     (stmts~3,1
+      (if
+       (elif@3
+        (infix@D >=
+         (infix~7 \2D
+          (infix~4 \2B x~2 y@2)
+          (call@3 T~1 1@1))x@3)
+        (stmts~1,1
+         (discard .)))
+       (else@,2
+        (stmts@2,1
+         (raise RangeError@6)))))))
+   (asgn@7,V result~7
+    (when@3
+     (elif@5
+      (infix@2 is T~2 int@3)
+      (stmts~3,1
+       (call@D ceilDivSigned~D x@1 y@4 uint@7)))
+     (elif@5,2
+      (infix@2 is T~2 int64@3)
+      (stmts~3,1
+       (call@D ceilDivSigned~D x@1 y@4 uint64@7)))
+     (elif@5,4
+      (infix@2 is T~2 int32@3)
+      (stmts~3,1
+       (call@D ceilDivSigned~D x@1 y@4 uint32@7)))
+     (elif@5,6
+      (infix@2 is T~2 int16@3)
+      (stmts~3,1
+       (call@D ceilDivSigned~D x@1 y@4 uint16@7)))
+     (elif@5,8
+      (infix@2 is T~2 int8@3)
+      (stmts~3,1
+       (call@D ceilDivSigned~D x@1 y@4 uint8@7)))
+     (else@,A
+      (stmts@2,1
+       (call@B ceilDivUint~B x@1 y@4)))))))
+ (func@,7H divmod@5 x .
+  (typevars@C
+   (typevar@1 T . .
+    (infix@F and SomeInteger~C IntegerArithmetic@4).))
+  (params@o
+   (param@1 x . . T@6 .)
+   (param@4 y . . T@3 .))
+  (tup@B T@1 T@4)
+  (pragmas@16 inline@2).
+  (stmts@2,1
+   (comment)
+   (call@,2 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@K ==
+       (call~7 divmod~6 5@1 2@4)
+       (tup@3 2@1 1@4)))
+     (cmd@,1 assert
+      (infix@L ==
+       (call~8 divmod~6 5@1 -3@4)
+       (tup@3 -1@1 2@5)))))
+   (tup@,A
+    (infix@3 div x~2 y@4)
+    (infix@C mod x~2 y@4))))
+ (func@,7U sum@5 x .
+  (typevars@9
+   (typevar@1 T . .
+    (infix@E and HasDefault~B Arithmetic@4).))
+  (params@d
+   (param@1 x . .
+    (at@C openArray~9 T@1).))T@J . .
+  (stmts@2,1
+   (comment)
+   (call@,6 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@P ==
+       (call~F sum~3
+        (bracket@1 1@1 2@4 3@7 4@A))10@3))
+     (cmd@,1 assert
+      (infix@N ==
+       (call~D sum~3
+        (bracket@1 -4@1 3@5 5@8))4@3))))
+   (asgn@7,9 result~7
+    (call@9 default~7 T@1))
+   (for@4,A
+    (call@A items~5 x@1)
+    (unpackflat
+     (let i . . ..))
+    (stmts@F
+     (asgn@7 result~7
+      (infix@9 \2B result~7 i@2))))))
+ (func@,7h cumsum@5 x .
+  (typevars@C
+   (typevar@1 T . . Arithmetic@3 .))
+  (params@R
+   (param@1 x . .
+    (mut@3
+     (at@D openArray~9 T@1)).)). . .
+  (stmts@2,1
+   (comment)
+   (call@,7 runnableExamples
+    (stmts@2,1
+     (var@4 a . . .
+      (bracket@4 1@1 2@4 3@7 4@A))
+     (call@6,1 cumsum~6 a@1)
+     (cmd@,2 assert
+      (infix@9 == a~2
+       (prefix@3 \40
+        (bracket@1 1@1 3@4 6@7 10@A))))))
+   (for@4,C
+    (infix@7 \2E\2E< 1~2
+     (dot@5 x~1 len@1))
+    (unpackflat
+     (let i . . ..))
+    (stmts@I
+     (asgn@5
+      (at~4 x~1 i@1)
+      (infix@B \2B
+       (at~8 x~1
+        (infix@3 \2D i~2 1@2))
+       (at@3 x~1 i@1)))))))
+ (func@,7w prod@5 x .
+  (typevars@A
+   (typevar@1 T . .
+    (infix@E and HasDefault~B Arithmetic@4).))
+  (params@e
+   (param@1 x . .
+    (at@C openArray~9 T@1).))T@J . .
+  (stmts@2,1
+   (comment)
+   (call@,7 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@Q ==
+       (call~F prod~4
+        (bracket@1 1@1 2@4 3@7 4@A))24@3))
+     (cmd@,1 assert
+      (infix@O ==
+       (call~D prod~4
+        (bracket@1 -4@1 3@5 5@8))-60@3))))
+   (asgn@7,B result~7
+    (call@3 T~1 1@1))
+   (for@4,C
+    (call@A items~5 x@1)
+    (unpackflat
+     (let i . . ..))
+    (stmts@F
+     (asgn@7 result~7
+      (infix@9 * result~7 i@2))))))
+ (func@,8B cumprod@5 x .
+  (typevars@D
+   (typevar@1 T . . Arithmetic@3 .))
+  (params@S
+   (param@1 x . .
+    (mut@3
+     (at@D openArray~9 T@1)).)). . .
+  (stmts@2,1
+   (comment)
+   (call@,7 runnableExamples
+    (stmts@2,1
+     (var@4 a . . .
+      (bracket@4 1@1 2@4 3@7 4@A))
+     (call@7,1 cumprod~7 a@1)
+     (cmd@,2 assert
+      (infix@9 == a~2
+       (prefix@3 \40
+        (bracket@1 1@1 2@4 6@7 24@A))))))
+   (for@4,B
+    (infix@7 \2E\2E< 1~2
+     (dot@5 x~1 len@1))
+    (unpackflat
+     (let i . . ..))
+    (stmts@I
+     (asgn@5
+      (at~4 x~1 i@1)
+      (infix@9 *
+       (at~6 x~1
+        (infix@2 \2D i~1 1@1))
+       (at@3 x~1 i@1)))))))
+ (pragmas@,8P push@2
+  (kv@D header~6 CMathHeader@2))
+ (func@,8Q sqrt@5 x . .
+  (params@A
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@W
+   (kv@9 importc~7 "sqrtf"@2)). .)
+ (func@,8R sqrt@5 x . .
+  (params@A
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@W
+   (kv@9 importc~7 "sqrt"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,4 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B
+       (call@5 sqrt~4 4.0@1)2.0@C))
+     (cmd@,1 assert
+      (call@I almostEqual~B
+       (call@5 sqrt~4 1.44@1)1.2@D))))))
+ (func@,8Z cbrt@5 x . .
+  (params@A
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@W
+   (kv@9 importc~7 "cbrtf"@2)). .)
+ (func@,8a cbrt@5 x . .
+  (params@A
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@W
+   (kv@9 importc~7 "cbrt"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,4 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B
+       (call@5 cbrt~4 8.0@1)2.0@C))
+     (cmd@,1 assert
+      (call@I almostEqual~B
+       (call@5 cbrt~4 2.197@1)1.3@E))
+     (cmd@,2 assert
+      (call@I almostEqual~B
+       (call@5 cbrt~4 -27.0@1)-3.0@E))))))
+ (func@,8j pow@5 x . .
+  (params@9
+   (param@1 x . . float32@6 .)
+   (param@4 y . . float32@3 .))float32@H
+  (pragmas@Y
+   (kv@9 importc~7 "powf"@2)). .)
+ (func@,8k pow@5 x . .
+  (params@9
+   (param@1 x . . float64@6 .)
+   (param@4 y . . float64@3 .))float64@H
+  (pragmas@Y
+   (kv@9 importc~7 "pow"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,9 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B
+       (call@4 pow~3 100.0@1 1.5@8)1000.0@I))
+     (cmd@,1 assert
+      (call@I almostEqual~B
+       (call@4 pow~3 16.0@1 0.5@7)4.0@H))))))
+ (func@,8x hypot@5 x . .
+  (params@B
+   (param@1 x . . float32@6 .)
+   (param@4 y . . float32@3 .))float32@H
+  (pragmas@a
+   (kv@9 importc~7 "hypotf"@2)). .)
+ (func@,8y hypot@5 x . .
+  (params@B
+   (param@1 x . . float64@6 .)
+   (param@4 y . . float64@3 .))float64@H
+  (pragmas@a
+   (kv@9 importc~7 "hypot"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,2 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B
+       (call@6 hypot~5 3.0@1 4.0@6)5.0@I))))))
+ (func@,93 exp@5 x . .
+  (params@9
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@V
+   (kv@9 importc~7 "expf"@2)). .)
+ (func@,94 exp@5 x . .
+  (params@9
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@V
+   (kv@9 importc~7 "exp"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,4 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B
+       (call@4 exp~3 1.0@1)E@B))
+     (cmd@,1 assert
+      (call@I almostEqual~B
+       (call@3 ln~2
+        (call@4 exp~3 4.0@1))4.0@F))
+     (cmd@,2 assert
+      (call@I almostEqual~B
+       (call@4 exp~3 0.0@1)1.0@B))))))
+ (func@,9D ln@5 x . .
+  (params@8
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@U
+   (kv@9 importc~7 "logf"@2)). .)
+ (func@,9E ln@5 x . .
+  (params@8
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@U
+   (kv@9 importc~7 "log"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,9 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B
+       (call@3 ln~2
+        (call@4 exp~3 4.0@1))4.0@F))
+     (cmd@,1 assert
+      (call@I almostEqual~B
+       (call@3 ln~2 1.0@1)0.0@A))
+     (cmd@,2 assert
+      (call@I almostEqual~B
+       (call@3 ln~2 0.0@1)
+       (prefix@A \2D Inf@1)))
+     (cmd@,3 assert
+      (dot@F
+       (call~6 ln~2 -7.0@1)isNaN@1))))))
+ (func@,9T log2@5 x . .
+  (params@A
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@W
+   (kv@9 importc~7 "log2f"@2)). .)
+ (func@,9U log2@5 x . .
+  (params@A
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@W
+   (kv@9 importc~7 "log2"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,7 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B
+       (call@5 log2~4 8.0@1)3.0@C))
+     (cmd@,1 assert
+      (call@I almostEqual~B
+       (call@5 log2~4 1.0@1)0.0@C))
+     (cmd@,2 assert
+      (call@I almostEqual~B
+       (call@5 log2~4 0.0@1)
+       (prefix@C \2D Inf@1)))
+     (cmd@,3 assert
+      (dot@H
+       (call~6 log2~4 -2.0@1)isNaN@1))))))
+ (func@,9h log10@5 x . .
+  (params@B
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@X
+   (kv@9 importc~7 "log10f"@2)). .)
+ (func@,9i log10@5 x . .
+  (params@B
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@X
+   (kv@9 importc~7 "log10"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,7 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B
+       (call@6 log10~5 100.0@1)2.0@G))
+     (cmd@,1 assert
+      (call@I almostEqual~B
+       (call@6 log10~5 0.0@1)
+       (prefix@D \2D Inf@1)))
+     (cmd@,2 assert
+      (dot@K
+       (call~8 log10~5 -100.0@1)isNaN@1))))))
+ (func@,9u log1p@5 x . .
+  (params@B
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@X
+   (kv@9 importc~7 "log1pf"@2)). .)
+ (func@,9v log1p@5 x . .
+  (params@B
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@X
+   (kv@9 importc~7 "log1p"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,7 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B
+       (call@6 log1p~5 0.0@1)0.0@D))
+     (cmd@,1 assert
+      (call@I almostEqual~B
+       (call@6 log1p~5
+        (infix@A \2D
+         (call~6 exp~3 1.0@1)1.0@2))1.0@O))
+     (cmd@,2 assert
+      (call@I almostEqual~B
+       (call@6 log1p~5
+        (infix@A \2D
+         (call~6 exp~3 2.0@1)1.0@2))2.0@O))))))
+ (pragmas@,A7 pop@2)
+ (func@,A9 log@5 x .
+  (typevars@9
+   (typevar@1 T . . SomeFloat@3 .))
+  (params@N
+   (param@1 x . . T@9 .)
+   (param@4 base . . T@6 .))T@E
+  (pragmas@d untyped@2).
+  (stmts@2,1
+   (comment)
+   (call@,6 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B
+       (call@4 log~3 9.0@1 3.0@6)2.0@G))
+     (cmd@,1 assert
+      (call@I almostEqual~B
+       (call@4 log~3 0.0@1 2.0@6)
+       (prefix@G \2D Inf@1)))
+     (cmd@,2 assert
+      (dot@L
+       (call~B log~3 -7.0@1 4.0@7)isNaN@1))
+     (cmd@,3 assert
+      (dot@L
+       (call~B log~3 8.0@1 -2.0@6)isNaN@1))))
+   (infix@6,C /
+    (call~4 ln~2 x@1)
+    (call@4 ln~2 base@1))))
+ (func@,AO
+  (quoted@5 ^@1) x .
+  (typevars@9
+   (typevar@1 T . .
+    (infix@E and SomeNumber~B Arithmetic@4).))
+  (params@d
+   (param@1 x . . T@3 .)
+   (param@7 y . . Natural@3 .))T@K . .
+  (stmts@2,1
+   (comment)
+   (call@,A runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@E ==
+       (infix~4 ^ -3~3 0@2)1@3))
+     (cmd@,1 assert
+      (infix@E ==
+       (infix~4 ^ -3~3 1@2)-3@3))
+     (cmd@,2 assert
+      (infix@E ==
+       (infix~4 ^ -3~3 2@2)9@3))))
+   (case@,F y@5
+    (of@,1
+     (ranges 0@3)
+     (stmts@6
+      (asgn@7 result~7 1@2)))
+    (of@,2
+     (ranges 1@3)
+     (stmts@6
+      (asgn@7 result~7 x@2)))
+    (of@,3
+     (ranges 2@3)
+     (stmts@6
+      (asgn@7 result~7
+       (infix@4 * x~2 x@2))))
+    (of@,4
+     (ranges 3@3)
+     (stmts@6
+      (asgn@7 result~7
+       (infix@8 *
+        (infix~4 * x~2 x@2)x@2))))
+    (else@,5
+     (stmts@2,1
+      (unpackdecl@4
+       (tup@9 x@1 y@4)
+       (unpacktup
+        (var x@1 . . ..)
+        (var y@4 . . ..)))
+      (asgn@7,1 result~7 1@2)
+      (while@,2 true@6
+       (stmts@2,1
+        (if
+         (elif@3
+          (infix@A !=
+           (par~A
+            (infix@3 and y~2 1@4))0@3)
+          (stmts~1,1
+           (infix@7 *= result~7 x@3))))
+        (asgn@2,2 y~2
+         (infix@4 shr y~2 1@4))
+        (if@,3
+         (elif@3
+          (infix@2 == y~2 0@3)
+          (stmts~1,1
+           (break .))))
+        (let@4,5 z . . . x@4)
+        (infix@2,6 *= x~2 z@3))))))))
+ (func@,Av isPowerOfTwo@5 x . .
+  (params@I
+   (param@1 x . . int@3 .))bool@A . .
+  (stmts@2,1
+   (comment)
+   (call@,6 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@J isPowerOfTwo~C 16@1))
+     (cmd@,1 assert
+      (prefix@7 not
+       (call@G isPowerOfTwo~C 5@1)))
+     (cmd@,2 assert
+      (prefix@7 not
+       (call@G isPowerOfTwo~C 0@1)))
+     (cmd@,3 assert
+      (prefix@7 not
+       (call@G isPowerOfTwo~C -16@1)))))
+   (ret@,C
+    (infix@F and
+     (par~8
+      (infix@3 > x~2 0@2))
+     (par@4
+      (infix@H ==
+       (par~G
+        (infix@3 and x~2
+         (par@4
+          (infix@3 \2D x~2 1@2))))0@3))))))
+ (func@,BA nextPowerOfTwo@5 x . .
+  (params@K
+   (param@1 x . . int@3 .))int@A . .
+  (stmts@2,1
+   (comment)
+   (call@,6 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@Q ==
+       (call~5 nextPowerOfTwo~E 16@1)16@3))
+     (cmd@,1 assert
+      (infix@P ==
+       (call~4 nextPowerOfTwo~E 5@1)8@3))
+     (cmd@,2 assert
+      (infix@P ==
+       (call~4 nextPowerOfTwo~E 0@1)1@3))
+     (cmd@,3 assert
+      (infix@R ==
+       (call~6 nextPowerOfTwo~E -16@1)1@3))))
+   (asgn@7,C result~7
+    (infix@4 \2D x~2 1@2))
+   (when@,D
+    (elif@5
+     (call@7 defined~7 cpu64@1)
+     (stmts~3,1
+      (asgn@7 result~7
+       (infix@9 or result~7
+        (par@3
+         (infix@8 shr result~7 32@4)))))))
+   (when@,F
+    (elif@5
+     (infix@F or
+      (call~8 defined~7 cpu64@1)
+      (call@A defined~7 cpu32@1))
+     (stmts~3,1
+      (asgn@7 result~7
+       (infix@9 or result~7
+        (par@3
+         (infix@8 shr result~7 16@4)))))))
+   (when@,H
+    (elif@5
+     (infix@X or
+      (infix~I or
+       (call~8 defined~7 cpu64@1)
+       (call@A defined~7 cpu32@1))
+      (call@A defined~7 cpu16@1))
+     (stmts~3,1
+      (asgn@7 result~7
+       (infix@9 or result~7
+        (par@3
+         (infix@8 shr result~7 8@4)))))))
+   (asgn@7,J result~7
+    (infix@9 or result~7
+     (par@3
+      (infix@8 shr result~7 4@4))))
+   (asgn@7,K result~7
+    (infix@9 or result~7
+     (par@3
+      (infix@8 shr result~7 2@4))))
+   (asgn@7,L result~7
+    (infix@9 or result~7
+     (par@3
+      (infix@8 shr result~7 1@4))))
+   (infix@7,M \2B= result~7
+    (infix@5 \2B 1~2
+     (call@5 ord~3
+      (infix@3 <= x~2 0@3))))))
+ (const@6,BZ RadPerDeg . . .
+  (infix@F / PI~3 180.0@2))
+ (func@,Bb degToRad@5 x .
+  (typevars@E
+   (typevar@1 T . .
+    (infix@D and SomeFloat~A FloatArithmetic@4).))
+  (params@m
+   (param@1 d . . T@3 .))T@8
+  (pragmas@w inline@2).
+  (stmts@2,1
+   (comment)
+   (call@,4 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B
+       (call@9 degToRad~8 180.0@1)PI@I))))
+   (asgn@7,7 result~7
+    (infix@4 * d~2
+     (call@3 T~1 RadPerDeg@1)))))
+ (func@,Bl radToDeg@5 x .
+  (typevars@E
+   (typevar@1 T . .
+    (infix@D and SomeFloat~A FloatArithmetic@4).))
+  (params@m
+   (param@1 r . . T@3 .))T@8
+  (pragmas@w inline@2).
+  (stmts@2,1
+   (comment)
+   (call@,4 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B
+       (call@9 radToDeg~8
+        (infix@3 * 2~2 PI@2))360.0@J))))
+   (asgn@7,7 result~7
+    (infix@4 / r~2
+     (call@3 T~1 RadPerDeg@1)))))
+ (pragmas@,Bv push@2
+  (kv@D header~6 CMathHeader@2))
+ (func@,Bw sin@5 x . .
+  (params@9
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@V
+   (kv@9 importc~7 "sinf"@2)). .)
+ (func@,Bx sin@5 x . .
+  (params@9
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@V
+   (kv@9 importc~7 "sin"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,4 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B
+       (call@4 sin~3
+        (infix@4 / PI~3 6@2))0.5@E))
+     (cmd@,1 assert
+      (call@I almostEqual~B
+       (call@4 sin~3
+        (call@9 degToRad~8 90.0@1))1.0@M))))))
+ (func@,C5 cos@5 x . .
+  (params@9
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@V
+   (kv@9 importc~7 "cosf"@2)). .)
+ (func@,C6 cos@5 x . .
+  (params@9
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@V
+   (kv@9 importc~7 "cos"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,4 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B
+       (call@4 cos~3
+        (infix@3 * 2~2 PI@2))1.0@E))
+     (cmd@,1 assert
+      (call@I almostEqual~B
+       (call@4 cos~3
+        (call@9 degToRad~8 60.0@1))0.5@M))))))
+ (func@,CE tan@5 x . .
+  (params@9
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@V
+   (kv@9 importc~7 "tanf"@2)). .)
+ (func@,CF tan@5 x . .
+  (params@9
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@V
+   (kv@9 importc~7 "tan"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,4 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B
+       (call@4 tan~3
+        (call@9 degToRad~8 45.0@1))1.0@M))
+     (cmd@,1 assert
+      (call@I almostEqual~B
+       (call@4 tan~3
+        (infix@4 / PI~3 4@2))1.0@E))))))
+ (func@,CN arcsin@5 x . .
+  (params@C
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@Y
+   (kv@9 importc~7 "asinf"@2)). .)
+ (func@,CO arcsin@5 x . .
+  (params@C
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@Y
+   (kv@9 importc~7 "asin"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,4 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B
+       (call@9 radToDeg~8
+        (call@7 arcsin~6 0.0@1))0.0@O))
+     (cmd@,1 assert
+      (call@I almostEqual~B
+       (call@9 radToDeg~8
+        (call@7 arcsin~6 1.0@1))90.0@O))))))
+ (func@,CW arccos@5 x . .
+  (params@C
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@Y
+   (kv@9 importc~7 "acosf"@2)). .)
+ (func@,CX arccos@5 x . .
+  (params@C
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@Y
+   (kv@9 importc~7 "acos"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,4 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B
+       (call@9 radToDeg~8
+        (call@7 arccos~6 0.0@1))90.0@O))
+     (cmd@,1 assert
+      (call@I almostEqual~B
+       (call@9 radToDeg~8
+        (call@7 arccos~6 1.0@1))0.0@O))))))
+ (func@,Cf arctan@5 x . .
+  (params@C
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@Y
+   (kv@9 importc~7 "atanf"@2)). .)
+ (func@,Cg arctan@5 x . .
+  (params@C
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@Y
+   (kv@9 importc~7 "atan"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,5 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B
+       (call@7 arctan~6 1.0@1)0.7853981633974483@E))
+     (cmd@,1 assert
+      (call@I almostEqual~B
+       (call@9 radToDeg~8
+        (call@7 arctan~6 1.0@1))45.0@O))))))
+ (func@,Cp arctan2@5 x . .
+  (params@D
+   (param@1 y . . float32@6 .)
+   (param@4 x . . float32@3 .))float32@H
+  (pragmas@c
+   (kv@9 importc~7 "atan2f"@2)). .)
+ (func@,Cq arctan2@5 x . .
+  (params@D
+   (param@1 y . . float64@6 .)
+   (param@4 x . . float64@3 .))float64@H
+  (pragmas@c
+   (kv@9 importc~7 "atan2"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,7 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B
+       (call@8 arctan2~7 1.0@1 0.0@6)
+       (infix@N / PI~3 2.0@2)))
+     (cmd@,1 assert
+      (call@I almostEqual~B
+       (call@9 radToDeg~8
+        (call@8 arctan2~7 1.0@1 0.0@6))90.0@U))))))
+ (func@,D1 sinh@5 x . .
+  (params@A
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@W
+   (kv@9 importc~7 "sinhf"@2)). .)
+ (func@,D2 sinh@5 x . .
+  (params@A
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@W
+   (kv@9 importc~7 "sinh"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,4 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B
+       (call@5 sinh~4 0.0@1)0.0@C))
+     (cmd@,1 assert
+      (call@I almostEqual~B
+       (call@5 sinh~4 1.0@1)1.175201193643801@C))))))
+ (func@,DA cosh@5 x . .
+  (params@A
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@W
+   (kv@9 importc~7 "coshf"@2)). .)
+ (func@,DB cosh@5 x . .
+  (params@A
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@W
+   (kv@9 importc~7 "cosh"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,4 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B
+       (call@5 cosh~4 0.0@1)1.0@C))
+     (cmd@,1 assert
+      (call@I almostEqual~B
+       (call@5 cosh~4 1.0@1)1.543080634815244@C))))))
+ (func@,DJ tanh@5 x . .
+  (params@A
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@W
+   (kv@9 importc~7 "tanhf"@2)). .)
+ (func@,DK tanh@5 x . .
+  (params@A
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@W
+   (kv@9 importc~7 "tanh"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,4 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B
+       (call@5 tanh~4 0.0@1)0.0@C))
+     (cmd@,1 assert
+      (call@I almostEqual~B
+       (call@5 tanh~4 1.0@1)0.7615941559557649@C))))))
+ (func@,DS arcsinh@5 x . .
+  (params@D
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@Z
+   (kv@9 importc~7 "asinhf"@2)). .)
+ (func@,DT arcsinh@5 x . .
+  (params@D
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@Z
+   (kv@9 importc~7 "asinh"@2)). .)
+ (func@,DY arccosh@5 x . .
+  (params@D
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@Z
+   (kv@9 importc~7 "acoshf"@2)). .)
+ (func@,DZ arccosh@5 x . .
+  (params@D
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@Z
+   (kv@9 importc~7 "acosh"@2)). .)
+ (func@,De arctanh@5 x . .
+  (params@D
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@Z
+   (kv@9 importc~7 "atanhf"@2)). .)
+ (func@,Df arctanh@5 x . .
+  (params@D
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@Z
+   (kv@9 importc~7 "atanh"@2)). .)
+ (func@,Dl erf@5 x . .
+  (params@9
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@V
+   (kv@9 importc~7 "erff"@2)). .)
+ (func@,Dm erf@5 x . .
+  (params@9
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@V
+   (kv@9 importc~7 "erf"@2)). .)
+ (func@,Do erfc@5 x . .
+  (params@A
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@W
+   (kv@9 importc~7 "erfcf"@2)). .)
+ (func@,Dp erfc@5 x . .
+  (params@A
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@W
+   (kv@9 importc~7 "erfc"@2)). .)
+ (func@,Dr gamma@5 x . .
+  (params@B
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@X
+   (kv@9 importc~7 "tgammaf"@2)). .)
+ (func@,Ds gamma@5 x . .
+  (params@B
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@X
+   (kv@9 importc~7 "tgamma"@2)).
+  (stmts@2,1
+   (comment)
+   (call@,4 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (call@I almostEqual~B
+       (call@6 gamma~5 1.0@1)1.0@D))
+     (cmd@,1 assert
+      (call@I almostEqual~B
+       (call@6 gamma~5 4.0@1)6.0@D))
+     (cmd@,2 assert
+      (call@I almostEqual~B
+       (call@6 gamma~5 11.0@1)3628800.0@E))))))
+ (func@,E1 lgamma@5 x . .
+  (params@C
+   (param@1 x . . float32@3 .))float32@E
+  (pragmas@Y
+   (kv@9 importc~7 "lgammaf"@2)). .)
+ (func@,E2 lgamma@5 x . .
+  (params@C
+   (param@1 x . . float64@3 .))float64@E
+  (pragmas@Y
+   (kv@9 importc~7 "lgamma"@2)).
+  (stmts@2,1
+   (comment)))
+ (pragmas@,E7 pop@2)
+ (func@,E9 cot@5 x . .
+  (params@9
+   (param@1 x . . float32@3 .))float32@E . .
+  (stmts@X
+   (infix@8 /
+    (suf~8 1.0 "f32")
+    (call@5 tan~3 x@1))))
+ (func@,EA cot@5 x . .
+  (params@9
+   (param@1 x . . float64@3 .))float64@E . .
+  (stmts@X
+   (infix@4 / 1.0~4
+    (call@5 tan~3 x@1))))
+ (func@,EB sec@5 x . .
+  (params@9
+   (param@1 x . . float32@3 .))float32@E . .
+  (stmts@X
+   (infix@8 /
+    (suf~8 1.0 "f32")
+    (call@5 cos~3 x@1))))
+ (func@,EC sec@5 x . .
+  (params@9
+   (param@1 x . . float64@3 .))float64@E . .
+  (stmts@X
+   (infix@4 / 1.0~4
+    (call@5 cos~3 x@1))))
+ (func@,ED csc@5 x . .
+  (params@9
+   (param@1 x . . float32@3 .))float32@E . .
+  (stmts@X
+   (infix@8 /
+    (suf~8 1.0 "f32")
+    (call@5 sin~3 x@1))))
+ (func@,EE csc@5 x . .
+  (params@9
+   (param@1 x . . float64@3 .))float64@E . .
+  (stmts@X
+   (infix@4 / 1.0~4
+    (call@5 sin~3 x@1))))
+ (func@,EF coth@5 x . .
+  (params@A
+   (param@1 x . . float32@3 .))float32@E . .
+  (stmts@Y
+   (infix@8 /
+    (suf~8 1.0 "f32")
+    (call@6 tanh~4 x@1))))
+ (func@,EG coth@5 x . .
+  (params@A
+   (param@1 x . . float64@3 .))float64@E . .
+  (stmts@Y
+   (infix@4 / 1.0~4
+    (call@6 tanh~4 x@1))))
+ (func@,EH sech@5 x . .
+  (params@A
+   (param@1 x . . float32@3 .))float32@E . .
+  (stmts@Y
+   (infix@8 /
+    (suf~8 1.0 "f32")
+    (call@6 cosh~4 x@1))))
+ (func@,EI sech@5 x . .
+  (params@A
+   (param@1 x . . float64@3 .))float64@E . .
+  (stmts@Y
+   (infix@4 / 1.0~4
+    (call@6 cosh~4 x@1))))
+ (func@,EJ csch@5 x . .
+  (params@A
+   (param@1 x . . float32@3 .))float32@E . .
+  (stmts@Y
+   (infix@8 /
+    (suf~8 1.0 "f32")
+    (call@6 sinh~4 x@1))))
+ (func@,EK csch@5 x . .
+  (params@A
+   (param@1 x . . float64@3 .))float64@E . .
+  (stmts@Y
+   (infix@4 / 1.0~4
+    (call@6 sinh~4 x@1))))
+ (func@,EL arccot@5 x . .
+  (params@C
+   (param@1 x . . float32@3 .))float32@E . .
+  (stmts@a
+   (call@6 arctan~6
+    (infix@9 /
+     (suf~8 1.0 "f32")x@2))))
+ (func@,EM arccot@5 x . .
+  (params@C
+   (param@1 x . . float64@3 .))float64@E . .
+  (stmts@a
+   (call@6 arctan~6
+    (infix@5 / 1.0~4 x@2))))
+ (func@,EN arcsec@5 x . .
+  (params@C
+   (param@1 x . . float32@3 .))float32@E . .
+  (stmts@a
+   (call@6 arccos~6
+    (infix@9 /
+     (suf~8 1.0 "f32")x@2))))
+ (func@,EO arcsec@5 x . .
+  (params@C
+   (param@1 x . . float64@3 .))float64@E . .
+  (stmts@a
+   (call@6 arccos~6
+    (infix@5 / 1.0~4 x@2))))
+ (func@,EP arccsc@5 x . .
+  (params@C
+   (param@1 x . . float32@3 .))float32@E . .
+  (stmts@a
+   (call@6 arcsin~6
+    (infix@9 /
+     (suf~8 1.0 "f32")x@2))))
+ (func@,EQ arccsc@5 x . .
+  (params@C
+   (param@1 x . . float64@3 .))float64@E . .
+  (stmts@a
+   (call@6 arcsin~6
+    (infix@5 / 1.0~4 x@2))))
+ (func@,ER arccoth@5 x . .
+  (params@D
+   (param@1 x . . float32@3 .))float32@E . .
+  (stmts@b
+   (call@7 arctanh~7
+    (infix@9 /
+     (suf~8 1.0 "f32")x@2))))
+ (func@,ES arccoth@5 x . .
+  (params@D
+   (param@1 x . . float64@3 .))float64@E . .
+  (stmts@b
+   (call@7 arctanh~7
+    (infix@5 / 1.0~4 x@2))))
+ (func@,ET arcsech@5 x . .
+  (params@D
+   (param@1 x . . float32@3 .))float32@E . .
+  (stmts@b
+   (call@7 arccosh~7
+    (infix@9 /
+     (suf~8 1.0 "f32")x@2))))
+ (func@,EU arcsech@5 x . .
+  (params@D
+   (param@1 x . . float64@3 .))float64@E . .
+  (stmts@b
+   (call@7 arccosh~7
+    (infix@5 / 1.0~4 x@2))))
+ (func@,EV arccsch@5 x . .
+  (params@D
+   (param@1 x . . float32@3 .))float32@E . .
+  (stmts@b
+   (call@7 arcsinh~7
+    (infix@9 /
+     (suf~8 1.0 "f32")x@2))))
+ (func@,EW arccsch@5 x . .
+  (params@D
+   (param@1 x . . float64@3 .))float64@E . .
+  (stmts@b
+   (call@7 arcsinh~7
+    (infix@5 / 1.0~4 x@2))))
+ (func@,EY splitDecimal@5 x .
+  (typevars@I
+   (typevar@1 T . .
+    (infix@X and
+     (infix~K and SomeFloat~A FloatArithmetic@4)HasDefault@4).))
+  (params@15
+   (param@1 x . . T@3 .))
+  (tuple@8
+   (kv@E intpart T@9)
+   (kv@Q floatpart T@B))
+  (pragmas@1j untyped@2).
+  (stmts@2,1
+   (comment)
+   (call@,7 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@Q ==
+       (call~7 splitDecimal~C 5.25@1)
+       (tup@3
+        (kv@8 intpart~7 5.0@2)
+        (kv@O floatpart~9 0.25@2))))
+     (cmd@,1 assert
+      (infix@R ==
+       (call~8 splitDecimal~C -2.73@1)
+       (tup@3
+        (kv@8 intpart~7 -2.0@2)
+        (kv@P floatpart~9 -0.73@2))))))
+   (asgn@7,A result~7
+    (call@9 default~7
+     (tuple@1
+      (kv@7 intpart T@9)
+      (kv@J floatpart T@B))))
+   (var@4,B absolute . . .
+    (call@E abs~3 x@1))
+   (asgn@F,C
+    (dot~9 result~6 intpart@1)
+    (call@7 floor~5 absolute@1))
+   (asgn@H,D
+    (dot~B result~6 floatpart@1)
+    (infix@B \2D absolute~9
+     (dot@8 result~6 intpart@1)))
+   (if@,E
+    (elif@3
+     (infix@2 < x~2
+      (call@3 T~1 0@1))
+     (stmts~1,1
+      (asgn@F
+       (dot~9 result~6 intpart@1)
+       (prefix@2 \2D
+        (dot@7 result~6 intpart@1)))
+      (asgn@H,1
+       (dot~B result~6 floatpart@1)
+       (prefix@2 \2D
+        (dot@7 result~6 floatpart@1))))))))
+ (func@,Er fac@5 x . .
+  (params@9
+   (param@1 n . . int@3 .))int@A . .
+  (stmts@2,1
+   (comment)
+   (call@,5 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@E ==
+       (call~4 fac~3 0@1)1@3))
+     (cmd@,1 assert
+      (infix@E ==
+       (call~4 fac~3 4@1)24@3))
+     (cmd@,2 assert
+      (infix@F ==
+       (call~5 fac~3 10@1)3628800@3))))
+   (asgn@7,C result~7 1@2)
+   (for@4,D
+    (infix@7 \2E\2E 1~2 n@3)
+    (unpackflat
+     (let i . . ..))
+    (stmts~2,1
+     (infix@7 *= result~7 i@3)))))
+ (func@,F8 binom@5 x . .
+  (params@B
+   (param@1 n . . Natural@6 .)
+   (param@4 k . . Natural@3 .))int@H . .
+  (stmts@2,1
+   (comment)
+   (call@,1 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@J ==
+       (call~7 binom~5 6@1 2@4)15@3))
+     (cmd@,1 assert
+      (infix@J ==
+       (call~7 binom~5 6@1 0@4)1@3))))
+   (if@,5
+    (elif@3
+     (infix@2 <= k~2 0@3)
+     (stmts@8
+      (ret 1@7))))
+   (if@,6
+    (elif@3
+     (infix@6 >
+      (infix~4 * 2~2 k@2)n@2)
+     (stmts@B
+      (ret
+       (call@C binom~5 n@1
+        (infix@6 \2D n~2 k@2))))))
+   (asgn@7,7 result~7 n@2)
+   (for@4,8
+    (infix@7 \2E\2E 2~2 k@3)
+    (unpackflat
+     (let i . . ..))
+    (stmts~2,1
+     (asgn@7 result~7
+      (infix@P div
+       (par~N
+        (infix@8 * result~7
+         (par@2
+          (infix@7 \2D
+           (infix~4 \2B n~2 1@2)i@2))))i@4))))))
+ (func@,FK gcd@5 x .
+  (typevars@9
+   (typevar@1 T . . SignedArithmetic@3 .))
+  (params@U
+   (param@1 x . . T@6 .)
+   (param@4 y . . T@3 .))T@B . .
+  (stmts@2,1
+   (comment)
+   (call@,9 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@M ==
+       (call~C gcd~3 13.5@1 9.0@7)4.5@3))))
+   (unpackdecl@4,C
+    (tup@9 x@1 y@4)
+    (unpacktup
+     (var x@1 . . ..)
+     (var y@4 . . ..)))
+   (while@,D
+    (infix@8 != y~2
+     (call@4 T~1 0@1))
+    (stmts@2,1
+     (asgn@2 x~2
+      (infix@4 mod x~2 y@4))
+     (cmd@,1 swap x@5 y@8)))
+   (cmd@,G abs x@4)))
+ (func@,Fd gcd@5 x .
+  (typevars@9
+   (typevar@1 T . . SignedArithmetic@3 .))
+  (params@U
+   (param@1 x . .
+    (at@C openArray~9 T@1).))T@J . .
+  (stmts@2,1
+   (comment)
+   (call@,4 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@P ==
+       (call~F gcd~3
+        (prefix@1 \40
+         (bracket@1 13.5@1 9.0@7)))4.5@3))))
+   (asgn@7,7 result~7
+    (at@3 x~1 0@1))
+   (for@4,8
+    (infix@7 \2E\2E< 1~2
+     (dot@5 x~1 len@1))
+    (unpackflat
+     (let i . . ..))
+    (stmts~2,1
+     (asgn@7 result~7
+      (call@5 gcd~3 result@1
+       (at@A x~1 i@1)))))))
+ (func@,Fp lcm@5 x .
+  (typevars@9
+   (typevar@1 T . .
+    (infix@L and IntegerArithmetic~I SignedArithmetic@4).))
+  (params@q
+   (param@1 x . . T@6 .)
+   (param@4 y . . T@3 .))T@B
+  (pragmas@13 inline@2).
+  (stmts@2,1
+   (comment)
+   (call@,4 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@J ==
+       (call~9 lcm~3 24@1 30@5)120@3))
+     (cmd@,1 assert
+      (infix@J ==
+       (call~9 lcm~3 13@1 39@5)39@3))))
+   (infix@G,8 *
+    (infix~E div x~2
+     (call@7 gcd~3 x@1 y@4))y@2)))
+ (func@,G0 lcm@5 x .
+  (typevars@9
+   (typevar@1 T . .
+    (infix@L and IntegerArithmetic~I SignedArithmetic@4).))
+  (params@q
+   (param@1 x . .
+    (at@C openArray~9 T@1).))T@J . .
+  (stmts@2,1
+   (comment)
+   (call@,4 runnableExamples
+    (stmts@2,1
+     (cmd assert
+      (infix@M ==
+       (call~C lcm~3
+        (prefix@1 \40
+         (bracket@1 24@1 30@5)))120@3))))
+   (asgn@7,7 result~7
+    (at@3 x~1 0@1))
+   (for@4,8
+    (infix@7 \2E\2E< 1~2
+     (dot@5 x~1 len@1))
+    (unpackflat
+     (let i . . ..))
+    (stmts~2,1
+     (asgn@7 result~7
+      (call@5 lcm~3 result@1
+       (at@A x~1 i@1))))))))

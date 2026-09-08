@@ -1,0 +1,357 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,6,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/hashes.nim
+ (type@8,1 Hash~6 x . . uint@2)
+ (type@C,4 Hashable~A x . .
+  (concept@2 . . .
+   (stmts~A,1
+    (func hash@5 . . .
+     (params@9
+      (param@1 a . . Self@3 .))Hash@B . . .))))
+ (func@,7
+  (quoted@5 !&@1) x . .
+  (params@A
+   (param@1 h . . Hash@3 .)
+   (param@A val . . uint@5 .))Hash@M
+  (pragmas@b inline@2).
+  (stmts@2,1
+   (comment)
+   (asgn@7,1 result~7
+    (infix@4 \2B h~2 val@2))
+   (asgn@7,2 result~7
+    (infix@9 \2B result~7
+     (par@2
+      (infix@8 shl result~7 10@4))))
+   (asgn@7,3 result~7
+    (infix@9 xor result~7
+     (par@4
+      (infix@8 shr result~7 6@4))))))
+ (func@,D
+  (quoted@5 !$@1) x . .
+  (params@A
+   (param@1 h . . Hash@3 .))Hash@B
+  (pragmas@Q inline@2).
+  (stmts@2,1
+   (comment)
+   (asgn@7,1 result~7
+    (infix@4 \2B h~2
+     (infix@4 shl h~2 3@4)))
+   (asgn@7,2 result~7
+    (infix@9 xor result~7
+     (par@4
+      (infix@8 shr result~7 11@4))))
+   (asgn@7,3 result~7
+    (infix@9 \2B result~7
+     (infix@9 shl result~7 15@4)))))
+ (func@,J hash@5 x . .
+  (params@A
+   (param@1 s . . string@3 .))Hash@D
+  (pragmas@S alwaysInline@2).
+  (stmts@2,1
+   (comment)
+   (call@7,2 hashStr~7 s@1)))
+ (func@,O hash@5 x . .
+  (params@A
+   (param@1 u . . uint@3 .))Hash@B
+  (pragmas@Q inline@2).
+  (stmts@d u))
+ (when@,P
+  (elif@5
+   (prefix not
+    (call@B defined~7 nimony@1))
+   (stmts~3,1
+    (func hash@5 x . .
+     (params@A
+      (param@1 x . . int@3 .))Hash@A
+     (pragmas@P inline@2).
+     (stmts@c
+      (cast Hash@5 x@B))))))
+ (func@,S hash@5 x . .
+  (params@A
+   (param@1 x . . int64@3 .))Hash@C
+  (pragmas@R inline@2).
+  (stmts@e
+   (cast Hash@5 x@B)))
+ (func@,T hash@5 x . .
+  (params@A
+   (param@1 x . . int32@3 .))Hash@C
+  (pragmas@R inline@2).
+  (stmts@e
+   (cast Hash@5
+    (cmd@F int~4 x))))
+ (when@,U
+  (elif@5
+   (infix@D ==
+    (call~7 sizeof~6 uint@1)4@3)
+   (stmts~3,5
+    (func hash@5 x . .
+     (params@A
+      (param@1 x . . uint64@3 .))Hash@D
+     (pragmas@S inline@2).
+     (stmts@2,1
+      (cast Hash@5
+       (infix@e xor
+        (call~N uint32~6
+         (infix@3 and x~2
+          (suf@4 4294967295u "u64")))
+        (call@A uint32~6
+         (infix@3 shr x~2 32@4)))))))))
+ (func@,b hash@5 x . .
+  (params@A
+   (param@1 x . . char@3 .))Hash@B
+  (pragmas@Q inline@2).
+  (stmts@d
+   (call@4 Hash~4 x@1)))
+ (func@,c hash@5 x . .
+  (params@A
+   (param@1 x . . bool@3 .))Hash@B
+  (pragmas@Q inline@2).
+  (stmts@d
+   (call@4 Hash~4 x@1)))
+ (func@,d hash@5 x . .
+  (params@A
+   (param@1 x . . float64@3 .))Hash@E
+  (pragmas@T inline@2).
+  (stmts@g
+   (cast Hash@5
+    (infix@D \2B x~2 0.0@2))))
+ (func@,e hash@5 x . .
+  (params@A
+   (param@1 x . . float32@3 .))Hash@E
+  (pragmas@T inline@2).
+  (stmts@g
+   (call@4 hash~4
+    (call@8 float64~7 x@1))))
+ (func@,f hash@5 x .
+  (typevars@A
+   (typevar@1 T . . enum@3 .))
+  (params@J
+   (param@1 x . . T@3 .))Hash@8
+  (pragmas@W inline@2).
+  (stmts@j
+   (call@4 Hash~4 x@1)))
+ (func@,h hash@5 x .
+  (typevars@A
+   (typevar@1 A . . Hashable@3 .)
+   (typevar@E B . . Hashable@3 .))
+  (params@a
+   (param@1 x . .
+    (tup@3 A@1 B@4).))Hash@D
+  (pragmas@s inline@2).
+  (stmts@2,1
+   (asgn@7 result~7
+    (infix@D !&
+     (call~7 hash~4
+      (at@2 x~1 0@1))
+     (call@7 hash~4
+      (at@2 x~1 1@1))))
+   (asgn@7,1 result~7
+    (prefix@2 !$ result@2))))
+ (func@,l hash@5 x .
+  (typevars@A
+   (typevar@1 A . . Hashable@3 .)
+   (typevar@E B . . Hashable@3 .)
+   (typevar@R C . . Hashable@3 .))
+  (params@n
+   (param@1 x . .
+    (tup@3 A@1 B@4 C@7).))Hash@G
+  (pragmas@18 inline@2).
+  (stmts@2,1
+   (comment)
+   (asgn@7,1 result~7
+    (infix@R !&
+     (infix~E !&
+      (call~7 hash~4
+       (at@2 x~1 0@1))
+      (call@7 hash~4
+       (at@2 x~1 1@1)))
+     (call@7 hash~4
+      (at@2 x~1 2@1))))
+   (asgn@7,2 result~7
+    (prefix@2 !$ result@2))))
+ (func@,q hash@5 x .
+  (typevars@A
+   (typevar@1 T . . Hashable@3 .))
+  (params@N
+   (param@1 x . .
+    (at@6 seq~3 T@1).))Hash@D . .
+  (stmts@2,1
+   (comment)
+   (asgn@7,1 result~7 0u@2)
+   (for@4,2
+    (call@A items~5 x@1)
+    (unpackflat
+     (let a . . ..))
+    (stmts~2,1
+     (asgn@7 result~7
+      (infix@9 !& result~7
+       (call@7 hash~4 a@1)))))
+   (asgn@7,4 result~7
+    (prefix@2 !$ result@2))))
+ (func@,15 nextTry@5 x . .
+  (params@D
+   (param@1 h . . Hash@3 .)
+   (param@A maxHash . . int@9 .))Hash@P
+  (pragmas@h inline@2).
+  (stmts@2,1
+   (comment)
+   (asgn@7,1 result~7
+    (infix@C and
+     (par~A
+      (infix@3 \2B h~2 1u@2))
+     (dot@B maxHash~7 uint@1)))))
+ (func@,19 hashIgnoreStyle@5 x . .
+  (params@L
+   (param@1 x . . string@3 .))Hash@D . .
+  (stmts@2,1
+   (comment)
+   (var@4,A h . . Hash@3 0@A)
+   (var@4,B i . . . 0@4)
+   (let@4,C xLen . . .
+    (dot@8 x~1 len@1))
+   (while@,D
+    (infix@8 < i~2 xLen@2)
+    (stmts@2,1
+     (var@4 c . . .
+      (at@5 x~1 i@1))
+     (if@,1
+      (elif@3
+       (infix@2 == c~2 '_'@3)
+       (stmts~1,1
+        (call@3 inc~3 i@1)))
+      (else@,2
+       (stmts@2,1
+        (if
+         (elif@3
+          (infix@2 in c~2
+           (curly@3
+            (infix@4 \2E\2E 'A'~3 'Z'@2)))
+          (stmts~1,1
+           (asgn@2 c~2
+            (call@5 chr~3
+             (infix@8 \2B
+              (call~4 ord~3 c@1)
+              (par@2
+               (infix@A \2D
+                (call~6 ord~3 'a'@1)
+                (call@5 ord~3 'A'@1)))))))))
+        (asgn@2,2 h~2
+         (infix@4 !& h~2
+          (call@7 uint~4
+           (call@4 ord~3 c@1))))
+        (call@3,3 inc~3 i@1))))))
+   (asgn@7,M result~7
+    (prefix@2 !$ h@2))))
+ (func@,1Y hashIgnoreStyle@5 x . .
+  (params@L
+   (param@1 sBuf . . string@6 .)
+   (param@F sPos . . int@C .)
+   (param@L ePos . . int@6 .))Hash@X . .
+  (stmts@2,1
+   (comment)
+   (var@4,B h . . Hash@3 0@A)
+   (var@4,C i . . . sPos@4)
+   (while@,D
+    (infix@8 <= i~2 ePos@3)
+    (stmts@2,1
+     (var@4 c . . .
+      (at@8 sBuf~4 i@1))
+     (if@,1
+      (elif@3
+       (infix@2 == c~2 '_'@3)
+       (stmts~1,1
+        (call@3 inc~3 i@1)))
+      (else@,2
+       (stmts@2,1
+        (if
+         (elif@3
+          (infix@2 in c~2
+           (curly@3
+            (infix@4 \2E\2E 'A'~3 'Z'@2)))
+          (stmts~1,1
+           (asgn@2 c~2
+            (call@5 chr~3
+             (infix@8 \2B
+              (call~4 ord~3 c@1)
+              (par@2
+               (infix@A \2D
+                (call~6 ord~3 'a'@1)
+                (call@5 ord~3 'A'@1)))))))))
+        (asgn@2,2 h~2
+         (infix@4 !& h~2
+          (call@7 uint~4
+           (call@4 ord~3 c@1))))
+        (call@3,3 inc~3 i@1))))))
+   (asgn@7,M result~7
+    (prefix@2 !$ h@2))))
+ (func@,1x hashIgnoreCase@5 x . .
+  (params@K
+   (param@1 x . . string@3 .))Hash@D . .
+  (stmts@2,1
+   (comment)
+   (var@4,A h . . Hash@3 0@A)
+   (for@4,B
+    (infix@6 \2E\2E 0~1
+     (infix@7 \2D
+      (dot~4 x~1 len@1)1@1))
+    (unpackflat
+     (let i . . ..))
+    (stmts~2,1
+     (var@4 c . . .
+      (at@5 x~1 i@1))
+     (if@,1
+      (elif@3
+       (infix@2 in c~2
+        (curly@3
+         (infix@4 \2E\2E 'A'~3 'Z'@2)))
+       (stmts~1,1
+        (asgn@2 c~2
+         (call@5 chr~3
+          (infix@8 \2B
+           (call~4 ord~3 c@1)
+           (par@2
+            (infix@A \2D
+             (call~6 ord~3 'a'@1)
+             (call@5 ord~3 'A'@1)))))))))
+     (asgn@2,3 h~2
+      (infix@4 !& h~2
+       (call@7 uint~4
+        (call@4 ord~3 c@1))))))
+   (asgn@7,G result~7
+    (prefix@2 !$ h@2))))
+ (func@,2G hashIgnoreCase@5 x . .
+  (params@K
+   (param@1 sBuf . . string@6 .)
+   (param@F sPos . . int@C .)
+   (param@L ePos . . int@6 .))Hash@X . .
+  (stmts@2,1
+   (comment)
+   (var@4,B h . . Hash@3 0@A)
+   (for@4,C
+    (infix@9 \2E\2E sPos~4 ePos@2)
+    (unpackflat
+     (let i . . ..))
+    (stmts~2,1
+     (var@4 c . . .
+      (at@8 sBuf~4 i@1))
+     (if@,1
+      (elif@3
+       (infix@2 in c~2
+        (curly@3
+         (infix@4 \2E\2E 'A'~3 'Z'@2)))
+       (stmts~1,1
+        (asgn@2 c~2
+         (call@5 chr~3
+          (infix@8 \2B
+           (call~4 ord~3 c@1)
+           (par@2
+            (infix@A \2D
+             (call~6 ord~3 'a'@1)
+             (call@5 ord~3 'A'@1)))))))))
+     (asgn@2,3 h~2
+      (infix@4 !& h~2
+       (call@7 uint~4
+        (call@4 ord~3 c@1))))))
+   (asgn@7,H result~7
+    (prefix@2 !$ h@2)))))

@@ -1,0 +1,368 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/openarrays.nim
+ (comment)
+ (pragmas@,2
+  (kv@9 feature~7 "lenientnils"@2))
+ (type@P,5 openArray~N x
+  (typevars~D
+   (typevar@1 T . . . .))
+  (pragmas~9 view@2)
+  (object@2 .
+   (fld~N,1 a . .
+    (ptr@3
+     (at@I UncheckedArray~E T@1)).)
+   (fld~N,2 len . . int@5 .)))
+ (func@,9
+  (quoted@5 \5B\5D@1) x .
+  (typevars@A
+   (typevar@1 T . . . .))
+  (params@D
+   (param@1 x . .
+    (at@C openArray~9 T@1).)
+   (param@I idx . . int@5 .))
+  (mut@T T@4)
+  (pragmas@m inline@2
+   (kv@I requires~8
+    (infix@B and
+     (infix~5 >= idx~4 0@3)
+     (infix@8 < idx~4
+      (dot@3 x~1 len@1))))).
+  (stmts@1Z
+   (at@3
+    (dot~2 x~1 a@1)idx@1)))
+ (func@,B
+  (quoted@5 \5B\5D=@1) x .
+  (typevars@B
+   (typevar@1 T . . . .))
+  (params@E
+   (param@1 x . .
+    (mut@3
+     (at@D openArray~9 T@1)).)
+   (param@M i . . int@3 .)
+   (param@U elem . .
+    (cmd@B sink~5 T).)).
+  (pragmas@w inline@2
+   (kv@I requires~8
+    (infix@9 and
+     (infix~5 >= i~2 0@3)
+     (infix@6 < i~2
+      (dot@3 x~1 len@1))))).
+  (stmts@2,1
+   (asgn@7
+    (par~7
+     (at@2 x~1 i@1))elem@2)))
+ (converter@,F toOpenArray@A x .
+  (typevars@M
+   (typevar@1 I . . . .)
+   (typevar@4 T . . . .))
+  (params@S
+   (param@3 x~2 .
+    (pragmas byref@2)
+    (at@G array~5 I@1 T@4).))
+  (at@b openArray~9 T@1)
+  (pragmas@17 inline@2 establishesBorrow@A).
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@7 ==
+      (call~4 len~3 x@1)0@3)
+     (stmts~1,1
+      (oconstr@C
+       (at~3 openArray~9 T@1)
+       (kv@2 a~1
+        (nil@2))
+       (kv@C len~3 0@2))))
+    (else@,2
+     (stmts@2,1
+      (oconstr@C
+       (at~3 openArray~9 T@1)
+       (kv@2 a~1
+        (cast@2
+         (ptr@5
+          (at@I UncheckedArray~E T@1))
+         (call@W addr~4 x@1)))
+       (kv@j len~3
+        (call@5 len~3 x@1))))))))
+ (converter@,M toOpenArray@A x .
+  (typevars@M
+   (typevar@1 T . . . .))
+  (params@P
+   (param@1 s . .
+    (at@6 seq~3 T@1).))
+  (at@M openArray~9 T@1)
+  (pragmas@p inline@2 establishesBorrow@A).
+  (stmts@2,1
+   (oconstr@C
+    (at~3 openArray~9 T@1)
+    (kv@2 a~1
+     (call@9 rawData~7 s@1))
+    (kv@J len~3
+     (dot@3 s~1 len@1)))))
+ (converter@,P toOpenArray@A x . .
+  (params@M
+   (param@3 s~2 .
+    (pragmas byref@2)string@B .))
+  (at@W openArray~9 char@1)
+  (pragmas@z inline@2 establishesBorrow@A).
+  (stmts@2,1
+   (oconstr@F
+    (at~6 openArray~9 char@1)
+    (kv@2 a~1
+     (call@D readRawData~B s@1))
+    (kv@N len~3
+     (dot@3 s~1 len@1)))))
+ (func@,S high@5 x .
+  (typevars@A
+   (typevar@1 T . . . .))
+  (params@D
+   (param@1 a . .
+    (at@C openArray~9 T@1).))int@J
+  (pragmas@a inline@2).
+  (stmts@n
+   (infix@6 \2D
+    (dot~5 a~1 len@1)1@2)))
+ (func@,T low@5 x .
+  (typevars@9
+   (typevar@1 T . . . .))
+  (params@C
+   (param@1 a . .
+    (at@C openArray~9 T@1).))int@J
+  (pragmas@Z inline@2).
+  (stmts@m 0))
+ (func@,U len@5 x .
+  (typevars@9
+   (typevar@1 T . . . .))
+  (params@C
+   (param@1 a . .
+    (at@C openArray~9 T@1).))int@J
+  (pragmas@Z inline@2).
+  (stmts@m
+   (dot@1 a~1 len@1)))
+ (type@D,X Equatable~B x . .
+  (concept@2 . . .
+   (stmts~B,1
+    (func
+     (quoted@5 ==@1). . .
+     (params@9
+      (param@1 a . . Self@6 .)
+      (param@4 b . . Self@3 .))bool@E . . .))))
+ (func@,a find@5 x .
+  (typevars@A
+   (typevar@1 T . . Equatable@3 .))
+  (params@O
+   (param@1 a . .
+    (at@C openArray~9 T@1).)
+   (param@I elem . . T@6 .))int@S . .
+  (stmts@2,1
+   (var@4 i . . . 0@4)
+   (while@,1
+    (infix@8 < i~2
+     (call@5 len~3 a@1))
+    (stmts@2,1
+     (if
+      (elif@3
+       (infix@5 ==
+        (at~4 a~1 i@1)elem@3)
+       (stmts@E
+        (ret i@7))))
+     (cmd@,1 inc i@4)))
+   (ret@,4 -1@7)))
+ (func@,h contains@5 x .
+  (typevars@E
+   (typevar@1 T . . Equatable@3 .))
+  (params@S
+   (param@1 a . .
+    (at@C openArray~9 T@1).)
+   (param@I elem . . T@6 .))bool@S
+  (pragmas@z inline@2).
+  (stmts@2,1
+   (infix@E >=
+    (call~A find~4 a@1 elem@4)0@3)))
+ (iterator@,k items@9 x .
+  (typevars@F
+   (typevar@1 T . . . .))
+  (params@I
+   (param@1 a . .
+    (at@C openArray~9 T@1).))
+  (mut@J T@4). .
+  (stmts@2,1
+   (var@4 i . . . 0@4)
+   (while@,1
+    (infix@8 < i~2
+     (call@5 len~3 a@1))
+    (stmts@2,1
+     (yld
+      (at@7 a~1 i@1))
+     (cmd@,1 inc i@4)))))
+ (iterator@,q mitems@9 x .
+  (typevars@G
+   (typevar@1 T . . . .))
+  (params@J
+   (param@1 a . .
+    (mut@3
+     (at@D openArray~9 T@1)).))
+  (mut@N T@4). .
+  (stmts@2,1
+   (var@4 i . . . 0@4)
+   (while@,1
+    (infix@8 < i~2
+     (call@5 len~3 a@1))
+    (stmts@2,1
+     (yld
+      (at@7 a~1 i@1))
+     (cmd@,1 inc i@4)))))
+ (iterator@,w pairs@9 x .
+  (typevars@F
+   (typevar@1 T . . . .))
+  (params@I
+   (param@1 a . .
+    (at@C openArray~9 T@1).))
+  (tup@J int@1
+   (mut@6 T@4)). .
+  (stmts@2,1
+   (var@4 i . . . 0@4)
+   (while@,1
+    (infix@8 < i~2
+     (call@5 len~3 a@1))
+    (stmts@2,1
+     (yld
+      (tup@6 i@1
+       (at@5 a~1 i@1)))
+     (cmd@,1 inc i@4)))))
+ (iterator@,12 mpairs@9 x .
+  (typevars@G
+   (typevar@1 T . . . .))
+  (params@J
+   (param@1 a . .
+    (mut@3
+     (at@D openArray~9 T@1)).))
+  (tup@N int@1
+   (mut@6 T@4)). .
+  (stmts@2,1
+   (var@4 i . . . 0@4)
+   (while@,1
+    (infix@8 < i~2
+     (call@5 len~3 a@1))
+    (stmts@2,1
+     (yld
+      (tup@6 i@1
+       (at@5 a~1 i@1)))
+     (cmd@,1 inc i@4)))))
+ (func@,18
+  (quoted@5 ==@1) x .
+  (typevars@A
+   (typevar@1 T . . Equatable@3 .))
+  (params@O
+   (param@1 a . .
+    (at@F openArray~9 T@1).)
+   (param@4 b . .
+    (at@C openArray~9 T@1).))bool@M . .
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@6 ==
+      (dot~5 a~1 len@1)
+      (dot@4 b~1 len@1))
+     (stmts~1,1
+      (for@4
+       (infix@6 \2E\2E< 0~1
+        (dot@4 a~1 len@1))
+       (unpackflat
+        (let i . . ..))
+       (stmts~2,1
+        (if
+         (elif@3
+          (infix@5 !=
+           (at~4 a~1 i@1)
+           (at@4 b~1 i@1))
+          (stmts@E
+           (ret false@7))))))
+      (ret@,2 true@7))))
+   (ret@,4 false@7)))
+ (func@,1H toOpenArray@5 x .
+  (typevars@H
+   (typevar@1 T . . . .))
+  (params@K
+   (param@1 x . .
+    (ptr@3
+     (at@I UncheckedArray~E T@1)).)
+   (param@R first . . int@D .)
+   (param@Y last . . int@6 .))
+  (at@t openArray~9 T@1). .
+  (stmts@2,1
+   (oconstr@C
+    (at~3 openArray~9 T@1)
+    (kv@2 a~1
+     (cast@2
+      (ptr@5
+       (at@I UncheckedArray~E T@1))
+      (infix@g \2B
+       (cast~E uint@5 x@B)
+       (call@6 uint~4
+        (infix@7 * first~6
+         (call@8 sizeof~6 T@1))))))
+    (kv@1F len~3
+     (infix@F \2B
+      (infix~8 \2D last~5 first@2)1@2)))))
+ (func@,1K toOpenArray@5 x .
+  (typevars@H
+   (typevar@1 T . . . .))
+  (params@K
+   (param@1 x . .
+    (at@C openArray~9 T@1).)
+   (param@I first . . int@D .)
+   (param@P last . . int@6 .))
+  (at@k openArray~9 T@1)
+  (pragmas@18 establishesBorrow@2).
+  (stmts@2,1
+   (oconstr@C
+    (at~3 openArray~9 T@1)
+    (kv@2 a~1
+     (cast@2
+      (ptr@5
+       (at@I UncheckedArray~E T@1))
+      (infix@i \2B
+       (cast~G uint@5
+        (dot@C x~1 a@1))
+       (call@6 uint~4
+        (infix@7 * first~6
+         (call@8 sizeof~6 T@1))))))
+    (kv@1H len~3
+     (infix@F \2B
+      (infix~8 \2D last~5 first@2)1@2)))))
+ (proc@,1N
+  (quoted@5 \40@1) x .
+  (typevars@9
+   (typevar@1 T . . . .))
+  (params@C
+   (param@1 a . .
+    (at@C openArray~9 T@1).))
+  (at@M seq~3 T@1)
+  (pragmas@c nodestroy@2).
+  (stmts@2,1
+   (comment)
+   (asgn@7,4 result~7
+    (call@H
+     (at~3 newSeqUninit~C T@1)
+     (dot@2 a~1 len@1)))
+   (if@,5
+    (elif@3
+     (infix@C !=
+      (dot~6 result~6 data@1)
+      (nil@3))
+     (stmts~1,1
+      (for@4
+       (infix@7 \2E\2E 0~2
+        (dot@4 a~1 high@1))
+       (unpackflat
+        (let i . . ..))
+       (stmts~2,1
+        (asgn@H
+         (par~H
+          (at@C
+           (dot~5 result~6 data@1)i@1))
+         (call@8
+          (quoted~6 =@1 dup@2)
+          (at@2 a~1 i@1)))))))))))

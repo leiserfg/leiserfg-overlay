@@ -1,0 +1,88 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/atomintrin.nim
+ (comment)
+ (type@J,4 AtomMemModel~E x . .
+  (distinct@2 cint@9))
+ (var@K,6 ATOMIC_RELAXED~G x
+  (pragmas
+   (kv@9 importc~7 "__ATOMIC_RELAXED"@2)nodecl@V)AtomMemModel@f .)
+ (var@K,8 ATOMIC_CONSUME~G x
+  (pragmas
+   (kv@9 importc~7 "__ATOMIC_CONSUME"@2)nodecl@V)AtomMemModel@f .)
+ (var@K,B ATOMIC_ACQUIRE~G x
+  (pragmas
+   (kv@9 importc~7 "__ATOMIC_ACQUIRE"@2)nodecl@V)AtomMemModel@f .)
+ (var@K,F ATOMIC_RELEASE~G x
+  (pragmas
+   (kv@9 importc~7 "__ATOMIC_RELEASE"@2)nodecl@V)AtomMemModel@f .)
+ (var@K,J ATOMIC_ACQ_REL~G x
+  (pragmas
+   (kv@9 importc~7 "__ATOMIC_ACQ_REL"@2)nodecl@V)AtomMemModel@f .)
+ (var@K,N ATOMIC_SEQ_CST~G x
+  (pragmas
+   (kv@9 importc~7 "__ATOMIC_SEQ_CST"@2)nodecl@V)AtomMemModel@f .)
+ (func@,e atomicAddFetch@5 x .
+  (typevars@K
+   (typevar@1 T . . . .))
+  (params@N
+   (param@1 p . .
+    (ptr@3 T@4).)
+   (param@B val . . T@5 .)
+   (param@J mem . . AtomMemModel@5 .))T@d
+  (pragmas@12
+   (kv~r,1 intrinsic~9 "AtomicAddFetch"@2)). .)
+ (func@,g atomicSubFetch@5 x .
+  (typevars@K
+   (typevar@1 T . . . .))
+  (params@N
+   (param@1 p . .
+    (ptr@3 T@4).)
+   (param@B val . . T@5 .)
+   (param@J mem . . AtomMemModel@5 .))T@d
+  (pragmas@12
+   (kv~r,1 intrinsic~9 "AtomicSubFetch"@2)). .)
+ (func@,i atomicLoadN@5 x .
+  (typevars@H
+   (typevar@1 T . . . .))
+  (params@K
+   (param@1 p . .
+    (ptr@3 T@4).)
+   (param@B mem . . AtomMemModel@5 .))T@V
+  (pragmas@r
+   (kv~g,1 intrinsic~9 "AtomicLoad"@2)). .)
+ (func@,k atomicStoreN@5 x .
+  (typevars@I
+   (typevar@1 T . . . .))
+  (params@L
+   (param@1 p . .
+    (ptr@3 T@4).)
+   (param@B val . . T@5 .)
+   (param@J mem . . AtomMemModel@5 .)).
+  (pragmas@x
+   (kv~m,1 intrinsic~9 "AtomicStore"@2)). .)
+ (func@,m atomicExchangeN@5 x .
+  (typevars@L
+   (typevar@1 T . . . .))
+  (params@O
+   (param@1 p . .
+    (ptr@3 T@4).)
+   (param@B val . . T@5 .)
+   (param@J mem . . AtomMemModel@5 .))T@d
+  (pragmas@13
+   (kv~s,1 intrinsic~9 "AtomicExchange"@2)). .)
+ (func@,o atomicCompareExchangeN@5 x .
+  (typevars@S
+   (typevar@1 T . . . .))
+  (params@V
+   (param@1 p . .
+    (ptr@3 T@4).)
+   (param@B expected . .
+    (ptr@A T@4).)
+   (param@S desired . . T@9 .)
+   (param~R,1 weak . . bool@6 .)
+   (param~F,1 succ . . AtomMemModel@C .)
+   (param~9,1 fail . . AtomMemModel@6 .))bool@C,1
+  (pragmas@m,1
+   (kv~b,1 intrinsic~9 "AtomicCompareExchange"@2)). .))

@@ -1,0 +1,165 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,9,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/mimalloc.nim
+ (pragmas
+  (call@9 compile~7 "$\7Bpath\7D/../../../vendor/mimalloc/src/static.c"@1 "-DMI_STATS=1 -I$\7Bpath\7D/../../../vendor/mimalloc/include"@o))
+ (when@,1
+  (elif@5
+   (call@7 defined~7 arm@1)
+   (stmts~3,1
+    (pragmas
+     (kv@7 passL~5 "-latomic"@1)))))
+ (type@r,5 MiStatCount~p . .
+  (pragmas~d
+   (kv@9 importc~7 "mi_stat_count_t"@2)bycopy@U)
+  (object@2 .
+   (fld~p,1 total . . int64@7 .)
+   (fld~p,2 peak . . int64@6 .)
+   (fld~p,3 current . . int64@9 .)))
+ (type@o,D MiStatsPrefix~m . .
+  (pragmas~Y
+   (kv@9 importc~7 "mi_stats_t"@2)bycopy@P)
+  (object@2 .
+   (fld~m,1 version . . cint@9 .)
+   (fld~m,2 pages . . MiStatCount@7 .)
+   (fld~m,3 reserved . . MiStatCount@A .)
+   (fld~m,4 committed . . MiStatCount@B .)
+   (fld~m,5 reset . . MiStatCount@7 .)
+   (fld~m,6 purged . . MiStatCount@8 .)
+   (fld~m,7 page_committed . . MiStatCount@G .)
+   (fld~m,8 pages_abandoned . . MiStatCount@H .)
+   (fld~m,9 threads . . MiStatCount@9 .)
+   (fld~m,A malloc_normal . . MiStatCount@F .)
+   (fld~m,B malloc_huge . . MiStatCount@D .)
+   (fld~m,C malloc_requested . . MiStatCount@I .)))
+ (func@,T mi_malloc@5 . . .
+  (params@E
+   (param@1 size . . csize_t@6 .))pointer@H
+  (pragmas@d
+   (kv@9 importc~7 "mi_malloc"@2)cdecl@O). .)
+ (func@,U mi_calloc@5 . . .
+  (params@E
+   (param@1 nmemb . . csize_t@7 .)
+   (param@H size . . csize_t@6 .))pointer@X
+  (pragmas@t
+   (kv@9 importc~7 "mi_calloc"@2)cdecl@O). .)
+ (func@,V mi_realloc@5 . . .
+  (params@F
+   (param@1 pt . . pointer@4 .)
+   (param@E size . . csize_t@6 .))pointer@U
+  (pragmas@r
+   (kv@9 importc~7 "mi_realloc"@2)cdecl@P). .)
+ (func@,W mi_free@5 . . .
+  (params@C
+   (param@1 p . . pointer@3 .)).
+  (pragmas@P
+   (kv@9 importc~7 "mi_free"@2)cdecl@M). .)
+ (func@,Y mi_usable_size@5 . . .
+  (params@J
+   (param@1 p . . pointer@3 .))csize_t@E
+  (pragmas@f
+   (kv@9 importc~7 "mi_usable_size"@2)cdecl@T). .)
+ (proc@,a mi_stats_merge@5 . . .
+  (params@J).
+  (pragmas@M
+   (kv@9 importc~7 "mi_stats_merge"@2)cdecl@T). .)
+ (func@,b mi_stats_get@5 . . .
+  (params@H
+   (param@1 stats_size . . csize_t@C .)
+   (param@M stats . .
+    (ptr@7 MiStatsPrefix@4).)).
+  (pragmas@13
+   (kv@9 importc~7 "mi_stats_get"@2)cdecl@R). .)
+ (func@,i alloc@5 x . .
+  (params@B
+   (param@1 size . . int@6 .))pointer@D . .
+  (stmts@2,1
+   (asgn@7 result~7
+    (call@B mi_malloc~9
+     (dot@5 size~4 csize_t@1)))))
+ (func@,l alloc0@5 x . .
+  (params@C
+   (param@1 size . . int@6 .))pointer@D . .
+  (stmts@2,1
+   (asgn@7 result~7
+    (call@B mi_calloc~9
+     (dot@2 1~1 csize_t@1)
+     (dot@G size~4 csize_t@1)))))
+ (func@,o realloc@5 x . .
+  (params@D
+   (param@1 p . . pointer@3 .)
+   (param@D size . . int@6 .))pointer@P . .
+  (stmts@2,1
+   (asgn@7 result~7
+    (call@C mi_realloc~A p@1
+     (dot@8 size~4 csize_t@1)))))
+ (func@,r dealloc@5 x . .
+  (params@D
+   (param@1 p . . pointer@3 .)). . .
+  (stmts@2,1
+   (call@7 mi_free~7 p@1)))
+ (func@,u allocatedSize@5 x . .
+  (params@J
+   (param@1 p . . pointer@3 .))int@E . .
+  (stmts@2,1
+   (asgn@7 result~7
+    (cmd@6 int~4
+     (call@E mi_usable_size~E p@1)))))
+ (proc@,x readStats@5 . . .
+  (params@E)MiStatsPrefix@4 . .
+  (stmts@2,1
+   (asgn@7 result~7
+    (call@9 default~7 MiStatsPrefix@1))
+   (call@E,2 mi_stats_merge~E)
+   (call@C,3 mi_stats_get~C
+    (call@8 csize_t~7
+     (call@7 sizeof~6 result@1))
+    (cmd@V addr~5 result))))
+ (proc@,13 getOccupiedMem@5 x . .
+  (params@K)int@4 . .
+  (stmts@2,1
+   (comment)
+   (let@4,1 st . . .
+    (call@E readStats~9))
+   (let@4,2 allocated . . .
+    (infix@b \2B
+     (dot~9
+      (dot~E st~2 malloc_normal@1)current@1)
+     (dot@G
+      (dot~C st~2 malloc_huge@1)current@1)))
+   (asgn@7,4 result~7
+    (cmd@6 int~4 allocated))))
+ (proc@,1A getTotalMem@5 x . .
+  (params@H)int@4 . .
+  (stmts@2,1
+   (comment)
+   (let@4,1 st . . .
+    (call@E readStats~9))
+   (asgn@7,2 result~7
+    (cmd@6 int~4
+     (dot@C
+      (dot~A st~2 committed@1)current@1)))))
+ (proc@,1F getFreeMem@5 x . .
+  (params@G)int@4 . .
+  (stmts@2,1
+   (comment)
+   (let@4,1 st . . .
+    (call@E readStats~9))
+   (let@4,2 allocated . . .
+    (infix@b \2B
+     (dot~9
+      (dot~E st~2 malloc_normal@1)current@1)
+     (dot@G
+      (dot~C st~2 malloc_huge@1)current@1)))
+   (var@4,3 freeBytes . . .
+    (infix@X \2D
+     (dot~9
+      (dot~A st~2 committed@1)current@1)allocated@2))
+   (if@,4
+    (elif@3
+     (infix@A < freeBytes~A 0@2)
+     (stmts@F
+      (asgn@A freeBytes~A 0@2))))
+   (asgn@7,5 result~7
+    (cmd@6 int~4 freeBytes)))))

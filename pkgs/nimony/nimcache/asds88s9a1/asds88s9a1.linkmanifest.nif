@@ -1,0 +1,19 @@
+(.nif27)
+(link
+ (apptype "console")
+ (output "nimcache/asds88s9a1/asdf")
+ (file "nimcache/asds88s9a1/asds88s9a1.o"
+  (kind "obj"))
+ (file "nimcache/asds88s9a1/sysvq0asl.o"
+  (kind "obj"))
+ (file "nimcache/asds88s9a1/mat7cnfv21.o"
+  (kind "obj"))
+ (file "nimcache/asds88s9a1/assy765wm.o"
+  (kind "obj"))
+ (file "nimcache/asds88s9a1/syn1lfpjv.o"
+  (kind "obj"))
+ (file "nimcache/asds88s9a1/for2ybv4p1.o"
+  (kind "obj"))
+ (file "nimcache/asds88s9a1/fen2xhzfd.o"
+  (kind "obj"))
+ (flags "-lm"))

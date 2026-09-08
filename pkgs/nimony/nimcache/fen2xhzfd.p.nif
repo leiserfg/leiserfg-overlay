@@ -1,0 +1,31 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/fenv.nim
+ (comment)
+ (const@2,6 FLT_MIN . . .
+  (suf@A 1.17549435E-38 "f32"))
+ (const@2,7 FLT_EPSILON . . .
+  (suf@E 0.00000011920929 "f32"))
+ (const@2,9 DBL_MIN . . . 2.2250738585072014E-308@A)
+ (const@2,A DBL_EPSILON . . . 2.220446049250313E-16@E)
+ (template@,C minimumPositiveValue@9 x . .
+  (params@U
+   (param@1 T . .
+    (at@B typedesc~8 float32@1).))float32@O . .
+  (stmts@12 FLT_MIN))
+ (template@,F epsilon@9 x . .
+  (params@H
+   (param@1 T . .
+    (at@B typedesc~8 float32@1).))float32@O . .
+  (stmts@p FLT_EPSILON))
+ (template@,J minimumPositiveValue@9 x . .
+  (params@U
+   (param@1 T . .
+    (at@B typedesc~8 float64@1).))float64@O . .
+  (stmts@12 DBL_MIN))
+ (template@,M epsilon@9 x . .
+  (params@H
+   (param@1 T . .
+    (at@B typedesc~8 float64@1).))float64@O . .
+  (stmts@p DBL_EPSILON)))

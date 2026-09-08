@@ -1,0 +1,653 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,A,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/osalloc.nim
+ (pragmas push@2
+  (kv@D raises~6
+   (bracket@2))gcsafe@J)
+ (proc@,2 roundup@5 . . .
+  (params@C
+   (param@1 x . . int@6 .)
+   (param@4 v . . int@3 .))int@D
+  (pragmas@T inline@2).
+  (stmts@2,1
+   (asgn@7 result~7
+    (infix@E and
+     (par~C
+      (infix@3 \2B x~2
+       (par@2
+        (infix@2 \2D v~1 1@1))))
+     (prefix@4 not
+      (par@4
+       (infix@2 \2D v~1 1@1)))))
+   (call@9,1 sysAssert~9
+    (infix@8 >= result~7 x@3)"roundup\3A result < x"@E)))
+ (call@9,7 sysAssert~9
+  (infix@N ==
+   (call~F roundup~7 14@1 PageSize@5)PageSize@3)"invalid PageSize"@a)
+ (call@9,8 sysAssert~9
+  (infix@G ==
+   (call~8 roundup~7 15@1 8@5)16@3)"roundup broken"@N)
+ (call@9,9 sysAssert~9
+  (infix@G ==
+   (call~8 roundup~7 65@1 8@5)72@3)"roundup broken 2"@N)
+ (const@6,J doNotUnmap . . .
+  (infix@U,1 or
+   (infix@L,~1 or
+    (prefix~c not
+     (par@4
+      (infix@G or
+       (call~8 defined~7 amd64@1)
+       (call@A defined~7 i386@1))))
+    (call~V,1 defined~7 windows@1))
+   (call@A defined~7 nimAllocNoUnmap@1)))
+ (when@,N
+  (elif@5
+   (call@7 defined~7 nimAllocPagesViaMalloc@1)
+   (stmts~3,1
+    (when
+     (elif@5
+      (infix@19 and
+       (infix~T and
+        (infix~N and
+         (prefix~J not
+          (call@B defined~7 gcArc@1))
+         (prefix@4 not
+          (call@B defined~7 gcOrc@1)))
+        (prefix@4 not
+         (call@B defined~7 gcAtomicArc@1)))
+       (prefix@4 not
+        (call@B defined~7 gcYrc@1)))
+      (stmts~3,1
+       (pragmas
+        (kv@7 error~5 "-d\3AnimAllocPagesViaMalloc is only supported with --mm\3Aarc or --mm\3AatomicArc or --mm\3Aorc or --mm\3Ayrc"@2)))))
+    (proc@,3 osTryAllocPages@5 . . .
+     (params@K
+      (param@1 size . . int@6 .))pointer@D
+     (pragmas@f inline@2).
+     (stmts@2,1
+      (let@4 base . . .
+       (call@F c_malloc~8
+        (cmd@9 csize_t~8
+         (infix@K \2B
+          (infix~4 \2D
+           (infix~B \2B size~5 PageSize@2)1@2)
+          (call@8 sizeof~6 uint32@1)))))
+      (if@,1
+       (elif@3
+        (infix@5 == base~5
+         (nil@3))
+        (stmts@D
+         (call@D raiseOutOfMem~D))))
+      (let@4,5 offset . . .
+       (infix@I \2D PageSize~9
+        (par@2
+         (infix@H and
+          (cast~G int@5 base@A)
+          (par@4
+           (infix@A \2D PageSize~9 1@2))))))
+      (asgn@s,6
+       (at~3
+        (cast~p
+         (ptr@5 uint32@4)
+         (infix@M \2B! base~5
+          (par@3
+           (infix@8 \2D offset~7
+            (call@8 sizeof~6 uint32@1))))))
+       (call@8 uint32~6 offset@1))
+      (asgn@7,7 result~7
+       (infix@7 \2B! base~5 offset@3))))
+    (proc@,D osAllocPages@5 . . .
+     (params@H
+      (param@1 size . . int@6 .))pointer@D
+     (pragmas@c inline@2).
+     (stmts@2,1
+      (asgn@7 result~7
+       (call@H osTryAllocPages~F size@1))
+      (if@,1
+       (elif@3
+        (infix@7 == result~7
+         (nil@3))
+        (stmts@F
+         (call@D raiseOutOfMem~D))))))
+    (proc@,H osDeallocPages@5 . . .
+     (params@J
+      (param@1 p . . pointer@3 .)
+      (param@D size . . int@6 .)).
+     (pragmas@h inline@2).
+     (stmts@2,2
+      (let@4 offset . . .
+       (at@k
+        (cast~b
+         (ptr@5 uint32@4)
+         (infix@J \2D! p~2
+          (call@9 sizeof~6 uint32@1)))))
+      (call@6,1 c_free~6
+       (infix@3 \2D! p~2 offset@3))))))
+  (elif@5,N
+   (infix@K and
+    (call~D defined~7 emscripten@1)
+    (prefix@4 not
+     (call@B defined~7 StandaloneHeapSize@1)))
+   (stmts~3,1
+    (const@2,1 PROT_READ . . . 1@D)
+    (const@2,2 PROT_WRITE . . . 2@D)
+    (const@2,3 MAP_PRIVATE . . .
+     (suf@E 2 "i32"))
+    (var@I,5 MAP_ANONYMOUS~E .
+     (pragmas
+      (kv@9 importc~7 "MAP_ANONYMOUS"@2)
+      (kv@Y header~6 "<sys/mman.h>"@2))cint@s .)
+    (type@N,7 PEmscriptenMMapBlock~L . . .
+     (ptr@2 EmscriptenMMapBlock@4))
+    (type@i,8 EmscriptenMMapBlock~g . .
+     (pragmas~M pure@2 inheritable@8)
+     (object@2 .
+      (fld~g,1 realSize . . int@A .)
+      (fld~g,2 realPointer . . pointer@D .)))
+    (proc@,C mmap@5 . . .
+     (params@9
+      (param@1 adr . . pointer@5 .)
+      (param@F len . . int@5 .)
+      (param@P prot . . cint@L .)
+      (param@V flags . . cint@F .)
+      (param@c fildes . . cint@8 .)
+      (param@1,1 off . . int@5 .))pointer@C,1
+     (pragmas@T,1
+      (kv@8 header~6 "<sys/mman.h>"@2)). .)
+    (proc@,F munmap@5 . . .
+     (params@B
+      (param@1 adr . . pointer@5 .)
+      (param@F len . . int@5 .)).
+     (pragmas@a
+      (kv@8 header~6 "<sys/mman.h>"@2)). .)
+    (proc@,H osAllocPages@5 . . .
+     (params@H
+      (param@1 block_size . . int@C .))pointer@J
+     (pragmas@i inline@2).
+     (stmts@2,1
+      (let@4 realSize . . .
+       (infix@11 \2B
+        (infix~B \2B
+         (infix~U \2B block_size~B
+          (call@8 sizeof~6 EmscriptenMMapBlock@1))PageSize@2)1@2))
+      (asgn@7,1 result~7
+       (call@6 mmap~4
+        (nil@1)realSize@6
+        (infix@Q or PROT_READ~A PROT_WRITE@3)
+        (infix@O,1 or MAP_PRIVATE~C MAP_ANONYMOUS@3)-1@g,1 0@k,1))
+      (if@,3
+       (elif@3
+        (infix@E or
+         (infix~7 == result~7
+          (nil@3))
+         (infix@A == result~7
+          (cast@3 pointer@5 -1@E)))
+        (stmts~1,1
+         (call@D raiseOutOfMem~D))))
+      (let@4,6 realPointer . . . result@E)
+      (let@4,7 pos . . .
+       (cast@6 int@5 result@A))
+      (var@4,A new_pos . . .
+       (infix@P \2B%
+        (cast~F int@5 pos@A)
+        (par@3
+         (infix@A \2D PageSize~9
+          (par@2
+           (infix@5 %% pos~4 PageSize@3))))))
+      (if@,B
+       (elif@3
+        (infix@E <
+         (par~E
+          (infix@8 \2D new_pos~7 pos@1))
+         (call@8 sizeof~6 EmscriptenMMapBlock@1))
+        (stmts~1,1
+         (asgn@8 new_pos~8
+          (infix@A \2B% new_pos~8 PageSize@3)))))
+      (asgn@7,D result~7
+       (cast@2 pointer@5 new_pos@E))
+      (var@4,F mmapDescrPos . . .
+       (infix@X \2D%
+        (cast~I int@5 result@A)
+        (call@9 sizeof~6 EmscriptenMMapBlock@1)))
+      (var@4,H mmapDescr . . .
+       (cast@C EmscriptenMMapBlock@5 mmapDescrPos@Q))
+      (asgn@J,I
+       (dot~A mmapDescr~9 realSize@1)realSize@2)
+      (asgn@M,J
+       (dot~D mmapDescr~9 realPointer@1)realPointer@2)))
+    (proc@,f osTryAllocPages@5 . . .
+     (params@K
+      (param@1 size . . int@6 .))pointer@D . .
+     (stmts@h
+      (call@C osAllocPages~C size@1)))
+    (proc@,h osDeallocPages@5 . . .
+     (params@J
+      (param@1 p . . pointer@3 .)
+      (param@D size . . int@6 .)).
+     (pragmas@h inline@2).
+     (stmts@2,1
+      (var@4 mmapDescrPos . . .
+       (infix@S \2D%
+        (cast~D int@5 p@A)
+        (call@9 sizeof~6 EmscriptenMMapBlock@1)))
+      (var@4,1 mmapDescr . . .
+       (cast@C EmscriptenMMapBlock@5 mmapDescrPos@Q))
+      (call@6,2 munmap~6
+       (dot@A mmapDescr~9 realPointer@1)
+       (dot@X mmapDescr~9 realSize@1))))))
+  (elif@5,1A
+   (infix@G and
+    (call~9 defined~7 genode@1)
+    (prefix@4 not
+     (call@B defined~7 StandaloneHeapSize@1)))
+   (stmts~3,1
+    (include
+     (infix@E / genode~6 alloc@1))))
+  (elif@5,1D
+   (infix@F and
+    (call~8 defined~7 posix@1)
+    (prefix@4 not
+     (call@B defined~7 StandaloneHeapSize@1)))
+   (stmts~3,1
+    (const@2,1 PROT_READ . . . 1@D)
+    (const@2,2 PROT_WRITE . . . 2@D)
+    (when@,4
+     (elif@5
+      (infix@G or
+       (call~9 defined~7 netbsd@1)
+       (call@A defined~7 openbsd@1))
+      (stmts~3,2
+       (var@E MAP_STACK~A .
+        (pragmas
+         (kv@9 importc~7 "MAP_STACK"@2)
+         (kv@U header~6 "<sys/mman.h>"@2))cint@o .)))
+     (else@,3
+      (stmts@2,1
+       (const@6 MAP_STACK . . . 0@C))))
+    (when@,A
+     (elif@5
+      (infix@G or
+       (call~9 defined~7 macosx@1)
+       (call@A defined~7 freebsd@1))
+      (stmts~3,1
+       (const@6 MAP_ANONYMOUS . . . 4096@G)
+       (const@6,1 MAP_PRIVATE . . . 2@E)))
+     (elif@5,3
+      (call@7 defined~7 solaris@1)
+      (stmts~3,1
+       (const@6 MAP_ANONYMOUS . . . 256@G)
+       (const@6,1 MAP_PRIVATE . . . 2@E)))
+     (elif@5,6
+      (call@7 defined~7 linux@1)
+      (stmts~3,3
+       (const@6 MAP_ANONYMOUS . . . 32@G)
+       (const@6,1 MAP_PRIVATE . . . 2@E)))
+     (elif@5,B
+      (call@7 defined~7 haiku@1)
+      (stmts~3,1
+       (const@6 MAP_ANONYMOUS . . . 8@G)
+       (const@6,1 MAP_PRIVATE . . . 2@E)))
+     (else@,E
+      (stmts@2,1
+       (var@G,1 MAP_ANONYMOUS~E .
+        (pragmas
+         (kv@9 importc~7 "MAP_ANONYMOUS"@2)
+         (kv@Y header~6 "<sys/mman.h>"@2))cint@s .)
+       (var@E,2 MAP_PRIVATE~C .
+        (pragmas
+         (kv@9 importc~7 "MAP_PRIVATE"@2)
+         (kv@W header~6 "<sys/mman.h>"@2))cint@q .))))
+    (proc@,T mmap@5 . . .
+     (params@9
+      (param@1 adr . . pointer@5 .)
+      (param@F len . . csize_t@5 .)
+      (param@T prot . . cint@L .)
+      (param@Z flags . . cint@F .)
+      (param@g fildes . . cint@8 .)
+      (param@1,1 off . . int@5 .))pointer@C,1
+     (pragmas@T,1
+      (kv@9 importc~7 "mmap"@2)). .)
+    (proc@,W munmap@5 . . .
+     (params@B
+      (param@1 adr . . pointer@5 .)
+      (param@F len . . csize_t@5 .))cint@U
+     (pragmas@k
+      (kv@9 importc~7 "munmap"@2)). .)
+    (proc@,Y osAllocPages@5 . . .
+     (params@H
+      (param@1 size . . int@6 .))pointer@D
+     (pragmas@c inline@2).
+     (stmts@2,1
+      (asgn@7 result~7
+       (call@6 mmap~4
+        (nil@1)
+        (cast@6 csize_t@5 size@E)
+        (call@V cint~4
+         (infix@B or PROT_READ~A PROT_WRITE@3))
+        (call@G,1 cint~4
+         (infix@U or
+          (infix~F or MAP_ANONYMOUS~E MAP_PRIVATE@3)MAP_STACK@3))
+        (call@13,1 cint~4 -1@1)0@19,1))
+      (if@,2
+       (elif@3
+        (infix@E or
+         (infix~7 == result~7
+          (nil@3))
+         (infix@A == result~7
+          (cast@3 pointer@5 -1@E)))
+        (stmts~1,1
+         (call@D raiseOutOfMem~D))))))
+    (proc@,e osTryAllocPages@5 . . .
+     (params@K
+      (param@1 size . . int@6 .))pointer@D
+     (pragmas@f inline@2).
+     (stmts@2,1
+      (asgn@7 result~7
+       (call@6 mmap~4
+        (nil@1)
+        (cast@6 csize_t@5 size@E)
+        (call@V cint~4
+         (infix@B or PROT_READ~A PROT_WRITE@3))
+        (call@G,1 cint~4
+         (infix@U or
+          (infix~F or MAP_ANONYMOUS~E MAP_PRIVATE@3)MAP_STACK@3))
+        (call@13,1 cint~4 -1@1)0@19,1))
+      (if@,2
+       (elif@3
+        (infix@7 == result~7
+         (cast@3 pointer@5 -1@E))
+        (stmts@T
+         (asgn@7 result~7
+          (nil@2)))))))
+    (proc@,j osDeallocPages@5 . . .
+     (params@J
+      (param@1 p . . pointer@3 .)
+      (param@D size . . int@6 .)).
+     (pragmas@h inline@2).
+     (stmts@2,1
+      (when
+       (elif@5 reallyOsDealloc
+        (stmts@H
+         (discard
+          (call@E munmap~6 p@1
+           (cast@4 csize_t@5 size@E))))))))))
+  (elif@5,20
+   (infix@H and
+    (call~A defined~7 windows@1)
+    (prefix@4 not
+     (call@B defined~7 StandaloneHeapSize@1)))
+   (stmts~3,1
+    (const@2,3 MEM_RESERVE . . .
+     (suf@E 8192 "i32"))
+    (const@2,4 MEM_COMMIT . . .
+     (suf@D 4096 "i32"))
+    (const@2,5 MEM_TOP_DOWN . . .
+     (suf@F 1048576 "i32"))
+    (const@2,6 PAGE_READWRITE . . .
+     (suf@H 4 "i32"))
+    (const@2,8 MEM_DECOMMIT . . .
+     (suf@F 16384 "i32"))
+    (const@2,9 MEM_RELEASE . . .
+     (suf@E 32768 "i32"))
+    (proc@,C virtualAlloc@5 . . .
+     (params@H
+      (param@1 lpAddress . . pointer@B .)
+      (param@L dwSize . . int@8 .)
+      (param@Y flAllocationType . . int32~M,1 .)
+      (param@1,1 flProtect . . int32@B .))pointer@K,1
+     (pragmas@j,1 stdcall~R,1
+      (kv~B,1 importc~7 "VirtualAlloc"@2)
+      (kv@D,1 dynlib~6 "kernel32"@2)). .)
+    (proc@,G virtualFree@5 . . .
+     (params@G
+      (param@1 lpAddress . . pointer@B .)
+      (param@L dwSize . . int@8 .)
+      (param@1,1 dwFreeType . . int32@C .))cint@L,1
+     (pragmas@g,1 stdcall@2
+      (kv~I,1 importc~7 "VirtualFree"@2)
+      (kv@5,1 dynlib~6 "kernel32"@2)). .)
+    (proc@,K osAllocPages@5 . . .
+     (params@H
+      (param@1 size . . int@6 .))pointer@D
+     (pragmas@c inline@2).
+     (stmts@2,1
+      (asgn@7 result~7
+       (call@E virtualAlloc~C
+        (nil@1)size@6
+        (infix@O or MEM_RESERVE~C MEM_COMMIT@3)PAGE_READWRITE@1,1))
+      (if@,2
+       (elif@3
+        (infix@7 == result~7
+         (nil@3))
+        (stmts@F
+         (call@D raiseOutOfMem~D))))))
+    (proc@,P osTryAllocPages@5 . . .
+     (params@K
+      (param@1 size . . int@6 .))pointer@D
+     (pragmas@f inline@2).
+     (stmts@2,1
+      (asgn@7 result~7
+       (call@E virtualAlloc~C
+        (nil@1)size@6
+        (infix@O or MEM_RESERVE~C MEM_COMMIT@3)PAGE_READWRITE@1,1))))
+    (proc@,T osDeallocPages@5 . . .
+     (params@J
+      (param@1 p . . pointer@3 .)
+      (param@D size . . int@6 .)).
+     (pragmas@h inline@2).
+     (stmts@2,7
+      (when
+       (elif@5 reallyOsDealloc
+        (stmts~3,1
+         (if
+          (elif@3
+           (infix@V ==
+            (call~K virtualFree~B p@1 0@4 MEM_RELEASE@7)0@3)
+           (stmts~1,1
+            (cmd cprintf "virtualFree failing!"@8)
+            (cmd@,1 rawQuit 1@8)))))))))))
+  (elif@5,2h
+   (infix@G and
+    (call~9 defined~7 wasm32@1)
+    (call@B defined~7 standalone@1))
+   (stmts~3,8
+    (const@6 WasmPageSize . . . 65536@F)
+    (var@2,2 wasmBump . . int@A 0@G)
+    (var@2,3 heapCeiling . . int@D 0@J)
+    (proc@,5 wasmMemorySize@5 . . .
+     (params@J)int32@4
+     (pragmas@T
+      (kv@9 importc~7 "__builtin_wasm_memory_size"@2)). .)
+    (proc@,6 wasmMemoryGrow@5 . . .
+     (params@J
+      (param@1 delta . . int32@7 .))int32@G
+     (pragmas@f
+      (kv@9 importc~7 "__builtin_wasm_memory_grow"@2)). .)
+    (proc@,8 setWasmHeapCeiling@5 x . .
+     (params@O
+      (param@1 bytes . . int@7 .)). . .
+     (stmts@2,1
+      (comment)
+      (asgn@C,3 heapCeiling~C bytes@2)))
+    (proc@,E ensureCapacity@5 . . .
+     (params@J
+      (param@1 needEnd . . int@9 .))bool@G . .
+     (stmts@2,1
+      (let@4 haveEnd . . .
+       (infix@W *
+        (call~J int~3
+         (call@F wasmMemorySize~E))WasmPageSize@2))
+      (if@,1
+       (elif@3
+        (infix@8 <= needEnd~8 haveEnd@3)
+        (stmts@K
+         (ret true@7))))
+      (if@,2
+       (elif@3
+        (infix@G and
+         (infix~4 > heapCeiling~C 0@2)
+         (infix@C > needEnd~8 heapCeiling@2))
+        (stmts@h
+         (ret false@7))))
+      (let@4,3 deltaPages . . .
+       (infix@q div
+        (par~d
+         (infix@Y \2D
+          (infix~F \2B
+           (infix~A \2D needEnd~8 haveEnd@2)WasmPageSize@2)1@2))WasmPageSize@4))
+      (asgn@7,4 result~7
+       (infix@a >=
+        (call~K wasmMemoryGrow~E
+         (call@6 int32~5 deltaPages@1))0@3))))
+    (proc@,L osAllocPages@5 . . .
+     (params@H
+      (param@1 size . . int@6 .))pointer@D
+     (pragmas@c inline@2).
+     (stmts@2,1
+      (if
+       (elif@3
+        (infix@9 == wasmBump~9 0@3)
+        (stmts~1,3
+         (asgn@9 wasmBump~9
+          (infix@O *
+           (call~J int~3
+            (call@F wasmMemorySize~E))WasmPageSize@2)))))
+      (if@,4
+       (elif@3
+        (prefix not
+         (call@I ensureCapacity~E
+          (infix@A \2B wasmBump~9 size@2)))
+        (stmts~1,1
+         (call@D raiseOutOfMem~D))))
+      (asgn@7,6 result~7
+       (cast@2 pointer@5 wasmBump@E))
+      (cmd@,7 inc wasmBump@4 size@E)))
+    (proc@,V osTryAllocPages@5 . . .
+     (params@K
+      (param@1 size . . int@6 .))pointer@D
+     (pragmas@f inline@2).
+     (stmts@2,1
+      (asgn@7 result~7
+       (nil@2))
+      (if@,1
+       (elif@3
+        (infix@9 == wasmBump~9 0@3)
+        (stmts~1,1
+         (asgn@9 wasmBump~9
+          (infix@O *
+           (call~J int~3
+            (call@F wasmMemorySize~E))WasmPageSize@2)))))
+      (if@,3
+       (elif@3
+        (prefix not
+         (call@I ensureCapacity~E
+          (infix@A \2B wasmBump~9 size@2)))
+        (stmts@b
+         (ret
+          (nil@7)))))
+      (asgn@7,4 result~7
+       (cast@2 pointer@5 wasmBump@E))
+      (cmd@,5 inc wasmBump@4 size@E)))
+    (proc@,d osDeallocPages@5 . . .
+     (params@J
+      (param@1 p . . pointer@3 .)
+      (param@D size . . int@6 .)).
+     (pragmas@h inline@2).
+     (stmts@2,2
+      (if
+       (elif@3
+        (infix@G ==
+         (infix~7 \2D wasmBump~9 size@2)
+         (cast@3 int@5 p@A))
+        (stmts~1,1
+         (cmd dec wasmBump@4 size@E))))))))
+  (elif@5,3X
+   (infix@I or
+    (call~B defined~7 embedded@1)
+    (call@A defined~7 StandaloneHeapSize@1))
+   (stmts~3,F
+    (proc heapStart@5 . . .
+     (params@E)pointer@4
+     (pragmas@Q
+      (kv@B intrinsic~9 "HeapStart"@2)). .)
+    (proc@,1 heapSize@5 . . .
+     (params@D)uint@4
+     (pragmas@M
+      (kv@B intrinsic~9 "HeapSize"@2)). .)
+    (var@4,3 bumpPointer . . . 0@E)
+    (proc@,5 heapLimit@5 . . .
+     (params@E)int@4
+     (pragmas@M inline@2).
+     (stmts@2,1
+      (infix@N \2B
+       (cast~N int@5
+        (call@J heapStart~9))
+       (call@5 int~3
+        (call@9 heapSize~8)))))
+    (proc@,8 bumpFrom@5 . . .
+     (params@D
+      (param@1 size . . int@6 .))pointer@D
+     (pragmas@Y inline@2).
+     (stmts@2,1
+      (comment)
+      (if@,2
+       (elif@3
+        (infix@C == bumpPointer~C 0@3)
+        (stmts@I
+         (asgn@C bumpPointer~C
+          (cast@2 int@5
+           (call@J heapStart~9))))))
+      (if@,3
+       (elif@3
+        (infix@A and
+         (infix~5 >= size~5 0@3)
+         (infix@N <=
+          (infix~7 \2B bumpPointer~C size@2)
+          (call@C heapLimit~9)))
+        (stmts~1,1
+         (asgn@7 result~7
+          (cast@2 pointer@5 bumpPointer@E))
+         (cmd@,1 inc bumpPointer@4 size@H)))
+       (else@,3
+        (stmts@2,1
+         (asgn@7 result~7
+          (nil@2)))))))
+    (proc@,I osAllocPages@5 . . .
+     (params@H
+      (param@1 size . . int@6 .))pointer@D
+     (pragmas@c inline@2).
+     (stmts@2,1
+      (asgn@7 result~7
+       (call@A bumpFrom~8 size@1))
+      (if@,1
+       (elif@3
+        (infix@7 == result~7
+         (nil@3))
+        (stmts@F
+         (call@D raiseOutOfMem~D))))))
+    (proc@,M osTryAllocPages@5 . . .
+     (params@K
+      (param@1 size . . int@6 .))pointer@D
+     (pragmas@f inline@2).
+     (stmts@2,5
+      (asgn@7 result~7
+       (call@A bumpFrom~8 size@1))))
+    (proc@,T osDeallocPages@5 . . .
+     (params@J
+      (param@1 p . . pointer@3 .)
+      (param@D size . . int@6 .)).
+     (pragmas@h inline@2).
+     (stmts@2,5
+      (if
+       (elif@3
+        (infix@H ==
+         (infix~6 \2D bumpPointer~B size@1)
+         (cast@3 int@5 p@A))
+        (stmts~1,1
+         (cmd dec bumpPointer@4 size@H))))))))
+  (else@,4N
+   (stmts@2,1
+    (pragmas
+     (kv@7 error~5 "Port memory manager to your platform"@2)))))
+ (pragmas@,4n pop@2))

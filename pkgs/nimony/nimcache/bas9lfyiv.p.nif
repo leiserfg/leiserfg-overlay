@@ -1,0 +1,258 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim
+ (type@2,1 int x .
+  (pragmas@5
+   (kv@7 magic~5 Int@2)).)
+ (type@2,3 int8 x .
+  (pragmas@6
+   (kv@7 magic~5 Int8@2)).)
+ (type@2,4 int16 x .
+  (pragmas@7
+   (kv@7 magic~5 Int16@2)).)
+ (type@2,5 int32 x .
+  (pragmas@7
+   (kv@7 magic~5 Int32@2)).)
+ (type@2,6 int64 x .
+  (pragmas@7
+   (kv@7 magic~5 Int64@2)).)
+ (type@2,7 uint x .
+  (pragmas@6
+   (kv@7 magic~5 UInt@2)).)
+ (type@2,8 uint8 x .
+  (pragmas@7
+   (kv@7 magic~5 UInt8@2)).)
+ (type@2,9 uint16 x .
+  (pragmas@8
+   (kv@7 magic~5 UInt16@2)).)
+ (type@2,A uint32 x .
+  (pragmas@8
+   (kv@7 magic~5 UInt32@2)).)
+ (type@2,B uint64 x .
+  (pragmas@8
+   (kv@7 magic~5 UInt64@2)).)
+ (type@2,C byte x .
+  (pragmas@6
+   (kv@7 magic~5 UInt8@2)).)
+ (type@2,F float x .
+  (pragmas@7
+   (kv@7 magic~5 Float@2)).)
+ (type@2,G float32 x .
+  (pragmas@9
+   (kv@7 magic~5 Float32@2)).)
+ (type@2,H float64 x .
+  (pragmas@9
+   (kv@7 magic~5 Float@2)).)
+ (type@2,K char x .
+  (pragmas@6
+   (kv@7 magic~5 Char@2)).)
+ (type@2,L cstring x .
+  (pragmas@9
+   (kv@7 magic~5 Cstring@2)).)
+ (type@2,M pointer x .
+  (pragmas@9
+   (kv@7 magic~5 Pointer@2)).)
+ (type@2,P typedesc x
+  (typevars@9
+   (typevar@1 T . . . .))
+  (pragmas@D
+   (kv@7 magic~5 TypeDesc@2)).)
+ (type@2,Q UncheckedArray x
+  (typevars@F
+   (typevar@1 T . . . .))
+  (pragmas@J
+   (kv@7 magic~5 UncheckedArray@2)).)
+ (type@E,T LongString~C x . .
+  (object@2 .
+   (fld~C,1 fullLen . . int@9 .)
+   (fld~C,2 rc . . int@4 .)
+   (fld~C,3 capImpl . . int@9 .)
+   (fld~C,4 data . .
+    (at@K UncheckedArray~E char@1).)))
+ (type@A,a string~8 x . .
+  (object@2 .
+   (fld~8,1 bytes . . uint@7 .)
+   (fld~8,2 more . .
+    (ptr@6 LongString@4).)))
+ (type@Q,f bool~O x .
+  (pragmas~I
+   (kv@7 magic~5 "Bool"@2))
+  (enum@2 .
+   (efld~G,1 false~8 . . . 0)
+   (efld~6,1 true~7 . . . 1)))
+ (type@2,k OrdinalEnum x .
+  (pragmas@D
+   (kv@7 magic~5 "OrdinalEnum"@2)).)
+ (type@2,l HoleyEnum x .
+  (pragmas@B
+   (kv@7 magic~5 "HoleyEnum"@2)).)
+ (type@A,m
+  (quoted~8 enum@1) x . .
+  (infix@E | OrdinalEnum~C HoleyEnum@2))
+ (type@H,p SomeSignedInt~F x . .
+  (infix@M |
+   (infix~6 |
+    (infix~6 |
+     (infix~5 | int~3 int8@1)int16@1)int32@1)int64@1))
+ (type@J,s SomeUnsignedInt~H x . .
+  (infix@Q |
+   (infix~7 |
+    (infix~7 |
+     (infix~6 | uint~4 uint8@1)uint16@1)uint32@1)uint64@1))
+ (type@F,v SomeInteger~D x . .
+  (infix@F | SomeSignedInt~D SomeUnsignedInt@1))
+ (type@D,y SomeFloat~B x . .
+  (infix@F |
+   (infix~8 | float~5 float32@1)float64@1))
+ (type@E,11 SomeNumber~C x . .
+  (infix@D | SomeInteger~B SomeFloat@1))
+ (type@F,14 SomeOrdinal~D x . .
+  (infix@11 |
+   (infix~7 |
+    (infix~7 |
+     (infix~6 |
+      (infix~5 |
+       (infix~5 |
+        (infix~5 |
+         (infix~6 |
+          (infix~6 |
+           (infix~6 |
+            (infix~5 | int~3 int8@1)int16@1)int32@1)int64@1)bool@1)enum@1)uint@1)uint8@1)uint16@1)uint32@1)uint64@1))
+ (proc@,18
+  (quoted@5 not@1) x . .
+  (params@B
+   (param@1 x . . bool@3 .))bool@B
+  (pragmas@R
+   (kv@7 magic~5 "Not"@2)noSideEffect@G). .)
+ (proc@,1B
+  (quoted@5 and@1) x . .
+  (params@B
+   (param@1 x . . bool@6 .)
+   (param@4 y . . bool@3 .))bool@E
+  (pragmas@U
+   (kv@7 magic~5 "And"@2)noSideEffect@G). .)
+ (proc@,1G
+  (quoted@5 or@1) x . .
+  (params@A
+   (param@1 x . . bool@6 .)
+   (param@4 y . . bool@3 .))bool@E
+  (pragmas@T
+   (kv@7 magic~5 "Or"@2)noSideEffect@F). .)
+ (proc@,1L
+  (quoted@5 xor@1) x . .
+  (params@B
+   (param@1 x . . bool@6 .)
+   (param@4 y . . bool@3 .))bool@E
+  (pragmas@U
+   (kv@7 magic~5 "Xor"@2)noSideEffect@G). .)
+ (type@2,1Q untyped x .
+  (pragmas@9
+   (kv@7 magic~5 Expr@2)).)
+ (type@2,1R typed x .
+  (pragmas@7
+   (kv@7 magic~5 Stmt@2)).)
+ (type@2,1T void x .
+  (pragmas@6
+   (kv@7 magic~5 "VoidType"@2)).)
+ (type@2,1W Ordinal x
+  (typevars@8
+   (typevar@1 T . . . .))
+  (pragmas@C
+   (kv@7 magic~5 Ordinal@2)).)
+ (type@2,1c range x
+  (typevars@6
+   (typevar@1 T . . . .))
+  (pragmas@9
+   (kv@7 magic~5 "Range"@2)).)
+ (type@2,1d array x
+  (typevars@6
+   (typevar@1 I . . . .)
+   (typevar@4 T . . . .))
+  (pragmas@C
+   (kv@7 magic~5 "Array"@2)).)
+ (type@2,1f varargs x
+  (typevars@8
+   (typevar@1 T . . . .))
+  (pragmas@B
+   (kv@7 magic~5 "Varargs"@2)).)
+ (type@2,1g set x
+  (typevars@4
+   (typevar@1 T . . . .))
+  (pragmas@7
+   (kv@7 magic~5 "Set"@2)).)
+ (type@5,1i sink x
+  (typevars@5
+   (typevar@1 T . . . .))
+  (pragmas@8
+   (kv@7 magic~5 "Sink"@2)).)
+ (type@5,1j lent x
+  (typevars@5
+   (typevar@1 T . . . .))
+  (pragmas@8
+   (kv@7 magic~5 "Lent"@2)).)
+ (proc@,1l low@5 x .
+  (typevars@9
+   (typevar@1 T . .
+    (infix@F |
+     (infix~5 | Ordinal~7 enum@1)range@1).))
+  (params@W
+   (param@1 x . .
+    (at@B typedesc~8 T@1).))T@I
+  (pragmas@q
+   (kv@7 magic~5 "Low"@2)noSideEffect@G). .)
+ (proc@,1m low@5 x .
+  (typevars@9
+   (typevar@1 I . . . .)
+   (typevar@4 T . . . .))
+  (params@F
+   (param@1 x . .
+    (at@B typedesc~8
+     (at@6 array~5 I@1 T@4)).))I@S
+  (pragmas@j
+   (kv@7 magic~5 "Low"@2)noSideEffect@G). .)
+ (proc@,1n high@5 x .
+  (typevars@A
+   (typevar@1 T . .
+    (infix@F |
+     (infix~5 | Ordinal~7 enum@1)range@1).))
+  (params@X
+   (param@1 x . .
+    (at@B typedesc~8 T@1).))T@I
+  (pragmas@r
+   (kv@7 magic~5 "High"@2)noSideEffect@H). .)
+ (proc@,1o high@5 x .
+  (typevars@A
+   (typevar@1 I . . . .)
+   (typevar@4 T . . . .))
+  (params@G
+   (param@1 x . .
+    (at@B typedesc~8
+     (at@6 array~5 I@1 T@4)).))I@S
+  (pragmas@k
+   (kv@7 magic~5 "High"@2)noSideEffect@H). .)
+ (template@,1q low@9 x .
+  (typevars@D
+   (typevar@1 I . . . .)
+   (typevar@4 T . . . .))
+  (params@J
+   (param@1 x . .
+    (at@8 array~5 I@1 T@4).))I@I . .
+  (stmts@2,1
+   (call@3 low~3
+    (at@6 array~5 I@1 T@4))))
+ (template@,1s high@9 x .
+  (typevars@E
+   (typevar@1 I . . . .)
+   (typevar@4 T . . . .))
+  (params@K
+   (param@1 x . .
+    (at@8 array~5 I@1 T@4).))I@I . .
+  (stmts@2,1
+   (call@4 high~4
+    (at@6 array~5 I@1 T@4))))
+ (type@R,1w RootObj~P x .
+  (pragmas~G inheritable@2)
+  (object~N,1 .))
+ (type@B,21 RootRef~9 x . .
+  (ref@2 RootObj@4)))

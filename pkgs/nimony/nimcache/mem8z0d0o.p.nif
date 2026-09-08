@@ -1,0 +1,442 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+ (comment)
+ (func@,J c_memcpy@5 . . .
+  (params@D
+   (param@1 dest . . pointer@B .)
+   (param@7 src . . pointer@5 .)
+   (param@L size . . csize_t@6 .)).
+  (pragmas@n
+   (kv@9 importc~7 "memcpy"@2)
+   (kv@R header~6 "<string.h>"@2)). .)
+ (func@,K c_memcmp@5 . . .
+  (params@D
+   (param@1 a . . pointer@6 .)
+   (param@4 b . . pointer@3 .)
+   (param@G size . . csize_t@6 .))cint@W
+  (pragmas@o
+   (kv@9 importc~7 "memcmp"@2)
+   (kv@R header~6 "<string.h>"@2)). .)
+ (func@,L c_memset@5 . . .
+  (params@D
+   (param@1 dest . . pointer@6 .)
+   (param@G val . . cint@5 .)
+   (param@R size . . csize_t@6 .)).
+  (pragmas@t
+   (kv@9 importc~7 "memset"@2)
+   (kv@R header~6 "<string.h>"@2)). .)
+ (func@,N copyMem@5 x . .
+  (params@D
+   (param@1 dest . . pointer@B .)
+   (param@7 src . . pointer@5 .)
+   (param@L size . . int@6 .)).
+  (pragmas@j inline@2).
+  (stmts@2,1
+   (comment)
+   (call@8,1 c_memcpy~8 dest@1 src@7
+    (cmd@K csize_t~8 size))))
+ (func@,R moveMem@5 x . .
+  (params@D
+   (param@1 dest . . pointer@B .)
+   (param@7 src . . pointer@5 .)
+   (param@L size . . int@6 .)). . .
+  (stmts@2,1
+   (comment)
+   (if@,B
+    (elif@3
+     (infix@A or
+      (infix~5 <= size~5 0@3)
+      (infix@8 == dest~5 src@3))
+     (stmts@Q
+      (ret .))))
+   (let@4,C d . . .
+    (cast@4 uint@5 dest@B))
+   (let@4,D s . . .
+    (cast@4 uint@5 src@B))
+   (if@,E
+    (elif@3
+     (infix@K or
+      (infix~5 <=
+       (infix~D \2B d~2
+        (call@6 uint~4 size@1))s@3)
+      (infix@I <=
+       (infix~D \2B s~2
+        (call@6 uint~4 size@1))d@3))
+     (stmts~1,2
+      (call@8 c_memcpy~8 dest@1 src@7
+       (cmd@K csize_t~8 size))))
+    (else@,3
+     (stmts@2,1
+      (const@6 ChunkSize . . . 256@C)
+      (var@8,1 tmp~4 .
+       (pragmas noinit@2)
+       (at@H array~5 ChunkSize@1 byte@C).)
+      (let@4,2 dp . . .
+       (cast@5
+        (ptr@5
+         (at@I UncheckedArray~E byte@1))dest@V))
+      (let@4,3 sp . . .
+       (cast@5
+        (ptr@5
+         (at@I UncheckedArray~E byte@1))src@V))
+      (if@,4
+       (elif@3
+        (infix@2 < d~2 s@2)
+        (stmts~1,3
+         (var@4 off . . . 0@6)
+         (while@,1
+          (infix@A < off~4 size@2)
+          (stmts@2,1
+           (let@4 c . . .
+            (call@7 min~3 ChunkSize@1
+             (infix@H \2D size~5 off@2)))
+           (call@8,1 c_memcpy~8
+            (cmd@6 addr~5
+             (at@3 tmp~3 0@1))
+            (cmd@J addr~5
+             (at@2 sp~2 off@1))
+            (cmd@a csize_t~8 c))
+           (call@8,2 c_memcpy~8
+            (cmd@6 addr~5
+             (at@2 dp~2 off@1))
+            (cmd@K addr~5
+             (at@3 tmp~3 0@1))
+            (cmd@a csize_t~8 c))
+           (cmd@,3 inc off@4 c@9)))))
+       (else@,9
+        (stmts@2,2
+         (var@4 off . . . size@6)
+         (while@,1
+          (infix@A > off~4 0@2)
+          (stmts@2,1
+           (let@4 c . . .
+            (call@7 min~3 ChunkSize@1 off@C))
+           (infix@4,1 \2D= off~4 c@3)
+           (call@8,2 c_memcpy~8
+            (cmd@6 addr~5
+             (at@3 tmp~3 0@1))
+            (cmd@J addr~5
+             (at@2 sp~2 off@1))
+            (cmd@a csize_t~8 c))
+           (call@8,3 c_memcpy~8
+            (cmd@6 addr~5
+             (at@2 dp~2 off@1))
+            (cmd@K addr~5
+             (at@3 tmp~3 0@1))
+            (cmd@a csize_t~8 c))))))))))))
+ (func@,16 cmpMem@5 x . .
+  (params@C
+   (param@1 a . . pointer@6 .)
+   (param@4 b . . pointer@3 .)
+   (param@G size . . int@6 .))int@S
+  (pragmas@i inline@2).
+  (stmts@2,1
+   (comment)
+   (asgn@7,1 result~7
+    (call@A c_memcmp~8 a@1 b@4
+     (cmd@F csize_t~8 size)))))
+ (func@,1A zeroMem@5 x . .
+  (params@D
+   (param@1 dest . . pointer@6 .)
+   (param@G size . . int@6 .)).
+  (pragmas@e inline@2).
+  (stmts@2,1
+   (comment)
+   (call@8,1 c_memset~8 dest@1 0@7
+    (cmd@I csize_t~8 size))))
+ (when@,1E
+  (elif@5
+   (prefix not
+    (call@B defined~7 nimNativeAlloc@1))
+   (stmts~3,B
+    (include mimalloc@8)))
+  (else@,C
+   (stmts@2,5
+    (const@2,1 PageShift . . . 12@C)
+    (const@2,2 PageSize . . .
+     (infix@D shl 1~2 PageShift@4))
+    (const@2,3 PageMask . . .
+     (infix@K \2D PageSize~9 1@2))
+    (const@2,4 MemAlignShift . . . 4@G)
+    (const@2,5 MemAlign . . .
+     (infix@D shl 1~2 MemAlignShift@4))
+    (const@2,6 BitsPerPage . . .
+     (infix@N div PageSize~9 MemAlign@4))
+    (const@2,7 UnitsPerPage . . .
+     (infix@R div BitsPerPage~C
+      (par@4
+       (infix@D *
+        (call~6 sizeof~6 int@1)8@2))))
+    (const@2,8 TrunkShift . . . 9@D)
+    (const@2,9 BitsPerTrunk . . .
+     (infix@H shl 1~2 TrunkShift@4))
+    (const@2,A TrunkMask . . .
+     (infix@P \2D BitsPerTrunk~D 1@2))
+    (const@2,B IntsPerTrunk . . .
+     (infix@S div BitsPerTrunk~D
+      (par@4
+       (infix@D *
+        (call~6 sizeof~6 int@1)8@2))))
+    (when@,C
+     (elif@5
+      (infix@C ==
+       (call~6 sizeof~6 int@1)8@3)
+      (stmts~3,1
+       (const@6 IntShift . . . 6@B)))
+     (else@,2
+      (stmts@2,1
+       (const@6 IntShift . . . 5@B))))
+    (const@6,G IntMask . . .
+     (infix@R \2D
+      (par~H
+       (infix@3 shl 1~2 IntShift@4))1@2))
+    (const@2,J overwriteFree . . . false@G)
+    (const@2,K coalescRight . . . true@F)
+    (const@2,L coalescLeft . . . true@E)
+    (const@2,M logAlloc . . . false@B)
+    (const@2,N hasThreadSupport . . . true@J)
+    (const@2,O reallyOsDealloc . . . false@I)
+    (const@2,P UseDestructors . . . true@H)
+    (template@,S sysAssert@9 . . .
+     (params@I
+      (param@1 cond . . untyped@B .)
+      (param@7 msg . . untyped@5 .)). . .
+     (stmts@f
+      (discard .)))
+    (proc@,U raiseOutOfMem@5 . . .
+     (params@I).
+     (pragmas@L noinline@2 noreturn@C).
+     (stmts@2,5
+      (call@6 cAbort~6)))
+    (template@,b
+     (quoted@9 \2B!@1). . .
+     (params@D
+      (param@1 p . . pointer@3 .)
+      (param@D x . . int@3 .))pointer@M . .
+     (stmts@j
+      (cast pointer@5
+       (infix@R \2B
+        (cast~D int@5 p@A)x@2))))
+    (template@,c
+     (quoted@9 \2D!@1). . .
+     (params@D
+      (param@1 p . . pointer@3 .)
+      (param@D x . . int@3 .))pointer@M . .
+     (stmts@j
+      (cast pointer@5
+       (infix@R \2D
+        (cast~D int@5 p@A)x@2))))
+    (proc@,e align@5 . . .
+     (params@A
+      (param@1 address . . int@K .)
+      (param@A alignment . . int@B .))int@R
+     (pragmas@f inline@2).
+     (stmts@2,1
+      (asgn@7 result~7
+       (infix@U and
+        (par~S
+         (infix@9 \2B address~8
+          (par@2
+           (infix@B \2D alignment~A 1@2))))
+        (prefix@4 not
+         (par@4
+          (infix@B \2D alignment~A 1@2)))))))
+    (template@,i
+     (quoted@9 \2B%@1). . .
+     (params@D
+      (param@1 x . . int@6 .)
+      (param@4 y . . int@3 .))int@D . .
+     (stmts@W
+      (cast int@5
+       (infix@O \2B
+        (cast~E uint@5 x@B)
+        (cast@2 uint@5 y@B)))))
+    (template@,j
+     (quoted@9 \2D%@1). . .
+     (params@D
+      (param@1 x . . int@6 .)
+      (param@4 y . . int@3 .))int@D . .
+     (stmts@W
+      (cast int@5
+       (infix@O \2D
+        (cast~E uint@5 x@B)
+        (cast@2 uint@5 y@B)))))
+    (template@,k
+     (quoted@9 *%@1). . .
+     (params@D
+      (param@1 x . . int@6 .)
+      (param@4 y . . int@3 .))int@D . .
+     (stmts@W
+      (cast int@5
+       (infix@O *
+        (cast~E uint@5 x@B)
+        (cast@2 uint@5 y@B)))))
+    (template@,l
+     (quoted@9 %%@1). . .
+     (params@D
+      (param@1 x . . int@6 .)
+      (param@4 y . . int@3 .))int@D . .
+     (stmts@W
+      (cast int@5
+       (infix@O mod
+        (cast~E uint@5 x@B)
+        (cast@4 uint@5 y@B)))))
+    (template@,m
+     (quoted@9 <%@1). . .
+     (params@D
+      (param@1 x . . int@6 .)
+      (param@4 y . . int@3 .))bool@D . .
+     (stmts@X
+      (infix@E <
+       (cast~E uint@5 x@B)
+       (cast@2 uint@5 y@B))))
+    (template@,n
+     (quoted@9 <=%@1). . .
+     (params@E
+      (param@1 x . . int@6 .)
+      (param@4 y . . int@3 .))bool@D . .
+     (stmts@Y
+      (infix@E <=
+       (cast~E uint@5 x@B)
+       (cast@3 uint@5 y@B))))
+    (template@,o
+     (quoted@9 >%@1). . .
+     (params@D
+      (param@1 x . . int@6 .)
+      (param@4 y . . int@3 .))bool@D . .
+     (stmts@X
+      (infix@E >
+       (cast~E uint@5 x@B)
+       (cast@2 uint@5 y@B))))
+    (include@,12 "alloc"@8)
+    (var@E,15 allocator~A .
+     (pragmas threadvar@2)MemRegion@F .)
+    (func@,17 alloc@5 x . .
+     (params@B
+      (param@1 size . . int@6 .))pointer@D . .
+     (stmts@2,1
+      (comment)
+      (pragmax@,1
+       (pragmas
+        (cast@2 . noSideEffect@5))
+       (stmts@2,1
+        (asgn@7 result~7
+         (call@7 alloc~5 allocator@1 size@C))))))
+    (func@,1C alloc0@5 x . .
+     (params@C
+      (param@1 size . . int@6 .))pointer@D . .
+     (stmts@2,1
+      (comment)
+      (pragmax@,1
+       (pragmas
+        (cast@2 . noSideEffect@5))
+       (stmts@2,1
+        (asgn@7 result~7
+         (call@8 alloc0~6 allocator@1 size@C))))))
+    (func@,1H realloc@5 x . .
+     (params@D
+      (param@1 p . . pointer@3 .)
+      (param@D size . . int@6 .))pointer@P . .
+     (stmts@2,1
+      (comment)
+      (pragmax@,1
+       (pragmas
+        (cast@2 . noSideEffect@5))
+       (stmts@2,1
+        (asgn@7 result~7
+         (call@9 realloc~7 allocator@1 p@C size@F))))))
+    (func@,1M dealloc@5 x . .
+     (params@D
+      (param@1 p . . pointer@3 .)). . .
+     (stmts@2,1
+      (comment)
+      (pragmax@,1
+       (pragmas
+        (cast@2 . noSideEffect@5))
+       (stmts@2,1
+        (call@7 dealloc~7 allocator@1 p@C)))))
+    (func@,1R allocatedSize@5 x . .
+     (params@J
+      (param@1 p . . pointer@3 .))int@E . .
+     (stmts@2,1
+      (comment)
+      (pragmax@,1
+       (pragmas
+        (cast@2 . noSideEffect@5))
+       (stmts@2,1
+        (asgn@7 result~7
+         (call@9 ptrSize~7 p@1))))))
+    (proc@,1W getOccupiedMem@5 x . .
+     (params@K)int@4 . .
+     (stmts@2,1
+      (comment)
+      (asgn@7,1 result~7
+       (call@G getOccupiedMem~E allocator@1))))
+    (proc@,1a getFreeMem@5 x . .
+     (params@G)int@4 . .
+     (stmts@2,1
+      (comment)
+      (asgn@7,1 result~7
+       (call@C getFreeMem~A allocator@1))))
+    (proc@,1e getTotalMem@5 x . .
+     (params@H)int@4 . .
+     (stmts@2,1
+      (comment)
+      (asgn@7,1 result~7
+       (call@D getTotalMem~B allocator@1)))))))
+ (func@,3E allocFixed@5 x . .
+  (params@G
+   (param@1 size . . int@6 .))pointer@D . .
+  (stmts@2,1
+   (comment)
+   (asgn@7,3 result~7
+    (call@7 alloc~5 size@1))))
+ (func@,3K deallocFixed@5 x . .
+  (params@I
+   (param@1 p . . pointer@3 .)). . .
+  (stmts@2,1
+   (comment)
+   (call@7,1 dealloc~7 p@1)))
+ (var@H,3P missingBytes~D .
+  (pragmas threadvar@2)int@F .)
+ (proc@,3R continueAfterOutOfMem@5 x . .
+  (params@R
+   (param@1 size . . int@6 .)).
+  (pragmas@d nimcall@2).
+  (stmts@2,1
+   (comment)
+   (if@,1
+    (elif@3
+     (infix@D < missingBytes~D
+      (infix@C \2D
+       (call~6 high~4 int@1)size@2))
+     (stmts~1,1
+      (asgn@D missingBytes~D
+       (infix@F \2B missingBytes~D size@2))))
+    (else@,2
+     (stmts@2,1
+      (asgn@D missingBytes~D
+       (call@6 high~4 int@1)))))))
+ (proc@,3Y threadOutOfMem@5 x . .
+  (params@K)bool@4 . .
+  (stmts@2,1
+   (comment)
+   (infix@D,1 > missingBytes~D 0@2)))
+ (var@4,3c oomHandler . .
+  (proctype@H ....
+   (params
+    (param@1 size . . int@6 .)).
+   (pragmas@C nimcall@2)..)continueAfterOutOfMem@h)
+ (proc@,3e setOomHandler@5 x . .
+  (params@J
+   (param@1 handler . .
+    (proctype@E ....
+     (params
+      (param@1 size . . int@6 .)).
+     (pragmas@C nimcall@2)..).)).
+  (pragmas@x inline@2).
+  (stmts@2,1
+   (comment)
+   (asgn@B,2 oomHandler~B handler@2))))

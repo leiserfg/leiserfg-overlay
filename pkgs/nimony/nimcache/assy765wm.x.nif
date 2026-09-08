@@ -1,0 +1,51 @@
+(.nif27)
+(.indexat 1803             )
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim
+ (const@7,B :strlit.0.I14676000009897902695. . LongString.0.sysvq0asl
+  (oconstr LongString.0.sysvq0asl
+   (kv fullLen.0 20)
+   (kv rc.0 0)
+   (kv capImpl.0 0)
+   (kv data.0 "\5BAssertion Failure\5D ")))
+ (const@N,2 :assertionsEnabled.0.~H .~H
+  (bool@B,19,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim)
+  (true@B,19,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim))
+ (proc@,A :raiseAssert.0.@5
+  (params@H
+   (param@1 :msg.0 . string.0.sysvq0asl@5)).
+  (pragmas@V
+   (attr "noreturn")
+   (smry~V writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes escapes)))
+  (stmts@2,1
+   (stmts@2,8H,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/syncio.nim
+    (stmts@2,2
+     (call write.0.syn1lfpjv stdout.0.syn1lfpjv@6
+      (oconstr@7,C,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim string.0.sysvq0asl
+       (kv bytes.0 8390880602273963006u)
+       (kv more.0
+        (addr strlit.0.I14676000009897902695.)))))
+    (stmts@2,2
+     (call write.0.syn1lfpjv stdout.0.syn1lfpjv@6 msg.0@V,C,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim))
+    (call@,3 write.7.syn1lfpjv stdout.0.syn1lfpjv@6 '\0A'@E))
+   (call@,1 quit.0.syn1lfpjv 1@5)))
+ (gvar :`iniGuard.0. .
+  (bool).)
+ (proc :`ini.0.
+  (params).
+  (pragmas
+   (smry writeGlobal callsUnknown))
+  (stmts
+   (if
+    (elif `iniGuard.0.
+     (stmts
+      (ret .))))
+   (asgn `iniGuard.0.
+    (true))
+   (call `ini.0.sysvq0asl)
+   (call `ini.0.syn1lfpjv))))(.index@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim
+ (h strlit.0.I14676000009897902695. 144)
+ (h assertionsEnabled.0. 204)
+ (x raiseAssert.0. 279)
+ (h `iniGuard.0. 908)
+ (x `ini.0. 34))

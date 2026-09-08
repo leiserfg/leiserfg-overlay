@@ -1,0 +1,3343 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,B,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/alloc.nim
+ (pragmas push@2
+  (kv@F profiler~8 off@1))
+ (include@,2 osalloc@8)
+ (include@,3 valgrind@8)
+ (template@,5 track@9 . . .
+  (params@E
+   (param@1 op . . . .)
+   (param@5 address . . . .)
+   (param@E size . . . .)).
+  (pragmas@Y untyped@2).
+  (stmts@2,1
+   (when
+    (elif@5
+     (call@7 defined~7 memTracker@1)
+     (stmts~3,1
+      (call@C memTrackerOp~C op@1 address@5 size@E))))))
+ (const@2,i nimMinHeapPages . . . 128@I)
+ (const@2,j SmallChunkSize . . . PageSize@H)
+ (const@2,k MaxFli . . .
+  (when@9
+   (elif@5
+    (infix@C >
+     (call~6 sizeof~6 int@1)2@2)
+    (stmts@H 30))
+   (else@P
+    (stmts@6 14))))
+ (const@2,l MaxLog2Sli . . . 5@D)
+ (const@2,n MaxSli . . .
+  (infix@B shl 1~2 MaxLog2Sli@4))
+ (const@2,o FliOffset . . . 6@C)
+ (const@2,p RealFli . . .
+  (infix@H \2D MaxFli~7 FliOffset@2))
+ (const@2,s MaxBigChunkSize . . .
+  (call@L int~3
+   (infix@I \2D
+    (infix~B shl
+     (suf~6 1 "i32")MaxFli@4)
+    (infix@8 shl
+     (suf~6 1 "i32")
+     (par@4
+      (infix@I \2D
+       (infix~B \2D MaxFli~6 MaxLog2Sli@1)1@1))))))
+ (const@2,t HugeChunkSize . . .
+  (infix@W \2B MaxBigChunkSize~G 1@2))
+ (type@9,w PTrunk~7 . . .
+  (ptr@2 Trunk@4))
+ (type@8,x Trunk~6 . . .
+  (object@2 .
+   (fld~6,1 next . . PTrunk@6 .)
+   (fld~6,2 key . . int@5 .)
+   (fld~6,3 bits . .
+    (at@B array~5
+     (infix@2 \2E\2E 0~1
+      (infix@E \2D IntsPerTrunk~C 1@1))uint@K).)))
+ (type@F,12 TrunkBuckets~D . . .
+  (at@7 array~5
+   (infix@2 \2E\2E 0~1 255@2)PTrunk@9))
+ (type@9,13 IntSet~7 . . .
+  (object@2 .
+   (fld~7,1 data . . TrunkBuckets@6 .)))
+ (type@B,1E PLLChunk~9 . . .
+  (ptr@2 LLChunk@4))
+ (type@A,1F LLChunk~8 . . .
+  (object@2 .
+   (fld~8,1 size . . int@6 .)
+   (fld~8,2 acc . . int@5 .)
+   (fld~8,3 next . . PLLChunk@6 .)))
+ (type@B,1K PAvlNode~9 . . .
+  (ptr@2 AvlNode@4))
+ (type@A,1L AvlNode~8 . . .
+  (object@2 .
+   (fld~8,1 link . .
+    (at@B array~5
+     (infix@2 \2E\2E 0~1 1@2)PAvlNode@7).)
+   (fld~8,2 key . . int@H .)
+   (fld~3,2 upperBound . . int@C .)
+   (fld~8,3 level . . int@7 .)))
+ (type@R,1R FreeCell~P . .
+  (pragmas~G final@2 pure@9)
+  (object@2 .
+   (fld~P,3 next . .
+    (ptr@6 FreeCell@4).)
+   (when~P,4
+    (elif@5
+     (prefix not UseDestructors@4)
+     (stmts~3,1
+      (fld zeroField . . int@B .)
+      (when@,3
+       (elif@5
+        (infix@C ==
+         (call~6 sizeof~6 int@1)4@3)
+        (stmts~3,1
+         (fld headerAlignPad . .
+          (at@L array~5 8@1 byte@4).))))))
+    (else@,6
+     (stmts@2,1
+      (fld alignment . . int@B .))))))
+ (type@9,1e PChunk~7 . . .
+  (ptr@2 BaseChunk@4))
+ (type@C,1f PBigChunk~A . . .
+  (ptr@2 BigChunk@4))
+ (type@E,1g PSmallChunk~C . . .
+  (ptr@2 SmallChunk@4))
+ (type@Y,1h BaseChunk~W . .
+  (pragmas~M pure@2 inheritable@8)
+  (object@2 .
+   (fld~W,1 prevSize . . int@A .)
+   (fld~W,3 size . . int@6 .)
+   (fld~W,4 owner . .
+    (ptr@7 MemRegion@4).)))
+ (type@D,1n SmallChunk~B . . .
+  (object@2 BaseChunk@A
+   (fld~B,1 next . . PSmallChunk@C .)
+   (fld~5,1 prev . . PSmallChunk@6 .)
+   (fld~B,2 freeList . .
+    (ptr@A FreeCell@4).)
+   (fld~B,4 free . . int32@6 .)
+   (fld~B,8 acc . . uint32@5 .)
+   (fld~B,9 foreignCells . . int32@E .)
+   (fld~B,E chunkAlignOff . . int32@F .)
+   (fld~6,F data~5 .
+    (pragmas
+     (kv@7 align~5 MemAlign@2))
+    (at@Z UncheckedArray~E byte@1).)))
+ (type@B,24 BigChunk~9 . . .
+  (object@2 BaseChunk@A
+   (fld~9,1 next . . PBigChunk@C .)
+   (fld~3,1 prev . . PBigChunk@6 .)
+   (fld~4,2 data~5 .
+    (pragmas
+     (kv@7 align~5 MemAlign@2))
+    (at@Z UncheckedArray~E byte@1).)))
+ (type@C,28 HeapLinks~A . . .
+  (object@2 .
+   (fld~A,1 count . . int@7 .)
+   (fld~A,5 chunks . .
+    (at@D array~5 30@1
+     (tup@5 PBigChunk@1 int@C)).)
+   (fld~A,6 next . .
+    (ptr@6 HeapLinks@4).)))
+ (type@C,2G MemRegion~A . . .
+  (object@2 .
+   (when~A,1
+    (elif@5
+     (prefix not UseDestructors@4)
+     (stmts~3,1
+      (fld minLargeObj . . int@Q .)
+      (fld@D maxLargeObj . . int@D .))))
+   (fld~A,3 freeSmallChunks . .
+    (at@M array~5
+     (infix@2 \2E\2E 0~1
+      (par@2
+       (infix@S \2D
+        (infix~C div SmallChunkSize~F MemAlign@4)1@1)))PSmallChunk@b).)
+   (when~A,5
+    (elif@5 UseDestructors
+     (stmts~3,1
+      (fld sharedFreeLists . .
+       (at@M array~5
+        (infix@2 \2E\2E 0~1
+         (par@2
+          (infix@S \2D
+           (infix~C div SmallChunkSize~F MemAlign@4)1@1)))
+        (ptr@b FreeCell@4)).))))
+   (fld~A,9 flBitmap . . uint32@A .)
+   (fld~A,A slBitmap . .
+    (at@F array~5 RealFli@1 uint32@A).)
+   (fld~A,B matrix . .
+    (at@D array~5 RealFli@1
+     (at@F array~5 MaxSli@1 PBigChunk@9)).)
+   (fld~A,C llmem . . PLLChunk@7 .)
+   (fld~A,D currMem . . int@V .)
+   (fld~1,D maxMem . . int@M .)
+   (fld@7,D freeMem . . int@E .)
+   (fld@G,D occ . . int@5 .)
+   (fld~A,E lastSize . . int@A .)
+   (when~A,F
+    (elif@5 UseDestructors
+     (stmts~3,1
+      (fld sharedFreeListBigChunks . . PBigChunk@P .))))
+   (fld~A,I chunkStarts . . IntSet@D .)
+   (when~A,J
+    (elif@5
+     (prefix not UseDestructors@4)
+     (stmts~3,1
+      (fld root . . PAvlNode@Z .)
+      (fld@6 deleted . . PAvlNode@T .)
+      (fld@F last . . PAvlNode@K .)
+      (fld@L freeAvlNodes . . PAvlNode@E .))))
+   (fld~A,L lockActive . . bool@i .)
+   (fld@2,L locked . . bool@W .)
+   (fld@A,L blockChunkSizeIncrease . . bool@O .)
+   (fld~A,M nextChunkSize . . int@F .)
+   (when~A,N
+    (elif@5
+     (prefix not UseDestructors@4)
+     (stmts~3,1
+      (fld bottomData . . AvlNode@C .))))
+   (fld~A,P heapLinks . . HeapLinks@B .)
+   (when~A,Q
+    (elif@5
+     (call@7 defined~7 nimTypeNames@1)
+     (stmts~3,1
+      (fld allocCounter . . int@U .)
+      (fld@E deallocCounter . . int@G .))))))
+ (template@,2j withFreeCell@9 . . .
+  (params@L
+   (param@1 f . . untyped@9 .)
+   (param@4 body . . untyped@6 .)).
+  (pragmas@e untyped@2).
+  (stmts@2,1
+   (comment)
+   (when@,E
+    (elif@5 vgTracking
+     (stmts~3,1
+      (call@G vgMakeMemDefined~G f@1
+       (call@A sizeof~6 FreeCell@1))body@,1
+      (call@H,2 vgMakeMemNoAccess~H f@1
+       (call@A sizeof~6 FreeCell@1))))
+    (else@,4
+     (stmts@2,1 body)))))
+ (template@,35 smallChunkOverhead@9 . . .
+  (params@R)untyped@4 . .
+  (stmts@f
+   (call@6 sizeof~6 SmallChunk@1)))
+ (template@,36 bigChunkOverhead@9 . . .
+  (params@P)untyped@4 . .
+  (stmts@d
+   (call@6 sizeof~6 BigChunk@1)))
+ (when@,38
+  (elif@5 hasThreadSupport
+   (stmts~3,1
+    (template loada@9 . . .
+     (params@E
+      (param@1 x . . untyped@3 .))untyped@E
+     (pragmas@a untyped@2).
+     (stmts@o
+      (call@B atomicLoadN~B
+       (cmd@C unsafeAddr~B x)ATOMIC_RELAXED@F)))
+    (template@,1 storea@9 . . .
+     (params@F
+      (param@1 x . . untyped@6 .)
+      (param@4 y . . untyped@3 .)).
+     (pragmas@V untyped@2).
+     (stmts@j
+      (call@C atomicStoreN~C
+       (cmd@C unsafeAddr~B x)y@F ATOMIC_RELAXED@I)))
+    (when@,3
+     (elif@5 false
+      (stmts~3,2
+       (template atomicStatDec@9 . . .
+        (params@M
+         (param@1 x . . untyped@9 .)
+         (param@4 diff . . untyped@6 .)). . .
+        (stmts@h
+         (discard
+          (call@M atomicSubFetch~E
+           (cmd@C unsafeAddr~B x)diff@F ATOMIC_RELAXED@L))))
+       (template@,1 atomicStatInc@9 . . .
+        (params@M
+         (param@1 x . . untyped@9 .)
+         (param@4 diff . . untyped@6 .)). . .
+        (stmts@h
+         (discard
+          (call@M atomicAddFetch~E
+           (cmd@C unsafeAddr~B x)diff@F ATOMIC_RELAXED@L)))))))))
+  (else@,8
+   (stmts@2,1
+    (template loada@9 . . .
+     (params@E
+      (param@1 x . . untyped@3 .))untyped@E . .
+     (stmts@c x))
+    (template@,1 storea@9 . . .
+     (params@F
+      (param@1 x . . untyped@6 .)
+      (param@4 y . . untyped@3 .)). . .
+     (stmts@X
+      (asgn@2 x~2 y@2))))))
+ (template@,3K atomicStatDec@9 . . .
+  (params@M
+   (param@1 x . . untyped@9 .)
+   (param@4 diff . . untyped@6 .)).
+  (pragmas@f untyped@2).
+  (stmts@t
+   (cmd dec x@4 diff@7)))
+ (template@,3L atomicStatInc@9 . . .
+  (params@M
+   (param@1 x . . untyped@9 .)
+   (param@4 diff . . untyped@6 .)).
+  (pragmas@f untyped@2).
+  (stmts@t
+   (cmd inc x@4 diff@7)))
+ (const@2,3O fsLookupTable . .
+  (at@K array~5 byte@1 int8@7)
+  (bracket@Z
+   (suf~X,1 -1 "i8")0~Q,1 1~N,1 1~K,1 2~H,1 2~E,1 2~B,1 2~8,1 3~5,1 3~2,1 3@1,1 3@4,1 3@7,1 3@A,1 3@D,1 3@G,1 4~X,2 4~U,2 4~R,2 4~O,2 4~L,2 4~I,2 4~F,2 4~C,2 4~9,2 4~6,2 4~3,2 4@,2 4@3,2 4@6,2 4@9,2 4@C,2 5~X,3 5~U,3 5~R,3 5~O,3 5~L,3 5~I,3 5~F,3 5~C,3 5~9,3 5~6,3 5~3,3 5@,3 5@3,3 5@6,3 5@9,3 5@C,3 5@F,3 5@I,3 5@L,3 5@O,3 5@R,3 5@U,3 5@X,3 5@a,3 5~X,4 5~U,4 5~R,4 5~O,4 5~L,4 5~I,4 5~F,4 5~C,4 6~X,5 6~U,5 6~R,5 6~O,5 6~L,5 6~I,5 6~F,5 6~C,5 6~9,5 6~6,5 6~3,5 6@,5 6@3,5 6@6,5 6@9,5 6@C,5 6@F,5 6@I,5 6@L,5 6@O,5 6@R,5 6@U,5 6@X,5 6@a,5 6~X,6 6~U,6 6~R,6 6~O,6 6~L,6 6~I,6 6~F,6 6~C,6 6~9,6 6~6,6 6~3,6 6@,6 6@3,6 6@6,6 6@9,6 6@C,6 6@F,6 6@I,6 6@L,6 6@O,6 6@R,6 6@U,6 6@X,6 6@a,6 6~X,7 6~U,7 6~R,7 6~O,7 6~L,7 6~I,7 6~F,7 6~C,7 6~9,7 6~6,7 6~3,7 6@,7 6@3,7 6@6,7 6@9,7 6@C,7 7~X,8 7~U,8 7~R,8 7~O,8 7~L,8 7~I,8 7~F,8 7~C,8 7~9,8 7~6,8 7~3,8 7@,8 7@3,8 7@6,8 7@9,8 7@C,8 7@F,8 7@I,8 7@L,8 7@O,8 7@R,8 7@U,8 7@X,8 7@a,8 7~X,9 7~U,9 7~R,9 7~O,9 7~L,9 7~I,9 7~F,9 7~C,9 7~9,9 7~6,9 7~3,9 7@,9 7@3,9 7@6,9 7@9,9 7@C,9 7@F,9 7@I,9 7@L,9 7@O,9 7@R,9 7@U,9 7@X,9 7@a,9 7~X,A 7~U,A 7~R,A 7~O,A 7~L,A 7~I,A 7~F,A 7~C,A 7~9,A 7~6,A 7~3,A 7@,A 7@3,A 7@6,A 7@9,A 7@C,A 7@F,A 7@I,A 7@L,A 7@O,A 7@R,A 7@U,A 7@X,A 7@a,A 7~X,B 7~U,B 7~R,B 7~O,B 7~L,B 7~I,B 7~F,B 7~C,B 7~9,B 7~6,B 7~3,B 7@,B 7@3,B 7@6,B 7@9,B 7@C,B 7@F,B 7@I,B 7@L,B 7@O,B 7@R,B 7@U,B 7@X,B 7@a,B 7~X,C 7~U,C 7~R,C 7~O,C 7~L,C 7~I,C 7~F,C 7~C,C 7~9,C 7~6,C 7~3,C 7@,C 7@3,C 7@6,C 7@9,C 7@C,C 7@F,C 7@I,C 7@L,C 7@O,C 7@R,C 7@U,C 7@X,C 7@a,C 7~X,D 7~U,D 7~R,D 7~O,D 7~L,D 7~I,D 7~F,D 7~C,D))
+ (proc@,3e msbit@5 . . .
+  (params@A
+   (param@1 x . . uint32@3 .))int@D
+  (pragmas@R inline@2).
+  (stmts@2,1
+   (let@4 a . . .
+    (if@4
+     (elif@3
+      (infix@2 <= x~2
+       (suf@3 65535u "u32"))
+      (stmts~1,1
+       (expr
+        (stmts)
+        (if@1
+         (elif@3
+          (infix@2 <= x~2 255@3)0@B)
+         (else@G 8@6)))))
+     (else@,2
+      (stmts@2,1
+       (expr
+        (stmts)
+        (if@1
+         (elif@3
+          (infix@2 <= x~2
+           (suf@3 16777215u "u32"))16@L)
+         (else@R 24@6)))))))
+   (asgn@7,4 result~7
+    (infix@a \2B
+     (call~V int~3
+      (at@E fsLookupTable~D
+       (call@5 byte~4
+        (infix@3 shr x~2 a@4))))a@2))))
+ (proc@,3l lsbit@5 . . .
+  (params@A
+   (param@1 x . . uint32@3 .))int@D
+  (pragmas@R inline@2).
+  (stmts@2,1
+   (call@5 msbit~5
+    (infix@3 and x~2
+     (par@4
+      (infix@9 \2B
+       (par~8
+        (prefix@1 not x@4))1@2))))))
+ (proc@,3o setBit@5 . . .
+  (params@B
+   (param@1 nr . . int@4 .)
+   (param@A dest . .
+    (mut@6 uint32@4).)).
+  (pragmas@d inline@2).
+  (stmts@2,1
+   (asgn@5 dest~5
+    (infix@7 or dest~5
+     (par@3
+      (infix@6 shl
+       (suf~5 1u "u32")
+       (par@4
+        (infix@4 and nr~3 31@4))))))))
+ (proc@,3r clearBit@5 . . .
+  (params@D
+   (param@1 nr . . int@4 .)
+   (param@A dest . .
+    (mut@6 uint32@4).)).
+  (pragmas@f inline@2).
+  (stmts@2,1
+   (asgn@5 dest~5
+    (infix@7 and dest~5
+     (prefix@4 not
+      (par@4
+       (infix@6 shl
+        (suf~5 1u "u32")
+        (par@4
+         (infix@4 and nr~3 31@4)))))))))
+ (proc@,3u mappingSearch@5 . . .
+  (params@I
+   (param@1 r . .
+    (mut@B int@4).)
+   (param@4 fl . .
+    (mut@8 int@4).)
+   (param@8 sl . .
+    (mut@4 int@4).)).
+  (pragmas@d inline@2).
+  (stmts@2,4
+   (let@4 t . . .
+    (infix@10 \2D
+     (call~p roundup~7
+      (par@1
+       (infix@3 shl 1~2
+        (par@4
+         (infix@H \2D
+          (call~B msbit~5
+           (cmd@8 uint32~7 r))MaxLog2Sli@2))))PageSize@f)1@2))
+   (asgn@2,1 r~2
+    (infix@4 \2B r~2 t@2))
+   (asgn@2,2 r~2
+    (infix@4 and r~2
+     (prefix@4 not t@4)))
+   (asgn@2,3 r~2
+    (dot@P
+     (call~K min~3 r@1 MaxBigChunkSize@4)int@1))
+   (asgn@3,4 fl~3
+    (call@7 msbit~5
+     (cmd@8 uint32~7 r)))
+   (asgn@3,5 sl~3
+    (infix@S \2D
+     (par~Q
+      (infix@3 shr r~2
+       (par@4
+        (infix@4 \2D fl~3 MaxLog2Sli@2))))MaxSli@2))
+   (cmd@,6 dec fl@4 FliOffset@8)
+   (call@9,7 sysAssert~9
+    (infix@I ==
+     (par~H
+      (infix@3 and r~2 PageMask@4))0@3)"mappingSearch\3A still not aligned"@O)))
+ (proc@,4A mappingInsert@5 . . .
+  (params@I
+   (param@1 r . . int@3 .))
+  (tuple@A
+   (kv@G fl int@8)
+   (kv@K sl int@4))
+  (pragmas@l inline@2).
+  (stmts@2,1
+   (call@9 sysAssert~9
+    (infix@I ==
+     (par~H
+      (infix@3 and r~2 PageMask@4))0@3)"mappingInsert\3A still not aligned"@O)
+   (var@4,1 fl . . .
+    (call@A msbit~5
+     (cmd@8 uint32~7 r)))
+   (let@4,2 sl . . .
+    (infix@V \2D
+     (par~Q
+      (infix@3 shr r~2
+       (par@4
+        (infix@4 \2D fl~3 MaxLog2Sli@2))))MaxSli@2))
+   (asgn@3,3 fl~3
+    (infix@5 \2D fl~3 FliOffset@2))
+   (asgn@7,4 result~7
+    (tup@2 fl@1 sl@5))))
+ (template@,4H mat@9 . . .
+  (params@C)untyped@4
+  (pragmas@O untyped@2).
+  (stmts@c
+   (at@C
+    (at~4
+     (dot~7 a~1 matrix@1)fl@1)sl@1)))
+ (proc@,4J findSuitableBlock@5 . . .
+  (params@M
+   (param@1 a . . MemRegion@3 .)
+   (param@F fl . .
+    (mut@8 int@4).)
+   (param@J sl . .
+    (mut@4 int@4).))PBigChunk@X
+  (pragmas@13 inline@2).
+  (stmts@2,1
+   (let@4 tmp . . .
+    (infix@L and
+     (at~5
+      (dot~9 a~1 slBitmap@1)fl@1)
+     (par@4
+      (infix@A shl
+       (prefix~9 not
+        (suf@4 0u "u32"))sl@4))))
+   (asgn@7,1 result~7
+    (nil@2))
+   (if@,2
+    (elif@3
+     (infix@4 != tmp~4 0@3)
+     (stmts~1,1
+      (asgn@3 sl~3
+       (call@7 lsbit~5 tmp@1))
+      (asgn@7,1 result~7
+       (call@5 mat~3))))
+    (else@,3
+     (stmts@2,1
+      (asgn@3 fl~3
+       (call@7 lsbit~5
+        (infix@C and
+         (dot~A a~1 flBitmap@1)
+         (par@4
+          (infix@A shl
+           (prefix~9 not
+            (suf@4 0u "u32"))
+           (par@4
+            (infix@4 \2B fl~3 1@2)))))))
+      (if@,1
+       (elif@3
+        (infix@3 > fl~3 0@2)
+        (stmts~1,1
+         (asgn@3 sl~3
+          (call@7 lsbit~5
+           (at@B
+            (dot~9 a~1 slBitmap@1)fl@1)))
+         (asgn@7,1 result~7
+          (call@5 mat~3))))))))))
+ (template@,4V clearBits@9 . . .
+  (params@I
+   (param@1 sl . . . .)
+   (param@5 fl . . . .)).
+  (pragmas@R untyped@2).
+  (stmts@2,1
+   (call@8 clearBit~8 sl@1
+    (at@F
+     (dot~9 a~1 slBitmap@1)fl@1))
+   (if@,1
+    (elif@3
+     (infix@F ==
+      (at~5
+       (dot~9 a~1 slBitmap@1)fl@1)
+      (suf@3 0u "u32"))
+     (stmts~1,2
+      (call@8 clearBit~8 fl@1
+       (dot@6 a~1 flBitmap@1)))))))
+ (proc@,4b removeChunkFromMatrix@5 . . .
+  (params@Q
+   (param@1 a . .
+    (mut@3 MemRegion@4).)
+   (param@J b . . PBigChunk@3 .)). . .
+  (stmts@2,1
+   (unpackdecl@4
+    (call@O mappingInsert~D
+     (dot@2 b~1 size@1))
+    (unpacktup
+     (let fl@1 . . ..)
+     (let sl@5 . . ..)))
+   (if@,1
+    (elif@3
+     (infix@7 !=
+      (dot~6 b~1 next@1)
+      (nil@3))
+     (stmts@F
+      (asgn@C
+       (dot~6
+        (dot~5 b~1 next@1)prev@1)
+       (dot@3 b~1 prev@1)))))
+   (if@,2
+    (elif@3
+     (infix@7 !=
+      (dot~6 b~1 prev@1)
+      (nil@3))
+     (stmts@F
+      (asgn@C
+       (dot~6
+        (dot~5 b~1 prev@1)next@1)
+       (dot@3 b~1 next@1)))))
+   (if@,3
+    (elif@3
+     (infix@6 ==
+      (call~3 mat~3)b@3)
+     (stmts~1,1
+      (asgn@6
+       (call~3 mat~3)
+       (dot@3 b~1 next@1))
+      (if@,1
+       (elif@3
+        (infix@6 ==
+         (call~3 mat~3)
+         (nil@3))
+        (stmts~1,1
+         (call@9 clearBits~9 sl@1 fl@5)))))))
+   (asgn@7,7
+    (dot~6 b~1 prev@1)
+    (nil@2))
+   (asgn@7,8
+    (dot~6 b~1 next@1)
+    (nil@2))))
+ (proc@,4m removeChunkFromMatrix2@5 . . .
+  (params@R
+   (param@1 a . .
+    (mut@3 MemRegion@4).)
+   (param@J b . . PBigChunk@3 .)
+   (param@X fl . . int@8 .)
+   (param@b sl . . int@4 .)). . .
+  (stmts@2,1
+   (asgn@6
+    (call~3 mat~3)
+    (dot@3 b~1 next@1))
+   (if@,1
+    (elif@3
+     (infix@6 !=
+      (call~3 mat~3)
+      (nil@3))
+     (stmts~1,1
+      (asgn@B
+       (dot~6
+        (call~2 mat~3)prev@1)
+       (nil@2))))
+    (else@,2
+     (stmts@2,1
+      (call@9 clearBits~9 sl@1 fl@5))))
+   (asgn@7,5
+    (dot~6 b~1 prev@1)
+    (nil@2))
+   (asgn@7,6
+    (dot~6 b~1 next@1)
+    (nil@2))))
+ (proc@,4v addChunkToMatrix@5 . . .
+  (params@L
+   (param@1 a . .
+    (mut@3 MemRegion@4).)
+   (param@J b . . PBigChunk@3 .)). . .
+  (stmts@2,1
+   (unpackdecl@4
+    (call@O mappingInsert~D
+     (dot@2 b~1 size@1))
+    (unpacktup
+     (let fl@1 . . ..)
+     (let sl@5 . . ..)))
+   (asgn@7,1
+    (dot~6 b~1 prev@1)
+    (nil@2))
+   (asgn@7,2
+    (dot~6 b~1 next@1)
+    (call@5 mat~3))
+   (if@,3
+    (elif@3
+     (infix@6 !=
+      (call~3 mat~3)
+      (nil@3))
+     (stmts~1,1
+      (asgn@B
+       (dot~6
+        (call~2 mat~3)prev@1)b@2))))
+   (asgn@6,5
+    (call~3 mat~3)b@2)
+   (call@6,6 setBit~6 sl@1
+    (at@F
+     (dot~9 a~1 slBitmap@1)fl@1))
+   (call@6,7 setBit~6 fl@1
+    (dot@6 a~1 flBitmap@1))))
+ (proc@,55 incCurrMem@5 . . .
+  (params@F
+   (param@1 a . .
+    (mut@3 MemRegion@4).)
+   (param@J bytes . . int@7 .)).
+  (pragmas@k inline@2).
+  (stmts@2,1
+   (call@D atomicStatInc~D
+    (dot@2 a~1 currMem@1)bytes@C)))
+ (proc@,58 decCurrMem@5 . . .
+  (params@F
+   (param@1 a . .
+    (mut@3 MemRegion@4).)
+   (param@J bytes . . int@7 .)).
+  (pragmas@k inline@2).
+  (stmts@2,1
+   (asgn@9
+    (dot~8 a~1 maxMem@1)
+    (call@5 max~3
+     (dot@2 a~1 maxMem@1)
+     (dot@C a~1 currMem@1)))
+   (call@D,1 atomicStatDec~D
+    (dot@2 a~1 currMem@1)bytes@C)))
+ (proc@,5C getMaxMem@5 . . .
+  (params@E
+   (param@1 a . .
+    (mut@3 MemRegion@4).))int@K . .
+  (stmts@2,4
+   (asgn@7 result~7
+    (call@5 max~3
+     (dot@2 a~1 currMem@1)
+     (dot@D a~1 maxMem@1)))))
+ (const@6,5I nimMaxHeap . . . 0@D)
+ (proc@,5K allocPages@5 . . .
+  (params@F
+   (param@1 a . .
+    (mut@3 MemRegion@4).)
+   (param@J size . . int@6 .))pointer@V . .
+  (stmts@2,1
+   (when
+    (elif@5
+     (infix@B != nimMaxHeap~B 0@3)
+     (stmts~3,1
+      (if
+       (elif@3
+        (infix@D >
+         (infix~7 \2B
+          (dot~5 a~1 occ@1)size@2)
+         (infix@K *
+          (infix~7 * nimMaxHeap~B 1024@2)1024@2))
+        (stmts~1,1
+         (call@D raiseOutOfMem~D)))))))
+   (call@C,3 osAllocPages~C size@1)))
+ (proc@,5Q tryAllocPages@5 . . .
+  (params@I
+   (param@1 a . .
+    (mut@3 MemRegion@4).)
+   (param@J size . . int@6 .))pointer@V . .
+  (stmts@2,1
+   (when
+    (elif@5
+     (infix@B != nimMaxHeap~B 0@3)
+     (stmts~3,1
+      (if
+       (elif@3
+        (infix@D >
+         (infix~7 \2B
+          (dot~5 a~1 occ@1)size@2)
+         (infix@K *
+          (infix~7 * nimMaxHeap~B 1024@2)1024@2))
+        (stmts~1,1
+         (call@D raiseOutOfMem~D)))))))
+   (call@F,3 osTryAllocPages~F size@1)))
+ (proc@,5W llAlloc@5 . . .
+  (params@C
+   (param@1 a . .
+    (mut@3 MemRegion@4).)
+   (param@J size . . int@6 .))pointer@V . .
+  (stmts@2,3
+   (if
+    (elif@3
+     (infix@F or
+      (infix~7 ==
+       (dot~7 a~1 llmem@1)
+       (nil@3))
+      (infix@8 > size~5
+       (dot@9
+        (dot~6 a~1 llmem@1)size@1)))
+     (stmts~1,4
+      (cmd sysAssert
+       (infix@o ==
+        (call~X roundup~7
+         (infix@5 \2B size~4
+          (call@7 sizeof~6 LLChunk@1))PageSize@N)PageSize@3)"roundup 6"@11)
+      (var@4,1 old . . .
+       (dot@7 a~1 llmem@1))
+      (asgn@8,2
+       (dot~7 a~1 llmem@1)
+       (cast@2 PLLChunk@5
+        (call@P allocPages~A a@1 PageSize@4)))
+      (when@,3
+       (elif@5
+        (call@7 defined~7 nimAvlcorruption@1)
+        (stmts~3,1
+         (call@D trackLocation~D
+          (dot@2 a~1 llmem@1)PageSize@A))))
+      (call@A,5 incCurrMem~A a@1 PageSize@4)
+      (asgn@D,6
+       (dot~6
+        (dot~6 a~1 llmem@1)size@1)
+       (infix@B \2D PageSize~9
+        (call@8 sizeof~6 LLChunk@1)))
+      (asgn@C,7
+       (dot~5
+        (dot~6 a~1 llmem@1)acc@1)
+       (call@8 sizeof~6 LLChunk@1))
+      (asgn@D,8
+       (dot~6
+        (dot~6 a~1 llmem@1)next@1)old@2))))
+   (asgn@7,D result~7
+    (cast@2 pointer@5
+     (infix@X \2B
+      (cast~J int@5
+       (dot@B a~1 llmem@1))
+      (dot@9
+       (dot~6 a~1 llmem@1)acc@1))))
+   (call@3,E dec~3
+    (dot@8
+     (dot~6 a~1 llmem@1)size@1)size@F)
+   (call@3,F inc~3
+    (dot@8
+     (dot~6 a~1 llmem@1)acc@1)size@E)
+   (call@7,G zeroMem~7 result@1 size@9)))
+ (when@,5r
+  (elif@5
+   (prefix not UseDestructors@4)
+   (stmts~3,1
+    (proc getBottom@5 . . .
+     (params@E
+      (param@1 a . .
+       (mut@3 MemRegion@4).))PAvlNode@K . .
+     (stmts@2,1
+      (asgn@7 result~7
+       (call@6 addr~4
+        (dot@2 a~1 bottomData@1)))
+      (if@,1
+       (elif@3
+        (infix@F ==
+         (at~4
+          (dot~5 result~6 link@1)0@1)
+         (nil@3))
+        (stmts~1,1
+         (asgn@F
+          (at~4
+           (dot~5 result~6 link@1)0@1)result@2)
+         (asgn@F,1
+          (at~4
+           (dot~5 result~6 link@1)1@1)result@2))))))
+    (proc@,6 allocAvlNode@5 . . .
+     (params@H
+      (param@1 a . .
+       (mut@3 MemRegion@4).)
+      (param@J key . . int@H .)
+      (param@O upperBound . . int@C .))PAvlNode@g . .
+     (stmts@2,1
+      (if
+       (elif@3
+        (infix@F !=
+         (dot~E a~1 freeAvlNodes@1)
+         (nil@3))
+        (stmts~1,1
+         (asgn@7 result~7
+          (dot@3 a~1 freeAvlNodes@1))
+         (asgn@F,1
+          (dot~E a~1 freeAvlNodes@1)
+          (at@L
+           (dot~5
+            (dot~D a~1 freeAvlNodes@1)link@1)0@1))))
+       (else@,3
+        (stmts@2,1
+         (asgn@7 result~7
+          (cast@2 PAvlNode@5
+           (call@M llAlloc~7 a@1
+            (call@A sizeof~6 AvlNode@1))))
+         (when@,1
+          (elif@5
+           (call@7 defined~7 nimAvlcorruption@1)
+           (stmts~3,1
+            (call@7 cprintf~7 "tracking location\3A %p\0A"@1 result@S)))))))
+      (asgn@B,7
+       (dot~5 result~6 key@1)key@2)
+      (asgn@I,8
+       (dot~C result~6 upperBound@1)upperBound@2)
+      (let@4,9 bottom . . .
+       (call@I getBottom~9 a@1))
+      (asgn@F,A
+       (at~4
+        (dot~5 result~6 link@1)0@1)bottom@2)
+      (asgn@F,B
+       (at~4
+        (dot~5 result~6 link@1)1@1)bottom@2)
+      (asgn@D,C
+       (dot~7 result~6 level@1)1@2)
+      (call@9,F sysAssert~9
+       (infix@8 == bottom~7
+        (call@7 addr~4
+         (dot@2 a~1 bottomData@1)))"bottom data"@V)
+      (call@9,G sysAssert~9
+       (infix@G ==
+        (at~4
+         (dot~5 bottom~6 link@1)0@1)bottom@3)"bottom link\5B0\5D"@R)
+      (call@9,H sysAssert~9
+       (infix@G ==
+        (at~4
+         (dot~5 bottom~6 link@1)1@1)bottom@3)"bottom link\5B1\5D"@R)))
+    (proc@,Q deallocAvlNode@5 . . .
+     (params@J
+      (param@1 a . .
+       (mut@3 MemRegion@4).)
+      (param@J n . . PAvlNode@3 .)).
+     (pragmas@p inline@2).
+     (stmts@2,1
+      (asgn@A
+       (at~4
+        (dot~5 n~1 link@1)0@1)
+       (dot@3 a~1 freeAvlNodes@1))
+      (asgn@F,1
+       (dot~E a~1 freeAvlNodes@1)n@2))))))
+ (proc@,6M addHeapLink@5 . . .
+  (params@G
+   (param@1 a . .
+    (mut@3 MemRegion@4).)
+   (param@J p . . PBigChunk@3 .)
+   (param@X size . . int@6 .))
+  (ptr@j HeapLinks@4). .
+  (stmts@2,1
+   (var@4 it . . .
+    (call@9 addr~4
+     (dot@2 a~1 heapLinks@1)))
+   (while@,1
+    (infix@G and
+     (infix~7 != it~3
+      (nil@3))
+     (infix@D >=
+      (dot~7 it~2 count@1)
+      (dot@C
+       (dot~7 it~2 chunks@1)len@1)))
+    (stmts@l
+     (asgn@3 it~3
+      (dot@4 it~2 next@1))))
+   (if@,2
+    (elif@3
+     (infix@3 == it~3
+      (nil@3))
+     (stmts~1,1
+      (var@4 n . . .
+       (cast@4
+        (ptr@5 HeapLinks@4)
+        (call@R llAlloc~7 a@1
+         (call@A sizeof~6 HeapLinks@1))))
+      (asgn@7,1
+       (dot~6 n~1 next@1)
+       (dot@D
+        (dot~A a~1 heapLinks@1)next@1))
+      (asgn@H,2
+       (dot~6
+        (dot~A a~1 heapLinks@1)next@1)n@2)
+      (asgn@C,3
+       (at~4
+        (dot~7 n~1 chunks@1)0@1)
+       (tup@2 p@1 size@4))
+      (asgn@8,4
+       (dot~7 n~1 count@1)1@2)
+      (asgn@7,5 result~7 n@2)))
+    (else@,7
+     (stmts@2,1
+      (let@4 L . . .
+       (dot@6 it~2 count@1))
+      (asgn@D,1
+       (at~4
+        (dot~7 it~2 chunks@1)L@1)
+       (tup@2 p@1 size@4))
+      (cmd@,2 inc
+       (dot@6 it~2 count@1))
+      (asgn@7,3 result~7 it@2))))))
+ (when@,6c
+  (elif@5
+   (prefix not UseDestructors@4)
+   (stmts~3,1
+    (include "system/avltree"@8))))
+ (proc@,6f llDeallocAll@5 . . .
+  (params@H
+   (param@1 a . .
+    (mut@3 MemRegion@4).)). . .
+  (stmts@2,1
+   (var@4 it . . .
+    (dot@6 a~1 llmem@1))
+   (while@,1
+    (infix@9 != it~3
+     (nil@3))
+    (stmts@2,2
+     (var@4 next . . .
+      (dot@9 it~2 next@1))
+     (call@E,1 osDeallocPages~E it@1 PageSize@5)
+     (asgn@3,2 it~3 next@2)))
+   (asgn@8,6
+    (dot~7 a~1 llmem@1)
+    (nil@2))))
+ (proc@,6o intSetGet@5 . . .
+  (params@E
+   (param@1 t . . IntSet@3 .)
+   (param@C key . . int@5 .))PTrunk@N . .
+  (stmts@2,1
+   (var@4 it . . .
+    (at@B
+     (dot~5 t~1 data@1)
+     (infix@5 and key~4
+      (call@8 high~4
+       (dot@2 t~1 data@1)))))
+   (while@,1
+    (infix@9 != it~3
+     (nil@3))
+    (stmts@2,1
+     (if
+      (elif@3
+       (infix@7 ==
+        (dot~5 it~2 key@1)key@3)
+       (stmts@F
+        (ret it@7))))
+     (asgn@3,1 it~3
+      (dot@4 it~2 next@1))))
+   (asgn@7,4 result~7
+    (nil@2))))
+ (proc@,6v intSetPut@5 . . .
+  (params@E
+   (param@1 a . .
+    (mut@3 MemRegion@4).)
+   (param@J key . . int@5 .))PTrunk@U . .
+  (stmts@2,4
+   (asgn@7 result~7
+    (call@B intSetGet~9
+     (dot@2 a~1 chunkStarts@1)key@G))
+   (if@,1
+    (elif@3
+     (infix@7 == result~7
+      (nil@3))
+     (stmts~1,1
+      (asgn@7 result~7
+       (cast@2 PTrunk@5
+        (call@K llAlloc~7 a@1
+         (call@A sizeof~6
+          (at@7 result~6)))))
+      (asgn@C,1
+       (dot~6 result~6 next@1)
+       (at@K
+        (dot~5
+         (dot~C a~1 chunkStarts@1)data@1)
+        (infix@5 and key~4
+         (call@8 high~4
+          (dot@E
+           (dot~C a~1 chunkStarts@1)data@1)))))
+      (asgn@r,2
+       (at~Z
+        (dot~5
+         (dot~C a~1 chunkStarts@1)data@1)
+        (infix@5 and key~4
+         (call@8 high~4
+          (dot@E
+           (dot~C a~1 chunkStarts@1)data@1))))result@2)
+      (asgn@B,3
+       (dot~5 result~6 key@1)key@2))))))
+ (proc@,76 contains@5 . . .
+  (params@D
+   (param@1 s . . IntSet@3 .)
+   (param@C key . . int@5 .))bool@N . .
+  (stmts@2,1
+   (var@4 t . . .
+    (call@D intSetGet~9 s@1
+     (infix@8 shr key~4 TrunkShift@4)))
+   (if@,1
+    (elif@3
+     (infix@2 != t~2
+      (nil@3))
+     (stmts~1,1
+      (var@4 u . . .
+       (infix@8 and key~4 TrunkMask@4))
+      (asgn@7,1 result~7
+       (infix@z !=
+        (par~x
+         (infix@O and
+          (at~H
+           (dot~5 t~1 bits@1)
+           (infix@3 shr u~2 IntShift@4))
+          (par@4
+           (infix@9 shl
+            (call~4 uint~4 1@1)
+            (par@4
+             (infix@3 and u~2 IntMask@4))))))0@3))))
+    (else@,3
+     (stmts@2,1
+      (asgn@7 result~7 false@2))))))
+ (proc@,7E incl@5 . . .
+  (params@9
+   (param@1 a . .
+    (mut@3 MemRegion@4).)
+   (param@J key . . int@5 .)). . .
+  (stmts@2,1
+   (var@4 t . . .
+    (call@D intSetPut~9 a@1
+     (infix@8 shr key~4 TrunkShift@4)))
+   (var@4,1 u . . .
+    (infix@8 and key~4 TrunkMask@4))
+   (asgn@N,2
+    (at~H
+     (dot~5 t~1 bits@1)
+     (infix@3 shr u~2 IntShift@4))
+    (infix@P or
+     (at~H
+      (dot~5 t~1 bits@1)
+      (infix@3 shr u~2 IntShift@4))
+     (par@3
+      (infix@9 shl
+       (call~4 uint~4 1@1)
+       (par@4
+        (infix@3 and u~2 IntMask@4))))))))
+ (proc@,7J excl@5 . . .
+  (params@9
+   (param@1 s . .
+    (mut@3 IntSet@4).)
+   (param@G key . . int@5 .)). . .
+  (stmts@2,1
+   (var@4 t . . .
+    (call@D intSetGet~9 s@1
+     (infix@8 shr key~4 TrunkShift@4)))
+   (if@,1
+    (elif@3
+     (infix@2 != t~2
+      (nil@3))
+     (stmts~1,1
+      (var@4 u . . .
+       (infix@8 and key~4 TrunkMask@4))
+      (asgn@N,1
+       (at~H
+        (dot~5 t~1 bits@1)
+        (infix@3 shr u~2 IntShift@4))
+       (infix@P and
+        (at~H
+         (dot~5 t~1 bits@1)
+         (infix@3 shr u~2 IntShift@4))
+        (prefix@4 not
+         (par~m,1
+          (infix@9 shl
+           (call~4 uint~4 1@1)
+           (par@4
+            (infix@3 and u~2 IntMask@4))))))))))))
+ (iterator@,7Q elements@9 . . .
+  (params@H
+   (param@1 t . . IntSet@3 .))int@D
+  (pragmas@Y inline@2).
+  (stmts@2,2
+   (for@4
+    (infix@6 \2E\2E 0~1
+     (call@6 high~4
+      (dot@2 t~1 data@1)))
+    (unpackflat
+     (let h . . ..))
+    (stmts~2,1
+     (var@4 r . . .
+      (at@A
+       (dot~5 t~1 data@1)h@1))
+     (while@,1
+      (infix@8 != r~2
+       (nil@3))
+      (stmts@2,1
+       (var@4 i . . . 0@4)
+       (while@,1
+        (infix@8 <= i~2
+         (call@7 high~4
+          (dot@2 r~1 bits@1)))
+        (stmts@2,1
+         (var@4 w . . .
+          (at@A
+           (dot~5 r~1 bits@1)i@1))
+         (var@4,2 j . . . 0@4)
+         (while@,3
+          (infix@8 != w~2 0@3)
+          (stmts@2,1
+           (if
+            (elif@3
+             (infix@A !=
+              (par~A
+               (infix@3 and w~2 1@4))0@3)
+             (stmts~1,1
+              (yld
+               (infix@T or
+                (par~N
+                 (infix@7 shl
+                  (dot~5 r~1 key@1)TrunkShift@4))
+                (par@3
+                 (infix@G \2B%
+                  (infix~D shl i~2 IntShift@4)j@3)))))))
+           (call@3,2 inc~3 j@1)
+           (asgn@2,3 w~2
+            (infix@4 shr w~2 1@4))))
+         (call@3,8 inc~3 i@1)))
+       (asgn@2,B r~2
+        (dot@3 r~1 next@1))))))))
+ (proc@,7i isSmallChunk@5 . . .
+  (params@H
+   (param@1 c . . PChunk@3 .))bool@D
+  (pragmas@Z inline@2).
+  (stmts@2,1
+   (asgn@7 result~7
+    (infix@9 <=
+     (dot~6 c~1 size@1)
+     (infix@H \2D SmallChunkSize~E
+      (call@J smallChunkOverhead~I))))))
+ (proc@,7l chunkUnused@5 . . .
+  (params@G
+   (param@1 c . . PChunk@3 .))bool@D
+  (pragmas@Y inline@2).
+  (stmts@2,1
+   (asgn@7 result~7
+    (infix@L ==
+     (par~J
+      (infix@C and
+       (dot~A c~1 prevSize@1)1@4))0@3))))
+ (when@,7q
+  (elif@5
+   (prefix not UseDestructors@4)
+   (stmts~3,1
+    (proc isCell@5 . . .
+     (params@B
+      (param@1 p . . pointer@3 .))bool@E
+     (pragmas@U inline@2).
+     (stmts@2,1
+      (asgn@7 result~7
+       (infix@Y >%
+        (dot~B
+         (cast~L
+          (ptr@5 FreeCell@4)p@J)zeroField@1)1@3)))))))
+ (proc@,7v pageIndex@5 . . .
+  (params@E
+   (param@1 c . . PChunk@3 .))int@D
+  (pragmas@V inline@2).
+  (stmts@2,1
+   (asgn@7 result~7
+    (infix@F shr
+     (cast~D int@5 c@A)PageShift@4))))
+ (proc@,7y pageIndex@5 . . .
+  (params@E
+   (param@1 p . . pointer@3 .))int@E
+  (pragmas@W inline@2).
+  (stmts@2,1
+   (asgn@7 result~7
+    (infix@F shr
+     (cast~D int@5 p@A)PageShift@4))))
+ (proc@,81 pageAddr@5 . . .
+  (params@D
+   (param@1 p . . pointer@3 .))PChunk@E
+  (pragmas@Y inline@2).
+  (stmts@2,1
+   (asgn@7 result~7
+    (cast@2 PChunk@5
+     (infix@Q and
+      (cast~D int@5 p@A)
+      (prefix@4 not PageMask@4))))))
+ (when@,85
+  (elif@5 false
+   (stmts~3,1
+    (proc writeFreeList@5 . . .
+     (params@I
+      (param@1 a . . MemRegion@3 .)). . .
+     (stmts@2,1
+      (var@4 it . . .
+       (dot@6 a~1 freeChunksList@1))
+      (call@9,1 c_fprintf~9 stdout@1 "freeChunksList\3A %p\0A"@9 it@X)
+      (while@,2
+       (infix@9 != it~3
+        (nil@3))
+       (stmts@2,1
+        (call@9 c_fprintf~9 stdout@1 "it\3A %p, next\3A %p, prev\3A %p, size\3A %ld\0A"@9 it@1,1
+         (dot@7,1 it~2 next@1)
+         (dot@G,1 it~2 prev@1)
+         (dot@P,1 it~2 size@1))
+        (asgn@3,2 it~3
+         (dot@4 it~2 next@1)))))))))
+ (proc@,8E requestOsChunks@5 . . .
+  (params@K
+   (param@1 a . .
+    (mut@3 MemRegion@4).)
+   (param@J size . . int@6 .))PBigChunk@V . .
+  (stmts@2,1
+   (when
+    (elif@5
+     (prefix not
+      (call@B defined~7 emscripten@1))
+     (stmts~3,1
+      (if
+       (elif@3
+        (prefix not
+         (dot@5 a~1 blockChunkSizeIncrease@1))
+        (stmts~1,1
+         (let@4 usedMem . . .
+          (dot@B a~1 occ@1))
+         (if@,1
+          (elif@3
+           (infix@8 < usedMem~8
+            (infix@5 * 64~3 1024@2))
+           (stmts~1,1
+            (asgn@G
+             (dot~F a~1 nextChunkSize@1)
+             (infix@A * PageSize~8 4@1))))
+          (else@,2
+           (stmts@2,1
+            (asgn@G
+             (dot~F a~1 nextChunkSize@1)
+             (call@5 min~3
+              (call@8 roundup~7
+               (infix@9 shr usedMem~8 2@4)PageSize@G)
+              (infix@p *
+               (dot~F a~1 nextChunkSize@1)2@2)))
+            (asgn@G,1
+             (dot~F a~1 nextChunkSize@1)
+             (dot@d
+              (call~Y min~3
+               (dot@2 a~1 nextChunkSize@1)MaxBigChunkSize@I)int@1)))))))))))
+   (var@4,9 size . . . size@7)
+   (if@,A
+    (elif@3
+     (infix@5 > size~5
+      (dot@3 a~1 nextChunkSize@1))
+     (stmts~1,1
+      (asgn@7 result~7
+       (cast@2 PBigChunk@5
+        (call@Q allocPages~A a@1 size@4)))))
+    (else@,2
+     (stmts@2,1
+      (asgn@7 result~7
+       (cast@2 PBigChunk@5
+        (call@T tryAllocPages~D a@1
+         (dot@5 a~1 nextChunkSize@1))))
+      (if@,1
+       (elif@3
+        (infix@7 == result~7
+         (nil@3))
+        (stmts~1,1
+         (asgn@7 result~7
+          (cast@2 PBigChunk@5
+           (call@Q allocPages~A a@1 size@4)))
+         (asgn@P,1
+          (dot~O a~1 blockChunkSizeIncrease@1)true@2)))
+       (else@,3
+        (stmts@2,1
+         (asgn@5 size~5
+          (dot@3 a~1 nextChunkSize@1))))))))
+   (call@A,K incCurrMem~A a@1 size@4)
+   (call@3,L inc~3
+    (dot@2 a~1 freeMem@1)size@C)
+   (let@4,M heapLink . . .
+    (call@O
+     (dot~C a~1 addHeapLink@1)result@1 size@9))
+   (when@,N
+    (elif@5
+     (call@7 defined~7 debugHeapLinks@1)
+     (stmts~3,1
+      (call@7 cprintf~7 "owner\3A %p; result\3A %p; next pointer %p; size\3A %ld\0A"@1
+       (call@y addr~4 a@1)result~5,1 heapLink@3,1 size@D,1))))
+   (when@,R
+    (elif@5
+     (call@7 defined~7 memtracker@1)
+     (stmts~3,1
+      (call@D trackLocation~D
+       (cmd@6 addr~5
+        (dot@6 result~6 size@1))
+       (call@P sizeof~6 int@1)))))
+   (call@9,U sysAssert~9
+    (infix@Y ==
+     (par~X
+      (infix@J and
+       (cast~I int@5 result@A)PageMask@4))0@3)"requestOsChunks 1"@e)
+   (asgn@C,W
+    (dot~6 result~6 next@1)
+    (nil@2))
+   (asgn@C,X
+    (dot~6 result~6 prev@1)
+    (nil@2))
+   (asgn@C,Y
+    (dot~6 result~6 size@1)size@2)
+   (var@4,a nxt . . .
+    (infix@O \2B%
+     (cast~I int@5 result@A)size@3))
+   (call@9,b sysAssert~9
+    (infix@K ==
+     (par~J
+      (infix@5 and nxt~4 PageMask@4))0@3)"requestOsChunks 2"@Q)
+   (var@4,c next . . .
+    (cast@7 PChunk@5 nxt@D))
+   (if@,d
+    (elif@3
+     (infix@G in
+      (call~7 pageIndex~9 next@1)
+      (dot@4 a~1 chunkStarts@1))
+     (stmts~1,2
+      (asgn@E
+       (dot~A next~4 prevSize@1)
+       (infix@7 or size~5
+        (par@3
+         (infix@F and
+          (dot~A next~4 prevSize@1)1@4)))))))
+   (var@4,h lastSize . . .
+    (if@B
+     (elif@3
+      (infix@B !=
+       (dot~A a~1 lastSize@1)0@3)
+      (stmts@H
+       (dot@1 a~1 lastSize@1)))
+     (else@V
+      (stmts@6 PageSize))))
+   (var@4,i prv . . .
+    (infix@O \2D%
+     (cast~I int@5 result@A)lastSize@3))
+   (call@9,j sysAssert~9
+    (infix@K ==
+     (par~J
+      (infix@5 and nxt~4 PageMask@4))0@3)"requestOsChunks 3"@Q)
+   (var@4,k prev . . .
+    (cast@7 PChunk@5 prv@D))
+   (if@,l
+    (elif@3
+     (infix@X and
+      (infix~H in
+       (call~7 pageIndex~9 prev@1)
+       (dot@4 a~1 chunkStarts@1))
+      (infix@E ==
+       (dot~6 prev~4 size@1)lastSize@3))
+     (stmts~1,2
+      (asgn@G
+       (dot~A result~6 prevSize@1)
+       (infix@B or lastSize~9
+        (par@3
+         (infix@H and
+          (dot~A result~6 prevSize@1)1@4))))))
+    (else@,3
+     (stmts@2,1
+      (asgn@G
+       (dot~A result~6 prevSize@1)
+       (infix@4 or 0~2
+        (par@3
+         (infix@H and
+          (dot~A result~6 prevSize@1)1@4)))))))
+   (asgn@B,r
+    (dot~A a~1 lastSize@1)size@2)
+   (call@9,s sysAssert~9
+    (infix@Y ==
+     (par~X
+      (infix@J and
+       (cast~I int@5 result@A)PageMask@4))0@3)"requestOschunks\3A unaligned chunk"@e)))
+ (proc@,99 isAccessible@5 . . .
+  (params@H
+   (param@1 a . . MemRegion@3 .)
+   (param@F p . . pointer@3 .))bool@S
+  (pragmas@o inline@2).
+  (stmts@2,1
+   (asgn@7 result~7
+    (call@A contains~8
+     (dot@2 a~1 chunkStarts@1)
+     (call@P pageIndex~9 p@1)))))
+ (proc@,9C contains@5 . .
+  (typevars@D
+   (typevar@1 T . . . .))
+  (params@G
+   (param@1 list . . T@9 .)
+   (param@7 x . . T@3 .))bool@E
+  (pragmas@Z untyped@2).
+  (stmts@2,1
+   (asgn@7 result~7 false@2)
+   (var@4,1 it . . . list@5)
+   (while@,2
+    (infix@9 != it~3
+     (nil@3))
+    (stmts@2,1
+     (if
+      (elif@3
+       (infix@3 == it~3 x@3)
+       (stmts@9
+        (ret true@7))))
+     (asgn@3,1 it~3
+      (dot@4 it~2 next@1))))))
+ (proc@,9J listAdd@5 . .
+  (typevars@C
+   (typevar@1 T . . . .))
+  (params@F
+   (param@1 head . .
+    (mut@6 T@4).)
+   (param@E c . . T@3 .)).
+  (pragmas@Z inline@2 untyped@A).
+  (stmts@2,1
+   (call@9 sysAssert~9
+    (infix@3 notin c~2 head@6)"listAdd 1"@F)
+   (cmd@,1 sysAssert
+    (infix@H ==
+     (dot~6 c~1 prev@1)
+     (nil@3))"listAdd 2"@P)
+   (cmd@,2 sysAssert
+    (infix@H ==
+     (dot~6 c~1 next@1)
+     (nil@3))"listAdd 3"@P)
+   (asgn@7,3
+    (dot~6 c~1 next@1)head@2)
+   (if@,4
+    (elif@3
+     (infix@5 != head~5
+      (nil@3))
+     (stmts~1,1
+      (cmd sysAssert
+       (infix@K ==
+        (dot~6 head~4 prev@1)
+        (nil@3))"listAdd 4"@S)
+      (asgn@A,1
+       (dot~6 head~4 prev@1)c@2))))
+   (asgn@5,7 head~5 c@2)))
+ (proc@,9T listRemove@5 . .
+  (typevars@F
+   (typevar@1 T . . . .))
+  (params@I
+   (param@1 head . .
+    (mut@6 T@4).)
+   (param@E c . . T@3 .)).
+  (pragmas@c inline@2 untyped@A).
+  (stmts@2,1
+   (call@9 sysAssert~9
+    (infix@3 in c~2 head@3)"listRemove"@C)
+   (if@,1
+    (elif@3
+     (infix@2 == c~2 head@3)
+     (stmts~1,1
+      (asgn@5 head~5
+       (dot@3 c~1 next@1))
+      (cmd@,1 sysAssert
+       (infix@H ==
+        (dot~6 c~1 prev@1)
+        (nil@3))"listRemove 2"@P)
+      (if@,2
+       (elif@3
+        (infix@5 != head~5
+         (nil@3))
+        (stmts@D
+         (asgn@A
+          (dot~6 head~4 prev@1)
+          (nil@2)))))))
+    (else@,4
+     (stmts@2,1
+      (cmd sysAssert
+       (infix@H !=
+        (dot~6 c~1 prev@1)
+        (nil@3))"listRemove 3"@P)
+      (asgn@C,1
+       (dot~6
+        (dot~5 c~1 prev@1)next@1)
+       (dot@3 c~1 next@1))
+      (if@,2
+       (elif@3
+        (infix@7 !=
+         (dot~6 c~1 next@1)
+         (nil@3))
+        (stmts@F
+         (asgn@C
+          (dot~6
+           (dot~5 c~1 next@1)prev@1)
+          (dot@3 c~1 prev@1))))))))
+   (asgn@7,9
+    (dot~6 c~1 next@1)
+    (nil@2))
+   (asgn@7,A
+    (dot~6 c~1 prev@1)
+    (nil@2))))
+ (proc@,9g updatePrevSize@5 . . .
+  (params@J
+   (param@1 a . .
+    (mut@3 MemRegion@4).)
+   (param@J c . . PBigChunk@3 .)
+   (param@1,1 prevSize . . int@A .)).
+  (pragmas@Z,1 inline@2).
+  (stmts@2,2
+   (var@4 ri . . .
+    (cast@5 PChunk@5
+     (infix@Q \2B%
+      (cast~D int@5 c@A)
+      (dot@4 c~1 size@1))))
+   (call@9,1 sysAssert~9
+    (infix@U ==
+     (par~T
+      (infix@F and
+       (cast~E int@5 ri@A)PageMask@4))0@3)"updatePrevSize"@a)
+   (if@,2
+    (elif@3
+     (call@C isAccessible~C a@1 ri@4)
+     (stmts~1,1
+      (asgn@C
+       (dot~A ri~2 prevSize@1)
+       (infix@B or prevSize~9
+        (par@3
+         (infix@D and
+          (dot~A ri~2 prevSize@1)1@4)))))))))
+ (proc@,9n splitChunk2@5 . . .
+  (params@G
+   (param@1 a . .
+    (mut@3 MemRegion@4).)
+   (param@J c . . PBigChunk@3 .)
+   (param@X size . . int@6 .))PBigChunk@j . .
+  (stmts@2,1
+   (asgn@7 result~7
+    (cast@2 PBigChunk@5
+     (infix@T \2B%
+      (cast~D int@5 c@A)size@3)))
+   (asgn@C,1
+    (dot~6 result~6 size@1)
+    (infix@9 \2D
+     (dot~6 c~1 size@1)size@2))
+   (call@5,2 track~5 "result.size"@1
+    (cmd@L addr~5
+     (dot@6 result~6 size@1))
+    (call@e sizeof~6 int@1))
+   (when@,3
+    (elif@5
+     (prefix not
+      (call@B defined~7 nimOptimizedSplitChunk@1))
+     (stmts~3,2
+      (asgn@C
+       (dot~6 result~6 next@1)
+       (nil@2))
+      (asgn@C,1
+       (dot~6 result~6 prev@1)
+       (nil@2)))))
+   (asgn@G,8
+    (dot~A result~6 prevSize@1)size@2)
+   (asgn@D,9
+    (dot~7 result~6 owner@1)
+    (cmd@7 addr~5 a))
+   (call@9,A sysAssert~9
+    (infix@E ==
+     (par~D
+      (infix@6 and size~5 1@4))0@3)"splitChunk 2"@K)
+   (call@9,B sysAssert~9
+    (infix@L ==
+     (par~K
+      (infix@6 and size~5 PageMask@4))0@3)"splitChunk\3A size is not a multiple of the PageSize"~5,1)
+   (call@E,D updatePrevSize~E a@1 c@4
+    (dot@D result~6 size@1))
+   (asgn@7,E
+    (dot~6 c~1 size@1)size@2)
+   (call@4,F incl~4 a@1
+    (call@D pageIndex~9 result@1))))
+ (proc@,A5 splitChunk@5 . . .
+  (params@F
+   (param@1 a . .
+    (mut@3 MemRegion@4).)
+   (param@J c . . PBigChunk@3 .)
+   (param@X size . . int@6 .)). . .
+  (stmts@2,1
+   (let@4 rest . . .
+    (call@I splitChunk2~B a@1 c@4 size@7))
+   (call@G,1 addChunkToMatrix~G a@1 rest@4)))
+ (proc@,A9 freeBigChunk@5 . . .
+  (params@H
+   (param@1 a . .
+    (mut@3 MemRegion@4).)
+   (param@J c . . PBigChunk@3 .)). . .
+  (stmts@2,1
+   (var@4 c . . . c@4)
+   (call@9,1 sysAssert~9
+    (infix@8 >=
+     (dot~6 c~1 size@1)PageSize@3)"freeBigChunk"@L)
+   (call@3,2 inc~3
+    (dot@2 a~1 freeMem@1)
+    (dot@D c~1 size@1))
+   (asgn@B,3
+    (dot~A c~1 prevSize@1)
+    (infix@D and
+     (dot~A c~1 prevSize@1)
+     (prefix@4 not 1@4)))
+   (when@,4
+    (elif@5 coalescLeft
+     (stmts~3,1
+      (let@4 prevSize . . .
+       (dot@C c~1 prevSize@1))
+      (if@,1
+       (elif@3
+        (infix@9 != prevSize~9 0@3)
+        (stmts~1,1
+         (var@4 le . . .
+          (cast@5 PChunk@5
+           (infix@Q \2D%
+            (cast~D int@5 c@A)prevSize@3)))
+         (call@9,1 sysAssert~9
+          (infix@U ==
+           (par~T
+            (infix@F and
+             (cast~E int@5 le@A)PageMask@4))0@3)"freeBigChunk 4"@a)
+         (if@,2
+          (elif@3
+           (infix@K and
+            (call~8 isAccessible~C a@1 le@4)
+            (call@F chunkUnused~B le@1))
+           (stmts~1,1
+            (call@9 sysAssert~9
+             (prefix@1 not
+              (call@G isSmallChunk~C le@1))"freeBigChunk 5"@N)
+            (if@,1
+             (elif@3
+              (infix@L and
+               (prefix~L not
+                (call@G isSmallChunk~C le@1))
+               (infix@C <
+                (dot~6 le~2 size@1)MaxBigChunkSize@2))
+              (stmts~1,1
+               (call@L removeChunkFromMatrix~L a@1
+                (cast@4 PBigChunk@5 le@G))
+               (call@3,1 inc~3
+                (dot@3 le~2 size@1)
+                (dot@B c~1 size@1))
+               (call@4,2 excl~4
+                (dot@2 a~1 chunkStarts@1)
+                (call@P pageIndex~9 c@1))
+               (asgn@2,3 c~2
+                (cast@2 PBigChunk@5 le@G))
+               (if@,4
+                (elif@3
+                 (infix@7 >
+                  (dot~6 c~1 size@1)MaxBigChunkSize@2)
+                 (stmts~1,1
+                  (let@4 rest . . .
+                   (call@I splitChunk2~B a@1 c@4 MaxBigChunkSize@7))
+                  (when@,1
+                   (elif@5
+                    (call@7 defined~7 nimOptimizedSplitChunk@1)
+                    (stmts~3,1
+                     (asgn@A
+                      (dot~6 rest~4 next@1)
+                      (nil@2))
+                     (asgn@A,1
+                      (dot~6 rest~4 prev@1)
+                      (nil@2)))))
+                  (call@G,4 addChunkToMatrix~G a@1 c@4)
+                  (asgn@2,5 c~2 rest@2))))))))))))))))
+   (when@,N
+    (elif@5 coalescRight
+     (stmts~3,1
+      (var@4 ri . . .
+       (cast@5 PChunk@5
+        (infix@Q \2B%
+         (cast~D int@5 c@A)
+         (dot@4 c~1 size@1))))
+      (call@9,1 sysAssert~9
+       (infix@U ==
+        (par~T
+         (infix@F and
+          (cast~E int@5 ri@A)PageMask@4))0@3)"freeBigChunk 2"@a)
+      (if@,2
+       (elif@3
+        (infix@K and
+         (call~8 isAccessible~C a@1 ri@4)
+         (call@F chunkUnused~B ri@1))
+        (stmts~1,1
+         (call@9 sysAssert~9
+          (prefix@1 not
+           (call@G isSmallChunk~C ri@1))"freeBigChunk 3"@N)
+         (if@,1
+          (elif@3
+           (infix@L and
+            (prefix~L not
+             (call@G isSmallChunk~C ri@1))
+            (infix@B <
+             (dot~6 c~1 size@1)MaxBigChunkSize@2))
+           (stmts~1,1
+            (call@L removeChunkFromMatrix~L a@1
+             (cast@4 PBigChunk@5 ri@G))
+            (call@3,1 inc~3
+             (dot@2 c~1 size@1)
+             (dot@B ri~2 size@1))
+            (call@4,2 excl~4
+             (dot@2 a~1 chunkStarts@1)
+             (call@P pageIndex~9 ri@1))
+            (if@,3
+             (elif@3
+              (infix@7 >
+               (dot~6 c~1 size@1)MaxBigChunkSize@2)
+              (stmts~1,1
+               (let@4 rest . . .
+                (call@I splitChunk2~B a@1 c@4 MaxBigChunkSize@7))
+               (call@G,1 addChunkToMatrix~G a@1 rest@4)))))))))))))
+   (call@G,Z addChunkToMatrix~G a@1 c@4)))
+ (proc@,Al getBigChunk@5 . . .
+  (params@G
+   (param@1 a . .
+    (mut@3 MemRegion@4).)
+   (param@J size . . int@6 .))PBigChunk@V . .
+  (stmts@2,1
+   (call@9 sysAssert~9
+    (infix@6 > size~5 0@2)"getBigChunk 2"@B)
+   (var@4,1 size . . . size@7)
+   (var@4,2 fl . . . 0@5)
+   (var@4,3 sl . . . 0@5)
+   (call@D,4 mappingSearch~D size@1 fl@7 sl@B)
+   (call@9,5 sysAssert~9
+    (infix@L ==
+     (par~K
+      (infix@6 and size~5 PageMask@4))0@3)"getBigChunk\3A unaligned chunk"@R)
+   (asgn@7,6 result~7
+    (call@J findSuitableBlock~H a@1 fl@4 sl@8))
+   (if@,8
+    (elif@3
+     (infix@7 == result~7
+      (nil@3))
+     (stmts~1,1
+      (if
+       (elif@3
+        (infix@5 < size~5
+         (infix@I * nimMinHeapPages~G PageSize@2))
+        (stmts~1,1
+         (asgn@7 result~7
+          (call@H requestOsChunks~F a@1
+           (infix@K * nimMinHeapPages~G PageSize@2)))
+         (call@A,1 splitChunk~A a@1 result@4 size@C)))
+       (else@,3
+        (stmts@2,1
+         (asgn@7 result~7
+          (call@H requestOsChunks~F a@1 size@4))
+         (if@,2
+          (elif@3
+           (infix@C >
+            (dot~6 result~6 size@1)size@2)
+           (stmts~1,1
+            (call@A splitChunk~A a@1 result@4 size@C)))))))
+      (asgn@D,8
+       (dot~7 result~6 owner@1)
+       (cmd@7 addr~5 a))))
+    (else@,A
+     (stmts@2,1
+      (call@M removeChunkFromMatrix2~M a@1 result@4 fl@C sl@G)
+      (if@,1
+       (elif@3
+        (infix@C >=
+         (dot~6 result~6 size@1)
+         (infix@8 \2B size~5 PageSize@2))
+        (stmts~1,1
+         (call@A splitChunk~A a@1 result@4 size@C)))))))
+   (asgn@G,N
+    (dot~A result~6 prevSize@1)1@2)
+   (call@5,O track~5 "setUsedToFalse"@1
+    (cmd@O addr~5
+     (dot@6 result~6 size@1))
+    (call@h sizeof~6 int@1))
+   (cmd@,P sysAssert
+    (infix@N ==
+     (dot~7 result~6 owner@1)
+     (cmd@8 addr~5 a))"getBigChunk\3A No owner set!"@Y)
+   (call@4,R incl~4 a@1
+    (call@D pageIndex~9 result@1))
+   (call@3,S dec~3
+    (dot@2 a~1 freeMem@1)size@C)))
+ (proc@,BG getHugeChunk@5 . . .
+  (params@H
+   (param@1 a . .
+    (mut@3 MemRegion@4).)
+   (param@J size . . int@6 .))PBigChunk@V . .
+  (stmts@2,1
+   (asgn@7 result~7
+    (cast@2 PBigChunk@5
+     (call@Q allocPages~A a@1 size@4)))
+   (call@A,1 incCurrMem~A a@1 size@4)
+   (when@,3
+    (elif@5 false
+     (stmts@7
+      (call@D
+       (dot~C a~1 addHeapLink@1)result@1 size@9))))
+   (call@9,4 sysAssert~9
+    (infix@Y ==
+     (par~X
+      (infix@J and
+       (cast~I int@5 result@A)PageMask@4))0@3)"getHugeChunk"@e)
+   (asgn@C,5
+    (dot~6 result~6 next@1)
+    (nil@2))
+   (asgn@C,6
+    (dot~6 result~6 prev@1)
+    (nil@2))
+   (asgn@C,7
+    (dot~6 result~6 size@1)size@2)
+   (asgn@G,9
+    (dot~A result~6 prevSize@1)1@2)
+   (asgn@D,A
+    (dot~7 result~6 owner@1)
+    (cmd@7 addr~5 a))
+   (call@4,B incl~4 a@1
+    (call@D pageIndex~9 result@1))))
+ (proc@,BU freeHugeChunk@5 . . .
+  (params@I
+   (param@1 a . .
+    (mut@3 MemRegion@4).)
+   (param@J c . . PBigChunk@3 .)). . .
+  (stmts@2,1
+   (let@4 size . . .
+    (dot@8 c~1 size@1))
+   (call@9,1 sysAssert~9
+    (infix@6 >= size~5 HugeChunkSize@3)"freeHugeChunk\3A invalid size"@O)
+   (call@4,2 excl~4
+    (dot@2 a~1 chunkStarts@1)
+    (call@P pageIndex~9 c@1))
+   (call@A,3 decCurrMem~A a@1 size@4)
+   (call@E,4 osDeallocPages~E c@1 size@4)))
+ (proc@,Bb getSmallChunk@5 . . .
+  (params@I
+   (param@1 a . .
+    (mut@3 MemRegion@4).))PSmallChunk@K . .
+  (stmts@2,1
+   (var@4 res . . .
+    (call@H getBigChunk~B a@1 PageSize@4))
+   (cmd@,1 sysAssert
+    (infix@J ==
+     (dot~6 res~3 prev@1)
+     (nil@3))"getSmallChunk 1"@R)
+   (cmd@,2 sysAssert
+    (infix@J ==
+     (dot~6 res~3 next@1)
+     (nil@3))"getSmallChunk 2"@R)
+   (asgn@7,3 result~7
+    (cast@2 PSmallChunk@5 res@I))))
+ (when@,Bi
+  (elif@5
+   (prefix not UseDestructors@4)
+   (stmts~3,1
+    (proc isAllocatedPtr@5 . . .
+     (params@J
+      (param@1 a . . MemRegion@3 .)
+      (param@F p . . pointer@3 .))bool@S
+     (pragmas@q gcsafe@2). .))))
+ (when@,Bl
+  (elif@5 true
+   (stmts~3,1
+    (template allocInv@9 . . .
+     (params@H
+      (param@1 a . . MemRegion@3 .))bool@G . .
+     (stmts@e true))))
+  (else@,2
+   (stmts@2,1
+    (proc allocInv@5 . . .
+     (params@D
+      (param@1 a . . MemRegion@3 .))bool@G . .
+     (stmts@2,1
+      (comment)
+      (for@4,1
+       (infix@R \2E\2E
+        (call~J low~3
+         (dot@2 a~1 freeSmallChunks@1))
+        (call@6 high~4
+         (dot@2 a~1 freeSmallChunks@1)))
+       (unpackflat
+        (let s . . ..))
+       (stmts~2,1
+        (var@4 c . . .
+         (at@L
+          (dot~G a~1 freeSmallChunks@1)s@1))
+        (while@,1
+         (prefix@6 not
+          (par@4
+           (infix@3 == c~2
+            (nil@3))))
+         (stmts@2,1
+          (if
+           (elif@3
+            (infix@7 ==
+             (dot~6 c~1 next@1)c@3)
+            (stmts~1,1
+             (cmd echo "\5BSYSASSERT\5D c.next == c"@5)
+             (ret@,1 false@7))))
+          (if@,3
+           (elif@3
+            (prefix not
+             (par@4
+              (infix@8 ==
+               (dot~6 c~1 size@1)
+               (infix@5 * s~2 MemAlign@2))))
+            (stmts~1,1
+             (cmd echo "\5BSYSASSERT\5D c.size != s * MemAlign"@5)
+             (ret@,1 false@7))))
+          (var@4,6 it . . .
+           (dot@6 c~1 freeList@1))
+          (while@,7
+           (prefix@6 not
+            (par@4
+             (infix@4 == it~3
+              (nil@3))))
+           (stmts@2,1
+            (if
+             (elif@3
+              (prefix not
+               (par@4
+                (infix@E ==
+                 (dot~B it~2 zeroField@1)0@3)))
+              (stmts~1,1
+               (cmd echo "\5BSYSASSERT\5D it.zeroField != 0"@5)
+               (call@8,1 c_printf~8 "%ld %p\0A"@1
+                (dot@F it~2 zeroField@1)it@R)
+               (ret@,2 false@7))))
+            (asgn@3,4 it~3
+             (dot@4 it~2 next@1))))
+          (asgn@2,D c~2
+           (dot@3 c~1 next@1))))))
+      (asgn@7,I result~7 true@2))))))
+ (when@,C9
+  (elif@5 false
+   (stmts~3,1
+    (var@2,1 rsizes . .
+     (at@D array~5 50000@1 int@9).)
+    (var@2,2 rsizesLen . . int@B .)
+    (proc@,4 trackSize@5 . . .
+     (params@E
+      (param@1 size . . int@6 .)). . .
+     (stmts@2,1
+      (asgn@I
+       (at~C rsizes~6 rsizesLen@1)size@2)
+      (cmd@,1 inc rsizesLen@4)))
+    (proc@,8 untrackSize@5 . . .
+     (params@G
+      (param@1 size . . int@6 .)). . .
+     (stmts@2,1
+      (for@4
+       (infix@7 \2E\2E 0~2
+        (infix@C \2D rsizesLen~9 1@1))
+       (unpackflat
+        (let i . . ..))
+       (stmts~2,1
+        (if
+         (elif@3
+          (infix@A ==
+           (at~4 rsizes~6 i@1)size@3)
+          (stmts~1,1
+           (asgn@A
+            (at~4 rsizes~6 i@1)
+            (at@8 rsizes~6
+             (infix@A \2D rsizesLen~9 1@1)))
+           (cmd@,1 dec rsizesLen@4)
+           (ret@,2 .))))))
+      (call@9,5 c_fprintf~9 stdout@1 "%ld\0A"@9 size@I)
+      (call@9,6 sysAssert~9 false@1 "untracked size!"@8)))))
+  (else@,H
+   (stmts@2,1
+    (template trackSize@9 . . .
+     (params@I
+      (param@1 x . . . .)). . .
+     (stmts@O
+      (discard .)))
+    (template@,1 untrackSize@9 . . .
+     (params@K
+      (param@1 x . . . .)). . .
+     (stmts@Q
+      (discard .))))))
+ (proc@,CU deallocBigChunk@5 . . .
+  (params@K
+   (param@1 a . .
+    (mut@3 MemRegion@4).)
+   (param@J c . . PBigChunk@3 .)). . .
+  (stmts@2,1
+   (cmd dec
+    (dot@5 a~1 occ@1)
+    (dot@C c~1 size@1))
+   (call@B,1 untrackSize~B
+    (dot@2 c~1 size@1))
+   (cmd@,2 sysAssert
+    (infix@G >=
+     (dot~5 a~1 occ@1)0@3)"rawDealloc\3A negative occupied memory \28case B\29"@M)
+   (when@,3
+    (elif@5
+     (prefix not UseDestructors@4)
+     (stmts~3,1
+      (asgn@A
+       (dot~9 a~1 deleted@1)
+       (call@B getBottom~9 a@1))
+      (call@3,2 del~3 a@1
+       (dot@5 a~1 root@1)
+       (cast@C int@5
+        (dot@B c~1 prev@1))))))
+   (asgn@7,8
+    (dot~6 c~1 prev@1)
+    (nil@2))
+   (if@,9
+    (elif@3
+     (infix@7 >=
+      (dot~6 c~1 size@1)HugeChunkSize@3)
+     (stmts@P
+      (call@D freeHugeChunk~D a@1 c@4)))
+    (else@,1
+     (stmts@6
+      (call@C freeBigChunk~C a@1 c@4))))))
+ (when@,Ch
+  (elif@5 UseDestructors
+   (stmts~3,1
+    (template atomicPrepend@9 . . .
+     (params@M
+      (param@1 head . . untyped@C .)
+      (param@7 elem . . untyped@6 .)).
+     (pragmas@i untyped@2).
+     (stmts@2,2
+      (when
+       (elif@5 hasThreadSupport
+        (stmts~3,1
+         (while true@6
+          (stmts@2,1
+           (cmd@9
+            (dot
+             (dot~5 elem~4 next@1)storea@1)
+            (dot@C head~4 loada@1))
+           (if@,1
+            (elif@3
+             (call@M atomicCompareExchangeN~M
+              (cmd@6 addr~5 head)
+              (cmd@H addr~5
+               (dot@4 elem~4 next@1))elem@S
+              (vv@d weak~5 true@2)ATOMIC_RELEASE@l ATOMIC_RELAXED@11)
+             (stmts~1,1
+              (break .))))))))
+       (else@,5
+        (stmts@2,1
+         (cmd@9
+          (dot
+           (dot~5 elem~4 next@1)storea@1)
+          (dot@C head~4 loada@1))
+         (cmd@4,1
+          (dot head~4 storea@1)elem@8))))))
+    (proc@,B addToSharedFreeListBigChunks@5 . . .
+     (params@X
+      (param@1 a . .
+       (ptr@3 MemRegion@4).)
+      (param@J c . . PBigChunk@3 .)).
+     (pragmas@14 inline@2).
+     (stmts@2,3
+      (cmd sysAssert
+       (infix@H ==
+        (dot~6 c~1 next@1)
+        (nil@3))"c.next pointer must be nil"@P)
+      (cmd@,1 atomicPrepend
+       (dot@F a~1 sharedFreeListBigChunks@1)c@f)))
+    (proc@,H takeFromSharedFreeListBigChunks@5 . . .
+     (params@a
+      (param@1 a . .
+       (mut@3 MemRegion@4).))PBigChunk@K
+     (pragmas@14 inline@2).
+     (stmts@2,1
+      (when
+       (elif@5 hasThreadSupport
+        (stmts~3,1
+         (while true@6
+          (stmts@2,1
+           (asgn@7 result~7
+            (call@D atomicLoadN~B
+             (cmd@6 addr~5
+              (dot@1 a~1 sharedFreeListBigChunks@1))ATOMIC_ACQUIRE@X))
+           (if@,1
+            (elif@3
+             (infix@7 == result~7
+              (nil@3))
+             (stmts~1,1
+              (break .))))
+           (let@4,3 next . . .
+            (dot@I
+             (dot~5 result~6 next@1)loada@1))
+           (var@4,4 expected . . . result@B)
+           (if@,5
+            (elif@3
+             (call@M atomicCompareExchangeN~M
+              (cmd@6 addr~5
+               (dot@1 a~1 sharedFreeListBigChunks@1))
+              (cmd@c addr~5 expected)next@m
+              (vv@6,1 weak~5 true@2)ATOMIC_ACQUIRE@E,1 ATOMIC_RELAXED@U,1)
+             (stmts~1,2
+              (cmd@B
+               (dot
+                (dot~5 result~6 next@1)storea@1)
+               (nil@8))
+              (break@,1 .))))))))
+       (else@,B
+        (stmts@2,1
+         (asgn@7 result~7
+          (dot@3 a~1 sharedFreeListBigChunks@1))
+         (if@,1
+          (elif@3
+           (infix@7 != result~7
+            (nil@3))
+           (stmts~1,1
+            (asgn@Q
+             (dot~P a~1 sharedFreeListBigChunks@1)
+             (dot@8 result~6 next@1))
+            (asgn@C,1
+             (dot~6 result~6 next@1)
+             (nil@2))))))))))
+    (proc@,Z addToSharedFreeList@5 . . .
+     (params@O
+      (param@1 c . . PSmallChunk@3 .)
+      (param@H f . .
+       (ptr@3 FreeCell@4).)
+      (param@Y size . . int@6 .)).
+     (pragmas@17 inline@2).
+     (stmts@2,7
+      (call@C withFreeCell~C f@1
+       (stmts~A,1
+        (cmd atomicPrepend
+         (at@b
+          (dot~G
+           (dot~6 c~1 owner@1)sharedFreeLists@1)size@1)f@j)))))
+    (const@6,j MaxSteps . . . 20@B)
+    (proc@,l compensateCounters@5 . . .
+     (params@N
+      (param@1 a . .
+       (mut@3 MemRegion@4).)
+      (param@J c . . PSmallChunk@3 .)
+      (param@Z size . . int@6 .)). . .
+     (stmts@2,4
+      (var@4 it . . .
+       (dot@6 c~1 freeList@1))
+      (var@4,1 total . . . 0@8)
+      (while@,2
+       (infix@9 != it~3
+        (nil@3))
+       (stmts@2,1
+        (cmd inc total@4 size@B)
+        (let@4,1 chunk . . .
+         (cast@8 PSmallChunk@5
+          (call@Q pageAddr~8 it@1)))
+        (if@,2
+         (elif@3
+          (infix@2 != c~2 chunk@3)
+          (stmts~1,3
+           (asgn@F
+            (dot~E c~1 foreignCells@1)
+            (infix@H \2B
+             (dot~E c~1 foreignCells@1)
+             (suf@2 1 "i32"))))))
+        (call@C,8 withFreeCell~C it@1
+         (stmts~A,1
+          (asgn@3 it~3
+           (dot@4 it~2 next@1))))))
+      (asgn@7,E
+       (dot~6 c~1 free@1)
+       (infix@9 \2B
+        (dot~6 c~1 free@1)
+        (call@7 int32~5 total@1)))
+      (call@3,F dec~3
+       (dot@2 a~1 occ@1)total@8)))
+    (proc@,16 freeDeferredObjects@5 . . .
+     (params@O
+      (param@1 a . .
+       (mut@3 MemRegion@4).)). . .
+     (stmts@2,4
+      (for@4
+       (infix@6 \2E\2E 0~1 MaxSteps@2)
+       (unpackflat
+        (let _ . . ..))
+       (stmts~2,1
+        (let@4 it . . .
+         (call@a takeFromSharedFreeListBigChunks~V a@1))
+        (if@,1
+         (elif@3
+          (infix@3 == it~3
+           (nil@3))
+          (stmts@B
+           (break .))))
+        (call@F,2 deallocBigChunk~F a@1 it@4))))))))
+ (when@,Dx
+  (elif@5
+   (call@7 defined~7 heaptrack@1)
+   (stmts~3,1
+    (const@6 heaptrackLib . . .
+     (when~4,1
+      (elif@5
+       (call@7 defined~7 heaptrack_inject@1)
+       (stmts~3,1 "libheaptrack_inject.so"))
+      (else@,2
+       (stmts@2,1 "libheaptrack_preload.so"))))
+    (proc@,5 heaptrack_malloc@5 . . .
+     (params@L
+      (param@1 a . . pointer@3 .)
+      (param@D size . . int@6 .)).
+     (pragmas@j cdecl@2 importc@9
+      (kv@O dynlib~6 heaptrackLib@2)). .)
+    (proc@,6 heaptrack_free@5 . . .
+     (params@J
+      (param@1 a . . pointer@3 .)).
+     (pragmas@W cdecl@2 importc@9
+      (kv@O dynlib~6 heaptrackLib@2)). .))))
+ (proc@,E6 smallChunkAlignOffset@5 . . .
+  (params@Q
+   (param@1 alignment . . int@B .))int@I
+  (pragmas@m inline@2).
+  (stmts@2,1
+   (comment)
+   (if@,2
+    (elif@3
+     (infix@A <= alignment~A MemAlign@3)
+     (stmts~1,1
+      (asgn@7 result~7 0@2)))
+    (else@,2
+     (stmts@2,1
+      (asgn@7 result~7
+       (infix@N,1 \2D
+        (infix@b,~1 \2D
+         (call~r align~5
+          (infix@M \2B
+           (call~3 smallChunkOverhead~I)
+           (call@8 sizeof~6 FreeCell@1))alignment@g)
+         (call~e,1 smallChunkOverhead~I))
+        (call@8 sizeof~6 FreeCell@1))))))))
+ (proc@,EF bigChunkAlignOffset@5 . . .
+  (params@O
+   (param@1 alignment . . int@B .))int@I
+  (pragmas@k inline@2).
+  (stmts@2,1
+   (comment)
+   (if@,1
+    (elif@3
+     (infix@A == alignment~A 0@3)
+     (stmts~1,1
+      (asgn@7 result~7 0@2)))
+    (else@,2
+     (stmts@2,1
+      (asgn@7 result~7
+       (infix@1D \2D
+        (infix~J \2D
+         (call~n align~5
+          (infix@I \2B
+           (call~B sizeof~6 BigChunk@1)
+           (call@8 sizeof~6 FreeCell@1))alignment@c)
+         (call@8 sizeof~6 BigChunk@1))
+        (call@8 sizeof~6 FreeCell@1))))))))
+ (proc@,EM rawAlloc@5 . . .
+  (params@D
+   (param@1 a . .
+    (mut@3 MemRegion@4).)
+   (param@J requestedSize . . int@F .)
+   (param@d alignment . . int@B 0@H))pointer@y . .
+  (stmts@2,1
+   (when
+    (elif@5
+     (call@7 defined~7 nimTypeNames@1)
+     (stmts~3,1
+      (call@3 inc~3
+       (dot@2 a~1 allocCounter@1)))))
+   (call@9,2 sysAssert~9
+    (call@9 allocInv~8 a@1)"rawAlloc\3A begin"@E)
+   (call@9,3 sysAssert~9
+    (infix@G ==
+     (call~8 roundup~7 65@1 8@5)72@3)"rawAlloc\3A roundup broken"@N)
+   (var@4,4 size . . .
+    (call@E roundup~7 requestedSize@1
+     (call@J max~3 MemAlign@1 alignment@B)))
+   (let@4,5 alignOff . . .
+    (call@W smallChunkAlignOffset~L alignment@1))
+   (call@9,6 sysAssert~9
+    (infix@6 >= size~5
+     (call@9 sizeof~6 FreeCell@1))"rawAlloc\3A requested size too small"@R)
+   (call@9,7 sysAssert~9
+    (infix@6 >= size~5 requestedSize@3)"insufficient allocated size!"@O)
+   (if@,A
+    (elif@3
+     (infix@G <=
+      (infix~B \2B size~5 alignOff@2)
+      (infix@H \2D SmallChunkSize~E
+       (call@J smallChunkOverhead~I)))
+     (stmts~1,1
+      (template fetchSharedCells@9 . . .
+       (params@P
+        (param@1 tc . . PSmallChunk@4 .)).
+       (pragmas@h untyped@2).
+       (stmts@2,2
+        (when
+         (elif@5 UseDestructors
+          (stmts~3,1
+           (if
+            (elif@3
+             (infix@C ==
+              (dot~A tc~2 freeList@1)
+              (nil@3))
+             (stmts~1,1
+              (when
+               (elif@5 hasThreadSupport
+                (stmts~3,2
+                 (asgn@C
+                  (dot~A tc~2 freeList@1)
+                  (call@H atomicExchangeN~F
+                   (cmd@6 addr~5
+                    (at@H
+                     (dot~G a~1 sharedFreeLists@1)s@1))
+                   (nil@S)ATOMIC_RELAXED@X))))
+               (else@,3
+                (stmts@2,1
+                 (asgn@C
+                  (dot~A tc~2 freeList@1)
+                  (at@J
+                   (dot~G a~1 sharedFreeLists@1)s@1))
+                 (asgn@L,1
+                  (at~4
+                   (dot~G a~1 sharedFreeLists@1)s@1)
+                  (nil@2)))))
+              (call@I,8 compensateCounters~I a@1 tc@4 size@8)))))))))
+      (let@4,F s . . .
+       (infix@9 shr size~5 MemAlignShift@4))
+      (var@4,G c . . .
+       (at@L
+        (dot~G a~1 freeSmallChunks@1)s@1))
+      (if@,H
+       (elif@3
+        (infix@9 and
+         (infix~7 != c~2
+          (nil@3))
+         (infix@K !=
+          (dot~F c~1 chunkAlignOff@1)
+          (dot@B alignOff~8 int32@1)))
+        (stmts~1,1
+         (asgn@2 c~2
+          (nil@2)))))
+      (if@,J
+       (elif@3
+        (infix@2 == c~2
+         (nil@3))
+        (stmts~1,2
+         (asgn@2 c~2
+          (call@F getSmallChunk~D a@1))
+         (asgn@B,2
+          (dot~A c~1 freeList@1)
+          (nil@2))
+         (asgn@F,3
+          (dot~E c~1 foreignCells@1)0@2)
+         (asgn@G,4
+          (dot~F c~1 chunkAlignOff@1)
+          (dot@A alignOff~8 int32@1))
+         (cmd@,5 sysAssert
+          (infix@H ==
+           (dot~6 c~1 size@1)PageSize@3)"rawAlloc 3"@U)
+         (asgn@7,6
+          (dot~6 c~1 size@1)size@2)
+         (asgn@6,7
+          (dot~5 c~1 acc@1)
+          (dot@J
+           (par~H
+            (infix@A \2B alignOff~9 size@2))uint32@1))
+         (asgn@7,8
+          (dot~6 c~1 free@1)
+          (call@7 int32~5
+           (infix@o \2D
+            (infix~B \2D
+             (infix~N \2D SmallChunkSize~F
+              (call@K smallChunkOverhead~I))alignOff@2)size@2)))
+         (cmd@,9 sysAssert
+          (infix@I ==
+           (dot~7 c~1 owner@1)
+           (call@7 addr~4 a@1))"rawAlloc\3A No owner set!"@U)
+         (asgn@7,A
+          (dot~6 c~1 next@1)
+          (nil@2))
+         (asgn@7,B
+          (dot~6 c~1 prev@1)
+          (nil@2))
+         (call@G,E fetchSharedCells~G c@1)
+         (if@,F
+          (elif@3
+           (infix@7 >=
+            (dot~6 c~1 free@1)size@3)
+           (stmts~1,3
+            (call@7 listAdd~7
+             (at@I
+              (dot~G a~1 freeSmallChunks@1)s@1)c@N))))
+         (asgn@7,J result~7
+          (infix@F \2B!
+           (call~9 addr~4
+            (dot@2 c~1 data@1))alignOff@3))
+         (call@9,K sysAssert~9
+          (infix@c ==
+           (par~b
+            (infix@J and
+             (cast~I int@5 result@A)
+             (par@4
+              (infix@9 \2D MemAlign~8 1@1))))0@3)"rawAlloc 4"@i)))
+       (else@,N
+        (stmts@2,2
+         (call@9 sysAssert~9
+          (call@9 allocInv~8 a@1)"rawAlloc\3A begin c != nil"@E)
+         (cmd@,1 sysAssert
+          (infix@H !=
+           (dot~6 c~1 next@1)c@3)"rawAlloc 5"@N)
+         (cmd@,4 sysAssert
+          (infix@H ==
+           (dot~6 c~1 size@1)size@3)"rawAlloc 6"@Q)
+         (if@,5
+          (elif@3
+           (infix@B ==
+            (dot~A c~1 freeList@1)
+            (nil@3))
+           (stmts~1,1
+            (call@9 sysAssert~9
+             (infix@f <=
+              (infix~7 \2B
+               (infix~N \2B
+                (dot~5
+                 (dot~4 c~1 acc@1)int@1)
+                (call@K smallChunkOverhead~I))size@2)SmallChunkSize@3)"rawAlloc 7"@1,1)
+            (asgn@7,2 result~7
+             (cast@2 pointer@5
+              (infix@c \2B%
+               (cast~O int@5
+                (call@E addr~4
+                 (dot@2 c~1 data@1)))
+               (dot@8
+                (dot~4 c~1 acc@1)int@1))))
+            (asgn@6,3
+             (dot~5 c~1 acc@1)
+             (infix@8 \2B
+              (dot~5 c~1 acc@1)
+              (call@8 uint32~6 size@1)))))
+          (else@,5
+           (stmts@2,2
+            (asgn@7 result~7
+             (dot@3 c~1 freeList@1))
+            (when@,1
+             (elif@5
+              (prefix not UseDestructors@4)
+              (stmts~3,1
+               (call@C withFreeCell~C
+                (dot@2 c~1 freeList@1)
+                (stmts~A,1
+                 (call@9 sysAssert~9
+                  (infix@M ==
+                   (dot~B
+                    (dot~9 c~1 freeList@1)zeroField@1)0@3)"rawAlloc 8"@S))))))
+            (call@C,4 withFreeCell~C
+             (dot@2 c~1 freeList@1)
+             (stmts~A,1
+              (asgn@B
+               (dot~A c~1 freeList@1)
+               (dot@C
+                (dot~9 c~1 freeList@1)next@1))))
+            (if@,6
+             (elif@3
+              (infix@a !=
+               (cast~a PSmallChunk@5
+                (call@Q pageAddr~8 result@1))c@3)
+              (stmts~1,2
+               (asgn@F
+                (dot~E c~1 foreignCells@1)
+                (infix@H \2D
+                 (dot~E c~1 foreignCells@1)
+                 (suf@2 1 "i32")))))
+             (else@,3
+              (stmts@2,1
+               (call@9 sysAssert~9
+                (infix@3 == c~2
+                 (cast@3 PSmallChunk@5
+                  (call@Q pageAddr~8 result@1)))"rawAlloc\3A Bad cell"@h)))))))
+         (asgn@7,R
+          (dot~6 c~1 free@1)
+          (infix@9 \2D
+           (dot~6 c~1 free@1)
+           (call@7 int32~5 size@1)))
+         (call@9,S sysAssert~9
+          (infix@c ==
+           (par~b
+            (infix@J and
+             (cast~I int@5 result@A)
+             (par@4
+              (infix@9 \2D MemAlign~8 1@1))))0@3)"rawAlloc 9"@i)
+         (call@9,T sysAssert~9
+          (call@9 allocInv~8 a@1)"rawAlloc\3A end c != nil"@E)
+         (call@G,X fetchSharedCells~G c@1)
+         (call@9,Y sysAssert~9
+          (call@9 allocInv~8 a@1)"rawAlloc\3A before c.free < size"@E)
+         (if@,Z
+          (elif@3
+           (infix@7 <
+            (dot~6 c~1 free@1)size@2)
+           (stmts~1,2
+            (call@9 sysAssert~9
+             (call@9 allocInv~8 a@1)"rawAlloc\3A before listRemove test"@E)
+            (call@A,1 listRemove~A
+             (at@I
+              (dot~G a~1 freeSmallChunks@1)s@1)c@N)
+            (call@9,2 sysAssert~9
+             (call@9 allocInv~8 a@1)"rawAlloc\3A end listRemove test"@E)))))))
+      (call@9,1M sysAssert~9
+       (infix@7,1 ==
+        (infix@18,~1 %%
+         (par~1E
+          (infix@v \2D
+           (infix~N \2D
+            (par~X
+             (infix@J and
+              (cast~I int@5 result@A)PageMask@4))
+            (call@K smallChunkOverhead~I))
+           (dot@3 c~1 chunkAlignOff@1)))size~1D,1)0@3)"rawAlloc 21"@D,1)
+      (call@9,1O sysAssert~9
+       (call@9 allocInv~8 a@1)"rawAlloc\3A end small size"@E)
+      (cmd@,1P inc
+       (dot@5 a~1 occ@1)size@B)
+      (call@9,1Q trackSize~9
+       (dot@2 c~1 size@1))))
+    (else@,1S
+     (stmts@2,1
+      (when
+       (elif@5 UseDestructors
+        (stmts~3,1
+         (call@J freeDeferredObjects~J a@1))))
+      (let@4,6 alignPad . . .
+       (call@U bigChunkAlignOffset~J alignment@1))
+      (asgn@5,7 size~5
+       (infix@b \2B
+        (infix~L \2B requestedSize~E
+         (call@I bigChunkOverhead~G))alignPad@2))
+      (var@4,9 c . . .
+       (if@4
+        (elif@3
+         (infix@5 >= size~5 HugeChunkSize@3)
+         (stmts@N
+          (call@C getHugeChunk~C a@1 size@4)))
+        (else@,1
+         (stmts@6
+          (call@B getBigChunk~B a@1 size@4)))))
+      (cmd@,B sysAssert
+       (infix@H ==
+        (dot~6 c~1 prev@1)
+        (nil@3))"rawAlloc 10"@P)
+      (cmd@,C sysAssert
+       (infix@H ==
+        (dot~6 c~1 next@1)
+        (nil@3))"rawAlloc 11"@P)
+      (asgn@7,D result~7
+       (infix@F \2B!
+        (call~9 addr~4
+         (dot@2 c~1 data@1))alignPad@3))
+      (asgn@7,G
+       (dot~6 c~1 prev@1)
+       (cast@2 PBigChunk@5 result@G))
+      (call@9,I sysAssert~9
+       (infix@X ==
+        (par~W
+         (infix@E and
+          (cast~D int@5 c@A)
+          (par@4
+           (infix@9 \2D MemAlign~8 1@1))))0@3)"rawAlloc 13"@d)
+      (call@9,J sysAssert~9
+       (infix@T ==
+        (par~S
+         (infix@E and
+          (cast~D int@5 c@A)PageMask@4))0@3)"rawAlloc\3A Not aligned on a page boundary"@Z)
+      (when@,K
+       (elif@5
+        (prefix not UseDestructors@4)
+        (stmts~3,1
+         (if
+          (elif@3
+           (infix@7 ==
+            (dot~6 a~1 root@1)
+            (nil@3))
+           (stmts@F
+            (asgn@7
+             (dot~6 a~1 root@1)
+             (call@B getBottom~9 a@1)))))
+         (call@3,1 add~3 a@1
+          (dot@5 a~1 root@1)
+          (cast@C int@5 result@A)
+          (infix@m \2B%
+           (cast~H int@5 result@A)size@2)))))
+      (cmd@,N inc
+       (dot@5 a~1 occ@1)
+       (dot@C c~1 size@1))
+      (call@9,O trackSize~9
+       (dot@2 c~1 size@1)))))
+   (call@9,22 sysAssert~9
+    (call@D isAccessible~C a@1 result@4)"rawAlloc 14"@Q)
+   (call@9,23 sysAssert~9
+    (call@9 allocInv~8 a@1)"rawAlloc\3A end"@E)
+   (when@,24
+    (elif@5 logAlloc
+     (stmts@A
+      (call@7 cprintf~7 "var pointer_%p = alloc\28%ld\29 \23 %p\0A"@1 result@d requestedSize@l
+       (cmd@15 addr~5 a)))))
+   (when@,25
+    (elif@5
+     (call@7 defined~7 heaptrack@1)
+     (stmts~3,1
+      (call@G heaptrack_malloc~G result@1 requestedSize@9))))
+   (when@,2O
+    (elif@5 vgTracking
+     (stmts~3,1
+      (block .
+       (stmts@2,1
+        (let@4 vgChunk . . .
+         (call@I pageAddr~8 result@1))
+        (var@4,1 vgUsable . . .
+         (dot@I vgChunk~7 size@1))
+        (if@,2
+         (elif@3
+          (prefix not
+           (call@G isSmallChunk~C vgChunk@1))
+          (stmts@R
+           (asgn@9 vgUsable~9
+            (infix@B \2D% vgUsable~9
+             (call@J bigChunkOverhead~G))))))
+        (call@C,3 vgMallocLike~C result@1 vgUsable@9 0@J false@M))))))))
+ (proc@,Gs rawAlloc0@5 . . .
+  (params@E
+   (param@1 a . .
+    (mut@3 MemRegion@4).)
+   (param@J requestedSize . . int@F .))pointer@e . .
+  (stmts@2,1
+   (asgn@7 result~7
+    (call@A rawAlloc~8 a@1 requestedSize@4))
+   (call@7,1 zeroMem~7 result@1 requestedSize@9)))
+ (proc@,Gw rawDealloc@5 . . .
+  (params@F
+   (param@1 a . .
+    (mut@3 MemRegion@4).)
+   (param@J p . . pointer@3 .)). . .
+  (stmts@2,1
+   (when
+    (elif@5
+     (call@7 defined~7 nimTypeNames@1)
+     (stmts~3,1
+      (call@3 inc~3
+       (dot@2 a~1 deallocCounter@1)))))
+   (when@,2
+    (elif@5
+     (call@7 defined~7 heaptrack@1)
+     (stmts~3,1
+      (call@E heaptrack_free~E p@1))))
+   (call@A,8 vgFreeLike~A p@1 0@4)
+   (call@9,A sysAssert~9
+    (call@9 allocInv~8 a@1)"rawDealloc\3A begin"@E)
+   (var@4,B c . . .
+    (call@C pageAddr~8 p@1))
+   (call@9,C sysAssert~9
+    (infix@3 != c~2
+     (nil@3))"rawDealloc\3A begin"@B)
+   (if@,D
+    (elif@3
+     (call@C isSmallChunk~C c@1)
+     (stmts~1,2
+      (var@4 c . . .
+       (cast@4 PSmallChunk@5 c@I))
+      (let@4,1 s . . .
+       (dot@5 c~1 size@1))
+      (var@4,4 f . . .
+       (cast@4
+        (ptr@5 FreeCell@4)p@J))
+      (if@,5
+       (elif@3
+        (infix@8 ==
+         (dot~7 c~1 owner@1)
+         (call@7 addr~4 a@1))
+        (stmts~1,2
+         (cmd dec
+          (dot@5 a~1 occ@1)s@B)
+         (call@B,1 untrackSize~B s@1)
+         (cmd@,2 sysAssert
+          (infix@G >=
+           (dot~5 a~1 occ@1)0@3)"rawDealloc\3A negative occupied memory \28case A\29"@M)
+         (call@9,3 sysAssert~9
+          (infix@3,1 ==
+           (infix@17,~1 %%
+            (par~19
+             (infix@q \2D
+              (infix~N \2D
+               (par~S
+                (infix@E and
+                 (cast~D int@5 p@A)PageMask@4))
+               (call@K smallChunkOverhead~I))
+              (dot@3 c~1 chunkAlignOff@1)))s~19,1)0@3)"rawDealloc 3"@9,1)
+         (when@,5
+          (elif@5
+           (prefix not UseDestructors@4)
+           (stmts~3,2
+            (call@C withFreeCell~C f@1
+             (stmts~A,1
+              (call@9 sysAssert~9
+               (infix@D !=
+                (dot~B f~1 zeroField@1)0@3)"rawDealloc 1"@J)
+              (asgn@C,1
+               (dot~B f~1 zeroField@1)0@2))))))
+         (when@,A
+          (elif@5 overwriteFree
+           (stmts~3,2
+            (call@9 nimSetMem~9
+             (cast@1 pointer@5
+              (infix@R \2B%
+               (cast~D int@5 p@A)
+               (call@9 sizeof~6 FreeCell@1)))
+             (suf@o -1 "i32")
+             (infix@1,1 \2D% s~2
+              (call@9 sizeof~6 FreeCell@1))))))
+         (let@4,E activeChunk . . .
+          (at@V
+           (dot~G a~1 freeSmallChunks@1)
+           (infix@3 shr s~2 MemAlignShift@4)))
+         (if@,F
+          (elif@3
+           (infix@e and
+            (infix~L and
+             (infix~7 != activeChunk~C
+              (nil@3))
+             (infix@6 != c~2 activeChunk@3))
+            (infix~D,1 ==
+             (dot~F activeChunk~B chunkAlignOff@1)
+             (dot@4 c~1 chunkAlignOff@1)))
+           (stmts~1,7
+            (call@C withFreeCell~C f@1
+             (stmts~A,1
+              (asgn@7
+               (dot~6 f~1 next@1)
+               (dot@D activeChunk~B freeList@1))))
+            (asgn@L,2
+             (dot~A activeChunk~B freeList@1)f@2)
+            (asgn@H,3
+             (dot~6 activeChunk~B free@1)
+             (infix@J \2B
+              (dot~6 activeChunk~B free@1)
+              (call@7 int32~5 s@1)))
+            (asgn@P,4
+             (dot~E activeChunk~B foreignCells@1)
+             (infix@R \2B
+              (dot~E activeChunk~B foreignCells@1)
+              (suf@2 1 "i32")))))
+          (else@,C
+           (stmts@2,1
+            (call@C withFreeCell~C f@1
+             (stmts~A,1
+              (asgn@7
+               (dot~6 f~1 next@1)
+               (dot@3 c~1 freeList@1))))
+            (asgn@B,2
+             (dot~A c~1 freeList@1)f@2)
+            (if@,3
+             (elif@3
+              (infix@7 <
+               (dot~6 c~1 free@1)s@2)
+              (stmts~1,2
+               (call@7 listAdd~7
+                (at@I
+                 (dot~G a~1 freeSmallChunks@1)
+                 (infix@3 shr s~2 MemAlignShift@4))c@f)
+               (asgn@7,1
+                (dot~6 c~1 free@1)
+                (infix@9 \2B
+                 (dot~6 c~1 free@1)
+                 (call@7 int32~5 s@1)))))
+             (else@,4
+              (stmts@2,1
+               (asgn@7
+                (dot~6 c~1 free@1)
+                (infix@9 \2B
+                 (dot~6 c~1 free@1)
+                 (call@7 int32~5 s@1)))
+               (call@9,I sysAssert~9
+                (infix@8 >=
+                 (dot~6 c~1 free@1)s@3)"Invariant violated\3A chunk in freeSmallChunks has insufficient space"@E)
+               (when@,J
+                (elif@5 false
+                 (stmts~3,1
+                  (if
+                   (elif@3
+                    (infix@k and
+                     (infix~d ==
+                      (dot~6 c~1 free@1)
+                      (infix@H \2D SmallChunkSize~E
+                       (call@J smallChunkOverhead~I)))
+                     (infix@J ==
+                      (dot~E c~1 foreignCells@1)0@3))
+                    (stmts~1,1
+                     (call@A listRemove~A
+                      (at@I
+                       (dot~G a~1 freeSmallChunks@1)
+                       (infix@3 shr s~2 MemAlignShift@4))c@f)
+                     (asgn@7,1
+                      (dot~6 c~1 size@1)SmallChunkSize@2)
+                     (call@C,2 freeBigChunk~C a@1
+                      (cast@4 PBigChunk@5 c@G))))))))))))))))
+       (else@,10
+        (stmts@2,1
+         (when
+          (elif@5 logAlloc
+           (stmts@A
+            (call@7 cprintf~7 "dealloc\28pointer_%p\29 \23 SMALL FROM %p CALLER %p\0A"@1 p@q
+             (dot@u c~1 owner@1)
+             (call@16 addr~4 a@1)))))
+         (when@,2
+          (elif@5 UseDestructors
+           (stmts~3,1
+            (call@J addToSharedFreeList~J c@1 f@4
+             (infix@9 shr s~2 MemAlignShift@4))))))))
+      (call@9,1A sysAssert~9
+       (infix@4,1 ==
+        (infix@16,~1 %%
+         (par~19
+          (infix@q \2D
+           (infix~N \2D
+            (par~S
+             (infix@E and
+              (cast~D int@5 p@A)PageMask@4))
+            (call@K smallChunkOverhead~I))
+           (dot@3 c~1 chunkAlignOff@1)))s~18,1)0@3)"rawDealloc 2"@A,1)))
+    (else@,1E
+     (stmts@2,2
+      (when
+       (elif@5 overwriteFree
+        (stmts@F
+         (call@9 nimSetMem~9 p@1
+          (suf@4 -1 "i32")
+          (infix@J \2D%
+           (dot~6 c~1 size@1)
+           (call@J bigChunkOverhead~G))))))
+      (when@,1
+       (elif@5 logAlloc
+        (stmts@A
+         (call@7 cprintf~7 "dealloc\28pointer_%p\29 \23 BIG %p\0A"@1 p@Z
+          (dot@d c~1 owner@1)))))
+      (call@G,U vgMakeMemDefined~G c@1
+       (dot@5 c~1 size@1))
+      (when@,V
+       (elif@5 UseDestructors
+        (stmts~3,1
+         (if
+          (elif@3
+           (infix@8 ==
+            (dot~7 c~1 owner@1)
+            (call@7 addr~4 a@1))
+           (stmts~1,1
+            (call@F deallocBigChunk~F a@1
+             (cast@4 PBigChunk@5 c@G))))
+          (else@,2
+           (stmts@2,1
+            (call@S addToSharedFreeListBigChunks~S
+             (dot@2 c~1 owner@1)
+             (cast@A PBigChunk@5 c@G)))))))
+       (else@,5
+        (stmts@2,1
+         (call@F deallocBigChunk~F a@1
+          (cast@4 PBigChunk@5 c@G))))))))
+   (call@9,26 sysAssert~9
+    (call@9 allocInv~8 a@1)"rawDealloc\3A end"@E)))
+ (when@,J6
+  (elif@5
+   (prefix not UseDestructors@4)
+   (stmts~3,1
+    (proc isAllocatedPtr@5 . . .
+     (params@J
+      (param@1 a . . MemRegion@3 .)
+      (param@F p . . pointer@3 .))bool@S . .
+     (stmts@2,1
+      (if
+       (elif@3
+        (call@C isAccessible~C a@1 p@4)
+        (stmts~1,1
+         (var@4 c . . .
+          (call@C pageAddr~8 p@1))
+         (if@,1
+          (elif@3
+           (prefix not
+            (call@F chunkUnused~B c@1))
+           (stmts~1,1
+            (if
+             (elif@3
+              (call@C isSmallChunk~C c@1)
+              (stmts~1,1
+               (var@4 c . . .
+                (cast@4 PSmallChunk@5 c@I))
+               (var@4,1 offset . . .
+                (infix@f \2D%
+                 (par~W
+                  (infix@E and
+                   (cast~D int@5 p@A)
+                   (par@4
+                    (infix@9 \2D PageSize~8 1@1))))
+                 (call~F,1 smallChunkOverhead~I)))
+               (if@,3
+                (elif@3
+                 (infix@A >%
+                  (dot~5
+                   (dot~4 c~1 acc@1)int@1)offset@3)
+                 (stmts~1,1
+                  (let@4 ao . . .
+                   (dot@K
+                    (dot~E c~1 chunkAlignOff@1)int@1))
+                  (asgn@7,1 result~7
+                   (infix@R,1 and
+                    (infix~A,~1 and
+                     (par~F
+                      (infix@8 >= offset~7 ao@3))
+                     (par~M,1
+                      (infix@Q ==
+                       (infix~A %%
+                        (par~F
+                         (infix@8 \2D% offset~7 ao@3))
+                        (dot@4 c~1 size@1))0@3)))
+                    (par~W,1
+                     (infix@X >%
+                      (dot~B
+                       (cast~L
+                        (ptr@5 FreeCell@4)p@J)zeroField@1)1@3)))))))))
+             (else@,9
+              (stmts@2,1
+               (var@4 c . . .
+                (cast@4 PBigChunk@5 c@G))
+               (let@4,2 cellPtr . . .
+                (cast@A pointer@5
+                 (dot@F c~1 prev@1)))
+               (asgn@7,3 result~7
+                (infix@F and
+                 (infix~B == p~2 cellPtr@3)
+                 (infix@a >%
+                  (dot~B
+                   (cast~L
+                    (ptr@5 FreeCell@4)p@J)zeroField@1)1@3))))))))))))))
+    (proc@,J prepareForInteriorPointerChecking@5 . . .
+     (params@c
+      (param@1 a . .
+       (mut@3 MemRegion@4).)).
+     (pragmas@v inline@2).
+     (stmts@2,1
+      (asgn@E
+       (dot~D a~1 minLargeObj@1)
+       (call@A lowGauge~8
+        (dot@2 a~1 root@1)))
+      (asgn@E,1
+       (dot~D a~1 maxLargeObj@1)
+       (call@B highGauge~9
+        (dot@2 a~1 root@1)))))
+    (proc@,N interiorAllocatedPtr@5 . . .
+     (params@P
+      (param@1 a . . MemRegion@3 .)
+      (param@F p . . pointer@3 .))pointer@S . .
+     (stmts@2,1
+      (if
+       (elif@3
+        (call@C isAccessible~C a@1 p@4)
+        (stmts~1,1
+         (var@4 c . . .
+          (call@C pageAddr~8 p@1))
+         (if@,1
+          (elif@3
+           (prefix not
+            (call@F chunkUnused~B c@1))
+           (stmts~1,1
+            (if
+             (elif@3
+              (call@C isSmallChunk~C c@1)
+              (stmts~1,1
+               (var@4 c . . .
+                (cast@4 PSmallChunk@5 c@I))
+               (var@4,1 offset . . .
+                (infix@f \2D%
+                 (par~W
+                  (infix@E and
+                   (cast~D int@5 p@A)
+                   (par@4
+                    (infix@9 \2D PageSize~8 1@1))))
+                 (call~F,1 smallChunkOverhead~I)))
+               (let@4,3 ao . . .
+                (dot@K
+                 (dot~E c~1 chunkAlignOff@1)int@1))
+               (if@,4
+                (elif@3
+                 (infix@K and
+                  (infix~A >%
+                   (dot~5
+                    (dot~4 c~1 acc@1)int@1)offset@3)
+                  (infix@B >= offset~7 ao@3))
+                 (stmts~1,1
+                  (call@9 sysAssert~9
+                   (infix@Z ==
+                    (infix~A \2B%
+                     (cast~O int@5
+                      (call@E addr~4
+                       (dot@2 c~1 data@1)))offset@3)
+                    (cast~Y,1 int@5 p@A))"offset is not what you think it is"@F,1)
+                  (var@4,2 d . . .
+                   (cast@4
+                    (ptr@5 FreeCell@4)
+                    (infix@5,1 \2B%
+                     (infix@c,~1 \2B%
+                      (cast~O int@5
+                       (call@E addr~4
+                        (dot@2 c~1 data@1)))ao~f,1)
+                     (par@3
+                      (infix@G \2D%
+                       (par~F
+                        (infix@8 \2D% offset~7 ao@3))
+                       (par@3
+                        (infix@G %%
+                         (par~F
+                          (infix@8 \2D% offset~7 ao@3))
+                         (dot@4 c~1 size@1))))))))
+                  (if@,4
+                   (elif@3
+                    (infix@C >%
+                     (dot~B d~1 zeroField@1)1@3)
+                    (stmts~1,1
+                     (asgn@7 result~7 d@2)
+                     (cmd@,1 sysAssert
+                      (call@O isAllocatedPtr~E a@1 result@4)" result wrong pointer!"@b)))))))))
+             (else@,D
+              (stmts@2,1
+               (var@4 c . . .
+                (cast@4 PBigChunk@5 c@G))
+               (var@4,2 d . . .
+                (cast@4 pointer@5
+                 (dot@F c~1 prev@1)))
+               (if@,3
+                (elif@3
+                 (infix@7 and
+                  (infix~5 >= p~2 d@3)
+                  (infix@a >%
+                   (dot~B
+                    (cast~L
+                     (ptr@5 FreeCell@4)d@J)zeroField@1)1@3))
+                 (stmts~1,1
+                  (asgn@7 result~7 d@2)
+                  (cmd@,1 sysAssert
+                   (call@O isAllocatedPtr~E a@1 result@4)" result wrong pointer!"@b))))))))))))
+       (else@,N
+        (stmts@2,1
+         (var@4 q . . .
+          (cast@4 int@5 p@A))
+         (if@,1
+          (elif@3
+           (infix@K and
+            (infix~I >=% q~2
+             (dot@5 a~1 minLargeObj@1))
+            (infix@6 <=% q~2
+             (dot@5 a~1 maxLargeObj@1)))
+           (stmts~1,3
+            (var@4 avlNode . . .
+             (call@H inRange~7
+              (dot@2 a~1 root@1)q@9))
+            (if@,1
+             (elif@3
+              (infix@8 != avlNode~8
+               (nil@3))
+              (stmts~1,1
+               (var@4 k . . .
+                (cast@4 pointer@5
+                 (dot@L avlNode~7 key@1)))
+               (var@4,1 c . . .
+                (cast@4 PBigChunk@5
+                 (call@O pageAddr~8 k@1)))
+               (call@9,3 sysAssert~9
+                (infix@N ==
+                 (cast~M pointer@5
+                  (dot@F c~1 prev@1))k@3)" k is not the aligned address!"@T)
+               (if@,4
+                (elif@3
+                 (infix@W >%
+                  (dot~B
+                   (cast~L
+                    (ptr@5 FreeCell@4)k@J)zeroField@1)1@3)
+                 (stmts~1,1
+                  (asgn@7 result~7 k@2)
+                  (cmd@,1 sysAssert
+                   (call@O isAllocatedPtr~E a@1 result@4)" result wrong pointer!"@b))))))))))))))))))
+ (proc@,K7 ptrSize@5 . . .
+  (params@C
+   (param@1 p . . pointer@3 .))int@E . .
+  (stmts@2,1
+   (when
+    (elif@5
+     (prefix not UseDestructors@4)
+     (stmts~3,1
+      (var@4 x . . .
+       (cast@4 pointer@5
+        (infix@R \2D%
+         (cast~D int@5 p@A)
+         (call@9 sizeof~6 FreeCell@1))))
+      (var@4,1 c . . .
+       (call@C pageAddr~8 p@1))
+      (call@9,2 sysAssert~9
+       (prefix@1 not
+        (call@F chunkUnused~B c@1))"ptrSize"@L)
+      (asgn@7,3 result~7
+       (infix@9 \2D%
+        (dot~6 c~1 size@1)
+        (call@9 sizeof~6 FreeCell@1)))
+      (if@,4
+       (elif@3
+        (prefix not
+         (call@G isSmallChunk~C c@1))
+        (stmts~1,1
+         (cmd dec result@4
+          (call@S bigChunkOverhead~G)))))))
+    (else@,7
+     (stmts@2,1
+      (var@4 c . . .
+       (call@C pageAddr~8 p@1))
+      (call@9,1 sysAssert~9
+       (prefix@1 not
+        (call@F chunkUnused~B c@1))"ptrSize"@L)
+      (asgn@7,2 result~7
+       (dot@3 c~1 size@1))
+      (if@,3
+       (elif@3
+        (prefix not
+         (call@G isSmallChunk~C c@1))
+        (stmts~1,1
+         (cmd dec result@4
+          (call@S bigChunkOverhead~G))))))))))
+ (proc@,KM alloc@5 . . .
+  (params@A
+   (param@1 allocator . .
+    (mut@B MemRegion@4).)
+   (param@R size . . Natural@6 .))pointer@h
+  (pragmas@z inline@2 gcsafe@A).
+  (stmts@2,1
+   (when
+    (elif@5
+     (prefix not UseDestructors@4)
+     (stmts~3,1
+      (asgn@7 result~7
+       (call@A rawAlloc~8 allocator@1
+        (infix@G \2B size~4
+         (call@7 sizeof~6 FreeCell@1))))
+      (asgn@b,1
+       (dot~B
+        (cast~Q
+         (ptr@5 FreeCell@4)result@J)zeroField@1)1@2)
+      (call@9,2 sysAssert~9
+       (prefix@1 not
+        (call@I isAllocatedPtr~E allocator@1 result@C))"alloc"@e)
+      (asgn@7,3 result~7
+       (cast@2 pointer@5
+        (infix@W \2B%
+         (cast~I int@5 result@A)
+         (call@9 sizeof~6 FreeCell@1))))
+      (call@5,4 track~5 "alloc"@1 result@A size@I)))
+    (else@,6
+     (stmts@2,1
+      (asgn@7 result~7
+       (call@A rawAlloc~8 allocator@1 size@C)))))))
+ (proc@,KW alloc0@5 . . .
+  (params@B
+   (param@1 allocator . .
+    (mut@B MemRegion@4).)
+   (param@R size . . Natural@6 .))pointer@h . .
+  (stmts@2,1
+   (asgn@7 result~7
+    (call@7 alloc~5 allocator@1 size@C))
+   (call@7,1 zeroMem~7 result@1 size@9)))
+ (proc@,Ka dealloc@5 . . .
+  (params@C
+   (param@1 allocator . .
+    (mut@B MemRegion@4).)
+   (param@R p . . pointer@3 .)).
+  (pragmas@p inline@2).
+  (stmts@2,1
+   (when
+    (elif@5
+     (prefix not UseDestructors@4)
+     (stmts~3,1
+      (call@9 sysAssert~9
+       (infix@3 != p~2
+        (nil@3))"dealloc\3A p is nil"@B)
+      (var@4,1 x . . .
+       (cast@4 pointer@5
+        (infix@R \2D%
+         (cast~D int@5 p@A)
+         (call@9 sizeof~6 FreeCell@1))))
+      (call@9,2 sysAssert~9
+       (infix@3 != x~2
+        (nil@3))"dealloc\3A x is nil"@B)
+      (call@9,3 sysAssert~9
+       (call@D isAccessible~C allocator@1 x@C)"is not accessible"@T)
+      (call@9,4 sysAssert~9
+       (infix@X ==
+        (dot~B
+         (cast~L
+          (ptr@5 FreeCell@4)x@J)zeroField@1)1@3)"dealloc\3A object header corrupted"@d)
+      (call@A,5 rawDealloc~A allocator@1 x@C)
+      (call@9,6 sysAssert~9
+       (prefix@1 not
+        (call@I isAllocatedPtr~E allocator@1 x@C))"dealloc\3A object still accessible"@Z)
+      (call@5,7 track~5 "dealloc"@1 p@C 0@F)))
+    (else@,9
+     (stmts@2,1
+      (call@A rawDealloc~A allocator@1 p@C))))))
+ (proc@,Kn realloc@5 . . .
+  (params@C
+   (param@1 allocator . .
+    (mut@B MemRegion@4).)
+   (param@R p . . pointer@3 .)
+   (param@d newsize . . Natural@9 .))pointer@w . .
+  (stmts@2,1
+   (asgn@7 result~7
+    (nil@2))
+   (if@,1
+    (elif@3
+     (infix@8 > newsize~8 0@2)
+     (stmts~1,1
+      (asgn@7 result~7
+       (call@7 alloc~5 allocator@1 newsize@C))
+      (if@,1
+       (elif@3
+        (infix@2 != p~2
+         (nil@3))
+        (stmts~1,1
+         (call@7 copyMem~7 result@1 p@9
+          (call@F min~3
+           (call@8 ptrSize~7 p@1)newsize@D))
+         (call@7,1 dealloc~7 allocator@1 p@C))))))
+    (elif@5,5
+     (infix@2 != p~2
+      (nil@3))
+     (stmts~3,1
+      (call@7 dealloc~7 allocator@1 p@C))))))
+ (proc@,Kx realloc0@5 . . .
+  (params@D
+   (param@1 allocator . .
+    (mut@B MemRegion@4).)
+   (param@R p . . pointer@3 .)
+   (param@d oldsize . . Natural@I .)
+   (param@m newsize . . Natural@9 .))pointer@15 . .
+  (stmts@2,1
+   (asgn@7 result~7
+    (call@9 realloc~7 allocator@1 p@C newsize@F))
+   (if@,1
+    (elif@3
+     (infix@8 > newsize~8 oldsize@2)
+     (stmts~1,1
+      (call@7 zeroMem~7
+       (cast@1 pointer@5
+        (infix@X \2B
+         (cast~J uint@5 result@B)
+         (call@6 uint~4 oldsize@1)))
+       (infix@y \2D newsize~8 oldsize@2)))))))
+ (proc@,L2 deallocOsPages@5 . . .
+  (params@J
+   (param@1 a . .
+    (mut@3 MemRegion@4).)). . .
+  (stmts@2,2
+   (var@4 it . . .
+    (call@9 addr~4
+     (dot@2 a~1 heapLinks@1)))
+   (while@,1 true@6
+    (stmts@2,1
+     (let@4 next . . .
+      (dot@9 it~2 next@1))
+     (for@4,1
+      (infix@6 \2E\2E 0~1
+       (infix@A \2D
+        (dot~6 it~2 count@1)1@1))
+      (unpackflat
+       (let i . . ..))
+      (stmts~2,1
+       (unpackdecl@4
+        (at@L
+         (dot~7 it~2 chunks@1)i@1)
+        (unpacktup
+         (let p@1 . . ..)
+         (let size@4 . . ..)))
+       (when@,1
+        (elif@5
+         (call@7 defined~7 debugHeapLinks@1)
+         (stmts~3,1
+          (call@7 cprintf~7 "owner %p; dealloc A\3A %p size\3A %ld; next\3A %p\0A"@1
+           (call@s addr~4 a@1)it~5,1 size~1,1 next@5,1))))
+       (cmd@,4 sysAssert
+        (infix@F >= size~5 PageSize@3)"origSize too small"@S)
+       (call@E,5 osDeallocPages~E p@1 size@4)))
+     (asgn@3,8 it~3 next@2)
+     (if@,9
+      (elif@3
+       (infix@3 == it~3
+        (nil@3))
+       (stmts@B
+        (break .))))))
+   (call@C,D llDeallocAll~C a@1)))
+ (proc@,LJ getFreeMem@5 . . .
+  (params@F
+   (param@1 a . . MemRegion@3 .))int@G
+  (pragmas@Z inline@2).
+  (stmts@m
+   (asgn@7 result~7
+    (dot@3 a~1 freeMem@1))))
+ (proc@,LK getTotalMem@5 . . .
+  (params@G
+   (param@1 a . . MemRegion@3 .))int@G
+  (pragmas@a inline@2).
+  (stmts@n
+   (asgn@7 result~7
+    (dot@3 a~1 currMem@1))))
+ (proc@,LL getOccupiedMem@5 . . .
+  (params@J
+   (param@1 a . . MemRegion@3 .))int@G
+  (pragmas@d inline@2).
+  (stmts@2,1
+   (asgn@7 result~7
+    (dot@3 a~1 occ@1))))
+ (when@,LP
+  (elif@5
+   (call@7 defined~7 nimTypeNames@1)
+   (stmts~3,1
+    (proc getMemCounters@5 . . .
+     (params@J
+      (param@1 a . . MemRegion@3 .))
+     (tup@G int@1 int@6)
+     (pragmas@k inline@2).
+     (stmts@2,1
+      (tup
+       (dot@2 a~1 allocCounter@1)
+       (dot@I a~1 deallocCounter@1)))))))
+ (pragmas@,LW pop@2))

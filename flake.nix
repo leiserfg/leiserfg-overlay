@@ -32,6 +32,11 @@
     flake = false;
   };
 
+  inputs.nativenif = {
+    url = "git+https://github.com/nim-lang/nativenif?shallow=1&submodules=1";
+    flake = false;
+  };
+
 
   # inputs.hyprland = {
   #   url = "git+https://github.com/hyprwm/Hyprland/?shallow=1";
@@ -48,6 +53,7 @@
       nimony,
       sokol-tools-bin,
       kcd,
+      nativenif,
       ...
     }@inputs:
     let
@@ -71,6 +77,10 @@
         # hyprland = inputs.hyprland.packages.x86_64-linux.default;
         eden-emu = pkgs.kdePackages.callPackage ./pkgs/torzu/eden_appimage.nix { };
         nimony = pkgs.callPackage ./pkgs/nimony { src = nimony; };
+        nativenif = pkgs.callPackage ./pkgs/nativenif { 
+          src = nativenif;
+          nimony-src = nimony;
+        };
         sokol-shdc = pkgs.callPackage ./pkgs/sokol-tools { src = sokol-tools-bin; };
         kcd = pkgs.callPackage ./pkgs/kcd { src = kcd; };
         # wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
@@ -91,6 +101,7 @@
           calepin
           pytest-language-server
           nimony
+          nativenif
           sokol-shdc
           kcd
           # jpegli

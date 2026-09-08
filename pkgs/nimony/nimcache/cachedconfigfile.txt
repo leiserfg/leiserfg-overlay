@@ -1,0 +1,1 @@
+--base:/tmp -d:nimony -d:nimNativeAlloc -d:nimNativeIo --mm:atomicarc --bits:64 --cpu:amd64 --os:Linux --passC: --passL:

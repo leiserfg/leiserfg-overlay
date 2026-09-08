@@ -1,0 +1,338 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/panics.nim
+ (comment)
+ (when@,2
+  (elif@5
+   (call@7 defined~7 nimNativeIo@1)
+   (stmts~3,3
+    (when
+     (elif@5
+      (call@7 defined~7 windows@1)
+      (stmts~3,2
+       (type@F WinHandle~A . . . pointer@2)
+       (const@6,1 STD_ERROR_HANDLE . . .
+        (suf@J 4294967284u "u32"))
+       (proc@,3 cGetStdHandle@5 . . .
+        (params@I
+         (param@1 nStdHandle . . uint32@C .))WinHandle@M
+        (pragmas@o stdcall@2
+         (kv~f,1 importc~7 "GetStdHandle"@2)
+         (kv~H,1 dynlib~6 "kernel32"@2)). .)
+       (proc@,5 cWriteErrFile@5 . . .
+        (params@I
+         (param@1 h . . WinHandle@3 .)
+         (param@F buf . . pointer@5 .)
+         (param@T n . . uint32@3 .)
+         (param@1,1 written . .
+          (ptr@9 uint32@4).)
+         (param@M,1 overlapped . . pointer@C .))int32@i,1
+        (pragmas@16,1 stdcall~14,1
+         (kv~o,1 importc~7 "WriteFile"@2)
+         (kv~T,1 dynlib~6 "kernel32"@2)). .)
+       (proc@,9 writeErr@5 x . .
+        (params@E
+         (param@1 s . . string@3 .)). . .
+        (stmts@2,1
+         (var@4 written . . uint32@9 0@I)
+         (discard@,1
+          (call@L cWriteErrFile~D
+           (call@E cGetStdHandle~D STD_ERROR_HANDLE@1)
+           (call@j readRawData~B s@1)
+           (dot@6,1
+            (dot~4 s~1 len@1)uint32@1)
+           (cmd@K,1 addr~5 written)
+           (nil@T,1)))))
+       (proc@,D writeErr@5 x . .
+        (params@E
+         (param@1 s . . cstring@3 .)). . .
+        (stmts@2,1
+         (var@4 n . . . 0@4)
+         (let@4,1 p . . .
+          (cast@4
+           (ptr@5
+            (at@I UncheckedArray~E char@1))s@V))
+         (while@,2
+          (infix@B !=
+           (at~4 p~1 n@1)'\00'@3)
+          (stmts@K
+           (cmd inc n@4)))
+         (var@4,3 written . . uint32@9 0@I)
+         (discard@,4
+          (call@L cWriteErrFile~D
+           (call@E cGetStdHandle~D STD_ERROR_HANDLE@1)p@Y
+           (dot@c n~1 uint32@1)
+           (cmd@6,1 addr~5 written)
+           (nil@F,1)))))
+       (proc@,K writeErr@5 x . .
+        (params@E
+         (param@1 x . . int64@3 .)). . .
+        (stmts@R
+         (call@8 writeErr~8
+          (prefix@1 $ x@1))))
+       (proc@,L writeErr@5 x . .
+        (params@E
+         (param@1 x . . uint64@3 .)). . .
+        (stmts@S
+         (call@8 writeErr~8
+          (prefix@1 $ x@1))))))
+     (else@,O
+      (stmts@2,2
+       (proc cWriteErr@5 . . .
+        (params@E
+         (param@1 fd . . cint@4 .)
+         (param@B buf . . pointer@5 .)
+         (param@P n . . uint@3 .))int@Z
+        (pragmas@r
+         (kv@9 importc~7 "write"@2)). .)
+       (proc@,2 writeErr@5 x . .
+        (params@E
+         (param@1 s . . string@3 .)). . .
+        (stmts@2,1
+         (discard
+          (call@H cWriteErr~9
+           (suf@1 2 "i32")
+           (call@J readRawData~B s@1)
+           (dot@T
+            (dot~4 s~1 len@1)uint@1)))))
+       (proc@,4 writeErr@5 x . .
+        (params@E
+         (param@1 s . . cstring@3 .)). . .
+        (stmts@2,1
+         (var@4 n . . . 0@4)
+         (let@4,1 p . . .
+          (cast@4
+           (ptr@5
+            (at@I UncheckedArray~E char@1))s@V))
+         (while@,2
+          (infix@B !=
+           (at~4 p~1 n@1)'\00'@3)
+          (stmts@K
+           (cmd inc n@4)))
+         (discard@,3
+          (call@H cWriteErr~9
+           (suf@1 2 "i32")p@8
+           (dot@C n~1 uint@1)))))
+       (proc@,9 writeErr@5 x . .
+        (params@E
+         (param@1 x . . int64@3 .)). . .
+        (stmts@R
+         (call@8 writeErr~8
+          (prefix@1 $ x@1))))
+       (proc@,A writeErr@5 x . .
+        (params@E
+         (param@1 x . . uint64@3 .)). . .
+        (stmts@S
+         (call@8 writeErr~8
+          (prefix@1 $ x@1)))))))
+    (proc@,c die@5 . . .
+     (params@8
+      (param@1 value . . int32@7 .)).
+     (pragmas@N noreturn@2).
+     (stmts@c
+      (call@5 cExit~5
+       (dot@6 value~5 int@1))))))
+  (else@,g
+   (stmts@2,1
+    (proc die@5 . . .
+     (params@8
+      (param@1 value . . int32@7 .)).
+     (pragmas@N
+      (kv@9 importc~7 "exit"@2)
+      (kv@P header~6 "<stdlib.h>"@2)). .)
+    (type@q,4 RawCFile~o . .
+     (pragmas~f
+      (kv@9 importc~7 "FILE"@2)
+      (kv@P header~6 "<stdio.h>"@2))
+     (object@2 .))
+    (when@,5
+     (elif@5
+      (infix@F or
+       (call~8 defined~7 macos@1)
+       (call@A defined~7 macosx@1))
+      (stmts~3,1
+       (var@A,1 cstderr~8 .
+        (pragmas
+         (kv@9 importc~7 "__stderrp"@2)
+         (kv@U header~6 "<stdio.h>"@2))
+        (ptr@l RawCFile@4).)))
+     (else@,3
+      (stmts@2,1
+       (var@A,1 cstderr~8 .
+        (pragmas
+         (kv@9 importc~7 "stderr"@2)
+         (kv@R header~6 "<stdio.h>"@2))
+        (ptr@i RawCFile@4).))))
+    (proc@,C c_fwrite@5 . . .
+     (params@D
+      (param@1 buf . . pointer@5 .)
+      (param@F size . . uint@9 .)
+      (param@L n . . uint@3 .)
+      (param@U f . .
+       (ptr@3 RawCFile@4).))uint@m
+     (pragmas@14
+      (kv~v,1 importc~7 "fwrite"@2)
+      (kv~d,1 header~6 "<stdio.h>"@2)). .)
+    (proc@,E fprintf@5 . . .
+     (params@C
+      (param@1 f . .
+       (ptr@3 RawCFile@4).)
+      (param@I fmt . . cstring@5 .)).
+     (pragmas@i varargs@2
+      (kv@I importc~7 "fprintf"@2)
+      (kv@b header~6 "<stdio.h>"@2)). .)
+    (proc@,G writeErr@5 x . .
+     (params@E
+      (param@1 x . . int64@3 .)). . .
+     (stmts@R
+      (call@7 fprintf~7 cstderr@1
+       (callstrlit@H cstring~7
+        (suf "%lld" "R"))x@P)))
+    (proc@,H writeErr@5 x . .
+     (params@E
+      (param@1 x . . uint64@3 .)). . .
+     (stmts@S
+      (call@7 fprintf~7 cstderr@1
+       (callstrlit@H cstring~7
+        (suf "%llu" "R"))x@P)))
+    (proc@,I writeErr@5 x . .
+     (params@E
+      (param@1 s . . string@3 .)). . .
+     (stmts@S
+      (discard
+       (call@G c_fwrite~8
+        (call@C readRawData~B s@1)1u@H
+        (dot@R
+         (dot~4 s~1 len@1)uint@1)cstderr@Y))))
+    (proc@,J writeErr@5 x . .
+     (params@E
+      (param@1 s . . cstring@3 .)). . .
+     (stmts@T
+      (discard
+       (call@G c_fwrite~8 s@1 1u@4
+        (dot@E
+         (dot~4 s~1 len@1)uint@1)cstderr@L)))))))
+ (proc@,14 panic@5 x . .
+  (params@B
+   (param@1 s . . string@3 .)).
+  (pragmas@N noinline@2 noreturn@C).
+  (stmts@2,1
+   (cmd writeErr s@9)
+   (cmd@,1 die
+    (suf@4 1 "i32"))))
+ (type@E,19 HasWriteErr~C . . .
+  (concept@2 . . .
+   (stmts~C,1
+    (proc writeErr@5 . . .
+     (params@D
+      (param@1 x . . Self@3 .)). . . .))))
+ (proc@,1C raiseIndexError3@5 . .
+  (typevars@L
+   (typevar@1 T . . HasWriteErr@3 .))
+  (params@b
+   (param@1 i . . T@9 .)
+   (param@4 a . . T@6 .)
+   (param@7 b . . T@3 .)).
+  (pragmas@o noinline@2).
+  (stmts@2,1
+   (cmd writeErr "index out of bounds\3A "@9)
+   (cmd@,1 writeErr i@9)
+   (cmd@,2 writeErr " notin "@9)
+   (cmd@,3 writeErr a@9)
+   (cmd@,4 writeErr ".."@9)
+   (cmd@,5 writeErr b@9)
+   (cmd@,6 writeErr "\0A"@9)
+   (cmd@,7 die
+    (suf@4 1 "i32"))))
+ (proc@,1M nimIcheckAB@5 . . .
+  (params@G
+   (param@1 i . . int@9 .)
+   (param@4 a . . int@6 .)
+   (param@7 b . . int@3 .))int@G
+  (pragmas@a inline@2
+   (kv@H exportc~7 "nimIcheckAB"@2)).
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@7 and
+      (infix~5 >= i~2 a@3)
+      (infix@6 <= i~2 b@3))
+     (stmts~1,1
+      (asgn@7 result~7
+       (infix@3 \2D i~1 a@1))))
+    (else@,2
+     (stmts@2,1
+      (asgn@7 result~7 0@2)
+      (call@G,1 raiseIndexError3~G i@1 a@4 b@7))))))
+ (proc@,1T nimIcheckB@5 . . .
+  (params@F
+   (param@1 i . . int@6 .)
+   (param@4 b . . int@3 .))int@D
+  (pragmas@W inline@2
+   (kv@H exportc~7 "nimIcheckB"@2)).
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@7 and
+      (infix~5 >= i~2 0@3)
+      (infix@6 <= i~2 b@3))
+     (stmts~1,1
+      (asgn@7 result~7 i@2)))
+    (else@,2
+     (stmts@2,1
+      (asgn@7 result~7 0@2)
+      (call@G,1 raiseIndexError3~G i@1 0@4 b@7))))))
+ (proc@,1a nimUcheckAB@5 . . .
+  (params@G
+   (param@1 i . . uint@9 .)
+   (param@4 a . . uint@6 .)
+   (param@7 b . . uint@3 .))uint@H
+  (pragmas@c inline@2
+   (kv@H exportc~7 "nimUcheckAB"@2)).
+  (stmts@2,1
+   (asgn@7 result~7
+    (infix@3 \2D i~1 a@1))
+   (if@,1
+    (elif@3
+     (infix@7 > result~7 b@2)
+     (stmts~1,1
+      (call@G raiseIndexError3~G i@1 a@4 b@7))))))
+ (proc@,1f nimUcheckB@5 . . .
+  (params@F
+   (param@1 i . . uint@6 .)
+   (param@4 b . . uint@3 .))uint@E
+  (pragmas@Y inline@2
+   (kv@H exportc~7 "nimUcheckB"@2)).
+  (stmts@2,1
+   (asgn@7 result~7 i@2)
+   (if@,1
+    (elif@3
+     (infix@7 > result~7 b@2)
+     (stmts~1,1
+      (call@G raiseIndexError3~G i@1 0@4 b@7))))))
+ (proc@,1k nimInvalidObjConv@5 . . .
+  (params@M
+   (param@1 name . . string@6 .)).
+  (pragmas@b inline@2
+   (kv@H exportc~7 "nimInvalidObjConv"@2)).
+  (stmts@2,1
+   (cmd writeErr "invalid object conversion\3A "@9)
+   (cmd@,1 writeErr name@9)
+   (cmd@,2 writeErr "\0A"@9)
+   (cmd@,3 die
+    (suf@4 1 "i32"))))
+ (proc@,1q nimChckNilDisp@5 . . .
+  (params@J
+   (param@1 p . . pointer@3 .)).
+  (pragmas@W inline@2
+   (kv@H exportc~7 "nimChckNilDisp"@2)).
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@2 == p~2
+      (nil@3))
+     (stmts~1,1
+      (cmd writeErr "cannot dispatch; dispatcher is nil\0A"@9)
+      (cmd@,1 die
+       (suf@4 1 "i32"))))))))

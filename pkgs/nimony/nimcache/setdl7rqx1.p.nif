@@ -1,0 +1,194 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/setops.nim
+ (func incl@5 x .
+  (typevars@A
+   (typevar@1 T . . . .))
+  (params@D
+   (param@1 x . .
+    (mut@3
+     (at@7 set~3 T@1)).)
+   (param@G y . . T@3 .)).
+  (pragmas@Z
+   (kv@7 magic~5 "Incl"@2)). .)
+ (template@,2 incl@9 x .
+  (typevars@E
+   (typevar@1 T . . . .))
+  (params@H
+   (param@1 x . .
+    (mut@3
+     (at@7 set~3 T@1)).)
+   (param@G y . .
+    (at@6 set~3 T@1).)). . .
+  (stmts@2,1
+   (comment)
+   (asgn@2,1 x~2
+    (infix@4 \2B x~2 y@2))))
+ (func@,6 excl@5 x .
+  (typevars@A
+   (typevar@1 T . . . .))
+  (params@D
+   (param@1 x . .
+    (mut@3
+     (at@7 set~3 T@1)).)
+   (param@G y . . T@3 .)).
+  (pragmas@Z
+   (kv@7 magic~5 "Excl"@2)). .)
+ (template@,8 excl@9 x .
+  (typevars@E
+   (typevar@1 T . . . .))
+  (params@H
+   (param@1 x . .
+    (mut@3
+     (at@7 set~3 T@1)).)
+   (param@G y . .
+    (at@6 set~3 T@1).)). . .
+  (stmts@2,1
+   (comment)
+   (asgn@2,1 x~2
+    (infix@4 \2D x~2 y@2))))
+ (func@,C card@5 x .
+  (typevars@A
+   (typevar@1 T . . . .))
+  (params@D
+   (param@1 x . .
+    (at@6 set~3 T@1).))int@D
+  (pragmas@U
+   (kv@7 magic~5 "Card"@2)). .)
+ (func@,E len@5 x .
+  (typevars@9
+   (typevar@1 T . . . .))
+  (params@C
+   (param@1 x . .
+    (at@6 set~3 T@1).))int@D
+  (pragmas@T
+   (kv@7 magic~5 "Card"@2)). .)
+ (func@,H
+  (quoted@5 *@1) x .
+  (typevars@9
+   (typevar@1 T . . . .))
+  (params@C
+   (param@1 x . .
+    (at@9 set~3 T@1).)
+   (param@4 y . .
+    (at@6 set~3 T@1).))
+  (at@J set~3 T@1)
+  (pragmas@Z
+   (kv@7 magic~5 "MulSet"@2)). .)
+ (func@,J
+  (quoted@5 \2B@1) x .
+  (typevars@9
+   (typevar@1 T . . . .))
+  (params@C
+   (param@1 x . .
+    (at@9 set~3 T@1).)
+   (param@4 y . .
+    (at@6 set~3 T@1).))
+  (at@J set~3 T@1)
+  (pragmas@Z
+   (kv@7 magic~5 "PlusSet"@2)). .)
+ (func@,L
+  (quoted@5 \2D@1) x .
+  (typevars@9
+   (typevar@1 T . . . .))
+  (params@C
+   (param@1 x . .
+    (at@9 set~3 T@1).)
+   (param@4 y . .
+    (at@6 set~3 T@1).))
+  (at@J set~3 T@1)
+  (pragmas@Z
+   (kv@7 magic~5 "MinusSet"@2)). .)
+ (func@,N contains@5 x .
+  (typevars@E
+   (typevar@1 T . . . .))
+  (params@H
+   (param@1 x . .
+    (at@6 set~3 T@1).)
+   (param@C y . . T@3 .))bool@J
+  (pragmas@f
+   (kv@7 magic~5 "InSet"@2)). .)
+ (func@,Q cardSetImpl@5 . . .
+  (params@G
+   (param@1 s . .
+    (ptr@3
+     (at@I UncheckedArray~E uint8@1)).)
+   (param@V len . . int@5 .))int@g
+  (pragmas@10 inline@2).
+  (stmts@2,1
+   (var@4 i . . . 0@4)
+   (asgn@7,1 result~7 0@2)
+   (var@4,2 num . . .
+    (suf@6 0u "u64"))
+   (when@,3
+    (elif@5
+     (infix@D or
+      (call~6 defined~7 x86@1)
+      (call@A defined~7 amd64@1))
+     (stmts~3,1
+      (while
+       (infix@8 < i~2
+        (infix@6 \2D len~4 8@2))
+       (stmts@2,1
+        (call@7 copyMem~7
+         (cmd@6 addr~5 num)
+         (cmd@G addr~5
+          (at@1 s~1 i@1))8@M)
+        (call@3,1 inc~3 result@1
+         (call@K countBits64~B num@1))
+        (call@3,2 inc~3 i@1 8@4))))))
+   (while@,9
+    (infix@8 < i~2 len@2)
+    (stmts@2,1
+     (call@3 inc~3 result@1
+      (call@K countBits32~B
+       (call@7 uint32~6
+        (at@2 s~1 i@1))))
+     (call@3,1 inc~3 i@1 1@4)))))
+ (func@,e cardSet@5 . . .
+  (params@C
+   (param@1 s . .
+    (ptr@3
+     (at@I UncheckedArray~E uint8@1)).)
+   (param@V len . . int@5 .))int@g
+  (pragmas@w inline@2).
+  (stmts@2,1
+   (asgn@7 result~7
+    (call@D cardSetImpl~B s@1 len@4))))
+ (iterator@,h items@9 x .
+  (typevars@F
+   (typevar@1 T . .
+    (infix@A | Ordinal~7 enum@1).))
+  (params@W
+   (param@1 x . .
+    (at@6 set~3 T@1).))T@D . .
+  (stmts@2,1
+   (comment)
+   (var@4,3 i . . .
+    (dot@A
+     (call~3 low~3 T@1)int@1))
+   (if@,4
+    (elif@3
+     (infix@2 <= i~2
+      (dot@A
+       (call~3 high~4 T@1)int@1))
+     (stmts~1,1
+      (while true@6
+       (stmts@2,1
+        (if
+         (elif@3
+          (call@A
+           (dot~9 x~1 contains@1)
+           (cast@1 T@5 i@8))
+          (stmts@O
+           (yld
+            (cast@6 T@5 i@8)))))
+        (if@,1
+         (elif@3
+          (infix@2 >= i~2
+           (dot@A
+            (call~3 high~4 T@1)int@1))
+          (stmts@I
+           (break .))))
+        (call@3,2 inc~3 i@1)))))))))

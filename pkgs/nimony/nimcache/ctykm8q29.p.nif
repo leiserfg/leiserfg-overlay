@@ -1,0 +1,69 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/ctypes.nim
+ (comment)
+ (type@E,4 BiggestInt~C x . . int64@2)
+ (type@G,9 BiggestFloat~E x . . float64@2)
+ (type@F,E BiggestUInt~D x . . uint64@2)
+ (when@,J
+  (elif@5
+   (call@7 defined~7 windows@1)
+   (stmts~3,1
+    (type@b,1 clong~Z x .
+     (pragmas~S
+      (kv@9 importc~7 "long"@2)nodecl@J)int32@2)
+    (type@l,3 culong~j x .
+     (pragmas~b
+      (kv@9 importc~7 "unsigned long"@2)nodecl@S)uint32@2)))
+  (else@,6
+   (stmts@2,1
+    (type@b,1 clong~Z x .
+     (pragmas~S
+      (kv@9 importc~7 "long"@2)nodecl@J)int@2)
+    (type@l,3 culong~j x .
+     (pragmas~b
+      (kv@9 importc~7 "unsigned long"@2)nodecl@S)uint@2))))
+ (type@b,X cchar~Z x .
+  (pragmas~S
+   (kv@9 importc~7 "char"@2)nodecl@J)char@2)
+ (type@j,Z cschar~h x .
+  (pragmas~Z
+   (kv@9 importc~7 "signed char"@2)nodecl@Q)int8@2)
+ (type@d,b cshort~b x .
+  (pragmas~T
+   (kv@9 importc~7 "short"@2)nodecl@K)int16@2)
+ (type@Z,d cint~X x .
+  (pragmas~R
+   (kv@9 importc~7 "int"@2)nodecl@I)int32@2)
+ (type@f,f csize_t~d x .
+  (pragmas~U
+   (kv@9 importc~7 "size_t"@2)nodecl@L)uint@2)
+ (type@k,h clonglong~i x .
+  (pragmas~X
+   (kv@9 importc~7 "long long"@2)nodecl@O)int64@2)
+ (type@d,j cfloat~b x .
+  (pragmas~T
+   (kv@9 importc~7 "float"@2)nodecl@K)float32@2)
+ (type@f,l cdouble~d x .
+  (pragmas~U
+   (kv@9 importc~7 "double"@2)nodecl@L)float64@2)
+ (type@o,n clongdouble~m x .
+  (pragmas~Z
+   (kv@9 importc~7 "long double"@2)nodecl@Q)BiggestFloat@2)
+ (type@1U,r cuchar~1S x .
+  (pragmas~1K
+   (kv@9 importc~7 "unsigned char"@2)nodecl@S
+   (kv@k deprecated~A "use `char` or `uint8` instead"@2))char@2)
+ (type@n,t cushort~l x .
+  (pragmas~c
+   (kv@9 importc~7 "unsigned short"@2)nodecl@T)uint16@2)
+ (type@j,v cuint~h x .
+  (pragmas~a
+   (kv@9 importc~7 "unsigned int"@2)nodecl@R)uint32@2)
+ (type@u,x culonglong~s x .
+  (pragmas~g
+   (kv@9 importc~7 "unsigned long long"@2)nodecl@X)uint64@2)
+ (type@G,10 cstringArray~E x . .
+  (ptr@2
+   (at@I UncheckedArray~E cstring@1))))

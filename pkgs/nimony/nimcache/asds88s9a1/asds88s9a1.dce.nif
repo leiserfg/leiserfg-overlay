@@ -1,0 +1,5 @@
+(stmts
+ (roots `nimEnviron.0. `cmdCount.0. `cmdLine.0. `main.0.)
+ (uses `ini.0. `iniGuard.0. `ini.0.sysvq0asl `ini.0.mat7cnfv21)
+ (uses `main.0. `envp.0. `nimEnviron.0. `cchar.0. `iniGuard.0. `argc.0. `ini.0.sysvq0asl `cmdCount.0. `cmdLine.0. `ini.0.mat7cnfv21 nimFlushStdStreams.0.sysvq0asl `argv.0.)
+ (offers))

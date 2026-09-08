@@ -1,0 +1,77 @@
+(.nif27)
+(.indexat 1219             )
+(stmts@,1,../../../../../../tmp/asdf.nim
+ (gvar :`iniGuard.0. .
+  (bool).)
+ (type :`cchar.0.
+  (pragmas
+   (importc "char")
+   (nodecl))
+  (i 8))
+ (gvar :`cmdCount.0.
+  (pragmas
+   (exportc "cmdCount"))
+  (i 32).)
+ (gvar :`cmdLine.0.
+  (pragmas
+   (exportc "cmdLine"))
+  (ptr
+   (ptr
+    (c 8))).)
+ (gvar :`nimEnviron.0.
+  (pragmas
+   (exportc "nimEnviron"))
+  (ptr
+   (ptr
+    (c 8))).)
+ (proc :`main.0.
+  (params
+   (param :`argc.0. .
+    (i 32))
+   (param :`argv.0. .
+    (ptr
+     (ptr `cchar.0.)))
+   (param :`envp.0. .
+    (ptr
+     (ptr `cchar.0.))))
+  (i 32)
+  (pragmas
+   (exportc "main")
+   (smry writeGlobal callsUnknown
+    (param 0 0 reads)
+    (param 1 1 reads)
+    (param 2 2 reads)))
+  (stmts
+   (asgn `cmdCount.0. `argc.0.)
+   (asgn `cmdLine.0.
+    (cast
+     (ptr
+      (ptr
+       (c 8)))`argv.0.))
+   (asgn `nimEnviron.0.
+    (cast
+     (ptr
+      (ptr
+       (c 8)))`envp.0.))
+   (scope
+    (scope
+     (if
+      (elif `iniGuard.0.
+       (stmts
+        (jmp returnLabel.0h1))))
+     (asgn `iniGuard.0.
+      (true))
+     (call `ini.0.sysvq0asl)
+     (call `ini.0.mat7cnfv21)
+     (lab :returnLabel.0h1)))
+   (call nimFlushStdStreams.0.sysvq0asl)
+   (ret 0))))(.index@,1,../../../../../../tmp/asdf.nim
+ (h `iniGuard.0. 78)
+ (x `cchar.0. 34)
+ (x `cmdCount.0. 71)
+ (x `cmdLine.0. 68)
+ (x `nimEnviron.0. 84)
+ (x `main.0. 90)
+ (h `argc.0. 27)
+ (h `argv.0. 34)
+ (h `envp.0. 54))

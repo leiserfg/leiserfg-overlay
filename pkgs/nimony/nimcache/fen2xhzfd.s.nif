@@ -1,0 +1,52 @@
+(.nif27)
+(.indexat 1447             )
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/fenv.nim
+ (import
+  (kv sysvq0asl "../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim"))
+ (const@2,6 :FLT_MIN.0. . .
+  (f@M,6 32)
+  (suf@A 1.17549435E-38 "f32"))
+ (const@2,7 :FLT_EPSILON.0. . .
+  (f@M,5 32)
+  (suf@E 0.00000011920929 "f32"))
+ (const@2,9 :DBL_MIN.0. . .
+  (f@M,A 64)2.2250738585072014E-308@A)
+ (const@2,A :DBL_EPSILON.0. . .
+  (f@M,9 64)2.220446049250313E-16@E)
+ (template@,C :minimumPositiveValue.0.@9 x . .
+  (params@U
+   (param@1 :T.0 . .
+    (typedesc@B
+     (f@1 32)).))
+  (f@O 32).@O .
+  (stmts@12 FLT_MIN.0.))
+ (template@,F :epsilon.0.@9 x . .
+  (params@H
+   (param@1 :T.1 . .
+    (typedesc@B
+     (f@1 32)).))
+  (f@O 32).@O .
+  (stmts@p FLT_EPSILON.0.))
+ (template@,J :minimumPositiveValue.1.@9 x . .
+  (params@U
+   (param@1 :T.2 . .
+    (typedesc@B
+     (f@1 64)).))
+  (f@O 64).@O .
+  (stmts@12 DBL_MIN.0.))
+ (template@,M :epsilon.1.@9 x . .
+  (params@H
+   (param@1 :T.3 . .
+    (typedesc@B
+     (f@1 64)).))
+  (f@O 64).@O .
+  (stmts@p DBL_EPSILON.0.))
+ (comment@Y,C typedesc.0.sysvq0asl float32.0.sysvq0asl@9 float32.0.sysvq0asl~A typedesc.0.sysvq0asl~D,3 float32.0.sysvq0asl~4,3 float32.0.sysvq0asl~A,3 typedesc.0.sysvq0asl@,7 float64.0.sysvq0asl@9,7 float64.0.sysvq0asl~A,7 typedesc.0.sysvq0asl~D,A float64.0.sysvq0asl~4,A float64.0.sysvq0asl~A,A))(.index@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/fenv.nim
+ (h FLT_MIN.0. 260)
+ (h FLT_EPSILON.0. 73)
+ (h DBL_MIN.0. 79)
+ (h DBL_EPSILON.0. 67)
+ (x minimumPositiveValue.0. 69)
+ (x epsilon.0. 155)
+ (x minimumPositiveValue.1. 145)
+ (x epsilon.1. 155))

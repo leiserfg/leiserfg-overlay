@@ -1,0 +1,67 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,C,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/atomicarc.nim
+ (func arcInc@5 x . .
+  (params@C
+   (param@1 memLoc . .
+    (mut@8 int@4).)).
+  (pragmas@U inline@2).
+  (stmts@2,1
+   (comment)
+   (pragmax@,1
+    (pragmas
+     (cast@2 . noSideEffect@5))
+    (stmts@2,1
+     (discard
+      (call@M atomicAddFetch~E
+       (dot@7 memLoc~6 addr@1)1@E ATOMIC_SEQ_CST@H))))))
+ (func@,5 arcDec@5 x . .
+  (params@C
+   (param@1 memLoc . .
+    (mut@8 int@4).))bool@J
+  (pragmas@a inline@2).
+  (stmts@2,1
+   (comment)
+   (pragmax@,7
+    (pragmas
+     (cast@2 . noSideEffect@5))
+    (stmts@2,1
+     (when
+      (elif@5
+       (call@7 defined~7 nimNoAtomicArcFastPath@1)
+       (stmts~3,1
+        (asgn@7 result~7
+         (infix@n <
+          (call~X atomicSubFetch~E
+           (dot@7 memLoc~6 addr@1)1@E ATOMIC_SEQ_CST@H)0@2))))
+      (else@,2
+       (stmts@2,Q
+        (if
+         (elif@3
+          (infix@f ==
+           (call~U atomicLoadN~B
+            (dot@7 memLoc~6 addr@1)ATOMIC_ACQUIRE@E)0@3)
+          (stmts~1,1
+           (asgn@7 result~7 true@2)))
+         (else@,2
+          (stmts@2,1
+           (asgn@7 result~7
+            (infix@n <
+             (call~X atomicSubFetch~E
+              (dot@7 memLoc~6 addr@1)1@E ATOMIC_SEQ_CST@H)0@2))))))))))))
+ (func@,l arcIsUnique@5 x . .
+  (params@H
+   (param@1 memLoc . .
+    (mut@8 int@4).))bool@J
+  (pragmas@f inline@2).
+  (stmts@2,1
+   (comment)
+   (pragmax@,1
+    (pragmas
+     (cast@2 . noSideEffect@5))
+    (stmts@2,1
+     (asgn@7 result~7
+      (infix@h ==
+       (call~U atomicLoadN~B
+        (dot@7 memLoc~6 addr@1)ATOMIC_ACQUIRE@E)0@3)))))))

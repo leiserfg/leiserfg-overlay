@@ -1,0 +1,5505 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/formatfloat.nim
+ (comment)
+ (template@,E fmtAssert@9 . . .
+  (params@I
+   (param@1 x . . untyped@3 .)). . .
+  (stmts@X
+   (discard .)))
+ (const@2,H trailingZeros100 . .
+  (at@N array~5 100@1 int8@6)
+  (bracket@b
+   (suf@1 2 "i8")0@7 0@A 0@D 0@G 0@J 0@M 0@P 0@S 0@V 1@Y 0@b 0@e 0@h 0@k 0@n 0@q 0@t 0@w 0@z 1~Z,1 0~W,1 0~T,1 0~Q,1 0~N,1 0~K,1 0~H,1 0~E,1 0~B,1 0~8,1 1~5,1 0~2,1 0@1,1 0@4,1 0@7,1 0@A,1 0@D,1 0@G,1 0@J,1 0@M,1 1@P,1 0@S,1 0@V,1 0@Y,1 0@b,1 0@e,1 0@h,1 0@k,1 0@n,1 0@q,1 1@t,1 0@w,1 0@z,1 0@12,1 0@15,1 0@18,1 0@1B,1 0~Z,2 0~W,2 0~T,2 1~Q,2 0~N,2 0~K,2 0~H,2 0~E,2 0~B,2 0~8,2 0~5,2 0~2,2 0@1,2 1@4,2 0@7,2 0@A,2 0@D,2 0@G,2 0@J,2 0@M,2 0@P,2 0@S,2 0@V,2 1@Y,2 0@b,2 0@e,2 0@h,2 0@k,2 0@n,2 0@q,2 0@t,2 0@w,2 0@z,2 1@12,2 0@15,2 0@18,2 0@1B,2 0~Z,3 0~W,3 0~T,3 0~Q,3 0~N,3 0~K,3))
+ (const@2,M digits100 . .
+  (at@G array~5 200@1 char@6)
+  (bracket@U '0'@1 '0'@6 '0'@B '1'@G '0'@L '2'@Q '0'@V '3'@a '0'@f '4'@k '0'@p '5'@u '0'~S,1 '6'~N,1 '0'~I,1 '7'~D,1 '0'~8,1 '8'~3,1 '0'@2,1 '9'@7,1 '1'@C,1 '0'@H,1 '1'@M,1 '1'@R,1 '1'@W,1 '2'@b,1 '1'@g,1 '3'@l,1 '1'@q,1 '4'@v,1 '1'~S,2 '5'~N,2 '1'~I,2 '6'~D,2 '1'~8,2 '7'~3,2 '1'@2,2 '8'@7,2 '1'@C,2 '9'@H,2 '2'@M,2 '0'@R,2 '2'@W,2 '1'@b,2 '2'@g,2 '2'@l,2 '2'@q,2 '3'@v,2 '2'~S,3 '4'~N,3 '2'~I,3 '5'~D,3 '2'~8,3 '6'~3,3 '2'@2,3 '7'@7,3 '2'@C,3 '8'@H,3 '2'@M,3 '9'@R,3 '3'@W,3 '0'@b,3 '3'@g,3 '1'@l,3 '3'@q,3 '2'@v,3 '3'~S,4 '3'~N,4 '3'~I,4 '4'~D,4 '3'~8,4 '5'~3,4 '3'@2,4 '6'@7,4 '3'@C,4 '7'@H,4 '3'@M,4 '8'@R,4 '3'@W,4 '9'@b,4 '4'@g,4 '0'@l,4 '4'@q,4 '1'@v,4 '4'~S,5 '2'~N,5 '4'~I,5 '3'~D,5 '4'~8,5 '4'~3,5 '4'@2,5 '5'@7,5 '4'@C,5 '6'@H,5 '4'@M,5 '7'@R,5 '4'@W,5 '8'@b,5 '4'@g,5 '9'@l,5 '5'@q,5 '0'@v,5 '5'~S,6 '1'~N,6 '5'~I,6 '2'~D,6 '5'~8,6 '3'~3,6 '5'@2,6 '4'@7,6 '5'@C,6 '5'@H,6 '5'@M,6 '6'@R,6 '5'@W,6 '7'@b,6 '5'@g,6 '8'@l,6 '5'@q,6 '9'@v,6 '6'~S,7 '0'~N,7 '6'~I,7 '1'~D,7 '6'~8,7 '2'~3,7 '6'@2,7 '3'@7,7 '6'@C,7 '4'@H,7 '6'@M,7 '5'@R,7 '6'@W,7 '6'@b,7 '6'@g,7 '7'@l,7 '6'@q,7 '8'@v,7 '6'~S,8 '9'~N,8 '7'~I,8 '0'~D,8 '7'~8,8 '1'~3,8 '7'@2,8 '2'@7,8 '7'@C,8 '3'@H,8 '7'@M,8 '4'@R,8 '7'@W,8 '5'@b,8 '7'@g,8 '6'@l,8 '7'@q,8 '7'@v,8 '7'~S,9 '8'~N,9 '7'~I,9 '9'~D,9 '8'~8,9 '0'~3,9 '8'@2,9 '1'@7,9 '8'@C,9 '2'@H,9 '8'@M,9 '3'@R,9 '8'@W,9 '4'@b,9 '8'@g,9 '5'@l,9 '8'@q,9 '6'@v,9 '8'~S,A '7'~N,A '8'~I,A '8'~D,A '8'~8,A '9'~3,A '9'@2,A '0'@7,A '9'@C,A '1'@H,A '9'@M,A '2'@R,A '9'@W,A '3'@b,A '9'@g,A '4'@l,A '9'@q,A '5'@v,A '9'~S,B '6'~N,B '9'~I,B '7'~D,B '9'~8,B '8'~3,B '9'@2,B '9'@7,B))
+ (func@,Z utoa2Digits@5 . . .
+  (params@G
+   (param@1 buf . .
+    (mut@5
+     (at@D openArray~9 char@1)).)
+   (param@R pos . . int@5 .)
+   (param@b digits . . uint32@8 .)).
+  (pragmas@17 inline@2).
+  (stmts@2,1
+   (asgn@9
+    (at~6 buf~3 pos@1)
+    (at@B digits100~9
+     (call@4 int~3
+      (infix@3 * 2~2 digits@2))))
+   (asgn@B,1
+    (at~8 buf~3
+     (infix@4 \2B pos~3 1@1))
+    (at@B digits100~9
+     (call@4 int~3
+      (infix@C \2B
+       (infix~9 * 2~2 digits@2)1@2))))))
+ (func@,d trailingZeros2Digits@5 . . .
+  (params@P
+   (param@1 digits . . uint32@8 .))int@I
+  (pragmas@l inline@2).
+  (stmts@2,1
+   (asgn@7 result~7
+    (call@5 int~3
+     (at@H trailingZeros100~G
+      (call@4 int~3 digits@1))))))
+ (type@E,m sfValueType~C . . . float32@2)
+ (type@D,n sfBitsType~B . . . uint32@2)
+ (type@9,o Single~7 . . .
+  (object@2 .
+   (fld~7,1 bits . . sfBitsType@6 .)))
+ (const@2,s sfSignificandSize . . int@J 24@P)
+ (const@2,t sfMaxExponent . . . 128@G)
+ (const@2,u sfExponentBias . . int@G
+  (infix@e \2B
+   (infix~4 \2D sfMaxExponent~E 1@2)
+   (par@2
+    (infix@J \2D sfSignificandSize~I 1@2))))
+ (const@2,v sfMaxIeeeExponent . . sfBitsType@J
+  (call@g sfBitsType~A
+   (infix@J \2D
+    (infix~G * 2~2 sfMaxExponent@2)1@2)))
+ (const@2,w sfHiddenBit . . sfBitsType@D
+  (infix@e shl
+   (call~4 sfBitsType~A 1@1)
+   (par@4
+    (infix@J \2D sfSignificandSize~I 1@2))))
+ (const@2,x sfSignificandMask . . sfBitsType@J
+  (infix@i \2D sfHiddenBit~C 1@2))
+ (const@2,y sfExponentMask . . sfBitsType@G
+  (infix@l shl sfMaxIeeeExponent~I
+   (par@4
+    (infix@J \2D sfSignificandSize~I 1@2))))
+ (const@2,z sfSignMask . . sfBitsType@C
+  (prefix@P not
+   (par@4
+    (infix@J shr
+     (prefix~I not
+      (call@E sfBitsType~A 0@1))1@4))))
+ (func@,11 constructSingle@5 . . .
+  (params@K
+   (param@1 value . . sfValueType@7 .))Single@M . .
+  (stmts@2,1
+   (asgn@7 result~7
+    (oconstr@8 Single~6
+     (kv@5 bits~4
+      (cast@2 sfBitsType@5 value@H))))))
+ (func@,14 physicalSignificand@5 . . .
+  (params@O
+   (param@1 this . . Single@6 .))sfBitsType@G . .
+  (stmts@2,1
+   (asgn@7 result~7
+    (infix@C and
+     (dot~6 this~4 bits@1)sfSignificandMask@4))))
+ (func@,17 physicalExponent@5 . . .
+  (params@L
+   (param@1 this . . Single@6 .))sfBitsType@G . .
+  (stmts@2,1
+   (asgn@7 result~7
+    (infix@X shr
+     (par~V
+      (infix@B and
+       (dot~6 this~4 bits@1)sfExponentMask@4))
+     (par@4
+      (infix@J \2D sfSignificandSize~I 1@2))))))
+ (func@,1A signBit@5 . . .
+  (params@C
+   (param@1 this . . Single@6 .))int@G . .
+  (stmts@2,1
+   (asgn@7 result~7
+    (call@5 int~3
+     (infix@S !=
+      (par~R
+       (infix@B and
+        (dot~6 this~4 bits@1)sfSignMask@4))0@3)))))
+ (comment@,1E)
+ (func@,1G sfFloorDivPow2@5 . . .
+  (params@J
+   (param@1 x . . int@3 .)
+   (param@9 n . . int@3 .))int@I
+  (pragmas@f inline@2).
+  (stmts@2,1
+   (asgn@7 result~7
+    (infix@4 shr x~2 n@4))))
+ (comment@,1J)
+ (func@,1L sfFloorLog2Pow10@5 . . .
+  (params@L
+   (param@1 e . . int@3 .))int@A
+  (pragmas@Z inline@2).
+  (stmts@2,1
+   (call@9 fmtAssert~9
+    (infix@3 >= e~2 -1233@3))
+   (call@9,1 fmtAssert~9
+    (infix@3 <= e~2 1233@3))
+   (asgn@7,2 result~7
+    (call@G sfFloorDivPow2~E
+     (infix@3 * e~2 1741647@2)19@E))))
+ (const@2,1R sfKMin . . int@8 -31@E)
+ (const@2,1S sfKMax . . int@8 45@E)
+ (const@2,1T sfG . .
+  (at@A array~5
+   (infix@H \2B
+    (infix~9 \2D sfKMax~7 sfKMin@2)1@2)uint64@M)
+  (bracket@g
+   (suf@1 9353610478917778677u "u64")
+   (suf@P 11692013098647223346u "u64")
+   (suf~e,1 14615016373309029183u "u64")
+   (suf~G,1 18268770466636286478u "u64")
+   (suf@8,1 11417981541647679049u "u64")
+   (suf~e,2 14272476927059598811u "u64")
+   (suf~G,2 17840596158824498514u "u64")
+   (suf@8,2 11150372599265311571u "u64")
+   (suf~e,3 13937965749081639464u "u64")
+   (suf~G,3 17422457186352049330u "u64")
+   (suf@8,3 10889035741470030831u "u64")
+   (suf~e,4 13611294676837538539u "u64")
+   (suf~G,4 17014118346046923174u "u64")
+   (suf@8,4 10633823966279326984u "u64")
+   (suf~e,5 13292279957849158730u "u64")
+   (suf~G,5 16615349947311448412u "u64")
+   (suf@8,5 10384593717069655258u "u64")
+   (suf~e,6 12980742146337069072u "u64")
+   (suf~G,6 16225927682921336340u "u64")
+   (suf@8,6 10141204801825835212u "u64")
+   (suf~e,7 12676506002282294015u "u64")
+   (suf~G,7 15845632502852867519u "u64")
+   (suf@8,7 9903520314283042200u "u64")
+   (suf~e,8 12379400392853802749u "u64")
+   (suf~G,8 15474250491067253437u "u64")
+   (suf@8,8 9671406556917033398u "u64")
+   (suf~e,9 12089258196146291748u "u64")
+   (suf~G,9 15111572745182864684u "u64")
+   (suf@8,9 9444732965739290428u "u64")
+   (suf~e,A 11805916207174113035u "u64")
+   (suf~G,A 14757395258967641293u "u64")
+   (suf@8,A 9223372036854775808u "u64")
+   (suf~e,B 11529215046068469760u "u64")
+   (suf~G,B 14411518807585587200u "u64")
+   (suf@8,B 18014398509481984000u "u64")
+   (suf~e,C 11258999068426240000u "u64")
+   (suf~G,C 14073748835532800000u "u64")
+   (suf@8,C 17592186044416000000u "u64")
+   (suf~e,D 10995116277760000000u "u64")
+   (suf~G,D 13743895347200000000u "u64")
+   (suf@8,D 17179869184000000000u "u64")
+   (suf~e,E 10737418240000000000u "u64")
+   (suf~G,E 13421772800000000000u "u64")
+   (suf@8,E 16777216000000000000u "u64")
+   (suf~e,F 10485760000000000000u "u64")
+   (suf~G,F 13107200000000000000u "u64")
+   (suf@8,F 16384000000000000000u "u64")
+   (suf~e,G 10240000000000000000u "u64")
+   (suf~G,G 12800000000000000000u "u64")
+   (suf@8,G 16000000000000000000u "u64")
+   (suf~e,H 10000000000000000000u "u64")
+   (suf~G,H 12500000000000000000u "u64")
+   (suf@8,H 15625000000000000000u "u64")
+   (suf~e,I 9765625000000000000u "u64")
+   (suf~G,I 12207031250000000000u "u64")
+   (suf@8,I 15258789062500000000u "u64")
+   (suf~e,J 9536743164062500000u "u64")
+   (suf~G,J 11920928955078125000u "u64")
+   (suf@8,J 14901161193847656250u "u64")
+   (suf~e,K 9313225746154785157u "u64")
+   (suf~G,K 11641532182693481446u "u64")
+   (suf@8,K 14551915228366851807u "u64")
+   (suf~e,L 18189894035458564759u "u64")
+   (suf~G,L 11368683772161602974u "u64")
+   (suf@8,L 14210854715202003718u "u64")
+   (suf~e,M 17763568394002504647u "u64")
+   (suf~G,M 11102230246251565405u "u64")
+   (suf@8,M 13877787807814456756u "u64")
+   (suf~e,N 17347234759768070945u "u64")
+   (suf~G,N 10842021724855044341u "u64")
+   (suf@8,N 13552527156068805426u "u64")
+   (suf~e,O 16940658945086006782u "u64")
+   (suf~G,O 10587911840678754239u "u64")
+   (suf@8,O 13234889800848442798u "u64")
+   (suf~e,P 16543612251060553498u "u64")
+   (suf~G,P 10339757656912845936u "u64")
+   (suf@8,P 12924697071141057420u "u64")))
+ (func@,1u computePow10Single@5 . . .
+  (params@N
+   (param@1 k . . int@3 .))uint64@A
+  (pragmas@e inline@2).
+  (stmts@2,1
+   (comment)
+   (call@9,3 fmtAssert~9
+    (infix@3 >= k~2 sfKMin@3))
+   (call@9,4 fmtAssert~9
+    (infix@3 <= k~2 sfKMax@3))
+   (asgn@7,5 result~7
+    (at@5 sfG~3
+     (infix@3 \2D k~2 sfKMin@2)))))
+ (func@,22 sfLo32@5 . . .
+  (params@B
+   (param@1 x . . uint64@3 .))uint32@D
+  (pragmas@V inline@2).
+  (stmts@2,1
+   (asgn@7 result~7
+    (cast@2 uint32@5 x@D))))
+ (func@,25 sfHi32@5 . . .
+  (params@B
+   (param@1 x . . uint64@3 .))uint32@D
+  (pragmas@V inline@2).
+  (stmts@2,1
+   (asgn@7 result~7
+    (cast@2 uint32@5
+     (infix@F shr x~2 32@4)))))
+ (func@,28 roundToOdd@5 . . .
+  (params@F
+   (param@1 sfG . . uint64@5 .)
+   (param@E cp . . uint32@4 .))uint32@R
+  (pragmas@n inline@2).
+  (stmts@2,1
+   (let@4 b01 . . uint64@5
+    (infix@Y *
+     (call~E uint64~6
+      (call@7 sfLo32~6 sfG@1))cp@2))
+   (let@4,1 b11 . . uint64@5
+    (infix@Y *
+     (call~E uint64~6
+      (call@7 sfHi32~6 sfG@1))cp@2))
+   (let@4,2 hi . . uint64@4
+    (infix@H \2B b11~4
+     (call@8 sfHi32~6 b01@1)))
+   (let@4,3 y1 . . uint32@4
+    (call@J sfHi32~6 hi@1))
+   (let@4,4 y0 . . uint32@4
+    (call@J sfLo32~6 hi@1))
+   (asgn@7,5 result~7
+    (infix@5 or y1~3
+     (call@9 uint32~6
+      (infix@4 > y0~3 1@2))))))
+ (comment@,2G)
+ (func@,2I multipleOfPow2@5 . . .
+  (params@J
+   (param@1 value . . uint32@7 .)
+   (param@G e2 . . int@4 .))bool@Q
+  (pragmas@o inline@2).
+  (stmts@2,1
+   (call@9 fmtAssert~9
+    (infix@4 >= e2~3 0@3))
+   (call@9,1 fmtAssert~9
+    (infix@4 <= e2~3 31@3))
+   (asgn@7,2 result~7
+    (infix@d ==
+     (par~b
+      (infix@7 and value~6
+       (par@4
+        (infix@K \2D
+         (par~J
+          (infix@B shl
+           (call~4 uint32~6 1@1)e2@4))1@2))))0@3))))
+ (type@K,2O FloatingDecimal32~I . . .
+  (object@2 .
+   (fld~I,1 digits . . uint32@8 .)
+   (fld~I,2 exponent . . int@A .)))
+ (func@,2S toDecimal32@5 . . .
+  (params@G
+   (param@1 ieeeSignificand . . uint32@H .)
+   (param@Q ieeeExponent . . uint32@E .))FloatingDecimal32@n . .
+  (stmts@2,1
+   (var@4 c . . uint32@3 .)
+   (var@4,1 q . . int@3 .)
+   (if@,2
+    (elif@3
+     (infix@D != ieeeExponent~D 0@3)
+     (stmts~1,1
+      (asgn@2 c~2
+       (infix@E or sfHiddenBit~C ieeeSignificand@3))
+      (asgn@2,1 q~2
+       (infix@K \2D
+        (call~F int~3 ieeeExponent@1)sfExponentBias@2))
+      (if@,2
+       (elif@3
+        (infix@Z and
+         (infix~R and
+          (infix~6 <= 0~2
+           (prefix@3 \2D q@1))
+          (infix@7 <
+           (prefix~3 \2D q@1)sfSignificandSize@2))
+         (call@I multipleOfPow2~E c@1
+          (prefix@4 \2D q@1)))
+        (stmts~1,1
+         (ret
+          (oconstr@O FloatingDecimal32~H
+           (kv@7 digits~6
+            (infix@4 shr c~2
+             (prefix@4 \2D q@1)))
+           (kv@R exponent~8 0@2))))))))
+    (else@,5
+     (stmts@2,1
+      (asgn@2 c~2 ieeeSignificand@2)
+      (asgn@2,1 q~2
+       (infix@4 \2D 1~2 sfExponentBias@2)))))
+   (let@4,A isEven . . bool@8
+    (par@F
+     (infix@9 ==
+      (infix~6 mod c~2 2@4)0@3)))
+   (let@4,B lowerBoundaryIsCloser . . bool@N
+    (par@U
+     (infix@M and
+      (infix~5 == ieeeSignificand~G 0@3)
+      (infix@H > ieeeExponent~D 1@2))))
+   (comment@,C)
+   (let@4,D cbl . . uint32@5
+    (infix@O \2B
+     (infix~4 \2D
+      (infix~4 * 4~2 c@2)2@2)
+     (call@8 uint32~6 lowerBoundaryIsCloser@1)))
+   (let@4,E cb . . uint32@4
+    (infix@F * 4~2 c@2))
+   (let@4,F cbr . . uint32@5
+    (infix@K \2B
+     (infix~4 * 4~2 c@2)2@2))
+   (comment@,G)
+   (call@9,I fmtAssert~9
+    (infix@3 >= q~2 -1500@3))
+   (call@9,J fmtAssert~9
+    (infix@3 <= q~2 1500@3))
+   (let@4,K k . . int@3
+    (call@N sfFloorDivPow2~E
+     (infix@D \2D
+      (infix~A * q~2 1262611@2)
+      (expr
+       (stmts@2)
+       (if@1
+        (elif@3 lowerBoundaryIsCloser 524031@N)
+        (else@X 0@6))))22@x))
+   (let@4,L h . . int@3
+    (infix@Y \2B
+     (infix~N \2B q~2
+      (call@I sfFloorLog2Pow10~G
+       (prefix@1 \2D k@1)))1@2))
+   (call@9,M fmtAssert~9
+    (infix@3 >= h~2 1@3))
+   (call@9,N fmtAssert~9
+    (infix@3 <= h~2 4@3))
+   (let@4,O pow10 . . uint64@7
+    (call@Y computePow10Single~I
+     (prefix@1 \2D k@1)))
+   (let@4,P vbl . . uint32@5
+    (call@O roundToOdd~A pow10@1
+     (infix@C shl cbl~4 h@4)))
+   (let@4,Q vb . . uint32@4
+    (call@N roundToOdd~A pow10@1
+     (infix@B shl cb~3 h@4)))
+   (let@4,R vbr . . uint32@5
+    (call@O roundToOdd~A pow10@1
+     (infix@C shl cbr~4 h@4)))
+   (let@4,S lower . . uint32@7
+    (infix@K \2B vbl~4
+     (call@8 uint32~6
+      (prefix@1 not isEven@4))))
+   (let@4,T upper . . uint32@7
+    (infix@K \2D vbr~4
+     (call@8 uint32~6
+      (prefix@1 not isEven@4))))
+   (comment@,U)
+   (let@4,W s . . uint32@3
+    (infix@F div vb~3 4@4))
+   (comment@,X)
+   (if@,Y
+    (elif@3
+     (infix@2 >= s~2 10@3)
+     (stmts~1,1
+      (let@4 sp . . uint32@4
+       (infix@F div s~2 10@4))
+      (comment@,1)
+      (let@4,2 upInside . . bool@A
+       (infix@N <= lower~6
+        (infix@6 * 40~3 sp@2)))
+      (let@4,3 wpInside . . bool@A
+       (infix@U <=
+        (infix~5 \2B
+         (infix~5 * 40~3 sp@2)40@2)upper@3))
+      (if@,4
+       (elif@3
+        (infix@9 != upInside~9 wpInside@3)
+        (stmts~1,1
+         (ret
+          (oconstr@O FloatingDecimal32~H
+           (kv@7 digits~6
+            (infix@5 \2B sp~3
+             (call@8 uint32~6 wpInside@1)))
+           (kv@e exponent~8
+            (infix@4 \2B k~2 1@2))))))))))
+   (let@4,f uInside . . bool@9
+    (infix@M <= lower~6
+     (infix@5 * 4~2 s@2)))
+   (let@4,g wInside . . bool@9
+    (infix@Q <=
+     (infix~4 \2B
+      (infix~4 * 4~2 s@2)4@2)upper@3))
+   (if@,h
+    (elif@3
+     (infix@8 != uInside~8 wInside@3)
+     (stmts~1,1
+      (ret
+       (oconstr@O FloatingDecimal32~H
+        (kv@7 digits~6
+         (infix@4 \2B s~2
+          (call@8 uint32~6 wInside@1)))
+        (kv@c exponent~8 k@2))))))
+   (let@4,j mid . . uint32@5
+    (infix@K \2B
+     (infix~4 * 4~2 s@2)2@2))
+   (comment@,k)
+   (let@4,l roundUp . . bool@9
+    (infix@P or
+     (infix~6 > vb~3 mid@2)
+     (par@3
+      (infix@B and
+       (infix~7 == vb~3 mid@3)
+       (infix@E !=
+        (par~A
+         (infix@3 and s~2 1@4))0@3)))))
+   (asgn@7,m result~7
+    (oconstr@J FloatingDecimal32~H
+     (kv@7 digits~6
+      (infix@4 \2B s~2
+       (call@8 uint32~6 roundUp@1)))
+     (kv@c exponent~8 k@2)))))
+ (comment@,3H)
+ (func@,3L printDecimalDigitsBackwards@5 . . .
+  (params@W
+   (param@1 buf . .
+    (mut@5
+     (at@D openArray~9 char@1)).)
+   (param@R pos . . int@5 .)
+   (param@b output . . uint32@8 .))int@s . .
+  (stmts@2,1
+   (var@4 output . . . output@9)
+   (var@4,1 pos . . . pos@6)
+   (var@4,2 tz . . . 0@5)
+   (comment@,3)
+   (var@4,4 nd . . . 0@5)
+   (comment@,5)
+   (if@,7
+    (elif@3
+     (infix@7 >= output~7 10000@3)
+     (stmts~1,1
+      (let@4 q . . uint32@3
+       (infix@J div output~7 10000@4))
+      (let@4,1 r . . uint32@3
+       (infix@J mod output~7 10000@4))
+      (asgn@7,2 output~7 q@2)
+      (call@3,3 dec~3 pos@1 4@6)
+      (if@,4
+       (elif@3
+        (infix@2 != r~2 0@3)
+        (stmts~1,1
+         (let@4 rH . . uint32@4
+          (infix@F div r~2 100@4))
+         (let@4,1 rL . . uint32@4
+          (infix@F mod r~2 100@4))
+         (call@B,2 utoa2Digits~B buf@1 pos@6 rH@B)
+         (call@B,3 utoa2Digits~B buf@1
+          (infix@A \2B pos~4 2@2)rL@F)
+         (asgn@3,4 tz~3
+          (infix@m \2B
+           (call~Q trailingZeros2Digits~K
+            (if@1
+             (elif@3
+              (infix@3 == rL~3 0@3)
+              (stmts@9 rH))
+             (else@F
+              (stmts@6 rL))))
+           (expr
+            (stmts@2)
+            (if@1
+             (elif@3
+              (infix@3 == rL~3 0@3)2@9)
+             (else@E 0@6)))))))
+       (else@,6
+        (stmts@2,1
+         (asgn@3 tz~3 4@2))))
+      (asgn@3,C nd~3 4@2))))
+   (if@,L
+    (elif@3
+     (infix@7 >= output~7 100@3)
+     (stmts~1,1
+      (let@4 q . . uint32@3
+       (infix@J div output~7 100@4))
+      (let@4,1 r . . uint32@3
+       (infix@J mod output~7 100@4))
+      (asgn@7,2 output~7 q@2)
+      (call@3,3 dec~3 pos@1 2@6)
+      (call@B,4 utoa2Digits~B buf@1 pos@6 r@B)
+      (if@,5
+       (elif@3
+        (infix@3 == tz~3 nd@3)
+        (stmts~1,1
+         (call@3 inc~3 tz@1
+          (call@P trailingZeros2Digits~K r@1)))))
+      (call@3,7 inc~3 nd@1 2@5)
+      (if@,8
+       (elif@3
+        (infix@7 >= output~7 100@3)
+        (stmts~1,1
+         (let@4 q2 . . uint32@4
+          (infix@K div output~7 100@4))
+         (let@4,1 r2 . . uint32@4
+          (infix@K mod output~7 100@4))
+         (asgn@7,2 output~7 q2@2)
+         (call@3,3 dec~3 pos@1 2@6)
+         (call@B,4 utoa2Digits~B buf@1 pos@6 r2@B)
+         (if@,5
+          (elif@3
+           (infix@3 == tz~3 nd@3)
+           (stmts~1,1
+            (call@3 inc~3 tz@1
+             (call@P trailingZeros2Digits~K r2@1)))))
+         (call@3,7 inc~3 nd@1 2@5)))))))
+   (call@9,d fmtAssert~9
+    (infix@8 >= output~7 1@3))
+   (call@9,e fmtAssert~9
+    (infix@8 <= output~7 99@3))
+   (if@,f
+    (elif@3
+     (infix@7 >= output~7 10@3)
+     (stmts~1,1
+      (let@4 q . . uint32@3 output@C)
+      (call@3,1 dec~3 pos@1 2@6)
+      (call@B,2 utoa2Digits~B buf@1 pos@6 q@B)
+      (if@,3
+       (elif@3
+        (infix@3 == tz~3 nd@3)
+        (stmts~1,1
+         (call@3 inc~3 tz@1
+          (call@P trailingZeros2Digits~K q@1)))))))
+    (else@,6
+     (stmts@2,1
+      (let@4 q . . uint32@3 output@C)
+      (call@9,1 fmtAssert~9
+       (infix@3 >= q~2 1@3))
+      (call@9,2 fmtAssert~9
+       (infix@3 <= q~2 9@3))
+      (call@3,3 dec~3 pos@1)
+      (asgn@9,4
+       (at~6 buf~3 pos@1)
+       (call@5 chr~3
+        (infix@A \2B
+         (call~6 ord~3 '0'@1)
+         (call@5 int~3 q@1)))))))
+   (asgn@7,r result~7 tz@2)))
+ (func@,4F decimalLength@5 . . .
+  (params@I
+   (param@1 v . . uint32@3 .))int@D . .
+  (stmts@2,1
+   (call@9 fmtAssert~9
+    (infix@3 >= v~2 1@3))
+   (call@9,1 fmtAssert~9
+    (infix@3 <= v~2
+     (suf@3 999999999u "u32")))
+   (if@,2
+    (elif@3
+     (infix@2 >= v~2
+      (suf@3 100000000u "u32"))
+     (stmts@K
+      (ret 9@7))))
+   (if@,3
+    (elif@3
+     (infix@2 >= v~2
+      (suf@3 10000000u "u32"))
+     (stmts@J
+      (ret 8@7))))
+   (if@,4
+    (elif@3
+     (infix@2 >= v~2
+      (suf@3 1000000u "u32"))
+     (stmts@I
+      (ret 7@7))))
+   (if@,5
+    (elif@3
+     (infix@2 >= v~2
+      (suf@3 100000u "u32"))
+     (stmts@H
+      (ret 6@7))))
+   (if@,6
+    (elif@3
+     (infix@2 >= v~2
+      (suf@3 10000u "u32"))
+     (stmts@G
+      (ret 5@7))))
+   (if@,7
+    (elif@3
+     (infix@2 >= v~2
+      (suf@3 1000u "u32"))
+     (stmts@F
+      (ret 4@7))))
+   (if@,8
+    (elif@3
+     (infix@2 >= v~2
+      (suf@3 100u "u32"))
+     (stmts@E
+      (ret 3@7))))
+   (if@,9
+    (elif@3
+     (infix@2 >= v~2
+      (suf@3 10u "u32"))
+     (stmts@D
+      (ret 2@7))))
+   (asgn@7,A result~7 1@2)))
+ (func@,4S formatDigits@5 . . .
+  (params@H
+   (param@1 buffer . .
+    (mut@8
+     (at@D openArray~9 char@1)).)
+   (param@U pos . . int@5 .)
+   (param@e digits . . uint32@8 .)
+   (param@u decimalExponent . . int@H .)
+   (param@1,1 forceTrailingDotZero . . . false@N))int@W,1 . .
+  (stmts@2,2
+   (const@2,1 minFixedDecimalPoint . . int32@M -4@U)
+   (const@2,2 maxFixedDecimalPoint . . int32@M 9@U)
+   (var@4,3 pos . . . pos@6)
+   (call@9,4 fmtAssert~9
+    (infix@M <= minFixedDecimalPoint~L -1@3))
+   (call@9,5 fmtAssert~9
+    (infix@M >= maxFixedDecimalPoint~L 1@3))
+   (call@9,6 fmtAssert~9
+    (infix@8 >= digits~7 1@3))
+   (call@9,7 fmtAssert~9
+    (infix@8 <= digits~7
+     (suf@3 999999999u "u32")))
+   (call@9,8 fmtAssert~9
+    (infix@H >= decimalExponent~G -99@3))
+   (call@9,9 fmtAssert~9
+    (infix@H <= decimalExponent~G 99@3))
+   (var@4,A numDigits . . .
+    (call@P decimalLength~D digits@1))
+   (let@4,B decimalPoint . . .
+    (infix@P \2B numDigits~A decimalExponent@2))
+   (let@4,C useFixed . . bool@A
+    (infix@16 and
+     (infix~N <=
+      (call~N int32~5 minFixedDecimalPoint@1)
+      (call@8 int32~5 decimalPoint@1))
+     (infix~m,1 <=
+      (call~F int32~5 decimalPoint@1)
+      (call@8 int32~5 maxFixedDecimalPoint@1))))
+   (comment@,E)
+   (for@4,F
+    (infix@6 \2E\2E< 0~1 32@3)
+    (unpackflat
+     (let i . . ..))
+    (stmts@D
+     (asgn@E
+      (at~8 buffer~6
+       (infix@4 \2B pos~3 i@1))'0'@2)))
+   (var@4,G decimalDigitsPosition . . int@N .)
+   (if@,H
+    (elif@3 useFixed
+     (stmts~1,1
+      (if
+       (elif@3
+        (infix@D <= decimalPoint~D 0@3)
+        (stmts~1,1
+         (comment)
+         (asgn@M,1 decimalDigitsPosition~M
+          (infix@4 \2D 2~2 decimalPoint@2))))
+       (else@,3
+        (stmts@2,1
+         (comment)
+         (asgn@M,2 decimalDigitsPosition~M 0@2))))))
+    (else@,8
+     (stmts@2,1
+      (comment)
+      (asgn@M,1 decimalDigitsPosition~M 1@2))))
+   (var@4,S digitsEnd . . .
+    (infix@e \2B
+     (infix~O \2B pos~4 decimalDigitsPosition@2)numDigits@2))
+   (let@4,T tz . . .
+    (call@W printDecimalDigitsBackwards~R buffer@1 digitsEnd@9 digits@K))
+   (call@3,U dec~3 digitsEnd@1 tz@C)
+   (call@3,V dec~3 numDigits@1 tz@C)
+   (if@,W
+    (elif@3 useFixed
+     (stmts~1,1
+      (if
+       (elif@3
+        (infix@D <= decimalPoint~D 0@3)
+        (stmts~1,1
+         (comment)
+         (asgn@E,1
+          (at~8 buffer~6
+           (infix@4 \2B pos~3 1@1))'.'@2)
+         (asgn@4,2 pos~4 digitsEnd@2)))
+       (elif@5,4
+        (infix@D < decimalPoint~D numDigits@2)
+        (stmts~3,1
+         (comment)
+         (for@4,1
+          (call@E countdown~9 7@1 0@4)
+          (unpackflat
+           (let i . . ..))
+          (stmts~2,1
+           (asgn@T
+            (at~N buffer~6
+             (infix@I \2B
+              (infix~F \2B i~2 decimalPoint@2)1@2))
+            (at@8 buffer~6
+             (infix@3 \2B i~2 decimalPoint@2)))))
+         (asgn@P,3
+          (at~J buffer~6
+           (infix@4 \2B pos~3 decimalPoint@1))'.'@2)
+         (asgn@4,4 pos~4
+          (infix@C \2B digitsEnd~A 1@2))))
+       (else@,A
+        (stmts@2,1
+         (comment)
+         (call@3,1 inc~3 pos@1 decimalPoint@6)
+         (if@,2
+          (elif@3 forceTrailingDotZero
+           (stmts~1,1
+            (asgn@C
+             (at~6 buffer~6 pos@1)'.'@2)
+            (asgn@E,1
+             (at~8 buffer~6
+              (infix@4 \2B pos~3 1@1))'0'@2)
+            (call@3,2 inc~3 pos@1 2@6)))))))))
+    (else@,I
+     (stmts@2,1
+      (asgn@C
+       (at~6 buffer~6 pos@1)
+       (at@8 buffer~6
+        (infix@4 \2B pos~3 1@1)))
+      (if@,1
+       (elif@3
+        (infix@A == numDigits~A 1@3)
+        (stmts~1,1
+         (comment)
+         (call@3,1 inc~3 pos@1)))
+       (else@,3
+        (stmts@2,1
+         (comment)
+         (asgn@E,1
+          (at~8 buffer~6
+           (infix@4 \2B pos~3 1@1))'.'@2)
+         (asgn@4,2 pos~4 digitsEnd@2))))
+      (let@4,8 scientificExponent . . .
+       (infix@Y \2D decimalPoint~D 1@2))
+      (asgn@C,9
+       (at~6 buffer~6 pos@1)'e'@2)
+      (asgn@E,A
+       (at~8 buffer~6
+        (infix@4 \2B pos~3 1@1))
+       (if@2
+        (elif@3
+         (infix@J < scientificExponent~J 0@2)
+         (stmts@O '-'))
+        (else@V
+         (stmts@6 '+'))))
+      (call@3,B inc~3 pos@1 2@6)
+      (let@4,C k . . uint32@3
+       (call@I uint32~6
+        (if@1
+         (elif@3
+          (infix@J < scientificExponent~J 0@2)
+          (stmts@O
+           (prefix \2D scientificExponent@1)))
+         (else@l
+          (stmts@6 scientificExponent)))))
+      (if@,D
+       (elif@3
+        (infix@2 < k~2 10@2)
+        (stmts~1,1
+         (asgn@C
+          (at~6 buffer~6 pos@1)
+          (call@5 chr~3
+           (infix@A \2B
+            (call~6 ord~3 '0'@1)
+            (call@5 int~3 k@1))))
+         (cmd@,1 inc pos@4)))
+       (else@,3
+        (stmts@2,1
+         (call@B utoa2Digits~B buffer@1 pos@9 k@E)
+         (call@3,1 inc~3 pos@1 2@6)))))))
+   (asgn@7,18 result~7 pos@2)))
+ (func@,5e float32ToChars@5 . . .
+  (params@J
+   (param@1 buffer . .
+    (mut@8
+     (at@D openArray~9 char@1)).)
+   (param@U v . . float32@3 .)
+   (param@g forceTrailingDotZero . . . false@N))int@1B . .
+  (stmts@2,1
+   (let@4 single . . .
+    (call@O constructSingle~F v@1))
+   (let@4,1 significand . . uint32@D
+    (call@f physicalSignificand~J single@1))
+   (let@4,2 exponent . . uint32@A
+    (call@Z physicalExponent~G single@1))
+   (var@4,3 pos . . . 0@6)
+   (if@,4
+    (elif@3
+     (infix@9 != exponent~9 sfMaxIeeeExponent@3)
+     (stmts~1,1
+      (comment)
+      (asgn@C,1
+       (at~6 buffer~6 pos@1)'-'@2)
+      (call@3,2 inc~3 pos@1
+       (call@D signBit~7 single@1))
+      (if@,3
+       (elif@3
+        (infix@E or
+         (infix~5 != exponent~9 0@3)
+         (infix@F != significand~C 0@3))
+        (stmts~1,1
+         (comment)
+         (let@4,1 dec . . .
+          (call@H toDecimal32~B significand@1 exponent@E))
+         (ret@,2
+          (call@J formatDigits~C buffer@1 pos@9
+           (dot@H dec~3 digits@1)
+           (call@T int~3
+            (dot@4 dec~3 exponent@1))forceTrailingDotZero@j))))
+       (else@,4
+        (stmts@2,1
+         (asgn@C
+          (at~6 buffer~6 pos@1)'0'@2)
+         (asgn@E,1
+          (at~8 buffer~6
+           (infix@4 \2B pos~3 1@1))'.'@2)
+         (asgn@E,2
+          (at~8 buffer~6
+           (infix@4 \2B pos~3 2@1))'0'@2)
+         (asgn@E,3
+          (at~8 buffer~6
+           (infix@4 \2B pos~3 3@1))' '@2)
+         (call@3,4 inc~3 pos@1
+          (if@6
+           (elif@3 forceTrailingDotZero
+            (stmts@M 3))
+           (else@R
+            (stmts@6 1))))
+         (ret@,5 pos@7)))))))
+   (if@,J
+    (elif@3
+     (infix@C == significand~C 0@3)
+     (stmts~1,1
+      (asgn@C
+       (at~6 buffer~6 pos@1)'-'@2)
+      (call@3,1 inc~3 pos@1
+       (call@D signBit~7 single@1))
+      (asgn@C,2
+       (at~6 buffer~6 pos@1)'i'@2)
+      (asgn@E,3
+       (at~8 buffer~6
+        (infix@4 \2B pos~3 1@1))'n'@2)
+      (asgn@E,4
+       (at~8 buffer~6
+        (infix@4 \2B pos~3 2@1))'f'@2)
+      (asgn@E,5
+       (at~8 buffer~6
+        (infix@4 \2B pos~3 3@1))' '@2)
+      (ret@,6
+       (infix@B \2B pos~4 3@2))))
+    (else@,8
+     (stmts@2,1
+      (asgn@C
+       (at~6 buffer~6 pos@1)'n'@2)
+      (asgn@E,1
+       (at~8 buffer~6
+        (infix@4 \2B pos~3 1@1))'a'@2)
+      (asgn@E,2
+       (at~8 buffer~6
+        (infix@4 \2B pos~3 2@1))'n'@2)
+      (asgn@E,3
+       (at~8 buffer~6
+        (infix@4 \2B pos~3 3@1))' '@2)
+      (ret@,4
+       (infix@B \2B pos~4 3@2)))))))
+ (type@E,6J dbValueType~C . . . float@2)
+ (type@D,6K dbBitsType~B . . . uint64@2)
+ (type@9,6N Double~7 . . .
+  (object@2 .
+   (fld~7,1 bits . . dbBitsType@6 .)))
+ (const@2,6R dbSignificandSize . . int@J 53@P)
+ (const@2,6S dbExponentBias . . int@G
+  (infix@V \2B
+   (infix~4 \2D 1024~5 1@2)
+   (par@2
+    (infix@J \2D dbSignificandSize~I 1@2))))
+ (const@2,6T dbMaxIeeeExponent . . dbBitsType@J
+  (call@g dbBitsType~A
+   (infix@A \2D
+    (infix~7 * 2~2 1024@2)1@2)))
+ (const@2,6U dbHiddenBit . . dbBitsType@D
+  (infix@e shl
+   (call~4 dbBitsType~A 1@1)
+   (par@4
+    (infix@J \2D dbSignificandSize~I 1@2))))
+ (const@2,6V dbSignificandMask . . dbBitsType@J
+  (infix@i \2D dbHiddenBit~C 1@2))
+ (const@2,6W dbExponentMask . . dbBitsType@G
+  (infix@l shl dbMaxIeeeExponent~I
+   (par@4
+    (infix@J \2D dbSignificandSize~I 1@2))))
+ (const@2,6X dbSignMask . . dbBitsType@C
+  (prefix@P not
+   (par@4
+    (infix@J shr
+     (prefix~I not
+      (call@E dbBitsType~A 0@1))1@4))))
+ (func@,6Z constructDouble@5 . . .
+  (params@K
+   (param@1 value . . dbValueType@7 .))Double@M . .
+  (stmts@2,1
+   (asgn@7 result~7
+    (oconstr@8 Double~6
+     (kv@5 bits~4
+      (cast@2 dbBitsType@5 value@H))))))
+ (func@,6c physicalSignificand@5 . . .
+  (params@O
+   (param@1 this . . Double@6 .))dbBitsType@G . .
+  (stmts@2,1
+   (asgn@7 result~7
+    (infix@C and
+     (dot~6 this~4 bits@1)dbSignificandMask@4))))
+ (func@,6f physicalExponent@5 . . .
+  (params@L
+   (param@1 this . . Double@6 .))dbBitsType@G . .
+  (stmts@2,1
+   (asgn@7 result~7
+    (infix@X shr
+     (par~V
+      (infix@B and
+       (dot~6 this~4 bits@1)dbExponentMask@4))
+     (par@4
+      (infix@J \2D dbSignificandSize~I 1@2))))))
+ (func@,6i signBit@5 . . .
+  (params@C
+   (param@1 this . . Double@6 .))int@G . .
+  (stmts@2,1
+   (asgn@7 result~7
+    (call@5 ord~3
+     (infix@S !=
+      (par~R
+       (infix@B and
+        (dot~6 this~4 bits@1)dbSignMask@4))0@3)))))
+ (comment@,6o)
+ (func@,6q dbFloorDivPow2@5 . . .
+  (params@J
+   (param@1 x . . int@3 .)
+   (param@9 n . . int@3 .))int@I
+  (pragmas@f inline@2).
+  (stmts@2,1
+   (asgn@7 result~7
+    (infix@4 shr x~2 n@4))))
+ (func@,6t dbFloorLog2Pow10@5 . . .
+  (params@L
+   (param@1 e . . int@3 .))int@A
+  (pragmas@Z inline@2).
+  (stmts@2,1
+   (call@9 fmtAssert~9
+    (infix@3 >= e~2 -1233@3))
+   (call@9,1 fmtAssert~9
+    (infix@3 <= e~2 1233@3))
+   (asgn@7,2 result~7
+    (call@G dbFloorDivPow2~E
+     (infix@3 * e~2 1741647@2)19@E))))
+ (func@,6y dbFloorLog10Pow2@5 . . .
+  (params@L
+   (param@1 e . . int@3 .))int@A
+  (pragmas@Z inline@2).
+  (stmts@2,1
+   (call@9 fmtAssert~9
+    (infix@3 >= e~2 -1500@3))
+   (call@9,1 fmtAssert~9
+    (infix@3 <= e~2 1500@3))
+   (asgn@7,2 result~7
+    (call@G dbFloorDivPow2~E
+     (infix@3 * e~2 1262611@2)22@E))))
+ (func@,73 dbFloorLog10ThreeQuartersPow2@5 . . .
+  (params@Y
+   (param@1 e . . int@3 .))int@A
+  (pragmas@m inline@2).
+  (stmts@2,1
+   (call@9 fmtAssert~9
+    (infix@3 >= e~2 -1500@3))
+   (call@9,1 fmtAssert~9
+    (infix@3 <= e~2 1500@3))
+   (asgn@7,2 result~7
+    (call@G dbFloorDivPow2~E
+     (infix@D \2D
+      (infix~A * e~2 1262611@2)524031@2)22@N))))
+ (type@B,7D uint64x2~9 . . .
+  (object@2 .
+   (fld~9,1 hi . . uint64@4 .)
+   (fld~9,2 lo . . uint64@4 .)))
+ (func@,7H computePow10@5 . . .
+  (params@H
+   (param@1 k . . int@3 .))uint64x2@A
+  (pragmas@a inline@2).
+  (stmts@2,1
+   (const@2,1 kMin . . int@6 -292@C)
+   (const@2,2 kMax . . int@6 326@C)
+   (const@2,3 pow10 . .
+    (at@C array~5
+     (infix@D \2B
+      (infix~7 \2D kMax~5 kMin@2)1@2)uint64x2@I)
+    (bracket@g
+     (oconstr~W,1 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 18408377700990114895u "u64"))
+      (kv@V lo~2
+       (suf@2 2731688931043774331u "u64")))
+     (oconstr~W,2 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11505236063118821809u "u64"))
+      (kv@V lo~2
+       (suf@2 8624834609543440813u "u64")))
+     (oconstr~W,3 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14381545078898527261u "u64"))
+      (kv@V lo~2
+       (suf@2 15392729280356688920u "u64")))
+     (oconstr~W,4 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17976931348623159077u "u64"))
+      (kv@V lo~2
+       (suf@2 5405853545163697438u "u64")))
+     (oconstr~W,5 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11235582092889474423u "u64"))
+      (kv@V lo~2
+       (suf@2 5684501474941004851u "u64")))
+     (oconstr~W,6 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14044477616111843029u "u64"))
+      (kv@V lo~2
+       (suf@2 2493940825248868160u "u64")))
+     (oconstr~W,7 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17555597020139803786u "u64"))
+      (kv@V lo~2
+       (suf@2 7729112049988473104u "u64")))
+     (oconstr~W,8 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10972248137587377366u "u64"))
+      (kv@V lo~2
+       (suf@2 9442381049670183594u "u64")))
+     (oconstr~W,9 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13715310171984221708u "u64"))
+      (kv@V lo~2
+       (suf@2 2579604275232953684u "u64")))
+     (oconstr~W,A uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17144137714980277135u "u64"))
+      (kv@V lo~2
+       (suf@2 3224505344041192105u "u64")))
+     (oconstr~W,B uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10715086071862673209u "u64"))
+      (kv@V lo~2
+       (suf@2 8932844867666826922u "u64")))
+     (oconstr~W,C uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13393857589828341511u "u64"))
+      (kv@V lo~2
+       (suf@2 15777742103010921556u "u64")))
+     (oconstr~W,D uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16742321987285426889u "u64"))
+      (kv@V lo~2
+       (suf@2 15110491610336264041u "u64")))
+     (oconstr~W,E uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10463951242053391806u "u64"))
+      (kv@V lo~2
+       (suf@2 2526528228819083170u "u64")))
+     (oconstr~W,F uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13079939052566739757u "u64"))
+      (kv@V lo~2
+       (suf@2 12381532322878629771u "u64")))
+     (oconstr~W,G uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16349923815708424697u "u64"))
+      (kv@V lo~2
+       (suf@2 1641857348316123501u "u64")))
+     (oconstr~W,H uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10218702384817765435u "u64"))
+      (kv@V lo~2
+       (suf@2 12555375888766046948u "u64")))
+     (oconstr~W,I uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12773377981022206794u "u64"))
+      (kv@V lo~2
+       (suf@2 11082533842530170781u "u64")))
+     (oconstr~W,J uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15966722476277758493u "u64"))
+      (kv@V lo~2
+       (suf@2 4629795266307937668u "u64")))
+     (oconstr~W,K uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9979201547673599058u "u64"))
+      (kv@V lo~2
+       (suf@2 5199465050656154995u "u64")))
+     (oconstr~W,L uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12474001934591998822u "u64"))
+      (kv@V lo~2
+       (suf@2 15722703350174969552u "u64")))
+     (oconstr~W,M uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15592502418239998528u "u64"))
+      (kv@V lo~2
+       (suf@2 10430007150863936131u "u64")))
+     (oconstr~W,N uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9745314011399999080u "u64"))
+      (kv@V lo~2
+       (suf@2 6518754469289960082u "u64")))
+     (oconstr~W,O uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12181642514249998850u "u64"))
+      (kv@V lo~2
+       (suf@2 8148443086612450103u "u64")))
+     (oconstr~W,P uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15227053142812498563u "u64"))
+      (kv@V lo~2
+       (suf@2 962181821410786820u "u64")))
+     (oconstr~W,Q uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9516908214257811601u "u64"))
+      (kv@V lo~2
+       (suf@2 16742264702877599427u "u64")))
+     (oconstr~W,R uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11896135267822264502u "u64"))
+      (kv@V lo~2
+       (suf@2 7092772823314835571u "u64")))
+     (oconstr~W,S uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14870169084777830627u "u64"))
+      (kv@V lo~2
+       (suf@2 18089338065998320272u "u64")))
+     (oconstr~W,T uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9293855677986144142u "u64"))
+      (kv@V lo~2
+       (suf@2 8999993282035256218u "u64")))
+     (oconstr~W,U uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11617319597482680178u "u64"))
+      (kv@V lo~2
+       (suf@2 2026619565689294465u "u64")))
+     (oconstr~W,V uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14521649496853350222u "u64"))
+      (kv@V lo~2
+       (suf@2 11756646493966393889u "u64")))
+     (oconstr~W,W uint64x2~8
+      (kv@3 hi~2
+       (suf@2 18152061871066687778u "u64"))
+      (kv@V lo~2
+       (suf@2 5472436080603216553u "u64")))
+     (oconstr~W,X uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11345038669416679861u "u64"))
+      (kv@V lo~2
+       (suf@2 8031958568804398250u "u64")))
+     (oconstr~W,Y uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14181298336770849826u "u64"))
+      (kv@V lo~2
+       (suf@2 14651634229432885716u "u64")))
+     (oconstr~W,Z uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17726622920963562283u "u64"))
+      (kv@V lo~2
+       (suf@2 9091170749936331337u "u64")))
+     (oconstr~W,a uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11079139325602226427u "u64"))
+      (kv@V lo~2
+       (suf@2 3376138709496513134u "u64")))
+     (oconstr~W,b uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13848924157002783033u "u64"))
+      (kv@V lo~2
+       (suf@2 18055231442152805129u "u64")))
+     (oconstr~W,c uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17311155196253478792u "u64"))
+      (kv@V lo~2
+       (suf@2 8733981247408842699u "u64")))
+     (oconstr~W,d uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10819471997658424245u "u64"))
+      (kv@V lo~2
+       (suf@2 5458738279630526687u "u64")))
+     (oconstr~W,e uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13524339997073030306u "u64"))
+      (kv@V lo~2
+       (suf@2 11435108867965546263u "u64")))
+     (oconstr~W,f uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16905424996341287883u "u64"))
+      (kv@V lo~2
+       (suf@2 5070514048102157021u "u64")))
+     (oconstr~W,g uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10565890622713304927u "u64"))
+      (kv@V lo~2
+       (suf@2 863228270850154186u "u64")))
+     (oconstr~W,h uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13207363278391631158u "u64"))
+      (kv@V lo~2
+       (suf@2 14914093393844856444u "u64")))
+     (oconstr~W,i uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16509204097989538948u "u64"))
+      (kv@V lo~2
+       (suf@2 9419244705451294747u "u64")))
+     (oconstr~W,j uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10318252561243461842u "u64"))
+      (kv@V lo~2
+       (suf@2 15110399977761835025u "u64")))
+     (oconstr~W,k uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12897815701554327303u "u64"))
+      (kv@V lo~2
+       (suf@2 9664627935347517974u "u64")))
+     (oconstr~W,l uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16122269626942909129u "u64"))
+      (kv@V lo~2
+       (suf@2 7469098900757009563u "u64")))
+     (oconstr~W,m uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10076418516839318205u "u64"))
+      (kv@V lo~2
+       (suf@2 16197401859041600737u "u64")))
+     (oconstr~W,n uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12595523146049147757u "u64"))
+      (kv@V lo~2
+       (suf@2 6411694268519837209u "u64")))
+     (oconstr~W,o uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15744403932561434696u "u64"))
+      (kv@V lo~2
+       (suf@2 12626303854077184415u "u64")))
+     (oconstr~W,p uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9840252457850896685u "u64"))
+      (kv@V lo~2
+       (suf@2 7891439908798240260u "u64")))
+     (oconstr~W,q uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12300315572313620856u "u64"))
+      (kv@V lo~2
+       (suf@2 14475985904425188228u "u64")))
+     (oconstr~W,r uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15375394465392026070u "u64"))
+      (kv@V lo~2
+       (suf@2 18094982380531485285u "u64")))
+     (oconstr~W,s uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9609621540870016294u "u64"))
+      (kv@V lo~2
+       (suf@2 6697677969404790400u "u64")))
+     (oconstr~W,t uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12012026926087520367u "u64"))
+      (kv@V lo~2
+       (suf@2 17595469498610763807u "u64")))
+     (oconstr~W,u uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15015033657609400459u "u64"))
+      (kv@V lo~2
+       (suf@2 17382650854836066855u "u64")))
+     (oconstr~W,v uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9384396036005875287u "u64"))
+      (kv@V lo~2
+       (suf@2 8558313775058847833u "u64")))
+     (oconstr~W,w uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11730495045007344109u "u64"))
+      (kv@V lo~2
+       (suf@2 6086206200396171887u "u64")))
+     (oconstr~W,x uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14663118806259180136u "u64"))
+      (kv@V lo~2
+       (suf@2 12219443768922602762u "u64")))
+     (oconstr~W,y uint64x2~8
+      (kv@3 hi~2
+       (suf@2 18328898507823975170u "u64"))
+      (kv@V lo~2
+       (suf@2 15274304711153253453u "u64")))
+     (oconstr~W,z uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11455561567389984481u "u64"))
+      (kv@V lo~2
+       (suf@2 14158126462898171312u "u64")))
+     (oconstr~W,10 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14319451959237480602u "u64"))
+      (kv@V lo~2
+       (suf@2 3862600023340550428u "u64")))
+     (oconstr~W,11 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17899314949046850752u "u64"))
+      (kv@V lo~2
+       (suf@2 14051622066030463843u "u64")))
+     (oconstr~W,12 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11187071843154281720u "u64"))
+      (kv@V lo~2
+       (suf@2 8782263791269039902u "u64")))
+     (oconstr~W,13 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13983839803942852150u "u64"))
+      (kv@V lo~2
+       (suf@2 10977829739086299877u "u64")))
+     (oconstr~W,14 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17479799754928565188u "u64"))
+      (kv@V lo~2
+       (suf@2 4498915137003099038u "u64")))
+     (oconstr~W,15 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10924874846830353242u "u64"))
+      (kv@V lo~2
+       (suf@2 12035193997481712707u "u64")))
+     (oconstr~W,16 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13656093558537941553u "u64"))
+      (kv@V lo~2
+       (suf@2 5820620459997365076u "u64")))
+     (oconstr~W,17 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17070116948172426941u "u64"))
+      (kv@V lo~2
+       (suf@2 11887461593424094249u "u64")))
+     (oconstr~W,18 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10668823092607766838u "u64"))
+      (kv@V lo~2
+       (suf@2 9735506505103752858u "u64")))
+     (oconstr~W,19 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13336028865759708548u "u64"))
+      (kv@V lo~2
+       (suf@2 2946011094524915264u "u64")))
+     (oconstr~W,1A uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16670036082199635685u "u64"))
+      (kv@V lo~2
+       (suf@2 3682513868156144080u "u64")))
+     (oconstr~W,1B uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10418772551374772303u "u64"))
+      (kv@V lo~2
+       (suf@2 4607414176811284002u "u64")))
+     (oconstr~W,1C uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13023465689218465379u "u64"))
+      (kv@V lo~2
+       (suf@2 1147581702586717098u "u64")))
+     (oconstr~W,1D uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16279332111523081723u "u64"))
+      (kv@V lo~2
+       (suf@2 15269535183515560085u "u64")))
+     (oconstr~W,1E uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10174582569701926077u "u64"))
+      (kv@V lo~2
+       (suf@2 7237616480483531101u "u64")))
+     (oconstr~W,1F uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12718228212127407596u "u64"))
+      (kv@V lo~2
+       (suf@2 13658706619031801780u "u64")))
+     (oconstr~W,1G uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15897785265159259495u "u64"))
+      (kv@V lo~2
+       (suf@2 17073383273789752225u "u64")))
+     (oconstr~W,1H uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9936115790724537184u "u64"))
+      (kv@V lo~2
+       (suf@2 17588393573759676997u "u64")))
+     (oconstr~W,1I uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12420144738405671481u "u64"))
+      (kv@V lo~2
+       (suf@2 3538747893490044630u "u64")))
+     (oconstr~W,1J uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15525180923007089351u "u64"))
+      (kv@V lo~2
+       (suf@2 9035120885289943692u "u64")))
+     (oconstr~W,1K uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9703238076879430844u "u64"))
+      (kv@V lo~2
+       (suf@2 12564479580947296664u "u64")))
+     (oconstr~W,1L uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12129047596099288555u "u64"))
+      (kv@V lo~2
+       (suf@2 15705599476184120829u "u64")))
+     (oconstr~W,1M uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15161309495124110694u "u64"))
+      (kv@V lo~2
+       (suf@2 15020313326802763132u "u64")))
+     (oconstr~W,1N uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9475818434452569184u "u64"))
+      (kv@V lo~2
+       (suf@2 4776009810824339054u "u64")))
+     (oconstr~W,1O uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11844773043065711480u "u64"))
+      (kv@V lo~2
+       (suf@2 5970012263530423817u "u64")))
+     (oconstr~W,1P uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14805966303832139350u "u64"))
+      (kv@V lo~2
+       (suf@2 7462515329413029772u "u64")))
+     (oconstr~W,1Q uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9253728939895087094u "u64"))
+      (kv@V lo~2
+       (suf@2 52386062455755703u "u64")))
+     (oconstr~W,1R uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11567161174868858867u "u64"))
+      (kv@V lo~2
+       (suf@2 9288854614924470437u "u64")))
+     (oconstr~W,1S uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14458951468586073584u "u64"))
+      (kv@V lo~2
+       (suf@2 6999382250228200142u "u64")))
+     (oconstr~W,1T uint64x2~8
+      (kv@3 hi~2
+       (suf@2 18073689335732591980u "u64"))
+      (kv@V lo~2
+       (suf@2 8749227812785250178u "u64")))
+     (oconstr~W,1U uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11296055834832869987u "u64"))
+      (kv@V lo~2
+       (suf@2 14691639419845557169u "u64")))
+     (oconstr~W,1V uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14120069793541087484u "u64"))
+      (kv@V lo~2
+       (suf@2 13752863256379558557u "u64")))
+     (oconstr~W,1W uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17650087241926359355u "u64"))
+      (kv@V lo~2
+       (suf@2 17191079070474448197u "u64")))
+     (oconstr~W,1X uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11031304526203974597u "u64"))
+      (kv@V lo~2
+       (suf@2 8438581409832836171u "u64")))
+     (oconstr~W,1Y uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13789130657754968246u "u64"))
+      (kv@V lo~2
+       (suf@2 15159912780718433118u "u64")))
+     (oconstr~W,1Z uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17236413322193710308u "u64"))
+      (kv@V lo~2
+       (suf@2 9726518939043265589u "u64")))
+     (oconstr~W,1a uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10772758326371068942u "u64"))
+      (kv@V lo~2
+       (suf@2 15302446373756816801u "u64")))
+     (oconstr~W,1b uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13465947907963836178u "u64"))
+      (kv@V lo~2
+       (suf@2 9904685930341245194u "u64")))
+     (oconstr~W,1c uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16832434884954795223u "u64"))
+      (kv@V lo~2
+       (suf@2 3157485376071780684u "u64")))
+     (oconstr~W,1d uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10520271803096747014u "u64"))
+      (kv@V lo~2
+       (suf@2 8890957387685944784u "u64")))
+     (oconstr~W,1e uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13150339753870933768u "u64"))
+      (kv@V lo~2
+       (suf@2 1890324697752655171u "u64")))
+     (oconstr~W,1f uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16437924692338667210u "u64"))
+      (kv@V lo~2
+       (suf@2 2362905872190818964u "u64")))
+     (oconstr~W,1g uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10273702932711667006u "u64"))
+      (kv@V lo~2
+       (suf@2 6088502188546649757u "u64")))
+     (oconstr~W,1h uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12842128665889583757u "u64"))
+      (kv@V lo~2
+       (suf@2 16833999772538088004u "u64")))
+     (oconstr~W,1i uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16052660832361979697u "u64"))
+      (kv@V lo~2
+       (suf@2 7207441660390446293u "u64")))
+     (oconstr~W,1j uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10032913020226237310u "u64"))
+      (kv@V lo~2
+       (suf@2 16033866083812498693u "u64")))
+     (oconstr~W,1k uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12541141275282796638u "u64"))
+      (kv@V lo~2
+       (suf@2 10818960567910847558u "u64")))
+     (oconstr~W,1l uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15676426594103495798u "u64"))
+      (kv@V lo~2
+       (suf@2 4300328673033783640u "u64")))
+     (oconstr~W,1m uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9797766621314684873u "u64"))
+      (kv@V lo~2
+       (suf@2 16522763475928278487u "u64")))
+     (oconstr~W,1n uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12247208276643356092u "u64"))
+      (kv@V lo~2
+       (suf@2 6818396289628184397u "u64")))
+     (oconstr~W,1o uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15309010345804195115u "u64"))
+      (kv@V lo~2
+       (suf@2 8522995362035230496u "u64")))
+     (oconstr~W,1p uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9568131466127621947u "u64"))
+      (kv@V lo~2
+       (suf@2 3021029092058325108u "u64")))
+     (oconstr~W,1q uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11960164332659527433u "u64"))
+      (kv@V lo~2
+       (suf@2 17611344420355070097u "u64")))
+     (oconstr~W,1r uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14950205415824409292u "u64"))
+      (kv@V lo~2
+       (suf@2 8179122470161673909u "u64")))
+     (oconstr~W,1s uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9343878384890255807u "u64"))
+      (kv@V lo~2
+       (suf@2 14335323580705822001u "u64")))
+     (oconstr~W,1t uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11679847981112819759u "u64"))
+      (kv@V lo~2
+       (suf@2 13307468457454889597u "u64")))
+     (oconstr~W,1u uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14599809976391024699u "u64"))
+      (kv@V lo~2
+       (suf@2 12022649553391224093u "u64")))
+     (oconstr~W,1v uint64x2~8
+      (kv@3 hi~2
+       (suf@2 18249762470488780874u "u64"))
+      (kv@V lo~2
+       (suf@2 10416625923311642212u "u64")))
+     (oconstr~W,1w uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11406101544055488046u "u64"))
+      (kv@V lo~2
+       (suf@2 11122077220497164287u "u64")))
+     (oconstr~W,1x uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14257626930069360058u "u64"))
+      (kv@V lo~2
+       (suf@2 4679224488766679550u "u64")))
+     (oconstr~W,1y uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17822033662586700072u "u64"))
+      (kv@V lo~2
+       (suf@2 15072402647813125245u "u64")))
+     (oconstr~W,1z uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11138771039116687545u "u64"))
+      (kv@V lo~2
+       (suf@2 9420251654883203279u "u64")))
+     (oconstr~W,20 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13923463798895859431u "u64"))
+      (kv@V lo~2
+       (suf@2 16387000587031392002u "u64")))
+     (oconstr~W,21 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17404329748619824289u "u64"))
+      (kv@V lo~2
+       (suf@2 15872064715361852098u "u64")))
+     (oconstr~W,22 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10877706092887390181u "u64"))
+      (kv@V lo~2
+       (suf@2 3002511419460075706u "u64")))
+     (oconstr~W,23 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13597132616109237726u "u64"))
+      (kv@V lo~2
+       (suf@2 8364825292752482536u "u64")))
+     (oconstr~W,24 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16996415770136547158u "u64"))
+      (kv@V lo~2
+       (suf@2 1232659579085827362u "u64")))
+     (oconstr~W,25 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10622759856335341973u "u64"))
+      (kv@V lo~2
+       (suf@2 14605470292210805813u "u64")))
+     (oconstr~W,26 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13278449820419177467u "u64"))
+      (kv@V lo~2
+       (suf@2 4421779809981343555u "u64")))
+     (oconstr~W,27 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16598062275523971834u "u64"))
+      (kv@V lo~2
+       (suf@2 915538744049291539u "u64")))
+     (oconstr~W,28 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10373788922202482396u "u64"))
+      (kv@V lo~2
+       (suf@2 5183897733458195116u "u64")))
+     (oconstr~W,29 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12967236152753102995u "u64"))
+      (kv@V lo~2
+       (suf@2 6479872166822743895u "u64")))
+     (oconstr~W,2A uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16209045190941378744u "u64"))
+      (kv@V lo~2
+       (suf@2 3488154190101041965u "u64")))
+     (oconstr~W,2B uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10130653244338361715u "u64"))
+      (kv@V lo~2
+       (suf@2 2180096368813151228u "u64")))
+     (oconstr~W,2C uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12663316555422952143u "u64"))
+      (kv@V lo~2
+       (suf@2 16560178516298602747u "u64")))
+     (oconstr~W,2D uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15829145694278690179u "u64"))
+      (kv@V lo~2
+       (suf@2 16088537126945865530u "u64")))
+     (oconstr~W,2E uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9893216058924181362u "u64"))
+      (kv@V lo~2
+       (suf@2 7749492695127472004u "u64")))
+     (oconstr~W,2F uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12366520073655226703u "u64"))
+      (kv@V lo~2
+       (suf@2 463493832054564197u "u64")))
+     (oconstr~W,2G uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15458150092069033378u "u64"))
+      (kv@V lo~2
+       (suf@2 14414425345350368958u "u64")))
+     (oconstr~W,2H uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9661343807543145861u "u64"))
+      (kv@V lo~2
+       (suf@2 13620701859271368503u "u64")))
+     (oconstr~W,2I uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12076679759428932327u "u64"))
+      (kv@V lo~2
+       (suf@2 3190819268807046917u "u64")))
+     (oconstr~W,2J uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15095849699286165408u "u64"))
+      (kv@V lo~2
+       (suf@2 17823582141290972358u "u64")))
+     (oconstr~W,2K uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9434906062053853380u "u64"))
+      (kv@V lo~2
+       (suf@2 11139738838306857724u "u64")))
+     (oconstr~W,2L uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11793632577567316725u "u64"))
+      (kv@V lo~2
+       (suf@2 13924673547883572155u "u64")))
+     (oconstr~W,2M uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14742040721959145907u "u64"))
+      (kv@V lo~2
+       (suf@2 3570783879572301481u "u64")))
+     (oconstr~W,2N uint64x2~8
+      (kv@3 hi~2
+       (suf@2 18427550902448932383u "u64"))
+      (kv@V lo~2
+       (suf@2 18298537904747540563u "u64")))
+     (oconstr~W,2O uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11517219314030582739u "u64"))
+      (kv@V lo~2
+       (suf@2 18354115218108294708u "u64")))
+     (oconstr~W,2P uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14396524142538228424u "u64"))
+      (kv@V lo~2
+       (suf@2 18330958004207980481u "u64")))
+     (oconstr~W,2Q uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17995655178172785531u "u64"))
+      (kv@V lo~2
+       (suf@2 4466953431550423985u "u64")))
+     (oconstr~W,2R uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11247284486357990957u "u64"))
+      (kv@V lo~2
+       (suf@2 486002885505321039u "u64")))
+     (oconstr~W,2S uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14059105607947488696u "u64"))
+      (kv@V lo~2
+       (suf@2 5219189625309039203u "u64")))
+     (oconstr~W,2T uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17573882009934360870u "u64"))
+      (kv@V lo~2
+       (suf@2 6523987031636299003u "u64")))
+     (oconstr~W,2U uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10983676256208975543u "u64"))
+      (kv@V lo~2
+       (suf@2 17912549950054850589u "u64")))
+     (oconstr~W,2V uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13729595320261219429u "u64"))
+      (kv@V lo~2
+       (suf@2 17779001419141175332u "u64")))
+     (oconstr~W,2W uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17161994150326524287u "u64"))
+      (kv@V lo~2
+       (suf@2 8388693718644305453u "u64")))
+     (oconstr~W,2X uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10726246343954077679u "u64"))
+      (kv@V lo~2
+       (suf@2 12160462601793772765u "u64")))
+     (oconstr~W,2Y uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13407807929942597099u "u64"))
+      (kv@V lo~2
+       (suf@2 10588892233814828052u "u64")))
+     (oconstr~W,2Z uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16759759912428246374u "u64"))
+      (kv@V lo~2
+       (suf@2 8624429273841147160u "u64")))
+     (oconstr~W,2a uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10474849945267653984u "u64"))
+      (kv@V lo~2
+       (suf@2 778582277723329071u "u64")))
+     (oconstr~W,2b uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13093562431584567480u "u64"))
+      (kv@V lo~2
+       (suf@2 973227847154161339u "u64")))
+     (oconstr~W,2c uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16366953039480709350u "u64"))
+      (kv@V lo~2
+       (suf@2 1216534808942701674u "u64")))
+     (oconstr~W,2d uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10229345649675443343u "u64"))
+      (kv@V lo~2
+       (suf@2 14595392310871352258u "u64")))
+     (oconstr~W,2e uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12786682062094304179u "u64"))
+      (kv@V lo~2
+       (suf@2 13632554370161802419u "u64")))
+     (oconstr~W,2f uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15983352577617880224u "u64"))
+      (kv@V lo~2
+       (suf@2 12429006944274865119u "u64")))
+     (oconstr~W,2g uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9989595361011175140u "u64"))
+      (kv@V lo~2
+       (suf@2 7768129340171790700u "u64")))
+     (oconstr~W,2h uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12486994201263968925u "u64"))
+      (kv@V lo~2
+       (suf@2 9710161675214738375u "u64")))
+     (oconstr~W,2i uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15608742751579961156u "u64"))
+      (kv@V lo~2
+       (suf@2 16749388112445810872u "u64")))
+     (oconstr~W,2j uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9755464219737475723u "u64"))
+      (kv@V lo~2
+       (suf@2 1244995533423855987u "u64")))
+     (oconstr~W,2k uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12194330274671844653u "u64"))
+      (kv@V lo~2
+       (suf@2 15391302472061983696u "u64")))
+     (oconstr~W,2l uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15242912843339805817u "u64"))
+      (kv@V lo~2
+       (suf@2 5404070034795315908u "u64")))
+     (oconstr~W,2m uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9526820527087378635u "u64"))
+      (kv@V lo~2
+       (suf@2 14906758817815542203u "u64")))
+     (oconstr~W,2n uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11908525658859223294u "u64"))
+      (kv@V lo~2
+       (suf@2 14021762503842039849u "u64")))
+     (oconstr~W,2o uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14885657073574029118u "u64"))
+      (kv@V lo~2
+       (suf@2 8303831092947774003u "u64")))
+     (oconstr~W,2p uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9303535670983768199u "u64"))
+      (kv@V lo~2
+       (suf@2 578208414664970848u "u64")))
+     (oconstr~W,2q uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11629419588729710248u "u64"))
+      (kv@V lo~2
+       (suf@2 14557818573613377272u "u64")))
+     (oconstr~W,2r uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14536774485912137810u "u64"))
+      (kv@V lo~2
+       (suf@2 18197273217016721590u "u64")))
+     (oconstr~W,2s uint64x2~8
+      (kv@3 hi~2
+       (suf@2 18170968107390172263u "u64"))
+      (kv@V lo~2
+       (suf@2 13523219484416126179u "u64")))
+     (oconstr~W,2t uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11356855067118857664u "u64"))
+      (kv@V lo~2
+       (suf@2 15369541205401160718u "u64")))
+     (oconstr~W,2u uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14196068833898572081u "u64"))
+      (kv@V lo~2
+       (suf@2 765182433041899282u "u64")))
+     (oconstr~W,2v uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17745086042373215101u "u64"))
+      (kv@V lo~2
+       (suf@2 5568164059729762006u "u64")))
+     (oconstr~W,2w uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11090678776483259438u "u64"))
+      (kv@V lo~2
+       (suf@2 5785945546544795206u "u64")))
+     (oconstr~W,2x uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13863348470604074297u "u64"))
+      (kv@V lo~2
+       (suf@2 16455803970035769815u "u64")))
+     (oconstr~W,2y uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17329185588255092872u "u64"))
+      (kv@V lo~2
+       (suf@2 6734696907262548557u "u64")))
+     (oconstr~W,2z uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10830740992659433045u "u64"))
+      (kv@V lo~2
+       (suf@2 4209185567039092848u "u64")))
+     (oconstr~W,30 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13538426240824291306u "u64"))
+      (kv@V lo~2
+       (suf@2 9873167977226253964u "u64")))
+     (oconstr~W,31 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16923032801030364133u "u64"))
+      (kv@V lo~2
+       (suf@2 3118087934678041647u "u64")))
+     (oconstr~W,32 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10576895500643977583u "u64"))
+      (kv@V lo~2
+       (suf@2 4254647968387469982u "u64")))
+     (oconstr~W,33 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13221119375804971979u "u64"))
+      (kv@V lo~2
+       (suf@2 706623942056949573u "u64")))
+     (oconstr~W,34 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16526399219756214973u "u64"))
+      (kv@V lo~2
+       (suf@2 14718337982853350678u "u64")))
+     (oconstr~W,35 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10328999512347634358u "u64"))
+      (kv@V lo~2
+       (suf@2 11504804248497038126u "u64")))
+     (oconstr~W,36 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12911249390434542948u "u64"))
+      (kv@V lo~2
+       (suf@2 5157633273766521850u "u64")))
+     (oconstr~W,37 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16139061738043178685u "u64"))
+      (kv@V lo~2
+       (suf@2 6447041592208152312u "u64")))
+     (oconstr~W,38 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10086913586276986678u "u64"))
+      (kv@V lo~2
+       (suf@2 6335244004343789147u "u64")))
+     (oconstr~W,39 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12608641982846233347u "u64"))
+      (kv@V lo~2
+       (suf@2 17142427042284512242u "u64")))
+     (oconstr~W,3A uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15760802478557791684u "u64"))
+      (kv@V lo~2
+       (suf@2 16816347784428252398u "u64")))
+     (oconstr~W,3B uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9850501549098619803u "u64"))
+      (kv@V lo~2
+       (suf@2 1286845328412881941u "u64")))
+     (oconstr~W,3C uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12313126936373274753u "u64"))
+      (kv@V lo~2
+       (suf@2 15443614715798266138u "u64")))
+     (oconstr~W,3D uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15391408670466593442u "u64"))
+      (kv@V lo~2
+       (suf@2 5469460339465668960u "u64")))
+     (oconstr~W,3E uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9619630419041620901u "u64"))
+      (kv@V lo~2
+       (suf@2 8030098730593431004u "u64")))
+     (oconstr~W,3F uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12024538023802026126u "u64"))
+      (kv@V lo~2
+       (suf@2 14649309431669176659u "u64")))
+     (oconstr~W,3G uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15030672529752532658u "u64"))
+      (kv@V lo~2
+       (suf@2 9088264752731695016u "u64")))
+     (oconstr~W,3H uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9394170331095332911u "u64"))
+      (kv@V lo~2
+       (suf@2 10291851488884697289u "u64")))
+     (oconstr~W,3I uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11742712913869166139u "u64"))
+      (kv@V lo~2
+       (suf@2 8253128342678483707u "u64")))
+     (oconstr~W,3J uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14678391142336457674u "u64"))
+      (kv@V lo~2
+       (suf@2 5704724409920716730u "u64")))
+     (oconstr~W,3K uint64x2~8
+      (kv@3 hi~2
+       (suf@2 18347988927920572092u "u64"))
+      (kv@V lo~2
+       (suf@2 16354277549255671721u "u64")))
+     (oconstr~W,3L uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11467493079950357558u "u64"))
+      (kv@V lo~2
+       (suf@2 998051431430019018u "u64")))
+     (oconstr~W,3M uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14334366349937946947u "u64"))
+      (kv@V lo~2
+       (suf@2 10470936326142299580u "u64")))
+     (oconstr~W,3N uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17917957937422433684u "u64"))
+      (kv@V lo~2
+       (suf@2 8476984389250486571u "u64")))
+     (oconstr~W,3O uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11198723710889021052u "u64"))
+      (kv@V lo~2
+       (suf@2 14521487280136329915u "u64")))
+     (oconstr~W,3P uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13998404638611276315u "u64"))
+      (kv@V lo~2
+       (suf@2 18151859100170412393u "u64")))
+     (oconstr~W,3Q uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17498005798264095394u "u64"))
+      (kv@V lo~2
+       (suf@2 18078137856785627588u "u64")))
+     (oconstr~W,3R uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10936253623915059621u "u64"))
+      (kv@V lo~2
+       (suf@2 15910522178918405147u "u64")))
+     (oconstr~W,3S uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13670317029893824527u "u64"))
+      (kv@V lo~2
+       (suf@2 6053094668365842721u "u64")))
+     (oconstr~W,3T uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17087896287367280659u "u64"))
+      (kv@V lo~2
+       (suf@2 2954682317029915497u "u64")))
+     (oconstr~W,3U uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10679935179604550411u "u64"))
+      (kv@V lo~2
+       (suf@2 17987577512639554850u "u64")))
+     (oconstr~W,3V uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13349918974505688014u "u64"))
+      (kv@V lo~2
+       (suf@2 17872785872372055658u "u64")))
+     (oconstr~W,3W uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16687398718132110018u "u64"))
+      (kv@V lo~2
+       (suf@2 13117610303610293765u "u64")))
+     (oconstr~W,3X uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10429624198832568761u "u64"))
+      (kv@V lo~2
+       (suf@2 12810192458183821507u "u64")))
+     (oconstr~W,3Y uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13037030248540710952u "u64"))
+      (kv@V lo~2
+       (suf@2 2177682517447613172u "u64")))
+     (oconstr~W,3Z uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16296287810675888690u "u64"))
+      (kv@V lo~2
+       (suf@2 2722103146809516465u "u64")))
+     (oconstr~W,3a uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10185179881672430431u "u64"))
+      (kv@V lo~2
+       (suf@2 6313000485183335695u "u64")))
+     (oconstr~W,3b uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12731474852090538039u "u64"))
+      (kv@V lo~2
+       (suf@2 3279564588051781714u "u64")))
+     (oconstr~W,3c uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15914343565113172548u "u64"))
+      (kv@V lo~2
+       (suf@2 17934513790346890854u "u64")))
+     (oconstr~W,3d uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9946464728195732843u "u64"))
+      (kv@V lo~2
+       (suf@2 1985699082112030976u "u64")))
+     (oconstr~W,3e uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12433080910244666053u "u64"))
+      (kv@V lo~2
+       (suf@2 16317181907922202432u "u64")))
+     (oconstr~W,3f uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15541351137805832567u "u64"))
+      (kv@V lo~2
+       (suf@2 6561419329620589328u "u64")))
+     (oconstr~W,3g uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9713344461128645354u "u64"))
+      (kv@V lo~2
+       (suf@2 11018416108653950186u "u64")))
+     (oconstr~W,3h uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12141680576410806693u "u64"))
+      (kv@V lo~2
+       (suf@2 4549648098962661925u "u64")))
+     (oconstr~W,3i uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15177100720513508366u "u64"))
+      (kv@V lo~2
+       (suf@2 10298746142130715310u "u64")))
+     (oconstr~W,3j uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9485687950320942729u "u64"))
+      (kv@V lo~2
+       (suf@2 1825030320404309165u "u64")))
+     (oconstr~W,3k uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11857109937901178411u "u64"))
+      (kv@V lo~2
+       (suf@2 6892973918932774360u "u64")))
+     (oconstr~W,3l uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14821387422376473014u "u64"))
+      (kv@V lo~2
+       (suf@2 4004531380238580046u "u64")))
+     (oconstr~W,3m uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9263367138985295633u "u64"))
+      (kv@V lo~2
+       (suf@2 16337890167931276241u "u64")))
+     (oconstr~W,3n uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11579208923731619542u "u64"))
+      (kv@V lo~2
+       (suf@2 6587304654631931589u "u64")))
+     (oconstr~W,3o uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14474011154664524427u "u64"))
+      (kv@V lo~2
+       (suf@2 17457502855144690294u "u64")))
+     (oconstr~W,3p uint64x2~8
+      (kv@3 hi~2
+       (suf@2 18092513943330655534u "u64"))
+      (kv@V lo~2
+       (suf@2 17210192550503474963u "u64")))
+     (oconstr~W,3q uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11307821214581659709u "u64"))
+      (kv@V lo~2
+       (suf@2 6144684325637283948u "u64")))
+     (oconstr~W,3r uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14134776518227074636u "u64"))
+      (kv@V lo~2
+       (suf@2 12292541425473992839u "u64")))
+     (oconstr~W,3s uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17668470647783843295u "u64"))
+      (kv@V lo~2
+       (suf@2 15365676781842491049u "u64")))
+     (oconstr~W,3t uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11042794154864902059u "u64"))
+      (kv@V lo~2
+       (suf@2 16521077016292638762u "u64")))
+     (oconstr~W,3u uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13803492693581127574u "u64"))
+      (kv@V lo~2
+       (suf@2 16039660251938410548u "u64")))
+     (oconstr~W,3v uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17254365866976409468u "u64"))
+      (kv@V lo~2
+       (suf@2 10826203278068237377u "u64")))
+     (oconstr~W,3w uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10783978666860255917u "u64"))
+      (kv@V lo~2
+       (suf@2 15989749085647424169u "u64")))
+     (oconstr~W,3x uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13479973333575319897u "u64"))
+      (kv@V lo~2
+       (suf@2 6152128301777116499u "u64")))
+     (oconstr~W,3y uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16849966666969149871u "u64"))
+      (kv@V lo~2
+       (suf@2 12301846395648783527u "u64")))
+     (oconstr~W,3z uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10531229166855718669u "u64"))
+      (kv@V lo~2
+       (suf@2 14606183024921571561u "u64")))
+     (oconstr~W,40 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13164036458569648337u "u64"))
+      (kv@V lo~2
+       (suf@2 4422670725869800739u "u64")))
+     (oconstr~W,41 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16455045573212060421u "u64"))
+      (kv@V lo~2
+       (suf@2 10140024425764638827u "u64")))
+     (oconstr~W,42 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10284403483257537763u "u64"))
+      (kv@V lo~2
+       (suf@2 8643358275316593219u "u64")))
+     (oconstr~W,43 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12855504354071922204u "u64"))
+      (kv@V lo~2
+       (suf@2 6192511825718353620u "u64")))
+     (oconstr~W,44 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16069380442589902755u "u64"))
+      (kv@V lo~2
+       (suf@2 7740639782147942025u "u64")))
+     (oconstr~W,45 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10043362776618689222u "u64"))
+      (kv@V lo~2
+       (suf@2 2532056854628769814u "u64")))
+     (oconstr~W,46 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12554203470773361527u "u64"))
+      (kv@V lo~2
+       (suf@2 12388443105140738075u "u64")))
+     (oconstr~W,47 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15692754338466701909u "u64"))
+      (kv@V lo~2
+       (suf@2 10873867862998534690u "u64")))
+     (oconstr~W,48 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9807971461541688693u "u64"))
+      (kv@V lo~2
+       (suf@2 9102010423587778133u "u64")))
+     (oconstr~W,49 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12259964326927110866u "u64"))
+      (kv@V lo~2
+       (suf@2 15989199047912110570u "u64")))
+     (oconstr~W,4A uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15324955408658888583u "u64"))
+      (kv@V lo~2
+       (suf@2 10763126773035362405u "u64")))
+     (oconstr~W,4B uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9578097130411805364u "u64"))
+      (kv@V lo~2
+       (suf@2 13644483260788183359u "u64")))
+     (oconstr~W,4C uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11972621413014756705u "u64"))
+      (kv@V lo~2
+       (suf@2 17055604075985229199u "u64")))
+     (oconstr~W,4D uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14965776766268445882u "u64"))
+      (kv@V lo~2
+       (suf@2 7484447039699372787u "u64")))
+     (oconstr~W,4E uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9353610478917778676u "u64"))
+      (kv@V lo~2
+       (suf@2 9289465418239495896u "u64")))
+     (oconstr~W,4F uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11692013098647223345u "u64"))
+      (kv@V lo~2
+       (suf@2 11611831772799369870u "u64")))
+     (oconstr~W,4G uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14615016373309029182u "u64"))
+      (kv@V lo~2
+       (suf@2 679731660717048625u "u64")))
+     (oconstr~W,4H uint64x2~8
+      (kv@3 hi~2
+       (suf@2 18268770466636286477u "u64"))
+      (kv@V lo~2
+       (suf@2 10073036612751086589u "u64")))
+     (oconstr~W,4I uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11417981541647679048u "u64"))
+      (kv@V lo~2
+       (suf@2 8601490892183123070u "u64")))
+     (oconstr~W,4J uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14272476927059598810u "u64"))
+      (kv@V lo~2
+       (suf@2 10751863615228903838u "u64")))
+     (oconstr~W,4K uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17840596158824498513u "u64"))
+      (kv@V lo~2
+       (suf@2 4216457482181353989u "u64")))
+     (oconstr~W,4L uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11150372599265311570u "u64"))
+      (kv@V lo~2
+       (suf@2 14164500972431816003u "u64")))
+     (oconstr~W,4M uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13937965749081639463u "u64"))
+      (kv@V lo~2
+       (suf@2 8482254178684994196u "u64")))
+     (oconstr~W,4N uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17422457186352049329u "u64"))
+      (kv@V lo~2
+       (suf@2 5991131704928854841u "u64")))
+     (oconstr~W,4O uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10889035741470030830u "u64"))
+      (kv@V lo~2
+       (suf@2 15273672361649004036u "u64")))
+     (oconstr~W,4P uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13611294676837538538u "u64"))
+      (kv@V lo~2
+       (suf@2 9868718415206479237u "u64")))
+     (oconstr~W,4Q uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17014118346046923173u "u64"))
+      (kv@V lo~2
+       (suf@2 3112525982153323238u "u64")))
+     (oconstr~W,4R uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10633823966279326983u "u64"))
+      (kv@V lo~2
+       (suf@2 4251171748059520976u "u64")))
+     (oconstr~W,4S uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13292279957849158729u "u64"))
+      (kv@V lo~2
+       (suf@2 702278666647013315u "u64")))
+     (oconstr~W,4T uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16615349947311448411u "u64"))
+      (kv@V lo~2
+       (suf@2 5489534351736154548u "u64")))
+     (oconstr~W,4U uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10384593717069655257u "u64"))
+      (kv@V lo~2
+       (suf@2 1125115960621402641u "u64")))
+     (oconstr~W,4V uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12980742146337069071u "u64"))
+      (kv@V lo~2
+       (suf@2 6018080969204141205u "u64")))
+     (oconstr~W,4W uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16225927682921336339u "u64"))
+      (kv@V lo~2
+       (suf@2 2910915193077788602u "u64")))
+     (oconstr~W,4X uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10141204801825835211u "u64"))
+      (kv@V lo~2
+       (suf@2 17960223060169475540u "u64")))
+     (oconstr~W,4Y uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12676506002282294014u "u64"))
+      (kv@V lo~2
+       (suf@2 17838592806784456521u "u64")))
+     (oconstr~W,4Z uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15845632502852867518u "u64"))
+      (kv@V lo~2
+       (suf@2 13074868971625794844u "u64")))
+     (oconstr~W,4a uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9903520314283042199u "u64"))
+      (kv@V lo~2
+       (suf@2 3560107088838733873u "u64")))
+     (oconstr~W,4b uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12379400392853802748u "u64"))
+      (kv@V lo~2
+       (suf@2 18285191916330581054u "u64")))
+     (oconstr~W,4c uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15474250491067253436u "u64"))
+      (kv@V lo~2
+       (suf@2 4409745821703674701u "u64")))
+     (oconstr~W,4d uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9671406556917033397u "u64"))
+      (kv@V lo~2
+       (suf@2 11979463175419572496u "u64")))
+     (oconstr~W,4e uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12089258196146291747u "u64"))
+      (kv@V lo~2
+       (suf@2 1139270913992301908u "u64")))
+     (oconstr~W,4f uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15111572745182864683u "u64"))
+      (kv@V lo~2
+       (suf@2 15259146697772541097u "u64")))
+     (oconstr~W,4g uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9444732965739290427u "u64"))
+      (kv@V lo~2
+       (suf@2 7231123676894144234u "u64")))
+     (oconstr~W,4h uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11805916207174113034u "u64"))
+      (kv@V lo~2
+       (suf@2 4427218577690292388u "u64")))
+     (oconstr~W,4i uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14757395258967641292u "u64"))
+      (kv@V lo~2
+       (suf@2 14757395258967641293u "u64")))
+     (oconstr~W,4j uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9223372036854775808u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,4k uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11529215046068469760u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,4l uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14411518807585587200u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,4m uint64x2~8
+      (kv@3 hi~2
+       (suf@2 18014398509481984000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,4n uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11258999068426240000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,4o uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14073748835532800000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,4p uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17592186044416000000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,4q uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10995116277760000000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,4r uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13743895347200000000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,4s uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17179869184000000000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,4t uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10737418240000000000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,4u uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13421772800000000000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,4v uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16777216000000000000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,4w uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10485760000000000000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,4x uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13107200000000000000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,4y uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16384000000000000000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,4z uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10240000000000000000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,50 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12800000000000000000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,51 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16000000000000000000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,52 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10000000000000000000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,53 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12500000000000000000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,54 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15625000000000000000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,55 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9765625000000000000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,56 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12207031250000000000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,57 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15258789062500000000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,58 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9536743164062500000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,59 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11920928955078125000u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,5A uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14901161193847656250u "u64"))
+      (kv@V lo~2
+       (suf@2 0u "u64")))
+     (oconstr~W,5B uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9313225746154785156u "u64"))
+      (kv@V lo~2
+       (suf@2 4611686018427387904u "u64")))
+     (oconstr~W,5C uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11641532182693481445u "u64"))
+      (kv@V lo~2
+       (suf@2 5764607523034234880u "u64")))
+     (oconstr~W,5D uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14551915228366851806u "u64"))
+      (kv@V lo~2
+       (suf@2 11817445422220181504u "u64")))
+     (oconstr~W,5E uint64x2~8
+      (kv@3 hi~2
+       (suf@2 18189894035458564758u "u64"))
+      (kv@V lo~2
+       (suf@2 5548434740920451072u "u64")))
+     (oconstr~W,5F uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11368683772161602973u "u64"))
+      (kv@V lo~2
+       (suf@2 17302829768357445632u "u64")))
+     (oconstr~W,5G uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14210854715202003717u "u64"))
+      (kv@V lo~2
+       (suf@2 7793479155164643328u "u64")))
+     (oconstr~W,5H uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17763568394002504646u "u64"))
+      (kv@V lo~2
+       (suf@2 14353534962383192064u "u64")))
+     (oconstr~W,5I uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11102230246251565404u "u64"))
+      (kv@V lo~2
+       (suf@2 4359273333062107136u "u64")))
+     (oconstr~W,5J uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13877787807814456755u "u64"))
+      (kv@V lo~2
+       (suf@2 5449091666327633920u "u64")))
+     (oconstr~W,5K uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17347234759768070944u "u64"))
+      (kv@V lo~2
+       (suf@2 2199678564482154496u "u64")))
+     (oconstr~W,5L uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10842021724855044340u "u64"))
+      (kv@V lo~2
+       (suf@2 1374799102801346560u "u64")))
+     (oconstr~W,5M uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13552527156068805425u "u64"))
+      (kv@V lo~2
+       (suf@2 1718498878501683200u "u64")))
+     (oconstr~W,5N uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16940658945086006781u "u64"))
+      (kv@V lo~2
+       (suf@2 6759809616554491904u "u64")))
+     (oconstr~W,5O uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10587911840678754238u "u64"))
+      (kv@V lo~2
+       (suf@2 6530724019560251392u "u64")))
+     (oconstr~W,5P uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13234889800848442797u "u64"))
+      (kv@V lo~2
+       (suf@2 17386777061305090048u "u64")))
+     (oconstr~W,5Q uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16543612251060553497u "u64"))
+      (kv@V lo~2
+       (suf@2 7898413271349198848u "u64")))
+     (oconstr~W,5R uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10339757656912845935u "u64"))
+      (kv@V lo~2
+       (suf@2 16465723340661719040u "u64")))
+     (oconstr~W,5S uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12924697071141057419u "u64"))
+      (kv@V lo~2
+       (suf@2 15970468157399760896u "u64")))
+     (oconstr~W,5T uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16155871338926321774u "u64"))
+      (kv@V lo~2
+       (suf@2 15351399178322313216u "u64")))
+     (oconstr~W,5U uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10097419586828951109u "u64"))
+      (kv@V lo~2
+       (suf@2 4982938468024057856u "u64")))
+     (oconstr~W,5V uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12621774483536188886u "u64"))
+      (kv@V lo~2
+       (suf@2 10840359103457460224u "u64")))
+     (oconstr~W,5W uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15777218104420236108u "u64"))
+      (kv@V lo~2
+       (suf@2 4327076842467049472u "u64")))
+     (oconstr~W,5X uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9860761315262647567u "u64"))
+      (kv@V lo~2
+       (suf@2 11927795063396681728u "u64")))
+     (oconstr~W,5Y uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12325951644078309459u "u64"))
+      (kv@V lo~2
+       (suf@2 10298057810818464256u "u64")))
+     (oconstr~W,5Z uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15407439555097886824u "u64"))
+      (kv@V lo~2
+       (suf@2 8260886245095692416u "u64")))
+     (oconstr~W,5a uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9629649721936179265u "u64"))
+      (kv@V lo~2
+       (suf@2 5163053903184807760u "u64")))
+     (oconstr~W,5b uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12037062152420224081u "u64"))
+      (kv@V lo~2
+       (suf@2 11065503397408397604u "u64")))
+     (oconstr~W,5c uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15046327690525280101u "u64"))
+      (kv@V lo~2
+       (suf@2 18443565265187884909u "u64")))
+     (oconstr~W,5d uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9403954806578300063u "u64"))
+      (kv@V lo~2
+       (suf@2 13833071299956122020u "u64")))
+     (oconstr~W,5e uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11754943508222875079u "u64"))
+      (kv@V lo~2
+       (suf@2 12679653106517764621u "u64")))
+     (oconstr~W,5f uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14693679385278593849u "u64"))
+      (kv@V lo~2
+       (suf@2 11237880364719817872u "u64")))
+     (oconstr~W,5g uint64x2~8
+      (kv@3 hi~2
+       (suf@2 18367099231598242312u "u64"))
+      (kv@V lo~2
+       (suf@2 212292400617608628u "u64")))
+     (oconstr~W,5h uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11479437019748901445u "u64"))
+      (kv@V lo~2
+       (suf@2 132682750386005392u "u64")))
+     (oconstr~W,5i uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14349296274686126806u "u64"))
+      (kv@V lo~2
+       (suf@2 4777539456409894645u "u64")))
+     (oconstr~W,5j uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17936620343357658507u "u64"))
+      (kv@V lo~2
+       (suf@2 15195296357367144114u "u64")))
+     (oconstr~W,5k uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11210387714598536567u "u64"))
+      (kv@V lo~2
+       (suf@2 7191217214140771119u "u64")))
+     (oconstr~W,5l uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14012984643248170709u "u64"))
+      (kv@V lo~2
+       (suf@2 4377335499248575995u "u64")))
+     (oconstr~W,5m uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17516230804060213386u "u64"))
+      (kv@V lo~2
+       (suf@2 10083355392488107898u "u64")))
+     (oconstr~W,5n uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10947644252537633366u "u64"))
+      (kv@V lo~2
+       (suf@2 10913783138732455340u "u64")))
+     (oconstr~W,5o uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13684555315672041708u "u64"))
+      (kv@V lo~2
+       (suf@2 4418856886560793367u "u64")))
+     (oconstr~W,5p uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17105694144590052135u "u64"))
+      (kv@V lo~2
+       (suf@2 5523571108200991709u "u64")))
+     (oconstr~W,5q uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10691058840368782584u "u64"))
+      (kv@V lo~2
+       (suf@2 10369760970266701674u "u64")))
+     (oconstr~W,5r uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13363823550460978230u "u64"))
+      (kv@V lo~2
+       (suf@2 12962201212833377092u "u64")))
+     (oconstr~W,5s uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16704779438076222788u "u64"))
+      (kv@V lo~2
+       (suf@2 6979379479186945558u "u64")))
+     (oconstr~W,5t uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10440487148797639242u "u64"))
+      (kv@V lo~2
+       (suf@2 13585484211346616781u "u64")))
+     (oconstr~W,5u uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13050608935997049053u "u64"))
+      (kv@V lo~2
+       (suf@2 7758483227328495169u "u64")))
+     (oconstr~W,5v uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16313261169996311316u "u64"))
+      (kv@V lo~2
+       (suf@2 14309790052588006865u "u64")))
+     (oconstr~W,5w uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10195788231247694572u "u64"))
+      (kv@V lo~2
+       (suf@2 18166990819722280098u "u64")))
+     (oconstr~W,5x uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12744735289059618216u "u64"))
+      (kv@V lo~2
+       (suf@2 4261994450943298507u "u64")))
+     (oconstr~W,5y uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15930919111324522770u "u64"))
+      (kv@V lo~2
+       (suf@2 5327493063679123134u "u64")))
+     (oconstr~W,5z uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9956824444577826731u "u64"))
+      (kv@V lo~2
+       (suf@2 7941369183226839863u "u64")))
+     (oconstr~W,60 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12446030555722283414u "u64"))
+      (kv@V lo~2
+       (suf@2 5315025460606161924u "u64")))
+     (oconstr~W,61 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15557538194652854267u "u64"))
+      (kv@V lo~2
+       (suf@2 15867153862612478214u "u64")))
+     (oconstr~W,62 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9723461371658033917u "u64"))
+      (kv@V lo~2
+       (suf@2 7611128154919104931u "u64")))
+     (oconstr~W,63 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12154326714572542396u "u64"))
+      (kv@V lo~2
+       (suf@2 14125596212076269068u "u64")))
+     (oconstr~W,64 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15192908393215677995u "u64"))
+      (kv@V lo~2
+       (suf@2 17656995265095336336u "u64")))
+     (oconstr~W,65 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9495567745759798747u "u64"))
+      (kv@V lo~2
+       (suf@2 8729779031470891258u "u64")))
+     (oconstr~W,66 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11869459682199748434u "u64"))
+      (kv@V lo~2
+       (suf@2 6300537770911226168u "u64")))
+     (oconstr~W,67 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14836824602749685542u "u64"))
+      (kv@V lo~2
+       (suf@2 17099044250493808518u "u64")))
+     (oconstr~W,68 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9273015376718553464u "u64"))
+      (kv@V lo~2
+       (suf@2 6075216638131242420u "u64")))
+     (oconstr~W,69 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11591269220898191830u "u64"))
+      (kv@V lo~2
+       (suf@2 7594020797664053025u "u64")))
+     (oconstr~W,6A uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14489086526122739788u "u64"))
+      (kv@V lo~2
+       (suf@2 269153960225290473u "u64")))
+     (oconstr~W,6B uint64x2~8
+      (kv@3 hi~2
+       (suf@2 18111358157653424735u "u64"))
+      (kv@V lo~2
+       (suf@2 336442450281613091u "u64")))
+     (oconstr~W,6C uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11319598848533390459u "u64"))
+      (kv@V lo~2
+       (suf@2 7127805559067090038u "u64")))
+     (oconstr~W,6D uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14149498560666738074u "u64"))
+      (kv@V lo~2
+       (suf@2 4298070930406474644u "u64")))
+     (oconstr~W,6E uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17686873200833422592u "u64"))
+      (kv@V lo~2
+       (suf@2 14595960699862869113u "u64")))
+     (oconstr~W,6F uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11054295750520889120u "u64"))
+      (kv@V lo~2
+       (suf@2 9122475437414293195u "u64")))
+     (oconstr~W,6G uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13817869688151111400u "u64"))
+      (kv@V lo~2
+       (suf@2 11403094296767866494u "u64")))
+     (oconstr~W,6H uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17272337110188889250u "u64"))
+      (kv@V lo~2
+       (suf@2 14253867870959833118u "u64")))
+     (oconstr~W,6I uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10795210693868055781u "u64"))
+      (kv@V lo~2
+       (suf@2 13520353437777283602u "u64")))
+     (oconstr~W,6J uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13494013367335069727u "u64"))
+      (kv@V lo~2
+       (suf@2 3065383741939440791u "u64")))
+     (oconstr~W,6K uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16867516709168837158u "u64"))
+      (kv@V lo~2
+       (suf@2 17666787732706464701u "u64")))
+     (oconstr~W,6L uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10542197943230523224u "u64"))
+      (kv@V lo~2
+       (suf@2 6430056314514152534u "u64")))
+     (oconstr~W,6M uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13177747429038154030u "u64"))
+      (kv@V lo~2
+       (suf@2 8037570393142690668u "u64")))
+     (oconstr~W,6N uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16472184286297692538u "u64"))
+      (kv@V lo~2
+       (suf@2 823590954573587527u "u64")))
+     (oconstr~W,6O uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10295115178936057836u "u64"))
+      (kv@V lo~2
+       (suf@2 5126430365035880108u "u64")))
+     (oconstr~W,6P uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12868893973670072295u "u64"))
+      (kv@V lo~2
+       (suf@2 6408037956294850135u "u64")))
+     (oconstr~W,6Q uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16086117467087590369u "u64"))
+      (kv@V lo~2
+       (suf@2 3398361426941174765u "u64")))
+     (oconstr~W,6R uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10053823416929743980u "u64"))
+      (kv@V lo~2
+       (suf@2 13653190937906703988u "u64")))
+     (oconstr~W,6S uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12567279271162179975u "u64"))
+      (kv@V lo~2
+       (suf@2 17066488672383379985u "u64")))
+     (oconstr~W,6T uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15709099088952724969u "u64"))
+      (kv@V lo~2
+       (suf@2 16721424822051837077u "u64")))
+     (oconstr~W,6U uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9818186930595453106u "u64"))
+      (kv@V lo~2
+       (suf@2 3533361486141316317u "u64")))
+     (oconstr~W,6V uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12272733663244316382u "u64"))
+      (kv@V lo~2
+       (suf@2 13640073894531421205u "u64")))
+     (oconstr~W,6W uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15340917079055395478u "u64"))
+      (kv@V lo~2
+       (suf@2 7826720331309500698u "u64")))
+     (oconstr~W,6X uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9588073174409622174u "u64"))
+      (kv@V lo~2
+       (suf@2 280014188641050032u "u64")))
+     (oconstr~W,6Y uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11985091468012027717u "u64"))
+      (kv@V lo~2
+       (suf@2 9573389772656088348u "u64")))
+     (oconstr~W,6Z uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14981364335015034646u "u64"))
+      (kv@V lo~2
+       (suf@2 16578423234247498339u "u64")))
+     (oconstr~W,6a uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9363352709384396654u "u64"))
+      (kv@V lo~2
+       (suf@2 5749828502977298558u "u64")))
+     (oconstr~W,6b uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11704190886730495817u "u64"))
+      (kv@V lo~2
+       (suf@2 16410657665576399005u "u64")))
+     (oconstr~W,6c uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14630238608413119772u "u64"))
+      (kv@V lo~2
+       (suf@2 6678264026688335045u "u64")))
+     (oconstr~W,6d uint64x2~8
+      (kv@3 hi~2
+       (suf@2 18287798260516399715u "u64"))
+      (kv@V lo~2
+       (suf@2 8347830033360418806u "u64")))
+     (oconstr~W,6e uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11429873912822749822u "u64"))
+      (kv@V lo~2
+       (suf@2 2911550761636567802u "u64")))
+     (oconstr~W,6f uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14287342391028437277u "u64"))
+      (kv@V lo~2
+       (suf@2 12862810488900485560u "u64")))
+     (oconstr~W,6g uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17859177988785546597u "u64"))
+      (kv@V lo~2
+       (suf@2 2243455055843443238u "u64")))
+     (oconstr~W,6h uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11161986242990966623u "u64"))
+      (kv@V lo~2
+       (suf@2 3708002419115845976u "u64")))
+     (oconstr~W,6i uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13952482803738708279u "u64"))
+      (kv@V lo~2
+       (suf@2 23317005467419566u "u64")))
+     (oconstr~W,6j uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17440603504673385348u "u64"))
+      (kv@V lo~2
+       (suf@2 13864204312116438170u "u64")))
+     (oconstr~W,6k uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10900377190420865842u "u64"))
+      (kv@V lo~2
+       (suf@2 17888499731927549664u "u64")))
+     (oconstr~W,6l uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13625471488026082303u "u64"))
+      (kv@V lo~2
+       (suf@2 13137252628054661272u "u64")))
+     (oconstr~W,6m uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17031839360032602879u "u64"))
+      (kv@V lo~2
+       (suf@2 11809879766640938686u "u64")))
+     (oconstr~W,6n uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10644899600020376799u "u64"))
+      (kv@V lo~2
+       (suf@2 14298703881791668535u "u64")))
+     (oconstr~W,6o uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13306124500025470999u "u64"))
+      (kv@V lo~2
+       (suf@2 13261693833812197764u "u64")))
+     (oconstr~W,6p uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16632655625031838749u "u64"))
+      (kv@V lo~2
+       (suf@2 11965431273837859301u "u64")))
+     (oconstr~W,6q uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10395409765644899218u "u64"))
+      (kv@V lo~2
+       (suf@2 9784237555362356015u "u64")))
+     (oconstr~W,6r uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12994262207056124023u "u64"))
+      (kv@V lo~2
+       (suf@2 3006924907348169211u "u64")))
+     (oconstr~W,6s uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16242827758820155028u "u64"))
+      (kv@V lo~2
+       (suf@2 17593714189467375226u "u64")))
+     (oconstr~W,6t uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10151767349262596893u "u64"))
+      (kv@V lo~2
+       (suf@2 1772699331562333708u "u64")))
+     (oconstr~W,6u uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12689709186578246116u "u64"))
+      (kv@V lo~2
+       (suf@2 6827560182880305039u "u64")))
+     (oconstr~W,6v uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15862136483222807645u "u64"))
+      (kv@V lo~2
+       (suf@2 8534450228600381299u "u64")))
+     (oconstr~W,6w uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9913835302014254778u "u64"))
+      (kv@V lo~2
+       (suf@2 7639874402088932264u "u64")))
+     (oconstr~W,6x uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12392294127517818473u "u64"))
+      (kv@V lo~2
+       (suf@2 326470965756389522u "u64")))
+     (oconstr~W,6y uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15490367659397273091u "u64"))
+      (kv@V lo~2
+       (suf@2 5019774725622874806u "u64")))
+     (oconstr~W,6z uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9681479787123295682u "u64"))
+      (kv@V lo~2
+       (suf@2 831516194300602802u "u64")))
+     (oconstr~W,70 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12101849733904119602u "u64"))
+      (kv@V lo~2
+       (suf@2 10262767279730529310u "u64")))
+     (oconstr~W,71 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15127312167380149503u "u64"))
+      (kv@V lo~2
+       (suf@2 3605087062808385830u "u64")))
+     (oconstr~W,72 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9454570104612593439u "u64"))
+      (kv@V lo~2
+       (suf@2 9170708441896323000u "u64")))
+     (oconstr~W,73 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11818212630765741799u "u64"))
+      (kv@V lo~2
+       (suf@2 6851699533943015846u "u64")))
+     (oconstr~W,74 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14772765788457177249u "u64"))
+      (kv@V lo~2
+       (suf@2 3952938399001381903u "u64")))
+     (oconstr~W,75 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9232978617785735780u "u64"))
+      (kv@V lo~2
+       (suf@2 13999801545444333449u "u64")))
+     (oconstr~W,76 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11541223272232169725u "u64"))
+      (kv@V lo~2
+       (suf@2 17499751931805416812u "u64")))
+     (oconstr~W,77 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14426529090290212157u "u64"))
+      (kv@V lo~2
+       (suf@2 8039631859474607303u "u64")))
+     (oconstr~W,78 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 18033161362862765196u "u64"))
+      (kv@V lo~2
+       (suf@2 14661225842770647033u "u64")))
+     (oconstr~W,79 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11270725851789228247u "u64"))
+      (kv@V lo~2
+       (suf@2 18386638188586430203u "u64")))
+     (oconstr~W,7A uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14088407314736535309u "u64"))
+      (kv@V lo~2
+       (suf@2 18371611717305649850u "u64")))
+     (oconstr~W,7B uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17610509143420669137u "u64"))
+      (kv@V lo~2
+       (suf@2 9129456591349898601u "u64")))
+     (oconstr~W,7C uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11006568214637918210u "u64"))
+      (kv@V lo~2
+       (suf@2 17235125415662156385u "u64")))
+     (oconstr~W,7D uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13758210268297397763u "u64"))
+      (kv@V lo~2
+       (suf@2 12320534732722919674u "u64")))
+     (oconstr~W,7E uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17197762835371747204u "u64"))
+      (kv@V lo~2
+       (suf@2 10788982397476261688u "u64")))
+     (oconstr~W,7F uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10748601772107342002u "u64"))
+      (kv@V lo~2
+       (suf@2 15966486035277439363u "u64")))
+     (oconstr~W,7G uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13435752215134177503u "u64"))
+      (kv@V lo~2
+       (suf@2 10734735507242023396u "u64")))
+     (oconstr~W,7H uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16794690268917721879u "u64"))
+      (kv@V lo~2
+       (suf@2 8806733365625141341u "u64")))
+     (oconstr~W,7I uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10496681418073576174u "u64"))
+      (kv@V lo~2
+       (suf@2 12421737381156795194u "u64")))
+     (oconstr~W,7J uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13120851772591970218u "u64"))
+      (kv@V lo~2
+       (suf@2 6303799689591218185u "u64")))
+     (oconstr~W,7K uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16401064715739962772u "u64"))
+      (kv@V lo~2
+       (suf@2 17103121648843798539u "u64")))
+     (oconstr~W,7L uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10250665447337476733u "u64"))
+      (kv@V lo~2
+       (suf@2 1466078993672598279u "u64")))
+     (oconstr~W,7M uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12813331809171845916u "u64"))
+      (kv@V lo~2
+       (suf@2 6444284760518135752u "u64")))
+     (oconstr~W,7N uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16016664761464807395u "u64"))
+      (kv@V lo~2
+       (suf@2 8055355950647669691u "u64")))
+     (oconstr~W,7O uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10010415475915504622u "u64"))
+      (kv@V lo~2
+       (suf@2 2728754459941099604u "u64")))
+     (oconstr~W,7P uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12513019344894380777u "u64"))
+      (kv@V lo~2
+       (suf@2 12634315111781150314u "u64")))
+     (oconstr~W,7Q uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15641274181117975972u "u64"))
+      (kv@V lo~2
+       (suf@2 1957835834444274180u "u64")))
+     (oconstr~W,7R uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9775796363198734982u "u64"))
+      (kv@V lo~2
+       (suf@2 10447019433382447170u "u64")))
+     (oconstr~W,7S uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12219745453998418728u "u64"))
+      (kv@V lo~2
+       (suf@2 3835402254873283155u "u64")))
+     (oconstr~W,7T uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15274681817498023410u "u64"))
+      (kv@V lo~2
+       (suf@2 4794252818591603944u "u64")))
+     (oconstr~W,7U uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9546676135936264631u "u64"))
+      (kv@V lo~2
+       (suf@2 7608094030047140369u "u64")))
+     (oconstr~W,7V uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11933345169920330789u "u64"))
+      (kv@V lo~2
+       (suf@2 4898431519131537557u "u64")))
+     (oconstr~W,7W uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14916681462400413486u "u64"))
+      (kv@V lo~2
+       (suf@2 10734725417341809851u "u64")))
+     (oconstr~W,7X uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9322925914000258429u "u64"))
+      (kv@V lo~2
+       (suf@2 2097517367411243253u "u64")))
+     (oconstr~W,7Y uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11653657392500323036u "u64"))
+      (kv@V lo~2
+       (suf@2 7233582727691441970u "u64")))
+     (oconstr~W,7Z uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14567071740625403795u "u64"))
+      (kv@V lo~2
+       (suf@2 9041978409614302462u "u64")))
+     (oconstr~W,7a uint64x2~8
+      (kv@3 hi~2
+       (suf@2 18208839675781754744u "u64"))
+      (kv@V lo~2
+       (suf@2 6690786993590490174u "u64")))
+     (oconstr~W,7b uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11380524797363596715u "u64"))
+      (kv@V lo~2
+       (suf@2 4181741870994056359u "u64")))
+     (oconstr~W,7c uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14225655996704495894u "u64"))
+      (kv@V lo~2
+       (suf@2 615491320315182544u "u64")))
+     (oconstr~W,7d uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17782069995880619867u "u64"))
+      (kv@V lo~2
+       (suf@2 9992736187248753989u "u64")))
+     (oconstr~W,7e uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11113793747425387417u "u64"))
+      (kv@V lo~2
+       (suf@2 3939617107816777291u "u64")))
+     (oconstr~W,7f uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13892242184281734271u "u64"))
+      (kv@V lo~2
+       (suf@2 9536207403198359517u "u64")))
+     (oconstr~W,7g uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17365302730352167839u "u64"))
+      (kv@V lo~2
+       (suf@2 7308573235570561493u "u64")))
+     (oconstr~W,7h uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10853314206470104899u "u64"))
+      (kv@V lo~2
+       (suf@2 11485387299872682789u "u64")))
+     (oconstr~W,7i uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13566642758087631124u "u64"))
+      (kv@V lo~2
+       (suf@2 9745048106413465582u "u64")))
+     (oconstr~W,7j uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16958303447609538905u "u64"))
+      (kv@V lo~2
+       (suf@2 12181310133016831978u "u64")))
+     (oconstr~W,7k uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10598939654755961816u "u64"))
+      (kv@V lo~2
+       (suf@2 695789805494438130u "u64")))
+     (oconstr~W,7l uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13248674568444952270u "u64"))
+      (kv@V lo~2
+       (suf@2 869737256868047663u "u64")))
+     (oconstr~W,7m uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16560843210556190337u "u64"))
+      (kv@V lo~2
+       (suf@2 10310543607939835386u "u64")))
+     (oconstr~W,7n uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10350527006597618960u "u64"))
+      (kv@V lo~2
+       (suf@2 17973304801030866876u "u64")))
+     (oconstr~W,7o uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12938158758247023701u "u64"))
+      (kv@V lo~2
+       (suf@2 4019886927579031980u "u64")))
+     (oconstr~W,7p uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16172698447808779626u "u64"))
+      (kv@V lo~2
+       (suf@2 9636544677901177879u "u64")))
+     (oconstr~W,7q uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10107936529880487266u "u64"))
+      (kv@V lo~2
+       (suf@2 10634526442115624078u "u64")))
+     (oconstr~W,7r uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12634920662350609083u "u64"))
+      (kv@V lo~2
+       (suf@2 4069786015789754290u "u64")))
+     (oconstr~W,7s uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15793650827938261354u "u64"))
+      (kv@V lo~2
+       (suf@2 475546501309804958u "u64")))
+     (oconstr~W,7t uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9871031767461413346u "u64"))
+      (kv@V lo~2
+       (suf@2 4908902581746016003u "u64")))
+     (oconstr~W,7u uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12338789709326766682u "u64"))
+      (kv@V lo~2
+       (suf@2 15359500264037295811u "u64")))
+     (oconstr~W,7v uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15423487136658458353u "u64"))
+      (kv@V lo~2
+       (suf@2 9976003293191843956u "u64")))
+     (oconstr~W,7w uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9639679460411536470u "u64"))
+      (kv@V lo~2
+       (suf@2 17764217104313372233u "u64")))
+     (oconstr~W,7x uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12049599325514420588u "u64"))
+      (kv@V lo~2
+       (suf@2 12981899343536939483u "u64")))
+     (oconstr~W,7y uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15061999156893025735u "u64"))
+      (kv@V lo~2
+       (suf@2 16227374179421174354u "u64")))
+     (oconstr~W,7z uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9413749473058141084u "u64"))
+      (kv@V lo~2
+       (suf@2 17059637889779315827u "u64")))
+     (oconstr~W,80 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11767186841322676356u "u64"))
+      (kv@V lo~2
+       (suf@2 2877803288514593168u "u64")))
+     (oconstr~W,81 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14708983551653345445u "u64"))
+      (kv@V lo~2
+       (suf@2 3597254110643241460u "u64")))
+     (oconstr~W,82 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 18386229439566681806u "u64"))
+      (kv@V lo~2
+       (suf@2 9108253656731439729u "u64")))
+     (oconstr~W,83 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11491393399729176129u "u64"))
+      (kv@V lo~2
+       (suf@2 1080972517029761926u "u64")))
+     (oconstr~W,84 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14364241749661470161u "u64"))
+      (kv@V lo~2
+       (suf@2 5962901664714590312u "u64")))
+     (oconstr~W,85 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17955302187076837701u "u64"))
+      (kv@V lo~2
+       (suf@2 12065313099320625794u "u64")))
+     (oconstr~W,86 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11222063866923023563u "u64"))
+      (kv@V lo~2
+       (suf@2 9846663696289085073u "u64")))
+     (oconstr~W,87 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14027579833653779454u "u64"))
+      (kv@V lo~2
+       (suf@2 7696643601933968437u "u64")))
+     (oconstr~W,88 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17534474792067224318u "u64"))
+      (kv@V lo~2
+       (suf@2 397432465562684739u "u64")))
+     (oconstr~W,89 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10959046745042015198u "u64"))
+      (kv@V lo~2
+       (suf@2 14083453346258841674u "u64")))
+     (oconstr~W,8A uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13698808431302518998u "u64"))
+      (kv@V lo~2
+       (suf@2 8380944645968776284u "u64")))
+     (oconstr~W,8B uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17123510539128148748u "u64"))
+      (kv@V lo~2
+       (suf@2 1252808770606194547u "u64")))
+     (oconstr~W,8C uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10702194086955092967u "u64"))
+      (kv@V lo~2
+       (suf@2 10006377518483647400u "u64")))
+     (oconstr~W,8D uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13377742608693866209u "u64"))
+      (kv@V lo~2
+       (suf@2 7896285879677171346u "u64")))
+     (oconstr~W,8E uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16722178260867332761u "u64"))
+      (kv@V lo~2
+       (suf@2 14482043368023852087u "u64")))
+     (oconstr~W,8F uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10451361413042082976u "u64"))
+      (kv@V lo~2
+       (suf@2 2133748077373825698u "u64")))
+     (oconstr~W,8G uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13064201766302603720u "u64"))
+      (kv@V lo~2
+       (suf@2 2667185096717282123u "u64")))
+     (oconstr~W,8H uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16330252207878254650u "u64"))
+      (kv@V lo~2
+       (suf@2 3333981370896602653u "u64")))
+     (oconstr~W,8I uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10206407629923909156u "u64"))
+      (kv@V lo~2
+       (suf@2 6695424375237764562u "u64")))
+     (oconstr~W,8J uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12758009537404886445u "u64"))
+      (kv@V lo~2
+       (suf@2 8369280469047205703u "u64")))
+     (oconstr~W,8K uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15947511921756108056u "u64"))
+      (kv@V lo~2
+       (suf@2 15073286604736395033u "u64")))
+     (oconstr~W,8L uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9967194951097567535u "u64"))
+      (kv@V lo~2
+       (suf@2 9420804127960246895u "u64")))
+     (oconstr~W,8M uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12458993688871959419u "u64"))
+      (kv@V lo~2
+       (suf@2 7164319141522920715u "u64")))
+     (oconstr~W,8N uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15573742111089949274u "u64"))
+      (kv@V lo~2
+       (suf@2 4343712908476262990u "u64")))
+     (oconstr~W,8O uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9733588819431218296u "u64"))
+      (kv@V lo~2
+       (suf@2 7326506586225052273u "u64")))
+     (oconstr~W,8P uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12166986024289022870u "u64"))
+      (kv@V lo~2
+       (suf@2 9158133232781315341u "u64")))
+     (oconstr~W,8Q uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15208732530361278588u "u64"))
+      (kv@V lo~2
+       (suf@2 2224294504121868368u "u64")))
+     (oconstr~W,8R uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9505457831475799117u "u64"))
+      (kv@V lo~2
+       (suf@2 10613556101930943538u "u64")))
+     (oconstr~W,8S uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11881822289344748896u "u64"))
+      (kv@V lo~2
+       (suf@2 17878631145841067327u "u64")))
+     (oconstr~W,8T uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14852277861680936121u "u64"))
+      (kv@V lo~2
+       (suf@2 3901544858591782542u "u64")))
+     (oconstr~W,8U uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9282673663550585075u "u64"))
+      (kv@V lo~2
+       (suf@2 13967680582688333849u "u64")))
+     (oconstr~W,8V uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11603342079438231344u "u64"))
+      (kv@V lo~2
+       (suf@2 12847914709933029407u "u64")))
+     (oconstr~W,8W uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14504177599297789180u "u64"))
+      (kv@V lo~2
+       (suf@2 16059893387416286759u "u64")))
+     (oconstr~W,8X uint64x2~8
+      (kv@3 hi~2
+       (suf@2 18130221999122236476u "u64"))
+      (kv@V lo~2
+       (suf@2 1628122660560806833u "u64")))
+     (oconstr~W,8Y uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11331388749451397797u "u64"))
+      (kv@V lo~2
+       (suf@2 10240948699705280078u "u64")))
+     (oconstr~W,8Z uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14164235936814247246u "u64"))
+      (kv@V lo~2
+       (suf@2 17412871893058988002u "u64")))
+     (oconstr~W,8a uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17705294921017809058u "u64"))
+      (kv@V lo~2
+       (suf@2 12542717829468959195u "u64")))
+     (oconstr~W,8b uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11065809325636130661u "u64"))
+      (kv@V lo~2
+       (suf@2 12450884661845487401u "u64")))
+     (oconstr~W,8c uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13832261657045163327u "u64"))
+      (kv@V lo~2
+       (suf@2 1728547772024695539u "u64")))
+     (oconstr~W,8d uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17290327071306454158u "u64"))
+      (kv@V lo~2
+       (suf@2 15995742770313033136u "u64")))
+     (oconstr~W,8e uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10806454419566533849u "u64"))
+      (kv@V lo~2
+       (suf@2 5385653213018257806u "u64")))
+     (oconstr~W,8f uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13508068024458167311u "u64"))
+      (kv@V lo~2
+       (suf@2 11343752534700210161u "u64")))
+     (oconstr~W,8g uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16885085030572709139u "u64"))
+      (kv@V lo~2
+       (suf@2 9568004649947874797u "u64")))
+     (oconstr~W,8h uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10553178144107943212u "u64"))
+      (kv@V lo~2
+       (suf@2 3674159897003727796u "u64")))
+     (oconstr~W,8i uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13191472680134929015u "u64"))
+      (kv@V lo~2
+       (suf@2 4592699871254659745u "u64")))
+     (oconstr~W,8j uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16489340850168661269u "u64"))
+      (kv@V lo~2
+       (suf@2 1129188820640936778u "u64")))
+     (oconstr~W,8k uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10305838031355413293u "u64"))
+      (kv@V lo~2
+       (suf@2 3011586022114279438u "u64")))
+     (oconstr~W,8l uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12882297539194266616u "u64"))
+      (kv@V lo~2
+       (suf@2 8376168546070237202u "u64")))
+     (oconstr~W,8m uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16102871923992833270u "u64"))
+      (kv@V lo~2
+       (suf@2 10470210682587796502u "u64")))
+     (oconstr~W,8n uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10064294952495520794u "u64"))
+      (kv@V lo~2
+       (suf@2 1932195658189984910u "u64")))
+     (oconstr~W,8o uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12580368690619400992u "u64"))
+      (kv@V lo~2
+       (suf@2 11638616609592256945u "u64")))
+     (oconstr~W,8p uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15725460863274251240u "u64"))
+      (kv@V lo~2
+       (suf@2 14548270761990321182u "u64")))
+     (oconstr~W,8q uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9828413039546407025u "u64"))
+      (kv@V lo~2
+       (suf@2 9092669226243950738u "u64")))
+     (oconstr~W,8r uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12285516299433008781u "u64"))
+      (kv@V lo~2
+       (suf@2 15977522551232326327u "u64")))
+     (oconstr~W,8s uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15356895374291260977u "u64"))
+      (kv@V lo~2
+       (suf@2 6136845133758244197u "u64")))
+     (oconstr~W,8t uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9598059608932038110u "u64"))
+      (kv@V lo~2
+       (suf@2 15364743254667372383u "u64")))
+     (oconstr~W,8u uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11997574511165047638u "u64"))
+      (kv@V lo~2
+       (suf@2 9982557031479439671u "u64")))
+     (oconstr~W,8v uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14996968138956309548u "u64"))
+      (kv@V lo~2
+       (suf@2 3254824252494523781u "u64")))
+     (oconstr~W,8w uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9373105086847693467u "u64"))
+      (kv@V lo~2
+       (suf@2 11257637194663853171u "u64")))
+     (oconstr~W,8x uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11716381358559616834u "u64"))
+      (kv@V lo~2
+       (suf@2 9460360474902428559u "u64")))
+     (oconstr~W,8y uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14645476698199521043u "u64"))
+      (kv@V lo~2
+       (suf@2 2602078556773259891u "u64")))
+     (oconstr~W,8z uint64x2~8
+      (kv@3 hi~2
+       (suf@2 18306845872749401303u "u64"))
+      (kv@V lo~2
+       (suf@2 17087656251248738576u "u64")))
+     (oconstr~W,90 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11441778670468375814u "u64"))
+      (kv@V lo~2
+       (suf@2 17597314184671543466u "u64")))
+     (oconstr~W,91 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14302223338085469768u "u64"))
+      (kv@V lo~2
+       (suf@2 12773270693984653525u "u64")))
+     (oconstr~W,92 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17877779172606837210u "u64"))
+      (kv@V lo~2
+       (suf@2 15966588367480816906u "u64")))
+     (oconstr~W,93 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11173611982879273256u "u64"))
+      (kv@V lo~2
+       (suf@2 14590803748102898470u "u64")))
+     (oconstr~W,94 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13967014978599091570u "u64"))
+      (kv@V lo~2
+       (suf@2 18238504685128623088u "u64")))
+     (oconstr~W,95 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17458768723248864463u "u64"))
+      (kv@V lo~2
+       (suf@2 13574758819556003052u "u64")))
+     (oconstr~W,96 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10911730452030540289u "u64"))
+      (kv@V lo~2
+       (suf@2 15401753289863583763u "u64")))
+     (oconstr~W,97 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13639663065038175362u "u64"))
+      (kv@V lo~2
+       (suf@2 5417133557047315992u "u64")))
+     (oconstr~W,98 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17049578831297719202u "u64"))
+      (kv@V lo~2
+       (suf@2 15994788983163920798u "u64")))
+     (oconstr~W,99 uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10655986769561074501u "u64"))
+      (kv@V lo~2
+       (suf@2 14608429132904838403u "u64")))
+     (oconstr~W,9A uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13319983461951343127u "u64"))
+      (kv@V lo~2
+       (suf@2 4425478360848884291u "u64")))
+     (oconstr~W,9B uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16649979327439178909u "u64"))
+      (kv@V lo~2
+       (suf@2 920161932633717460u "u64")))
+     (oconstr~W,9C uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10406237079649486818u "u64"))
+      (kv@V lo~2
+       (suf@2 2880944217109767365u "u64")))
+     (oconstr~W,9D uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13007796349561858522u "u64"))
+      (kv@V lo~2
+       (suf@2 12824552308241985014u "u64")))
+     (oconstr~W,9E uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16259745436952323153u "u64"))
+      (kv@V lo~2
+       (suf@2 6807318348447705459u "u64")))
+     (oconstr~W,9F uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10162340898095201970u "u64"))
+      (kv@V lo~2
+       (suf@2 15783789013848285672u "u64")))
+     (oconstr~W,9G uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12702926122619002463u "u64"))
+      (kv@V lo~2
+       (suf@2 10506364230455581282u "u64")))
+     (oconstr~W,9H uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15878657653273753079u "u64"))
+      (kv@V lo~2
+       (suf@2 8521269269642088699u "u64")))
+     (oconstr~W,9I uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9924161033296095674u "u64"))
+      (kv@V lo~2
+       (suf@2 12243322321167387293u "u64")))
+     (oconstr~W,9J uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12405201291620119593u "u64"))
+      (kv@V lo~2
+       (suf@2 6080780864604458308u "u64")))
+     (oconstr~W,9K uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15506501614525149491u "u64"))
+      (kv@V lo~2
+       (suf@2 12212662099182960789u "u64")))
+     (oconstr~W,9L uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9691563509078218432u "u64"))
+      (kv@V lo~2
+       (suf@2 5327070802775656541u "u64")))
+     (oconstr~W,9M uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12114454386347773040u "u64"))
+      (kv@V lo~2
+       (suf@2 6658838503469570676u "u64")))
+     (oconstr~W,9N uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15143067982934716300u "u64"))
+      (kv@V lo~2
+       (suf@2 8323548129336963345u "u64")))
+     (oconstr~W,9O uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9464417489334197687u "u64"))
+      (kv@V lo~2
+       (suf@2 14425589617690377899u "u64")))
+     (oconstr~W,9P uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11830521861667747109u "u64"))
+      (kv@V lo~2
+       (suf@2 13420301003685584469u "u64")))
+     (oconstr~W,9Q uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14788152327084683887u "u64"))
+      (kv@V lo~2
+       (suf@2 2940318199324816875u "u64")))
+     (oconstr~W,9R uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9242595204427927429u "u64"))
+      (kv@V lo~2
+       (suf@2 8755227902219092403u "u64")))
+     (oconstr~W,9S uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11553244005534909286u "u64"))
+      (kv@V lo~2
+       (suf@2 15555720896201253407u "u64")))
+     (oconstr~W,9T uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14441555006918636608u "u64"))
+      (kv@V lo~2
+       (suf@2 10221279083396790951u "u64")))
+     (oconstr~W,9U uint64x2~8
+      (kv@3 hi~2
+       (suf@2 18051943758648295760u "u64"))
+      (kv@V lo~2
+       (suf@2 12776598854245988689u "u64")))
+     (oconstr~W,9V uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11282464849155184850u "u64"))
+      (kv@V lo~2
+       (suf@2 7985374283903742931u "u64")))
+     (oconstr~W,9W uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14103081061443981063u "u64"))
+      (kv@V lo~2
+       (suf@2 758345818024902856u "u64")))
+     (oconstr~W,9X uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17628851326804976328u "u64"))
+      (kv@V lo~2
+       (suf@2 14782990327813292282u "u64")))
+     (oconstr~W,9Y uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11018032079253110205u "u64"))
+      (kv@V lo~2
+       (suf@2 9239368954883307676u "u64")))
+     (oconstr~W,9Z uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13772540099066387756u "u64"))
+      (kv@V lo~2
+       (suf@2 16160897212031522499u "u64")))
+     (oconstr~W,9a uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17215675123832984696u "u64"))
+      (kv@V lo~2
+       (suf@2 1754377441329851508u "u64")))
+     (oconstr~W,9b uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10759796952395615435u "u64"))
+      (kv@V lo~2
+       (suf@2 1096485900831157192u "u64")))
+     (oconstr~W,9c uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13449746190494519293u "u64"))
+      (kv@V lo~2
+       (suf@2 15205665431321110202u "u64")))
+     (oconstr~W,9d uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16812182738118149117u "u64"))
+      (kv@V lo~2
+       (suf@2 5172023733869224041u "u64")))
+     (oconstr~W,9e uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10507614211323843198u "u64"))
+      (kv@V lo~2
+       (suf@2 5538357842881958977u "u64")))
+     (oconstr~W,9f uint64x2~8
+      (kv@3 hi~2
+       (suf@2 13134517764154803997u "u64"))
+      (kv@V lo~2
+       (suf@2 16146319340457224530u "u64")))
+     (oconstr~W,9g uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16418147205193504997u "u64"))
+      (kv@V lo~2
+       (suf@2 6347841120289366950u "u64")))
+     (oconstr~W,9h uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10261342003245940623u "u64"))
+      (kv@V lo~2
+       (suf@2 6273243709394548296u "u64")))
+     (oconstr~W,9i uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12826677504057425779u "u64"))
+      (kv@V lo~2
+       (suf@2 3229868618315797466u "u64")))
+     (oconstr~W,9j uint64x2~8
+      (kv@3 hi~2
+       (suf@2 16033346880071782223u "u64"))
+      (kv@V lo~2
+       (suf@2 17872393828176910545u "u64")))
+     (oconstr~W,9k uint64x2~8
+      (kv@3 hi~2
+       (suf@2 10020841800044863889u "u64"))
+      (kv@V lo~2
+       (suf@2 18087775170251650946u "u64")))
+     (oconstr~W,9l uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12526052250056079862u "u64"))
+      (kv@V lo~2
+       (suf@2 8774660907532399971u "u64")))
+     (oconstr~W,9m uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15657565312570099828u "u64"))
+      (kv@V lo~2
+       (suf@2 1744954097560724156u "u64")))
+     (oconstr~W,9n uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9785978320356312392u "u64"))
+      (kv@V lo~2
+       (suf@2 10313968347830228405u "u64")))
+     (oconstr~W,9o uint64x2~8
+      (kv@3 hi~2
+       (suf@2 12232472900445390490u "u64"))
+      (kv@V lo~2
+       (suf@2 12892460434787785506u "u64")))
+     (oconstr~W,9p uint64x2~8
+      (kv@3 hi~2
+       (suf@2 15290591125556738113u "u64"))
+      (kv@V lo~2
+       (suf@2 6892203506629956075u "u64")))
+     (oconstr~W,9q uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9556619453472961320u "u64"))
+      (kv@V lo~2
+       (suf@2 15836842237712192307u "u64")))
+     (oconstr~W,9r uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11945774316841201651u "u64"))
+      (kv@V lo~2
+       (suf@2 1349308723430688768u "u64")))
+     (oconstr~W,9s uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14932217896051502063u "u64"))
+      (kv@V lo~2
+       (suf@2 15521693959570524672u "u64")))
+     (oconstr~W,9t uint64x2~8
+      (kv@3 hi~2
+       (suf@2 9332636185032188789u "u64"))
+      (kv@V lo~2
+       (suf@2 16618587752372659776u "u64")))
+     (oconstr~W,9u uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11665795231290235987u "u64"))
+      (kv@V lo~2
+       (suf@2 6938176635183661008u "u64")))
+     (oconstr~W,9v uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14582244039112794984u "u64"))
+      (kv@V lo~2
+       (suf@2 4061034775552188356u "u64")))
+     (oconstr~W,9w uint64x2~8
+      (kv@3 hi~2
+       (suf@2 18227805048890993730u "u64"))
+      (kv@V lo~2
+       (suf@2 5076293469440235445u "u64")))
+     (oconstr~W,9x uint64x2~8
+      (kv@3 hi~2
+       (suf@2 11392378155556871081u "u64"))
+      (kv@V lo~2
+       (suf@2 7784369436827535057u "u64")))
+     (oconstr~W,9y uint64x2~8
+      (kv@3 hi~2
+       (suf@2 14240472694446088851u "u64"))
+      (kv@V lo~2
+       (suf@2 14342147814461806725u "u64")))
+     (oconstr~W,9z uint64x2~8
+      (kv@3 hi~2
+       (suf@2 17800590868057611064u "u64"))
+      (kv@V lo~2
+       (suf@2 13315998749649870503u "u64")))))
+   (call@9,A3 fmtAssert~9
+    (infix@3 >= k~2 kMin@3))
+   (call@9,A4 fmtAssert~9
+    (infix@3 <= k~2 kMax@3))
+   (asgn@7,A5 result~7
+    (at@7 pow10~5
+     (infix@3 \2D k~2 kMin@2)))))
+ (comment@,HP)
+ (func@,HR multipleOfPow2@5 . . .
+  (params@J
+   (param@1 value . . uint64@7 .)
+   (param@G e2 . . int@4 .))bool@Q
+  (pragmas@o inline@2).
+  (stmts@2,1
+   (call@9 fmtAssert~9
+    (infix@4 >= e2~3 0@3))
+   (asgn@7,1 result~7
+    (infix@A and
+     (infix~5 < e2~3 64@2)
+     (infix@f ==
+      (par~b
+       (infix@7 and value~6
+        (par@4
+         (infix@K \2D
+          (par~J
+           (infix@B shl
+            (call~4 uint64~6 1@1)e2@4))1@2))))0@3)))))
+ (comment@,HV)
+ (type@9,HY MulCmp~7 . . .
+  (object@2 .
+   (fld~7,1 mul . . uint64@5 .)
+   (fld~7,2 cmp . . uint64@5 .)))
+ (func@,Hc multipleOfPow5@5 . . .
+  (params@J
+   (param@1 value . . uint64@7 .)
+   (param@G e5 . . int@4 .))bool@Q
+  (pragmas@o inline@2).
+  (stmts@2,1
+   (const@2,1 mod5 . .
+    (at@B array~5 25@1 MulCmp@5)
+    (bracket@Q
+     (oconstr@7 MulCmp~6
+      (kv@4 mul~3
+       (suf@2 1u "u64"))
+      (kv@X cmp~3
+       (suf@2 18446744073709551615u "u64")))
+     (oconstr~I,1 MulCmp~6
+      (kv@4 mul~3
+       (suf@2 14757395258967641293u "u64"))
+      (kv@X cmp~3
+       (suf@2 3689348814741910323u "u64")))
+     (oconstr~I,2 MulCmp~6
+      (kv@4 mul~3
+       (suf@2 10330176681277348905u "u64"))
+      (kv@X cmp~3
+       (suf@2 737869762948382064u "u64")))
+     (oconstr~I,3 MulCmp~6
+      (kv@4 mul~3
+       (suf@2 2066035336255469781u "u64"))
+      (kv@X cmp~3
+       (suf@2 147573952589676412u "u64")))
+     (oconstr~I,4 MulCmp~6
+      (kv@4 mul~3
+       (suf@2 15170602326218735249u "u64"))
+      (kv@X cmp~3
+       (suf@2 29514790517935282u "u64")))
+     (oconstr~I,5 MulCmp~6
+      (kv@4 mul~3
+       (suf@2 6723469279985657373u "u64"))
+      (kv@X cmp~3
+       (suf@2 5902958103587056u "u64")))
+     (oconstr~I,6 MulCmp~6
+      (kv@4 mul~3
+       (suf@2 8723391485480952121u "u64"))
+      (kv@X cmp~3
+       (suf@2 1180591620717411u "u64")))
+     (oconstr~I,7 MulCmp~6
+      (kv@4 mul~3
+       (suf@2 16502073556063831717u "u64"))
+      (kv@X cmp~3
+       (suf@2 236118324143482u "u64")))
+     (oconstr~I,8 MulCmp~6
+      (kv@4 mul~3
+       (suf@2 14368461155438497313u "u64"))
+      (kv@X cmp~3
+       (suf@2 47223664828696u "u64")))
+     (oconstr~I,9 MulCmp~6
+      (kv@4 mul~3
+       (suf@2 10252389860571520109u "u64"))
+      (kv@X cmp~3
+       (suf@2 9444732965739u "u64")))
+     (oconstr~I,A MulCmp~6
+      (kv@4 mul~3
+       (suf@2 5739826786856214345u "u64"))
+      (kv@X cmp~3
+       (suf@2 1888946593147u "u64")))
+     (oconstr~I,B MulCmp~6
+      (kv@4 mul~3
+       (suf@2 1147965357371242869u "u64"))
+      (kv@X cmp~3
+       (suf@2 377789318629u "u64")))
+     (oconstr~I,C MulCmp~6
+      (kv@4 mul~3
+       (suf@2 3918941886216158897u "u64"))
+      (kv@X cmp~3
+       (suf@2 75557863725u "u64")))
+     (oconstr~I,D MulCmp~6
+      (kv@4 mul~3
+       (suf@2 11851834821468962749u "u64"))
+      (kv@X cmp~3
+       (suf@2 15111572745u "u64")))
+     (oconstr~I,E MulCmp~6
+      (kv@4 mul~3
+       (suf@2 6059715779035702873u "u64"))
+      (kv@X cmp~3
+       (suf@2 3022314549u "u64")))
+     (oconstr~I,F MulCmp~6
+      (kv@4 mul~3
+       (suf@2 8590640785290961221u "u64"))
+      (kv@X cmp~3
+       (suf@2 604462909u "u64")))
+     (oconstr~I,G MulCmp~6
+      (kv@4 mul~3
+       (suf@2 16475523416025833537u "u64"))
+      (kv@X cmp~3
+       (suf@2 120892581u "u64")))
+     (oconstr~I,H MulCmp~6
+      (kv@4 mul~3
+       (suf@2 14363151127430897677u "u64"))
+      (kv@X cmp~3
+       (suf@2 24178516u "u64")))
+     (oconstr~I,I MulCmp~6
+      (kv@4 mul~3
+       (suf@2 13940676669711910505u "u64"))
+      (kv@X cmp~3
+       (suf@2 4835703u "u64")))
+     (oconstr~I,J MulCmp~6
+      (kv@4 mul~3
+       (suf@2 2788135333942382101u "u64"))
+      (kv@X cmp~3
+       (suf@2 967140u "u64")))
+     (oconstr~I,K MulCmp~6
+      (kv@4 mul~3
+       (suf@2 15315022325756117713u "u64"))
+      (kv@X cmp~3
+       (suf@2 193428u "u64")))
+     (oconstr~I,L MulCmp~6
+      (kv@4 mul~3
+       (suf@2 10441702094635044189u "u64"))
+      (kv@X cmp~3
+       (suf@2 38685u "u64")))
+     (oconstr~I,M MulCmp~6
+      (kv@4 mul~3
+       (suf@2 5777689233668919161u "u64"))
+      (kv@X cmp~3
+       (suf@2 7737u "u64")))
+     (oconstr~I,N MulCmp~6
+      (kv@4 mul~3
+       (suf@2 15912933105701425125u "u64"))
+      (kv@X cmp~3
+       (suf@2 1547u "u64")))
+     (oconstr~I,O MulCmp~6
+      (kv@4 mul~3
+       (suf@2 3182586621140285025u "u64"))
+      (kv@X cmp~3
+       (suf@2 309u "u64")))))
+   (call@9,Q fmtAssert~9
+    (infix@4 >= e5~3 0@3))
+   (call@9,R fmtAssert~9
+    (infix@4 <= e5~3 24@3))
+   (let@4,S m5 . . MulCmp@4
+    (at@H mod5~4 e5@1))
+   (asgn@7,T result~7
+    (infix@H <=
+     (infix~9 * value~6
+      (dot@4 m5~2 mul@1))
+     (dot@5 m5~2 cmp@1)))))
+ (type@K,I9 FloatingDecimal64~I . . .
+  (object@2 .
+   (fld~I,1 significand . . uint64@D .)
+   (fld~I,2 exponent . . int@A .)))
+ (func@,ID toDecimal64AsymmetricInterval@5 . . .
+  (params@Y
+   (param@1 e2 . . int@4 .))FloatingDecimal64@B
+  (pragmas@11 inline@2).
+  (stmts@2,1
+   (comment)
+   (const@2,4 P . . int@3 dbSignificandSize@9)
+   (comment@,5)
+   (let@4,6 minusK . . int@8
+    (call@h dbFloorLog10ThreeQuartersPow2~T e2@1))
+   (let@4,7 betaMinus1 . . int@C
+    (infix@L \2B e2~3
+     (call@I dbFloorLog2Pow10~G
+      (prefix@1 \2D minusK@1))))
+   (comment@,8)
+   (let@4,9 pow10 . . uint64x2@7
+    (call@U computePow10~C
+     (prefix@1 \2D minusK@1)))
+   (let@4,A lowerEndpoint . . uint64@F
+    (infix@y shr
+     (par~a
+      (infix@A \2D
+       (dot~4 pow10~5 hi@1)
+       (par@2
+        (infix@A shr
+         (dot~4 pow10~5 hi@1)
+         (par@4
+          (infix@3 \2B P~2 1@2))))))
+     (par~y,1
+      (infix@8 \2D
+       (infix~4 \2D 64~3 P@2)betaMinus1@2))))
+   (let@4,C upperEndpoint . . uint64@F
+    (infix@y shr
+     (par~a
+      (infix@A \2B
+       (dot~4 pow10~5 hi@1)
+       (par@2
+        (infix@A shr
+         (dot~4 pow10~5 hi@1)
+         (par@4
+          (infix@3 \2B P~2 0@2))))))
+     (par~y,1
+      (infix@8 \2D
+       (infix~4 \2D 64~3 P@2)betaMinus1@2))))
+   (comment@,E)
+   (let@4,G lowerEndpointIsInteger . . bool@O
+    (par@V
+     (infix@9 and
+      (infix~6 <= 2~2 e2@3)
+      (infix@7 <= e2~3 3@3))))
+   (let@4,H xi . . uint64@4
+    (infix@R \2B lowerEndpoint~E
+     (call@8 uint64~6
+      (prefix@1 not lowerEndpointIsInteger@4))))
+   (let@4,I zi . . uint64@4 upperEndpoint@D)
+   (comment@,J)
+   (var@4,K q . . uint64@3
+    (infix@F div zi~3 10@4))
+   (if@,L
+    (elif@3
+     (infix@7 >=
+      (infix~5 * q~2 10@2)xi@3)
+     (stmts~1,1
+      (ret
+       (oconstr@O FloatingDecimal64~H
+        (kv@C significand~B q@2)
+        (kv@P exponent~8
+         (infix@9 \2B minusK~7 1@2)))))))
+   (asgn@2,N q~2
+    (infix@p div
+     (par~n
+      (infix@i \2B
+       (par~h
+        (infix@A shr
+         (dot~4 pow10~5 hi@1)
+         (par@4
+          (infix@E \2D
+           (infix~A \2D 64~3
+            (par@2
+             (infix@3 \2B P~2 1@2)))betaMinus1@2))))1@2))2@4))
+   (comment@,O)
+   (if@,P
+    (elif@3
+     (infix@3 == e2~3 -77@3)
+     (stmts~1,1
+      (call@3 dec~3 q@1
+       (call@A uint64~6
+        (call@4 ord~3
+         (infix@9 !=
+          (infix~6 mod q~2 2@4)0@3))))
+      (comment@,1)))
+    (else@,3
+     (stmts@2,1
+      (call@3 inc~3 q@1
+       (call@A uint64~6
+        (call@4 ord~3
+         (infix@3 < q~2 xi@2)))))))
+   (asgn@7,U result~7
+    (oconstr@J FloatingDecimal64~H
+     (kv@C significand~B q@2)
+     (kv@P exponent~8 minusK@2)))))
+ (func@,Ik computeDelta@5 . . .
+  (params@H
+   (param@1 pow10 . . uint64x2@7 .)
+   (param@I betaMinus1 . . int@C .))uint32@a
+  (pragmas@y inline@2).
+  (stmts@2,1
+   (call@9 fmtAssert~9
+    (infix@C >= betaMinus1~B 0@3))
+   (call@9,1 fmtAssert~9
+    (infix@C <= betaMinus1~B 63@3))
+   (asgn@7,2 result~7
+    (cast@2 uint32@5
+     (infix@M shr
+      (dot~4 pow10~5 hi@1)
+      (par@4
+       (infix@8 \2D
+        (infix~4 \2D 64~3 1@2)betaMinus1@2)))))))
+ (func@,Ip dbLo32@5 . . .
+  (params@B
+   (param@1 x . . uint64@3 .))uint32@D
+  (pragmas@V inline@2).
+  (stmts@2,1
+   (asgn@7 result~7
+    (cast@2 uint32@5 x@D))))
+ (func@,Is dbHi32@5 . . .
+  (params@B
+   (param@1 x . . uint64@3 .))uint32@D
+  (pragmas@V inline@2).
+  (stmts@2,1
+   (asgn@7 result~7
+    (cast@2 uint32@5
+     (infix@F shr x~2 32@4)))))
+ (func@,Iv mul128@5 . . .
+  (params@B
+   (param@1 a . . uint64@3 .)
+   (param@C b . . uint64@3 .))uint64x2@O
+  (pragmas@i inline@2).
+  (stmts@2,1
+   (let@4 b00 . . uint64@5
+    (infix@W *
+     (call~C uint64~6
+      (call@7 dbLo32~6 a@1))
+     (call@8 dbLo32~6 b@1)))
+   (let@4,1 b01 . . uint64@5
+    (infix@W *
+     (call~C uint64~6
+      (call@7 dbLo32~6 a@1))
+     (call@8 dbHi32~6 b@1)))
+   (let@4,2 b10 . . uint64@5
+    (infix@W *
+     (call~C uint64~6
+      (call@7 dbHi32~6 a@1))
+     (call@8 dbLo32~6 b@1)))
+   (let@4,3 b11 . . uint64@5
+    (infix@W *
+     (call~C uint64~6
+      (call@7 dbHi32~6 a@1))
+     (call@8 dbHi32~6 b@1)))
+   (let@4,4 mid1 . . uint64@6
+    (infix@J \2B b10~4
+     (call@8 dbHi32~6 b00@1)))
+   (let@4,5 mid2 . . uint64@6
+    (infix@J \2B b01~4
+     (call@8 dbLo32~6 mid1@1)))
+   (let@4,6 hi . . uint64@4
+    (infix@W \2B
+     (infix~F \2B b11~4
+      (call@8 dbHi32~6 mid1@1))
+     (call@8 dbHi32~6 mid2@1)))
+   (let@4,7 lo . . uint64@4
+    (infix@P or
+     (call~6 dbLo32~6 b00@1)
+     (infix@O shl
+      (call~F uint64~6
+       (call@7 dbLo32~6 mid2@1))32@4)))
+   (asgn@7,8 result~7
+    (oconstr@A uint64x2~8
+     (kv@3 hi~2 hi@2)
+     (kv@B lo~2 lo@2)))))
+ (comment@,J6)
+ (func@,J8 mulShift@5 . . .
+  (params@D
+   (param@1 x . . uint64@3 .)
+   (param@C y . . uint64x2@3 .))uint64@Q
+  (pragmas@k inline@2).
+  (stmts@2,1
+   (var@4 p1 . . uint64x2@4
+    (call@L mul128~6 x@1
+     (dot@5 y~1 hi@1)))
+   (let@4,1 p0 . . uint64x2@4
+    (call@L mul128~6 x@1
+     (dot@5 y~1 lo@1)))
+   (infix@6,2 \2B=
+    (dot~4 p1~2 lo@1)
+    (dot@5 p0~2 hi@1))
+   (call@3,3 inc~3
+    (dot@3 p1~2 hi@1)
+    (call@E uint64~6
+     (call@4 ord~3
+      (infix@7 <
+       (dot~4 p1~2 lo@1)
+       (dot@4 p0~2 hi@1)))))
+   (asgn@7,4 result~7
+    (dot@4 p1~2 hi@1))))
+ (func@,JF mulParity@5 . . .
+  (params@E
+   (param@1 twoF . . uint64@6 .)
+   (param@F pow10 . . uint64x2@7 .)
+   (param@W betaMinus1 . . int@C .))bool@o
+  (pragmas@17 inline@2).
+  (stmts@2,1
+   (call@9 fmtAssert~9
+    (infix@C >= betaMinus1~B 1@3))
+   (call@9,1 fmtAssert~9
+    (infix@C <= betaMinus1~B 63@3))
+   (let@4,2 p01 . . uint64@5
+    (infix@J * twoF~5
+     (dot@7 pow10~5 hi@1)))
+   (let@4,3 p10 . . uint64@5
+    (dot@a
+     (call~G mul128~6 twoF@1
+      (dot@C pow10~5 lo@1))hi@1))
+   (let@4,4 mid . . uint64@5
+    (infix@I \2B p01~4 p10@2))
+   (asgn@7,5 result~7
+    (infix@k !=
+     (par~i
+      (infix@5 and mid~4
+       (par@4
+        (infix@B shl
+         (call~4 uint64~6 1@1)
+         (par@4
+          (infix@4 \2D 64~3 betaMinus1@2))))))0@3))))
+ (func@,JN isIntegralEndpoint@5 . . .
+  (params@N
+   (param@1 twoF . . uint64@6 .)
+   (param@F e2 . . int@4 .)
+   (param@O minusK . . int@8 .))bool@c
+  (pragmas@14 inline@2).
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@3 < e2~3 -2@2)
+     (stmts~1,1
+      (ret false@7))))
+   (if@,2
+    (elif@3
+     (infix@3 <= e2~3 9@3)
+     (stmts~1,1
+      (ret true@7))))
+   (if@,4
+    (elif@3
+     (infix@3 <= e2~3 86@3)
+     (stmts~1,1
+      (ret
+       (call@L multipleOfPow5~E twoF@1 minusK@7)))))
+   (asgn@7,6 result~7 false@2)))
+ (func@,JW isIntegralMidpoint@5 . . .
+  (params@N
+   (param@1 twoF . . uint64@6 .)
+   (param@F e2 . . int@4 .)
+   (param@O minusK . . int@8 .))bool@c
+  (pragmas@14 inline@2).
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@3 < e2~3 -4@2)
+     (stmts~1,1
+      (ret
+       (call@L multipleOfPow2~E twoF@1
+        (infix@J \2B
+         (infix~5 \2D minusK~7 e2@2)1@2))))))
+   (if@,2
+    (elif@3
+     (infix@3 <= e2~3 9@3)
+     (stmts~1,1
+      (ret true@7))))
+   (if@,4
+    (elif@3
+     (infix@3 <= e2~3 86@3)
+     (stmts~1,1
+      (ret
+       (call@L multipleOfPow5~E twoF@1 minusK@7)))))
+   (asgn@7,6 result~7 false@2)))
+ (func@,Jf toDecimal64@5 . . .
+  (params@G
+   (param@1 ieeeSignificand . . uint64@H .)
+   (param@Q ieeeExponent . . uint64@E .))FloatingDecimal64@n . .
+  (stmts@2,1
+   (const@2,1 kappa . . int@7 2@D)
+   (const@2,2 bigDivisor . . uint32@C 1000@L)
+   (const@2,3 smallDivisor . . uint32@E 100@N)
+   (var@4,8 m2 . . uint64@4 .)
+   (var@4,9 e2 . . int@4 .)
+   (if@,A
+    (elif@3
+     (infix@D != ieeeExponent~D 0@3)
+     (stmts~1,1
+      (asgn@3 m2~3
+       (infix@E or dbHiddenBit~C ieeeSignificand@3))
+      (asgn@3,1 e2~3
+       (infix@K \2D
+        (call~F int~3 ieeeExponent@1)dbExponentBias@2))
+      (if@,2
+       (elif@3
+        (infix@b and
+         (infix~S and
+          (infix~7 <= 0~2
+           (prefix@3 \2D e2@1))
+          (infix@8 <
+           (prefix~4 \2D e2@1)dbSignificandSize@2))
+         (call@I multipleOfPow2~E m2@1
+          (prefix@5 \2D e2@1)))
+        (stmts~1,1
+         (comment)
+         (ret@,1
+          (oconstr@O FloatingDecimal64~H
+           (kv@C significand~B
+            (infix@5 shr m2~3
+             (prefix@4 \2D e2@1)))
+           (kv@Y exponent~8 0@2))))))
+      (if@,5
+       (elif@3
+        (infix@L and
+         (infix~5 == ieeeSignificand~G 0@3)
+         (infix@H > ieeeExponent~D 1@2))
+        (stmts~1,1
+         (comment)
+         (ret@,1
+          (call@a toDecimal64AsymmetricInterval~T e2@1)))))))
+    (else@,9
+     (stmts@2,1
+      (comment)
+      (asgn@3,1 m2~3 ieeeSignificand@2)
+      (asgn@3,2 e2~3
+       (infix@4 \2D 1~2 dbExponentBias@2)))))
+   (let@4,N isEven . . bool@8
+    (par@F
+     (infix@A ==
+      (infix~6 mod m2~3 2@4)0@3)))
+   (let@4,O acceptLower . . bool@D isEven@K)
+   (let@4,P acceptUpper . . bool@D isEven@K)
+   (comment@,Q)
+   (let@4,R minusK . . int@8
+    (infix@Z \2D
+     (call~5 dbFloorLog10Pow2~G e2@1)kappa@2))
+   (let@4,S betaMinus1 . . int@C
+    (infix@L \2B e2~3
+     (call@I dbFloorLog2Pow10~G
+      (prefix@1 \2D minusK@1))))
+   (call@9,T fmtAssert~9
+    (infix@C >= betaMinus1~B 6@3))
+   (call@9,U fmtAssert~9
+    (infix@C <= betaMinus1~B 9@3))
+   (let@4,V pow10 . . uint64x2@7
+    (call@U computePow10~C
+     (prefix@1 \2D minusK@1)))
+   (comment@,W)
+   (let@4,Z delta . . uint32@7
+    (call@S computeDelta~C pow10@1 betaMinus1@8))
+   (call@9,a fmtAssert~9
+    (infix@7 >= delta~6 smallDivisor@3))
+   (call@9,b fmtAssert~9
+    (infix@7 < delta~6 bigDivisor@2))
+   (let@4,c twoFl . . uint64@7
+    (infix@N \2D
+     (infix~5 * 2~2 m2@2)1@2))
+   (let@4,d twoFc . . uint64@7
+    (infix@I * 2~2 m2@2))
+   (let@4,e twoFr . . uint64@7
+    (infix@N \2B
+     (infix~5 * 2~2 m2@2)1@2))
+   (comment@,f)
+   (let@4,i zi . . uint64@4
+    (call@L mulShift~8
+     (infix@7 shl twoFr~6 betaMinus1@4)pow10@N))
+   (comment@,j)
+   (var@4,n q . . uint64@3
+    (infix@F div zi~3 bigDivisor@4))
+   (var@4,o r . . uint32@3
+    (infix@T \2D
+     (cast~H uint32@5 zi@D)
+     (infix@D * bigDivisor~B
+      (cast@2 uint32@5 q@D))))
+   (comment@,p)
+   (if@,r
+    (elif@3
+     (infix@2 < r~2 delta@2)
+     (stmts~1,2
+      (if
+       (elif@3
+        (infix@M or
+         (infix~F or
+          (infix~5 != r~2 0@3)acceptUpper@3)
+         (prefix@3 not
+          (call@M isIntegralEndpoint~I twoFr@1 e2@8 minusK@C)))
+        (stmts~1,1
+         (ret
+          (oconstr@O FloatingDecimal64~H
+           (kv@C significand~B q@2)
+           (kv@P exponent~8
+            (infix@H \2B
+             (infix~8 \2B minusK~7 kappa@2)1@2)))))))
+      (call@9,2 fmtAssert~9
+       (infix@3 != q~2 0@3))
+      (call@3,3 dec~3 q@1)
+      (asgn@2,4 r~2 bigDivisor@2)))
+    (elif@5,7
+     (infix@2 == r~2 delta@3)
+     (stmts~3,2
+      (if
+       (elif@3
+        (infix@u or
+         (par~u
+          (infix@D and acceptLower~C
+           (call@M isIntegralEndpoint~I twoFl@1 e2@8 minusK@C)))
+         (call~k,1 mulParity~9 twoFl@1 pow10@8 betaMinus1@F))
+        (stmts~1,2
+         (ret
+          (oconstr@O FloatingDecimal64~H
+           (kv@C significand~B q@2)
+           (kv@P exponent~8
+            (infix@H \2B
+             (infix~8 \2B minusK~7 kappa@2)1@2)))))))))
+    (else@,C
+     (stmts@2,1
+      (discard .))))
+   (comment@,15)
+   (asgn@2,19 q~2
+    (infix@4 * q~2 10@2))
+   (comment@,1A)
+   (let@4,1B dist . . uint32@6
+    (infix@X \2B
+     (infix~G \2D r~2
+      (par@2
+       (infix@7 div delta~6 2@4)))
+     (par@2
+      (infix@E div smallDivisor~D 2@4))))
+   (let@4,1C distQ . . uint32@7
+    (infix@L div dist~5 100@4))
+   (infix@2,1D \2B= q~2
+    (call@9 uint64~6 distQ@1))
+   (if@,1E
+    (elif@3
+     (infix@5 == dist~5
+      (infix@9 * distQ~6 100@2))
+     (stmts~1,1
+      (let@4 approxYParity . . bool@F
+       (infix@Z !=
+        (par~D
+         (infix@6 and dist~5 1@4))0@3))
+      (comment@,1)
+      (if@,2
+       (elif@3
+        (infix@a !=
+         (call~R mulParity~9 twoFc@1 pow10@8 betaMinus1@F)approxYParity@3)
+        (stmts~1,1
+         (call@3 dec~3 q@1)))
+       (elif@5,2
+        (infix@D and
+         (infix~5 !=
+          (infix~6 mod q~2 2@4)0@3)
+         (call@M isIntegralMidpoint~I twoFc@1 e2@8 minusK@C))
+        (stmts~3,1
+         (call@3 dec~3 q@1)))))))
+   (asgn@7,1L result~7
+    (oconstr@J FloatingDecimal64~H
+     (kv@C significand~B q@2)
+     (kv@P exponent~8
+      (infix@9 \2B minusK~7 kappa@2))))))
+ (func@,L7 utoa8DigitsSkipTrailingZeros@5 . . .
+  (params@X
+   (param@1 buf . .
+    (mut@5
+     (at@D openArray~9 char@1)).)
+   (param@R pos . . int@5 .)
+   (param@b digits . . uint32@8 .))int@s
+  (pragmas@1T inline@2).
+  (stmts@2,1
+   (call@9 fmtAssert~9
+    (infix@8 >= digits~7 1@3))
+   (call@9,1 fmtAssert~9
+    (infix@8 <= digits~7
+     (suf@3 99999999u "u32")))
+   (let@4,2 q . . uint32@3
+    (infix@J div digits~7 10000@4))
+   (let@4,3 r . . uint32@3
+    (infix@J mod digits~7 10000@4))
+   (let@4,4 qH . . uint32@4
+    (infix@F div q~2 100@4))
+   (let@4,5 qL . . uint32@4
+    (infix@F mod q~2 100@4))
+   (call@B,6 utoa2Digits~B buf@1 pos@6 qH@B)
+   (call@B,7 utoa2Digits~B buf@1
+    (infix@A \2B pos~4 2@2)qL@F)
+   (if@,8
+    (elif@3
+     (infix@2 == r~2 0@3)
+     (stmts~1,1
+      (asgn@7 result~7
+       (infix@m \2B
+        (call~Q trailingZeros2Digits~K
+         (if@1
+          (elif@3
+           (infix@3 == qL~3 0@3)
+           (stmts@9 qH))
+          (else@F
+           (stmts@6 qL))))
+        (expr
+         (stmts@2)
+         (if@1
+          (elif@3
+           (infix@3 == qL~3 0@3)6@9)
+          (else@E 4@6)))))))
+    (else@,2
+     (stmts@2,1
+      (let@4 rH . . uint32@4
+       (infix@F div r~2 100@4))
+      (let@4,1 rL . . uint32@4
+       (infix@F mod r~2 100@4))
+      (call@B,2 utoa2Digits~B buf@1
+       (infix@A \2B pos~4 4@2)rH@F)
+      (call@B,3 utoa2Digits~B buf@1
+       (infix@A \2B pos~4 6@2)rL@F)
+      (asgn@7,4 result~7
+       (infix@m \2B
+        (call~Q trailingZeros2Digits~K
+         (if@1
+          (elif@3
+           (infix@3 == rL~3 0@3)
+           (stmts@9 rH))
+          (else@F
+           (stmts@6 rL))))
+        (expr
+         (stmts@2)
+         (if@1
+          (elif@3
+           (infix@3 == rL~3 0@3)2@9)
+          (else@E 0@6))))))))))
+ (func@,LP printDecimalDigitsBackwards@5 . . .
+  (params@W
+   (param@1 buf . .
+    (mut@5
+     (at@D openArray~9 char@1)).)
+   (param@R pos . . int@5 .)
+   (param@b output64 . . uint64@A .))int@u
+  (pragmas@1U inline@2).
+  (stmts@2,1
+   (var@4 pos . . . pos@6)
+   (var@4,1 output64 . . . output64@B)
+   (var@4,2 tz . . . 0@5)
+   (var@4,3 nd . . . 0@5)
+   (if@,5
+    (elif@3
+     (infix@9 >= output64~9
+      (suf@3 100000000u "u64"))
+     (stmts~1,1
+      (let@4 q . . uint64@3
+       (infix@L div output64~9
+        (suf@4 100000000u "u64")))
+      (let@4,1 r . . uint32@3
+       (cast@C uint32@5
+        (infix@M mod output64~9
+         (suf@4 100000000u "u64"))))
+      (asgn@9,2 output64~9 q@2)
+      (call@3,3 dec~3 pos@1 8@6)
+      (if@,4
+       (elif@3
+        (infix@2 != r~2 0@3)
+        (stmts~1,1
+         (asgn@3 tz~3
+          (call@U utoa8DigitsSkipTrailingZeros~S buf@1 pos@6 r@B))
+         (call@9,1 fmtAssert~9
+          (infix@4 >= tz~3 0@3))
+         (call@9,2 fmtAssert~9
+          (infix@4 <= tz~3 7@3))))
+       (else@,4
+        (stmts@2,1
+         (asgn@3 tz~3 8@2))))
+      (asgn@3,A nd~3 8@2))))
+   (call@9,H fmtAssert~9
+    (infix@A <= output64~9
+     (suf@3 4294967295u "u64")))
+   (var@4,I output . . .
+    (cast@9 uint32@5 output64@D))
+   (if@,J
+    (elif@3
+     (infix@7 >= output~7 10000@3)
+     (stmts~1,1
+      (let@4 q . . uint32@3
+       (infix@J div output~7 10000@4))
+      (let@4,1 r . . uint32@3
+       (infix@J mod output~7 10000@4))
+      (asgn@7,2 output~7 q@2)
+      (call@3,3 dec~3 pos@1 4@6)
+      (if@,4
+       (elif@3
+        (infix@2 != r~2 0@3)
+        (stmts~1,1
+         (let@4 rH . . uint32@4
+          (infix@F div r~2 100@4))
+         (let@4,1 rL . . uint32@4
+          (infix@F mod r~2 100@4))
+         (call@B,2 utoa2Digits~B buf@1 pos@6 rH@B)
+         (call@B,3 utoa2Digits~B buf@1
+          (infix@A \2B pos~4 2@2)rL@F)
+         (if@,4
+          (elif@3
+           (infix@3 == tz~3 nd@3)
+           (stmts~1,1
+            (call@3 inc~3 tz@1
+             (infix@p \2B
+              (call~Q trailingZeros2Digits~K
+               (if@1
+                (elif@3
+                 (infix@3 == rL~3 0@3)
+                 (stmts@9 rH))
+                (else@F
+                 (stmts@6 rL))))
+              (expr
+               (stmts~o,1)
+               (if@1
+                (elif@3
+                 (infix@3 == rL~3 0@3)2@9)
+                (else@E 0@6))))))))))
+       (else@,8
+        (stmts@2,1
+         (if
+          (elif@3
+           (infix@3 == tz~3 nd@3)
+           (stmts~1,1
+            (call@3 inc~3 tz@1 4@5)))
+          (else@,2
+           (stmts@2,1
+            (for@4
+             (infix@6 \2E\2E 0~1 3@2)
+             (unpackflat
+              (let i . . ..))
+             (stmts@B
+              (asgn@B
+               (at~8 buf~3
+                (infix@4 \2B pos~3 i@1))'0'@2)))))))))
+      (call@3,H inc~3 nd@1 4@5))))
+   (if@,c
+    (elif@3
+     (infix@7 >= output~7 100@3)
+     (stmts~1,1
+      (let@4 q . . uint32@3
+       (infix@J div output~7 100@4))
+      (let@4,1 r . . uint32@3
+       (infix@J mod output~7 100@4))
+      (asgn@7,2 output~7 q@2)
+      (call@3,3 dec~3 pos@1 2@6)
+      (call@B,4 utoa2Digits~B buf@1 pos@6 r@B)
+      (if@,5
+       (elif@3
+        (infix@3 == tz~3 nd@3)
+        (stmts~1,1
+         (call@3 inc~3 tz@1
+          (call@P trailingZeros2Digits~K r@1)))))
+      (call@3,7 inc~3 nd@1 2@5)
+      (if@,8
+       (elif@3
+        (infix@7 >= output~7 100@3)
+        (stmts~1,1
+         (let@4 q2 . . uint32@4
+          (infix@K div output~7 100@4))
+         (let@4,1 r2 . . uint32@4
+          (infix@K mod output~7 100@4))
+         (asgn@7,2 output~7 q2@2)
+         (call@3,3 dec~3 pos@1 2@6)
+         (call@B,4 utoa2Digits~B buf@1 pos@6 r2@B)
+         (if@,5
+          (elif@3
+           (infix@3 == tz~3 nd@3)
+           (stmts~1,1
+            (call@3 inc~3 tz@1
+             (call@P trailingZeros2Digits~K r2@1)))))
+         (call@3,7 inc~3 nd@1 2@5)))))))
+   (call@9,u fmtAssert~9
+    (infix@8 >= output~7 1@3))
+   (call@9,v fmtAssert~9
+    (infix@8 <= output~7 99@3))
+   (if@,w
+    (elif@3
+     (infix@7 >= output~7 10@3)
+     (stmts~1,1
+      (let@4 q . . uint32@3 output@C)
+      (call@3,1 dec~3 pos@1 2@6)
+      (call@B,2 utoa2Digits~B buf@1 pos@6 q@B)
+      (if@,3
+       (elif@3
+        (infix@3 == tz~3 nd@3)
+        (stmts~1,1
+         (call@3 inc~3 tz@1
+          (call@P trailingZeros2Digits~K q@1)))))))
+    (else@,6
+     (stmts@2,1
+      (let@4 q . . uint32@3 output@C)
+      (call@9,1 fmtAssert~9
+       (infix@3 >= q~2 1@3))
+      (call@9,2 fmtAssert~9
+       (infix@3 <= q~2 9@3))
+      (call@3,3 dec~3 pos@1)
+      (asgn@9,4
+       (at~6 buf~3 pos@1)
+       (call@5 chr~3
+        (infix@A \2B
+         (call~6 ord~3 '0'@1)
+         (call@5 int~3 q@1)))))))
+   (asgn@7,18 result~7 tz@2)))
+ (func@,Ma decimalLength@5 . . .
+  (params@I
+   (param@1 v . . uint64@3 .))int@D
+  (pragmas@Z inline@2).
+  (stmts@2,1
+   (call@9 fmtAssert~9
+    (infix@3 >= v~2 1@3))
+   (call@9,1 fmtAssert~9
+    (infix@3 <= v~2
+     (suf@3 99999999999999999u "u64")))
+   (if@,2
+    (elif@3
+     (infix@N !=
+      (cast~N uint32@5
+       (infix@F shr v~2 32@4))0@3)
+     (stmts~1,1
+      (if
+       (elif@3
+        (infix@2 >= v~2
+         (suf@3 10000000000000000u "u64"))
+        (stmts@S
+         (ret 17@7))))
+      (if@,1
+       (elif@3
+        (infix@2 >= v~2
+         (suf@3 1000000000000000u "u64"))
+        (stmts@R
+         (ret 16@7))))
+      (if@,2
+       (elif@3
+        (infix@2 >= v~2
+         (suf@3 100000000000000u "u64"))
+        (stmts@Q
+         (ret 15@7))))
+      (if@,3
+       (elif@3
+        (infix@2 >= v~2
+         (suf@3 10000000000000u "u64"))
+        (stmts@P
+         (ret 14@7))))
+      (if@,4
+       (elif@3
+        (infix@2 >= v~2
+         (suf@3 1000000000000u "u64"))
+        (stmts@O
+         (ret 13@7))))
+      (if@,5
+       (elif@3
+        (infix@2 >= v~2
+         (suf@3 100000000000u "u64"))
+        (stmts@N
+         (ret 12@7))))
+      (if@,6
+       (elif@3
+        (infix@2 >= v~2
+         (suf@3 10000000000u "u64"))
+        (stmts@M
+         (ret 11@7))))
+      (ret@,7 10@7))))
+   (let@4,B v32 . . uint32@5
+    (cast@E uint32@5 v@D))
+   (if@,C
+    (elif@3
+     (infix@4 >= v32~4
+      (suf@3 1000000000u "u32"))
+     (stmts@N
+      (ret 10@7))))
+   (if@,D
+    (elif@3
+     (infix@4 >= v32~4
+      (suf@3 100000000u "u32"))
+     (stmts@M
+      (ret 9@7))))
+   (if@,E
+    (elif@3
+     (infix@4 >= v32~4
+      (suf@3 10000000u "u32"))
+     (stmts@L
+      (ret 8@7))))
+   (if@,F
+    (elif@3
+     (infix@4 >= v32~4
+      (suf@3 1000000u "u32"))
+     (stmts@K
+      (ret 7@7))))
+   (if@,G
+    (elif@3
+     (infix@4 >= v32~4
+      (suf@3 100000u "u32"))
+     (stmts@J
+      (ret 6@7))))
+   (if@,H
+    (elif@3
+     (infix@4 >= v32~4
+      (suf@3 10000u "u32"))
+     (stmts@I
+      (ret 5@7))))
+   (if@,I
+    (elif@3
+     (infix@4 >= v32~4
+      (suf@3 1000u "u32"))
+     (stmts@H
+      (ret 4@7))))
+   (if@,J
+    (elif@3
+     (infix@4 >= v32~4
+      (suf@3 100u "u32"))
+     (stmts@G
+      (ret 3@7))))
+   (if@,K
+    (elif@3
+     (infix@4 >= v32~4
+      (suf@3 10u "u32"))
+     (stmts@F
+      (ret 2@7))))
+   (asgn@7,L result~7 1@2)))
+ (func@,My formatDigits@5 . . .
+  (params@H
+   (param@1 buffer . .
+    (mut@8
+     (at@D openArray~9 char@1)).)
+   (param@U pos . . int@5 .)
+   (param@e digits . . uint64@8 .)
+   (param@u decimalExponent . . int@H .)
+   (param@1,1 forceTrailingDotZero . . . false@N))int@W,1
+  (pragmas@r,1 inline@2).
+  (stmts@2,2
+   (const@2,1 minFixedDecimalPoint . . int@M -6@S)
+   (const@2,2 maxFixedDecimalPoint . . int@M 17@S)
+   (var@4,3 pos . . . pos@6)
+   (call@9,4 fmtAssert~9
+    (infix@M <= minFixedDecimalPoint~L -1@3))
+   (call@9,5 fmtAssert~9
+    (infix@M >= maxFixedDecimalPoint~L 17@3))
+   (call@9,6 fmtAssert~9
+    (infix@8 >= digits~7 1@3))
+   (call@9,7 fmtAssert~9
+    (infix@8 <= digits~7
+     (suf@3 99999999999999999u "u64")))
+   (call@9,8 fmtAssert~9
+    (infix@H >= decimalExponent~G -999@3))
+   (call@9,9 fmtAssert~9
+    (infix@H <= decimalExponent~G 999@3))
+   (var@4,A numDigits . . .
+    (call@P decimalLength~D digits@1))
+   (let@4,B decimalPoint . . .
+    (infix@P \2B numDigits~A decimalExponent@2))
+   (let@4,C useFixed . . bool@A
+    (infix@s and
+     (infix~G <= minFixedDecimalPoint~L decimalPoint@3)
+     (infix~f,1 <= decimalPoint~D maxFixedDecimalPoint@3)))
+   (comment@,E)
+   (for@4,F
+    (infix@6 \2E\2E< 0~1 32@3)
+    (unpackflat
+     (let i . . ..))
+    (stmts@D
+     (asgn@E
+      (at~8 buffer~6
+       (infix@4 \2B pos~3 i@1))'0'@2)))
+   (var@4,G decimalDigitsPosition . . int@N .)
+   (if@,H
+    (elif@3 useFixed
+     (stmts~1,1
+      (if
+       (elif@3
+        (infix@D <= decimalPoint~D 0@3)
+        (stmts~1,1
+         (comment)
+         (asgn@M,1 decimalDigitsPosition~M
+          (infix@4 \2D 2~2 decimalPoint@2))))
+       (else@,3
+        (stmts@2,1
+         (comment)
+         (asgn@M,2 decimalDigitsPosition~M 0@2))))))
+    (else@,8
+     (stmts@2,1
+      (comment)
+      (asgn@M,1 decimalDigitsPosition~M 1@2))))
+   (var@4,S digitsEnd . . .
+    (infix@e \2B
+     (infix~O \2B pos~4 decimalDigitsPosition@2)numDigits@2))
+   (let@4,T tz . . .
+    (call@W printDecimalDigitsBackwards~R buffer@1 digitsEnd@9 digits@K))
+   (call@3,U dec~3 digitsEnd@1 tz@C)
+   (call@3,V dec~3 numDigits@1 tz@C)
+   (if@,W
+    (elif@3 useFixed
+     (stmts~1,1
+      (if
+       (elif@3
+        (infix@D <= decimalPoint~D 0@3)
+        (stmts~1,1
+         (comment)
+         (asgn@E,1
+          (at~8 buffer~6
+           (infix@4 \2B pos~3 1@1))'.'@2)
+         (asgn@4,2 pos~4 digitsEnd@2)))
+       (elif@5,4
+        (infix@D < decimalPoint~D numDigits@2)
+        (stmts~3,1
+         (comment)
+         (var@4,1 tmp . . .
+          (call@D default~7
+           (at@6 array~5 16@1 char@5)))
+         (for@4,2
+          (infix@6 \2E\2E< 0~1 16@3)
+          (unpackflat
+           (let i . . ..))
+          (stmts@D
+           (asgn@7
+            (at~4 tmp~3 i@1)
+            (at@8 buffer~6
+             (infix@6 \2B
+              (infix~4 \2B i~1 pos@1)decimalPoint@1)))))
+         (for@4,3
+          (infix@6 \2E\2E< 0~1 16@3)
+          (unpackflat
+           (let i . . ..))
+          (stmts@D
+           (asgn@T
+            (at~N buffer~6
+             (infix@J \2B
+              (infix~D \2B
+               (infix~4 \2B i~1 pos@1)decimalPoint@1)1@1))
+            (at@5 tmp~3 i@1))))
+         (asgn@P,4
+          (at~J buffer~6
+           (infix@4 \2B pos~3 decimalPoint@1))'.'@2)
+         (asgn@4,5 pos~4
+          (infix@C \2B digitsEnd~A 1@2))))
+       (else@,B
+        (stmts@2,1
+         (comment)
+         (call@3,1 inc~3 pos@1 decimalPoint@6)
+         (if@,2
+          (elif@3 forceTrailingDotZero
+           (stmts~1,1
+            (asgn@C
+             (at~6 buffer~6 pos@1)'.'@2)
+            (asgn@E,1
+             (at~8 buffer~6
+              (infix@4 \2B pos~3 1@1))'0'@2)
+            (call@3,2 inc~3 pos@1 2@6)))))))))
+    (else@,J
+     (stmts@2,1
+      (comment)
+      (asgn@C,1
+       (at~6 buffer~6 pos@1)
+       (at@8 buffer~6
+        (infix@4 \2B pos~3 1@1)))
+      (if@,2
+       (elif@3
+        (infix@A == numDigits~A 1@3)
+        (stmts~1,1
+         (comment)
+         (call@3,1 inc~3 pos@1)))
+       (else@,3
+        (stmts@2,1
+         (comment)
+         (asgn@E,1
+          (at~8 buffer~6
+           (infix@4 \2B pos~3 1@1))'.'@2)
+         (asgn@4,2 pos~4 digitsEnd@2))))
+      (let@4,9 scientificExponent . . int@K
+       (infix@d \2D decimalPoint~D 1@2))
+      (asgn@C,A
+       (at~6 buffer~6 pos@1)'e'@2)
+      (asgn@E,B
+       (at~8 buffer~6
+        (infix@4 \2B pos~3 1@1))
+       (if@2
+        (elif@3
+         (infix@J < scientificExponent~J 0@2)
+         (stmts@O '-'))
+        (else@V
+         (stmts@6 '+'))))
+      (call@3,C inc~3 pos@1 2@6)
+      (let@4,D k . . uint32@3
+       (call@I uint32~6
+        (if@1
+         (elif@3
+          (infix@J < scientificExponent~J 0@2)
+          (stmts@O
+           (prefix \2D scientificExponent@1)))
+         (else@l
+          (stmts@6 scientificExponent)))))
+      (if@,E
+       (elif@3
+        (infix@2 < k~2 10@2)
+        (stmts~1,1
+         (asgn@C
+          (at~6 buffer~6 pos@1)
+          (call@5 chr~3
+           (infix@A \2B
+            (call~6 ord~3 '0'@1)
+            (call@5 int~3 k@1))))
+         (call@3,1 inc~3 pos@1)))
+       (elif@5,3
+        (infix@2 < k~2 100@2)
+        (stmts~3,1
+         (call@B utoa2Digits~B buffer@1 pos@9 k@E)
+         (call@3,1 inc~3 pos@1 2@6)))
+       (else@,6
+        (stmts@2,1
+         (let@4 q . . uint32@3
+          (infix@E div k~2 100@4))
+         (let@4,1 r . . uint32@3
+          (infix@E mod k~2 100@4))
+         (asgn@C,2
+          (at~6 buffer~6 pos@1)
+          (call@5 chr~3
+           (infix@A \2B
+            (call~6 ord~3 '0'@1)
+            (call@5 int~3 q@1))))
+         (call@3,3 inc~3 pos@1)
+         (call@B,4 utoa2Digits~B buffer@1 pos@9 r@E)
+         (call@3,5 inc~3 pos@1 2@6)))))))
+   (asgn@7,1H result~7 pos@2)))
+ (func@,OJ toChars@5 . . .
+  (params@C
+   (param@1 buffer . .
+    (mut@8
+     (at@D openArray~9 char@1)).)
+   (param@U v . . float@3 .)
+   (param@e forceTrailingDotZero . . . false@N))int@19 . .
+  (stmts@2,1
+   (var@4 pos . . . 0@6)
+   (let@4,1 double . . .
+    (call@O constructDouble~F v@1))
+   (let@4,2 significand . . uint64@D
+    (call@f physicalSignificand~J double@1))
+   (let@4,3 exponent . . uint64@A
+    (call@Z physicalExponent~G double@1))
+   (if@,4
+    (elif@3
+     (infix@9 != exponent~9 dbMaxIeeeExponent@3)
+     (stmts~1,1
+      (comment)
+      (asgn@C,1
+       (at~6 buffer~6 pos@1)'-'@2)
+      (call@3,2 inc~3 pos@1
+       (call@D signBit~7 double@1))
+      (if@,3
+       (elif@3
+        (infix@E or
+         (infix~5 != exponent~9 0@3)
+         (infix@F != significand~C 0@3))
+        (stmts~1,1
+         (comment)
+         (let@4,1 dec . . .
+          (call@H toDecimal64~B significand@1 exponent@E))
+         (ret@,2
+          (call@J formatDigits~C buffer@1 pos@9
+           (dot@H dec~3 significand@1)
+           (call@Y int~3
+            (dot@4 dec~3 exponent@1))forceTrailingDotZero@,1))))
+       (else@,5
+        (stmts@2,1
+         (asgn@C
+          (at~6 buffer~6 pos@1)'0'@2)
+         (asgn@E,1
+          (at~8 buffer~6
+           (infix@4 \2B pos~3 1@1))'.'@2)
+         (asgn@E,2
+          (at~8 buffer~6
+           (infix@4 \2B pos~3 2@1))'0'@2)
+         (asgn@E,3
+          (at~8 buffer~6
+           (infix@4 \2B pos~3 3@1))' '@2)
+         (call@3,4 inc~3 pos@1
+          (if@6
+           (elif@3 forceTrailingDotZero
+            (stmts@M 3))
+           (else@R
+            (stmts@6 1))))
+         (ret@,5 pos@7)))))))
+   (if@,K
+    (elif@3
+     (infix@C == significand~C 0@3)
+     (stmts~1,1
+      (asgn@C
+       (at~6 buffer~6 pos@1)'-'@2)
+      (call@3,1 inc~3 pos@1
+       (call@D signBit~7 double@1))
+      (asgn@C,2
+       (at~6 buffer~6 pos@1)'i'@2)
+      (asgn@E,3
+       (at~8 buffer~6
+        (infix@4 \2B pos~3 1@1))'n'@2)
+      (asgn@E,4
+       (at~8 buffer~6
+        (infix@4 \2B pos~3 2@1))'f'@2)
+      (asgn@E,5
+       (at~8 buffer~6
+        (infix@4 \2B pos~3 3@1))' '@2)
+      (ret@,6
+       (infix@B \2B pos~4 3@2))))
+    (else@,8
+     (stmts@2,1
+      (asgn@C
+       (at~6 buffer~6 pos@1)'n'@2)
+      (asgn@E,1
+       (at~8 buffer~6
+        (infix@4 \2B pos~3 1@1))'a'@2)
+      (asgn@E,2
+       (at~8 buffer~6
+        (infix@4 \2B pos~3 2@1))'n'@2)
+      (asgn@E,3
+       (at~8 buffer~6
+        (infix@4 \2B pos~3 3@1))' '@2)
+      (ret@,4
+       (infix@B \2B pos~4 3@2)))))))
+ (func@,Ox addFloat@5 x . .
+  (params@E
+   (param@1 result . .
+    (mut@8 string@4).)
+   (param@L x . . float@3 .)). . .
+  (stmts@2,1
+   (comment)
+   (var@4,2 buffer . . .
+    (call@G default~7
+     (at@6 array~5 65@1 char@5)))
+   (let@4,3 n . . .
+    (call@B toChars~7 buffer@1 x@9 true@C))
+   (for@4,4
+    (infix@7 \2E\2E< 0~2 n@4)
+    (unpackflat
+     (let i . . ..))
+    (stmts@E
+     (cmd@6
+      (dot result~6 add@1)
+      (at@B buffer~6 i@1))))))
+ (func@,P4 addFloat@5 x . .
+  (params@E
+   (param@1 result . .
+    (mut@8 string@4).)
+   (param@L x . . float32@3 .)). . .
+  (stmts@2,1
+   (comment)
+   (var@4,1 buffer . . .
+    (call@G default~7
+     (at@6 array~5 65@1 char@5)))
+   (let@4,2 n . . .
+    (call@I float32ToChars~E buffer@1 x@9 true@C))
+   (for@4,3
+    (infix@7 \2E\2E< 0~2 n@4)
+    (unpackflat
+     (let i . . ..))
+    (stmts@E
+     (cmd@6
+      (dot result~6 add@1)
+      (at@B buffer~6 i@1))))))
+ (func@,PA
+  (quoted@5 $@1) x . .
+  (params@9
+   (param@1 x . . float@3 .))string@C . .
+  (stmts@2,1
+   (comment)
+   (asgn@7,1 result~7 ""@2)
+   (call@F,2
+    (dot~9 result~6 addFloat@1)x@1)))
+ (func@,PF
+  (quoted@5 $@1) x . .
+  (params@9
+   (param@1 x . . float32@3 .))string@E . .
+  (stmts@2,1
+   (comment)
+   (asgn@7,1 result~7 ""@2)
+   (call@F,2
+    (dot~9 result~6 addFloat@1)x@1))))

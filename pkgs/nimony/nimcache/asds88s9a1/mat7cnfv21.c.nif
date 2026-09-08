@@ -1,0 +1,89 @@
+(.nif27)
+(.indexat 2845             )
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+ (type@E,22 :FloatClass.0.~C .~C
+  (enum@2
+   (u 8)
+   (efld~C,3 :fcNormal.0. 0)
+   (efld~C,4 :fcSubnormal.0. 1)
+   (efld~C,5 :fcZero.0. 2)
+   (efld~C,6 :fcNegZero.0. 3)
+   (efld~C,7 :fcNan.0. 4)
+   (efld~C,8 :fcInf.0. 5)
+   (efld~C,9 :fcNegInf.0. 6)))
+ (proc@4,D,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/iterators.nim :inc.1.Irn1g7r1.
+  (params@L,E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+   (param@1 :x.154 .
+    (ptr@3
+     (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)))).@,E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+  (pragmas@W,E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+   (inline)
+   (smry@4,D,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/iterators.nim
+    (param 0 0 reads writes)))
+  (stmts@2,F,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+   (asgn@2,1
+    (deref~2 x.154)
+    (add@6
+     (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+     (deref@1 x.154)
+     (conv@U,~F
+      (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)1@1)))))
+ (type@b,G,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/openarrays.nim :openArray.0.Ij9i6zj. .
+  (object~A,~A .
+   (fld~N,1 :a.0 .
+    (aptr@3
+     (i@I 64)))
+   (fld~N,2 :len.0 .
+    (i@5 64))))
+ (type@L,2r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :seq.0.Iotb7mc. .
+  (object~9,~2l .
+   (fld~8,1 :len.0 .
+    (i@5 64))
+   (fld~8,2 :data.0 .
+    (aptr@6
+     (i@I 64)))))
+ (type@L,2r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :seq.0.Izimvvd1. .
+  (object~9,~2l .
+   (fld~8,1 :len.0 .
+    (i@5 64))
+   (fld~8,2 :data.0 .
+    (aptr@6
+     (f@I 64)))))
+ (type@M,N,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/openarrays.nim :openArray.0.I8jqt5c1. .
+  (object@5,~H .
+   (fld~N,1 :a.0 .
+    (aptr@3
+     (f@I 64)))
+   (fld~N,2 :len.0 .
+    (i@5 64))))
+ (gvar :`iniGuard.0. .
+  (bool).)
+ (proc :`ini.0.
+  (params).
+  (pragmas
+   (smry writeGlobal callsUnknown))
+  (stmts
+   (if
+    (elif `iniGuard.0.
+     (stmts
+      (ret .))))
+   (asgn `iniGuard.0.
+    (true))
+   (call `ini.0.sysvq0asl)
+   (call `ini.0.assy765wm)
+   (call `ini.0.fen2xhzfd))))(.index@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+ (h FloatClass.0. 138)
+ (x@G,22 fcNormal.0. 52)
+ (x@G,22 fcSubnormal.0. 29)
+ (x@G,22 fcZero.0. 32)
+ (x@G,22 fcNegZero.0. 27)
+ (x@G,22 fcNan.0. 30)
+ (x@G,22 fcInf.0. 26)
+ (x@G,22 fcNegInf.0. 26)
+ (x inc.1.Irn1g7r1. 31)
+ (h openArray.0.Ij9i6zj. 1205)
+ (h seq.0.Iotb7mc. 240)
+ (h seq.0.Izimvvd1. 236)
+ (h openArray.0.I8jqt5c1. 237)
+ (h `iniGuard.0. 241)
+ (x `ini.0. 34))

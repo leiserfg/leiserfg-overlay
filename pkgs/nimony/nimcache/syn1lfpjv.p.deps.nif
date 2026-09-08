@@ -1,0 +1,17 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-deps")
+(stmts
+ (import
+  (infix / std formatfloat))
+ (import
+  (when
+   (call defined nimNativeIo)
+   (call defined windows))
+  (infix /
+   (infix / std windows)winlean))
+ (fromimport
+  (when
+   (call defined nimNativeIo)
+   (call defined windows))
+  (infix / std widestrs)newWideCString toWideCString))

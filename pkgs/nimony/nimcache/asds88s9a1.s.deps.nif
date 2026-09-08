@@ -1,0 +1,4 @@
+(.nif27)
+(.indexat 209              )
+(stmts
+ (import "/nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim" "/nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim"))(.index)

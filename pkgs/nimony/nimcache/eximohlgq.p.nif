@@ -1,0 +1,148 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/exits.nim
+ (comment)
+ (proc@,E nimNoopFlush@5 . . .
+  (params@H).
+  (pragmas@K nimcall@2).
+  (stmts@Y
+   (discard .)))
+ (var@4,G gExitFlush . .
+  (proctype@H ....
+   (params).
+   (pragmas@3 nimcall@2)..)nimNoopFlush@Y)
+ (proc@,L setExitFlush@5 x . .
+  (params@I
+   (param@1 p . .
+    (proctype@8 ....
+     (params).
+     (pragmas@3 nimcall@2)..).)).
+  (pragmas@h inline@2).
+  (stmts@2,1
+   (comment)
+   (asgn@B,1 gExitFlush~B p@2)))
+ (proc@,P nimFlushStdStreams@5 x . .
+  (params@O).
+  (pragmas@R
+   (kv@9 exportc~7 "nimFlushStdStreams"@2)).
+  (stmts@2,1
+   (comment)
+   (call@A,4 gExitFlush~A)))
+ (when@,W
+  (elif@5
+   (call@7 defined~7 embedded@1)
+   (stmts~3,4
+    (proc cExit@5 x . .
+     (params@B
+      (param@1 code . . int@6 .)).
+     (pragmas@N noreturn@2).
+     (stmts@2,1
+      (comment)
+      (call@A,1 gExitFlush~A)
+      (call@C,2 semihostExit~C code@1)))
+    (proc@,5 cAbort@5 x . .
+     (params@C).
+     (pragmas@F noreturn@2).
+     (stmts@2,1
+      (comment)
+      (call@A,5 gExitFlush~A)
+      (call@C,6 semihostExit~C 127@1)))))
+  (elif@5,I
+   (call@7 defined~7 nimNativeIo@1)
+   (stmts~3,1
+    (when
+     (elif@5
+      (call@7 defined~7 windows@1)
+      (stmts~3,8
+       (proc cExitProcess@5 . . .
+        (params@H
+         (param@1 uExitCode . . uint32@B .)).
+        (pragmas@b stdcall@2
+         (kv@I importc~7 "ExitProcess"@2)
+         (kv@8,1 dynlib~6 "kernel32"@2)noreturn@M,1). .)
+       (proc@,3 cExit@5 x . .
+        (params@B
+         (param@1 code . . int@6 .)).
+        (pragmas@N noreturn@2).
+        (stmts@2,1
+         (comment)
+         (call@A,1 gExitFlush~A)
+         (call@C,2 cExitProcess~C
+          (call@7 uint32~6 code@1))))
+       (proc@,8 cAbort@5 x . .
+        (params@C).
+        (pragmas@F noreturn@2).
+        (stmts@2,1
+         (comment)
+         (call@A,3 gExitFlush~A)
+         (call@C,4 cExitProcess~C
+          (suf@1 127u "u32"))))))
+     (else@,M
+      (stmts@2,1
+       (const@6 SIGABRT . . .
+        (suf@A 6 "i32"))
+       (proc@,1 cKill@5 . . .
+        (params@A
+         (param@1 pid . . cint@A .)
+         (param@6 sig . . cint@5 .))cint@I
+        (pragmas@X
+         (kv@9 importc~7 "kill"@2)). .)
+       (proc@,2 cGetpid@5 . . .
+        (params@C)cint@4
+        (pragmas@L
+         (kv@9 importc~7 "getpid"@2)). .)
+       (proc@,3 cExitSys@5 . . .
+        (params@D
+         (param@1 code . . cint@6 .)).
+        (pragmas@Q
+         (kv@9 importc~7 "_exit"@2)noreturn@K). .)
+       (proc@,5 cExit@5 x . .
+        (params@B
+         (param@1 code . . int@6 .)).
+        (pragmas@N noreturn@2).
+        (stmts@2,1
+         (comment)
+         (call@A,1 gExitFlush~A)
+         (call@8,2 cExitSys~8
+          (dot@5 code~4 int32@1))))
+       (proc@,A cAbort@5 x . .
+        (params@C).
+        (pragmas@F noreturn@2).
+        (stmts@2,1
+         (comment)
+         (call@A,5 gExitFlush~A)
+         (discard@,6
+          (call@D cKill~5
+           (call@8 cGetpid~7)SIGABRT@C))
+         (call@8,7 cExitSys~8
+          (suf@1 127 "i32")))))))))
+  (else@,z
+   (stmts@2,1
+    (proc cExitLibc@5 . . .
+     (params@E
+      (param@1 code . . cint@6 .)).
+     (pragmas@R
+      (kv@9 importc~7 "exit"@2)
+      (kv@P header~6 "<stdlib.h>"@2)noreturn@f). .)
+    (proc@,1 cAbortLibc@5 . . .
+     (params@F).
+     (pragmas@I
+      (kv@9 importc~7 "abort"@2)
+      (kv@Q header~6 "<stdlib.h>"@2)noreturn@g). .)
+    (proc@,3 cExit@5 x . .
+     (params@B
+      (param@1 code . . int@6 .)).
+     (pragmas@N noreturn@2).
+     (stmts@2,1
+      (comment)
+      (call@A,1 gExitFlush~A)
+      (call@9,2 cExitLibc~9
+       (dot@5 code~4 int32@1))))
+    (proc@,8 cAbort@5 x . .
+     (params@C).
+     (pragmas@F noreturn@2).
+     (stmts@2,1
+      (comment)
+      (call@A,1 gExitFlush~A)
+      (call@A,2 cAbortLibc~A)))))))

@@ -1,0 +1,159 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,8,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/valgrind.nim
+ (comment)
+ (const@G,H vgTracking~A x . .
+  (infix@j and
+   (infix~N and
+    (call~B defined~7 valgrind@1)
+    (call@B defined~7 nimNoLibc@1))
+   (call@B defined~7 arm64@1)))
+ (when@,Y
+  (elif@5 vgTracking
+   (stmts~3,1
+    (proc vgClientRequest@5 . . .
+     (params@K
+      (param@1 args . . pointer@6 .))uint@H
+     (pragmas@g
+      (kv@B intrinsic~9 "VgClientRequest"@2)). .)
+    (const@2,8 ReqRunningOnValgrind . . . 4097u@N)
+    (const@2,9 ReqMallocLikeBlock . . . 4865u@N)
+    (const@2,A ReqFreeLikeBlock . . . 4866u@N)
+    (const@2,B ReqResizeInPlace . . . 4875u@N)
+    (const@2,D ReqMakeMemNoAccess . . . 1296236544u@N)
+    (const@2,E ReqMakeMemUndefined . . . 1296236545u@N)
+    (const@2,F ReqMakeMemDefined . . . 1296236546u@N)
+    (template@,H vgDo@9 . . .
+     (params@D
+      (param@1 r . . . .)
+      (param@4 a1 . . . .)
+      (param@8 a2 . . . .)
+      (param@C a3 . . . .)
+      (param@G a4 . . . .)).
+     (pragmas@X untyped@2).
+     (stmts@2,1
+      (comment)
+      (block@,B .
+       (stmts@2,1
+        (var@4 blk . .
+         (at@A array~5 6@1 uint@4)
+         (bracket@M
+          (call@5 uint~4 r@1)
+          (call@E uint~4 a1@1)
+          (call@O uint~4 a2@1)
+          (call@Y uint~4 a3@1)
+          (call@5,1 uint~4 a4@1)0u@B,1))
+        (discard@,2
+         (call@N vgClientRequest~F
+          (cast@1 pointer@5
+           (cmd@J addr~5
+            (at@3 blk~3 0@1)))))))))
+    (proc@,Y vgRequestValue@5 . . .
+     (params@J
+      (param@1 r . . uint@J .)
+      (param@4 a1 . . uint@G .)
+      (param@8 a2 . . uint@C .)
+      (param@C a3 . . uint@8 .)
+      (param@G a4 . . uint@4 .))uint@R
+     (pragmas@p inline@2).
+     (stmts@2,1
+      (comment)
+      (var@4,3 blk . .
+       (at@A array~5 6@1 uint@4)
+       (bracket@M r@1 a1@4 a2@8 a3@C a4@G 0u@K))
+      (asgn@7,4 result~7
+       (call@H vgClientRequest~F
+        (cast@1 pointer@5
+         (cmd@J addr~5
+          (at@3 blk~3 0@1))))))))))
+ (proc@,1E vgRunningOnValgrind@5 x . .
+  (params@P)bool@4
+  (pragmas@Y inline@2).
+  (stmts@2,1
+   (comment)
+   (when@,3
+    (elif@5 vgTracking
+     (stmts~3,1
+      (asgn@7 result~7
+       (infix@p !=
+        (call~Z vgRequestValue~E ReqRunningOnValgrind@1 0@N 0@Q 0@T 0@W)0u@3))))
+    (else@,2
+     (stmts@2,1
+      (asgn@7 result~7 false@2))))))
+ (template@,1P vgMallocLike@9 . . .
+  (params@L
+   (param@1 p . . . .)
+   (param@4 size . . . .)
+   (param@A rzB . . . .)
+   (param@F zeroed . . . .)).
+  (pragmas@i untyped@2).
+  (stmts@2,1
+   (comment)
+   (when@,9
+    (elif@5 vgTracking
+     (stmts~3,1
+      (call@4 vgDo~4 ReqMallocLikeBlock@1
+       (cast@L uint@5 p@B)size@a rzB@g zeroed@l))))))
+ (template@,1c vgFreeLike@9 . . .
+  (params@J
+   (param@1 p . . . .)
+   (param@4 rzB . . . .)).
+  (pragmas@S untyped@2).
+  (stmts@2,1
+   (comment)
+   (when@,3
+    (elif@5 vgTracking
+     (stmts~3,1
+      (call@4 vgDo~4 ReqFreeLikeBlock@1
+       (cast@J uint@5 p@B)rzB@Y 0@d 0@g))))))
+ (template@,1j vgResizeInPlace@9 . . .
+  (params@O
+   (param@1 p . . . .)
+   (param@4 oldSize . . . .)
+   (param@D newSize . . . .)
+   (param@M rzB . . . .)).
+  (pragmas@p untyped@2).
+  (stmts@2,1
+   (comment)
+   (when@,3
+    (elif@5 vgTracking
+     (stmts~3,1
+      (call@4 vgDo~4 ReqResizeInPlace@1
+       (cast@J uint@5 p@B)oldSize@Y newSize@h rzB@q))))))
+ (template@,22 vgMakeMemNoAccess@9 . . .
+  (params@Q
+   (param@1 p . . . .)
+   (param@4 size . . . .)).
+  (pragmas@a untyped@2).
+  (stmts@2,1
+   (comment)
+   (when@,1
+    (elif@5 vgTracking
+     (stmts~3,1
+      (call@4 vgDo~4 ReqMakeMemNoAccess@1
+       (cast@L uint@5 p@B)size@a 0@g 0@j))))))
+ (template@,27 vgMakeMemUndefined@9 . . .
+  (params@R
+   (param@1 p . . . .)
+   (param@4 size . . . .)).
+  (pragmas@b untyped@2).
+  (stmts@2,1
+   (comment)
+   (when@,2
+    (elif@5 vgTracking
+     (stmts~3,1
+      (call@4 vgDo~4 ReqMakeMemUndefined@1
+       (cast@M uint@5 p@B)size@b 0@h 0@k))))))
+ (template@,2D vgMakeMemDefined@9 . . .
+  (params@P
+   (param@1 p . . . .)
+   (param@4 size . . . .)).
+  (pragmas@Z untyped@2).
+  (stmts@2,1
+   (comment)
+   (when@,1
+    (elif@5 vgTracking
+     (stmts~3,1
+      (call@4 vgDo~4 ReqMakeMemDefined@1
+       (cast@K uint@5 p@B)size@Z 0@f 0@i)))))))

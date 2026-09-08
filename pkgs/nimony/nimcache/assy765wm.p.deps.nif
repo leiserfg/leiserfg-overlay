@@ -1,0 +1,6 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-deps")
+(stmts
+ (import
+  (infix / std syncio)))

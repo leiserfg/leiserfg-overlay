@@ -1,0 +1,469 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,H,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/dyncalls.nim
+ (type@C,1 LibHandle~A . . . pointer@2)
+ (type@B,2 ProcAddr~9 . . . pointer@2)
+ (const@2,6 NilLibHandle . . LibHandle@E
+  (nil@Q))
+ (when@,D
+  (elif@5
+   (call@7 defined~7 windows@1)
+   (stmts~3,5
+    (proc GetLastError@5 . . .
+     (params@H)int32@4
+     (pragmas@R
+      (kv@9 importc~7 "GetLastError"@2)stdcall@R
+      (kv@8,1 dynlib~6 "kernel32"@2)). .)
+    (const@6,2 ERROR_BAD_EXE_FORMAT . . . 193@N))))
+ (proc@,M nimLoadLibraryError@5 . . .
+  (params@O
+   (param@1 path . . string@6 .)). . .
+  (stmts@2,2
+   (const@6 prefix . . . "could not load\3A "@9)
+   (call@8,1 writeErr~8 prefix@1)
+   (call@8,2 writeErr~8 path@1)
+   (when@,3
+    (elif@5
+     (infix@S and
+      (prefix~S not
+       (call@B defined~7 nimDebugDlOpen@1))
+      (prefix@4 not
+       (call@B defined~7 windows@1)))
+     (stmts~3,1
+      (call@8 writeErr~8 "\0A\28compile with -d\3AnimDebugDlOpen for more information\29"@1))))
+   (when@,5
+    (elif@5
+     (call@7 defined~7 windows@1)
+     (stmts~3,1
+      (const@6 badExe . . . "\0A\28bad format; library may be wrong architecture\29"@9)
+      (let@4,1 loadError . . .
+       (call@O GetLastError~C))
+      (if@,2
+       (elif@3
+        (infix@A == loadError~A ERROR_BAD_EXE_FORMAT@3)
+        (stmts~1,1
+         (call@8 writeErr~8 badExe@1))))
+      (when@,4
+       (elif@5
+        (call@7 defined~7 guiapp@1)
+        (stmts~3,3
+         (var@2,1 msg . .
+          (at@A array~5 1000@1 char@7).)
+         (var@2,2 msgLeft . . .
+          (infix@I \2D
+           (dot~5 msg~3 len@1)1@2))
+         (var@2,3 msgIdx . . . 0@9)
+         (call@7,4 copyMem~7
+          (dot@C
+           (at~8 msg~3 msgIdx@1)addr@1)
+          (dot@P prefix~6 cstring@1)
+          (dot@f prefix~6 len@1))
+         (infix@8,5 \2D= msgLeft~8
+          (dot@9 prefix~6 len@1))
+         (infix@7,6 \2B= msgIdx~7
+          (dot@9 prefix~6 len@1))
+         (let@4,7 pathLen . . .
+          (call@D min~3
+           (dot@5 path~4 len@1)msgLeft@B))
+         (call@7,8 copyMem~7
+          (dot@C
+           (at~8 msg~3 msgIdx@1)addr@1)
+          (dot@N path~4 cstring@1)pathLen@X)
+         (infix@8,9 \2D= msgLeft~8 pathLen@3)
+         (infix@7,A \2B= msgIdx~7 pathLen@3)
+         (if@,B
+          (elif@3
+           (infix@Y and
+            (infix~O == loadError~A ERROR_BAD_EXE_FORMAT@3)
+            (infix@C >= msgLeft~8
+             (dot@9 badExe~6 len@1)))
+           (stmts~1,1
+            (call@7 copyMem~7
+             (dot@C
+              (at~8 msg~3 msgIdx@1)addr@1)
+             (dot@P badExe~6 cstring@1)
+             (dot@f badExe~6 len@1)))))
+         (discard@,D
+          (call@J MessageBoxA~B
+           (nil@1)
+           (dot@C
+            (at~3 msg~3 0@1)addr@1)
+           (nil@J)0@O))))))))
+   (call@8,R writeErr~8 "\0A"@1)
+   (call@3,S die~3 1@1)))
+ (proc@,s procAddrError@5 . . .
+  (params@I
+   (param@1 name . . cstring@6 .)). . .
+  (stmts@2,2
+   (call@8 writeErr~8 "could not import\3A "@1)
+   (call@8,1 writeErr~8 name@1)
+   (call@8,2 writeErr~8 "\0A"@1)
+   (call@3,3 die~3 1@1)))
+ (when@,15
+  (elif@5
+   (call@7 defined~7 posix@1)
+   (stmts~3,C
+    (const@6 RTLD_NOW . . .
+     (call@F cint~4 2@1))
+    (when@,1
+     (elif@5
+      (call@7 defined~7 globalSymbols@1)
+      (stmts~3,1
+       (const@6 RTLD_GLOBAL . . .
+        (expr
+         (stmts@E)
+         (when@1
+          (elif@5
+           (call@7 defined~7 osx@1)
+           (call@I cint~4 8@1))
+          (else@T
+           (call@A cint~4 256@1))))))))
+    (proc@,4 dlclose@5 . . .
+     (params@C
+      (param@1 lib . . LibHandle@5 .)).
+     (pragmas@T
+      (kv@9 importc~7 "dlclose"@2)). .)
+    (proc@,5 dlopen@5 . . .
+     (params@B
+      (param@1 path . . cstring@6 .)
+      (param@G mode . . cint@6 .))LibHandle@T
+     (pragmas@o
+      (kv@9 importc~7 "dlopen"@2)). .)
+    (proc@,6 dlsym@5 . . .
+     (params@A
+      (param@1 lib . . LibHandle@5 .)
+      (param@H name . . cstring@6 .))ProcAddr@X
+     (pragmas@q
+      (kv@9 importc~7 "dlsym"@2)). .)
+    (proc@,8 dlerror@5 . . .
+     (params@C)cstring@4
+     (pragmas@O
+      (kv@9 importc~7 "dlerror"@2)). .)
+    (proc@,A nimUnloadLibrary@5 . . .
+     (params@L
+      (param@1 lib . . LibHandle@5 .)). . .
+     (stmts@2,1
+      (call@7 dlclose~7 lib@1)))
+    (proc@,D nimLoadLibrary@5 . . .
+     (params@J
+      (param@1 path . . cstring@6 .))LibHandle@H
+     (pragmas@k
+      (kv@9 exportc~7 "nimLoadLibrary"@2)).
+     (stmts@2,1
+      (let@4 flags . . .
+       (when~2,1
+        (elif@5
+         (call@7 defined~7 globalSymbols@1)
+         (stmts@O
+          (infix@9 or RTLD_NOW~9 RTLD_GLOBAL@3)))
+        (else@,1
+         (stmts@6 RTLD_NOW))))
+      (asgn@7,3 result~7
+       (call@8 dlopen~6 path@1 flags@7))
+      (when@,4
+       (elif@5
+        (call@7 defined~7 nimDebugDlOpen@1)
+        (stmts~3,1
+         (let@4 error . . .
+          (call@F dlerror~7))
+         (if@,1
+          (elif@3
+           (infix@6 != error~6
+            (nil@3))
+           (stmts~1,1
+            (call@8 writeErr~8 error@1)
+            (call@8,1 writeErr~8 "\0A"@1)))))))))
+    (proc@,O nimGetProcAddr@5 . . .
+     (params@J
+      (param@1 lib . . LibHandle@5 .)
+      (param@H name . . cstring@6 .))ProcAddr@X
+     (pragmas@z
+      (kv@9 exportc~7 "nimGetProcAddr"@2)).
+     (stmts@2,1
+      (asgn@7 result~7
+       (call@7 dlsym~5 lib@1 name@6))
+      (if@,1
+       (elif@3
+        (infix@7 == result~7
+         (nil@3))
+        (stmts@F
+         (call@D procAddrError~D name@1))))))))
+  (elif@5,e
+   (infix@H or
+    (call~A defined~7 windows@1)
+    (call@A defined~7 dos@1))
+   (stmts~3,6
+    (when
+     (elif@5
+      (call@7 defined~7 cpp@1)
+      (stmts~3,1
+       (type@z,1 THINSTANCE~x . .
+        (pragmas~m
+         (kv@9 importc~7 "HINSTANCE"@2)
+         (kv@U header~6 "<windows.h>"@2))
+        (object@2 .
+         (fld~x,1 x . . pointer@3 .)))
+       (proc@,3 getProcAddress@5 . . .
+        (params@J
+         (param@1 lib . . THINSTANCE@5 .)
+         (param@I name . . cstring@6 .))ProcAddr@Y
+        (pragmas@10
+         (kv~n,1 importcpp~9 "\28void*\29GetProcAddress\28\40\29"@2)
+         (kv~D,1 header~6 "<windows.h>"@2)stdcall@4,1). .)))
+     (else@,6
+      (stmts@2,2
+       (type@D,1 THINSTANCE~B . . . pointer@2))))
+    (proc@,E getProcAddress@5 . . .
+     (params@J
+      (param@1 lib . . THINSTANCE@5 .)
+      (param@I name . . cstring@6 .))ProcAddr@Y
+     (pragmas@10
+      (kv~p,1 importc~7 "GetProcAddress"@2)stdcall~V,1
+      (kv~G,1 dynlib~6 "kernel32"@2)). .)
+    (proc@,H freeLibrary@5 . . .
+     (params@G
+      (param@1 lib . . THINSTANCE@5 .)).
+     (pragmas@Y
+      (kv~N,1 importc~7 "FreeLibrary"@2)stdcall~6,1
+      (kv@9,1 dynlib~6 "kernel32"@2)). .)
+    (proc@,J winLoadLibrary@5 . . .
+     (params@J
+      (param@1 path . . cstring@6 .))THINSTANCE@H
+     (pragmas@l
+      (kv~a,1 importc~7 "LoadLibraryA"@2)stdcall~I,1
+      (kv~3,1 dynlib~6 "kernel32"@2)). .)
+    (proc@,M nimUnloadLibrary@5 . . .
+     (params@L
+      (param@1 lib . . LibHandle@5 .)). . .
+     (stmts@2,1
+      (call@B freeLibrary~B
+       (cast@1 THINSTANCE@5 lib@H))))
+    (proc@,P nimLoadLibrary@5 . . .
+     (params@J
+      (param@1 path . . cstring@6 .))LibHandle@H
+     (pragmas@k
+      (kv@9 exportc~7 "nimLoadLibrary"@2)).
+     (stmts@2,1
+      (asgn@7 result~7
+       (cast@2 LibHandle@5
+        (call@U winLoadLibrary~E path@1)))))
+    (proc@,S nimGetProcAddr@5 . . .
+     (params@J
+      (param@1 lib . . LibHandle@5 .)
+      (param@H name . . cstring@6 .))ProcAddr@X
+     (pragmas@z
+      (kv@9 exportc~7 "nimGetProcAddr"@2)).
+     (stmts@2,1
+      (asgn@7 result~7
+       (call@G getProcAddress~E
+        (cast@1 THINSTANCE@5 lib@H)name@O))
+      (if@,1
+       (elif@3
+        (infix@7 != result~7
+         (nil@3))
+        (stmts@F
+         (ret .))))
+      (const@6,2 decoratedLength . . . 250@I)
+      (var@4,3 decorated . .
+       (at@G array~5 decoratedLength@1 char@I)
+       (call@n default~7
+        (at@6 array~5 decoratedLength@1 char@I)))
+      (asgn@D,4
+       (at~4 decorated~9 0@1)'_'@2)
+      (var@4,5 m . . . 1@4)
+      (while@,6
+       (infix@8 < m~2
+        (par@2
+         (infix@H \2D decoratedLength~G 5@2)))
+       (stmts@2,1
+        (if
+         (elif@3
+          (infix@C ==
+           (at~8 name~4
+            (infix@3 \2D m~2 1@2))'\00'@3)
+          (stmts@N
+           (break .))))
+        (asgn@D,1
+         (at~4 decorated~9 m@1)
+         (at@6 name~4
+          (infix@3 \2D m~2 1@2)))
+        (call@3,2 inc~3 m@1)))
+      (asgn@D,A
+       (at~4 decorated~9 m@1)'\40'@2)
+      (for@4,B
+       (infix@6 \2E\2E 0~1 50@2)
+       (unpackflat
+        (let i . . ..))
+       (stmts~2,1
+        (var@4 k . . .
+         (infix@6 * i~2 4@2))
+        (if@,1
+         (elif@3
+          (infix@A ==
+           (infix~8 div k~2 100@4)0@3)
+          (stmts~1,1
+           (if
+            (elif@3
+             (infix@9 ==
+              (infix~7 div k~2 10@4)0@3)
+             (stmts~1,1
+              (asgn@2 m~2
+               (infix@4 \2B m~2 1@2))))
+            (else@,2
+             (stmts@2,1
+              (asgn@2 m~2
+               (infix@4 \2B m~2 2@2)))))))
+         (else@,5
+          (stmts@2,1
+           (asgn@2 m~2
+            (infix@4 \2B m~2 3@2)))))
+        (asgn@H,8
+         (at~8 decorated~9
+          (infix@3 \2B m~2 1@2))'\00'@2)
+        (while@,9 true@6
+         (stmts@2,1
+          (asgn@D
+           (at~4 decorated~9 m@1)
+           (call@5 chr~3
+            (infix@A \2B
+             (call~6 ord~3 '0'@1)
+             (par@2
+              (infix@3 mod k~2 10@4)))))
+          (call@3,1 dec~3 m@1)
+          (asgn@2,2 k~2
+           (infix@4 div k~2 10@4))
+          (if@,3
+           (elif@3
+            (infix@2 == k~2 0@3)
+            (stmts@8
+             (break .))))))
+        (asgn@7,E result~7
+         (call@G getProcAddress~E
+          (cast@1 THINSTANCE@5 lib@H)
+          (cast@O cstring@5
+           (cmd@J addr~5 decorated))))
+        (if@,F
+         (elif@3
+          (infix@7 != result~7
+           (nil@3))
+          (stmts@F
+           (ret .))))))
+      (call@D,S procAddrError~D name@1)))))
+  (elif@5,1h
+   (call@7 defined~7 genode@1)
+   (stmts~3,2
+    (proc nimUnloadLibrary@5 . . .
+     (params@L
+      (param@1 lib . . LibHandle@5 .)). . .
+     (stmts@2,1
+      (call@B raiseAssert~B "nimUnloadLibrary not implemented"@1)))
+    (proc@,3 nimLoadLibrary@5 . . .
+     (params@J
+      (param@1 path . . cstring@6 .))LibHandle@H
+     (pragmas@k
+      (kv@9 exportc~7 "nimLoadLibrary"@2)).
+     (stmts@2,1
+      (call@B raiseAssert~B "nimLoadLibrary not implemented"@1)))
+    (proc@,6 nimGetProcAddr@5 . . .
+     (params@J
+      (param@1 lib . . LibHandle@5 .)
+      (param@H name . . cstring@6 .))ProcAddr@X
+     (pragmas@z
+      (kv@9 exportc~7 "nimGetProcAddr"@2)).
+     (stmts@2,1
+      (call@B raiseAssert~B "nimGetProcAddr not implemented"@1)))))
+  (elif@5,1s
+   (infix@12 or
+    (infix~J or
+     (infix~L or
+      (call~H defined~7 nintendoswitch@1)
+      (call@A defined~7 freertos@1))
+     (call@A defined~7 zephyr@1))
+    (call@A defined~7 nuttx@1))
+   (stmts~3,1
+    (proc nimUnloadLibrary@5 . . .
+     (params@L
+      (param@1 lib . . LibHandle@5 .)). . .
+     (stmts@2,1
+      (call@8 writeErr~8 "nimUnLoadLibrary not implemented"@1)
+      (call@8,1 writeErr~8 "\0A"@1)
+      (call@3,2 die~3 1@1)))
+    (proc@,5 nimLoadLibrary@5 . . .
+     (params@J
+      (param@1 path . . cstring@6 .))LibHandle@H
+     (pragmas@k
+      (kv@9 exportc~7 "nimLoadLibrary"@2)).
+     (stmts@2,1
+      (call@8 writeErr~8 "nimLoadLibrary not implemented"@1)
+      (call@8,1 writeErr~8 "\0A"@1)
+      (call@3,2 die~3 1@1)))
+    (proc@,B nimGetProcAddr@5 . . .
+     (params@J
+      (param@1 lib . . LibHandle@5 .)
+      (param@H name . . cstring@6 .))ProcAddr@X
+     (pragmas@z
+      (kv@9 exportc~7 "nimGetProcAddr"@2)).
+     (stmts@2,1
+      (call@8 writeErr~8 "nimGetProAddr not implemented"@1)
+      (call@8,1 writeErr~8 name@1)
+      (call@8,2 writeErr~8 "\0A"@1)
+      (call@3,3 die~3 1@1)))))
+  (else@,2A
+   (stmts@2,4
+    (proc nimLoadLibrary@5 . . .
+     (params@J
+      (param@1 path . . cstring@6 .))LibHandle@H
+     (pragmas@k
+      (kv@9 exportc~7 "nimLoadLibrary"@2)).
+     (stmts@2,1
+      (call@8 writeErr~8 "nimLoadLibrary not implemented"@1)
+      (call@8,1 writeErr~8 "\0A"@1)
+      (call@3,2 die~3 1@1)))
+    (proc@,5 nimGetProcAddr@5 . . .
+     (params@J
+      (param@1 lib . . LibHandle@5 .)
+      (param@H name . . cstring@6 .))ProcAddr@X
+     (pragmas@z
+      (kv@9 exportc~7 "nimGetProcAddr"@2)).
+     (stmts@2,1
+      (call@8 writeErr~8 "nimGetProcAddr not implemented"@1)
+      (call@8,1 writeErr~8 name@1)
+      (call@8,2 writeErr~8 "\0A"@1)
+      (call@3,3 die~3 1@1))))))
+ (proc@,3U nimDynlibLoadStep@5 . . .
+  (params@M
+   (param@1 prev . . LibHandle@6 .)
+   (param@I cand . . cstring@6 .))LibHandle@Y
+  (pragmas@14
+   (kv@9 exportc~7 "nimDynlibLoadStep"@2)).
+  (stmts@2,1
+   (comment)
+   (if@,4
+    (elif@3
+     (infix@5 != prev~5
+      (nil@3))
+     (stmts@D
+      (asgn@7 result~7 prev@2)))
+    (else@,1
+     (stmts@6
+      (asgn@7 result~7
+       (call@G nimLoadLibrary~E cand@1)))))))
+ (proc@,3c nimDynlibCheck@5 . . .
+  (params@J
+   (param@1 lib . . LibHandle@5 .)
+   (param@H path . . cstring@6 .))LibHandle@X
+  (pragmas@10
+   (kv@9 exportc~7 "nimDynlibCheck"@2)).
+  (stmts@2,1
+   (comment)
+   (if@,3
+    (elif@3
+     (infix@4 == lib~4
+      (nil@3))
+     (stmts~1,1
+      (call@8 writeErr~8 "could not load\3A "@1)
+      (call@8,1 writeErr~8 path@1)
+      (call@8,2 writeErr~8 "\0A"@1)
+      (call@3,3 die~3 1@1))))
+   (asgn@7,8 result~7 lib@2))))

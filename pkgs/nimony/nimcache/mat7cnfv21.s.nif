@@ -1,0 +1,4128 @@
+(.nif27)
+(.indexat 168038           )
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+ (import
+  (kv sysvq0asl "../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim")
+  (kv assy765wm "../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim")
+  (kv fen2xhzfd "../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/fenv.nim"))
+ (type@E,3 :Arithmetic.0.~C x . .
+  (concept@2 . . .
+   (typevar~C,2 :Self.0. . . . .)
+   (stmts~C,2
+    (func :\2B.0.@5 . . .
+     (params@8
+      (param@1 :x.0 . . Self.0.@6 .)
+      (param@4 :y.0 . . Self.0.@3 .))Self.0.@E .@E . .)
+    (func@,1 :\2D.0.@5 . . .
+     (params@8
+      (param@1 :x.1 . . Self.0.@6 .)
+      (param@4 :y.1 . . Self.0.@3 .))Self.0.@E .@E . .)
+    (func@,2 :*.0.@5 . . .
+     (params@8
+      (param@1 :x.2 . . Self.0.@6 .)
+      (param@4 :y.2 . . Self.0.@3 .))Self.0.@E .@E . .)
+    (func@,3 :mod.0.@5 . . .
+     (params@A
+      (param@1 :x.3 . . Self.0.@6 .)
+      (param@4 :y.3 . . Self.0.@3 .))Self.0.@E .@E . .)
+    (func@,4 :==.0.@5 . . .
+     (params@9
+      (param@1 :x.4 . . Self.0.@6 .)
+      (param@4 :y.4 . . Self.0.@3 .))
+     (bool@E).@E . .)
+    (func@,5 :<.0.@5 . . .
+     (params@8
+      (param@1 :x.5 . . Self.0.@6 .)
+      (param@4 :y.5 . . Self.0.@3 .))
+     (bool@E).@E . .)
+    (func@,6 :>.0.@5 . . .
+     (params@8
+      (param@1 :x.6 . . Self.0.@6 .)
+      (param@4 :y.6 . . Self.0.@3 .))
+     (bool@E).@E . .))))
+ (type@L,D :IntegerArithmetic.0.~J x . .
+  (concept@2 . . Arithmetic.0.@B
+   (typevar~J,1 :Self.1. . . . .)
+   (stmts~J,1
+    (func :div.0.@5 . . .
+     (params@A
+      (param@1 :x.7 . . Self.0.@6 .)
+      (param@4 :y.7 . . Self.0.@3 .))Self.0.@E .@E . .)
+    (func@,1 :inc.0.@5 . . .
+     (params@8
+      (param@1 :x.8 . .
+       (mut@3 Self.0.@4).)
+      (param@E :y.8 . . Self.0.@3 .)). . . .)
+    (func@,2 :dec.0.@5 . . .
+     (params@8
+      (param@1 :x.9 . .
+       (mut@3 Self.0.@4).)
+      (param@E :y.9 . . Self.0.@3 .)). . . .))))
+ (type@K,I :SignedArithmetic.0.~I x . .
+  (concept@2 . . Arithmetic.0.@B
+   (typevar~I,1 :Self.2. . . . .)
+   (stmts~I,1
+    (func :\2D.1.@5 . . .
+     (params@8
+      (param@1 :x.10 . . Self.0.@3 .))Self.0.@B .@B . .))))
+ (type@J,L :FloatArithmetic.0.~H x . .
+  (concept@2 . . SignedArithmetic.0.@B
+   (typevar~H,1 :Self.3. . . . .)
+   (stmts~H,1
+    (func :/.0.@5 . . .
+     (params@8
+      (param@1 :x.11 . . Self.0.@6 .)
+      (param@4 :y.10 . . Self.0.@3 .))Self.0.@E .@E . .))))
+ (type@B,R :HasSqrt.0.~9 x . .
+  (concept@2 . . .
+   (typevar~9,1 :Self.4. . . . .)
+   (stmts~9,1
+    (func :sqrt.0.@5 . . .
+     (params@9
+      (param@1 :x.12 . . Self.0.@3 .))Self.0.@B .@B . .))))
+ (type@A,T :HasExp.0.~8 x . .
+  (concept@2 . . .
+   (typevar~8,1 :Self.5. . . . .)
+   (stmts~8,1
+    (func :exp.0.@5 . . .
+     (params@8
+      (param@1 :x.13 . . Self.0.@3 .))Self.0.@B .@B . .))))
+ (type@9,V :HasLn.0.~7 x . .
+  (concept@2 . . .
+   (typevar~7,1 :Self.6. . . . .)
+   (stmts~7,1
+    (func :ln.0.@5 . . .
+     (params@7
+      (param@1 :x.14 . . Self.0.@3 .))Self.0.@B .@B . .))))
+ (type@A,X :HasSin.0.~8 x . .
+  (concept@2 . . .
+   (typevar~8,1 :Self.7. . . . .)
+   (stmts~8,1
+    (func :sin.0.@5 . . .
+     (params@8
+      (param@1 :x.15 . . Self.0.@3 .))Self.0.@B .@B . .))))
+ (type@A,Z :HasCos.0.~8 x . .
+  (concept@2 . . .
+   (typevar~8,1 :Self.8. . . . .)
+   (stmts~8,1
+    (func :cos.0.@5 . . .
+     (params@8
+      (param@1 :x.16 . . Self.0.@3 .))Self.0.@B .@B . .))))
+ (type@C,b :HasHypot.0.~A x . .
+  (concept@2 . . .
+   (typevar~A,1 :Self.9. . . . .)
+   (stmts~A,1
+    (func :hypot.0.@5 . . .
+     (params@A
+      (param@1 :x.17 . . Self.0.@6 .)
+      (param@4 :y.11 . . Self.0.@3 .))Self.0.@E .@E . .))))
+ (type@E,d :HasArctan2.0.~C x . .
+  (concept@2 . . .
+   (typevar~C,1 :Self.10. . . . .)
+   (stmts~C,1
+    (func :arctan2.0.@5 . . .
+     (params@C
+      (param@1 :y.12 . . Self.0.@6 .)
+      (param@4 :x.18 . . Self.0.@3 .))Self.0.@E .@E . .))))
+ (const@4,h :PI.0.~2 x .
+  (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)3.141592653589793@4)
+ (const@5,i :TAU.0.~3 x .
+  (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)6.283185307179586@8)
+ (const@3,j :E.0.~1 x .
+  (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)2.718281828459045@4)
+ (const@L,l :MaxFloat64Precision.0.~J x .
+  (i~B,S 64)
+  (suf@4 16 "i64"))
+ (const@L,o :MaxFloat32Precision.0.~J x .
+  (i~B,P 64)
+  (suf@4 8 "i64"))
+ (const@J,r :MaxFloatPrecision.0.~H x .
+  (i~9,M 64)
+  (suf@6,~6 16 "i64"))
+ (const@G,v :MinFloatNormal.0.~E x .
+  (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)2.225073858507201E-308@4)
+ (stmts@2,z)
+ (const@6,11 :CMathHeader.0. . . string.0.sysvq0asl "<math.h>"@E)
+ (stmts@2,17
+  (const@2,1 :c_fpNormal.0. . .
+   (i@6,5 64)
+   (suf@D 0 "i64"))
+  (const@2,2 :c_fpSubnormal.0. . .
+   (i@6,4 64)
+   (suf@G 1 "i64"))
+  (const@2,3 :c_fpZero.0. . .
+   (i@6,3 64)
+   (suf@B 2 "i64"))
+  (const@2,4 :c_fpInfinite.0. . .
+   (i@6,2 64)
+   (suf@F 3 "i64"))
+  (const@2,5 :c_fpNan.0. . .
+   (i@6,1 64)
+   (suf@A 4 "i64"))
+  (func@,6 :c_signbit.0.@5 . .
+   (typevars@E
+    (typevar@1 :T.0. . .
+     (or@S,z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim
+      (f~D 64)
+      (f~7 32)
+      (f@1 64)).))
+   (params@S
+    (param@1 :x.19 . . T.0.@3 .))
+   (i@8 64).@8 .
+   (stmts@2,1
+    (result :result.0 . .
+     (i@6,~1 64).@6,~1)
+    (when
+     (elif@5
+      (is@2 T.0.~2 float32.0.sysvq0asl@3)
+      (stmts@E
+       (asgn@7 result.0~7
+        (expr
+         (stmts@2)
+         (if@1
+          (elif@3
+           (infix@P !=.0.sysvq0asl
+            (par~P
+             (infix@H
+              (ochoice shr.0.sysvq0asl shr.1.sysvq0asl shr.2.sysvq0asl shr.3.sysvq0asl shr.4.sysvq0asl shr.5.sysvq0asl shr.6.sysvq0asl shr.7.sysvq0asl)
+              (cast~G uint32.0.sysvq0asl@5 x.19@D)31@4))
+            (suf@3 0u "u32"))1@Z)
+          (else@e 0@6))))))
+     (else@,1
+      (stmts@6
+       (asgn@7 result.0~7
+        (expr
+         (stmts@2)
+         (if@1
+          (elif@3
+           (infix@P !=.0.sysvq0asl
+            (par~P
+             (infix@H
+              (ochoice shr.0.sysvq0asl shr.1.sysvq0asl shr.2.sysvq0asl shr.3.sysvq0asl shr.4.sysvq0asl shr.5.sysvq0asl shr.6.sysvq0asl shr.7.sysvq0asl)
+              (cast~G uint64.0.sysvq0asl@5 x.19@D)63@4))
+            (suf@3 0u "u64"))1@Z)
+          (else@e 0@6)))))))
+    (ret@y,1 result.0)))
+  (func@,9 :c_isnan.0.@5 . .
+   (typevars@C
+    (typevar@1 :T.1. . .
+     (or@S,z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim
+      (f~D 64)
+      (f~7 32)
+      (f@1 64)).))
+   (params@Q
+    (param@1 :x.20 . . T.1.@3 .))
+   (i@8 64).@8 .
+   (stmts@2,1
+    (result :result.1 . .
+     (i@6,~4 64).@6,~4)
+    (when
+     (elif@5
+      (is@2 T.1.~2 float32.0.sysvq0asl@3)
+      (stmts~3,1
+       (let@4 b . . .
+        (cast@4 uint32.0.sysvq0asl@5 x.20@D))
+       (asgn@7,1 result.1~7
+        (expr
+         (stmts@2)
+         (if@1
+          (elif@3
+           (infix@c
+            (ochoice and.0.sysvq0asl and.1.sysvq0asl and.2.sysvq0asl and.3.sysvq0asl and.4.sysvq0asl and.5.sysvq0asl and.6.sysvq0asl and.7.sysvq0asl and.8.sysvq0asl)
+            (infix~C
+             (ochoice ==.0.sysvq0asl ==.1.sysvq0asl ==.2.sysvq0asl ==.3.sysvq0asl ==.4.sysvq0asl ==.5.sysvq0asl ==.6.sysvq0asl ==.7.sysvq0asl ==.8.sysvq0asl ==.9.sysvq0asl ==.10.sysvq0asl ==.11.sysvq0asl ==.12.sysvq0asl ==.13.sysvq0asl ==.14.sysvq0asl ==.15.sysvq0asl ==.16.sysvq0asl ==.17.sysvq0asl ==.18.sysvq0asl ==.20.sysvq0asl ==.21.sysvq0asl ==.22.sysvq0asl ==.24.sysvq0asl ==.25.sysvq0asl ==.26.sysvq0asl)
+             (par~Q
+              (infix@C
+               (ochoice and.0.sysvq0asl and.1.sysvq0asl and.2.sysvq0asl and.3.sysvq0asl and.4.sysvq0asl and.5.sysvq0asl and.6.sysvq0asl and.7.sysvq0asl and.8.sysvq0asl)
+               (par~B
+                (infix@3
+                 (ochoice shr.0.sysvq0asl shr.1.sysvq0asl shr.2.sysvq0asl shr.3.sysvq0asl shr.4.sysvq0asl shr.5.sysvq0asl shr.6.sysvq0asl shr.7.sysvq0asl)b~2 23@4))
+               (suf@4 255u "u32")))
+             (suf@3 255u "u32"))
+            (infix@P !=.0.sysvq0asl
+             (par~L
+              (infix@3
+               (ochoice and.0.sysvq0asl and.1.sysvq0asl and.2.sysvq0asl and.3.sysvq0asl and.4.sysvq0asl and.5.sysvq0asl and.6.sysvq0asl and.7.sysvq0asl and.8.sysvq0asl)b~2
+               (suf@4 8388607u "u32")))
+             (suf@3 0u "u32")))1@1B)
+          (else@1G 0@6))))))
+     (else@,3
+      (stmts@2,1
+       (let@4 b . . .
+        (cast@4 uint64.0.sysvq0asl@5 x.20@D))
+       (asgn@7,1 result.1~7
+        (expr
+         (stmts@2)
+         (if@1
+          (elif@3
+           (infix@e
+            (ochoice and.0.sysvq0asl and.1.sysvq0asl and.2.sysvq0asl and.3.sysvq0asl and.4.sysvq0asl and.5.sysvq0asl and.6.sysvq0asl and.7.sysvq0asl and.8.sysvq0asl)
+            (infix~D
+             (ochoice ==.0.sysvq0asl ==.1.sysvq0asl ==.2.sysvq0asl ==.3.sysvq0asl ==.4.sysvq0asl ==.5.sysvq0asl ==.6.sysvq0asl ==.7.sysvq0asl ==.8.sysvq0asl ==.9.sysvq0asl ==.10.sysvq0asl ==.11.sysvq0asl ==.12.sysvq0asl ==.13.sysvq0asl ==.14.sysvq0asl ==.15.sysvq0asl ==.16.sysvq0asl ==.17.sysvq0asl ==.18.sysvq0asl ==.20.sysvq0asl ==.21.sysvq0asl ==.22.sysvq0asl ==.24.sysvq0asl ==.25.sysvq0asl ==.26.sysvq0asl)
+             (par~R
+              (infix@C
+               (ochoice and.0.sysvq0asl and.1.sysvq0asl and.2.sysvq0asl and.3.sysvq0asl and.4.sysvq0asl and.5.sysvq0asl and.6.sysvq0asl and.7.sysvq0asl and.8.sysvq0asl)
+               (par~B
+                (infix@3
+                 (ochoice shr.0.sysvq0asl shr.1.sysvq0asl shr.2.sysvq0asl shr.3.sysvq0asl shr.4.sysvq0asl shr.5.sysvq0asl shr.6.sysvq0asl shr.7.sysvq0asl)b~2 52@4))
+               (suf@4 2047u "u64")))
+             (suf@3 2047u "u64"))
+            (infix@W !=.0.sysvq0asl
+             (par~S
+              (infix@3
+               (ochoice and.0.sysvq0asl and.1.sysvq0asl and.2.sysvq0asl and.3.sysvq0asl and.4.sysvq0asl and.5.sysvq0asl and.6.sysvq0asl and.7.sysvq0asl and.8.sysvq0asl)b~2
+               (suf@4 4503599627370495u "u64")))
+             (suf@3 0u "u64")))1@1K)
+          (else@1P 0@6)))))))
+    (ret@1f,5 result.1)))
+  (func@,G :c_fpclassify.0.@5 . .
+   (typevars@H
+    (typevar@1 :T.2. . .
+     (or@S,z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim
+      (f~D 64)
+      (f~7 32)
+      (f@1 64)).))
+   (params@V
+    (param@1 :x.21 . . T.2.@3 .))
+   (i@8 64).@8 .
+   (stmts@2,1
+    (result :result.2 . .
+     (i@6,~B 64).@6,~B)
+    (when
+     (elif@5
+      (is@2 T.2.~2 float32.0.sysvq0asl@3)
+      (stmts~3,1
+       (let@4 b . . .
+        (cast@4 uint32.0.sysvq0asl@5 x.21@D))
+       (let@4,1 exp . . .
+        (infix@H
+         (ochoice and.0.sysvq0asl and.1.sysvq0asl and.2.sysvq0asl and.3.sysvq0asl and.4.sysvq0asl and.5.sysvq0asl and.6.sysvq0asl and.7.sysvq0asl and.8.sysvq0asl)
+         (par~B
+          (infix@3
+           (ochoice shr.0.sysvq0asl shr.1.sysvq0asl shr.2.sysvq0asl shr.3.sysvq0asl shr.4.sysvq0asl shr.5.sysvq0asl shr.6.sysvq0asl shr.7.sysvq0asl)b~2 23@4))
+         (suf@4 255u "u32")))
+       (let@4,2 mant . . .
+        (infix@9
+         (ochoice and.0.sysvq0asl and.1.sysvq0asl and.2.sysvq0asl and.3.sysvq0asl and.4.sysvq0asl and.5.sysvq0asl and.6.sysvq0asl and.7.sysvq0asl and.8.sysvq0asl)b~2
+         (suf@4 8388607u "u32")))
+       (asgn@7,3 result.2~7
+        (if~5,1
+         (elif@3
+          (infix@4
+           (ochoice ==.0.sysvq0asl ==.1.sysvq0asl ==.2.sysvq0asl ==.3.sysvq0asl ==.4.sysvq0asl ==.5.sysvq0asl ==.6.sysvq0asl ==.7.sysvq0asl ==.8.sysvq0asl ==.9.sysvq0asl ==.10.sysvq0asl ==.11.sysvq0asl ==.12.sysvq0asl ==.13.sysvq0asl ==.14.sysvq0asl ==.15.sysvq0asl ==.16.sysvq0asl ==.17.sysvq0asl ==.18.sysvq0asl ==.20.sysvq0asl ==.21.sysvq0asl ==.22.sysvq0asl ==.24.sysvq0asl ==.25.sysvq0asl ==.26.sysvq0asl)exp~4
+           (suf@3 255u "u32"))
+          (stmts@H
+           (expr
+            (stmts)
+            (if@1
+             (elif@3
+              (infix@5
+               (ochoice ==.0.sysvq0asl ==.1.sysvq0asl ==.2.sysvq0asl ==.3.sysvq0asl ==.4.sysvq0asl ==.5.sysvq0asl ==.6.sysvq0asl ==.7.sysvq0asl ==.8.sysvq0asl ==.9.sysvq0asl ==.10.sysvq0asl ==.11.sysvq0asl ==.12.sysvq0asl ==.13.sysvq0asl ==.14.sysvq0asl ==.15.sysvq0asl ==.16.sysvq0asl ==.17.sysvq0asl ==.18.sysvq0asl ==.20.sysvq0asl ==.21.sysvq0asl ==.22.sysvq0asl ==.24.sysvq0asl ==.25.sysvq0asl ==.26.sysvq0asl)mant~5
+               (suf@3 0u "u32"))c_fpInfinite.0.@F)
+             (else@V c_fpNan.0.@6)))))
+         (elif@5,1
+          (infix@4
+           (ochoice ==.0.sysvq0asl ==.1.sysvq0asl ==.2.sysvq0asl ==.3.sysvq0asl ==.4.sysvq0asl ==.5.sysvq0asl ==.6.sysvq0asl ==.7.sysvq0asl ==.8.sysvq0asl ==.9.sysvq0asl ==.10.sysvq0asl ==.11.sysvq0asl ==.12.sysvq0asl ==.13.sysvq0asl ==.14.sysvq0asl ==.15.sysvq0asl ==.16.sysvq0asl ==.17.sysvq0asl ==.18.sysvq0asl ==.20.sysvq0asl ==.21.sysvq0asl ==.22.sysvq0asl ==.24.sysvq0asl ==.25.sysvq0asl ==.26.sysvq0asl)exp~4
+           (suf@3 0u "u32"))
+          (stmts@E
+           (expr
+            (stmts)
+            (if@1
+             (elif@3
+              (infix@5
+               (ochoice ==.0.sysvq0asl ==.1.sysvq0asl ==.2.sysvq0asl ==.3.sysvq0asl ==.4.sysvq0asl ==.5.sysvq0asl ==.6.sysvq0asl ==.7.sysvq0asl ==.8.sysvq0asl ==.9.sysvq0asl ==.10.sysvq0asl ==.11.sysvq0asl ==.12.sysvq0asl ==.13.sysvq0asl ==.14.sysvq0asl ==.15.sysvq0asl ==.16.sysvq0asl ==.17.sysvq0asl ==.18.sysvq0asl ==.20.sysvq0asl ==.21.sysvq0asl ==.22.sysvq0asl ==.24.sysvq0asl ==.25.sysvq0asl ==.26.sysvq0asl)mant~5
+               (suf@3 0u "u32"))c_fpZero.0.@F)
+             (else@R c_fpSubnormal.0.@6)))))
+         (else@,2
+          (stmts@6 c_fpNormal.0.))))))
+     (else@,8
+      (stmts@2,1
+       (let@4 b . . .
+        (cast@4 uint64.0.sysvq0asl@5 x.21@D))
+       (let@4,1 exp . . .
+        (infix@H
+         (ochoice and.0.sysvq0asl and.1.sysvq0asl and.2.sysvq0asl and.3.sysvq0asl and.4.sysvq0asl and.5.sysvq0asl and.6.sysvq0asl and.7.sysvq0asl and.8.sysvq0asl)
+         (par~B
+          (infix@3
+           (ochoice shr.0.sysvq0asl shr.1.sysvq0asl shr.2.sysvq0asl shr.3.sysvq0asl shr.4.sysvq0asl shr.5.sysvq0asl shr.6.sysvq0asl shr.7.sysvq0asl)b~2 52@4))
+         (suf@4 2047u "u64")))
+       (let@4,2 mant . . .
+        (infix@9
+         (ochoice and.0.sysvq0asl and.1.sysvq0asl and.2.sysvq0asl and.3.sysvq0asl and.4.sysvq0asl and.5.sysvq0asl and.6.sysvq0asl and.7.sysvq0asl and.8.sysvq0asl)b~2
+         (suf@4 4503599627370495u "u64")))
+       (asgn@7,3 result.2~7
+        (if~5,1
+         (elif@3
+          (infix@4
+           (ochoice ==.0.sysvq0asl ==.1.sysvq0asl ==.2.sysvq0asl ==.3.sysvq0asl ==.4.sysvq0asl ==.5.sysvq0asl ==.6.sysvq0asl ==.7.sysvq0asl ==.8.sysvq0asl ==.9.sysvq0asl ==.10.sysvq0asl ==.11.sysvq0asl ==.12.sysvq0asl ==.13.sysvq0asl ==.14.sysvq0asl ==.15.sysvq0asl ==.16.sysvq0asl ==.17.sysvq0asl ==.18.sysvq0asl ==.20.sysvq0asl ==.21.sysvq0asl ==.22.sysvq0asl ==.24.sysvq0asl ==.25.sysvq0asl ==.26.sysvq0asl)exp~4
+           (suf@3 2047u "u64"))
+          (stmts@I
+           (expr
+            (stmts)
+            (if@1
+             (elif@3
+              (infix@5
+               (ochoice ==.0.sysvq0asl ==.1.sysvq0asl ==.2.sysvq0asl ==.3.sysvq0asl ==.4.sysvq0asl ==.5.sysvq0asl ==.6.sysvq0asl ==.7.sysvq0asl ==.8.sysvq0asl ==.9.sysvq0asl ==.10.sysvq0asl ==.11.sysvq0asl ==.12.sysvq0asl ==.13.sysvq0asl ==.14.sysvq0asl ==.15.sysvq0asl ==.16.sysvq0asl ==.17.sysvq0asl ==.18.sysvq0asl ==.20.sysvq0asl ==.21.sysvq0asl ==.22.sysvq0asl ==.24.sysvq0asl ==.25.sysvq0asl ==.26.sysvq0asl)mant~5
+               (suf@3 0u "u64"))c_fpInfinite.0.@F)
+             (else@V c_fpNan.0.@6)))))
+         (elif@5,1
+          (infix@4
+           (ochoice ==.0.sysvq0asl ==.1.sysvq0asl ==.2.sysvq0asl ==.3.sysvq0asl ==.4.sysvq0asl ==.5.sysvq0asl ==.6.sysvq0asl ==.7.sysvq0asl ==.8.sysvq0asl ==.9.sysvq0asl ==.10.sysvq0asl ==.11.sysvq0asl ==.12.sysvq0asl ==.13.sysvq0asl ==.14.sysvq0asl ==.15.sysvq0asl ==.16.sysvq0asl ==.17.sysvq0asl ==.18.sysvq0asl ==.20.sysvq0asl ==.21.sysvq0asl ==.22.sysvq0asl ==.24.sysvq0asl ==.25.sysvq0asl ==.26.sysvq0asl)exp~4
+           (suf@3 0u "u64"))
+          (stmts@E
+           (expr
+            (stmts)
+            (if@1
+             (elif@3
+              (infix@5
+               (ochoice ==.0.sysvq0asl ==.1.sysvq0asl ==.2.sysvq0asl ==.3.sysvq0asl ==.4.sysvq0asl ==.5.sysvq0asl ==.6.sysvq0asl ==.7.sysvq0asl ==.8.sysvq0asl ==.9.sysvq0asl ==.10.sysvq0asl ==.11.sysvq0asl ==.12.sysvq0asl ==.13.sysvq0asl ==.14.sysvq0asl ==.15.sysvq0asl ==.16.sysvq0asl ==.17.sysvq0asl ==.18.sysvq0asl ==.20.sysvq0asl ==.21.sysvq0asl ==.22.sysvq0asl ==.24.sysvq0asl ==.25.sysvq0asl ==.26.sysvq0asl)mant~5
+               (suf@3 0u "u64"))c_fpZero.0.@F)
+             (else@R c_fpSubnormal.0.@6)))))
+         (else@,2
+          (stmts@6 c_fpNormal.0.)))))))
+    (ret@A,F result.2)))
+  (func@,Y :c_frexp.0.@5 . . .
+   (params@C
+    (param@1 :x.22 .
+     (pragmas
+      (header~6,~1 "<math.h>"@B,~d))
+     (f@3 32).)
+    (param@D :exponent.0 .
+     (pragmas
+      (header~I,~1 "<math.h>"@B,~d))
+     (ptr@A
+      (i@b,e,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/ctypes.nim 32
+       (importc "int"))
+      (notnil)).))
+   (f@Y 32)
+   (pragmas@s
+    (importc@2 "frexpf"@9)
+    (header~l,~1 "<math.h>"@B,~d)). .)
+  (func@,Z :c_frexp.1.@5 . . .
+   (params@C
+    (param@1 :x.23 .
+     (pragmas
+      (header~6,~2 "<math.h>"@B,~d))
+     (f@3 64).)
+    (param@D :exponent.1 .
+     (pragmas
+      (header~I,~2 "<math.h>"@B,~d))
+     (ptr@A
+      (i@b,e,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/ctypes.nim 32
+       (importc "int"))
+      (notnil)).))
+   (f@Y 64)
+   (pragmas@s
+    (importc@2 "frexp"@9)
+    (header~l,~2 "<math.h>"@B,~d)). .))
+ (type@E,22 :FloatClass.0.~C x . .
+  (enum@2
+   (u 8)
+   (efld~C,3 :fcNormal.0. x . FloatClass.0.
+    (tup 0 "fcNormal"))
+   (efld~C,4 :fcSubnormal.0. x . FloatClass.0.
+    (tup 1 "fcSubnormal"))
+   (efld~C,5 :fcZero.0. x . FloatClass.0.
+    (tup 2 "fcZero"))
+   (efld~C,6 :fcNegZero.0. x . FloatClass.0.
+    (tup 3 "fcNegZero"))
+   (efld~C,7 :fcNan.0. x . FloatClass.0.
+    (tup 4 "fcNan"))
+   (efld~C,8 :fcInf.0. x . FloatClass.0.
+    (tup 5 "fcInf"))
+   (efld~C,9 :fcNegInf.0. x . FloatClass.0.
+    (tup 6 "fcNegInf"))))
+ (func@2,22 :dollar`.FloatClass.0. x . .
+  (params
+   (param :e.0 . . FloatClass.0. .))string.0.sysvq0asl . .
+  (stmts
+   (result@E :result.3 . . string.0.sysvq0asl .)
+   (case@E e.0
+    (of~C,3
+     (ranges fcNormal.0.)
+     (stmts
+      (ret "fcNormal")))
+    (of~C,4
+     (ranges fcSubnormal.0.)
+     (stmts
+      (ret "fcSubnormal")))
+    (of~C,5
+     (ranges fcZero.0.)
+     (stmts
+      (ret "fcZero")))
+    (of~C,6
+     (ranges fcNegZero.0.)
+     (stmts
+      (ret "fcNegZero")))
+    (of~C,7
+     (ranges fcNan.0.)
+     (stmts
+      (ret "fcNan")))
+    (of~C,8
+     (ranges fcInf.0.)
+     (stmts
+      (ret "fcInf")))
+    (of~C,9
+     (ranges fcNegInf.0.)
+     (stmts
+      (ret "fcNegInf"))))
+   (ret@2,9 result.3)))
+ (func@,2D :signbit.0.@5 x .
+  (typevars@D
+   (typevar@1 :T.3. . .
+    (or@S,z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim
+     (f~D 64)
+     (f~7 32)
+     (f@1 64)).))
+  (params@R
+   (param@1 :x.24 . . T.3.@3 .))
+  (bool@8)
+  (pragmas@e
+   (inline@2)).
+  (stmts@2,1
+   (result :result.4 . .
+    (bool@G,~25).@G,~25)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (asgn@D,7 result.4
+    (expr@2,1l,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+     (not@,1
+      (eq@7
+       (i@8,~f 64)
+       (call@B,2M,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim c_signbit.0.~9 x.24@1)0@I,2M,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim))))
+   (ret@G,7 result.4)))
+ (func@,2O :copySign.0.@5 x . .
+  (params@E
+   (param@1 :x.25 .
+    (pragmas
+     (header~8,~1 "<math.h>"@D,~1M))
+    (f@6 32).)
+   (param@4 :y.13 .
+    (pragmas
+     (header~B,~1 "<math.h>"@D,~1M))
+    (f@3 32).))
+  (f@H 32)
+  (pragmas@d
+   (importc@2 "copysignf"@9)
+   (header~W,~1 "<math.h>"@D,~1M)). .)
+ (func@,2P :copySign.1.@5 x . .
+  (params@E
+   (param@1 :x.26 .
+    (pragmas
+     (header~8,~2 "<math.h>"@D,~1M))
+    (f@6 64).)
+   (param@4 :y.14 .
+    (pragmas
+     (header~B,~2 "<math.h>"@D,~1M))
+    (f@3 64).))
+  (f@H 64)
+  (pragmas@d
+   (importc@2 "copysign"@9)
+   (header~W,~2 "<math.h>"@D,~1M)).
+  (stmts@2,1
+   (result :result.5 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.5)))
+ (func@,2a :classify.0.@5 x .
+  (typevars@E
+   (typevar@1 :T.4. . .
+    (or@S,z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim
+     (f~D 64)
+     (f~7 32)
+     (f@1 64)).))
+  (params@S
+   (param@1 :x.27 . . T.4.@3 .))FloatClass.0.@8
+  (pragmas@l
+   (inline@2)).
+  (stmts@2,1
+   (result :result.6 . . FloatClass.0.@,~Z .@,~Z)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (let@4,9 :r.1 . .
+    (i@4,~1X 64)
+    (call@G c_fpclassify.0.~C x.27@1))
+   (if@,A
+    (elif@3
+     (eq@2
+      (i@H,17,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)r.1~2 c_fpNormal.0.@3)
+     (stmts~1,1
+      (asgn@7 result.6~7 fcNormal.0.@2)))
+    (elif@5,2
+     (eq@2
+      (i@H,17,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)r.1~2 c_fpSubnormal.0.@3)
+     (stmts~3,1
+      (asgn@7 result.6~7 fcSubnormal.0.@2)))
+    (elif@5,4
+     (eq@2
+      (i@H,17,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)r.1~2 c_fpZero.0.@3)
+     (stmts~3,1
+      (asgn@7 result.6~7
+       (if@2
+        (elif@3
+         (call@7 signbit.0.~7 x.27@1)
+         (expr@C fcNegZero.0.))
+        (else@P
+         (expr@6 fcZero.0.))))))
+    (elif@5,6
+     (eq@2
+      (i@H,17,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)r.1~2 c_fpNan.0.@3)
+     (stmts~3,1
+      (asgn@7 result.6~7 fcNan.0.@2)))
+    (elif@5,8
+     (eq@2
+      (i@H,17,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)r.1~2 c_fpInfinite.0.@3)
+     (stmts~3,1
+      (asgn@7 result.6~7
+       (if@2
+        (elif@3
+         (call@7 signbit.0.~7 x.27@1)
+         (expr@C fcNegInf.0.))
+        (else@O
+         (expr@6 fcInf.0.))))))
+    (else@,A
+     (stmts@2,2
+      (asgn@7 result.6~7 fcNan.0.@2))))
+   (ret@B,M result.6)))
+ (func@,2z :isNaN.0.@5 x .
+  (typevars@B
+   (typevar@1 :T.5. . .
+    (or@S,z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim
+     (f~D 64)
+     (f~7 32)
+     (f@1 64)).))
+  (params@P
+   (param@1 :x.28 . . T.5.@3 .))
+  (bool@8)
+  (pragmas@c
+   (inline@2)).
+  (stmts@2,1
+   (result :result.7 . .
+    (bool@G,~2r).@G,~2r)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (asgn@B,6 result.7
+    (expr@2,1l,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+     (not@,1
+      (eq@7
+       (i@8,~f 64)
+       (call@9,37,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim c_isnan.0.~7 x.28@1)0@G,37,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim))))
+   (ret@E,6 result.7)))
+ (func@,38 :almostEqual.0.@5 x .
+  (typevars@H
+   (typevar@1 :T.6. . .
+    (or@S,z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim
+     (f~D 64)
+     (f~7 32)
+     (f@1 64)).))
+  (params@V
+   (param@1 :x.29 . . T.6.@6 .)
+   (param@4 :y.15 . . T.6.@3 .)
+   (param@A :unitsInLastPlace.0 . .
+    (i~V,~1v 64)4@O))
+  (bool@c)
+  (pragmas@1C
+   (untyped~18,1)).
+  (stmts@2,2
+   (comment)
+   (call@,E runnableExamples.0.sysvq0asl
+    (stmts@2,1
+     (cmd assert.0.assy765wm
+      (call@I almostEqual.0.~B PI.0.@1 3.14159265358979@5))
+     (cmd@,1 assert.0.assy765wm
+      (call@I almostEqual.0.~B Inf.0.sysvq0asl@1 Inf.0.sysvq0asl@6))
+     (cmd@,2 assert.0.assy765wm
+      (prefix@7
+       (ochoice not.0.sysvq0asl not.1.sysvq0asl not.2.sysvq0asl not.3.sysvq0asl not.4.sysvq0asl not.5.sysvq0asl not.6.sysvq0asl not.7.sysvq0asl not.8.sysvq0asl)
+       (call@F almostEqual.0.~B NaN.0.sysvq0asl@1 NaN.0.sysvq0asl@6)))))
+   (if@,J
+    (elif@3
+     (infix@2
+      (ochoice ==.0.sysvq0asl ==.1.sysvq0asl ==.2.sysvq0asl ==.3.sysvq0asl ==.4.sysvq0asl ==.5.sysvq0asl ==.6.sysvq0asl ==.7.sysvq0asl ==.8.sysvq0asl ==.9.sysvq0asl ==.10.sysvq0asl ==.11.sysvq0asl ==.12.sysvq0asl ==.13.sysvq0asl ==.14.sysvq0asl ==.15.sysvq0asl ==.16.sysvq0asl ==.17.sysvq0asl ==.18.sysvq0asl ==.20.sysvq0asl ==.21.sysvq0asl ==.22.sysvq0asl ==.24.sysvq0asl ==.25.sysvq0asl ==.26.sysvq0asl)x.29~2 y.15@3)
+     (stmts~1,3
+      (ret true.0.sysvq0asl@7))))
+   (let@4,N diff . . .
+    (call@A abs.0.sysvq0asl~3
+     (infix@3
+      (ochoice \2D.0.sysvq0asl \2D.1.sysvq0asl \2D.2.sysvq0asl \2D.3.sysvq0asl \2D.4.sysvq0asl \2D.5.sysvq0asl \2D.6.sysvq0asl \2D.7.sysvq0asl \2D.8.sysvq0asl \2D.9.sysvq0asl \2D.10.sysvq0asl \2D.11.sysvq0asl \2D.12.sysvq0asl \2D.13.sysvq0asl \2D.14.sysvq0asl \2D.15.sysvq0asl \2D.16.sysvq0asl)x.29~2 y.15@2)))
+   (ret@,O
+    (infix@z
+     (ochoice or.0.sysvq0asl or.1.sysvq0asl or.2.sysvq0asl or.3.sysvq0asl or.4.sysvq0asl or.5.sysvq0asl or.6.sysvq0asl or.7.sysvq0asl or.8.sysvq0asl)
+     (infix~n
+      (ochoice <=.0.sysvq0asl <=.1.sysvq0asl <=.2.sysvq0asl <=.3.sysvq0asl <=.4.sysvq0asl <=.5.sysvq0asl <=.6.sysvq0asl <=.7.sysvq0asl <=.8.sysvq0asl <=.9.sysvq0asl <=.10.sysvq0asl <=.11.sysvq0asl <=.12.sysvq0asl <=.13.sysvq0asl <=.14.sysvq0asl <=.15.sysvq0asl <=.16.sysvq0asl <=.17.sysvq0asl <=.19.sysvq0asl)diff~5
+      (infix@R
+       (ochoice *.0.sysvq0asl *.1.sysvq0asl *.2.sysvq0asl *.3.sysvq0asl *.4.sysvq0asl *.5.sysvq0asl *.6.sysvq0asl *.7.sysvq0asl *.8.sysvq0asl *.9.sysvq0asl *.10.sysvq0asl)
+       (infix~D
+        (ochoice *.0.sysvq0asl *.1.sysvq0asl *.2.sysvq0asl *.3.sysvq0asl *.4.sysvq0asl *.5.sysvq0asl *.6.sysvq0asl *.7.sysvq0asl *.8.sysvq0asl *.9.sysvq0asl *.10.sysvq0asl)
+        (call~4
+         (ochoice~7 epsilon.0.fen2xhzfd epsilon.1.fen2xhzfd)T.6.@1)
+        (call@5 abs.0.sysvq0asl~3
+         (infix@3
+          (ochoice \2B.0.sysvq0asl \2B.1.sysvq0asl \2B.2.sysvq0asl \2B.3.sysvq0asl \2B.4.sysvq0asl \2B.5.sysvq0asl \2B.6.sysvq0asl \2B.7.sysvq0asl \2B.8.sysvq0asl \2B.9.sysvq0asl \2B.10.sysvq0asl \2B.11.sysvq0asl \2B.12.sysvq0asl \2B.13.sysvq0asl \2B.14.sysvq0asl \2B.15.sysvq0asl \2B.16.sysvq0asl)x.29~2 y.15@2)))
+       (call@3 T.6.~1 unitsInLastPlace.0@1)))
+     (infix@8
+      (ochoice <.0.sysvq0asl <.1.sysvq0asl <.2.sysvq0asl <.3.sysvq0asl <.4.sysvq0asl <.5.sysvq0asl <.6.sysvq0asl <.7.sysvq0asl <.8.sysvq0asl <.9.sysvq0asl <.10.sysvq0asl <.11.sysvq0asl <.12.sysvq0asl <.13.sysvq0asl <.14.sysvq0asl <.15.sysvq0asl <.17.sysvq0asl)diff~5
+      (call@M
+       (ochoice~K minimumPositiveValue.0.fen2xhzfd minimumPositiveValue.1.fen2xhzfd)T.6.@1))))))
+ (func@,3a :sgn.0.@5 x .
+  (typevars@9
+   (typevar@1 :T.7. . .
+    (and@E
+     (or@R,12,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim
+      (or@3,~6
+       (or@9,~6
+        (i~K 64)
+        (i~G 8)
+        (i~B 16)
+        (i~5 32)
+        (i@1 64))
+       (or@F,~3
+        (u~O 64)
+        (u~J 8)
+        (u~D 16)
+        (u~6 32)
+        (u@1 64)))
+      (or@1,~3
+       (f~D 64)
+       (f~7 32)
+       (f@1 64)))Comparable.0.sysvq0asl@4).))
+  (params@d
+   (param@1 :x.30 . . T.7.@3 .))
+  (i@8 64)
+  (pragmas@p
+   (inline@2)).
+  (stmts@2,1
+   (result :result.8 . .
+    (i@8,~2O 64).@8,~2O)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (asgn@E,B result.8
+    (sub
+     (i@G,r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+     (expr@2,3b,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+      (conv@3,2
+       (i@U,E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/defaults.nim 64)
+       (infix@B,3n,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+        (ochoice <.0.sysvq0asl <.1.sysvq0asl <.2.sysvq0asl <.3.sysvq0asl <.4.sysvq0asl <.5.sysvq0asl <.6.sysvq0asl <.7.sysvq0asl <.8.sysvq0asl <.9.sysvq0asl <.10.sysvq0asl <.11.sysvq0asl <.12.sysvq0asl <.13.sysvq0asl <.14.sysvq0asl <.15.sysvq0asl <.17.sysvq0asl)
+        (conv~4 T.7. 0@1)x.30@2)))
+     (expr@2,3b,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+      (conv@3,2
+       (i@U,E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/defaults.nim 64)
+       (infix@O,3n,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+        (ochoice <.0.sysvq0asl <.1.sysvq0asl <.2.sysvq0asl <.3.sysvq0asl <.4.sysvq0asl <.5.sysvq0asl <.6.sysvq0asl <.7.sysvq0asl <.8.sysvq0asl <.9.sysvq0asl <.10.sysvq0asl <.11.sysvq0asl <.12.sysvq0asl <.13.sysvq0asl <.14.sysvq0asl <.15.sysvq0asl <.17.sysvq0asl)x.30~2
+        (conv@3 T.7. 0@1))))))
+   (ret@Q,B result.8)))
+ (func@,3o :frexp.0.@5 x .
+  (typevars@B
+   (typevar@1 :T.8. . .
+    (or@S,z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim
+     (f~D 64)
+     (f~7 32)
+     (f@1 64)).))
+  (params@P
+   (param@1 :x.31 . . T.8.@3 .))
+  (tuple@8
+   (kv@E frac T.8.@6)
+   (kv@N exp
+    (i@5 64)))
+  (pragmas@w
+   (inline@2)
+   (untyped@A)).
+  (stmts@2,1
+   (comment)
+   (call@,3 runnableExamples.0.sysvq0asl
+    (stmts@2,1
+     (cmd assert.0.assy765wm
+      (infix@I
+       (ochoice ==.0.sysvq0asl ==.1.sysvq0asl ==.2.sysvq0asl ==.3.sysvq0asl ==.4.sysvq0asl ==.5.sysvq0asl ==.6.sysvq0asl ==.7.sysvq0asl ==.8.sysvq0asl ==.9.sysvq0asl ==.10.sysvq0asl ==.11.sysvq0asl ==.12.sysvq0asl ==.13.sysvq0asl ==.14.sysvq0asl ==.15.sysvq0asl ==.16.sysvq0asl ==.17.sysvq0asl ==.18.sysvq0asl ==.20.sysvq0asl ==.21.sysvq0asl ==.22.sysvq0asl ==.24.sysvq0asl ==.25.sysvq0asl ==.26.sysvq0asl)
+       (call~6 frexp.0.~5 8.0@1)
+       (tup@3 0.5@1 4@6)))
+     (cmd@,1 assert.0.assy765wm
+      (infix@J
+       (ochoice ==.0.sysvq0asl ==.1.sysvq0asl ==.2.sysvq0asl ==.3.sysvq0asl ==.4.sysvq0asl ==.5.sysvq0asl ==.6.sysvq0asl ==.7.sysvq0asl ==.8.sysvq0asl ==.9.sysvq0asl ==.10.sysvq0asl ==.11.sysvq0asl ==.12.sysvq0asl ==.13.sysvq0asl ==.14.sysvq0asl ==.15.sysvq0asl ==.16.sysvq0asl ==.17.sysvq0asl ==.18.sysvq0asl ==.20.sysvq0asl ==.21.sysvq0asl ==.22.sysvq0asl ==.24.sysvq0asl ==.25.sysvq0asl ==.26.sysvq0asl)
+       (call~7 frexp.0.~5 -8.0@1)
+       (tup@3 -0.5@1 4@7)))
+     (cmd@,2 assert.0.assy765wm
+      (infix@I
+       (ochoice ==.0.sysvq0asl ==.1.sysvq0asl ==.2.sysvq0asl ==.3.sysvq0asl ==.4.sysvq0asl ==.5.sysvq0asl ==.6.sysvq0asl ==.7.sysvq0asl ==.8.sysvq0asl ==.9.sysvq0asl ==.10.sysvq0asl ==.11.sysvq0asl ==.12.sysvq0asl ==.13.sysvq0asl ==.14.sysvq0asl ==.15.sysvq0asl ==.16.sysvq0asl ==.17.sysvq0asl ==.18.sysvq0asl ==.20.sysvq0asl ==.21.sysvq0asl ==.22.sysvq0asl ==.24.sysvq0asl ==.25.sysvq0asl ==.26.sysvq0asl)
+       (call~6 frexp.0.~5 0.0@1)
+       (tup@3 0.0@1 0@6)))
+     (cmd@,5 assert.0.assy765wm
+      (dot@N
+       (dot~5
+        (call~6 frexp.0.~5 -0.0@1)frac@1)signbit.0.@1))
+     (cmd@,6 assert.0.assy765wm
+      (infix@N
+       (ochoice ==.0.sysvq0asl ==.1.sysvq0asl ==.2.sysvq0asl ==.3.sysvq0asl ==.4.sysvq0asl ==.5.sysvq0asl ==.6.sysvq0asl ==.7.sysvq0asl ==.8.sysvq0asl ==.9.sysvq0asl ==.10.sysvq0asl ==.11.sysvq0asl ==.12.sysvq0asl ==.13.sysvq0asl ==.14.sysvq0asl ==.15.sysvq0asl ==.16.sysvq0asl ==.17.sysvq0asl ==.18.sysvq0asl ==.20.sysvq0asl ==.21.sysvq0asl ==.22.sysvq0asl ==.24.sysvq0asl ==.25.sysvq0asl ==.26.sysvq0asl)
+       (dot~6
+        (call~5 frexp.0.~5 Inf.0.sysvq0asl@1)frac@1)Inf.0.sysvq0asl@3))
+     (cmd@,7 assert.0.assy765wm
+      (dot@M
+       (dot~5
+        (call~5 frexp.0.~5 NaN.0.sysvq0asl@1)frac@1)isNaN.0.@1))))
+   (var@4,D exp . . .
+    (call@A cint.0.sysvq0asl~4 0@1))
+   (let@4,E frac . . .
+    (call@E
+     (ochoice~7 c_frexp.0. c_frexp.1.)x.31@1
+     (cmd@9 addr.0.sysvq0asl~5 exp)))
+   (asgn@7,F result~7
+    (tup@2
+     (kv@5 frac~4 frac@2)
+     (kv@G exp~3
+      (dot@5 exp~3 int.0.sysvq0asl@1))))))
+ (func@,47 :floor.0.@5 x . .
+  (params@B
+   (param@1 :x.32 .
+    (pragmas
+     (header~5,~1 "<math.h>"@D,~35))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@X
+   (importc@2 "floorf"@9)
+   (header~Q,~1 "<math.h>"@D,~35)). .)
+ (func@,48 :floor.1.@5 x . .
+  (params@B
+   (param@1 :x.33 .
+    (pragmas
+     (header~5,~2 "<math.h>"@D,~35))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@X
+   (importc@2 "floor"@9)
+   (header~Q,~2 "<math.h>"@D,~35)).
+  (stmts@2,1
+   (result :result.9 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.9)))
+ (func@,4K :ceil.0.@5 x . .
+  (params@A
+   (param@1 :x.34 .
+    (pragmas
+     (header~4,~E "<math.h>"@D,~35))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@W
+   (importc@2 "ceilf"@9)
+   (header~P,~E "<math.h>"@D,~35)). .)
+ (func@,4L :ceil.1.@5 x . .
+  (params@A
+   (param@1 :x.35 .
+    (pragmas
+     (header~4,~F "<math.h>"@D,~35))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@W
+   (importc@2 "ceil"@9)
+   (header~P,~F "<math.h>"@D,~35)).
+  (stmts@2,1
+   (result :result.10 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.10)))
+ (func@,4Y :round.0.@5 x . .
+  (params@B
+   (param@1 :x.36 .
+    (pragmas
+     (header~5,~S "<math.h>"@D,~35))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@X
+   (importc@2 "roundf"@9)
+   (header~Q,~S "<math.h>"@D,~35)). .)
+ (func@,4Z :round.1.@5 x . .
+  (params@B
+   (param@1 :x.37 .
+    (pragmas
+     (header~5,~T "<math.h>"@D,~35))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@X
+   (importc@2 "round"@9)
+   (header~Q,~T "<math.h>"@D,~35)).
+  (stmts@2,1
+   (result :result.11 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.11)))
+ (func@,4l :trunc.0.@5 x . .
+  (params@B
+   (param@1 :x.38 .
+    (pragmas
+     (header~5,~f "<math.h>"@D,~35))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@X
+   (importc@2 "truncf"@9)
+   (header~Q,~f "<math.h>"@D,~35)). .)
+ (func@,4m :trunc.1.@5 x . .
+  (params@B
+   (param@1 :x.39 .
+    (pragmas
+     (header~5,~g "<math.h>"@D,~35))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@X
+   (importc@2 "trunc"@9)
+   (header~Q,~g "<math.h>"@D,~35)).
+  (stmts@2,1
+   (result :result.12 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.12)))
+ (func@,4x :mod.1.@5 x . .
+  (params@B
+   (param@1 :x.40 .
+    (pragmas
+     (header~5,~r "<math.h>"@D,~35))
+    (f@6 32).)
+   (param@4 :y.16 .
+    (pragmas
+     (header~8,~r "<math.h>"@D,~35))
+    (f@3 32).))
+  (f@H 32)
+  (pragmas@a
+   (importc@2 "fmodf"@9)
+   (header~T,~r "<math.h>"@D,~35)). .)
+ (func@,4y :mod.2.@5 x . .
+  (params@B
+   (param@1 :x.41 .
+    (pragmas
+     (header~5,~s "<math.h>"@D,~35))
+    (f@6 64).)
+   (param@4 :y.17 .
+    (pragmas
+     (header~8,~s "<math.h>"@D,~35))
+    (f@3 64).))
+  (f@H 64)
+  (pragmas@a
+   (importc@2 "fmod"@9)
+   (header~T,~s "<math.h>"@D,~35)).
+  (stmts@2,1
+   (result :result.13 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.13)))
+ (func@,5A :floorMod.0.@5 x .
+  (typevars@E
+   (typevar@1 :T.9. . .
+    (and@E
+     (or@R,12,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim
+      (or@3,~6
+       (or@9,~6
+        (i~K 64)
+        (i~G 8)
+        (i~B 16)
+        (i~5 32)
+        (i@1 64))
+       (or@F,~3
+        (u~O 64)
+        (u~J 8)
+        (u~D 16)
+        (u~6 32)
+        (u@1 64)))
+      (or@1,~3
+       (f~D 64)
+       (f~7 32)
+       (f@1 64)))Arithmetic.0.@4).))
+  (params@i
+   (param@1 :x.42 . . T.9.@6 .)
+   (param@4 :y.18 . . T.9.@3 .))T.9.@B
+  (pragmas@v
+   (inline@2)).
+  (stmts@2,1
+   (result :result.14 . . T.9.@n,~1 .@n,~1)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (asgn@7,D result.14~7
+    (infix@4
+     (ochoice mod.1. mod.2. mod.0.sysvq0asl mod.1.sysvq0asl mod.2.sysvq0asl mod.3.sysvq0asl mod.4.sysvq0asl mod.5.sysvq0asl mod.6.sysvq0asl mod.7.sysvq0asl)x.42~2 y.18@4))
+   (if@,E
+    (elif@3
+     (or@T
+      (and~E
+       (infix~7 > result.14~7
+        (conv@3 T.9. 0@1))
+       (infix@6
+        (ochoice <.0.sysvq0asl <.1.sysvq0asl <.2.sysvq0asl <.3.sysvq0asl <.4.sysvq0asl <.5.sysvq0asl <.6.sysvq0asl <.7.sysvq0asl <.8.sysvq0asl <.9.sysvq0asl <.10.sysvq0asl <.11.sysvq0asl <.12.sysvq0asl <.13.sysvq0asl <.14.sysvq0asl <.15.sysvq0asl <.17.sysvq0asl)y.18~2
+        (conv@3 T.9. 0@1)))
+      (and@I
+       (infix~7
+        (ochoice <.0.sysvq0asl <.1.sysvq0asl <.2.sysvq0asl <.3.sysvq0asl <.4.sysvq0asl <.5.sysvq0asl <.6.sysvq0asl <.7.sysvq0asl <.8.sysvq0asl <.9.sysvq0asl <.10.sysvq0asl <.11.sysvq0asl <.12.sysvq0asl <.13.sysvq0asl <.14.sysvq0asl <.15.sysvq0asl <.17.sysvq0asl)result.14~7
+        (conv@3 T.9. 0@1))
+       (infix@6 > y.18~2
+        (conv@3 T.9. 0@1))))
+     (stmts~1,1
+      (asgn@7 result.14~7
+       (infix@9
+        (ochoice \2B.0.sysvq0asl \2B.1.sysvq0asl \2B.2.sysvq0asl \2B.3.sysvq0asl \2B.4.sysvq0asl \2B.5.sysvq0asl \2B.6.sysvq0asl \2B.7.sysvq0asl \2B.8.sysvq0asl \2B.9.sysvq0asl \2B.10.sysvq0asl \2B.11.sysvq0asl \2B.12.sysvq0asl \2B.13.sysvq0asl \2B.14.sysvq0asl \2B.15.sysvq0asl \2B.16.sysvq0asl)result.14~7 y.18@2)))))
+   (ret@K,F result.14)))
+ (func@,5S :floorDiv.0.@5 x .
+  (typevars@E
+   (typevar@1 :T.10. . .
+    (and@F
+     (or@U,w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim
+      (or@9,~6
+       (i~K 64)
+       (i~G 8)
+       (i~B 16)
+       (i~5 32)
+       (i@1 64))
+      (or@F,~3
+       (u~O 64)
+       (u~J 8)
+       (u~D 16)
+       (u~6 32)
+       (u@1 64)))IntegerArithmetic.0.@4).))
+  (params@q
+   (param@1 :x.43 . . T.10.@6 .)
+   (param@4 :y.19 . . T.10.@3 .))T.10.@B
+  (pragmas@13
+   (inline@2)).
+  (stmts@2,1
+   (result :result.15 . . T.10.@v,~1 .@v,~1)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (asgn@7,F result.15~7
+    (infix@4
+     (ochoice div.0.sysvq0asl div.1.sysvq0asl div.2.sysvq0asl div.3.sysvq0asl div.4.sysvq0asl div.5.sysvq0asl div.6.sysvq0asl div.7.sysvq0asl)x.43~2 y.19@4))
+   (let@4,G :r.2 . . T.10.@r,~H
+    (infix@6
+     (ochoice mod.1. mod.2. mod.0.sysvq0asl mod.1.sysvq0asl mod.2.sysvq0asl mod.3.sysvq0asl mod.4.sysvq0asl mod.5.sysvq0asl mod.6.sysvq0asl mod.7.sysvq0asl)x.43~2 y.19@4))
+   (if@,H
+    (elif@3
+     (or@O
+      (and~E
+       (infix~7 > r.2~2
+        (conv@3 T.10. 0@1))
+       (infix@6
+        (ochoice <.0.sysvq0asl <.1.sysvq0asl <.2.sysvq0asl <.3.sysvq0asl <.4.sysvq0asl <.5.sysvq0asl <.6.sysvq0asl <.7.sysvq0asl <.8.sysvq0asl <.9.sysvq0asl <.10.sysvq0asl <.11.sysvq0asl <.12.sysvq0asl <.13.sysvq0asl <.14.sysvq0asl <.15.sysvq0asl <.17.sysvq0asl)y.19~2
+        (conv@3 T.10. 0@1)))
+      (and@D
+       (infix~7
+        (ochoice <.0.sysvq0asl <.1.sysvq0asl <.2.sysvq0asl <.3.sysvq0asl <.4.sysvq0asl <.5.sysvq0asl <.6.sysvq0asl <.7.sysvq0asl <.8.sysvq0asl <.9.sysvq0asl <.10.sysvq0asl <.11.sysvq0asl <.12.sysvq0asl <.13.sysvq0asl <.14.sysvq0asl <.15.sysvq0asl <.17.sysvq0asl)r.2~2
+        (conv@3 T.10. 0@1))
+       (infix@6 > y.19~2
+        (conv@3 T.10. 0@1))))
+     (stmts~1,1
+      (asgn@7 result.15~7
+       (infix@9
+        (ochoice \2D.0.sysvq0asl \2D.1.sysvq0asl \2D.2.sysvq0asl \2D.3.sysvq0asl \2D.4.sysvq0asl \2D.5.sysvq0asl \2D.6.sysvq0asl \2D.7.sysvq0asl \2D.8.sysvq0asl \2D.9.sysvq0asl \2D.10.sysvq0asl \2D.11.sysvq0asl \2D.12.sysvq0asl \2D.13.sysvq0asl \2D.14.sysvq0asl \2D.15.sysvq0asl \2D.16.sysvq0asl)result.15~7
+        (conv@3 T.10. 1@1))))))
+   (ret@M,I result.15)))
+ (func@,5n :euclDiv.0.@5 x .
+  (typevars@D
+   (typevar@1 :T.11. . .
+    (and@F
+     (or@U,w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim
+      (or@9,~6
+       (i~K 64)
+       (i~G 8)
+       (i~B 16)
+       (i~5 32)
+       (i@1 64))
+      (or@F,~3
+       (u~O 64)
+       (u~J 8)
+       (u~D 16)
+       (u~6 32)
+       (u@1 64)))IntegerArithmetic.0.@4).))
+  (params@p
+   (param@1 :x.44 . . T.11.@6 .)
+   (param@4 :y.20 . . T.11.@3 .))T.11.@B
+  (pragmas@12
+   (inline@2)).
+  (stmts@2,1
+   (result :result.16 . . T.11.@u,~1 .@u,~1)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (asgn@7,7 result.16~7
+    (infix@4
+     (ochoice div.0.sysvq0asl div.1.sysvq0asl div.2.sysvq0asl div.3.sysvq0asl div.4.sysvq0asl div.5.sysvq0asl div.6.sysvq0asl div.7.sysvq0asl)x.44~2 y.20@4))
+   (if@,8
+    (elif@3
+     (infix@8
+      (ochoice <.0.sysvq0asl <.1.sysvq0asl <.2.sysvq0asl <.3.sysvq0asl <.4.sysvq0asl <.5.sysvq0asl <.6.sysvq0asl <.7.sysvq0asl <.8.sysvq0asl <.9.sysvq0asl <.10.sysvq0asl <.11.sysvq0asl <.12.sysvq0asl <.13.sysvq0asl <.14.sysvq0asl <.15.sysvq0asl <.17.sysvq0asl)
+      (infix~6
+       (ochoice mod.1. mod.2. mod.0.sysvq0asl mod.1.sysvq0asl mod.2.sysvq0asl mod.3.sysvq0asl mod.4.sysvq0asl mod.5.sysvq0asl mod.6.sysvq0asl mod.7.sysvq0asl)x.44~2 y.20@4)0@2)
+     (stmts~1,1
+      (if
+       (elif@3
+        (infix@2 > y.20~2
+         (conv@3 T.11. 0@1))
+        (stmts~1,1
+         (cmd dec.1.sysvq0asl result.16@4)))
+       (else@,2
+        (stmts@2,1
+         (cmd inc.1.sysvq0asl result.16@4)))))))
+   (ret@8,C result.16)))
+ (func@,62 :euclMod.0.@5 x .
+  (typevars@D
+   (typevar@1 :T.12. . .
+    (and@E
+     (or@R,12,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim
+      (or@3,~6
+       (or@9,~6
+        (i~K 64)
+        (i~G 8)
+        (i~B 16)
+        (i~5 32)
+        (i@1 64))
+       (or@F,~3
+        (u~O 64)
+        (u~J 8)
+        (u~D 16)
+        (u~6 32)
+        (u@1 64)))
+      (or@1,~3
+       (f~D 64)
+       (f~7 32)
+       (f@1 64)))SignedArithmetic.0.@4).))
+  (params@n
+   (param@1 :x.45 . . T.12.@6 .)
+   (param@4 :y.21 . . T.12.@3 .))T.12.@B
+  (pragmas@10
+   (inline@2)).
+  (stmts@2,1
+   (result :result.17 . . T.12.@s,~1 .@s,~1)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (asgn@7,8 result.17~7
+    (infix@4
+     (ochoice mod.1. mod.2. mod.0.sysvq0asl mod.1.sysvq0asl mod.2.sysvq0asl mod.3.sysvq0asl mod.4.sysvq0asl mod.5.sysvq0asl mod.6.sysvq0asl mod.7.sysvq0asl)x.45~2 y.21@4))
+   (if@,9
+    (elif@3
+     (infix@7
+      (ochoice <.0.sysvq0asl <.1.sysvq0asl <.2.sysvq0asl <.3.sysvq0asl <.4.sysvq0asl <.5.sysvq0asl <.6.sysvq0asl <.7.sysvq0asl <.8.sysvq0asl <.9.sysvq0asl <.10.sysvq0asl <.11.sysvq0asl <.12.sysvq0asl <.13.sysvq0asl <.14.sysvq0asl <.15.sysvq0asl <.17.sysvq0asl)result.17~7 0@2)
+     (stmts~1,1
+      (asgn@7 result.17~7
+       (infix@9
+        (ochoice \2B.0.sysvq0asl \2B.1.sysvq0asl \2B.2.sysvq0asl \2B.3.sysvq0asl \2B.4.sysvq0asl \2B.5.sysvq0asl \2B.6.sysvq0asl \2B.7.sysvq0asl \2B.8.sysvq0asl \2B.9.sysvq0asl \2B.10.sysvq0asl \2B.11.sysvq0asl \2B.12.sysvq0asl \2B.13.sysvq0asl \2B.14.sysvq0asl \2B.15.sysvq0asl \2B.16.sysvq0asl)result.17~7
+        (call@5 abs.0.sysvq0asl~3 y.21@1))))))
+   (ret@O,A result.17)))
+ (template@,6F :ceilDivUint.0.@9 . .
+  (typevars@K
+   (typevar@1 :T.13. . .
+    (and@J
+     (or@j,t,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim
+      (u~O 64)
+      (u~J 8)
+      (u~D 16)
+      (u~6 32)
+      (u@1 64))IntegerArithmetic.0.@4).))
+  (params@10
+   (param@1 :x.46 . . T.13.@6 .)
+   (param@4 :y.22 . . T.13.@3 .))T.13.@B .@B .
+  (stmts@2,E
+   (infix@H
+    (ochoice div.0.sysvq0asl div.1.sysvq0asl div.2.sysvq0asl div.3.sysvq0asl div.4.sysvq0asl div.5.sysvq0asl div.6.sysvq0asl div.7.sysvq0asl)
+    (infix~E
+     (ochoice \2B.0.sysvq0asl \2B.1.sysvq0asl \2B.2.sysvq0asl \2B.3.sysvq0asl \2B.4.sysvq0asl \2B.5.sysvq0asl \2B.6.sysvq0asl \2B.7.sysvq0asl \2B.8.sysvq0asl \2B.9.sysvq0asl \2B.10.sysvq0asl \2B.11.sysvq0asl \2B.12.sysvq0asl \2B.13.sysvq0asl \2B.14.sysvq0asl \2B.15.sysvq0asl \2B.16.sysvq0asl)x.46~2
+     (infix@5
+      (ochoice \2D.0.sysvq0asl \2D.1.sysvq0asl \2D.2.sysvq0asl \2D.3.sysvq0asl \2D.4.sysvq0asl \2D.5.sysvq0asl \2D.6.sysvq0asl \2D.7.sysvq0asl \2D.8.sysvq0asl \2D.9.sysvq0asl \2D.10.sysvq0asl \2D.11.sysvq0asl \2D.12.sysvq0asl \2D.13.sysvq0asl \2D.14.sysvq0asl \2D.15.sysvq0asl \2D.16.sysvq0asl)y.22~2
+      (conv@3 T.13. 1@1)))y.22@4)))
+ (template@,6V :ceilDivSigned.0.@9 . .
+  (typevars@M
+   (typevar@1 :T.14. . .
+    (or@U,w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim
+     (or@9,~6
+      (i~K 64)
+      (i~G 8)
+      (i~B 16)
+      (i~5 32)
+      (i@1 64))
+     (or@F,~3
+      (u~O 64)
+      (u~J 8)
+      (u~D 16)
+      (u~6 32)
+      (u@1 64))).))
+  (params@c
+   (param@1 :x.47 . . T.14.@6 .)
+   (param@4 :y.23 . . T.14.@3 .)
+   (param@A :U.0 . .
+    (untyped@3).))T.14.@N
+  (pragmas@11
+   (untyped@2)).
+  (stmts@2,1
+   (call@1 T.14.~1
+    (call@C ceilDivUint.0.~B
+     (dot@2 x.47~1 U.0@1)
+     (dot@7 y.23~1 U.0@1)))))
+ (func@,6Y :ceilDiv.0.@5 x .
+  (typevars@D
+   (typevar@1 :T.15. . .
+    (and@F
+     (or@U,w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim
+      (or@9,~6
+       (i~K 64)
+       (i~G 8)
+       (i~B 16)
+       (i~5 32)
+       (i@1 64))
+      (or@F,~3
+       (u~O 64)
+       (u~J 8)
+       (u~D 16)
+       (u~6 32)
+       (u@1 64)))IntegerArithmetic.0.@4).))
+  (params@p
+   (param@1 :x.48 . . T.15.@6 .)
+   (param@4 :y.24 . . T.15.@3 .))T.15.@B
+  (pragmas@12
+   (inline@2)
+   (raises@A ErrorCode.0.sysvq0asl)).
+  (stmts@2,1
+   (result :result.18 . . T.15.@u,~1 .@u,~1)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (if@,L
+    (elif@3
+     (and@A
+      (expr@2,1p,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+       (le@2,1 T.15.@w,6Z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+        (conv@B,6v,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim T.15. 0@1)x.48@5,6v,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim))
+      (infix@6 > y.24~2
+       (conv@3 T.15. 0@1)))
+     (stmts~1,1
+      (discard .)))
+    (else@,2
+     (stmts@2,1
+      (raise RangeError.0.sysvq0asl@6))))
+   (when@,P
+    (elif@5
+     (is@2 T.15.~2 SomeUnsignedInt.0.sysvq0asl@3)
+     (stmts~3,1
+      (if
+       (elif@3
+        (infix@D >=.0.sysvq0asl
+         (infix~7
+          (ochoice \2D.0.sysvq0asl \2D.1.sysvq0asl \2D.2.sysvq0asl \2D.3.sysvq0asl \2D.4.sysvq0asl \2D.5.sysvq0asl \2D.6.sysvq0asl \2D.7.sysvq0asl \2D.8.sysvq0asl \2D.9.sysvq0asl \2D.10.sysvq0asl \2D.11.sysvq0asl \2D.12.sysvq0asl \2D.13.sysvq0asl \2D.14.sysvq0asl \2D.15.sysvq0asl \2D.16.sysvq0asl)
+          (infix~4
+           (ochoice \2B.0.sysvq0asl \2B.1.sysvq0asl \2B.2.sysvq0asl \2B.3.sysvq0asl \2B.4.sysvq0asl \2B.5.sysvq0asl \2B.6.sysvq0asl \2B.7.sysvq0asl \2B.8.sysvq0asl \2B.9.sysvq0asl \2B.10.sysvq0asl \2B.11.sysvq0asl \2B.12.sysvq0asl \2B.13.sysvq0asl \2B.14.sysvq0asl \2B.15.sysvq0asl \2B.16.sysvq0asl)x.48~2 y.24@2)
+          (call@3 T.15.~1 1@1))x.48@3)
+        (stmts~1,1
+         (discard .)))
+       (else@,2
+        (stmts@2,1
+         (raise RangeError.0.sysvq0asl@6)))))))
+   (asgn@7,V result.18~7
+    (when@3
+     (elif@5
+      (is@2 T.15.~2 int.0.sysvq0asl@3)
+      (stmts~3,1
+       (call@D ceilDivSigned.0.~D x.48@1 y.24@4 uint.0.sysvq0asl@7)))
+     (elif@5,2
+      (is@2 T.15.~2 int64.0.sysvq0asl@3)
+      (stmts~3,1
+       (call@D ceilDivSigned.0.~D x.48@1 y.24@4 uint64.0.sysvq0asl@7)))
+     (elif@5,4
+      (is@2 T.15.~2 int32.0.sysvq0asl@3)
+      (stmts~3,1
+       (call@D ceilDivSigned.0.~D x.48@1 y.24@4 uint32.0.sysvq0asl@7)))
+     (elif@5,6
+      (is@2 T.15.~2 int16.0.sysvq0asl@3)
+      (stmts~3,1
+       (call@D ceilDivSigned.0.~D x.48@1 y.24@4 uint16.0.sysvq0asl@7)))
+     (elif@5,8
+      (is@2 T.15.~2 int8.0.sysvq0asl@3)
+      (stmts~3,1
+       (call@D ceilDivSigned.0.~D x.48@1 y.24@4 uint8.0.sysvq0asl@7)))
+     (else@,A
+      (stmts@2,1
+       (call@B ceilDivUint.0.~B x.48@1 y.24@4)))))
+   (ret@R,g result.18)))
+ (func@,7H :divmod.0.@5 x .
+  (typevars@C
+   (typevar@1 :T.16. . .
+    (and@F
+     (or@U,w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim
+      (or@9,~6
+       (i~K 64)
+       (i~G 8)
+       (i~B 16)
+       (i~5 32)
+       (i@1 64))
+      (or@F,~3
+       (u~O 64)
+       (u~J 8)
+       (u~D 16)
+       (u~6 32)
+       (u@1 64)))IntegerArithmetic.0.@4).))
+  (params@o
+   (param@1 :x.49 . . T.16.@6 .)
+   (param@4 :y.25 . . T.16.@3 .))
+  (tuple@B T.16.@1 T.16.@4)
+  (pragmas@16
+   (inline@2)).
+  (stmts@2,1
+   (result :result.19 . .
+    (tuple@9,~1 T.16.@1 T.16.@4).@D,~1)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (asgn@,A result.19
+    (tupconstr
+     (tuple@9,~B T.16.@1 T.16.@4)
+     (infix@3
+      (ochoice div.0.sysvq0asl div.1.sysvq0asl div.2.sysvq0asl div.3.sysvq0asl div.4.sysvq0asl div.5.sysvq0asl div.6.sysvq0asl div.7.sysvq0asl)x.49~2 y.25@4)
+     (infix@C
+      (ochoice mod.1. mod.2. mod.0.sysvq0asl mod.1.sysvq0asl mod.2.sysvq0asl mod.3.sysvq0asl mod.4.sysvq0asl mod.5.sysvq0asl mod.6.sysvq0asl mod.7.sysvq0asl)x.49~2 y.25@4)))
+   (ret@G,A result.19)))
+ (func@,7U :sum.0.@5 x .
+  (typevars@9
+   (typevar@1 :T.17. . .
+    (and@E HasDefault.0.sysvq0asl~B Arithmetic.0.@4).))
+  (params@d
+   (param@1 :x.50 . .
+    (at@C openArray.0.sysvq0asl~9 T.17.@1).))T.17.@J .@J .
+  (stmts@2,1
+   (result :result.20 . . T.17.@H,~1 .@H,~1)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (asgn@7,9 result.20~7
+    (call@9
+     (ochoice~7 default.1.sysvq0asl default.2.sysvq0asl default.3.sysvq0asl default.4.sysvq0asl default.5.sysvq0asl default.6.sysvq0asl default.7.sysvq0asl default.8.sysvq0asl default.9.sysvq0asl default.10.sysvq0asl default.11.sysvq0asl default.12.sysvq0asl default.13.sysvq0asl default.14.sysvq0asl default.15.sysvq0asl default.16.sysvq0asl default.17.sysvq0asl default.18.sysvq0asl default.19.sysvq0asl default.20.sysvq0asl default.21.sysvq0asl default.22.sysvq0asl default.23.sysvq0asl default.24.sysvq0asl default.25.sysvq0asl)T.17.@1))
+   (for@4,A
+    (call@A items.2.sysvq0asl~5 x.50@1)
+    (unpackflat
+     (let :i.0 . .
+      (mut@J,l,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/openarrays.nim T.17.@r,7V,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim).))
+    (stmts@F
+     (asgn@7 result.20~7
+      (infix@9
+       (ochoice \2B.0.sysvq0asl \2B.1.sysvq0asl \2B.2.sysvq0asl \2B.3.sysvq0asl \2B.4.sysvq0asl \2B.5.sysvq0asl \2B.6.sysvq0asl \2B.7.sysvq0asl \2B.8.sysvq0asl \2B.9.sysvq0asl \2B.10.sysvq0asl \2B.11.sysvq0asl \2B.12.sysvq0asl \2B.13.sysvq0asl \2B.14.sysvq0asl \2B.15.sysvq0asl \2B.16.sysvq0asl)result.20~7 i.0@2))))
+   (ret@b,A result.20)))
+ (func@,7h :cumsum.0.@5 x .
+  (typevars@C
+   (typevar@1 :T.18. . . Arithmetic.0.@3 .))
+  (params@R
+   (param@1 :x.51 . .
+    (mut@3
+     (at@D openArray.0.sysvq0asl~9 T.18.@1)).)). . .
+  (stmts@2,1
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (for@4,C
+    (infix@7 \2E.<.0.sysvq0asl 1~2
+     (call@5 len.6.sysvq0asl@1 x.51~1))
+    (unpackflat
+     (let :i.1 . .
+      (i@4,~6h 64).))
+    (stmts@I
+     (call \5B\5D=.10.sysvq0asl x.51 i.1@2
+      (infix@G
+       (ochoice \2B.0.sysvq0asl \2B.1.sysvq0asl \2B.2.sysvq0asl \2B.3.sysvq0asl \2B.4.sysvq0asl \2B.5.sysvq0asl \2B.6.sysvq0asl \2B.7.sysvq0asl \2B.8.sysvq0asl \2B.9.sysvq0asl \2B.10.sysvq0asl \2B.11.sysvq0asl \2B.12.sysvq0asl \2B.13.sysvq0asl \2B.14.sysvq0asl \2B.15.sysvq0asl \2B.16.sysvq0asl)
+       (call~9 \5B\5D.10.sysvq0asl x.51
+        (sub@4
+         (i@G,r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)i.1~2 1@2))
+       (call@2 \5B\5D.10.sysvq0asl x.51 i.1@2)))))))
+ (func@,7w :prod.0.@5 x .
+  (typevars@A
+   (typevar@1 :T.19. . .
+    (and@E HasDefault.0.sysvq0asl~B Arithmetic.0.@4).))
+  (params@e
+   (param@1 :x.52 . .
+    (at@C openArray.0.sysvq0asl~9 T.19.@1).))T.19.@J .@J .
+  (stmts@2,1
+   (result :result.21 . . T.19.@H,~1 .@H,~1)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (asgn@7,B result.21~7
+    (conv@3 T.19. 1@1))
+   (for@4,C
+    (call@A items.2.sysvq0asl~5 x.52@1)
+    (unpackflat
+     (let :i.2 . .
+      (mut@J,l,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/openarrays.nim T.19.@s,7x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim).))
+    (stmts@F
+     (asgn@7 result.21~7
+      (infix@9
+       (ochoice *.0.sysvq0asl *.1.sysvq0asl *.2.sysvq0asl *.3.sysvq0asl *.4.sysvq0asl *.5.sysvq0asl *.6.sysvq0asl *.7.sysvq0asl *.8.sysvq0asl *.9.sysvq0asl *.10.sysvq0asl)result.21~7 i.2@2))))
+   (ret@b,C result.21)))
+ (func@,8B :cumprod.0.@5 x .
+  (typevars@D
+   (typevar@1 :T.20. . . Arithmetic.0.@3 .))
+  (params@S
+   (param@1 :x.53 . .
+    (mut@3
+     (at@D openArray.0.sysvq0asl~9 T.20.@1)).)). . .
+  (stmts@2,1
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (for@4,B
+    (infix@7 \2E.<.0.sysvq0asl 1~2
+     (call@5 len.6.sysvq0asl@1 x.53~1))
+    (unpackflat
+     (let :i.3 . .
+      (i@4,~7A 64).))
+    (stmts@I
+     (call \5B\5D=.10.sysvq0asl x.53 i.3@2
+      (infix@E
+       (ochoice *.0.sysvq0asl *.1.sysvq0asl *.2.sysvq0asl *.3.sysvq0asl *.4.sysvq0asl *.5.sysvq0asl *.6.sysvq0asl *.7.sysvq0asl *.8.sysvq0asl *.9.sysvq0asl *.10.sysvq0asl)
+       (call~7 \5B\5D.10.sysvq0asl x.53
+        (sub@3
+         (i@G,r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)i.3~1 1@1))
+       (call@2 \5B\5D.10.sysvq0asl x.53 i.3@2)))))))
+ (func@,8Q :sqrt.1.@5 x . .
+  (params@A
+   (param@1 :x.54 .
+    (pragmas
+     (header~4,~1 "<math.h>"@D,~7O))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@W
+   (importc@2 "sqrtf"@9)
+   (header~P,~1 "<math.h>"@D,~7O)). .)
+ (func@,8R :sqrt.2.@5 x . .
+  (params@A
+   (param@1 :x.55 .
+    (pragmas
+     (header~4,~2 "<math.h>"@D,~7O))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@W
+   (importc@2 "sqrt"@9)
+   (header~P,~2 "<math.h>"@D,~7O)).
+  (stmts@2,1
+   (result :result.22 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.22)))
+ (func@,8Z :cbrt.0.@5 x . .
+  (params@A
+   (param@1 :x.56 .
+    (pragmas
+     (header~4,~A "<math.h>"@D,~7O))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@W
+   (importc@2 "cbrtf"@9)
+   (header~P,~A "<math.h>"@D,~7O)). .)
+ (func@,8a :cbrt.1.@5 x . .
+  (params@A
+   (param@1 :x.57 .
+    (pragmas
+     (header~4,~B "<math.h>"@D,~7O))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@W
+   (importc@2 "cbrt"@9)
+   (header~P,~B "<math.h>"@D,~7O)).
+  (stmts@2,1
+   (result :result.23 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.23)))
+ (func@,8j :pow.0.@5 x . .
+  (params@9
+   (param@1 :x.58 .
+    (pragmas
+     (header~3,~K "<math.h>"@D,~7O))
+    (f@6 32).)
+   (param@4 :y.26 .
+    (pragmas
+     (header~6,~K "<math.h>"@D,~7O))
+    (f@3 32).))
+  (f@H 32)
+  (pragmas@Y
+   (importc@2 "powf"@9)
+   (header~R,~K "<math.h>"@D,~7O)). .)
+ (func@,8k :pow.1.@5 x . .
+  (params@9
+   (param@1 :x.59 .
+    (pragmas
+     (header~3,~L "<math.h>"@D,~7O))
+    (f@6 64).)
+   (param@4 :y.27 .
+    (pragmas
+     (header~6,~L "<math.h>"@D,~7O))
+    (f@3 64).))
+  (f@H 64)
+  (pragmas@Y
+   (importc@2 "pow"@9)
+   (header~R,~L "<math.h>"@D,~7O)).
+  (stmts@2,1
+   (result :result.24 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.24)))
+ (func@,8x :hypot.1.@5 x . .
+  (params@B
+   (param@1 :x.60 .
+    (pragmas
+     (header~5,~Y "<math.h>"@D,~7O))
+    (f@6 32).)
+   (param@4 :y.28 .
+    (pragmas
+     (header~8,~Y "<math.h>"@D,~7O))
+    (f@3 32).))
+  (f@H 32)
+  (pragmas@a
+   (importc@2 "hypotf"@9)
+   (header~T,~Y "<math.h>"@D,~7O)). .)
+ (func@,8y :hypot.2.@5 x . .
+  (params@B
+   (param@1 :x.61 .
+    (pragmas
+     (header~5,~Z "<math.h>"@D,~7O))
+    (f@6 64).)
+   (param@4 :y.29 .
+    (pragmas
+     (header~8,~Z "<math.h>"@D,~7O))
+    (f@3 64).))
+  (f@H 64)
+  (pragmas@a
+   (importc@2 "hypot"@9)
+   (header~T,~Z "<math.h>"@D,~7O)).
+  (stmts@2,1
+   (result :result.25 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.25)))
+ (func@,93 :exp.1.@5 x . .
+  (params@9
+   (param@1 :x.62 .
+    (pragmas
+     (header~3,~e "<math.h>"@D,~7O))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@V
+   (importc@2 "expf"@9)
+   (header~O,~e "<math.h>"@D,~7O)). .)
+ (func@,94 :exp.2.@5 x . .
+  (params@9
+   (param@1 :x.63 .
+    (pragmas
+     (header~3,~f "<math.h>"@D,~7O))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@V
+   (importc@2 "exp"@9)
+   (header~O,~f "<math.h>"@D,~7O)).
+  (stmts@2,1
+   (result :result.26 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.26)))
+ (func@,9D :ln.1.@5 x . .
+  (params@8
+   (param@1 :x.64 .
+    (pragmas
+     (header~2,~o "<math.h>"@D,~7O))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@U
+   (importc@2 "logf"@9)
+   (header~N,~o "<math.h>"@D,~7O)). .)
+ (func@,9E :ln.2.@5 x . .
+  (params@8
+   (param@1 :x.65 .
+    (pragmas
+     (header~2,~p "<math.h>"@D,~7O))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@U
+   (importc@2 "log"@9)
+   (header~N,~p "<math.h>"@D,~7O)).
+  (stmts@2,1
+   (result :result.27 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.27)))
+ (func@,9T :log2.0.@5 x . .
+  (params@A
+   (param@1 :x.66 .
+    (pragmas
+     (header~4,~14 "<math.h>"@D,~7O))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@W
+   (importc@2 "log2f"@9)
+   (header~P,~14 "<math.h>"@D,~7O)). .)
+ (func@,9U :log2.1.@5 x . .
+  (params@A
+   (param@1 :x.67 .
+    (pragmas
+     (header~4,~15 "<math.h>"@D,~7O))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@W
+   (importc@2 "log2"@9)
+   (header~P,~15 "<math.h>"@D,~7O)).
+  (stmts@2,1
+   (result :result.28 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.28)))
+ (func@,9h :log10.0.@5 x . .
+  (params@B
+   (param@1 :x.68 .
+    (pragmas
+     (header~5,~1I "<math.h>"@D,~7O))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@X
+   (importc@2 "log10f"@9)
+   (header~Q,~1I "<math.h>"@D,~7O)). .)
+ (func@,9i :log10.1.@5 x . .
+  (params@B
+   (param@1 :x.69 .
+    (pragmas
+     (header~5,~1J "<math.h>"@D,~7O))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@X
+   (importc@2 "log10"@9)
+   (header~Q,~1J "<math.h>"@D,~7O)).
+  (stmts@2,1
+   (result :result.29 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.29)))
+ (func@,9u :log1p.0.@5 x . .
+  (params@B
+   (param@1 :x.70 .
+    (pragmas
+     (header~5,~1V "<math.h>"@D,~7O))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@X
+   (importc@2 "log1pf"@9)
+   (header~Q,~1V "<math.h>"@D,~7O)). .)
+ (func@,9v :log1p.1.@5 x . .
+  (params@B
+   (param@1 :x.71 .
+    (pragmas
+     (header~5,~1W "<math.h>"@D,~7O))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@X
+   (importc@2 "log1p"@9)
+   (header~Q,~1W "<math.h>"@D,~7O)).
+  (stmts@2,1
+   (result :result.30 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.30)))
+ (func@,A9 :log.0.@5 x .
+  (typevars@9
+   (typevar@1 :T.21. . .
+    (or@S,z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim
+     (f~D 64)
+     (f~7 32)
+     (f@1 64)).))
+  (params@N
+   (param@1 :x.72 . . T.21.@9 .)
+   (param@4 :base.0 . . T.21.@6 .))T.21.@E
+  (pragmas@d
+   (untyped@2)).
+  (stmts@2,1
+   (comment)
+   (call@,6 runnableExamples.0.sysvq0asl
+    (stmts@2,1
+     (cmd assert.0.assy765wm
+      (call@I almostEqual.0.~B
+       (call@4 log.0.~3 9.0@1 3.0@6)2.0@G))
+     (cmd@,1 assert.0.assy765wm
+      (call@I almostEqual.0.~B
+       (call@4 log.0.~3 0.0@1 2.0@6)
+       (prefix@G
+        (ochoice \2D.0.sysvq0asl \2D.1.sysvq0asl \2D.2.sysvq0asl \2D.3.sysvq0asl \2D.4.sysvq0asl \2D.5.sysvq0asl \2D.6.sysvq0asl \2D.7.sysvq0asl \2D.8.sysvq0asl \2D.9.sysvq0asl \2D.10.sysvq0asl \2D.11.sysvq0asl \2D.12.sysvq0asl \2D.13.sysvq0asl \2D.14.sysvq0asl \2D.15.sysvq0asl \2D.16.sysvq0asl)Inf.0.sysvq0asl@1)))
+     (cmd@,2 assert.0.assy765wm
+      (dot@L
+       (call~B log.0.~3 -7.0@1 4.0@7)isNaN.0.@1))
+     (cmd@,3 assert.0.assy765wm
+      (dot@L
+       (call~B log.0.~3 8.0@1 -2.0@6)isNaN.0.@1))))
+   (infix@6,C
+    (ochoice /.0.sysvq0asl /.1.sysvq0asl)
+    (call~4
+     (ochoice~2 ln.1. ln.2.)x.72@1)
+    (call@4
+     (ochoice~2 ln.1. ln.2.)base.0@1))))
+ (func@,AO :^.0.@5 x .
+  (typevars@9
+   (typevar@1 :T.22. . .
+    (and@E
+     (or@R,12,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim
+      (or@3,~6
+       (or@9,~6
+        (i~K 64)
+        (i~G 8)
+        (i~B 16)
+        (i~5 32)
+        (i@1 64))
+       (or@F,~3
+        (u~O 64)
+        (u~J 8)
+        (u~D 16)
+        (u~6 32)
+        (u@1 64)))
+      (or@1,~3
+       (f~D 64)
+       (f~7 32)
+       (f@1 64)))Arithmetic.0.@4).))
+  (params@d
+   (param@1 :x.73 . . T.22.@3 .)
+   (param@7 :y.30 . .
+    (i@D,7f,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim 64).))T.22.@K .@K .
+  (stmts@2,1
+   (result :result.31 . . T.22.@f,~1 .@f,~1)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (case@,F y.30@5
+    (of@,1
+     (ranges 0@3)
+     (stmts@6
+      (asgn@7 result.31~7 1@2)))
+    (of@,2
+     (ranges 1@3)
+     (stmts@6
+      (asgn@7 result.31~7 x.73@2)))
+    (of@,3
+     (ranges 2@3)
+     (stmts@6
+      (asgn@7 result.31~7
+       (infix@4
+        (ochoice *.0.sysvq0asl *.1.sysvq0asl *.2.sysvq0asl *.3.sysvq0asl *.4.sysvq0asl *.5.sysvq0asl *.6.sysvq0asl *.7.sysvq0asl *.8.sysvq0asl *.9.sysvq0asl *.10.sysvq0asl)x.73~2 x.73@2))))
+    (of@,4
+     (ranges 3@3)
+     (stmts@6
+      (asgn@7 result.31~7
+       (infix@8
+        (ochoice *.0.sysvq0asl *.1.sysvq0asl *.2.sysvq0asl *.3.sysvq0asl *.4.sysvq0asl *.5.sysvq0asl *.6.sysvq0asl *.7.sysvq0asl *.8.sysvq0asl *.9.sysvq0asl *.10.sysvq0asl)
+        (infix~4
+         (ochoice *.0.sysvq0asl *.1.sysvq0asl *.2.sysvq0asl *.3.sysvq0asl *.4.sysvq0asl *.5.sysvq0asl *.6.sysvq0asl *.7.sysvq0asl *.8.sysvq0asl *.9.sysvq0asl *.10.sysvq0asl)x.73~2 x.73@2)x.73@2))))
+    (else@,5
+     (stmts@2,1
+      (var@4 :`tmptup.0 . .
+       (tuple@A T.22.@P,~M
+        (i@D,7f,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim 64))
+       (tupconstr@9
+        (tuple@1 T.22.@P,~M
+         (i@D,7f,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim 64))x.73@1 y.30@4))
+      (var@4 :x.141@1 . . T.22.@Z,~M
+       (tupat `tmptup.0 0))
+      (var@4 :y.36@4 . .
+       (i@D,7f,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim 64)
+       (tupat `tmptup.0 1))
+      (asgn@7,1 result.31~7 1@2)
+      (while@,2
+       (true@6)
+       (stmts@2,1
+        (if
+         (elif@3
+          (expr@2,1l,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+           (not@,1
+            (eq@7
+             (i@8,~f 64)
+             (bitand@C,Ao,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+              (i@I,1b,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)y.36~2 1@4)0@M,Ao,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim)))
+          (stmts~1,1
+           (infix@7 *=.0.sysvq0asl result.31~7 x.141@3))))
+        (asgn@2,2 y.36~2
+         (ashr@4
+          (i~2,~9c 64)y.36~2 1@4))
+        (if@,3
+         (elif@3
+          (eq@2
+           (i@H,17,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)y.36~2 0@3)
+          (stmts~1,1
+           (break .))))
+        (let@4,5 :z.0 . . T.22.@X,~U x.141@4)
+        (infix@2,6 *=.0.sysvq0asl x.141~2 z.0@3))))))
+   (ret@9,U result.31)))
+ (func@,Av :isPowerOfTwo.0.@5 x . .
+  (params@I
+   (param@1 :x.74 . .
+    (i@3 64).))
+  (bool@A).@A .
+  (stmts@2,1
+   (result :result.32 . .
+    (bool@G,~An).@G,~An)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@,C
+    (and@F
+     (expr@2,1t,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+      (lt@2,1
+       (i@C,~d 64)0@E,B9,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim x.74@A,B9,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim))
+     (eq@L
+      (i@H,17,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)
+      (bitand~D
+       (i@I,1b,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)x.74~2
+       (sub@7
+        (i@G,r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)x.74~2 1@2))0@3)))
+   (ret@d,C result.32)))
+ (func@,BA :nextPowerOfTwo.0.@5 x . .
+  (params@K
+   (param@1 :x.75 . .
+    (i@3 64).))
+  (i@A 64).@A .
+  (stmts@2,1
+   (result :result.33 . .
+    (i@8,~9y 64).@8,~9y)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (asgn@7,C result.33~7
+    (sub@4
+     (i@G,r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)x.75~2 1@2))
+   (stmts@2,E
+    (asgn@7 result.33~7
+     (bitor@9
+      (i@H,1h,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)result.33~7
+      (ashr@B
+       (i~L,~AC 64)result.33~7 32@4))))
+   (stmts@2,G
+    (asgn@7 result.33~7
+     (bitor@9
+      (i@H,1h,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)result.33~7
+      (ashr@B
+       (i~L,~AE 64)result.33~7 16@4))))
+   (stmts@2,I
+    (asgn@7 result.33~7
+     (bitor@9
+      (i@H,1h,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)result.33~7
+      (ashr@B
+       (i~L,~AG 64)result.33~7 8@4))))
+   (asgn@7,J result.33~7
+    (bitor@9
+     (i@H,1h,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)result.33~7
+     (ashr@B
+      (i~J,~AH 64)result.33~7 4@4)))
+   (asgn@7,K result.33~7
+    (bitor@9
+     (i@H,1h,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)result.33~7
+     (ashr@B
+      (i~J,~AI 64)result.33~7 2@4)))
+   (asgn@7,L result.33~7
+    (bitor@9
+     (i@H,1h,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)result.33~7
+     (ashr@B
+      (i~J,~AJ 64)result.33~7 1@4)))
+   (infix@7,M \2B=.0.Ihg6mz11.
+    (haddr~7 result.33)
+    (add@5
+     (i@G,l,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1~2
+     (expr@2,3b,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+      (conv@3,2
+       (i@U,E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/defaults.nim 64)
+       (le@M,BY,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+        (i@H,1C,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)x.75~2 0@3)))))
+   (ret@N,M result.33)))
+ (const@6,BZ :RadPerDeg.0. . .
+  (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)0.017453292519943295@F)
+ (func@,Bb :degToRad.0.@5 x .
+  (typevars@E
+   (typevar@1 :T.23. . .
+    (and@D
+     (or@S,z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim
+      (f~D 64)
+      (f~7 32)
+      (f@1 64))FloatArithmetic.0.@4).))
+  (params@m
+   (param@1 :d.0 . . T.23.@3 .))T.23.@8
+  (pragmas@w
+   (inline@2)).
+  (stmts@2,1
+   (result :result.34 . . T.23.@o,~1 .@o,~1)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (asgn@7,7 result.34~7
+    (infix@4
+     (ochoice *.0.sysvq0asl *.1.sysvq0asl *.2.sysvq0asl *.3.sysvq0asl *.4.sysvq0asl *.5.sysvq0asl *.6.sysvq0asl *.7.sysvq0asl *.8.sysvq0asl *.9.sysvq0asl *.10.sysvq0asl)d.0~2
+     (conv@3 T.23. RadPerDeg.0.@1)))
+   (ret@F,7 result.34)))
+ (func@,Bl :radToDeg.0.@5 x .
+  (typevars@E
+   (typevar@1 :T.24. . .
+    (and@D
+     (or@S,z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim
+      (f~D 64)
+      (f~7 32)
+      (f@1 64))FloatArithmetic.0.@4).))
+  (params@m
+   (param@1 :r.0 . . T.24.@3 .))T.24.@8
+  (pragmas@w
+   (inline@2)).
+  (stmts@2,1
+   (result :result.35 . . T.24.@o,~1 .@o,~1)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (asgn@7,7 result.35~7
+    (infix@4
+     (ochoice /.0.sysvq0asl /.1.sysvq0asl)r.0~2
+     (conv@3 T.24. RadPerDeg.0.@1)))
+   (ret@F,7 result.35)))
+ (func@,Bw :sin.1.@5 x . .
+  (params@9
+   (param@1 :x.76 .
+    (pragmas
+     (header~3,~1 "<math.h>"@D,~Au))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@V
+   (importc@2 "sinf"@9)
+   (header~O,~1 "<math.h>"@D,~Au)). .)
+ (func@,Bx :sin.2.@5 x . .
+  (params@9
+   (param@1 :x.77 .
+    (pragmas
+     (header~3,~2 "<math.h>"@D,~Au))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@V
+   (importc@2 "sin"@9)
+   (header~O,~2 "<math.h>"@D,~Au)).
+  (stmts@2,1
+   (result :result.36 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.36)))
+ (func@,C5 :cos.1.@5 x . .
+  (params@9
+   (param@1 :x.78 .
+    (pragmas
+     (header~3,~A "<math.h>"@D,~Au))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@V
+   (importc@2 "cosf"@9)
+   (header~O,~A "<math.h>"@D,~Au)). .)
+ (func@,C6 :cos.2.@5 x . .
+  (params@9
+   (param@1 :x.79 .
+    (pragmas
+     (header~3,~B "<math.h>"@D,~Au))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@V
+   (importc@2 "cos"@9)
+   (header~O,~B "<math.h>"@D,~Au)).
+  (stmts@2,1
+   (result :result.37 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.37)))
+ (func@,CE :tan.0.@5 x . .
+  (params@9
+   (param@1 :x.80 .
+    (pragmas
+     (header~3,~J "<math.h>"@D,~Au))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@V
+   (importc@2 "tanf"@9)
+   (header~O,~J "<math.h>"@D,~Au)). .)
+ (func@,CF :tan.1.@5 x . .
+  (params@9
+   (param@1 :x.81 .
+    (pragmas
+     (header~3,~K "<math.h>"@D,~Au))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@V
+   (importc@2 "tan"@9)
+   (header~O,~K "<math.h>"@D,~Au)).
+  (stmts@2,1
+   (result :result.38 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.38)))
+ (func@,CN :arcsin.0.@5 x . .
+  (params@C
+   (param@1 :x.82 .
+    (pragmas
+     (header~6,~S "<math.h>"@D,~Au))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@Y
+   (importc@2 "asinf"@9)
+   (header~R,~S "<math.h>"@D,~Au)). .)
+ (func@,CO :arcsin.1.@5 x . .
+  (params@C
+   (param@1 :x.83 .
+    (pragmas
+     (header~6,~T "<math.h>"@D,~Au))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@Y
+   (importc@2 "asin"@9)
+   (header~R,~T "<math.h>"@D,~Au)).
+  (stmts@2,1
+   (result :result.39 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.39)))
+ (func@,CW :arccos.0.@5 x . .
+  (params@C
+   (param@1 :x.84 .
+    (pragmas
+     (header~6,~b "<math.h>"@D,~Au))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@Y
+   (importc@2 "acosf"@9)
+   (header~R,~b "<math.h>"@D,~Au)). .)
+ (func@,CX :arccos.1.@5 x . .
+  (params@C
+   (param@1 :x.85 .
+    (pragmas
+     (header~6,~c "<math.h>"@D,~Au))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@Y
+   (importc@2 "acos"@9)
+   (header~R,~c "<math.h>"@D,~Au)).
+  (stmts@2,1
+   (result :result.40 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.40)))
+ (func@,Cf :arctan.0.@5 x . .
+  (params@C
+   (param@1 :x.86 .
+    (pragmas
+     (header~6,~k "<math.h>"@D,~Au))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@Y
+   (importc@2 "atanf"@9)
+   (header~R,~k "<math.h>"@D,~Au)). .)
+ (func@,Cg :arctan.1.@5 x . .
+  (params@C
+   (param@1 :x.87 .
+    (pragmas
+     (header~6,~l "<math.h>"@D,~Au))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@Y
+   (importc@2 "atan"@9)
+   (header~R,~l "<math.h>"@D,~Au)).
+  (stmts@2,1
+   (result :result.41 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.41)))
+ (func@,Cp :arctan2.1.@5 x . .
+  (params@D
+   (param@1 :y.31 .
+    (pragmas
+     (header~7,~u "<math.h>"@D,~Au))
+    (f@6 32).)
+   (param@4 :x.88 .
+    (pragmas
+     (header~A,~u "<math.h>"@D,~Au))
+    (f@3 32).))
+  (f@H 32)
+  (pragmas@c
+   (importc@2 "atan2f"@9)
+   (header~V,~u "<math.h>"@D,~Au)). .)
+ (func@,Cq :arctan2.2.@5 x . .
+  (params@D
+   (param@1 :y.32 .
+    (pragmas
+     (header~7,~v "<math.h>"@D,~Au))
+    (f@6 64).)
+   (param@4 :x.89 .
+    (pragmas
+     (header~A,~v "<math.h>"@D,~Au))
+    (f@3 64).))
+  (f@H 64)
+  (pragmas@c
+   (importc@2 "atan2"@9)
+   (header~V,~v "<math.h>"@D,~Au)).
+  (stmts@2,1
+   (result :result.42 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.42)))
+ (func@,D1 :sinh.0.@5 x . .
+  (params@A
+   (param@1 :x.90 .
+    (pragmas
+     (header~4,~16 "<math.h>"@D,~Au))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@W
+   (importc@2 "sinhf"@9)
+   (header~P,~16 "<math.h>"@D,~Au)). .)
+ (func@,D2 :sinh.1.@5 x . .
+  (params@A
+   (param@1 :x.91 .
+    (pragmas
+     (header~4,~17 "<math.h>"@D,~Au))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@W
+   (importc@2 "sinh"@9)
+   (header~P,~17 "<math.h>"@D,~Au)).
+  (stmts@2,1
+   (result :result.43 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.43)))
+ (func@,DA :cosh.0.@5 x . .
+  (params@A
+   (param@1 :x.92 .
+    (pragmas
+     (header~4,~1F "<math.h>"@D,~Au))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@W
+   (importc@2 "coshf"@9)
+   (header~P,~1F "<math.h>"@D,~Au)). .)
+ (func@,DB :cosh.1.@5 x . .
+  (params@A
+   (param@1 :x.93 .
+    (pragmas
+     (header~4,~1G "<math.h>"@D,~Au))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@W
+   (importc@2 "cosh"@9)
+   (header~P,~1G "<math.h>"@D,~Au)).
+  (stmts@2,1
+   (result :result.44 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.44)))
+ (func@,DJ :tanh.0.@5 x . .
+  (params@A
+   (param@1 :x.94 .
+    (pragmas
+     (header~4,~1O "<math.h>"@D,~Au))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@W
+   (importc@2 "tanhf"@9)
+   (header~P,~1O "<math.h>"@D,~Au)). .)
+ (func@,DK :tanh.1.@5 x . .
+  (params@A
+   (param@1 :x.95 .
+    (pragmas
+     (header~4,~1P "<math.h>"@D,~Au))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@W
+   (importc@2 "tanh"@9)
+   (header~P,~1P "<math.h>"@D,~Au)).
+  (stmts@2,1
+   (result :result.45 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.45)))
+ (func@,DS :arcsinh.0.@5 x . .
+  (params@D
+   (param@1 :x.96 .
+    (pragmas
+     (header~7,~1X "<math.h>"@D,~Au))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@Z
+   (importc@2 "asinhf"@9)
+   (header~S,~1X "<math.h>"@D,~Au)). .)
+ (func@,DT :arcsinh.1.@5 x . .
+  (params@D
+   (param@1 :x.97 .
+    (pragmas
+     (header~7,~1Y "<math.h>"@D,~Au))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@Z
+   (importc@2 "asinh"@9)
+   (header~S,~1Y "<math.h>"@D,~Au)). .)
+ (func@,DY :arccosh.0.@5 x . .
+  (params@D
+   (param@1 :x.98 .
+    (pragmas
+     (header~7,~1d "<math.h>"@D,~Au))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@Z
+   (importc@2 "acoshf"@9)
+   (header~S,~1d "<math.h>"@D,~Au)). .)
+ (func@,DZ :arccosh.1.@5 x . .
+  (params@D
+   (param@1 :x.99 .
+    (pragmas
+     (header~7,~1e "<math.h>"@D,~Au))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@Z
+   (importc@2 "acosh"@9)
+   (header~S,~1e "<math.h>"@D,~Au)). .)
+ (func@,De :arctanh.0.@5 x . .
+  (params@D
+   (param@1 :x.100 .
+    (pragmas
+     (header~7,~1j "<math.h>"@D,~Au))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@Z
+   (importc@2 "atanhf"@9)
+   (header~S,~1j "<math.h>"@D,~Au)). .)
+ (func@,Df :arctanh.1.@5 x . .
+  (params@D
+   (param@1 :x.101 .
+    (pragmas
+     (header~7,~1k "<math.h>"@D,~Au))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@Z
+   (importc@2 "atanh"@9)
+   (header~S,~1k "<math.h>"@D,~Au)). .)
+ (func@,Dl :erf.0.@5 x . .
+  (params@9
+   (param@1 :x.102 .
+    (pragmas
+     (header~3,~1q "<math.h>"@D,~Au))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@V
+   (importc@2 "erff"@9)
+   (header~O,~1q "<math.h>"@D,~Au)). .)
+ (func@,Dm :erf.1.@5 x . .
+  (params@9
+   (param@1 :x.103 .
+    (pragmas
+     (header~3,~1r "<math.h>"@D,~Au))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@V
+   (importc@2 "erf"@9)
+   (header~O,~1r "<math.h>"@D,~Au)). .)
+ (func@,Do :erfc.0.@5 x . .
+  (params@A
+   (param@1 :x.104 .
+    (pragmas
+     (header~4,~1t "<math.h>"@D,~Au))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@W
+   (importc@2 "erfcf"@9)
+   (header~P,~1t "<math.h>"@D,~Au)). .)
+ (func@,Dp :erfc.1.@5 x . .
+  (params@A
+   (param@1 :x.105 .
+    (pragmas
+     (header~4,~1u "<math.h>"@D,~Au))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@W
+   (importc@2 "erfc"@9)
+   (header~P,~1u "<math.h>"@D,~Au)). .)
+ (func@,Dr :gamma.0.@5 x . .
+  (params@B
+   (param@1 :x.106 .
+    (pragmas
+     (header~5,~1w "<math.h>"@D,~Au))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@X
+   (importc@2 "tgammaf"@9)
+   (header~Q,~1w "<math.h>"@D,~Au)). .)
+ (func@,Ds :gamma.1.@5 x . .
+  (params@B
+   (param@1 :x.107 .
+    (pragmas
+     (header~5,~1x "<math.h>"@D,~Au))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@X
+   (importc@2 "tgamma"@9)
+   (header~Q,~1x "<math.h>"@D,~Au)).
+  (stmts@2,1
+   (result :result.46 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.46)))
+ (func@,E1 :lgamma.0.@5 x . .
+  (params@C
+   (param@1 :x.108 .
+    (pragmas
+     (header~6,~26 "<math.h>"@D,~Au))
+    (f@3 32).))
+  (f@E 32)
+  (pragmas@Y
+   (importc@2 "lgammaf"@9)
+   (header~R,~26 "<math.h>"@D,~Au)). .)
+ (func@,E2 :lgamma.1.@5 x . .
+  (params@C
+   (param@1 :x.109 .
+    (pragmas
+     (header~6,~27 "<math.h>"@D,~Au))
+    (f@3 64).))
+  (f@E 64)
+  (pragmas@Y
+   (importc@2 "lgamma"@9)
+   (header~R,~27 "<math.h>"@D,~Au)).
+  (stmts@2,1
+   (result :result.47 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (ret@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim result.47)))
+ (func@,E9 :cot.0.@5 x . .
+  (params@9
+   (param@1 :x.110 . .
+    (f@3 32).))
+  (f@E 32).@E .
+  (stmts@X
+   (result@8 :result.48 . .
+    (f~N,~CU 32).~N,~CU)
+   (asgn@8 result.48
+    (div
+     (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+     (suf~8 1.0 "f32")
+     (call@2 tan.0. x.110@4)))
+   (ret@E result.48)))
+ (func@,EA :cot.1.@5 x . .
+  (params@9
+   (param@1 :x.111 . .
+    (f@3 64).))
+  (f@E 64).@E .
+  (stmts@X
+   (result@4 :result.49 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (asgn@4 result.49
+    (div
+     (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4
+     (call@2 tan.1. x.111@4)))
+   (ret@A result.49)))
+ (func@,EB :sec.0.@5 x . .
+  (params@9
+   (param@1 :x.112 . .
+    (f@3 32).))
+  (f@E 32).@E .
+  (stmts@X
+   (result@8 :result.50 . .
+    (f~N,~CW 32).~N,~CW)
+   (asgn@8 result.50
+    (div
+     (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+     (suf~8 1.0 "f32")
+     (call@2 cos.1. x.112@4)))
+   (ret@E result.50)))
+ (func@,EC :sec.1.@5 x . .
+  (params@9
+   (param@1 :x.113 . .
+    (f@3 64).))
+  (f@E 64).@E .
+  (stmts@X
+   (result@4 :result.51 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (asgn@4 result.51
+    (div
+     (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4
+     (call@2 cos.2. x.113@4)))
+   (ret@A result.51)))
+ (func@,ED :csc.0.@5 x . .
+  (params@9
+   (param@1 :x.114 . .
+    (f@3 32).))
+  (f@E 32).@E .
+  (stmts@X
+   (result@8 :result.52 . .
+    (f~N,~CY 32).~N,~CY)
+   (asgn@8 result.52
+    (div
+     (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+     (suf~8 1.0 "f32")
+     (call@2 sin.1. x.114@4)))
+   (ret@E result.52)))
+ (func@,EE :csc.1.@5 x . .
+  (params@9
+   (param@1 :x.115 . .
+    (f@3 64).))
+  (f@E 64).@E .
+  (stmts@X
+   (result@4 :result.53 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (asgn@4 result.53
+    (div
+     (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4
+     (call@2 sin.2. x.115@4)))
+   (ret@A result.53)))
+ (func@,EF :coth.0.@5 x . .
+  (params@A
+   (param@1 :x.116 . .
+    (f@3 32).))
+  (f@E 32).@E .
+  (stmts@Y
+   (result@8 :result.54 . .
+    (f~O,~Ca 32).~O,~Ca)
+   (asgn@8 result.54
+    (div
+     (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+     (suf~8 1.0 "f32")
+     (call@2 tanh.0. x.116@5)))
+   (ret@F result.54)))
+ (func@,EG :coth.1.@5 x . .
+  (params@A
+   (param@1 :x.117 . .
+    (f@3 64).))
+  (f@E 64).@E .
+  (stmts@Y
+   (result@4 :result.55 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (asgn@4 result.55
+    (div
+     (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4
+     (call@2 tanh.1. x.117@5)))
+   (ret@B result.55)))
+ (func@,EH :sech.0.@5 x . .
+  (params@A
+   (param@1 :x.118 . .
+    (f@3 32).))
+  (f@E 32).@E .
+  (stmts@Y
+   (result@8 :result.56 . .
+    (f~O,~Cc 32).~O,~Cc)
+   (asgn@8 result.56
+    (div
+     (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+     (suf~8 1.0 "f32")
+     (call@2 cosh.0. x.118@5)))
+   (ret@F result.56)))
+ (func@,EI :sech.1.@5 x . .
+  (params@A
+   (param@1 :x.119 . .
+    (f@3 64).))
+  (f@E 64).@E .
+  (stmts@Y
+   (result@4 :result.57 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (asgn@4 result.57
+    (div
+     (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4
+     (call@2 cosh.1. x.119@5)))
+   (ret@B result.57)))
+ (func@,EJ :csch.0.@5 x . .
+  (params@A
+   (param@1 :x.120 . .
+    (f@3 32).))
+  (f@E 32).@E .
+  (stmts@Y
+   (result@8 :result.58 . .
+    (f~O,~Ce 32).~O,~Ce)
+   (asgn@8 result.58
+    (div
+     (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+     (suf~8 1.0 "f32")
+     (call@2 sinh.0. x.120@5)))
+   (ret@F result.58)))
+ (func@,EK :csch.1.@5 x . .
+  (params@A
+   (param@1 :x.121 . .
+    (f@3 64).))
+  (f@E 64).@E .
+  (stmts@Y
+   (result@4 :result.59 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (asgn@4 result.59
+    (div
+     (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4
+     (call@2 sinh.1. x.121@5)))
+   (ret@B result.59)))
+ (func@,EL :arccot.0.@5 x . .
+  (params@C
+   (param@1 :x.122 . .
+    (f@3 32).))
+  (f@E 32).@E .
+  (stmts@a
+   (result@6 :result.60 . .
+    (f~O,~Cg 32).~O,~Cg)
+   (asgn@6 result.60
+    (call~6 arctan.0.
+     (div@F
+      (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+      (suf~8 1.0 "f32")x.122@2)))
+   (ret@H result.60)))
+ (func@,EM :arccot.1.@5 x . .
+  (params@C
+   (param@1 :x.123 . .
+    (f@3 64).))
+  (f@E 64).@E .
+  (stmts@a
+   (result@6 :result.61 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (asgn@6 result.61
+    (call~6 arctan.1.
+     (div@B
+      (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4 x.123@2)))
+   (ret@D result.61)))
+ (func@,EN :arcsec.0.@5 x . .
+  (params@C
+   (param@1 :x.124 . .
+    (f@3 32).))
+  (f@E 32).@E .
+  (stmts@a
+   (result@6 :result.62 . .
+    (f~O,~Ci 32).~O,~Ci)
+   (asgn@6 result.62
+    (call~6 arccos.0.
+     (div@F
+      (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+      (suf~8 1.0 "f32")x.124@2)))
+   (ret@H result.62)))
+ (func@,EO :arcsec.1.@5 x . .
+  (params@C
+   (param@1 :x.125 . .
+    (f@3 64).))
+  (f@E 64).@E .
+  (stmts@a
+   (result@6 :result.63 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (asgn@6 result.63
+    (call~6 arccos.1.
+     (div@B
+      (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4 x.125@2)))
+   (ret@D result.63)))
+ (func@,EP :arccsc.0.@5 x . .
+  (params@C
+   (param@1 :x.126 . .
+    (f@3 32).))
+  (f@E 32).@E .
+  (stmts@a
+   (result@6 :result.64 . .
+    (f~O,~Ck 32).~O,~Ck)
+   (asgn@6 result.64
+    (call~6 arcsin.0.
+     (div@F
+      (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+      (suf~8 1.0 "f32")x.126@2)))
+   (ret@H result.64)))
+ (func@,EQ :arccsc.1.@5 x . .
+  (params@C
+   (param@1 :x.127 . .
+    (f@3 64).))
+  (f@E 64).@E .
+  (stmts@a
+   (result@6 :result.65 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (asgn@6 result.65
+    (call~6 arcsin.1.
+     (div@B
+      (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4 x.127@2)))
+   (ret@D result.65)))
+ (func@,ER :arccoth.0.@5 x . .
+  (params@D
+   (param@1 :x.128 . .
+    (f@3 32).))
+  (f@E 32).@E .
+  (stmts@b
+   (result@7 :result.66 . .
+    (f~Q,~Cm 32).~Q,~Cm)
+   (asgn@7 result.66
+    (call~7 arctanh.0.
+     (div@G
+      (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+      (suf~8 1.0 "f32")x.128@2)))
+   (ret@I result.66)))
+ (func@,ES :arccoth.1.@5 x . .
+  (params@D
+   (param@1 :x.129 . .
+    (f@3 64).))
+  (f@E 64).@E .
+  (stmts@b
+   (result@7 :result.67 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (asgn@7 result.67
+    (call~7 arctanh.1.
+     (div@C
+      (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4 x.129@2)))
+   (ret@E result.67)))
+ (func@,ET :arcsech.0.@5 x . .
+  (params@D
+   (param@1 :x.130 . .
+    (f@3 32).))
+  (f@E 32).@E .
+  (stmts@b
+   (result@7 :result.68 . .
+    (f~Q,~Co 32).~Q,~Co)
+   (asgn@7 result.68
+    (call~7 arccosh.0.
+     (div@G
+      (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+      (suf~8 1.0 "f32")x.130@2)))
+   (ret@I result.68)))
+ (func@,EU :arcsech.1.@5 x . .
+  (params@D
+   (param@1 :x.131 . .
+    (f@3 64).))
+  (f@E 64).@E .
+  (stmts@b
+   (result@7 :result.69 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (asgn@7 result.69
+    (call~7 arccosh.1.
+     (div@C
+      (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4 x.131@2)))
+   (ret@E result.69)))
+ (func@,EV :arccsch.0.@5 x . .
+  (params@D
+   (param@1 :x.132 . .
+    (f@3 32).))
+  (f@E 32).@E .
+  (stmts@b
+   (result@7 :result.70 . .
+    (f~Q,~Cq 32).~Q,~Cq)
+   (asgn@7 result.70
+    (call~7 arcsinh.0.
+     (div@G
+      (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+      (suf~8 1.0 "f32")x.132@2)))
+   (ret@I result.70)))
+ (func@,EW :arccsch.1.@5 x . .
+  (params@D
+   (param@1 :x.133 . .
+    (f@3 64).))
+  (f@E 64).@E .
+  (stmts@b
+   (result@7 :result.71 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (asgn@7 result.71
+    (call~7 arcsinh.1.
+     (div@C
+      (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4 x.133@2)))
+   (ret@E result.71)))
+ (func@,EY :splitDecimal.0.@5 x .
+  (typevars@I
+   (typevar@1 :T.25. . .
+    (and@X
+     (or@S,z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim
+      (f~D 64)
+      (f~7 32)
+      (f@1 64))FloatArithmetic.0.~G HasDefault.0.sysvq0asl@4).))
+  (params@15
+   (param@1 :x.134 . . T.25.@3 .))
+  (tuple@8
+   (kv@E intpart T.25.@9)
+   (kv@Q floatpart T.25.@B))
+  (pragmas@1j
+   (untyped@2)).
+  (stmts@2,1
+   (comment)
+   (call@,7 runnableExamples.0.sysvq0asl
+    (stmts@2,1
+     (cmd assert.0.assy765wm
+      (infix@Q
+       (ochoice ==.0.sysvq0asl ==.1.sysvq0asl ==.2.sysvq0asl ==.3.sysvq0asl ==.4.sysvq0asl ==.5.sysvq0asl ==.6.sysvq0asl ==.7.sysvq0asl ==.8.sysvq0asl ==.9.sysvq0asl ==.10.sysvq0asl ==.11.sysvq0asl ==.12.sysvq0asl ==.13.sysvq0asl ==.14.sysvq0asl ==.15.sysvq0asl ==.16.sysvq0asl ==.17.sysvq0asl ==.18.sysvq0asl ==.20.sysvq0asl ==.21.sysvq0asl ==.22.sysvq0asl ==.24.sysvq0asl ==.25.sysvq0asl ==.26.sysvq0asl)
+       (call~7 splitDecimal.0.~C 5.25@1)
+       (tup@3
+        (kv@8 intpart~7 5.0@2)
+        (kv@O floatpart~9 0.25@2))))
+     (cmd@,1 assert.0.assy765wm
+      (infix@R
+       (ochoice ==.0.sysvq0asl ==.1.sysvq0asl ==.2.sysvq0asl ==.3.sysvq0asl ==.4.sysvq0asl ==.5.sysvq0asl ==.6.sysvq0asl ==.7.sysvq0asl ==.8.sysvq0asl ==.9.sysvq0asl ==.10.sysvq0asl ==.11.sysvq0asl ==.12.sysvq0asl ==.13.sysvq0asl ==.14.sysvq0asl ==.15.sysvq0asl ==.16.sysvq0asl ==.17.sysvq0asl ==.18.sysvq0asl ==.20.sysvq0asl ==.21.sysvq0asl ==.22.sysvq0asl ==.24.sysvq0asl ==.25.sysvq0asl ==.26.sysvq0asl)
+       (call~8 splitDecimal.0.~C -2.73@1)
+       (tup@3
+        (kv@8 intpart~7 -2.0@2)
+        (kv@P floatpart~9 -0.73@2))))))
+   (asgn@7,A result~7
+    (call@9
+     (ochoice~7 default.1.sysvq0asl default.2.sysvq0asl default.3.sysvq0asl default.4.sysvq0asl default.5.sysvq0asl default.6.sysvq0asl default.7.sysvq0asl default.8.sysvq0asl default.9.sysvq0asl default.10.sysvq0asl default.11.sysvq0asl default.12.sysvq0asl default.13.sysvq0asl default.14.sysvq0asl default.15.sysvq0asl default.16.sysvq0asl default.17.sysvq0asl default.18.sysvq0asl default.19.sysvq0asl default.20.sysvq0asl default.21.sysvq0asl default.22.sysvq0asl default.23.sysvq0asl default.24.sysvq0asl default.25.sysvq0asl)
+     (tuple@1
+      (kv@7 intpart T.25.@9)
+      (kv@J floatpart T.25.@B))))
+   (var@4,B absolute . . .
+    (call@E abs.0.sysvq0asl~3 x.134@1))
+   (asgn@F,C
+    (dot~9 result~6 intpart@1)
+    (call@7
+     (ochoice~5 floor.0. floor.1.)absolute@1))
+   (asgn@H,D
+    (dot~B result~6 floatpart@1)
+    (infix@B
+     (ochoice \2D.0.sysvq0asl \2D.1.sysvq0asl \2D.2.sysvq0asl \2D.3.sysvq0asl \2D.4.sysvq0asl \2D.5.sysvq0asl \2D.6.sysvq0asl \2D.7.sysvq0asl \2D.8.sysvq0asl \2D.9.sysvq0asl \2D.10.sysvq0asl \2D.11.sysvq0asl \2D.12.sysvq0asl \2D.13.sysvq0asl \2D.14.sysvq0asl \2D.15.sysvq0asl \2D.16.sysvq0asl)absolute~9
+     (dot@8 result~6 intpart@1)))
+   (if@,E
+    (elif@3
+     (infix@2
+      (ochoice <.0.sysvq0asl <.1.sysvq0asl <.2.sysvq0asl <.3.sysvq0asl <.4.sysvq0asl <.5.sysvq0asl <.6.sysvq0asl <.7.sysvq0asl <.8.sysvq0asl <.9.sysvq0asl <.10.sysvq0asl <.11.sysvq0asl <.12.sysvq0asl <.13.sysvq0asl <.14.sysvq0asl <.15.sysvq0asl <.17.sysvq0asl)x.134~2
+      (call@3 T.25.~1 0@1))
+     (stmts~1,1
+      (asgn@F
+       (dot~9 result~6 intpart@1)
+       (prefix@2
+        (ochoice \2D.0.sysvq0asl \2D.1.sysvq0asl \2D.2.sysvq0asl \2D.3.sysvq0asl \2D.4.sysvq0asl \2D.5.sysvq0asl \2D.6.sysvq0asl \2D.7.sysvq0asl \2D.8.sysvq0asl \2D.9.sysvq0asl \2D.10.sysvq0asl \2D.11.sysvq0asl \2D.12.sysvq0asl \2D.13.sysvq0asl \2D.14.sysvq0asl \2D.15.sysvq0asl \2D.16.sysvq0asl)
+        (dot@7 result~6 intpart@1)))
+      (asgn@H,1
+       (dot~B result~6 floatpart@1)
+       (prefix@2
+        (ochoice \2D.0.sysvq0asl \2D.1.sysvq0asl \2D.2.sysvq0asl \2D.3.sysvq0asl \2D.4.sysvq0asl \2D.5.sysvq0asl \2D.6.sysvq0asl \2D.7.sysvq0asl \2D.8.sysvq0asl \2D.9.sysvq0asl \2D.10.sysvq0asl \2D.11.sysvq0asl \2D.12.sysvq0asl \2D.13.sysvq0asl \2D.14.sysvq0asl \2D.15.sysvq0asl \2D.16.sysvq0asl)
+        (dot@7 result~6 floatpart@1))))))))
+ (func@,Er :fac.0.@5 x . .
+  (params@9
+   (param@1 :n.0 . .
+    (i@3 64).))
+  (i@A 64).@A .
+  (stmts@2,1
+   (result :result.72 . .
+    (i@8,~Df 64).@8,~Df)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (asgn@7,C result.72~7 1@2)
+   (for@4,D
+    (infix@7 \2E..0.Ibdympw. 1~2 n.0@3)
+    (unpackflat
+     (let :i.4 . .
+      (i@4,~Ds 64).))
+    (stmts~2,1
+     (infix@7 *=.0.Iu9okoo1.
+      (haddr~7 result.72)i.4@3)))
+   (ret@C,E result.72)))
+ (func@,F8 :binom.0.@5 x . .
+  (params@B
+   (param@1 :n.1 . .
+    (i@D,7f,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim 64).)
+   (param@4 :k.0 . .
+    (i@D,7f,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim 64).))
+  (i@H 64).@H .
+  (stmts@2,1
+   (result :result.73 . .
+    (i@8,~Dw 64).@8,~Dw)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (if@,5
+    (elif@3
+     (le@2
+      (i@H,1C,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)k.0~2 0@3)
+     (stmts@8
+      (ret 1@7))))
+   (if@,6
+    (elif@3
+     (expr@2,1t,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+      (lt@2,1
+       (i@C,~d 64)n.1@D,FG,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+       (mul@7,FG,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+        (i@G,x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)2~2 k.0@2)))
+     (stmts@B
+      (ret
+       (call@7 binom.0. n.1@6
+        (sub@B
+         (i@G,r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)n.1~2 k.0@2))))))
+   (asgn@7,7 result.73~7 n.1@2)
+   (for@4,8
+    (infix@7 \2E..0.Ibdympw. 2~2 k.0@3)
+    (unpackflat
+     (let :i.5 . .
+      (i@4,~E4 64).))
+    (stmts~2,1
+     (asgn@7 result.73~7
+      (div@P
+       (i@I,13,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+       (mul~F
+        (i@G,x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)result.73~7
+        (sub@9
+         (i@G,r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+         (add~4
+          (i@G,l,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)n.1~2 1@2)i.5@2))i.5@4))))
+   (ret@c,9 result.73)))
+ (func@,FK :gcd.0.@5 x .
+  (typevars@9
+   (typevar@1 :T.26. . . SignedArithmetic.0.@3 .))
+  (params@U
+   (param@1 :x.135 . . T.26.@6 .)
+   (param@4 :y.33 . . T.26.@3 .))T.26.@B .@B .
+  (stmts@2,1
+   (result :result.74 . . T.26.@Z,~1 .@Z,~1)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (var@4,C :`tmptup.1 . .
+    (tuple@A T.26.@L,~D T.26.@L,~D)
+    (tupconstr@9
+     (tuple@1 T.26.@L,~D T.26.@L,~D)x.135@1 y.33@4))
+   (var@4,C :x.144@1 . . T.26.@V,~D
+    (tupat `tmptup.1 0))
+   (var@4,C :y.39@4 . . T.26.@V,~D
+    (tupat `tmptup.1 1))
+   (while@,D
+    (expr@2,1l,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+     (not@,1
+      (infix@7
+       (ochoice ==.0.sysvq0asl ==.1.sysvq0asl ==.2.sysvq0asl ==.3.sysvq0asl ==.4.sysvq0asl ==.5.sysvq0asl ==.6.sysvq0asl ==.7.sysvq0asl ==.8.sysvq0asl ==.9.sysvq0asl ==.10.sysvq0asl ==.11.sysvq0asl ==.12.sysvq0asl ==.13.sysvq0asl ==.14.sysvq0asl ==.15.sysvq0asl ==.16.sysvq0asl ==.17.sysvq0asl ==.18.sysvq0asl ==.20.sysvq0asl ==.21.sysvq0asl ==.22.sysvq0asl ==.24.sysvq0asl ==.25.sysvq0asl ==.26.sysvq0asl)y.39@8,FZ,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+       (conv@E,FZ,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim T.26. 0@1))))
+    (stmts@2,1
+     (asgn@2 x.144~2
+      (infix@4
+       (ochoice mod.1. mod.2. mod.0.sysvq0asl mod.1.sysvq0asl mod.2.sysvq0asl mod.3.sysvq0asl mod.4.sysvq0asl mod.5.sysvq0asl mod.6.sysvq0asl mod.7.sysvq0asl)x.144~2 y.39@4))
+     (cmd@,1 swap.0.sysvq0asl x.144@5 y.39@8)))
+   (asgn@,G result.74
+    (cmd abs.0.sysvq0asl x.144@4))
+   (ret@4,G result.74)))
+ (func@,Fd :gcd.1.@5 x .
+  (typevars@9
+   (typevar@1 :T.27. . . SignedArithmetic.0.@3 .))
+  (params@U
+   (param@1 :x.136 . .
+    (at@C openArray.0.sysvq0asl~9 T.27.@1).))T.27.@J .@J .
+  (stmts@2,1
+   (result :result.75 . . T.27.@H,~1 .@H,~1)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (asgn@7,7 result.75~7
+    (call@2 \5B\5D.10.sysvq0asl x.136 0@2))
+   (for@4,8
+    (infix@7 \2E.<.0.sysvq0asl 1~2
+     (call@5 len.6.sysvq0asl@1 x.136~1))
+    (unpackflat
+     (let :i.6 . .
+      (i@4,~EZ 64).))
+    (stmts~2,1
+     (asgn@7 result.75~7
+      (call@5 gcd.0.~3 result.75@1
+       (call@9 \5B\5D.10.sysvq0asl x.136 i.6@2)))))
+   (ret@P,9 result.75)))
+ (func@,Fp :lcm.0.@5 x .
+  (typevars@9
+   (typevar@1 :T.28. . .
+    (and@L IntegerArithmetic.0.~I SignedArithmetic.0.@4).))
+  (params@q
+   (param@1 :x.137 . . T.28.@6 .)
+   (param@4 :y.34 . . T.28.@3 .))T.28.@B
+  (pragmas@13
+   (inline@2)).
+  (stmts@2,1
+   (result :result.76 . . T.28.@v,~1 .@v,~1)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (asgn@G,8 result.76
+    (infix
+     (ochoice *.0.sysvq0asl *.1.sysvq0asl *.2.sysvq0asl *.3.sysvq0asl *.4.sysvq0asl *.5.sysvq0asl *.6.sysvq0asl *.7.sysvq0asl *.8.sysvq0asl *.9.sysvq0asl *.10.sysvq0asl)
+     (infix~E
+      (ochoice div.0.sysvq0asl div.1.sysvq0asl div.2.sysvq0asl div.3.sysvq0asl div.4.sysvq0asl div.5.sysvq0asl div.6.sysvq0asl div.7.sysvq0asl)x.137~2
+      (call@7 gcd.0.~3 x.137@1 y.34@4))y.34@2))
+   (ret@I,8 result.76)))
+ (func@,G0 :lcm.1.@5 x .
+  (typevars@9
+   (typevar@1 :T.29. . .
+    (and@L IntegerArithmetic.0.~I SignedArithmetic.0.@4).))
+  (params@q
+   (param@1 :x.138 . .
+    (at@C openArray.0.sysvq0asl~9 T.29.@1).))T.29.@J .@J .
+  (stmts@2,1
+   (result :result.77 . . T.29.@H,~1 .@H,~1)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (asgn@7,7 result.77~7
+    (call@2 \5B\5D.10.sysvq0asl x.138 0@2))
+   (for@4,8
+    (infix@7 \2E.<.0.sysvq0asl 1~2
+     (call@5 len.6.sysvq0asl@1 x.138~1))
+    (unpackflat
+     (let :i.7 . .
+      (i@4,~Ew 64).))
+    (stmts~2,1
+     (asgn@7 result.77~7
+      (call@5 lcm.0.~3 result.77@1
+       (call@9 \5B\5D.10.sysvq0asl x.138 i.7@2)))))
+   (ret@P,9 result.77)))
+ (comment@I,9 bool.0.sysvq0asl bool.0.sysvq0asl@,1 bool.0.sysvq0asl@,2 int.0.sysvq0asl~8,14 int.0.sysvq0asl~8,17 int.0.sysvq0asl~8,1E float32.0.sysvq0asl@,1W float32.0.sysvq0asl@I,1W float64.0.sysvq0asl@,1X float64.0.sysvq0asl@I,1X bool.0.sysvq0asl~A,24 float32.0.sysvq0asl@3,2F float32.0.sysvq0asl@3,2F float32.0.sysvq0asl~1,2F float64.0.sysvq0asl@3,2G float64.0.sysvq0asl@3,2G float64.0.sysvq0asl~1,2G bool.0.sysvq0asl~A,2q int.0.sysvq0asl@f,2z bool.0.sysvq0asl@K,2z int.0.sysvq0asl~A,3R int.0.sysvq0asl@I,3f float32.0.sysvq0asl~3,3y float32.0.sysvq0asl~4,3y float64.0.sysvq0asl~3,3z float64.0.sysvq0asl~4,3z float32.0.sysvq0asl~4,4B float32.0.sysvq0asl~4,4B float64.0.sysvq0asl~4,4C float64.0.sysvq0asl~4,4C float32.0.sysvq0asl~3,4P float32.0.sysvq0asl~4,4P float64.0.sysvq0asl~3,4Q float64.0.sysvq0asl~4,4Q float32.0.sysvq0asl~3,4c float32.0.sysvq0asl~4,4c float64.0.sysvq0asl~3,4d float64.0.sysvq0asl~4,4d float32.0.sysvq0asl@,4o float32.0.sysvq0asl@,4o float32.0.sysvq0asl~1,4o float64.0.sysvq0asl@,4p float64.0.sysvq0asl@,4p float64.0.sysvq0asl~1,4p untyped.0.sysvq0asl@X,6M float32.0.sysvq0asl~4,8H float32.0.sysvq0asl~4,8H float64.0.sysvq0asl~4,8I float64.0.sysvq0asl~4,8I float32.0.sysvq0asl~4,8Q float32.0.sysvq0asl~4,8Q float64.0.sysvq0asl~4,8R float64.0.sysvq0asl~4,8R float32.0.sysvq0asl~2,8a float32.0.sysvq0asl~2,8a float32.0.sysvq0asl~1,8a float64.0.sysvq0asl~2,8b float64.0.sysvq0asl~2,8b float64.0.sysvq0asl~1,8b float32.0.sysvq0asl@,8o float32.0.sysvq0asl@,8o float32.0.sysvq0asl~1,8o float64.0.sysvq0asl@,8p float64.0.sysvq0asl@,8p float64.0.sysvq0asl~1,8p float32.0.sysvq0asl~5,8u float32.0.sysvq0asl~4,8u float64.0.sysvq0asl~5,8v float64.0.sysvq0asl~4,8v float32.0.sysvq0asl~6,94 float32.0.sysvq0asl~4,94 float64.0.sysvq0asl~6,95 float64.0.sysvq0asl~4,95 float32.0.sysvq0asl~4,9K float32.0.sysvq0asl~4,9K float64.0.sysvq0asl~4,9L float64.0.sysvq0asl~4,9L float32.0.sysvq0asl~3,9Y float32.0.sysvq0asl~4,9Y float64.0.sysvq0asl~3,9Z float64.0.sysvq0asl~4,9Z float32.0.sysvq0asl~3,9l float32.0.sysvq0asl~4,9l float64.0.sysvq0asl~3,9m float64.0.sysvq0asl~4,9m int.0.sysvq0asl@4,Am bool.0.sysvq0asl~8,Am int.0.sysvq0asl@6,B1 int.0.sysvq0asl~8,B1 float32.0.sysvq0asl~5,Bn float32.0.sysvq0asl~4,Bn float64.0.sysvq0asl~5,Bo float64.0.sysvq0asl~4,Bo float32.0.sysvq0asl~5,Bw float32.0.sysvq0asl~4,Bw float64.0.sysvq0asl~5,Bx float64.0.sysvq0asl~4,Bx float32.0.sysvq0asl~5,C5 float32.0.sysvq0asl~4,C5 float64.0.sysvq0asl~5,C6 float64.0.sysvq0asl~4,C6 float32.0.sysvq0asl~2,CE float32.0.sysvq0asl~4,CE float64.0.sysvq0asl~2,CF float64.0.sysvq0asl~4,CF float32.0.sysvq0asl~2,CN float32.0.sysvq0asl~4,CN float64.0.sysvq0asl~2,CO float64.0.sysvq0asl~4,CO float32.0.sysvq0asl~2,CW float32.0.sysvq0asl~4,CW float64.0.sysvq0asl~2,CX float64.0.sysvq0asl~4,CX float32.0.sysvq0asl@2,Cg float32.0.sysvq0asl@2,Cg float32.0.sysvq0asl~1,Cg float64.0.sysvq0asl@2,Ch float64.0.sysvq0asl@2,Ch float64.0.sysvq0asl~1,Ch float32.0.sysvq0asl~4,Cs float32.0.sysvq0asl~4,Cs float64.0.sysvq0asl~4,Ct float64.0.sysvq0asl~4,Ct float32.0.sysvq0asl~4,D1 float32.0.sysvq0asl~4,D1 float64.0.sysvq0asl~4,D2 float64.0.sysvq0asl~4,D2 float32.0.sysvq0asl~4,DA float32.0.sysvq0asl~4,DA float64.0.sysvq0asl~4,DB float64.0.sysvq0asl~4,DB float32.0.sysvq0asl~1,DJ float32.0.sysvq0asl~4,DJ float64.0.sysvq0asl~1,DK float64.0.sysvq0asl~4,DK float32.0.sysvq0asl~1,DP float32.0.sysvq0asl~4,DP float64.0.sysvq0asl~1,DQ float64.0.sysvq0asl~4,DQ float32.0.sysvq0asl~1,DV float32.0.sysvq0asl~4,DV float64.0.sysvq0asl~1,DW float64.0.sysvq0asl~4,DW float32.0.sysvq0asl~5,Dc float32.0.sysvq0asl~4,Dc float64.0.sysvq0asl~5,Dd float64.0.sysvq0asl~4,Dd float32.0.sysvq0asl~4,Df float32.0.sysvq0asl~4,Df float64.0.sysvq0asl~4,Dg float64.0.sysvq0asl~4,Dg float32.0.sysvq0asl~3,Di float32.0.sysvq0asl~4,Di float64.0.sysvq0asl~3,Dj float64.0.sysvq0asl~4,Dj float32.0.sysvq0asl~2,Ds float32.0.sysvq0asl~4,Ds float64.0.sysvq0asl~2,Dt float64.0.sysvq0asl~4,Dt float32.0.sysvq0asl~5,E0 float32.0.sysvq0asl~4,E0 float64.0.sysvq0asl~5,E1 float64.0.sysvq0asl~4,E1 float32.0.sysvq0asl~5,E2 float32.0.sysvq0asl~4,E2 float64.0.sysvq0asl~5,E3 float64.0.sysvq0asl~4,E3 float32.0.sysvq0asl~5,E4 float32.0.sysvq0asl~4,E4 float64.0.sysvq0asl~5,E5 float64.0.sysvq0asl~4,E5 float32.0.sysvq0asl~4,E6 float32.0.sysvq0asl~4,E6 float64.0.sysvq0asl~4,E7 float64.0.sysvq0asl~4,E7 float32.0.sysvq0asl~4,E8 float32.0.sysvq0asl~4,E8 float64.0.sysvq0asl~4,E9 float64.0.sysvq0asl~4,E9 float32.0.sysvq0asl~4,EA float32.0.sysvq0asl~4,EA float64.0.sysvq0asl~4,EB float64.0.sysvq0asl~4,EB float32.0.sysvq0asl~2,EC float32.0.sysvq0asl~4,EC float64.0.sysvq0asl~2,ED float64.0.sysvq0asl~4,ED float32.0.sysvq0asl~2,EE float32.0.sysvq0asl~4,EE float64.0.sysvq0asl~2,EF float64.0.sysvq0asl~4,EF float32.0.sysvq0asl~2,EG float32.0.sysvq0asl~4,EG float64.0.sysvq0asl~2,EH float64.0.sysvq0asl~4,EH float32.0.sysvq0asl~1,EI float32.0.sysvq0asl~4,EI float64.0.sysvq0asl~1,EJ float64.0.sysvq0asl~4,EJ float32.0.sysvq0asl~1,EK float32.0.sysvq0asl~4,EK float64.0.sysvq0asl~1,EL float64.0.sysvq0asl~4,EL float32.0.sysvq0asl~1,EM float32.0.sysvq0asl~4,EM float64.0.sysvq0asl~1,EN float64.0.sysvq0asl~4,EN int.0.sysvq0asl~5,Ei int.0.sysvq0asl~8,Ei int.0.sysvq0asl~1,Ez float32.0.sysvq0asl~1,Ez float32.0.sysvq0asl~4,15 float32.0.sysvq0asl~4,15 float32.0.sysvq0asl~4,18 float32.0.sysvq0asl~4,18 float32.0.sysvq0asl~4,1F assert.0.assy765wm~E,27 assert.0.assy765wm~E,29 assert.0.assy765wm~E,2A runnableExamples.0.sysvq0asl~G,26 !=.0.sysvq0asl~3,2C assert.0.assy765wm~E,2K assert.0.assy765wm~E,2L Inf.0.sysvq0asl~E,2L Inf.0.sysvq0asl~E,2L assert.0.assy765wm~E,2M NaN.0.sysvq0asl~E,2M assert.0.assy765wm~E,2N NaN.0.sysvq0asl~E,2N assert.0.assy765wm~E,2O runnableExamples.0.sysvq0asl~G,2J assert.0.assy765wm~E,2W assert.0.assy765wm~E,2X assert.0.assy765wm~E,2Y assert.0.assy765wm~E,2Z runnableExamples.0.sysvq0asl~G,2V NaN.0.sysvq0asl~G,2V assert.0.assy765wm~E,2t Inf.0.sysvq0asl~E,2t assert.0.assy765wm~E,2u assert.0.assy765wm~E,2v runnableExamples.0.sysvq0asl~G,2s !=.0.sysvq0asl~5,2x assert.0.assy765wm~E,3Z assert.0.assy765wm~E,3a assert.0.assy765wm~E,3b runnableExamples.0.sysvq0asl~G,3Y ord.0.sysvq0asl~D,3d ord.0.sysvq0asl@3,3d assert.0.assy765wm~E,47 assert.0.assy765wm~E,48 assert.0.assy765wm~E,49 runnableExamples.0.sysvq0asl~G,46 assert.0.assy765wm~E,4L assert.0.assy765wm~E,4M assert.0.assy765wm~E,4N runnableExamples.0.sysvq0asl~G,4K assert.0.assy765wm~E,4Y assert.0.assy765wm~E,4Z assert.0.assy765wm~E,4a runnableExamples.0.sysvq0asl~G,4X assert.0.assy765wm~E,4l assert.0.assy765wm~E,4m runnableExamples.0.sysvq0asl~G,4k assert.0.assy765wm~E,4v assert.0.assy765wm~E,4w assert.0.assy765wm~E,4x assert.0.assy765wm~E,4y runnableExamples.0.sysvq0asl~G,4u assert.0.assy765wm~E,5A assert.0.assy765wm~E,5B assert.0.assy765wm~E,5C assert.0.assy765wm~E,5D runnableExamples.0.sysvq0asl~G,59 assert.0.assy765wm~E,5U assert.0.assy765wm~E,5V assert.0.assy765wm~E,5W assert.0.assy765wm~E,5X runnableExamples.0.sysvq0asl~G,5T assert.0.assy765wm~E,5h assert.0.assy765wm~E,5i assert.0.assy765wm~E,5j assert.0.assy765wm~E,5k runnableExamples.0.sysvq0asl~G,5g assert.0.assy765wm~E,5x assert.0.assy765wm~E,5y assert.0.assy765wm~E,5z assert.0.assy765wm~E,60 runnableExamples.0.sysvq0asl~G,5w assert.0.assy765wm~E,6i assert.0.assy765wm~E,6j runnableExamples.0.sysvq0asl~G,6h >=.0.sysvq0asl~B,6l int.0.sysvq0asl~B,6l int.0.sysvq0asl@4,6v int64.0.sysvq0asl@4,6v int64.0.sysvq0asl@4,6x int32.0.sysvq0asl@4,6x int32.0.sysvq0asl@4,6z int16.0.sysvq0asl@4,6z int16.0.sysvq0asl@4,71 int8.0.sysvq0asl@4,71 int8.0.sysvq0asl@4,73 assert.0.assy765wm~E,7C assert.0.assy765wm~E,7D runnableExamples.0.sysvq0asl~G,7B assert.0.assy765wm~E,7T assert.0.assy765wm~E,7U runnableExamples.0.sysvq0asl~G,7S assert.0.assy765wm~E,7j runnableExamples.0.sysvq0asl~G,7g assert.0.assy765wm~E,7w assert.0.assy765wm~E,7x runnableExamples.0.sysvq0asl~G,7v assert.0.assy765wm~E,8D runnableExamples.0.sysvq0asl~G,8A assert.0.assy765wm~E,8O assert.0.assy765wm~E,8P runnableExamples.0.sysvq0asl~G,8N assert.0.assy765wm~E,8X assert.0.assy765wm~E,8Y assert.0.assy765wm~E,8Z runnableExamples.0.sysvq0asl~G,8W assert.0.assy765wm~E,8m assert.0.assy765wm~E,8n runnableExamples.0.sysvq0asl~G,8l assert.0.assy765wm~E,8t runnableExamples.0.sysvq0asl~G,8s assert.0.assy765wm~E,91 assert.0.assy765wm~E,92 assert.0.assy765wm~E,93 runnableExamples.0.sysvq0asl~G,90 assert.0.assy765wm~E,9G assert.0.assy765wm~E,9H Inf.0.sysvq0asl~E,9H assert.0.assy765wm~E,9I assert.0.assy765wm~E,9J runnableExamples.0.sysvq0asl~G,9F assert.0.assy765wm~E,9U assert.0.assy765wm~E,9V Inf.0.sysvq0asl~E,9V assert.0.assy765wm~E,9W assert.0.assy765wm~E,9X runnableExamples.0.sysvq0asl~G,9T assert.0.assy765wm~E,9i Inf.0.sysvq0asl~E,9i assert.0.assy765wm~E,9j assert.0.assy765wm~E,9k runnableExamples.0.sysvq0asl~G,9h assert.0.assy765wm~E,9v assert.0.assy765wm~E,9w assert.0.assy765wm~E,9x runnableExamples.0.sysvq0asl~G,9u assert.0.assy765wm~E,AR assert.0.assy765wm~E,AS assert.0.assy765wm~E,AT runnableExamples.0.sysvq0asl~G,AQ true.0.sysvq0asl~G,AQ !=.0.sysvq0asl@1,Ae assert.0.assy765wm~E,Au assert.0.assy765wm~E,Av assert.0.assy765wm~E,Aw assert.0.assy765wm~E,Ax runnableExamples.0.sysvq0asl~G,At >.0.sysvq0asl~6,Az assert.0.assy765wm~E,B9 assert.0.assy765wm~E,BA assert.0.assy765wm~E,BB assert.0.assy765wm~E,BC runnableExamples.0.sysvq0asl~G,B8 ord.0.sysvq0asl@1,BO assert.0.assy765wm~E,BY runnableExamples.0.sysvq0asl~G,BX assert.0.assy765wm~E,Bi runnableExamples.0.sysvq0asl~G,Bh assert.0.assy765wm~E,Bu assert.0.assy765wm~E,Bv runnableExamples.0.sysvq0asl~G,Bt assert.0.assy765wm~E,C3 assert.0.assy765wm~E,C4 runnableExamples.0.sysvq0asl~G,C2 assert.0.assy765wm~E,CC assert.0.assy765wm~E,CD runnableExamples.0.sysvq0asl~G,CB assert.0.assy765wm~E,CL assert.0.assy765wm~E,CM runnableExamples.0.sysvq0asl~G,CK assert.0.assy765wm~E,CU assert.0.assy765wm~E,CV runnableExamples.0.sysvq0asl~G,CT assert.0.assy765wm~E,Ce assert.0.assy765wm~E,Cf runnableExamples.0.sysvq0asl~G,Cd assert.0.assy765wm~E,Cq assert.0.assy765wm~E,Cr runnableExamples.0.sysvq0asl~G,Cp assert.0.assy765wm~E,Cz assert.0.assy765wm~E,D0 runnableExamples.0.sysvq0asl~G,Cy assert.0.assy765wm~E,D8 assert.0.assy765wm~E,D9 runnableExamples.0.sysvq0asl~G,D7 assert.0.assy765wm~E,DH assert.0.assy765wm~E,DI runnableExamples.0.sysvq0asl~G,DG assert.0.assy765wm~E,Dp assert.0.assy765wm~E,Dq assert.0.assy765wm~E,Dr runnableExamples.0.sysvq0asl~G,Do assert.0.assy765wm~E,Ep assert.0.assy765wm~E,Eq assert.0.assy765wm~E,Er runnableExamples.0.sysvq0asl~G,Eo assert.0.assy765wm~E,F2 assert.0.assy765wm~E,F3 runnableExamples.0.sysvq0asl~G,F1 >.0.sysvq0asl~7,F6 assert.0.assy765wm~E,FM runnableExamples.0.sysvq0asl~G,FL !=.0.sysvq0asl~8,FP assert.0.assy765wm~E,Fa runnableExamples.0.sysvq0asl~G,FZ assert.0.assy765wm~E,Fm assert.0.assy765wm~E,Fn runnableExamples.0.sysvq0asl~G,Fl assert.0.assy765wm~E,Fx runnableExamples.0.sysvq0asl~G,Fw)
+ (func@T,2W :isNaN.0.Ica2702. . .~T,T
+  (at isNaN.0.
+   (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64))
+  (params~4,T
+   (param@1 :x.145 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).))
+  (bool~L,T)
+  (pragmas@9,T
+   (inline@2)).~T,T
+  (stmts~R,U
+   (result :result.78 . .
+    (bool@G,~2r).@G,~2r)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (asgn@B,6 result.78
+    (expr@2,1l,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+     (not@,1
+      (eq@7
+       (i@8,~f 64)
+       (call@2,37,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim c_isnan.0.I3164fs1. x.145@8)0@G,37,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim))))
+   (ret@E,6 result.78)))
+ (func@M,8X :almostEqual.0.Ivmzi1f. . .~M,~5P
+  (at almostEqual.0.
+   (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64))
+  (params@9,~5P
+   (param@1 :x.147 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).)
+   (param@4 :y.40 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).)
+   (param@A :unitsInLastPlace.2 . .
+    (i~V,~1v 64)4@O))
+  (bool@G,~5P)
+  (pragmas@q,~5P
+   (untyped~18,1)).~M,~5P
+  (stmts~K,~5N
+   (result :result.79 . .
+    (bool@G,~31).@G,~31)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (if@,J
+    (elif@3
+     (eq@2
+      (f@H,1h,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)x.147~2 y.40@3)
+     (stmts~1,3
+      (ret
+       (true@7)))))
+   (let@4,N :diff.0 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+    (call@7 abs.0.Iwxvrq71.
+     (sub@6
+      (f@G,31,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)x.147~2 y.40@2)))
+   (ret@,O
+    (or@z
+     (le~n
+      (f@H,1Z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)diff.0~5
+      (mul@R
+       (f@G,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+       (mul~D
+        (f@G,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+        (expr@p,N,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/fenv.nim DBL_EPSILON.0.fen2xhzfd)
+        (call@2 abs.0.Iwxvrq71.
+         (add@6
+          (f@G,30,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)x.147~2 y.40@2)))
+       (conv@3
+        (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)unitsInLastPlace.2@1)))
+     (lt@8
+      (f@G,1d,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)diff.0~5
+      (expr@12,K,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/fenv.nim DBL_MIN.0.fen2xhzfd))))
+   (ret@12,K,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/fenv.nim result.79)))
+ (func@9,BX :\2B=.0.Ihg6mz11. . .@,36,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+  (at \2B=.0.sysvq0asl
+   (i@1,~AK 64))
+  (params@P,36,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+   (param@1 :x.149 . .
+    (mut@3
+     (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)).)
+   (param@B :y.41 . .
+    (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64).)).@,36,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+  (pragmas@g,36,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+   (untyped@2)
+   (inline@B)).@,36,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+  (stmts@2,37,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+   (asgn@2
+    (hderef~2 x.149)
+    (add@4
+     (i@8,~2M 64)
+     (hderef~2 x.149)y.41@2))))
+ (func@Z,C4 :degToRad.0.Ijbttm21. . .~Z,~T
+  (at degToRad.0.
+   (f 64))
+  (params@D,~T
+   (param@1 :d.2 . .
+    (f 64).))
+  (f@E,~T 64)
+  (pragmas@N,~T
+   (inline@2)).~Z,~T
+  (stmts~X,~S
+   (result :result.80 . .
+    (f 64).)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (asgn@7,7 result.80~7
+    (mul@4
+     (f@G,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)d.2~2
+     (conv@3
+      (f 64)RadPerDeg.0.@1)))
+   (ret@F,7 result.80)))
+ (func@V,CU :radToDeg.0.Intoyme1. . .~V,~j
+  (at radToDeg.0.
+   (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64))
+  (params@H,~j
+   (param@1 :r.4 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).))
+  (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+  (pragmas@R,~j
+   (inline@2)).~V,~j
+  (stmts~T,~i
+   (result :result.81 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (discard "ignore runnable examples"@8))
+   (asgn@7,7 result.81~7
+    (div@4
+     (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)r.4~2
+     (conv@3
+      (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)RadPerDeg.0.@1)))
+   (ret@F,7 result.81)))
+ (iterator@D,F5 :\2E..0.Ibdympw. . .@,8,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/iterators.nim
+  (at \2E..0.sysvq0asl
+   (i 64))
+  (params@Q,8,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/iterators.nim
+   (param@1 :a.3 . .
+    (i 64).)
+   (param@4 :b.1 . .
+    (i 64).))
+  (i@U,8,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/iterators.nim 64)
+  (pragmas@d,8,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/iterators.nim
+   (inline@2)).@,8,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/iterators.nim
+  (stmts@2,9,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/iterators.nim
+   (var@4,1 :i.8 . .
+    (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)a.3@4)
+   (while@,2
+    (le@8
+     (i 64)i.8~2 b.1@3)
+    (stmts@2,1
+     (yld i.8@6)
+     (cmd@,1 inc.1.Irn1g7r1.
+      (haddr@4 i.8))))))
+ (func@B,F6 :*=.0.Iu9okoo1. . .@,3C,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+  (at *=.0.sysvq0asl
+   (i~1,~Dt 64))
+  (params@P,3C,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+   (param@1 :x.151 . .
+    (mut@3
+     (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)).)
+   (param@B :y.42 . .
+    (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64).)).@,3C,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+  (pragmas@g,3C,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+   (untyped@2)
+   (inline@B)).@,3C,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+  (stmts@2,3D,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+   (asgn@2
+    (hderef~2 x.151)
+    (mul@4
+     (i@8,~2G 64)
+     (hderef~2 x.151)y.42@2))))
+ (func@9,36 :c_isnan.0.I3164fs1. . .~7,~1q
+  (at c_isnan.0.
+   (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64))
+  (params@J,~1q
+   (param@1 :x.152 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).))
+  (i@1,~1q 64).@1,~1q .~7,~1q
+  (stmts~5,~1p
+   (result :result.82 . .
+    (i@6,~4 64).@6,~4)
+   (stmts@2,4
+    (let@4 :b.2 . .
+     (u@G,2S,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+     (cast@4
+      (u@5 64)x.152@D))
+    (asgn@7,1 result.82~7
+     (expr
+      (stmts@2)
+      (if@1
+       (elif@3
+        (and@e
+         (eq~D
+          (u@H,1W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)
+          (bitand~F
+           (u@I,2A,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+           (shr~8
+            (u@G,2S,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)b.2~2 52@4)
+           (suf@4 2047u "u64"))
+          (suf@3 2047u "u64"))
+         (expr@2,1l,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+          (not@,1
+           (eq@7
+            (u@8,~G 64)
+            (bitand@12,1N,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+             (u@I,2A,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)b.2~2
+             (suf@4 4503599627370495u "u64"))
+            (suf@1U,1N,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 0u "u64")))))1@1K)
+       (else@1P 0@6)))))
+   (ret@1f,5 result.82)))
+ (func@G,3X :abs.0.Iwxvrq71. . .@,40,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+  (at abs.0.sysvq0asl
+   (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64))
+  (params@a,40,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+   (param@1 :x.153 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).))
+  (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+  (pragmas@k,40,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+   (inline@2)).@,40,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+  (stmts@2,41,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+   (result :result.83 . .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@c,~1)
+   (asgn@,1 result.83
+    (if
+     (elif@3
+      (lt@2
+       (f@G,1d,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)x.153~2
+       (hconv@2
+        (f@G,1d,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)0))
+      (expr@7
+       (neg
+        (f@D,2z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)x.153@1)))
+     (else@D
+      (expr@6 x.153))))
+   (ret@J,1 result.83)))
+ (func@4,D,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/iterators.nim :inc.1.Irn1g7r1. . .@,E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+  (at inc.1.sysvq0asl
+   (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64))
+  (params@L,E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+   (param@1 :x.154 . .
+    (mut@3
+     (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)).)).@,E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+  (pragmas@W,E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+   (inline@2)).@,E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+  (stmts@2,F,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+   (asgn@2,1
+    (hderef~2 x.154)
+    (add@6
+     (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+     (hderef@1 x.154)
+     (conv@U,~F
+      (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)1@1)))))
+ (type@b,G,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/openarrays.nim :openArray.0.Ij9i6zj. .
+  (at openArray.0.sysvq0asl
+   (i 64))
+  (pragmas~L,~A
+   (view@2))
+  (object~A,~A .
+   (fld~N,1 :a.0 . .
+    (ptr@3
+     (uarray@I
+      (i 64))
+     (unchecked)).)
+   (fld~N,2 :len.0 . .
+    (i@5 64).)))
+ (type@L,2r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :seq.0.Iotb7mc. .
+  (at seq.0.sysvq0asl
+   (i 64))
+  (pragmas~B,~2l
+   (destroy =destroy.1.Iez2nr5.)
+   (wasmoved =wasMoved.1.Ia0kll01.)
+   (dup =dup.1.Is27omc.)
+   (copy =copy.1.Iw71th7.))
+  (object~9,~2l .
+   (fld~8,1 :len.0 . .
+    (i@5 64).)
+   (fld~8,2 :data.0 . .
+    (ptr@6
+     (uarray@I
+      (i 64))
+     (unchecked)).)))
+ (type@L,2r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :seq.0.Izimvvd1. .
+  (at seq.0.sysvq0asl
+   (f 64))
+  (pragmas~B,~2l
+   (destroy =destroy.1.Ittbaxj1.)
+   (wasmoved =wasMoved.1.Iu8y1ro1.)
+   (dup =dup.1.Imfj8kj.)
+   (copy =copy.1.I6bjvy8.))
+  (object~9,~2l .
+   (fld~8,1 :len.0 . .
+    (i@5 64).)
+   (fld~8,2 :data.0 . .
+    (ptr@6
+     (uarray@I
+      (f 64))
+     (unchecked)).)))
+ (type@M,N,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/openarrays.nim :openArray.0.I8jqt5c1. .
+  (at openArray.0.sysvq0asl
+   (f 64))
+  (pragmas~6,~H
+   (view@2))
+  (object@5,~H .
+   (fld~N,1 :a.0 . .
+    (ptr@3
+     (uarray@I
+      (f 64))
+     (unchecked)).)
+   (fld~N,2 :len.0 . .
+    (i@5 64).)))
+ (func@,D,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :=destroy.1.Iez2nr5. . .
+  (at =destroy.1.sysvq0asl
+   (i 64))
+  (params@J
+   (param@1 :s.4 . . seq.0.Iotb7mc.@6 .)). . .
+  (stmts@2,1
+   (if
+    (elif@3
+     (expr@2,1l,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+      (not@,1
+       (eq@7
+        (ptr@A,8,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+         (uarray@I
+          (i 64))
+         (unchecked))
+        (dot@6,E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim s.4~1 data.0 0 "sysvq0asl")
+        (nil@F,E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+         (ptr~5,~6
+          (uarray@I
+           (i 64))
+          (unchecked))))))
+     (stmts~1,1
+      (var@4 :i.9 . .
+       (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)0@4)
+      (while@,1
+       (lt@8
+        (i@G,1H,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)i.9~2
+        (dot@3 s.4~1 len.0 0 "sysvq0asl"))
+       (stmts@2,1
+        (destroy@A
+         (pat@2
+          (dot s.4~1 data.0 0 "sysvq0asl")i.9@6))
+        (cmd@,1 inc.1.Irn1g7r1.
+         (haddr@4 i.9))))
+      (cmd@,4 dealloc.1.sysvq0asl
+       (hconv@9
+        (pointer@J,2s,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+         (unchecked))
+        (hconv
+         (pointer@J,2s,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+          (unchecked))
+         (dot s.4~1 data.0 0 "sysvq0asl")))))))))
+ (func@,L,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :=wasMoved.1.Ia0kll01. . .
+  (at =wasMoved.1.sysvq0asl
+   (i 64))
+  (params@K
+   (param@1 :s.5 . .
+    (mut@3 seq.0.Iotb7mc.@7).)).
+  (pragmas@a
+   (inline@2)).
+  (stmts@2,1
+   (asgn@6
+    (dot~5
+     (hderef~1 s.5)len.0 0 "sysvq0asl")0@2)
+   (asgn@7,1
+    (dot~6
+     (hderef~1 s.5)data.0 0 "sysvq0asl")
+    (nil@2
+     (ptr~1,~F
+      (uarray@I
+       (i 64))
+      (unchecked))))))
+ (func@,1U,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :=dup.1.Is27omc. . .
+  (at =dup.1.sysvq0asl
+   (i 64))
+  (params@F
+   (param@1 :a.6 . . seq.0.Iotb7mc.@6 .))seq.0.Iotb7mc.@G
+  (pragmas@Z
+   (nodestroy@2)).
+  (stmts@2,1
+   (result@7 :result.84 . . seq.0.Iotb7mc.@D,~1 .@E,~1)
+   (asgn@7 result.84~7
+    (call@2 newSeqUninit.0.I7whkjh1.
+     (dot@H a.6~1 len.0 0 "sysvq0asl")))
+   (var@4,1 :i.10 . .
+    (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)0@4)
+   (while@,2
+    (lt@8
+     (i@G,1H,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)i.10~2
+     (dot@3 a.6~1 len.0 0 "sysvq0asl"))
+    (stmts@2,1
+     (asgn@H
+      (pat~A
+       (dot result.84~6 data.0 0 "sysvq0asl")i.10@6)
+      (dup@8
+       (pat@2
+        (dot a.6~1 data.0 0 "sysvq0asl")i.10@6)))
+     (cmd@,1 inc.1.Irn1g7r1.
+      (haddr@4 i.10))))
+   (ret@6,4 result.84)))
+ (func@,20,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :=copy.1.Iw71th7. . .
+  (at =copy.1.sysvq0asl
+   (i 64))
+  (params@G
+   (param@1 :dest.2 . .
+    (mut@6 seq.0.Iotb7mc.@7).)
+   (param@J :src.2 . . seq.0.Iotb7mc.@8 .)).
+  (pragmas@m
+   (nodestroy@2)).
+  (stmts@2,1
+   (if
+    (elif@3
+     (eq@A
+      (ptr~5,~1t
+       (uarray@I
+        (i 64))
+       (unchecked))
+      (dot~6
+       (hderef~4 dest.2)data.0 0 "sysvq0asl")
+      (dot@6 src.2~3 data.0 0 "sysvq0asl"))
+     (stmts@N
+      (ret .))))
+   (if@,1
+    (elif@3
+     (lt@8
+      (i@G,1H,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)
+      (dot~5 src.2~3 len.0 0 "sysvq0asl")
+      (dot@6
+       (hderef~4 dest.2)len.0 0 "sysvq0asl"))
+     (stmts~1,1
+      (var@4 :i.11 . .
+       (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+       (dot@7 src.2~3 len.0 0 "sysvq0asl"))
+      (while@,1
+       (lt@8
+        (i@G,1H,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)i.11~2
+        (dot@6
+         (hderef~4 dest.2)len.0 0 "sysvq0asl"))
+       (stmts@2,1
+        (destroy@A
+         (pat@5
+          (dot
+           (hderef~4 dest.2)data.0 0 "sysvq0asl")i.11@6))
+        (cmd@,1 inc.1.Irn1g7r1.
+         (haddr@4 i.11))))))
+    (elif@5,5
+     (lt@G
+      (i@G,1H,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)
+      (call~B capInBytes.0.Ilkynur1.
+       (hderef~5 dest.2))
+      (mul@A
+       (i@G,x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+       (dot~5 src.2~3 len.0 0 "sysvq0asl")
+       (sizeof@8
+        (i 64))))
+     (stmts~3,1
+      (let@4 :oldCap.0 . .
+       (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+       (div@P
+        (i@I,13,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+        (call~B capInBytes.0.Ilkynur1.
+         (hderef~5 dest.2))
+        (sizeof@A
+         (i 64))))
+      (let@4,1 :newCap.0 . .
+       (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+       (call@9 recalcCap.0.sysvq0asl oldCap.0@A
+        (sub@Q
+         (i@G,r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+         (dot~5 src.2~3 len.0 0 "sysvq0asl")oldCap.0@2)))
+      (let@4,2 :memSize.0 . .
+       (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+       (call@A memSizeInBytes.0.Iqj0wsf. newCap.0@I))
+      (asgn@A,3
+       (dot~6
+        (hderef~4 dest.2)data.0 0 "sysvq0asl")
+       (cast@2
+        (ptr@5
+         (uarray@I
+          (i 64))
+         (unchecked))
+        (call@S realloc.1.sysvq0asl
+         (hconv@C
+          (pointer@J,2n,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+           (unchecked))
+          (hconv
+           (pointer@J,2s,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+            (unchecked))
+           (dot
+            (hderef~4 dest.2)data.0 0 "sysvq0asl")))memSize.0@J)))
+      (if@,4
+       (elif@3
+        (eq@A
+         (ptr~7,~24
+          (uarray@I
+           (i 64))
+          (unchecked))
+         (dot~6
+          (hderef~4 dest.2)data.0 0 "sysvq0asl")
+         (nil@3
+          (ptr~A,~24
+           (uarray@I
+            (i 64))
+           (unchecked))))
+        (stmts~1,1
+         (asgn@9
+          (dot~5
+           (hderef~4 dest.2)len.0 0 "sysvq0asl")0@2)
+         (pragmax@,1
+          (pragmas
+           (cast@2
+            (pragmas
+             (noSideEffect@5))))
+          (stmts@2,1
+           (cmd oomHandler.0.sysvq0asl memSize.0@B)))
+         (ret@,3 .)))))))
+   (asgn@9,G
+    (dot~5
+     (hderef~4 dest.2)len.0 0 "sysvq0asl")
+    (dot@5 src.2~3 len.0 0 "sysvq0asl"))
+   (var@4,H :i.12 . .
+    (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)0@4)
+   (while@,I
+    (lt@8
+     (i@G,1H,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)i.12~2
+     (dot@6
+      (hderef~4 dest.2)len.0 0 "sysvq0asl"))
+    (stmts@2,1
+     (stmts@2,Y,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+      (asgn@7
+       (pat~6
+        (dot@8,2K,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+         (hderef~4 dest.2)data.0 0 "sysvq0asl")i.12@E,2K,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim)
+       (dup@P,2K,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+        (pat@4
+         (dot src.2~3 data.0 0 "sysvq0asl")i.12@6))))
+     (cmd@,1 inc.1.Irn1g7r1.
+      (haddr@4 i.12))))))
+ (func@,D,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :=destroy.1.Ittbaxj1. . .
+  (at =destroy.1.sysvq0asl
+   (f 64))
+  (params@J
+   (param@1 :s.7 . . seq.0.Izimvvd1.@6 .)). . .
+  (stmts@2,1
+   (if
+    (elif@3
+     (expr@2,1l,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+      (not@,1
+       (eq@7
+        (ptr@A,8,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+         (uarray@I
+          (f 64))
+         (unchecked))
+        (dot@6,E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim s.7~1 data.0 0 "sysvq0asl")
+        (nil@F,E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+         (ptr~5,~6
+          (uarray@I
+           (f 64))
+          (unchecked))))))
+     (stmts~1,1
+      (var@4 :i.13 . .
+       (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)0@4)
+      (while@,1
+       (lt@8
+        (i@G,1H,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)i.13~2
+        (dot@3 s.7~1 len.0 0 "sysvq0asl"))
+       (stmts@2,1
+        (destroy@A
+         (pat@2
+          (dot s.7~1 data.0 0 "sysvq0asl")i.13@6))
+        (cmd@,1 inc.1.Irn1g7r1.
+         (haddr@4 i.13))))
+      (cmd@,4 dealloc.1.sysvq0asl
+       (hconv@9
+        (pointer@J,2s,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+         (unchecked))
+        (hconv
+         (pointer@J,2s,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+          (unchecked))
+         (dot s.7~1 data.0 0 "sysvq0asl")))))))))
+ (func@,L,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :=wasMoved.1.Iu8y1ro1. . .
+  (at =wasMoved.1.sysvq0asl
+   (f 64))
+  (params@K
+   (param@1 :s.8 . .
+    (mut@3 seq.0.Izimvvd1.@7).)).
+  (pragmas@a
+   (inline@2)).
+  (stmts@2,1
+   (asgn@6
+    (dot~5
+     (hderef~1 s.8)len.0 0 "sysvq0asl")0@2)
+   (asgn@7,1
+    (dot~6
+     (hderef~1 s.8)data.0 0 "sysvq0asl")
+    (nil@2
+     (ptr~1,~F
+      (uarray@I
+       (f 64))
+      (unchecked))))))
+ (func@,1U,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :=dup.1.Imfj8kj. . .
+  (at =dup.1.sysvq0asl
+   (f 64))
+  (params@F
+   (param@1 :a.7 . . seq.0.Izimvvd1.@6 .))seq.0.Izimvvd1.@G
+  (pragmas@Z
+   (nodestroy@2)).
+  (stmts@2,1
+   (result@7 :result.85 . . seq.0.Izimvvd1.@D,~1 .@E,~1)
+   (asgn@7 result.85~7
+    (call@2 newSeqUninit.0.I02czk9.
+     (dot@H a.7~1 len.0 0 "sysvq0asl")))
+   (var@4,1 :i.14 . .
+    (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)0@4)
+   (while@,2
+    (lt@8
+     (i@G,1H,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)i.14~2
+     (dot@3 a.7~1 len.0 0 "sysvq0asl"))
+    (stmts@2,1
+     (asgn@H
+      (pat~A
+       (dot result.85~6 data.0 0 "sysvq0asl")i.14@6)
+      (dup@8
+       (pat@2
+        (dot a.7~1 data.0 0 "sysvq0asl")i.14@6)))
+     (cmd@,1 inc.1.Irn1g7r1.
+      (haddr@4 i.14))))
+   (ret@6,4 result.85)))
+ (func@,20,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :=copy.1.I6bjvy8. . .
+  (at =copy.1.sysvq0asl
+   (f 64))
+  (params@G
+   (param@1 :dest.3 . .
+    (mut@6 seq.0.Izimvvd1.@7).)
+   (param@J :src.3 . . seq.0.Izimvvd1.@8 .)).
+  (pragmas@m
+   (nodestroy@2)).
+  (stmts@2,1
+   (if
+    (elif@3
+     (eq@A
+      (ptr~5,~1t
+       (uarray@I
+        (f 64))
+       (unchecked))
+      (dot~6
+       (hderef~4 dest.3)data.0 0 "sysvq0asl")
+      (dot@6 src.3~3 data.0 0 "sysvq0asl"))
+     (stmts@N
+      (ret .))))
+   (if@,1
+    (elif@3
+     (lt@8
+      (i@G,1H,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)
+      (dot~5 src.3~3 len.0 0 "sysvq0asl")
+      (dot@6
+       (hderef~4 dest.3)len.0 0 "sysvq0asl"))
+     (stmts~1,1
+      (var@4 :i.15 . .
+       (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+       (dot@7 src.3~3 len.0 0 "sysvq0asl"))
+      (while@,1
+       (lt@8
+        (i@G,1H,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)i.15~2
+        (dot@6
+         (hderef~4 dest.3)len.0 0 "sysvq0asl"))
+       (stmts@2,1
+        (destroy@A
+         (pat@5
+          (dot
+           (hderef~4 dest.3)data.0 0 "sysvq0asl")i.15@6))
+        (cmd@,1 inc.1.Irn1g7r1.
+         (haddr@4 i.15))))))
+    (elif@5,5
+     (lt@G
+      (i@G,1H,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)
+      (call~B capInBytes.0.Ip5tpl61.
+       (hderef~5 dest.3))
+      (mul@A
+       (i@G,x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+       (dot~5 src.3~3 len.0 0 "sysvq0asl")
+       (sizeof@8
+        (f 64))))
+     (stmts~3,1
+      (let@4 :oldCap.1 . .
+       (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+       (div@P
+        (i@I,13,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+        (call~B capInBytes.0.Ip5tpl61.
+         (hderef~5 dest.3))
+        (sizeof@A
+         (f 64))))
+      (let@4,1 :newCap.1 . .
+       (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+       (call@9 recalcCap.0.sysvq0asl oldCap.1@A
+        (sub@Q
+         (i@G,r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+         (dot~5 src.3~3 len.0 0 "sysvq0asl")oldCap.1@2)))
+      (let@4,2 :memSize.1 . .
+       (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+       (call@A memSizeInBytes.0.I9xmoo4. newCap.1@I))
+      (asgn@A,3
+       (dot~6
+        (hderef~4 dest.3)data.0 0 "sysvq0asl")
+       (cast@2
+        (ptr@5
+         (uarray@I
+          (f 64))
+         (unchecked))
+        (call@S realloc.1.sysvq0asl
+         (hconv@C
+          (pointer@J,2n,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+           (unchecked))
+          (hconv
+           (pointer@J,2s,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+            (unchecked))
+           (dot
+            (hderef~4 dest.3)data.0 0 "sysvq0asl")))memSize.1@J)))
+      (if@,4
+       (elif@3
+        (eq@A
+         (ptr~7,~24
+          (uarray@I
+           (f 64))
+          (unchecked))
+         (dot~6
+          (hderef~4 dest.3)data.0 0 "sysvq0asl")
+         (nil@3
+          (ptr~A,~24
+           (uarray@I
+            (f 64))
+           (unchecked))))
+        (stmts~1,1
+         (asgn@9
+          (dot~5
+           (hderef~4 dest.3)len.0 0 "sysvq0asl")0@2)
+         (pragmax@,1
+          (pragmas
+           (cast@2
+            (pragmas
+             (noSideEffect@5))))
+          (stmts@2,1
+           (cmd oomHandler.0.sysvq0asl memSize.1@B)))
+         (ret@,3 .)))))))
+   (asgn@9,G
+    (dot~5
+     (hderef~4 dest.3)len.0 0 "sysvq0asl")
+    (dot@5 src.3~3 len.0 0 "sysvq0asl"))
+   (var@4,H :i.16 . .
+    (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)0@4)
+   (while@,I
+    (lt@8
+     (i@G,1H,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)i.16~2
+     (dot@6
+      (hderef~4 dest.3)len.0 0 "sysvq0asl"))
+    (stmts@2,1
+     (stmts@2,Y,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+      (asgn@7
+       (pat~6
+        (dot@8,2K,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+         (hderef~4 dest.3)data.0 0 "sysvq0asl")i.16@E,2K,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim)
+       (dup@P,2K,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+        (pat@4
+         (dot src.3~3 data.0 0 "sysvq0asl")i.16@6))))
+     (cmd@,1 inc.1.Irn1g7r1.
+      (haddr@4 i.16))))))
+ (func@Q,1V,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :newSeqUninit.0.I7whkjh1. . .~Q,~R
+  (at newSeqUninit.0.sysvq0asl
+   (i 64))
+  (params~5,~R
+   (param@1 :size.4 . .
+    (i@6 64).))seq.0.Iotb7mc.~A,~R
+  (pragmas@F,~R
+   (nodestroy@2)
+   (inline@D)
+   (semantics@L "newSeqUninit"@B)).~Q,~R
+  (stmts~O,~Q
+   (result :result.86 . . seq.0.Iotb7mc.@E,~1 .@F,~1)
+   (if@,1
+    (elif@3
+     (eq@5
+      (i@H,17,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)size.4~5 0@3)
+     (stmts~1,1
+      (asgn@7 result.86~7
+       (oconstr@8 seq.0.Iotb7mc.@2,1k
+        (kv@4 len.0~3 size.4@2)
+        (kv@G data.0~4
+         (nil@2
+          (ptr~R,~z
+           (uarray@I
+            (i 64))
+           (unchecked))))))))
+    (else@,2
+     (stmts@2,1
+      (let@4 :memSize.2 . .
+       (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+       (call@A memSizeInBytes.0.Iqj0wsf. size.4@I))
+      (asgn@7,1 result.86~7
+       (oconstr@8 seq.0.Iotb7mc.@2,1h
+        (kv@4 len.0~3 size.4@2)
+        (kv@G data.0~4
+         (cast@2
+          (ptr@5
+           (uarray@I
+            (i 64))
+           (unchecked))
+          (call@S alloc.1.sysvq0asl memSize.2@6)))))
+      (if@,2
+       (elif@3
+        (expr@2,1l,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+         (not@,1
+          (eq@7
+           (ptr@A,8,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+            (uarray@I
+             (i 64))
+            (unchecked))
+           (dot@D,1B,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim result.86~6 data.0 0 "sysvq0asl")
+           (nil@M,1B,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+            (ptr~C,~13
+             (uarray@I
+              (i 64))
+             (unchecked))))))
+        (stmts~1,1
+         (discard "leave uninitialized"@8)))
+       (else@,2
+        (stmts@2,1
+         (asgn@B
+          (dot~5 result.86~6 len.0 0 "sysvq0asl")0@2)
+         (pragmax@,1
+          (pragmas
+           (cast@2
+            (pragmas
+             (noSideEffect@5))))
+          (stmts@2,1
+           (cmd oomHandler.0.sysvq0asl memSize.2@B)))))))))
+   (ret@H,B result.86)))
+ (func@B,27,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :capInBytes.0.Ilkynur1. . .~B,~1x
+  (at capInBytes.0.sysvq0asl
+   (i 64))
+  (params@7,~1x
+   (param@1 :s.10 . . seq.0.Iotb7mc.@6 .))
+  (i@2,~1x 64)
+  (pragmas@O,~1x
+   (inline@2)).~B,~1x
+  (stmts~9,~1w
+   (result@7 :result.87 . .
+    (i@D,V,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim 64).@D,V,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim)
+   (asgn@7 result.87~7
+    (if@2
+     (elif@3
+      (expr@2,1l,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+       (not@,1
+        (eq@7
+         (ptr@A,8,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+          (uarray@I
+           (i 64))
+          (unchecked))
+         (dot@F,B,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim s.10~1 data.0 0 "sysvq0asl")
+         (nil@O,B,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+          (ptr~E,~3
+           (uarray@I
+            (i 64))
+           (unchecked))))))
+      (expr@F
+       (call allocatedSize.0.sysvq0asl
+        (hconv@F
+         (pointer@P,2x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+          (unchecked))
+         (hconv
+          (pointer@J,2s,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+           (unchecked))
+          (dot s.10~1 data.0 0 "sysvq0asl"))))))
+     (else@e
+      (expr@6 0))))
+   (ret@t result.87)))
+ (func@Z,2A,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :memSizeInBytes.0.Iqj0wsf. . .~Z,~1l
+  (at memSizeInBytes.0.sysvq0asl
+   (i 64))
+  (params~D,~1l
+   (param@1 :size.5 . .
+    (i@6 64).))
+  (i~M,~1l 64)
+  (pragmas@4,~1l
+   (inline@2)).~Z,~1l
+  (stmts~X,~1k
+   (result :result.88 . .
+    (i@D,V,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim 64).@D,V,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim)
+   (pragmax
+    (pragmas
+     (keepOverflowFlag@2))
+    (stmts@2,1
+     (asgn@7 result.88~7
+      (mul@7
+       (i@G,x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)size.5~5
+       (sizeof@8
+        (i 64))))
+     (if@,1
+      (elif@3
+       (ovf@C)
+       (stmts~1,2
+        (asgn@7 result.88~7
+         (suf@6 9223372036854775807 "i64")))))))
+   (ret@H,4 result.88)))
+ (func@Q,1V,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :newSeqUninit.0.I02czk9. . .~Q,~R
+  (at newSeqUninit.0.sysvq0asl
+   (f 64))
+  (params~5,~R
+   (param@1 :size.6 . .
+    (i@6 64).))seq.0.Izimvvd1.~A,~R
+  (pragmas@F,~R
+   (nodestroy@2)
+   (inline@D)
+   (semantics@L "newSeqUninit"@B)).~Q,~R
+  (stmts~O,~Q
+   (result :result.89 . . seq.0.Izimvvd1.@E,~1 .@F,~1)
+   (if@,1
+    (elif@3
+     (eq@5
+      (i@H,17,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)size.6~5 0@3)
+     (stmts~1,1
+      (asgn@7 result.89~7
+       (oconstr@8 seq.0.Izimvvd1.@2,1k
+        (kv@4 len.0~3 size.6@2)
+        (kv@G data.0~4
+         (nil@2
+          (ptr~R,~z
+           (uarray@I
+            (f 64))
+           (unchecked))))))))
+    (else@,2
+     (stmts@2,1
+      (let@4 :memSize.3 . .
+       (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+       (call@A memSizeInBytes.0.I9xmoo4. size.6@I))
+      (asgn@7,1 result.89~7
+       (oconstr@8 seq.0.Izimvvd1.@2,1h
+        (kv@4 len.0~3 size.6@2)
+        (kv@G data.0~4
+         (cast@2
+          (ptr@5
+           (uarray@I
+            (f 64))
+           (unchecked))
+          (call@S alloc.1.sysvq0asl memSize.3@6)))))
+      (if@,2
+       (elif@3
+        (expr@2,1l,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+         (not@,1
+          (eq@7
+           (ptr@A,8,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+            (uarray@I
+             (f 64))
+            (unchecked))
+           (dot@D,1B,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim result.89~6 data.0 0 "sysvq0asl")
+           (nil@M,1B,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+            (ptr~C,~13
+             (uarray@I
+              (f 64))
+             (unchecked))))))
+        (stmts~1,1
+         (discard "leave uninitialized"@8)))
+       (else@,2
+        (stmts@2,1
+         (asgn@B
+          (dot~5 result.89~6 len.0 0 "sysvq0asl")0@2)
+         (pragmax@,1
+          (pragmas
+           (cast@2
+            (pragmas
+             (noSideEffect@5))))
+          (stmts@2,1
+           (cmd oomHandler.0.sysvq0asl memSize.3@B)))))))))
+   (ret@H,B result.89)))
+ (func@B,27,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :capInBytes.0.Ip5tpl61. . .~B,~1x
+  (at capInBytes.0.sysvq0asl
+   (f 64))
+  (params@7,~1x
+   (param@1 :s.11 . . seq.0.Izimvvd1.@6 .))
+  (i@2,~1x 64)
+  (pragmas@O,~1x
+   (inline@2)).~B,~1x
+  (stmts~9,~1w
+   (result@7 :result.90 . .
+    (i@D,V,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim 64).@D,V,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim)
+   (asgn@7 result.90~7
+    (if@2
+     (elif@3
+      (expr@2,1l,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+       (not@,1
+        (eq@7
+         (ptr@A,8,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+          (uarray@I
+           (f 64))
+          (unchecked))
+         (dot@F,B,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim s.11~1 data.0 0 "sysvq0asl")
+         (nil@O,B,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+          (ptr~E,~3
+           (uarray@I
+            (f 64))
+           (unchecked))))))
+      (expr@F
+       (call allocatedSize.0.sysvq0asl
+        (hconv@F
+         (pointer@P,2x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+          (unchecked))
+         (hconv
+          (pointer@J,2s,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+           (unchecked))
+          (dot s.11~1 data.0 0 "sysvq0asl"))))))
+     (else@e
+      (expr@6 0))))
+   (ret@t result.90)))
+ (func@Z,2A,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :memSizeInBytes.0.I9xmoo4. . .~Z,~1l
+  (at memSizeInBytes.0.sysvq0asl
+   (f 64))
+  (params~D,~1l
+   (param@1 :size.7 . .
+    (i@6 64).))
+  (i~M,~1l 64)
+  (pragmas@4,~1l
+   (inline@2)).~Z,~1l
+  (stmts~X,~1k
+   (result :result.91 . .
+    (i@D,V,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim 64).@D,V,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim)
+   (pragmax
+    (pragmas
+     (keepOverflowFlag@2))
+    (stmts@2,1
+     (asgn@7 result.91~7
+      (mul@7
+       (i@G,x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)size.7~5
+       (sizeof@8
+        (f 64))))
+     (if@,1
+      (elif@3
+       (ovf@C)
+       (stmts~1,2
+        (asgn@7 result.91~7
+         (suf@6 9223372036854775807 "i64")))))))
+   (ret@H,4 result.91))))(.index@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+ (x Arithmetic.0. 486)
+ (h@G,3 Self.0. 53)
+ (h@4,5 \2B.0. 48)
+ (h@4,5 \2D.0. 134)
+ (h@4,5 *.0. 137)
+ (h@4,5 mod.0. 135)
+ (h@4,5 ==.0. 137)
+ (h@4,5 <.0. 140)
+ (h@4,5 >.0. 139)
+ (x IntegerArithmetic.0. 142)
+ (h@N,D Self.1. 74)
+ (h@4,E div.0. 48)
+ (h@4,E inc.0. 134)
+ (h@4,E dec.0. 141)
+ (x SignedArithmetic.0. 144)
+ (h@M,I Self.2. 73)
+ (h@4,J \2D.1. 48)
+ (x FloatArithmetic.0. 101)
+ (h@L,L Self.3. 78)
+ (h@4,M /.0. 48)
+ (x HasSqrt.0. 137)
+ (h@D,R Self.4. 50)
+ (h@4,S sqrt.0. 48)
+ (x HasExp.0. 102)
+ (h@C,T Self.5. 49)
+ (h@4,U exp.0. 48)
+ (x HasLn.0. 101)
+ (h@B,V Self.6. 48)
+ (h@4,W ln.0. 48)
+ (x HasSin.0. 100)
+ (h@C,X Self.7. 49)
+ (h@4,Y sin.0. 48)
+ (x HasCos.0. 101)
+ (h@C,Z Self.8. 49)
+ (h@4,a cos.0. 48)
+ (x HasHypot.0. 101)
+ (h@E,b Self.9. 51)
+ (h@4,c hypot.0. 48)
+ (x HasArctan2.0. 141)
+ (h@G,d Self.10. 53)
+ (h@4,e arctan2.0. 49)
+ (x PI.0. 143)
+ (x TAU.0. 164)
+ (x E.0. 165)
+ (x MaxFloat64Precision.0. 163)
+ (x MaxFloat32Precision.0. 75)
+ (x MaxFloatPrecision.0. 74)
+ (x MinFloatNormal.0. 76)
+ (h CMathHeader.0. 194)
+ (h@2,17 c_fpNormal.0. 79)
+ (h@2,17 c_fpSubnormal.0. 66)
+ (h@2,17 c_fpZero.0. 69)
+ (h@2,17 c_fpInfinite.0. 64)
+ (h@2,17 c_fpNan.0. 68)
+ (h@2,17 c_signbit.0. 63)
+ (h@G,1D T.0. 46)
+ (h@2,17 c_isnan.0. 1333)
+ (h@E,1G T.1. 44)
+ (h@2,17 c_fpclassify.0. 3735)
+ (h@J,1N T.2. 49)
+ (h@2,17 c_frexp.0. 6608)
+ (h@2,17 c_frexp.1. 473)
+ (x FloatClass.0. 473)
+ (x@G,22 fcNormal.0. 54)
+ (x@G,22 fcSubnormal.0. 68)
+ (x@G,22 fcZero.0. 74)
+ (x@G,22 fcNegZero.0. 64)
+ (x@G,22 fcNan.0. 70)
+ (x@G,22 fcInf.0. 62)
+ (x@G,22 fcNegInf.0. 62)
+ (x dollar`.FloatClass.0. 70)
+ (x signbit.0. 725)
+ (h@D,2D T.3. 43)
+ (x copySign.0. 930)
+ (x copySign.1. 307)
+ (x classify.0. 844)
+ (h@E,2a T.4. 44)
+ (x isNaN.0. 2069)
+ (h@B,2z T.5. 41)
+ (x almostEqual.0. 928)
+ (h@H,38 T.6. 47)
+ (x sgn.0. 3573)
+ (h@9,3a T.7. 39)
+ (x frexp.0. 2249)
+ (h@B,3o T.8. 41)
+ (x floor.0. 3037)
+ (x floor.1. 216)
+ (x ceil.0. 753)
+ (x ceil.1. 214)
+ (x round.0. 753)
+ (x round.1. 216)
+ (x trunc.0. 755)
+ (x trunc.1. 216)
+ (x mod.1. 755)
+ (x mod.2. 298)
+ (x floorMod.0. 837)
+ (h@E,5A T.9. 44)
+ (x floorDiv.0. 2190)
+ (h@E,5S T.10. 44)
+ (x euclDiv.0. 2325)
+ (h@D,5n T.11. 43)
+ (x euclMod.0. 1651)
+ (h@D,62 T.12. 43)
+ (h ceilDivUint.0. 1750)
+ (h@K,6F T.13. 51)
+ (h ceilDivSigned.0. 1179)
+ (h@M,6V T.14. 53)
+ (x ceilDiv.0. 597)
+ (h@D,6Y T.15. 43)
+ (x divmod.0. 3210)
+ (h@C,7H T.16. 42)
+ (x sum.0. 1195)
+ (h@9,7U T.17. 39)
+ (x cumsum.0. 1670)
+ (h@C,7h T.18. 42)
+ (x prod.0. 1063)
+ (h@A,7w T.19. 40)
+ (x cumprod.0. 1016)
+ (h@D,8B T.20. 43)
+ (x sqrt.1. 939)
+ (x sqrt.2. 214)
+ (x cbrt.0. 753)
+ (x cbrt.1. 214)
+ (x pow.0. 753)
+ (x pow.1. 297)
+ (x hypot.1. 836)
+ (x hypot.2. 301)
+ (x exp.1. 840)
+ (x exp.2. 212)
+ (x ln.1. 751)
+ (x ln.2. 211)
+ (x log2.0. 750)
+ (x log2.1. 216)
+ (x log10.0. 755)
+ (x log10.1. 218)
+ (x log1p.0. 757)
+ (x log1p.1. 218)
+ (x log.0. 757)
+ (h@9,A9 T.21. 39)
+ (x ^.0. 1275)
+ (h@9,AO T.22. 37)
+ (x isPowerOfTwo.0. 3560)
+ (x nextPowerOfTwo.0. 1155)
+ (h RadPerDeg.0. 2578)
+ (x degToRad.0. 173)
+ (h@E,Bb T.23. 44)
+ (x radToDeg.0. 790)
+ (h@E,Bl T.24. 44)
+ (x sin.1. 663)
+ (x sin.2. 212)
+ (x cos.1. 751)
+ (x cos.2. 212)
+ (x tan.0. 751)
+ (x tan.1. 212)
+ (x arcsin.0. 751)
+ (x arcsin.1. 216)
+ (x arccos.0. 755)
+ (x arccos.1. 216)
+ (x arctan.0. 755)
+ (x arctan.1. 216)
+ (x arctan2.1. 755)
+ (x arctan2.2. 303)
+ (x sinh.0. 842)
+ (x sinh.1. 216)
+ (x cosh.0. 755)
+ (x cosh.1. 216)
+ (x tanh.0. 755)
+ (x tanh.1. 216)
+ (x arcsinh.0. 755)
+ (x arcsinh.1. 220)
+ (x arccosh.0. 219)
+ (x arccosh.1. 220)
+ (x arctanh.0. 219)
+ (x arctanh.1. 221)
+ (x erf.0. 220)
+ (x erf.1. 215)
+ (x erfc.0. 214)
+ (x erfc.1. 217)
+ (x gamma.0. 216)
+ (x gamma.1. 220)
+ (x lgamma.0. 759)
+ (x lgamma.1. 221)
+ (x cot.0. 620)
+ (x cot.1. 387)
+ (x sec.0. 577)
+ (x sec.1. 387)
+ (x csc.0. 577)
+ (x csc.1. 387)
+ (x coth.0. 577)
+ (x coth.1. 389)
+ (x sech.0. 579)
+ (x sech.1. 389)
+ (x csch.0. 579)
+ (x csch.1. 389)
+ (x arccot.0. 579)
+ (x arccot.1. 396)
+ (x arcsec.0. 586)
+ (x arcsec.1. 396)
+ (x arccsc.0. 586)
+ (x arccsc.1. 396)
+ (x arccoth.0. 586)
+ (x arccoth.1. 398)
+ (x arcsech.0. 588)
+ (x arcsech.1. 398)
+ (x arccsch.0. 588)
+ (x arccsch.1. 398)
+ (x splitDecimal.0. 588)
+ (h@I,EY T.25. 48)
+ (x fac.0. 4000)
+ (x binom.0. 550)
+ (x gcd.0. 2268)
+ (h@9,FK T.26. 39)
+ (x gcd.1. 1755)
+ (h@9,Fd T.27. 39)
+ (x lcm.0. 721)
+ (h@9,Fp T.28. 39)
+ (x lcm.1. 854)
+ (h@9,G0 T.29. 39)
+ (h isNaN.0.Ica2702. 11572)
+ (h almostEqual.0.Ivmzi1f. 1050)
+ (h \2B=.0.Ihg6mz11. 2691)
+ (h degToRad.0.Ijbttm21. 1163)
+ (h radToDeg.0.Intoyme1. 609)
+ (h \2E..0.Ibdympw. 1264)
+ (h *=.0.Iu9okoo1. 1102)
+ (h c_isnan.0.I3164fs1. 1159)
+ (h abs.0.Iwxvrq71. 1903)
+ (h inc.1.Irn1g7r1. 1683)
+ (h openArray.0.Ij9i6zj. 1416)
+ (h seq.0.Iotb7mc. 345)
+ (h seq.0.Izimvvd1. 445)
+ (h openArray.0.I8jqt5c1. 447)
+ (h =destroy.1.Iez2nr5. 346)
+ (h =wasMoved.1.Ia0kll01. 1859)
+ (h =dup.1.Is27omc. 496)
+ (h =copy.1.Iw71th7. 1012)
+ (h =destroy.1.Ittbaxj1. 5172)
+ (h =wasMoved.1.Iu8y1ro1. 1865)
+ (h =dup.1.Imfj8kj. 497)
+ (h =copy.1.I6bjvy8. 1014)
+ (h newSeqUninit.0.I7whkjh1. 5174)
+ (h capInBytes.0.Ilkynur1. 2462)
+ (h memSizeInBytes.0.Iqj0wsf. 1793)
+ (h newSeqUninit.0.I02czk9. 1008)
+ (h capInBytes.0.Ip5tpl61. 2465)
+ (h memSizeInBytes.0.I9xmoo4. 1794))

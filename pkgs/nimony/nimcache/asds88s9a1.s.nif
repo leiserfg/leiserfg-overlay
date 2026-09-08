@@ -1,0 +1,6 @@
+(.nif27)
+(.indexat 312              )
+(stmts@,1,../../../../../../tmp/asdf.nim
+ (import
+  (kv sysvq0asl "../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim")
+  (kv mat7cnfv21 "../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim")))(.index@,1,../../../../../../tmp/asdf.nim)

@@ -1,0 +1,141 @@
+(.nif27)
+(.indexat 7545             )
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim
+ (import
+  (kv sysvq0asl "../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim")
+  (kv syn1lfpjv "../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/syncio.nim"))
+ (const@N,2 :assertionsEnabled.0.~H x .
+  (bool@B,19,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim)
+  (true@B,19,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim))
+ (proc@,A :raiseAssert.0.@5 x . .
+  (params@H
+   (param@1 :msg.0 . . string.0.sysvq0asl@5 .)).
+  (pragmas@V
+   (noreturn@2)).
+  (stmts@2,1
+   (stmts@2,8H,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/syncio.nim
+    (stmts@2,2
+     (cmd write.0.syn1lfpjv stdout.0.syn1lfpjv@6 "\5BAssertion Failure\5D "@7,C,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim))
+    (stmts@2,2
+     (cmd write.0.syn1lfpjv stdout.0.syn1lfpjv@6 msg.0@V,C,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim))
+    (cmd@,3 write.7.syn1lfpjv stdout.0.syn1lfpjv@6 '\0A'@E))
+   (cmd@,1 quit.0.syn1lfpjv 1@5)))
+ (template@,E :assert.0.@9 x . .
+  (params@G
+   (param@1 :cond.0 . .
+    (bool@6).)
+   (param@D :msg.1 . . string.0.sysvq0asl~6,~4 ""@6)). . .
+  (stmts@2,1
+   (stmts@2,6
+    (if
+     (elif@3
+      (not cond.0@4)
+      (stmts~1,1
+       (call@B raiseAssert.0.~B msg.1@1)))))))
+ (template@,Q :assertRc.0.@9 x .
+  (typevars@I
+   (typevar@1 :T.0. . . . .))
+  (params@L
+   (param@1 :r.0 . .
+    (ref@3 T.0.@4
+     (notnil)).)
+   (param@B :expected.0 . .
+    (i@A 64).)
+   (param@Q :tag.0 . . string.0.sysvq0asl~O,~G ""@E)). . .
+  (stmts@2,1
+   (let@4,8 :actualRc.0 . .
+    (i@K 64)
+    (deref@B
+     (cast
+      (ptr@5
+       (i@4 64)
+       (notnil))r.0@E)))
+   (if@,9
+    (elif@3
+     (expr@2,1l,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+      (not@,1
+       (eq@7
+        (i@8,~f 64)actualRc.0@5,b,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim expected.0@H,b,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim)))
+     (stmts~1,1
+      (stmts@2,8H,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/syncio.nim
+       (stmts@2,2
+        (cmd write.0.syn1lfpjv stdout.0.syn1lfpjv@6 "\5BassertRc\5D "@9,c,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim))
+       (stmts@2,2
+        (cmd write.0.syn1lfpjv stdout.0.syn1lfpjv@6 tag.0@O,c,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim))
+       (stmts@2,2
+        (cmd write.0.syn1lfpjv stdout.0.syn1lfpjv@6 " rc="@T,c,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim))
+       (stmts@2,2
+        (cmd write.2.syn1lfpjv stdout.0.syn1lfpjv@6 actualRc.0@b,c,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim))
+       (stmts@2,2
+        (cmd write.0.syn1lfpjv stdout.0.syn1lfpjv@6 " expected="@l,c,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim))
+       (stmts@2,2
+        (cmd write.2.syn1lfpjv stdout.0.syn1lfpjv@6 expected.0@z,c,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim))
+       (stmts@2,2
+        (cmd write.0.syn1lfpjv stdout.0.syn1lfpjv@6 " ptr="@9,d,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim))
+       (stmts@2,2
+        (cmd write.2.syn1lfpjv stdout.0.syn1lfpjv@6
+         (cast@I,d,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim
+          (i@5 64)r.0@A)))
+       (cmd@,3 write.7.syn1lfpjv stdout.0.syn1lfpjv@6 '\0A'@E))
+      (cmd@,2 quit.0.syn1lfpjv 1@5))))))
+ (template@,f :assertRcAlive.0.@9 x .
+  (typevars@N
+   (typevar@1 :T.1. . . . .))
+  (params@Q
+   (param@1 :r.1 . .
+    (ref@3 T.1.@4
+     (notnil)).)
+   (param@B :tag.1 . . string.0.sysvq0asl~E,~V ""@E)). . .
+  (stmts@2,1
+   (if@,6
+    (elif@3
+     (expr@2,1l,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+      (not@,1
+       (eq@7
+        (ref@B,~1R T.1.@Y,g,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim
+         (unchecked))r.1@5,n,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim
+        (nil@A,n,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim))))
+     (stmts~1,1
+      (let@4 :actualRc.1 . .
+       (i@I,~E 64)
+       (deref@B
+        (cast
+         (ptr@5
+          (i@4 64)
+          (notnil))r.1@E)))
+      (if@,2
+       (elif@3
+        (or@E
+         (lt~5
+          (i@G,1H,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)actualRc.1~9 -1@2)
+         (expr@2,1t,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+          (lt@2,1
+           (i@C,~d 64)10000@Z,q,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim actualRc.1@O,q,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim)))
+        (stmts~1,1
+         (stmts@2,8H,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/syncio.nim
+          (stmts@2,2
+           (cmd write.0.syn1lfpjv stdout.0.syn1lfpjv@6 "\5BassertRcAlive\5D "@B,r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim))
+          (stmts@2,2
+           (cmd write.0.syn1lfpjv stdout.0.syn1lfpjv@6 tag.1@V,r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim))
+          (stmts@2,2
+           (cmd write.0.syn1lfpjv stdout.0.syn1lfpjv@6 " rc="@a,r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim))
+          (stmts@2,2
+           (cmd write.2.syn1lfpjv stdout.0.syn1lfpjv@6 actualRc.1@i,r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim))
+          (stmts@2,2
+           (cmd write.0.syn1lfpjv stdout.0.syn1lfpjv@6 " \28corrupt\29"@s,r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim))
+          (stmts@2,2
+           (cmd write.0.syn1lfpjv stdout.0.syn1lfpjv@6 " ptr="@B,s,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim))
+          (stmts@2,2
+           (cmd write.2.syn1lfpjv stdout.0.syn1lfpjv@6
+            (cast@K,s,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim
+             (i@5 64)r.1@A)))
+          (cmd@,3 write.7.syn1lfpjv stdout.0.syn1lfpjv@6 '\0A'@E))
+         (cmd@,2 quit.0.syn1lfpjv 1@5)))))))))
+ (comment@N,E bool.0.sysvq0asl int.0.sysvq0asl@J,C echo.0.syn1lfpjv~L,~3 int.0.sysvq0asl@3,L !=.0.sysvq0asl~9,M int.0.sysvq0asl@,O echo.0.syn1lfpjv~J,N !=.0.sysvq0asl~G,Y int.0.sysvq0asl@5,Z >.0.sysvq0asl@A,b int.0.sysvq0asl@2,d echo.0.syn1lfpjv~H,c))(.index@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim
+ (x assertionsEnabled.0. 378)
+ (x raiseAssert.0. 279)
+ (x assert.0. 710)
+ (x assertRc.0. 276)
+ (h@I,Q T.0. 47)
+ (x assertRcAlive.0. 2478)
+ (h@N,f T.1. 52))

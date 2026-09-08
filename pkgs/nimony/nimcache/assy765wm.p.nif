@@ -1,0 +1,83 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/assertions.nim
+ (import
+  (infix@A / std~3 syncio@1))
+ (const@N,2 assertionsEnabled~H x . .
+  (infix@O and
+   (prefix~K not
+    (call@B defined~7 danger@1))
+   (prefix@4 not
+    (call@B defined~7 noAssertions@1))))
+ (proc@,A raiseAssert@5 x . .
+  (params@H
+   (param@1 msg . . string@5 .)).
+  (pragmas@V noreturn@2).
+  (stmts@2,1
+   (cmd echo "\5BAssertion Failure\5D "@5 msg@T)
+   (cmd@,1 quit 1@5)))
+ (template@,E assert@9 x . .
+  (params@G
+   (param@1 cond . . bool@6 .)
+   (param@D msg . . . ""@6)). . .
+  (stmts@2,1
+   (when
+    (elif@5 assertionsEnabled
+     (stmts~3,6
+      (if
+       (elif@3
+        (prefix not cond@4)
+        (stmts~1,1
+         (call@B raiseAssert~B msg@1))))))
+    (else@,8
+     (stmts@2,1
+      (discard .))))))
+ (template@,Q assertRc@9 x .
+  (typevars@I
+   (typevar@1 T . . . .))
+  (params@L
+   (param@1 r . .
+    (ref@3 T@4).)
+   (param@B expected . . int@A .)
+   (param@Q tag . . string@5 ""@E)). . .
+  (stmts@2,1
+   (comment)
+   (let@4,8 actualRc . . .
+    (at@R
+     (cast~G
+      (ptr@5 int@4)r@E)))
+   (if@,9
+    (elif@3
+     (infix@9 != actualRc~9 expected@3)
+     (stmts~1,1
+      (cmd echo "\5BassertRc\5D "@5 tag@K " rc="@P actualRc@X " expected="@h expected@v " ptr="@5,1
+       (cast@E,1 int@5 r@A))
+      (cmd@,2 quit 1@5))))))
+ (template@,f assertRcAlive@9 x .
+  (typevars@N
+   (typevar@1 T . . . .))
+  (params@Q
+   (param@1 r . .
+    (ref@3 T@4).)
+   (param@B tag . . string@5 ""@E)). . .
+  (stmts@2,1
+   (comment)
+   (if@,6
+    (elif@3
+     (infix@2 != r~2
+      (nil@3))
+     (stmts~1,1
+      (let@4 actualRc . . .
+       (at@R
+        (cast~G
+         (ptr@5 int@4)r@E)))
+      (if@,2
+       (elif@3
+        (infix@E or
+         (infix~5 < actualRc~9 -1@2)
+         (infix@C > actualRc~9 10000@2))
+        (stmts~1,1
+         (cmd echo "\5BassertRcAlive\5D "@5 tag@P " rc="@U actualRc@c " \28corrupt\29"@m " ptr="@5,1
+          (cast@E,1 int@5 r@A))
+         (cmd@,2 quit 1@5))))))))))

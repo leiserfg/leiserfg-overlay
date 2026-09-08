@@ -1,0 +1,13 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-deps")
+(stmts
+ (include
+  (when
+   (prefix not
+    (call defined nimNativeAlloc)))mimalloc)
+ (include
+  (when
+   (prefix not
+    (prefix not
+     (call defined nimNativeAlloc))))"alloc"))

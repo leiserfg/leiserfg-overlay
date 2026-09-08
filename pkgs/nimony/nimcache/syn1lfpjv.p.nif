@@ -1,0 +1,1650 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/syncio.nim
+ (pragmas
+  (kv@9 feature~7 "lenientnils"@2))
+ (import@,2
+  (infix@A / std~3 formatfloat@1))
+ (type@C,5 FileMode~A x . .
+  (enum@2 .
+   (efld~A,1 fmRead . . . .)
+   (efld~A,4 fmWrite . . . .)
+   (efld~A,7 fmReadWrite . . . .)
+   (efld~A,A fmReadWriteExisting . . . .)
+   (efld~A,D fmAppend . . . .)))
+ (type@F,M FileSeekPos~D x . .
+  (enum@2 .
+   (efld~D,3 fspSet . . . .)
+   (efld~D,4 fspCur . . . .)
+   (efld~D,5 fspEnd . . . .)))
+ (type@I,T FilePermission~G x . .
+  (enum@2 .
+   (efld~G,1 fpUserExec . . . .)
+   (efld~G,2 fpUserWrite . . . .)
+   (efld~G,3 fpUserRead . . . .)
+   (efld~G,4 fpGroupExec . . . .)
+   (efld~G,5 fpGroupWrite . . . .)
+   (efld~G,6 fpGroupRead . . . .)
+   (efld~G,7 fpOthersExec . . . .)
+   (efld~G,8 fpOthersWrite . . . .)
+   (efld~G,9 fpOthersRead . . . .)))
+ (when@,e
+  (elif@5
+   (call@7 defined~7 nimNativeIo@1)
+   (stmts~3,H
+    (when
+     (elif@5
+      (call@7 defined~7 windows@1)
+      (stmts~3,1
+       (import
+        (infix@I /
+         (infix~8 / std~3 windows@1)winlean@1))
+       (fromimport@,1
+        (infix@8 / std~3 widestrs@1)newWideCString@P toWideCString@f)
+       (type@I,2 OsFileHandle~D . . . Handle@2)))
+     (else@,4
+      (stmts@2,1
+       (type@I OsFileHandle~D . . . cint@2))))
+    (type@B,7 FileFlag~9 . . .
+     (enum@2 .
+      (efld~9,1 ffReadable . . . .)
+      (efld@3,1 ffWritable . . . .)
+      (efld@F,1 ffEof . . . .)
+      (efld@M,1 ffError . . . .)
+      (efld~9,2 ffUnbuf . . . .)))
+    (type@A,A FileObj~8 . . .
+     (object@2 .
+      (fld~8,1 fd . . OsFileHandle@4 .)
+      (fld~8,2 flags . .
+       (at@A set~3 FileFlag@1).)
+      (fld~8,3 wbuf . .
+       (at@9 seq~3 char@1).)
+      (fld~8,4 rbuf . .
+       (at@9 seq~3 char@1).)
+      (fld~8,5 rpos . . int@6 .)))
+    (type@8,G File~6 x . .
+     (ref@2 FileObj@4))))
+  (else@,Y
+   (stmts@2,1
+    (type@n,1 CFile~l . .
+     (pragmas~f
+      (kv@9 importc~7 "FILE"@2)
+      (kv@P header~6 "<stdio.h>"@2))
+     (object@2 .))
+    (type@8,2 File~6 x . .
+     (ptr@2 CFile@4)))))
+ (when@,1H
+  (elif@5
+   (call@7 defined~7 nimNativeIo@1)
+   (stmts~3,1
+    (const@6 NativeBufSize . . . 8192@G)
+    (when@,2
+     (elif@5
+      (call@7 defined~7 windows@1)
+      (stmts~3,4
+       (const@6 ERROR_BROKEN_PIPE . . .
+        (suf@K 109 "i32"))
+       (const@6,1 FILE_APPEND_DATA . . .
+        (suf@J 4u "u32"))
+       (proc@,3 sysWrite@5 . . .
+        (params@D
+         (param@1 fd . . OsFileHandle@4 .)
+         (param@J buf . . pointer@5 .)
+         (param@X n . . uint@3 .))int@h . .
+        (stmts@2,1
+         (var@4 written . . int32@9 0@H)
+         (if@,1
+          (elif@3
+           (call@9 isSuccess~9
+            (call@A writeFile~9 fd@1 buf@5
+             (call@F int32~5 n@1)
+             (cmd@P addr~5 written)
+             (nil@Y)))
+           (stmts~1,1
+            (asgn@7 result~7
+             (call@5 int~3 written@1))))
+          (else@,2
+           (stmts@2,1
+            (asgn@7 result~7 -1@2))))))
+       (proc@,A sysRead@5 . . .
+        (params@C
+         (param@1 fd . . OsFileHandle@4 .)
+         (param@J buf . . pointer@5 .)
+         (param@X n . . uint@3 .))int@h . .
+        (stmts@2,1
+         (var@4 got . . int32@5 0@D)
+         (if@,1
+          (elif@3
+           (call@9 isSuccess~9
+            (call@9 readFile~8 fd@1 buf@5
+             (call@F int32~5 n@1)
+             (cmd@P addr~5 got)
+             (nil@U)))
+           (stmts~1,1
+            (asgn@7 result~7
+             (call@5 int~3 got@1))))
+          (elif@5,2
+           (infix@F ==
+            (call~3 getLastError~C)ERROR_BROKEN_PIPE@3)
+           (stmts~3,1
+            (asgn@7 result~7 0@2)))
+          (else@,4
+           (stmts@2,1
+            (asgn@7 result~7 -1@2))))))
+       (proc@,J sysClose@5 . . .
+        (params@D
+         (param@1 fd . . OsFileHandle@4 .))cint@K . .
+        (stmts@2,1
+         (if
+          (elif@3
+           (call@9 isSuccess~9
+            (call@C closeHandle~B fd@1))
+           (stmts@S
+            (suf 0 "i32")))
+          (else@b
+           (stmts@6
+            (suf -1 "i32"))))))
+       (proc@,M sysLseek@5 . . .
+        (params@D
+         (param@1 fd . . OsFileHandle@4 .)
+         (param@J offset . . int64@8 .)
+         (param@Y whence . . cint@8 .))int64@n . .
+        (stmts@2,4
+         (var@4 hi . . .
+          (cast@5 LONG@5
+           (call@H uint32~6
+            (infix@G shr
+             (call~9 uint64~6 offset@1)32@4))))
+         (let@4,1 lo . . .
+          (call@J setFilePointer~E fd@1
+           (cast@5 LONG@5
+            (call@H uint32~6
+             (infix@G and
+              (call~9 uint64~6 offset@1)
+              (suf@4 4294967295u "u64"))))
+           (cmd@6,1 addr~5 hi)
+           (call@F,1 DWORD~5 whence@1)))
+         (if@,3
+          (elif@3
+           (infix@V and
+            (infix~S == lo~3 INVALID_SET_FILE_POINTER@3)
+            (infix@J !=
+             (call~3 getLastError~C)NO_ERROR@3))
+           (stmts~1,1
+            (asgn@7 result~7
+             (suf@2 -1 "i64"))))
+          (else@,2
+           (stmts@2,1
+            (asgn@7 result~7
+             (infix@T or
+              (par~R
+               (infix@J shl
+                (call~D int64~5
+                 (call@7 uint32~6 hi@1))32@4))
+              (call@8 int64~5
+               (call@7 uint32~6 lo@1)))))))))
+       (proc@,Y newFile@5 . . .
+        (params@C
+         (param@1 fd . . OsFileHandle@4 .)
+         (param@J flags . .
+          (at@A set~3 FileFlag@1).))File@g . .
+        (stmts@2,1
+         (oconstr@4 File~4
+          (kv@3 fd~2 fd@2)
+          (kv@E flags~5 flags@2))))
+       (proc@,b getFileHandle@5 x . .
+        (params@J
+         (param@1 f . . File@3 .))Handle@B
+        (pragmas@b inline@2).
+        (stmts@2,1
+         (comment)
+         (dot@1,2 f~1 fd@1)))
+       (let@7,h stdin~5 x . .
+        (call@B newFile~7
+         (call@D getStdHandle~C STD_INPUT_HANDLE@1)
+         (curly@X ffReadable@1)))
+       (let@8,j stdout~6 x . .
+        (call@B newFile~7
+         (call@D getStdHandle~C STD_OUTPUT_HANDLE@1)
+         (curly@Y ffWritable@1)))
+       (let@8,m stderr~6 x . .
+        (call@B newFile~7
+         (call@D getStdHandle~C STD_ERROR_HANDLE@1)
+         (curly@X ffWritable@1 ffUnbuf@D)))))
+     (elif@5,s
+      (call@7 defined~7 embedded@1)
+      (stmts~3,6
+       (proc sysWrite@5 . . .
+        (params@D
+         (param@1 fd . . OsFileHandle@4 .)
+         (param@J buf . . pointer@5 .)
+         (param@X n . . uint@3 .))int@h . .
+        (stmts@2,1
+         (call@D semihostWrite~D buf@1
+          (call@9 int~3 n@1))))
+       (proc@,2 sysRead@5 . . .
+        (params@C
+         (param@1 fd . . OsFileHandle@4 .)
+         (param@J buf . . pointer@5 .)
+         (param@X n . . uint@3 .))int@h . .
+        (stmts@z -1))
+       (proc@,3 sysOpen@5 . . .
+        (params@C
+         (param@1 path . . cstring@6 .)
+         (param@G flags . . cint@7 .))cint@U . .
+        (stmts@n -1))
+       (proc@,4 sysClose@5 . . .
+        (params@D
+         (param@1 fd . . OsFileHandle@4 .))cint@K . .
+        (stmts@e 0))
+       (proc@,5 sysLseek@5 . . .
+        (params@D
+         (param@1 fd . . OsFileHandle@4 .)
+         (param@J offset . . int64@8 .)
+         (param@Y whence . . cint@8 .))int64@n . .
+        (stmts@18 -1))
+       (const@2,7 O_RDONLY . . .
+        (suf@B 0 "i32"))
+       (const@2,8 O_WRONLY . . .
+        (suf@B 1 "i32"))
+       (const@2,9 O_RDWR . . .
+        (suf@9 2 "i32"))
+       (const@2,A O_CREAT . . .
+        (suf@A 64 "i32"))
+       (const@2,B O_TRUNC . . .
+        (suf@A 512 "i32"))
+       (const@2,C O_APPEND . . .
+        (suf@B 1024 "i32"))))
+     (else@,1B
+      (stmts@2,2
+       (proc sysWrite@5 . . .
+        (params@D
+         (param@1 fd . . OsFileHandle@4 .)
+         (param@J buf . . pointer@5 .)
+         (param@X n . . uint@3 .))int@h
+        (pragmas@y
+         (kv@9 importc~7 "write"@2)). .)
+       (proc@,1 sysRead@5 . . .
+        (params@C
+         (param@1 fd . . OsFileHandle@4 .)
+         (param@J buf . . pointer@5 .)
+         (param@X n . . uint@3 .))int@h
+        (pragmas@x
+         (kv@9 importc~7 "read"@2)). .)
+       (when@,2
+        (elif@5
+         (infix@Y and
+          (infix~J and
+           (call~8 defined~7 linux@1)
+           (call@B defined~7 arm64@1))
+          (call@B defined~7 nimNoLibc@1))
+         (stmts~3,5
+          (proc sysOpenat@5 . . .
+           (params@E
+            (param@1 dirfd . . cint@7 .)
+            (param@E path . . cstring@6 .)
+            (param@T flags . . cint@7 .)
+            (param@g mode . . cint@6 .))cint@t
+           (pragmas@1C
+            (kv~13,1 importc~7 "openat"@2)). .)
+          (proc@,2 sysOpen@5 . . .
+           (params@C
+            (param@1 path . . cstring@6 .)
+            (param@G flags . . cint@7 .)
+            (param@T mode . . cint@6
+             (suf@D 438 "i32")))cint@s
+           (pragmas@19 inline@2).
+           (stmts@2,1
+            (const@6 AT_FDCWD . . .
+             (call@F cint~4 -100@1))
+            (call@9,1 sysOpenat~9 AT_FDCWD@1 path@B flags@H mode@O)))))
+        (else@,A
+         (stmts@2,1
+          (proc sysOpen@5 . . .
+           (params@C
+            (param@1 path . . cstring@6 .)
+            (param@G flags . . cint@7 .))cint@U
+           (pragmas@l varargs@2
+            (kv@I importc~7 "open"@2)). .))))
+       (proc@,E sysClose@5 . . .
+        (params@D
+         (param@1 fd . . OsFileHandle@4 .))cint@K
+        (pragmas@c
+         (kv@9 importc~7 "close"@2)). .)
+       (proc@,F sysLseek@5 . . .
+        (params@D
+         (param@1 fd . . OsFileHandle@4 .)
+         (param@J offset . . int64@8 .)
+         (param@Y whence . . cint@8 .))int64@n
+        (pragmas@16
+         (kv@9 importc~7 "lseek"@2)). .)
+       (when@,H
+        (elif@5
+         (infix@a,1 or
+          (infix~J or
+           (infix@b,~1 or
+            (infix~K or
+             (infix~I or
+              (call~9 defined~7 macosx@1)
+              (call@A defined~7 macos@1))
+             (call@A defined~7 freebsd@1))
+            (call~l,1 defined~7 openbsd@1))
+           (call@A defined~7 netbsd@1))
+          (call@A defined~7 dragonfly@1))
+         (stmts~3,2
+          (const@2,2 O_RDONLY . . .
+           (suf@B 0 "i32"))
+          (const@2,3 O_WRONLY . . .
+           (suf@B 1 "i32"))
+          (const@2,4 O_RDWR . . .
+           (suf@B 2 "i32"))
+          (const@2,5 O_CREAT . . .
+           (suf@B 512 "i32"))
+          (const@2,6 O_TRUNC . . .
+           (suf@B 1024 "i32"))
+          (const@2,7 O_APPEND . . .
+           (suf@B 8 "i32"))))
+        (else@,A
+         (stmts@2,1
+          (const@2,2 O_RDONLY . . .
+           (suf@B 0 "i32"))
+          (const@2,3 O_WRONLY . . .
+           (suf@B 1 "i32"))
+          (const@2,4 O_RDWR . . .
+           (suf@B 2 "i32"))
+          (const@2,5 O_CREAT . . .
+           (suf@B 64 "i32"))
+          (const@2,6 O_TRUNC . . .
+           (suf@B 512 "i32"))
+          (const@2,7 O_APPEND . . .
+           (suf@B 1024 "i32")))))
+       (proc@,b newFile@5 . . .
+        (params@C
+         (param@1 fd . . OsFileHandle@4 .)
+         (param@J flags . .
+          (at@A set~3 FileFlag@1).))File@g . .
+        (stmts@2,1
+         (oconstr@4 File~4
+          (kv@3 fd~2 fd@2)
+          (kv@E flags~5 flags@2))))
+       (proc@,e getFileHandle@5 x . .
+        (params@J
+         (param@1 f . . File@3 .))cint@B
+        (pragmas@Z inline@2).
+        (stmts@2,1
+         (comment)
+         (call@4,2 cint~4
+          (dot@2 f~1 fd@1))))
+       (let@7,k stdin~5 x . .
+        (call@B newFile~7 0@1
+         (curly@4 ffReadable@1)))
+       (let@8,m stdout~6 x . .
+        (call@B newFile~7 1@1
+         (curly@4 ffWritable@1)))
+       (let@8,p stderr~6 x . .
+        (call@B newFile~7 2@1
+         (curly@4 ffWritable@1 ffUnbuf@D))))))
+    (proc@,27 rawWriteAll@5 . . .
+     (params@G
+      (param@1 fd . . OsFileHandle@4 .)
+      (param@J p . . pointer@3 .)
+      (param@V n . . int@3 .))bool@e . .
+     (stmts@2,1
+      (comment)
+      (var@4,1 off . . . 0@6)
+      (while@,2
+       (infix@A < off~4 n@2)
+       (stmts@2,1
+        (let@4 k . . .
+         (call@C sysWrite~8 fd@1
+          (cast@5 pointer@5
+           (infix@R \2B
+            (cast~D int@5 p@A)off@2))
+          (call@i uint~4
+           (infix@3 \2D n~2 off@2))))
+        (if@,1
+         (elif@3
+          (infix@2 <= k~2 0@3)
+          (stmts@8
+           (ret false@7))))
+        (infix@4,2 \2B= off~4 k@3)))
+      (asgn@7,6 result~7 true@2)))
+    (proc@,2G flushImpl@5 . . .
+     (params@E
+      (param@1 f . . File@3 .)). . .
+     (stmts@2,1
+      (if
+       (elif@3
+        (infix@B >
+         (dot~5
+          (dot~5 f~1 wbuf@1)len@1)0@2)
+        (stmts~1,1
+         (if
+          (elif@3
+           (prefix not
+            (call@F rawWriteAll~B
+             (dot@2 f~1 fd@1)
+             (cmd@C addr~5
+              (at@6
+               (dot~5 f~1 wbuf@1)0@1))
+             (dot@T
+              (dot~5 f~1 wbuf@1)len@1)))
+           (stmts~1,1
+            (cmd@7
+             (dot
+              (dot~6 f~1 flags@1)incl@1)ffError@6))))
+         (cmd@6,2
+          (dot
+           (dot~5 f~1 wbuf@1)setLen@1)0@8))))))
+    (proc@,2M writeBytes@5 . . .
+     (params@F
+      (param@1 f . . File@3 .)
+      (param@A p . . pointer@3 .)
+      (param@M n . . int@3 .)). . .
+     (stmts@2,1
+      (if
+       (elif@3
+        (infix@2 <= n~2 0@3)
+        (stmts@8
+         (ret .))))
+      (let@4,1 oldLen . . .
+       (dot@F
+        (dot~5 f~1 wbuf@1)len@1))
+      (call@D,2
+       (dot~7
+        (dot~5 f~1 wbuf@1)setLen@1)
+       (infix@8 \2B oldLen~7 n@2))
+      (call@7,3 copyMem~7
+       (cmd@6 addr~5
+        (at@6
+         (dot~5 f~1 wbuf@1)oldLen@1))p@M n@P)
+      (if@,4
+       (elif@3
+        (infix@J or
+         (infix~B in ffUnbuf~8
+          (dot@4 f~1 flags@1))
+         (infix@E >=
+          (dot~5
+           (dot~5 f~1 wbuf@1)len@1)NativeBufSize@3))
+        (stmts~1,1
+         (cmd flushImpl f@A))))))
+    (proc@,2U fillBuf@5 . . .
+     (params@C
+      (param@1 f . . File@3 .))bool@B . .
+     (stmts@2,1
+      (comment)
+      (cmd@6,1
+       (dot
+        (dot~5 f~1 rbuf@1)setLen@1)NativeBufSize@8)
+      (let@4,2 k . . .
+       (call@B sysRead~7
+        (dot@2 f~1 fd@1)
+        (cmd@C addr~5
+         (at@6
+          (dot~5 f~1 rbuf@1)0@1))
+        (call@R uint~4 NativeBufSize@1)))
+      (asgn@7,3
+       (dot~6 f~1 rpos@1)0@2)
+      (if@,4
+       (elif@3
+        (infix@2 > k~2 0@2)
+        (stmts~1,1
+         (cmd@6
+          (dot
+           (dot~5 f~1 rbuf@1)setLen@1)k@8)
+         (asgn@7,1 result~7 true@2)))
+       (else@,3
+        (stmts@2,1
+         (cmd@6
+          (dot
+           (dot~5 f~1 rbuf@1)setLen@1)0@8)
+         (if@,1
+          (elif@3
+           (infix@2 < k~2 0@2)
+           (stmts@7
+            (cmd@7
+             (dot
+              (dot~6 f~1 flags@1)incl@1)ffError@6)))
+          (else@,1
+           (stmts@6
+            (cmd@7
+             (dot
+              (dot~6 f~1 flags@1)incl@1)ffEof@6))))
+         (asgn@7,3 result~7 false@2))))))
+    (proc@,2i readByte@5 . . .
+     (params@D
+      (param@1 f . . File@3 .))int@B . .
+     (stmts@2,1
+      (comment)
+      (if@,1
+       (elif@3
+        (infix@7 >=
+         (dot~6 f~1 rpos@1)
+         (dot@9
+          (dot~5 f~1 rbuf@1)len@1))
+        (stmts~1,1
+         (if
+          (elif@3
+           (prefix not
+            (call@B fillBuf~7 f@1))
+           (stmts@G
+            (ret -1@7)))))))
+      (asgn@7,3 result~7
+       (call@5 int~3
+        (at@7
+         (dot~5 f~1 rbuf@1)
+         (dot@2 f~1 rpos@1))))
+      (cmd@,4 inc
+       (dot@5 f~1 rpos@1))))
+    (proc@,2p flushStdStreams@5 . . .
+     (params@K).
+     (pragmas@N nimcall@2).
+     (stmts@2,1
+      (comment)
+      (cmd@,2 flushImpl stdout@A)
+      (cmd@,3 flushImpl stderr@A)))
+    (cmd@,2v setExitFlush flushStdStreams@D)
+    (proc@,2x open@5 x . .
+     (params@A
+      (param@1 f . .
+       (mut@3 File@4).)
+      (param@E fd . . OsFileHandle@4 .)
+      (param@W mode . . FileMode@6 fmRead@H))bool@w . .
+     (stmts@2,1
+      (comment)
+      (when@,3
+       (elif@5
+        (call@7 defined~7 windows@1)
+        (stmts~3,1
+         (if
+          (elif@3
+           (infix@R or
+            (infix~O == fd~3 INVALID_HANDLE_VALUE@3)
+            (dot@5 fd~2 isNil@1))
+           (stmts@e
+            (ret false@7))))))
+       (else@,2
+        (stmts@2,1
+         (if
+          (elif@3
+           (infix@3 < fd~3
+            (suf@2 0 "i32"))
+           (stmts@C
+            (ret false@7)))))))
+      (var@4,7 fileFlags . .
+       (at@E set~3 FileFlag@1).)
+      (case@,8 mode@5
+       (of@,1
+        (ranges fmRead@3)
+        (stmts@B
+         (asgn@A fileFlags~A
+          (curly@2 ffReadable@1))))
+       (of@,2
+        (ranges fmWrite@3 fmAppend@C)
+        (stmts@M
+         (asgn@A fileFlags~A
+          (curly@2 ffWritable@1))))
+       (of@,3
+        (ranges fmReadWrite@3 fmReadWriteExisting@G)
+        (stmts@b
+         (asgn@A fileFlags~A
+          (curly@2 ffReadable@1 ffWritable@D)))))
+      (asgn@2,C f~2
+       (call@9 newFile~7 fd@1 fileFlags@5))
+      (asgn@7,D result~7 true@2)))))
+  (else@,3D
+   (stmts@2,1
+    (when
+     (elif@5
+      (infix@F or
+       (call~8 defined~7 macos@1)
+       (call@A defined~7 macosx@1))
+      (stmts~3,1
+       (var@9,1 stdin~7 x
+        (pragmas
+         (kv@9 importc~7 "__stdinp"@2)
+         (kv@T header~6 "<stdio.h>"@2))File@k .)
+       (var@A,3 stdout~8 x
+        (pragmas
+         (kv@9 importc~7 "__stdoutp"@2)
+         (kv@U header~6 "<stdio.h>"@2))File@l .)
+       (var@A,5 stderr~8 x
+        (pragmas
+         (kv@9 importc~7 "__stderrp"@2)
+         (kv@U header~6 "<stdio.h>"@2))File@l .)))
+     (else@,8
+      (stmts@2,1
+       (var@9,1 stdin~7 x
+        (pragmas
+         (kv@9 importc~7 "stdin"@2)
+         (kv@Q header~6 "<stdio.h>"@2))File@h .)
+       (var@A,3 stdout~8 x
+        (pragmas
+         (kv@9 importc~7 "stdout"@2)
+         (kv@R header~6 "<stdio.h>"@2))File@i .)
+       (var@A,5 stderr~8 x
+        (pragmas
+         (kv@9 importc~7 "stderr"@2)
+         (kv@R header~6 "<stdio.h>"@2))File@i .))))
+    (proc@,H c_fputc@5 . . .
+     (params@C
+      (param@1 c . . int32@3 .)
+      (param@B f . . File@3 .))int32@L
+     (pragmas@d
+      (kv~U,1 importc~7 "fputc"@2)
+      (kv~D,1 header~6 "<stdio.h>"@2)). .)
+    (proc@,J c_fwrite@5 . . .
+     (params@D
+      (param@1 buf . . pointer@5 .)
+      (param@F size . . uint@9 .)
+      (param@L n . . uint@3 .)
+      (param@U f . . File@3 .))uint@e
+     (pragmas@w
+      (kv~n,1 importc~7 "fwrite"@2)
+      (kv~V,1 header~6 "<stdio.h>"@2)). .)
+    (proc@,L c_fread@5 . . .
+     (params@C
+      (param@1 buf . . pointer@5 .)
+      (param@F size . . uint@9 .)
+      (param@L n . . uint@3 .)
+      (param@U f . . File@3 .))uint@e
+     (pragmas@v
+      (kv~m,1 importc~7 "fread"@2)
+      (kv~V,1 header~6 "<stdio.h>"@2)). .)
+    (proc@,N c_fileno@5 . . .
+     (params@D
+      (param@1 f . . File@3 .))cint@B
+     (pragmas@T
+      (kv@9 importc~7 "fileno"@2)
+      (kv@R header~6 "<stdio.h>"@2)). .)
+    (proc@,P getFileHandle@5 x . .
+     (params@J
+      (param@1 f . . File@3 .))cint@B . .
+     (stmts@b
+      (call@8 c_fileno~8 f@1)))
+    (proc@,R fprintf@5 . . .
+     (params@C
+      (param@1 f . . File@3 .)
+      (param@A fmt . . cstring@5 .)).
+     (pragmas@a varargs@2
+      (kv@I importc~7 "fprintf"@2)
+      (kv@b header~6 "<stdio.h>"@2)). .))))
+ (proc@,4y write@5 x . .
+  (params@B
+   (param@1 f . . File@3 .)
+   (param@A s . . string@3 .)). . .
+  (stmts@2,1
+   (when
+    (elif@5
+     (call@7 defined~7 nimNativeIo@1)
+     (stmts~3,1
+      (call@A writeBytes~A f@1
+       (call@F readRawData~B s@1)
+       (dot@L s~1 len@1))))
+    (else@,2
+     (stmts@2,1
+      (discard
+       (call@G c_fwrite~8
+        (call@C readRawData~B s@1)1u@H
+        (dot@R
+         (dot~4 s~1 len@1)uint@1)f@Y)))))))
+ (proc@,54 write@5 x . .
+  (params@B
+   (param@1 f . . File@3 .)
+   (param@A b . . bool@3 .)). . .
+  (stmts@2,1
+   (if
+    (elif@3 b
+     (stmts@3
+      (cmd write f@6 "true"@9)))
+    (else@,1
+     (stmts@6
+      (cmd write f@6 "false"@9))))))
+ (proc@,58 write@5 x . .
+  (params@B
+   (param@1 f . . File@3 .)
+   (param@A x . . int64@3 .)). . .
+  (stmts@2,1
+   (when
+    (elif@5
+     (call@7 defined~7 nimNativeIo@1)
+     (stmts~3,1
+      (cmd write f@6
+       (prefix@9 $ x@1))))
+    (else@,2
+     (stmts@2,1
+      (call@7 fprintf~7 f@1
+       (callstrlit@B cstring~7
+        (suf "%lld" "R"))x@J))))))
+ (proc@,5E write@5 x . .
+  (params@B
+   (param@1 f . . File@3 .)
+   (param@A x . . int32@3 .)). . .
+  (stmts@2,1
+   (cmd write f@6
+    (cmd@F int64~6 x))))
+ (proc@,5H write@5 x . .
+  (params@B
+   (param@1 f . . File@3 .)
+   (param@A x . . uint64@3 .)). . .
+  (stmts@2,1
+   (when
+    (elif@5
+     (call@7 defined~7 nimNativeIo@1)
+     (stmts~3,1
+      (cmd write f@6
+       (prefix@9 $ x@1))))
+    (else@,2
+     (stmts@2,1
+      (call@7 fprintf~7 f@1
+       (callstrlit@B cstring~7
+        (suf "%llu" "R"))x@J))))))
+ (proc@,5N write@5 x . .
+  (params@B
+   (param@1 f . . File@3 .)
+   (param@A x . . uint32@3 .)). . .
+  (stmts@2,1
+   (cmd write f@6
+    (cmd@G uint64~7 x))))
+ (proc@,5Q write@5 x .
+  (typevars@B
+   (typevar@1 T . . enum@3 .))
+  (params@K
+   (param@1 f . . File@3 .)
+   (param@A x . . T@3 .)). . .
+  (stmts@2,1
+   (cmd write f@6
+    (prefix@9 $ x@1))))
+ (proc@,5T write@5 x . .
+  (params@B
+   (param@1 f . . File@3 .)
+   (param@A c . . char@3 .)). . .
+  (stmts@2,1
+   (when
+    (elif@5
+     (call@7 defined~7 nimNativeIo@1)
+     (stmts~3,1
+      (var@4 ch . . . c@5)
+      (call@A,1 writeBytes~A f@1
+       (cmd@9 addr~5 ch)1@D)))
+    (else@,3
+     (stmts@2,1
+      (discard
+       (call@F c_fputc~7
+        (call@6 int32~5 c@1)f@B)))))))
+ (proc@,5a write@5 x . .
+  (params@B
+   (param@1 f . . File@3 .)
+   (param@A x . . float@3 .)). . .
+  (stmts@2,1
+   (comment)
+   (var@4,4 s . . . ""@4)
+   (cmd@1,5
+    (dot s~1 addFloat@1)x@A)
+   (cmd@,6 write f@6 s@9)))
+ (when@,5j
+  (elif@5
+   (call@7 defined~7 nimNativeIo@1)
+   (stmts~3,1
+    (proc close@5 x . .
+     (params@B
+      (param@1 f . . File@3 .)). . .
+     (stmts@2,1
+      (comment)
+      (if@,1
+       (elif@3
+        (infix@2 != f~2
+         (nil@3))
+        (stmts~1,1
+         (cmd flushImpl f@A)
+         (discard@,1
+          (call@G sysClose~8
+           (dot@2 f~1 fd@1))))))))
+    (proc@,6 fclose@5 . . .
+     (params@B
+      (param@1 f . . File@3 .))int32@B . .
+     (stmts@2,1
+      (asgn@7 result~7
+       (suf@2 0 "i32"))
+      (if@,1
+       (elif@3
+        (infix@2 != f~2
+         (nil@3))
+        (stmts~1,1
+         (cmd flushImpl f@A)
+         (asgn@7,1 result~7
+          (call@A sysClose~8
+           (dot@2 f~1 fd@1))))))))))
+  (else@,C
+   (stmts@2,1
+    (proc fclose@5 . . .
+     (params@B
+      (param@1 f . . File@3 .))int32@B
+     (pragmas@S
+      (kv@9 importc~7 "fclose"@2)
+      (kv@R header~6 "<stdio.h>"@2)). .)
+    (proc@,2 close@5 x . .
+     (params@B
+      (param@1 f . . File@3 .)). . .
+     (stmts@2,1
+      (comment)
+      (discard@,1
+       (call@E fclose~6 f@1))))
+    (proc@,6 fopen@5 . . .
+     (params@A
+      (param@1 filename . . cstring@G .)
+      (param@B mode . . cstring@6 .))File@R
+     (pragmas@g
+      (kv@9 importc~7 "fopen"@2)
+      (kv@Q header~6 "<stdio.h>"@2)). .))))
+ (proc@,64 writeBuffer@5 x . .
+  (params@H
+   (param@1 f . . File@3 .)
+   (param@A buffer . . pointer@8 .)
+   (param@R size . . int@6 .))int@d . .
+  (stmts@2,1
+   (comment)
+   (when@,1
+    (elif@5
+     (call@7 defined~7 nimNativeIo@1)
+     (stmts~3,1
+      (call@A writeBytes~A f@1 buffer@4 size@C)
+      (asgn@7,1 result~7 size@2)))
+    (else@,3
+     (stmts@2,1
+      (asgn@7 result~7
+       (cast@2 int@5
+        (call@I c_fwrite~8 buffer@1 1u@9
+         (cast@E uint@5 size@B)f@W))))))))
+ (proc@,6C readBuffer@5 x . .
+  (params@G
+   (param@1 f . . File@3 .)
+   (param@A buffer . . pointer@8 .)
+   (param@R size . . int@6 .))int@d . .
+  (stmts@2,1
+   (comment)
+   (when@,1
+    (elif@5
+     (call@7 defined~7 nimNativeIo@1)
+     (stmts~3,1
+      (var@4 off . . . 0@6)
+      (let@4,1 dest . . .
+       (cast@7
+        (ptr@5
+         (at@I UncheckedArray~E char@1))buffer@V))
+      (while@,2
+       (infix@A < off~4 size@2)
+       (stmts@2,1
+        (if
+         (elif@3
+          (infix@7 >=
+           (dot~6 f~1 rpos@1)
+           (dot@9
+            (dot~5 f~1 rbuf@1)len@1))
+          (stmts~1,1
+           (if
+            (elif@3
+             (prefix not
+              (call@B fillBuf~7 f@1))
+             (stmts@G
+              (break .)))))))
+        (let@4,2 take . . .
+         (call@A min~3
+          (infix@C \2D
+           (dot~5
+            (dot~5 f~1 rbuf@1)len@1)
+           (dot@3 f~1 rpos@1))
+          (infix@R \2D size~5 off@2)))
+        (call@7,3 copyMem~7
+         (cmd@6 addr~5
+          (at@4 dest~4 off@1))
+         (cmd@M addr~5
+          (at@6
+           (dot~5 f~1 rbuf@1)
+           (dot@2 f~1 rpos@1)))take@c)
+        (infix@7,4 \2B=
+         (dot~6 f~1 rpos@1)take@3)
+        (infix@4,5 \2B= off~4 take@3)))
+      (asgn@7,9 result~7 off@2)))
+    (else@,B
+     (stmts@2,1
+      (asgn@7 result~7
+       (cast@2 int@5
+        (call@H c_fread~7 buffer@1 1u@9
+         (cast@E uint@5 size@B)f@W))))))))
+ (when@,6S
+  (elif@5
+   (call@7 defined~7 nimNativeIo@1)
+   (stmts~3,1
+    (proc failed@5 x . .
+     (params@C
+      (param@1 f . . File@3 .))bool@B
+     (pragmas@S inline@2).
+     (stmts@2,1
+      (comment)
+      (infix@8,1 in ffError~8
+       (dot@4 f~1 flags@1))))))
+  (else@,4
+   (stmts@2,1
+    (proc c_ferror@5 . . .
+     (params@D
+      (param@1 f . . File@3 .))int32@B
+     (pragmas@U
+      (kv~L,1 importc~7 "ferror"@2)
+      (kv~3,1 header~6 "<stdio.h>"@2)). .)
+    (proc@,3 failed@5 x . .
+     (params@C
+      (param@1 f . . File@3 .))bool@B
+     (pragmas@S inline@2).
+     (stmts@2,1
+      (comment)
+      (infix@C,1 !=
+       (call~4 c_ferror~8 f@1)0@3)))
+    (proc@,7 c_setvbuf@5 . . .
+     (params@E
+      (param@1 f . . File@3 .)
+      (param@A buffer . . pointer@8 .)
+      (param@R mode . . int32@6 .)
+      (param@e size . . uint@6 .))int32@r
+     (pragmas@1B
+      (kv~12,1 importc~7 "setvbuf"@2)
+      (kv~j,1 header~6 "<stdio.h>"@2)). .)
+    (const@6,A IOFBF . . .
+     (suf@8 0 "i32")))))
+ (proc@,6j open@5 x . .
+  (params@A
+   (param@1 f . .
+    (out@3 File@4).)
+   (param@E filename . . string@A .)
+   (param@1,1 mode . . FileMode@6 fmRead@H)
+   (param@1,2 bufSize . . int@9 -1@F))bool@L,2 . .
+  (stmts@2,3
+   (comment)
+   (when@,2
+    (elif@5
+     (infix@L and
+      (call~E defined~7 nimNativeIo@1)
+      (call@B defined~7 windows@1))
+     (stmts~3,2
+      (var@4 desiredAccess . . DWORD@d .)
+      (var@J shareMode . . DWORD@O .)
+      (var@U disposition . . DWORD@D .)
+      (var@4,1 fileFlags . .
+       (at@E set~3 FileFlag@1).)
+      (asgn@A,2 shareMode~A
+       (infix@I or FILE_SHARE_READ~G FILE_SHARE_WRITE@3))
+      (case@,3 mode@5
+       (of@,1
+        (ranges fmRead@3)
+        (stmts@2,1
+         (asgn@E desiredAccess~E GENERIC_READ@2)
+         (asgn@g disposition~C OPEN_EXISTING@2)
+         (asgn@A,1 fileFlags~A
+          (curly@2 ffReadable@1))))
+       (of@,4
+        (ranges fmWrite@3)
+        (stmts@2,1
+         (asgn@E desiredAccess~E GENERIC_WRITE@2)
+         (asgn@h disposition~C CREATE_ALWAYS@2)
+         (asgn@A,1 fileFlags~A
+          (curly@2 ffWritable@1))))
+       (of@,7
+        (ranges fmReadWrite@3)
+        (stmts@2,1
+         (asgn@E desiredAccess~E
+          (infix@F or GENERIC_READ~D GENERIC_WRITE@3))
+         (asgn@x disposition~C CREATE_ALWAYS@2)
+         (asgn@A,1 fileFlags~A
+          (curly@2 ffReadable@1 ffWritable@D))))
+       (of@,A
+        (ranges fmReadWriteExisting@3)
+        (stmts@2,1
+         (asgn@E desiredAccess~E
+          (infix@F or GENERIC_READ~D GENERIC_WRITE@3))
+         (asgn@x disposition~C OPEN_EXISTING@2)
+         (asgn@A,1 fileFlags~A
+          (curly@2 ffReadable@1 ffWritable@D))))
+       (of@,D
+        (ranges fmAppend@3)
+        (stmts@2,3
+         (asgn@E desiredAccess~E FILE_APPEND_DATA@2)
+         (asgn@k disposition~C OPEN_ALWAYS@2)
+         (asgn@A,1 fileFlags~A
+          (curly@2 ffWritable@1)))))
+      (var@4,L tmpFilename . . . filename@E)
+      (let@4,M h . . .
+       (call@F createFileW~B
+        (dot@S
+         (call~D newWideCString~E tmpFilename@1)toWideCString@1)desiredAccess@1,1 shareMode@G,1
+        (nil@R,1)disposition@W,1 FILE_ATTRIBUTE_NORMAL@1,2
+        (cmd@V,2 Handle~7 0)))
+      (if@,P
+       (elif@3
+        (infix@2 == h~2 INVALID_HANDLE_VALUE@3)
+        (stmts~1,1
+         (asgn@2 f~2
+          (nil@2))
+         (asgn@7,1 result~7 false@2)))
+       (else@,3
+        (stmts@2,1
+         (asgn@2 f~2
+          (call@9 newFile~7 h@1 fileFlags@4))
+         (asgn@7,1 result~7 true@2))))))
+    (elif@5,X
+     (call@7 defined~7 nimNativeIo@1)
+     (stmts~3,2
+      (var@4 flags . . cint@7 .)
+      (var@4,1 fileFlags . .
+       (at@E set~3 FileFlag@1).)
+      (case@,2 mode@5
+       (of@,1
+        (ranges fmRead@3)
+        (stmts@2,1
+         (asgn@6 flags~6 O_RDONLY@2)
+         (asgn@S fileFlags~A
+          (curly@2 ffReadable@1))))
+       (of@,3
+        (ranges fmWrite@3)
+        (stmts@2,1
+         (asgn@6 flags~6
+          (infix@M or
+           (infix~B or O_WRONLY~9 O_CREAT@3)O_TRUNC@3))
+         (asgn@o fileFlags~A
+          (curly@2 ffWritable@1))))
+       (of@,5
+        (ranges fmReadWrite@3)
+        (stmts@2,1
+         (asgn@6 flags~6
+          (infix@K or
+           (infix~B or O_RDWR~7 O_CREAT@3)O_TRUNC@3))
+         (asgn@m fileFlags~A
+          (curly@2 ffReadable@1 ffWritable@D))))
+       (of@,7
+        (ranges fmReadWriteExisting@3)
+        (stmts@2,1
+         (asgn@6 flags~6 O_RDWR@2)
+         (asgn@Q fileFlags~A
+          (curly@2 ffReadable@1 ffWritable@D))))
+       (of@,9
+        (ranges fmAppend@3)
+        (stmts@2,1
+         (asgn@6 flags~6
+          (infix@M or
+           (infix~B or O_WRONLY~9 O_CREAT@3)O_APPEND@3))
+         (asgn@p fileFlags~A
+          (curly@2 ffWritable@1)))))
+      (var@4,D tmpFilename . . .
+       (call@c
+        (dot~G filename~8 terminatingZero@1)))
+      (let@4,E rawFilename . . .
+       (cast@E cstring@5
+        (call@P readRawData~B tmpFilename@1)))
+      (let@4,F fd . . .
+       (call@C sysOpen~7 rawFilename@1 flags@E
+        (suf@L 438 "i32")))
+      (if@,G
+       (elif@3
+        (infix@3 >= fd~3
+         (suf@3 0 "i32"))
+        (stmts~1,1
+         (asgn@2 f~2
+          (call@9 newFile~7 fd@1 fileFlags@5))
+         (asgn@7,1 result~7 true@2)))
+       (else@,3
+        (stmts@2,1
+         (asgn@2 f~2
+          (nil@2))
+         (asgn@7,1 result~7 false@2))))))
+    (else@,v
+     (stmts@2,1
+      (let@4 m . . .
+       (case~2,1 mode@5
+        (of@,1
+         (ranges fmRead@3)
+         (stmts@B
+          (callstrlit@7 cstring~7
+           (suf "rb" "R"))))
+        (of@,2
+         (ranges fmWrite@3)
+         (stmts@C
+          (callstrlit@7 cstring~7
+           (suf "wb" "R"))))
+        (of@,3
+         (ranges fmReadWrite@3)
+         (stmts@G
+          (callstrlit@7 cstring~7
+           (suf "w+b" "R"))))
+        (of@,4
+         (ranges fmReadWriteExisting@3)
+         (stmts@O
+          (callstrlit@7 cstring~7
+           (suf "r+b" "R"))))
+        (of@,5
+         (ranges fmAppend@3)
+         (stmts@D
+          (callstrlit@7 cstring~7
+           (suf "ab" "R"))))))
+      (var@4,9 tmpFilename . . .
+       (call@c
+        (dot~G filename~8 terminatingZero@1)))
+      (let@4,A rawFilename . . .
+       (cast@E cstring@5
+        (call@P readRawData~B tmpFilename@1)))
+      (asgn@2,B f~2
+       (call@7 fopen~5 rawFilename@1 m@E))
+      (if@,C
+       (elif@3
+        (infix@2 != f~2
+         (nil@3))
+        (stmts~1,1
+         (asgn@7 result~7 true@2)
+         (if@,1
+          (elif@3
+           (infix@8 >= bufSize~8 0@3)
+           (stmts~1,1
+            (discard
+             (call@H c_setvbuf~9 f@1
+              (nil@4)IOFBF@9
+              (cast@G uint@5 bufSize@B))))))))
+       (else@,4
+        (stmts@2,1
+         (asgn@7 result~7 false@2)))))))))
+ (proc@,83 open@5 x . .
+  (params@A
+   (param@1 filename . . string@A .)
+   (param@2,1 mode . . FileMode@6 fmRead@H)
+   (param@R,1 bufSize . . int@9 -1@F))File@l,1 . .
+  (stmts@2,2
+   (comment)
+   (asgn@7,4 result~7
+    (call@9 default~7 File@1))
+   (if@,5
+    (elif@3
+     (prefix not
+      (call@8 open~4 result@1 filename@9 mode@J bufSize@P))
+     (stmts~1,3
+      (cmd quit
+       (infix@L & "cannot open\3A "~G filename@2)))))))
+ (template@,8F echo@9 x . .
+  (params@E).
+  (pragmas@H varargs@2).
+  (stmts@2,1
+   (comment)
+   (for@4,1
+    (call@B unpack~6)
+    (unpackflat
+     (let x . . ..))
+    (stmts~2,1
+     (cmd write stdout@6 x@E)))
+   (cmd@,3 write stdout@6 '\0A'@E)))
+ (proc@,8L writeLine@5 x . .
+  (params@F
+   (param@1 f . . File@3 .)
+   (param@A s . . string@3 .)). . .
+  (stmts@2,1
+   (comment)
+   (cmd@,1 write f@6 s@9)
+   (cmd@,2 write f@6 '\0A'@9)))
+ (when@,8Q
+  (elif@5
+   (call@7 defined~7 nimNativeIo@1)
+   (stmts~3,1
+    (proc addReadLine@5 x . .
+     (params@H
+      (param@1 f . . File@3 .)
+      (param@A s . .
+       (mut@3 string@4).))bool@Q . .
+     (stmts@2,1
+      (comment)
+      (asgn@7,1 result~7 false@2)
+      (while@,2 true@6
+       (stmts@2,1
+        (let@4 c . . .
+         (call@C readByte~8 f@1))
+        (if@,1
+         (elif@3
+          (infix@2 < c~2 0@2)
+          (stmts@7
+           (break .))))
+        (asgn@7,2 result~7 true@2)
+        (if@,3
+         (elif@3
+          (infix@8 ==
+           (call~4 char~4 c@1)'\0A'@3)
+          (stmts@H
+           (break .))))
+        (cmd@1,4
+         (dot s~1 add@1)
+         (call@9 char~4 c@1))))))))
+  (else@,A
+   (stmts@2,1
+    (const@6 bufsize . . . 80@A)
+    (proc@,2 fgets@5 . . .
+     (params@A
+      (param@1 str . .
+       (out@5
+        (at@9 array~5 bufsize@1 char@A)).)
+      (param@W n . . int32@3 .)
+      (param@g f . . File@3 .))cstring@q
+     (pragmas@18
+      (kv~z,1 importc~7 "fgets"@2)
+      (kv~i,1 header~6 "<stdio.h>"@2)). .)
+    (proc@,5 addReadLine@5 x . .
+     (params@H
+      (param@1 f . . File@3 .)
+      (param@A s . .
+       (mut@3 string@4).))bool@Q . .
+     (stmts@2,1
+      (comment)
+      (asgn@7,1 result~7 false@2)
+      (var@4,2 buf . .
+       (at@A array~5 bufsize@1 char@A).)
+      (while@,3
+       (infix@Z !=
+        (call~O fgets~5 buf@1
+         (dot@D bufsize~7 int32@1)f@L)
+        (nil@3))
+       (stmts@2,1
+        (asgn@7 result~7 true@2)
+        (var@4,1 done . . . false@7)
+        (for@4,2
+         (infix@7 \2E\2E< 0~2 bufsize@4)
+         (unpackflat
+          (let i . . ..))
+         (stmts~2,1
+          (if
+           (elif@3
+            (infix@7 ==
+             (at~4 buf~3 i@1)'\0A'@3)
+            (stmts~1,1
+             (asgn@5 done~5 true@2)
+             (break@,1 .))))
+          (cmd@1,3
+           (dot s~1 add@1)
+           (at@8 buf~3 i@1))))
+        (if@,7
+         (elif@3 done
+          (stmts@6
+           (break .)))))))))))
+ (proc@,8u readLine@5 x . .
+  (params@E
+   (param@1 f . . File@3 .)
+   (param@A s . .
+    (mut@3 string@4).))bool@Q . .
+  (stmts@2,1
+   (comment)
+   (cmd@1,1
+    (dot s~1 shrink@1)0@8)
+   (cmd@,2 addReadLine f@C s@F)))
+ (iterator@,8z lines@9 x . .
+  (params@F
+   (param@1 filename . . string@A .))string@K
+  (pragmas@g sideEffect@2).
+  (stmts@2,1
+   (comment)
+   (var@4,2 f . . File@3 .)
+   (if@,3
+    (elif@3
+     (call@4 open~4 f@1 filename@4 fmRead@E)
+     (stmts~1,1
+      (var@4 line . . . ""@7)
+      (while@,1
+       (call@E readLine~8 f@1 line@4)
+       (stmts@2,1
+        (yld line@6)))
+      (discard@,3
+       (call@E fclose~6 f@1)))))))
+ (iterator@,99 lines@9 x . .
+  (params@F
+   (param@1 f . . File@3 .))string@B
+  (pragmas@X sideEffect@2).
+  (stmts@2,1
+   (comment)
+   (var@4,1 line . . . ""@7)
+   (while@,2
+    (call@E readLine~8 f@1 line@4)
+    (stmts@2,1
+     (yld line@6)))))
+ (proc@,9F quit@5 x . .
+  (params@A
+   (param@1 value . . int@7 .)).
+  (pragmas@N noreturn@2).
+  (stmts@2,1
+   (comment)
+   (call@5,2 cExit~5 value@1)))
+ (const@D,9L QuitSuccess~B x . . 0@4)
+ (const@D,9M QuitFailure~B x . . 1@4)
+ (proc@,9O quit@5 x . .
+  (params@A
+   (param@1 msg . . string@5 .)).
+  (pragmas@O noreturn@2).
+  (stmts@2,1
+   (cmd echo msg@5)
+   (cmd@,1 quit QuitFailure@5)))
+ (proc@,9S quit@5 x . .
+  (params@A
+   (param@1 msg . . string@5 .)
+   (param@E errorcode . . int@B .)).
+  (pragmas@e noreturn@2).
+  (stmts@2,1
+   (comment)
+   (cmd@,4 echo msg@5)
+   (cmd@,5 quit errorcode@5)))
+ (const@6,9a ReadBufSize . . . 4000@E)
+ (proc@,9c readAll@5 x . .
+  (params@D
+   (param@1 f . . File@3 .))string@B
+  (pragmas@V raises@2).
+  (stmts@2,1
+   (asgn@7 result~7 ""@2)
+   (var@4,1 buffer . . .
+    (call@I newString~9 ReadBufSize@1))
+   (while@,2 true@6
+    (stmts@2,1
+     (let@4 bytesRead . . .
+      (call@M readBuffer~A f@1
+       (call@E beginStore~A buffer@1 ReadBufSize@9)ReadBufSize@b))
+     (call@8,1 endStore~8 buffer@1)
+     (if@,2
+      (elif@3
+       (infix@A == bytesRead~A ReadBufSize@3)
+       (stmts~1,1
+        (cmd@6
+         (dot result~6 add@1)buffer@5)))
+      (else@,2
+       (stmts@2,1
+        (cmd@6
+         (dot buffer~6 setLen@1)bytesRead@8)
+        (cmd@6,1
+         (dot result~6 add@1)buffer@5)
+        (break@,2 .))))))
+   (if@,B
+    (elif@3
+     (call@6 failed~6 f@1)
+     (stmts@B
+      (raise IOError@6))))))
+ (proc@,9q readFile@5 x . .
+  (params@E
+   (param@1 filename . . string@A .))string@K
+  (pragmas@f raises@2).
+  (stmts@2,1
+   (comment)
+   (asgn@7,2 result~7 ""@2)
+   (var@4,3 f . . File@3 .)
+   (if@,4
+    (elif@3
+     (call@4 open~4 f@1 filename@4)
+     (stmts~1,1
+      (try
+       (stmts@2,1
+        (asgn@7 result~7
+         (call@9 readAll~7 f@1)))
+       (fin@,2
+        (stmts@2,1
+         (call@5 close~5 f@1))))))
+    (else@,5
+     (stmts@2,1
+      (raise IOError@6))))))
+ (proc@,A3 writeFile@5 x . .
+  (params@F
+   (param@1 filename . . string@J .)
+   (param@B content . . string@9 .)).
+  (pragmas@h raises@2).
+  (stmts@2,1
+   (comment)
+   (var@4,2 f . . File@3 .)
+   (if@,3
+    (elif@3
+     (call@4 open~4 f@1 filename@4 fmWrite@E)
+     (stmts~1,1
+      (try
+       (stmts@2,1
+        (cmd@1
+         (dot f~1 write@1)content@7))
+       (fin@,2
+        (stmts@2,1
+         (call@5 close~5 f@1))))))
+    (else@,5
+     (stmts@2,1
+      (raise IOError@6))))))
+ (proc@,AF tryWriteFile@5 x . .
+  (params@I
+   (param@1 file . . string@F .)
+   (param@7 content . . string@9 .))bool@P . .
+  (stmts@2,1
+   (comment)
+   (var@4,1 f . . File@3 .)
+   (if@,2
+    (elif@3
+     (call@4 open~4 f@1 file@4 fmWrite@A)
+     (stmts~1,1
+      (cmd@1
+       (dot f~1 write@1)content@7)
+      (asgn@7,1 result~7
+       (prefix@2 not
+        (call@A failed~6 f@1)))
+      (if@,2
+       (elif@3
+        (infix@A !=
+         (call~4 fclose~6 f@1)
+         (suf@3 0 "i32"))
+        (stmts~1,1
+         (asgn@7 result~7 false@2))))))
+    (else@,5
+     (stmts@2,1
+      (asgn@7 result~7 false@2))))))
+ (when@,AQ
+  (elif@5
+   (call@7 defined~7 nimNativeIo@1)
+   (stmts~3,1
+    (proc flushFile@5 x . .
+     (params@F
+      (param@1 f . . File@3 .)). . .
+     (stmts@2,1
+      (comment)
+      (cmd@,1 flushImpl f@A)))
+    (proc@,4 endOfFile@5 x . .
+     (params@F
+      (param@1 f . . File@3 .))bool@B . .
+     (stmts@2,1
+      (comment)
+      (if@,1
+       (elif@3
+        (infix@7 <
+         (dot~6 f~1 rpos@1)
+         (dot@8
+          (dot~5 f~1 rbuf@1)len@1))
+        (stmts@L
+         (ret false@7))))
+      (asgn@7,2 result~7
+       (prefix@2 not
+        (call@B fillBuf~7 f@1)))))
+    (proc@,9 getFilePos@5 x . .
+     (params@G
+      (param@1 f . . File@3 .))int64@B
+     (pragmas@X raises@2).
+     (stmts@2,1
+      (comment)
+      (cmd@,2 flushImpl f@A)
+      (asgn@7,3 result~7
+       (infix@V \2D
+        (call~L sysLseek~8
+         (dot@2 f~1 fd@1)
+         (suf@7 0 "i64")
+         (suf@E 1 "i32"))
+        (call@7 int64~5
+         (infix@C \2D
+          (dot~5
+           (dot~5 f~1 rbuf@1)len@1)
+          (dot@3 f~1 rpos@1)))))
+      (if@,4
+       (elif@3
+        (infix@7 < result~7 0@2)
+        (stmts@C
+         (raise IOError@6))))))
+    (proc@,G setFilePos@5 x . .
+     (params@G
+      (param@1 f . . File@3 .)
+      (param@A pos . . int64@5 .)
+      (param@M relativeTo . . FileSeekPos@C fspSet@Q)).
+     (pragmas@1A raises@2).
+     (stmts@2,1
+      (comment)
+      (cmd@,2 flushImpl f@A)
+      (var@4,3 p . . . pos@4)
+      (if@,4
+       (elif@3
+        (infix@B == relativeTo~B fspCur@3)
+        (stmts~1,2
+         (infix@2 \2D= p~2
+          (call@8 int64~5
+           (infix@C \2D
+            (dot~5
+             (dot~5 f~1 rbuf@1)len@1)
+            (dot@3 f~1 rpos@1)))))))
+      (cmd@6,7
+       (dot
+        (dot~5 f~1 rbuf@1)setLen@1)0@8)
+      (asgn@7,8
+       (dot~6 f~1 rpos@1)0@2)
+      (if@,9
+       (elif@3
+        (infix@b <
+         (call~T sysLseek~8
+          (dot@2 f~1 fd@1)p@7
+          (call@F int32~5 relativeTo@1))
+         (suf@2 0 "i64"))
+        (stmts~1,1
+         (raise IOError@6))))))))
+  (else@,T
+   (stmts@2,1
+    (proc flushFile@5 x . .
+     (params@F
+      (param@1 f . . File@3 .)).
+     (pragmas@P
+      (kv@9 importc~7 "fflush"@2)
+      (kv@R header~6 "<stdio.h>"@2)). .)
+    (proc@,3 c_fgetc@5 . . .
+     (params@C
+      (param@1 stream . . File@8 .))int32@G
+     (pragmas@Y
+      (kv~P,1 importc~7 "fgetc"@2)
+      (kv~8,1 header~6 "<stdio.h>"@2)). .)
+    (proc@,5 c_ungetc@5 . . .
+     (params@D
+      (param@1 c . . int32@3 .)
+      (param@B f . . File@3 .))int32@L
+     (pragmas@e
+      (kv~V,1 importc~7 "ungetc"@2)
+      (kv~D,1 header~6 "<stdio.h>"@2)). .)
+    (when@,8
+     (elif@5
+      (call@7 defined~7 windows@1)
+      (stmts~3,1
+       (when
+        (elif@5
+         (prefix not
+          (call@B defined~7 amd64@1))
+         (stmts~3,1
+          (proc c_fseek@5 . . .
+           (params@C
+            (param@1 f . . File@3 .)
+            (param@A offset . . int64@8 .)
+            (param@P whence . . int32@8 .))int32@f
+           (pragmas@x
+            (kv~o,1 importc~7 "fseek"@2)
+            (kv~X,1 header~6 "<stdio.h>"@2)). .)
+          (proc@,2 c_ftell@5 . . .
+           (params@C
+            (param@1 f . . File@3 .))int64@B
+           (pragmas@T
+            (kv~K,1 importc~7 "ftell"@2)
+            (kv~3,1 header~6 "<stdio.h>"@2)). .)))
+        (else@,5
+         (stmts@2,1
+          (proc c_fseek@5 . . .
+           (params@C
+            (param@1 f . . File@3 .)
+            (param@A offset . . int64@8 .)
+            (param@P whence . . int32@8 .))int32@f
+           (pragmas@x
+            (kv~o,1 importc~7 "_fseeki64"@2)
+            (kv~T,1 header~6 "<stdio.h>"@2)). .)
+          (proc@,2 c_ftell@5 . . .
+           (params@C
+            (param@1 f . . File@3 .))int64@B
+           (pragmas@T
+            (kv~K,1 importc~7 "_ftelli64"@2)
+            (kv@1,1 header~6 "<stdio.h>"@2)). .))))))
+     (else@,B
+      (stmts@2,1
+       (proc c_fseek@5 . . .
+        (params@C
+         (param@1 f . . File@3 .)
+         (param@A offset . . int64@8 .)
+         (param@P whence . . int32@8 .))int32@f
+        (pragmas@x
+         (kv~o,1 importc~7 "fseeko"@2)
+         (kv~W,1 header~6 "<stdio.h>"@2)). .)
+       (proc@,2 c_ftell@5 . . .
+        (params@C
+         (param@1 f . . File@3 .))int64@B
+        (pragmas@T
+         (kv~K,1 importc~7 "ftello"@2)
+         (kv~2,1 header~6 "<stdio.h>"@2)). .))))
+    (proc@,P endOfFile@5 x . .
+     (params@F
+      (param@1 f . . File@3 .))bool@B . .
+     (stmts@2,1
+      (comment)
+      (var@4,1 c . . .
+       (call@B c_fgetc~7 f@1))
+      (discard@,2
+       (call@G c_ungetc~8 c@1 f@4))
+      (asgn@7,3 result~7
+       (infix@4 < c~2
+        (suf@2 0 "i32")))))
+    (proc@,V getFilePos@5 x . .
+     (params@G
+      (param@1 f . . File@3 .))int64@B
+     (pragmas@X raises@2).
+     (stmts@2,1
+      (comment)
+      (asgn@7,2 result~7
+       (call@9 c_ftell~7 f@1))
+      (if@,3
+       (elif@3
+        (infix@7 < result~7 0@2)
+        (stmts@C
+         (raise IOError@6))))))
+    (proc@,b setFilePos@5 x . .
+     (params@G
+      (param@1 f . . File@3 .)
+      (param@A pos . . int64@5 .)
+      (param@M relativeTo . . FileSeekPos@C fspSet@Q)).
+     (pragmas@1A raises@2).
+     (stmts@2,1
+      (comment)
+      (if@,2
+       (elif@3
+        (infix@Z !=
+         (call~S c_fseek~7 f@1 pos@4
+          (call@E int32~5 relativeTo@1))
+         (suf@3 0 "i32"))
+        (stmts~1,1
+         (raise IOError@6)))))))))
+ (proc@,Bb slurp@5 x . .
+  (params@B
+   (param@1 path . . string@6 .))string@G
+  (pragmas@Y
+   (kv@B semantics~9 "slurp"@2)).
+  (stmts@2,1
+   (comment)
+   (try@,1
+    (stmts@2,1
+     (asgn@7 result~7
+      (call@A readFile~8 path@1)))
+    (except@,2 .
+     (stmts@2,1
+      (asgn@7 result~7 ""@2)))))))

@@ -1,0 +1,6 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,1,../../../../../../tmp/asdf.nim
+ (import
+  (infix@A / std~3 math@1)))

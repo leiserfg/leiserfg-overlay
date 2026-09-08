@@ -1,0 +1,89 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/semihosting.nim
+ (comment)
+ (const@2,I SemiBkpt . . .
+  (suf@B 171 "i32"))
+ (const@2,L SysOpen . . .
+  (suf@A 1 "i32"))
+ (const@2,M SysWrite . . .
+  (suf@B 5 "i32"))
+ (const@2,N SysExitExtended . . .
+  (suf@I 32 "i32"))
+ (const@2,O AdpStoppedApplicationExit . . . 131110@S)
+ (const@2,T SysOpenModeW . . .
+  (suf@F 4 "i32"))
+ (proc@,W bkpt@5 . . .
+  (params@9
+   (param@1 imm . . int32@5 .)).
+  (pragmas@M
+   (kv@D instruction~B "bkpt"@2)). .)
+ (proc@,Y semihostCall@5 . . .
+  (params@H
+   (param@4 op~3 .
+    (pragmas
+     (kv@A register~8 "r0"@2))int32@K .)
+   (param@5,1 arg~4 .
+    (pragmas
+     (kv@A register~8 "r1"@2))pointer@K .))int32@Z,1
+  (pragmas@w,1 assembler@2).
+  (stmts@2,2
+   (comment)
+   (call@4,D bkpt~4 SemiBkpt@1)))
+ (var@2,q ttyName . .
+  (at@E array~5 4@1 char@4)
+  (bracket@Q '\3A'@1 't'@6 't'@B '\00'@G))
+ (var@2,u ttyHandle . . int32@B 0@J)
+ (proc@,y semihostConsole@5 . . .
+  (params@K)int32@4 . .
+  (stmts@2,1
+   (comment)
+   (if@,7
+    (elif@3
+     (infix@A == ttyHandle~A 0@3)
+     (stmts~1,5
+      (var@4 blk . . .
+       (bracket@6
+        (cast@1 int@5
+         (cmd@F addr~5
+          (at@7 ttyName~7 0@1)))
+        (call@W int~3 SysOpenModeW@1)3@m))
+      (asgn@A,1 ttyHandle~A
+       (call@E semihostCall~C SysOpen@1
+        (cmd@F addr~5
+         (at@3 blk~3 0@1)))))))
+   (asgn@7,E result~7 ttyHandle@2)))
+ (proc@,1F semihostWrite@5 x . .
+  (params@J
+   (param@1 buf . . pointer@5 .)
+   (param@F n . . int@3 .))int@O . .
+  (stmts@2,1
+   (comment)
+   (var@4,A blk . . .
+    (bracket@6
+     (call@4 int~3
+      (call@G semihostConsole~F))
+     (cast@P int@5 buf@A)n@f))
+   (let@4,B notWritten . . .
+    (call@G int~3
+     (call@D semihostCall~C SysWrite@1
+      (cmd@G addr~5
+       (at@3 blk~3 0@1)))))
+   (asgn@7,C result~7
+    (infix@4 \2D n~2 notWritten@2))))
+ (proc@,1U semihostExit@5 x . .
+  (params@I
+   (param@1 code . . int@6 .)).
+  (pragmas@U noreturn@2).
+  (stmts@2,1
+   (comment)
+   (var@4,7 blk . . .
+    (bracket@6 AdpStoppedApplicationExit@1 code@S))
+   (discard@,8
+    (call@K semihostCall~C SysExitExtended@1
+     (cmd@N addr~5
+      (at@3 blk~3 0@1))))
+   (while@,9 true@6
+    (stmts@C
+     (discard .))))))

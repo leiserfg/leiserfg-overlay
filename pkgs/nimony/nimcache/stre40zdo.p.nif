@@ -1,0 +1,2976 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/stringimpl.nim
+ (comment)
+ (const@2,B HeapSlen . . . 255@D)
+ (const@2,C StaticSlen . . . 254@D)
+ (const@2,D AlwaysAvail . . .
+  (infix@R \2D
+   (call~7 sizeof~6 uint@1)1@2))
+ (const@2,E PayloadSize . . .
+  (infix@i \2D
+   (infix~I \2B AlwaysAvail~C
+    (call@8 sizeof~6 pointer@1))1@2))
+ (const@6,G LongStringDataOffset . . .
+  (infix@P * 3~2
+   (call@8 sizeof~6 int@1)))
+ (when@,J
+  (elif@5
+   (call@7 defined~7 bigEndian@1)
+   (stmts~3,1
+    (const@E OomBytes~8 x . uint@3 507293079880813824u@A)))
+  (else@,2
+   (stmts@2,1
+    (const@E OomBytes~8 x . uint@3 21760775509248519u@A))))
+ (template@,O strOom@9 . . .
+  (params@F
+   (param@1 s . .
+    (mut@3 string@4).)
+   (param@G failedLen . . int@B .)). . .
+  (stmts@2,1
+   (pragmax
+    (pragmas
+     (cast@2 . noSideEffect@5))
+    (stmts@O
+     (cmd oomHandler failedLen@B)))
+   (asgn@8,1
+    (dot~7 s~1 bytes@1)OomBytes@2)
+   (asgn@7,2
+    (dot~6 s~1 more@1)
+    (nil@2))))
+ (func@,V ssLenOf@5 . . .
+  (params@C
+   (param@1 bytes . . uint@7 .))int@F
+  (pragmas@V inline@2).
+  (stmts@2,1
+   (comment)
+   (when@,2
+    (elif@5
+     (call@7 defined~7 bigEndian@1)
+     (stmts~3,1
+      (call@3 int~3
+       (infix@7 shr bytes~6
+        (par@4
+         (infix@K *
+          (par~J
+           (infix@E \2D
+            (call~7 sizeof~6 uint@1)1@2))8@2))))))
+    (else@,2
+     (stmts@2,1
+      (call@3 int~3
+       (infix@7 and bytes~6 255u@4)))))))
+ (template@,d ssLen@9 . . .
+  (params@E
+   (param@1 s . . string@3 .))int@D . .
+  (stmts@2,1
+   (comment)
+   (call@7,3 ssLenOf~7
+    (dot@2 s~1 bytes@1))))
+ (template@,j setSSLen@9 . . .
+  (params@H
+   (param@1 s . .
+    (mut@3 string@4).)
+   (param@G v . . int@3 .)). . .
+  (stmts@2,1
+   (comment)
+   (asgn@V,1
+    (at~3
+     (cast~S
+      (ptr@5 byte@4)
+      (cmd@K addr~5
+       (dot@1 s~1 bytes@1))))
+    (cast@2 byte@5 v@B))))
+ (template@,n inlinePtr@9 . . .
+  (params@I
+   (param@1 s . . string@3 .))
+  (ptr@D
+   (at@I UncheckedArray~E char@1)). .
+  (stmts@2,1
+   (comment)
+   (cast@,1
+    (ptr@5
+     (at@I UncheckedArray~E char@1))
+    (infix@u \2B
+     (cast~P uint@5
+      (cmd@G addr~5
+       (dot@1 s~1 bytes@1)))1u@2))))
+ (template@,r inlinePtrV@9 . . .
+  (params@J
+   (param@1 s . .
+    (mut@3 string@4).))
+  (ptr@H
+   (at@I UncheckedArray~E char@1)). .
+  (stmts@2,1
+   (comment)
+   (cast@,1
+    (ptr@5
+     (at@I UncheckedArray~E char@1))
+    (infix@u \2B
+     (cast~P uint@5
+      (cmd@G addr~5
+       (dot@1 s~1 bytes@1)))1u@2))))
+ (template@,v inlinePtrAt@9 . . .
+  (params@K
+   (param@1 s . .
+    (mut@3 string@4).)
+   (param@G offset . . int@8 .))pointer@U . .
+  (stmts@2,1
+   (comment)
+   (cast@,1 pointer@5
+    (infix@j \2B
+     (infix~6 \2B
+      (cast~P uint@5
+       (cmd@G addr~5
+        (dot@1 s~1 bytes@1)))1u@2)
+     (call@6 uint~4 offset@1)))))
+ (func@,11 rawData@5 . . .
+  (params@C
+   (param@3 s~2 .
+    (pragmas byref@2)string@B .))
+  (ptr@N
+   (at@I UncheckedArray~E char@1))
+  (pragmas@y inline@2).
+  (stmts@2,1
+   (comment)
+   (if@,1
+    (elif@3
+     (infix@9 >
+      (call~4 ssLen~5 s@1)PayloadSize@2)
+     (stmts~1,1
+      (asgn@7 result~7
+       (cast@2
+        (ptr@5
+         (at@I UncheckedArray~E char@1))
+        (cmd@a addr~5
+         (at@B
+          (dot~5
+           (dot~5 s~1 more@1)data@1)0@1))))))
+    (else@,2
+     (stmts@2,1
+      (asgn@7 result~7
+       (call@B inlinePtr~9 s@1)))))))
+ (func@,1A len@5 x . .
+  (params@9
+   (param@1 s . . string@3 .))int@D
+  (pragmas@Q alwaysInline@2
+   (kv@P semantics~9 "string.len"@2)
+   (kv@m ensures~7
+    (par@2
+     (infix@3 <= 0~2 result@3)))).
+  (stmts@2,1
+   (asgn@7 result~7
+    (call@7 ssLen~5 s@1))
+   (if@,1
+    (elif@3
+     (infix@7 > result~7 PayloadSize@2)
+     (stmts~1,1
+      (asgn@7 result~7
+       (dot@8
+        (dot~5 s~1 more@1)fullLen@1)))))))
+ (func@,1F high@5 x . .
+  (params@A
+   (param@1 s . . string@3 .))int@D
+  (pragmas@R alwaysInline@2).
+  (stmts@k
+   (infix@7 \2D
+    (call~4 len~3 s@1)1@2)))
+ (func@,1G low@5 x . .
+  (params@9
+   (param@1 s . . string@3 .))int@D
+  (pragmas@Q inline@2).
+  (stmts@d 0))
+ (func@,1I capacity@5 x . .
+  (params@E
+   (param@1 s . . string@3 .))int@D . .
+  (stmts@2,1
+   (let@4 sl . . .
+    (call@A ssLen~5 s@1))
+   (if@,1
+    (elif@3
+     (infix@3 == sl~3 HeapSlen@3)
+     (stmts@G
+      (dot@6
+       (dot~5 s~1 more@1)capImpl@1)))
+    (elif@5,1
+     (infix@3 == sl~3 StaticSlen@3)
+     (stmts@I
+      (dot@6
+       (dot~5 s~1 more@1)fullLen@1)))
+    (else@,2
+     (stmts@6 PayloadSize)))))
+ (func@,1O isOom@5 x . .
+  (params@B
+   (param@1 s . . string@3 .))bool@D
+  (pragmas@T inline@2).
+  (stmts@2,1
+   (comment)
+   (infix@8,1 ==
+    (dot~7 s~1 bytes@1)OomBytes@3)))
+ (template@,1Z hashMix@9 . . .
+  (params@G
+   (param@1 h . . uint@3 .)
+   (param@A val . . uint@5 .))uint@M . .
+  (stmts@2,1
+   (comment)
+   (var@4,1 r . . .
+    (infix@6 \2B h~2 val@2))
+   (asgn@2,2 r~2
+    (infix@4 \2B r~2
+     (par@2
+      (infix@3 shl r~2 10@4))))
+   (asgn@2,3 r~2
+    (infix@4 xor r~2
+     (par@4
+      (infix@3 shr r~2 6@4))))r@,4))
+ (template@,1g hashFinish@9 . . .
+  (params@J
+   (param@1 h . . uint@3 .))uint@B . .
+  (stmts@2,1
+   (comment)
+   (var@4,1 r . . .
+    (infix@6 \2B h~2
+     (infix@4 shl h~2 3@4)))
+   (asgn@2,2 r~2
+    (infix@4 xor r~2
+     (par@4
+      (infix@3 shr r~2 11@4))))
+   (asgn@2,3 r~2
+    (infix@4 \2B r~2
+     (infix@4 shl r~2 15@4)))r@,4))
+ (template@,1n dropSlen@9 . . .
+  (params@H
+   (param@1 w . . uint@3 .))uint@B . .
+  (stmts@2,1
+   (comment)
+   (when@,3
+    (elif@5
+     (call@7 defined~7 bigEndian@1)
+     (stmts@K
+      (infix@2 shl w~2 8@4)))
+    (else@,1
+     (stmts@6
+      (infix@2 shr w~2 8@4))))))
+ (template@,1u charAt@9 . . .
+  (params@F
+   (param@1 w . . uint@3 .)
+   (param@A shift . . uint@7 .))uint@O . .
+  (stmts@2,1
+   (comment)
+   (infix@E,5 and
+    (par~E
+     (infix@3 shr w~2 shift@4))255u@4)))
+ (template@,22 mixN@9 . . .
+  (params@D
+   (param@1 h . . untyped@3 .)
+   (param@D w . . uint@3 .)
+   (param@M n . . int@3 .)). . .
+  (stmts@2,1
+   (comment)
+   (let@4,2 ww . . . w@5)
+   (let@4,3 nn . . . n@5)
+   (when@,4
+    (elif@5
+     (call@7 defined~7 bigEndian@1)
+     (stmts~3,1
+      (when
+       (elif@5
+        (infix@D ==
+         (call~7 sizeof~6 uint@1)8@3)
+        (stmts~3,1
+         (if
+          (elif@3
+           (infix@3 >= nn~3 1@3)
+           (stmts@9
+            (asgn@2 h~2
+             (call@9 hashMix~7 h@1
+              (call@A charAt~6 ww@1 56u@5))))))
+         (if@,1
+          (elif@3
+           (infix@3 >= nn~3 2@3)
+           (stmts@9
+            (asgn@2 h~2
+             (call@9 hashMix~7 h@1
+              (call@A charAt~6 ww@1 48u@5))))))
+         (if@,2
+          (elif@3
+           (infix@3 >= nn~3 3@3)
+           (stmts@9
+            (asgn@2 h~2
+             (call@9 hashMix~7 h@1
+              (call@A charAt~6 ww@1 40u@5))))))
+         (if@,3
+          (elif@3
+           (infix@3 >= nn~3 4@3)
+           (stmts@9
+            (asgn@2 h~2
+             (call@9 hashMix~7 h@1
+              (call@A charAt~6 ww@1 32u@5))))))
+         (if@,4
+          (elif@3
+           (infix@3 >= nn~3 5@3)
+           (stmts@9
+            (asgn@2 h~2
+             (call@9 hashMix~7 h@1
+              (call@A charAt~6 ww@1 24u@5))))))
+         (if@,5
+          (elif@3
+           (infix@3 >= nn~3 6@3)
+           (stmts@9
+            (asgn@2 h~2
+             (call@9 hashMix~7 h@1
+              (call@A charAt~6 ww@1 16u@5))))))
+         (if@,6
+          (elif@3
+           (infix@3 >= nn~3 7@3)
+           (stmts@9
+            (asgn@2 h~2
+             (call@9 hashMix~7 h@1
+              (call@A charAt~6 ww@1 8u@5))))))))
+       (else@,8
+        (stmts@2,1
+         (if
+          (elif@3
+           (infix@3 >= nn~3 1@3)
+           (stmts@9
+            (asgn@2 h~2
+             (call@9 hashMix~7 h@1
+              (call@A charAt~6 ww@1 24u@5))))))
+         (if@,1
+          (elif@3
+           (infix@3 >= nn~3 2@3)
+           (stmts@9
+            (asgn@2 h~2
+             (call@9 hashMix~7 h@1
+              (call@A charAt~6 ww@1 16u@5))))))
+         (if@,2
+          (elif@3
+           (infix@3 >= nn~3 3@3)
+           (stmts@9
+            (asgn@2 h~2
+             (call@9 hashMix~7 h@1
+              (call@A charAt~6 ww@1 8u@5)))))))))))
+    (else@,D
+     (stmts@2,1
+      (if
+       (elif@3
+        (infix@3 >= nn~3 1@3)
+        (stmts@9
+         (asgn@2 h~2
+          (call@9 hashMix~7 h@1
+           (infix@7 and ww~3 255u@4))))))
+      (if@,1
+       (elif@3
+        (infix@3 >= nn~3 2@3)
+        (stmts@9
+         (asgn@2 h~2
+          (call@9 hashMix~7 h@1
+           (call@A charAt~6 ww@1 8u@5))))))
+      (if@,2
+       (elif@3
+        (infix@3 >= nn~3 3@3)
+        (stmts@9
+         (asgn@2 h~2
+          (call@9 hashMix~7 h@1
+           (call@A charAt~6 ww@1 16u@5))))))
+      (when@,3
+       (elif@5
+        (infix@D ==
+         (call~7 sizeof~6 uint@1)8@3)
+        (stmts~3,1
+         (if
+          (elif@3
+           (infix@3 >= nn~3 4@3)
+           (stmts@9
+            (asgn@2 h~2
+             (call@9 hashMix~7 h@1
+              (call@A charAt~6 ww@1 24u@5))))))
+         (if@,1
+          (elif@3
+           (infix@3 >= nn~3 5@3)
+           (stmts@9
+            (asgn@2 h~2
+             (call@9 hashMix~7 h@1
+              (call@A charAt~6 ww@1 32u@5))))))
+         (if@,2
+          (elif@3
+           (infix@3 >= nn~3 6@3)
+           (stmts@9
+            (asgn@2 h~2
+             (call@9 hashMix~7 h@1
+              (call@A charAt~6 ww@1 40u@5))))))
+         (if@,3
+          (elif@3
+           (infix@3 >= nn~3 7@3)
+           (stmts@9
+            (asgn@2 h~2
+             (call@9 hashMix~7 h@1
+              (call@A charAt~6 ww@1 48u@5))))))))))))))
+ (template@,2U mixAlwaysAvail@9 . . .
+  (params@N
+   (param@1 h . . untyped@3 .)
+   (param@D w . . uint@3 .)). . .
+  (stmts@2,1
+   (comment)
+   (let@4,2 ww . . . w@5)
+   (when@,3
+    (elif@5
+     (call@7 defined~7 bigEndian@1)
+     (stmts~3,1
+      (when
+       (elif@5
+        (infix@D ==
+         (call~7 sizeof~6 uint@1)8@3)
+        (stmts~3,1
+         (asgn@2 h~2
+          (call@9 hashMix~7 h@1
+           (call@A charAt~6 ww@1 56u@5)))
+         (asgn@2,1 h~2
+          (call@9 hashMix~7 h@1
+           (call@A charAt~6 ww@1 48u@5)))
+         (asgn@2,2 h~2
+          (call@9 hashMix~7 h@1
+           (call@A charAt~6 ww@1 40u@5)))
+         (asgn@2,3 h~2
+          (call@9 hashMix~7 h@1
+           (call@A charAt~6 ww@1 32u@5)))
+         (asgn@2,4 h~2
+          (call@9 hashMix~7 h@1
+           (call@A charAt~6 ww@1 24u@5)))
+         (asgn@2,5 h~2
+          (call@9 hashMix~7 h@1
+           (call@A charAt~6 ww@1 16u@5)))
+         (asgn@2,6 h~2
+          (call@9 hashMix~7 h@1
+           (call@A charAt~6 ww@1 8u@5)))))
+       (else@,8
+        (stmts@2,1
+         (asgn@2 h~2
+          (call@9 hashMix~7 h@1
+           (call@A charAt~6 ww@1 24u@5)))
+         (asgn@2,1 h~2
+          (call@9 hashMix~7 h@1
+           (call@A charAt~6 ww@1 16u@5)))
+         (asgn@2,2 h~2
+          (call@9 hashMix~7 h@1
+           (call@A charAt~6 ww@1 8u@5))))))))
+    (else@,D
+     (stmts@2,1
+      (asgn@2 h~2
+       (call@9 hashMix~7 h@1
+        (infix@7 and ww~3 255u@4)))
+      (asgn@2,1 h~2
+       (call@9 hashMix~7 h@1
+        (call@A charAt~6 ww@1 8u@5)))
+      (asgn@2,2 h~2
+       (call@9 hashMix~7 h@1
+        (call@A charAt~6 ww@1 16u@5)))
+      (when@,3
+       (elif@5
+        (infix@D ==
+         (call~7 sizeof~6 uint@1)8@3)
+        (stmts~3,1
+         (asgn@2 h~2
+          (call@9 hashMix~7 h@1
+           (call@A charAt~6 ww@1 24u@5)))
+         (asgn@2,1 h~2
+          (call@9 hashMix~7 h@1
+           (call@A charAt~6 ww@1 32u@5)))
+         (asgn@2,2 h~2
+          (call@9 hashMix~7 h@1
+           (call@A charAt~6 ww@1 40u@5)))
+         (asgn@2,3 h~2
+          (call@9 hashMix~7 h@1
+           (call@A charAt~6 ww@1 48u@5)))))))))))
+ (func@,2v hashStrLong@5 . . .
+  (params@G
+   (param@1 v . . uint@3 .)
+   (param@A sl . . int@4 .)
+   (param@J more . .
+    (ptr@6 LongString@4).))uint@g
+  (pragmas@11 noinline@2).
+  (stmts@2,1
+   (comment)
+   (asgn@7,3 result~7 0u@2)
+   (if@,4
+    (elif@3
+     (infix@3 <= sl~3 PayloadSize@3)
+     (stmts~1,1
+      (call@E mixAlwaysAvail~E result@1 v@9)
+      (call@4,1 mixN~4 result@1
+       (cast@9 uint@5 more@B)
+       (infix@U \2D sl~3 AlwaysAvail@2))))
+    (else@,3
+     (stmts@2,3
+      (let@4 n . . .
+       (dot@8 more~4 fullLen@1))
+      (if@,1
+       (elif@3
+        (infix@2 <= n~2 AlwaysAvail@3)
+        (stmts~1,1
+         (call@4 mixN~4 result@1 v@9 n@C)))
+       (else@,2
+        (stmts@2,1
+         (call@E mixAlwaysAvail~E result@1 v@9)
+         (let@4,1 p . . .
+          (cast@4
+           (ptr@5
+            (at@I UncheckedArray~E char@1))
+           (infix@B,1 \2B
+            (cast~H uint@5 more@B)
+            (call@6 uint~4 LongStringDataOffset@1))))
+         (var@4,3 i . . . AlwaysAvail@4)
+         (while@,4
+          (infix@8 < i~2 n@2)
+          (stmts@2,1
+           (asgn@7 result~7
+            (call@9 hashMix~7 result@1
+             (call@D uint~4
+              (at@2 p~1 i@1))))
+           (cmd@,1 inc i@4)))))))))))
+ (func@,3I hashStr@5 x . .
+  (params@D
+   (param@1 s . . string@3 .))uint@D
+  (pragmas@V alwaysInline@2 noSideEffect@G
+   (kv@a raises~6
+    (bracket@2))
+   (kv@k tags~4
+    (bracket@2))).
+  (stmts@2,1
+   (comment)
+   (let@4,5 w . . .
+    (dot@5 s~1 bytes@1))
+   (let@4,6 sl . . .
+    (call@C ssLenOf~7 w@1))
+   (asgn@7,7 result~7 0u@2)
+   (if@,8
+    (elif@3
+     (infix@3 <= sl~3 AlwaysAvail@3)
+     (stmts~1,1
+      (call@4 mixN~4 result@1
+       (call@H dropSlen~8 w@1)sl@M)))
+    (else@,2
+     (stmts@2,1
+      (asgn@7 result~7
+       (call@D hashStrLong~B
+        (call@9 dropSlen~8 w@1)sl@E
+        (dot@J s~1 more@1))))))
+   (asgn@7,C result~7
+    (call@C hashFinish~A result@1))))
+ (func@,3Z readRawData@5 x . .
+  (params@H
+   (param@3 s~2 .
+    (pragmas byref@2)string@B .)
+   (param@M start . . . 0@8))
+  (ptr@Y
+   (at@I UncheckedArray~E char@1))
+  (pragmas@4,1 alwaysInline@2 noSideEffect@G
+   (kv@a raises~6
+    (bracket@2))
+   (kv@k tags~4
+    (bracket@2))).
+  (stmts@2,2
+   (comment)
+   (if@,3
+    (elif@3
+     (infix@9 >
+      (call~4 ssLen~5 s@1)PayloadSize@2)
+     (stmts~1,1
+      (asgn@7 result~7
+       (cast@2
+        (ptr@5
+         (at@I UncheckedArray~E char@1))
+        (infix@11 \2B
+         (cast~W uint@5
+          (cmd@G addr~5
+           (at@B
+            (dot~5
+             (dot~5 s~1 more@1)data@1)0@1)))
+         (call@6 uint~4 start@1))))))
+    (else@,2
+     (stmts@2,1
+      (asgn@7 result~7
+       (cast@2
+        (ptr@5
+         (at@I UncheckedArray~E char@1))
+        (infix@u \2B
+         (cast~P uint@5
+          (call@K inlinePtr~9 s@1))
+         (call@6 uint~4 start@1)))))))))
+ (iterator@,3l items@9 x . .
+  (params@F
+   (param@1 s . . string@3 .))char@D
+  (pragmas@X inline@2).
+  (stmts@2,1
+   (comment)
+   (let@4,C n . . .
+    (call@7 len~3 s@1))
+   (if@,D
+    (elif@3
+     (infix@2 > n~2 0@2)
+     (stmts~1,1
+      (let@4 p . . .
+       (call@F readRawData~B s@1))
+      (var@4,1 i . . . 0@4)
+      (while@,2
+       (infix@8 < i~2 n@2)
+       (stmts@2,1
+        (yld
+         (at@7 p~1 i@1))
+        (cmd@,1 inc i@4))))))))
+ (iterator@,46 pairs@9 x . .
+  (params@F
+   (param@1 s . . string@3 .))
+  (tup@D int@1 char@6)
+  (pragmas@e inline@2).
+  (stmts@2,1
+   (comment)
+   (let@4,1 n . . .
+    (call@7 len~3 s@1))
+   (if@,2
+    (elif@3
+     (infix@2 > n~2 0@2)
+     (stmts~1,1
+      (let@4 p . . .
+       (call@F readRawData~B s@1))
+      (var@4,1 i . . . 0@4)
+      (while@,2
+       (infix@8 < i~2 n@2)
+       (stmts@2,1
+        (yld
+         (tup@6 i@1
+          (at@5 p~1 i@1)))
+        (cmd@,1 inc i@4))))))))
+ (func@,4I
+  (quoted@5 =@1 wasMoved@2) x . .
+  (params@H
+   (param@1 s . .
+    (mut@3 string@4).)).
+  (pragmas@X
+   (kv@9 exportc~7 "nimStrWasMoved"@2)inline@T).
+  (stmts@2,1
+   (asgn@8
+    (dot~7 s~1 bytes@1)0@2)))
+ (func@,4L destroyHeapStr@5 . . .
+  (params@J
+   (param@1 more . .
+    (ptr@6 LongString@4).)).
+  (pragmas@g noinline@2).
+  (stmts@2,1
+   (comment)
+   (if@,F
+    (elif@3
+     (call@6 arcDec~6
+      (dot@5 more~4 rc@1))
+     (stmts~1,1
+      (call@7 dealloc~7 more@1))))))
+ (func@,4e
+  (quoted@5 =@1 destroy@2) x . .
+  (params@G
+   (param@1 s . . string@3 .)).
+  (pragmas@S
+   (kv@9 exportc~7 "nimStrDestroy"@2)alwaysInline@S).
+  (stmts@2,1
+   (comment)
+   (if@,6
+    (elif@3
+     (infix@9 ==
+      (call~4 ssLen~5 s@1)HeapSlen@3)
+     (stmts~1,1
+      (call@E destroyHeapStr~E
+       (dot@2 s~1 more@1)))))))
+ (func@,4o
+  (quoted@5 =@1 copy@2) x . .
+  (params@D
+   (param@1 dest . .
+    (mut@6 string@4).)
+   (param@J src . . string@5 .)).
+  (pragmas@j
+   (kv@9 exportc~7 "nimStrCopy"@2)nodestroy@P).
+  (stmts@2,1
+   (let@4 ssrc . . .
+    (call@C ssLen~5 src@1))
+   (if@,1
+    (elif@3
+     (infix@5 <= ssrc~5 PayloadSize@3)
+     (stmts~1,2
+      (let@4 sdest . . .
+       (call@D ssLen~5 dest@1))
+      (if@,1
+       (elif@3
+        (infix@6 == sdest~6 HeapSlen@3)
+        (stmts~1,1
+         (if
+          (elif@3
+           (call@6 arcDec~6
+            (dot@A
+             (dot~5 dest~4 more@1)rc@1))
+           (stmts~1,1
+            (call@7 dealloc~7
+             (dot@5 dest~4 more@1))))))))
+      (call@7,4 copyMem~7
+       (cmd@6 addr~5
+        (dot@4 dest~4 bytes@1))
+       (cmd@N addr~5
+        (dot@3 src~3 bytes@1))
+       (call@e sizeof~6 string@1))))
+    (else@,7
+     (stmts@2,2
+      (if
+       (elif@3
+        (infix@B ==
+         (call~7 addr~4 dest@1)
+         (call@7 addr~4 src@1))
+        (stmts@P
+         (ret .))))
+      (let@4,1 sdest . . .
+       (call@D ssLen~5 dest@1))
+      (if@,2
+       (elif@3
+        (infix@6 == sdest~6 HeapSlen@3)
+        (stmts~1,1
+         (if
+          (elif@3
+           (call@6 arcDec~6
+            (dot@A
+             (dot~5 dest~4 more@1)rc@1))
+           (stmts~1,1
+            (call@7 dealloc~7
+             (dot@5 dest~4 more@1))))))))
+      (if@,5
+       (elif@3
+        (infix@5 == ssrc~5 HeapSlen@3)
+        (stmts~1,1
+         (call@6 arcInc~6
+          (dot@9
+           (dot~5 src~3 more@1)rc@1)))))
+      (call@7,7 copyMem~7
+       (cmd@6 addr~5
+        (dot@4 dest~4 bytes@1))
+       (cmd@N addr~5
+        (dot@3 src~3 bytes@1))
+       (call@e sizeof~6 string@1)))))))
+ (func@,58
+  (quoted@5 =@1 dup@2) x . .
+  (params@C
+   (param@1 s . . string@3 .))string@D
+  (pragmas@W
+   (kv@9 exportc~7 "nimStrDup"@2)inline@O nodestroy@W).
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@H ==
+      (call~A ssLenOf~7
+       (dot@2 s~1 bytes@1))HeapSlen@3)
+     (stmts~1,1
+      (call@6 arcInc~6
+       (dot@7
+        (dot~5 s~1 more@1)rc@1)))))
+   (asgn@7,2 result~7
+    (oconstr@8 string~6
+     (kv@6 bytes~5
+      (dot@3 s~1 bytes@1))
+     (kv@L more~4
+      (dot@3 s~1 more@1))))))
+ (when@,5F
+  (elif@5
+   (call@7 defined~7 nimNativeIo@1)
+   (stmts~3,1
+    (func strlen@5 . . .
+     (params@B
+      (param@1 a . . cstring@3 .))csize_t@E . .
+     (stmts@2,1
+      (comment)
+      (var@4,1 i . . . 0@4)
+      (while@,2
+       (infix@B !=
+        (at~4 a~1 i@1)'\00'@3)
+       (stmts@K
+        (cmd inc i@4)))
+      (asgn@7,3 result~7
+       (call@9 csize_t~7 i@1))))))
+  (else@,6
+   (stmts@2,1
+    (func strlen@5 . . .
+     (params@B
+      (param@1 a . . cstring@3 .))csize_t@E
+     (pragmas@X
+      (kv@9 importc~7 "strlen"@2)
+      (kv@R header~6 "<string.h>"@2)). .))))
+ (func@,5O len@5 x . .
+  (params@9
+   (param@1 a . . cstring@3 .))int@E
+  (pragmas@R inline@2).
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@2 == a~2
+      (nil@3))
+     (stmts@A 0))
+    (else@,1
+     (stmts@6
+      (dot@8
+       (dot~7 a~1 strlen@1)int@1))))))
+ (func@,5U ssResize@5 . . .
+  (params@D
+   (param@1 old . . int@5 .))int@C
+  (pragmas@T inline@2).
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@4 <= old~4 0@3)
+     (stmts@A 4))
+    (elif@5,1
+     (infix@4 <= old~4 32767@3)
+     (stmts@E
+      (infix@4 * old~4 2@2)))
+    (else@,2
+     (stmts@6
+      (infix@A \2B
+       (infix~6 div old~4 2@4)old@2))))))
+ (func@,5Z ensureUniqueLong@5 . . .
+  (params@L
+   (param@1 s . .
+    (mut@3 string@4).)
+   (param@G oldLen . . int@G .)
+   (param@O newLen . . int@8 .)). . .
+  (stmts@2,1
+   (comment)
+   (let@4,1 sl . . .
+    (call@A ssLen~5 s@1))
+   (let@4,2 isHeap . . .
+    (infix@C == sl~3 HeapSlen@3))
+   (let@4,3 cap . . .
+    (if@6
+     (elif@3 isHeap
+      (stmts@8
+       (dot@6
+        (dot~5 s~1 more@1)capImpl@1)))
+     (else@Q
+      (stmts@6 0))))
+   (if@,4
+    (elif@3
+     (infix@Y and
+      (infix~R and isHeap~7
+       (call@F arcIsUnique~B
+        (dot@7
+         (dot~5 s~1 more@1)rc@1)))
+      (infix@B <= newLen~7 cap@3))
+     (stmts~1,1
+      (asgn@F
+       (dot~9
+        (dot~5 s~1 more@1)fullLen@1)newLen@2)
+      (if@,3
+       (elif@3
+        (infix@7 < oldLen~7 AlwaysAvail@2)
+        (stmts~1,1
+         (call@7 copyMem~7
+          (call@B inlinePtrV~A s@1)
+          (cmd@L addr~5
+           (at@B
+            (dot~5
+             (dot~5 s~1 more@1)data@1)0@1))oldLen@b))))))
+    (else@,6
+     (stmts@2,1
+      (let@4 newCap . . .
+       (if@9
+        (elif@3
+         (infix@7 > newLen~7 cap@2)
+         (stmts@E
+          (call@3 max~3 newLen@1
+           (call@H ssResize~8 cap@1))))
+        (else@i
+         (stmts@6 cap))))
+      (let@4,1 p . . .
+       (cast@4
+        (ptr@5 LongString@4)
+        (call@Q alloc~5
+         (infix@M \2B LongStringDataOffset~L newCap@2))))
+      (if@,2
+       (elif@3
+        (infix@2 != p~2
+         (nil@3))
+        (stmts~1,1
+         (asgn@5
+          (dot~4 p~1 rc@1)0@2)
+         (asgn@A,1
+          (dot~9 p~1 fullLen@1)newLen@2)
+         (asgn@A,2
+          (dot~9 p~1 capImpl@1)newCap@2)
+         (if@,3
+          (elif@3 isHeap
+           (stmts~1,1
+            (let@4 old . . .
+             (dot@7 s~1 more@1))
+            (call@7,1 copyMem~7
+             (cmd@6 addr~5
+              (at@6
+               (dot~5 p~1 data@1)0@1))
+             (cmd@M addr~5
+              (at@8
+               (dot~5 old~3 data@1)0@1))
+             (call@c min~3 oldLen@1 newCap@9))
+            (if@,2
+             (elif@3
+              (call@6 arcDec~6
+               (dot@4 old~3 rc@1))
+              (stmts~1,1
+               (call@7 dealloc~7 old@1))))))
+          (else@,5
+           (stmts@2,5
+            (call@7 copyMem~7
+             (cmd@6 addr~5
+              (at@6
+               (dot~5 p~1 data@1)0@1))
+             (cmd@M addr~5
+              (at@B
+               (dot~5
+                (dot~5 s~1 more@1)data@1)0@1))
+             (call@f min~3 oldLen@1 newCap@9)))))
+         (asgn@7,E
+          (dot~6 s~1 more@1)p@2)
+         (call@8,F setSSLen~8 s@1 HeapSlen@4)
+         (call@7,H copyMem~7
+          (call@B inlinePtrV~A s@1)
+          (cmd@L addr~5
+           (at@6
+            (dot~5 p~1 data@1)0@1))
+          (call@Z min~3 oldLen@1 AlwaysAvail@9))))
+       (else@,J
+        (stmts@2,1
+         (cmd strOom s@7
+          (infix@V \2B LongStringDataOffset~L newCap@2))))))))))
+ (func@,69 transitionToLong@5 . . .
+  (params@L
+   (param@1 s . .
+    (mut@3 string@4).)
+   (param@G sl . . int@4 .)
+   (param@P newLen . . int@8 .)). . .
+  (stmts@2,1
+   (let@4 newCap . . .
+    (call@C max~3 newLen@1
+     (call@H ssResize~8 newLen@1)))
+   (let@4,1 p . . .
+    (cast@4
+     (ptr@5 LongString@4)
+     (call@Q alloc~5
+      (infix@M \2B LongStringDataOffset~L newCap@2))))
+   (if@,2
+    (elif@3
+     (infix@2 != p~2
+      (nil@3))
+     (stmts~1,1
+      (asgn@5
+       (dot~4 p~1 rc@1)0@2)
+      (asgn@A,1
+       (dot~9 p~1 fullLen@1)newLen@2)
+      (asgn@A,2
+       (dot~9 p~1 capImpl@1)newCap@2)
+      (call@7,3 copyMem~7
+       (cmd@6 addr~5
+        (at@6
+         (dot~5 p~1 data@1)0@1))
+       (call@R inlinePtrV~A s@1)sl@W)
+      (asgn@7,4
+       (dot~6 s~1 more@1)p@2)
+      (call@8,5 setSSLen~8 s@1 HeapSlen@4)
+      (call@7,7 copyMem~7
+       (call@B inlinePtrV~A s@1)
+       (cmd@L addr~5
+        (at@6
+         (dot~5 p~1 data@1)0@1))
+       (call@Z min~3 sl@1 AlwaysAvail@5))))
+    (else@,9
+     (stmts@2,1
+      (cmd strOom s@7
+       (infix@V \2B LongStringDataOffset~L newCap@2)))))))
+ (func@,6O readRawDataStable@5 x . .
+  (params@N
+   (param@1 s . .
+    (mut@3 string@4).)
+   (param@G start . . . 0@8))
+  (ptr@S
+   (at@I UncheckedArray~E char@1)). .
+  (stmts@2,1
+   (comment)
+   (let@4,8 sl . . .
+    (call@A ssLen~5 s@1))
+   (if@,9
+    (elif@3
+     (infix@7 and
+      (infix~4 > sl~3 0@2)
+      (infix@7 <= sl~3 PayloadSize@3))
+     (stmts~1,1
+      (call@G transitionToLong~G s@1 sl@4 sl@8))))
+   (asgn@7,B result~7
+    (cast@2
+     (ptr@5
+      (at@I UncheckedArray~E char@1))
+     (infix@s \2B
+      (cast~N uint@5
+       (call@I rawData~7 s@1))
+      (call@6 uint~4 start@1))))))
+ (func@,6e prepareMutation@5 x . .
+  (params@L
+   (param@1 s . .
+    (mut@3 string@4).)). . .
+  (stmts@2,1
+   (comment)
+   (let@4,1 sl . . .
+    (call@A ssLen~5 s@1))
+   (if@,2
+    (elif@3
+     (infix@H or
+      (infix~E == sl~3 StaticSlen@3)
+      (par@3
+       (infix@G and
+        (infix~C == sl~3 HeapSlen@3)
+        (prefix@4 not
+         (call@F arcIsUnique~B
+          (dot@7
+           (dot~5 s~1 more@1)rc@1))))))
+     (stmts~1,1
+      (if
+       (elif@3
+        (infix@3 == sl~3 HeapSlen@3)
+        (stmts~1,5
+         (discard
+          (call@E arcDec~6
+           (dot@7
+            (dot~5 s~1 more@1)rc@1))))))
+      (let@4,6 old . . .
+       (dot@7 s~1 more@1))
+      (let@4,7 oldLen . . .
+       (dot@C old~3 fullLen@1))
+      (let@4,8 p . . .
+       (cast@4
+        (ptr@5 LongString@4)
+        (call@Q alloc~5
+         (infix@M \2B LongStringDataOffset~L oldLen@2))))
+      (if@,9
+       (elif@3
+        (infix@2 != p~2
+         (nil@3))
+        (stmts~1,1
+         (asgn@5
+          (dot~4 p~1 rc@1)0@2)
+         (asgn@A,1
+          (dot~9 p~1 fullLen@1)oldLen@2)
+         (asgn@A,2
+          (dot~9 p~1 capImpl@1)oldLen@2)
+         (call@7,3 copyMem~7
+          (cmd@6 addr~5
+           (at@6
+            (dot~5 p~1 data@1)0@1))
+          (cmd@M addr~5
+           (at@8
+            (dot~5 old~3 data@1)0@1))oldLen@Z)
+         (asgn@7,4
+          (dot~6 s~1 more@1)p@2)
+         (call@8,5 setSSLen~8 s@1 HeapSlen@4)))
+       (else@,7
+        (stmts@2,1
+         (cmd strOom s@7
+          (infix@V \2B LongStringDataOffset~L oldLen@2))))))))))
+ (func@,73 beginStore@5 x . .
+  (params@G
+   (param@1 s . .
+    (mut@3 string@4).)
+   (param@G newLen . . int@8 .)
+   (param@T start . . . 0@8))
+  (ptr@f
+   (at@I UncheckedArray~E char@1))
+  (pragmas@4,1 noSideEffect@2
+   (kv@M raises~6
+    (bracket@2))
+   (kv@W tags~4
+    (bracket@2))).
+  (stmts@2,2
+   (comment)
+   (let@4,4 sl . . .
+    (call@A ssLen~5 s@1))
+   (let@4,5 curLen . . .
+    (if@9
+     (elif@3
+      (infix@3 > sl~3 PayloadSize@2)
+      (stmts@I
+       (dot@6
+        (dot~5 s~1 more@1)fullLen@1)))
+     (else@a
+      (stmts@6 sl))))
+   (if@,6
+    (elif@3
+     (infix@M and
+      (infix~F <= newLen~7 PayloadSize@3)
+      (infix@7 <= sl~3 PayloadSize@3))
+     (stmts~1,2
+      (if
+       (elif@3
+        (infix@7 != newLen~7 curLen@3)
+        (stmts~1,1
+         (call@8 setSSLen~8 s@1 newLen@4))))
+      (asgn@7,2 result~7
+       (cast@2
+        (ptr@5
+         (at@I UncheckedArray~E char@1))
+        (infix@v \2B
+         (cast~Q uint@5
+          (call@L inlinePtrV~A s@1))
+         (call@6 uint~4 start@1))))))
+    (elif@5,5
+     (infix@3 <= sl~3 PayloadSize@3)
+     (stmts~3,2
+      (call@G transitionToLong~G s@1 curLen@4 newLen@C)
+      (asgn@7,1 result~7
+       (cast@2
+        (ptr@5
+         (at@I UncheckedArray~E char@1))
+        (infix@11 \2B
+         (cast~W uint@5
+          (cmd@G addr~5
+           (at@B
+            (dot~5
+             (dot~5 s~1 more@1)data@1)0@1)))
+         (call@6 uint~4 start@1))))))
+    (else@,9
+     (stmts@2,2
+      (call@G ensureUniqueLong~G s@1 curLen@4 newLen@C)
+      (asgn@7,1 result~7
+       (cast@2
+        (ptr@5
+         (at@I UncheckedArray~E char@1))
+        (infix@11 \2B
+         (cast~W uint@5
+          (cmd@G addr~5
+           (at@B
+            (dot~5
+             (dot~5 s~1 more@1)data@1)0@1)))
+         (call@6 uint~4 start@1)))))))))
+ (func@,7P endStore@5 x . .
+  (params@E
+   (param@1 s . .
+    (mut@3 string@4).)).
+  (pragmas@U inline@2 noSideEffect@A
+   (kv@U raises~6
+    (bracket@2))
+   (kv@e tags~4
+    (bracket@2))).
+  (stmts@2,1
+   (comment)
+   (if@,2
+    (elif@3
+     (infix@9 >
+      (call~4 ssLen~5 s@1)PayloadSize@2)
+     (stmts~1,1
+      (call@7 copyMem~7
+       (call@B inlinePtrV~A s@1)
+       (cmd@L addr~5
+        (at@B
+         (dot~5
+          (dot~5 s~1 more@1)data@1)0@1))AlwaysAvail@b))))))
+ (func@,7X add@5 x . .
+  (params@9
+   (param@1 s . .
+    (mut@3 string@4).)
+   (param@G c . . char@3 .)). . .
+  (stmts@2,1
+   (let@4 sl . . .
+    (call@A ssLen~5 s@1))
+   (if@,1
+    (elif@3
+     (infix@3 < sl~3 PayloadSize@2)
+     (stmts~1,1
+      (let@4 newLen . . .
+       (infix@C \2B sl~3 1@2))
+      (asgn@I,1
+       (at~5
+        (call~3 inlinePtrV~A s@1)sl@1)c@2)
+      (call@8,2 setSSLen~8 s@1 newLen@4)))
+    (elif@5,4
+     (infix@3 > sl~3 PayloadSize@2)
+     (stmts~3,1
+      (let@4 l . . .
+       (dot@A
+        (dot~5 s~1 more@1)fullLen@1))
+      (if@,1
+       (elif@3
+        (infix@g and
+         (infix~R and
+          (infix~C == sl~3 HeapSlen@3)
+          (call@F arcIsUnique~B
+           (dot@7
+            (dot~5 s~1 more@1)rc@1)))
+         (infix@6 < l~2
+          (dot@8
+           (dot~5 s~1 more@1)capImpl@1)))
+        (stmts~1,1
+         (asgn@F
+          (at~4
+           (dot~5
+            (dot~5 s~1 more@1)data@1)l@1)c@2)
+         (asgn@F,1
+          (dot~9
+           (dot~5 s~1 more@1)fullLen@1)
+          (infix@4 \2B l~2 1@2))
+         (if@,2
+          (elif@3
+           (infix@2 < l~2 AlwaysAvail@2)
+           (stmts~1,1
+            (asgn@H
+             (at~4
+              (call~3 inlinePtrV~A s@1)l@1)c@2))))))
+       (else@,5
+        (stmts@2,1
+         (let@4 oldLen . . .
+          (dot@F
+           (dot~5 s~1 more@1)fullLen@1))
+         (call@G,1 ensureUniqueLong~G s@1 oldLen@4
+          (infix@J \2B oldLen~7 1@2))
+         (if@,2
+          (elif@3
+           (infix@9 ==
+            (call~4 ssLen~5 s@1)HeapSlen@3)
+           (stmts~1,1
+            (asgn@K
+             (at~9
+              (dot~5
+               (dot~5 s~1 more@1)data@1)oldLen@1)c@2)
+            (if@,1
+             (elif@3
+              (infix@7 < oldLen~7 AlwaysAvail@2)
+              (stmts~1,1
+               (asgn@M
+                (at~9
+                 (call~3 inlinePtrV~A s@1)oldLen@1)c@2))))))))))))
+    (else@,I
+     (stmts@2,2
+      (call@G transitionToLong~G s@1 sl@4
+       (infix@B \2B sl~3 1@2))
+      (if@,1
+       (elif@3
+        (infix@9 ==
+         (call~4 ssLen~5 s@1)HeapSlen@3)
+        (stmts~1,1
+         (asgn@G
+          (at~5
+           (dot~5
+            (dot~5 s~1 more@1)data@1)sl@1)c@2)))))))))
+ (func@,7x add@5 x . .
+  (params@9
+   (param@1 s . .
+    (mut@3 string@4).)
+   (param@G part . . string@6 .)). . .
+  (stmts@2,1
+   (let@4 partLen . . .
+    (dot@E part~4 len@1))
+   (if@,1
+    (elif@3
+     (infix@8 == partLen~8 0@3)
+     (stmts@E
+      (ret .))))
+   (let@4,2 partData . . .
+    (call@I rawData~7 part@1))
+   (let@4,3 sl . . .
+    (call@A ssLen~5 s@1))
+   (if@,4
+    (elif@3
+     (infix@3 <= sl~3 PayloadSize@3)
+     (stmts~1,1
+      (let@4 sLen . . . sl@7)
+      (let@4,1 newLen . . .
+       (infix@E \2B sLen~5 partLen@2))
+      (if@,2
+       (elif@3
+        (infix@7 <= newLen~7 PayloadSize@3)
+        (stmts~1,1
+         (call@7 copyMem~7
+          (call@C inlinePtrAt~B s@1 sLen@4)partData@N partLen@X)
+         (call@8,1 setSSLen~8 s@1 newLen@4)))
+       (else@,3
+        (stmts@2,1
+         (call@G transitionToLong~G s@1 sLen@4 newLen@A)
+         (if@,1
+          (elif@3
+           (infix@9 ==
+            (call~4 ssLen~5 s@1)HeapSlen@3)
+           (stmts~1,1
+            (call@7 copyMem~7
+             (cast@1 pointer@5
+              (infix@k \2B
+               (cast~W uint@5
+                (cmd@G addr~5
+                 (at@B
+                  (dot~5
+                   (dot~5 s~1 more@1)data@1)0@1)))
+               (call@6 uint~4 sLen@1)))partData@10 partLen@1A)
+            (call@7,1 copyMem~7
+             (call@B inlinePtrV~A s@1)
+             (cmd@L addr~5
+              (at@B
+               (dot~5
+                (dot~5 s~1 more@1)data@1)0@1))AlwaysAvail@b)))))))))
+    (else@,B
+     (stmts@2,1
+      (let@4 sLen . . .
+       (dot@D
+        (dot~5 s~1 more@1)fullLen@1))
+      (let@4,1 newLen . . .
+       (infix@E \2B sLen~5 partLen@2))
+      (call@G,2 ensureUniqueLong~G s@1 sLen@4 newLen@A)
+      (if@,3
+       (elif@3
+        (infix@9 ==
+         (call~4 ssLen~5 s@1)HeapSlen@3)
+        (stmts~1,1
+         (call@7 copyMem~7
+          (cast@1 pointer@5
+           (infix@k \2B
+            (cast~W uint@5
+             (cmd@G addr~5
+              (at@B
+               (dot~5
+                (dot~5 s~1 more@1)data@1)0@1)))
+            (call@6 uint~4 sLen@1)))partData@10 partLen@1A)
+         (if@,1
+          (elif@3
+           (infix@5 < sLen~5 AlwaysAvail@2)
+           (stmts~1,1
+            (call@7 copyMem~7
+             (call@B inlinePtrV~A s@1)
+             (cmd@L addr~5
+              (at@B
+               (dot~5
+                (dot~5 s~1 more@1)data@1)0@1))AlwaysAvail@b))))))))))))
+ (func@,8O zeroSwarPadImplBE@5 . . .
+  (params@M
+   (param@1 bytes . . uint@7 .)
+   (param@E newLen . . int@8 .))uint@S
+  (pragmas@t inline@2).
+  (stmts@2,1
+   (let@4 charKeepMask . . .
+    (if~2,1
+     (elif@3
+      (infix@7 == newLen~7 0@3)
+      (stmts@D 0u))
+     (else@,1
+      (stmts@6
+       (infix@G and
+        (par~G
+         (infix@9 shr
+          (prefix~8 not 0u@4)8@4))
+        (par@4
+         (infix@9 shl
+          (prefix~8 not 0u@4)
+          (call@8 uint~4
+           (infix@O *
+            (par~N
+             (infix@D \2D AlwaysAvail~C newLen@2))8@2)))))))))
+   (infix@P,3 or
+    (par~P
+     (infix@7 and bytes~6 charKeepMask@4))
+    (par@3
+     (infix@E shl
+      (call~9 uint~4 newLen@1)
+      (call@8 uint~4
+       (infix@K *
+        (par~J
+         (infix@E \2D
+          (call~7 sizeof~6 uint@1)1@2))8@2)))))))
+ (func@,8U zeroSwarPadImplLE@5 . . .
+  (params@M
+   (param@1 bytes . . uint@7 .)
+   (param@E newLen . . int@8 .))uint@S
+  (pragmas@t inline@2).
+  (stmts@2,1
+   (let@4 keepBits . . .
+    (call@F uint~4
+     (infix@E *
+      (par~D
+       (infix@8 \2B newLen~7 1@2))8@2)))
+   (let@4,1 mask . . .
+    (if@7
+     (elif@3
+      (infix@9 >= keepBits~9
+       (call@7 uint~4
+        (infix@E *
+         (call~7 sizeof~6 uint@1)8@2)))
+      (stmts@a
+       (prefix not 0u@4)))
+     (else@,1
+      (stmts@6
+       (infix@N \2D
+        (par~N
+         (infix@9 shl
+          (call~4 uint~4 1@1)keepBits@4))1u@2)))))
+   (infix@Y,3 or
+    (par~Y
+     (infix@7 and bytes~6
+      (par@4
+       (infix@6 and mask~5
+        (prefix@4 not 255u@4)))))
+    (call@7 uint~4 newLen@1))))
+ (func@,8a zeroSwarPadImpl@5 . . .
+  (params@K
+   (param@1 bytes . . uint@7 .)
+   (param@E newLen . . int@8 .))uint@S
+  (pragmas@r inline@2).
+  (stmts@2,1
+   (comment)
+   (when@,2
+    (elif@5
+     (call@7 defined~7 bigEndian@1)
+     (stmts@K
+      (call@H zeroSwarPadImplBE~H bytes@1 newLen@8)))
+    (else@,1
+     (stmts@6
+      (call@H zeroSwarPadImplLE~H bytes@1 newLen@8))))))
+ (template@,8g zeroSwarPad@9 . . .
+  (params@K
+   (param@1 s . .
+    (mut@3 string@4).)
+   (param@G newLen . . int@8 .)). . .
+  (stmts@2,1
+   (asgn@8
+    (dot~7 s~1 bytes@1)
+    (call@H zeroSwarPadImpl~F
+     (dot@2 s~1 bytes@1)newLen@A))))
+ (func@,8l shrink@5 x . .
+  (params@C
+   (param@1 s . .
+    (mut@3 string@4).)
+   (param@G newLen . . int@8 .)). . .
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@7 <= newLen~7
+      (dot@4 s~1 len@1))
+     (stmts~1,1
+      (let@4 sl . . .
+       (call@A ssLen~5 s@1))
+      (if@,1
+       (elif@3
+        (infix@3 <= sl~3 PayloadSize@3)
+        (stmts~1,2
+         (if
+          (elif@3
+           (infix@7 <= newLen~7 AlwaysAvail@3)
+           (stmts~1,1
+            (call@B zeroSwarPad~B s@1 newLen@4)))
+          (else@,2
+           (stmts@2,1
+            (call@8 setSSLen~8 s@1 newLen@4))))))
+       (else@,6
+        (stmts@2,5
+         (call@F prepareMutation~F s@1)
+         (asgn@F,1
+          (dot~9
+           (dot~5 s~1 more@1)fullLen@1)newLen@2)
+         (call@7,2 copyMem~7
+          (call@B inlinePtrV~A s@1)
+          (cmd@L addr~5
+           (at@B
+            (dot~5
+             (dot~5 s~1 more@1)data@1)0@1))
+          (call@e min~3 newLen@1 AlwaysAvail@9))))))))))
+ (func@,93 setLen@5 x . .
+  (params@C
+   (param@1 s . .
+    (mut@3 string@4).)
+   (param@G newLen . . int@8 .)). . .
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@7 <= newLen~7
+      (dot@4 s~1 len@1))
+     (stmts~1,1
+      (call@6 shrink~6 s@1 newLen@4)
+      (ret@,1 .))))
+   (let@4,3 sl . . .
+    (call@A ssLen~5 s@1))
+   (if@,4
+    (elif@3
+     (infix@3 <= sl~3 PayloadSize@3)
+     (stmts~1,1
+      (let@4 curLen . . .
+       (dot@A s~1 len@1))
+      (if@,1
+       (elif@3
+        (infix@7 <= newLen~7 PayloadSize@3)
+        (stmts~1,1
+         (let@4 inl . . .
+          (call@G inlinePtrV~A s@1))
+         (if@,1
+          (elif@3
+           (infix@7 > newLen~7 curLen@2)
+           (stmts~1,1
+            (call@7 zeroMem~7
+             (call@C inlinePtrAt~B s@1 curLen@4)
+             (infix@W \2D newLen~7 curLen@2))
+            (call@8,1 setSSLen~8 s@1 newLen@4)))
+          (else@,3
+           (stmts@2,1
+            (if
+             (elif@3
+              (infix@7 <= newLen~7 AlwaysAvail@3)
+              (stmts~1,1
+               (call@B zeroSwarPad~B s@1 newLen@4)))
+             (else@,2
+              (stmts@2,1
+               (call@8 setSSLen~8 s@1 newLen@4)))))))))
+       (else@,A
+        (stmts@2,1
+         (call@G transitionToLong~G s@1 curLen@4 newLen@C)
+         (if@,1
+          (elif@3
+           (infix@9 ==
+            (call~4 ssLen~5 s@1)HeapSlen@3)
+           (stmts~1,1
+            (call@7 zeroMem~7
+             (cast@1 pointer@5
+              (infix@k \2B
+               (cast~W uint@5
+                (cmd@G addr~5
+                 (at@B
+                  (dot~5
+                   (dot~5 s~1 more@1)data@1)0@1)))
+               (call@6 uint~4 curLen@1)))
+             (infix@19 \2D newLen~7 curLen@2))))))))))
+    (else@,G
+     (stmts@2,4
+      (let@4 curLen . . .
+       (dot@A s~1 len@1))
+      (call@G,1 ensureUniqueLong~G s@1 curLen@4 newLen@C)
+      (if@,2
+       (elif@3
+        (infix@9 ==
+         (call~4 ssLen~5 s@1)HeapSlen@3)
+        (stmts~1,1
+         (if
+          (elif@3
+           (infix@7 > newLen~7 curLen@2)
+           (stmts~1,1
+            (call@7 zeroMem~7
+             (cast@1 pointer@5
+              (infix@k \2B
+               (cast~W uint@5
+                (cmd@G addr~5
+                 (at@B
+                  (dot~5
+                   (dot~5 s~1 more@1)data@1)0@1)))
+               (call@6 uint~4 curLen@1)))
+             (infix@19 \2D newLen~7 curLen@2)))))
+         (call@7,2 copyMem~7
+          (call@B inlinePtrV~A s@1)
+          (cmd@L addr~5
+           (at@B
+            (dot~5
+             (dot~5 s~1 more@1)data@1)0@1))AlwaysAvail@b)))))))))
+ (func@,9b
+  (quoted@5 \5B\5D@1) x . .
+  (params@A
+   (param@1 s . . string@3 .)
+   (param@C i . . int@3 .))char@L
+  (pragmas@a
+   (kv@A requires~8
+    (par@2
+     (infix@C and
+      (infix~9 < i~2
+       (call@5 len~3 s@1))
+      (infix@6 >= i~2 0@3))))alwaysInline@b).
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@9 >
+      (call~4 ssLen~5 s@1)PayloadSize@2)
+     (stmts@O
+      (at@B
+       (dot~5
+        (dot~5 s~1 more@1)data@1)i@1)))
+    (else@,1
+     (stmts@6
+      (at@C
+       (call~3 inlinePtr~9 s@1)i@1))))))
+ (func@,9f
+  (quoted@5 \5B\5D=@1) x . .
+  (params@B
+   (param@1 s . .
+    (mut@3 string@4).)
+   (param@G i . . int@3 .)
+   (param@O c . . char@3 .)).
+  (pragmas@i
+   (kv@A requires~8
+    (par@2
+     (infix@C and
+      (infix~9 < i~2
+       (call@5 len~3 s@1))
+      (infix@6 >= i~2 0@3))))inline@b).
+  (stmts@2,1
+   (call@F prepareMutation~F s@1)
+   (if@,1
+    (elif@3
+     (infix@9 >
+      (call~4 ssLen~5 s@1)PayloadSize@2)
+     (stmts~1,1
+      (asgn@F
+       (at~4
+        (dot~5
+         (dot~5 s~1 more@1)data@1)i@1)c@2)
+      (if@,1
+       (elif@3
+        (infix@2 < i~2 AlwaysAvail@2)
+        (stmts@H
+         (asgn@H
+          (at~4
+           (call~3 inlinePtrV~A s@1)i@1)c@2))))))
+    (else@,3
+     (stmts@2,1
+      (asgn@H
+       (at~4
+        (call~3 inlinePtrV~A s@1)i@1)c@2))))))
+ (func@,9p substr@5 x . .
+  (params@C
+   (param@1 s . . string@3 .)
+   (param@C first . . int@D .)
+   (param@J last . . int@6 .))string@V . .
+  (stmts@2,1
+   (comment)
+   (asgn@7,5 result~7
+    (oconstr@8 string~6
+     (kv@6 bytes~5 0u@2)
+     (kv@H more~4
+      (nil@2))))
+   (let@4,6 sLen . . .
+    (dot@8 s~1 len@1))
+   (let@4,7 f . . .
+    (call@7 max~3 first@1 0@8))
+   (let@4,8 l . . .
+    (infix@O \2B
+     (call~H min~3 last@1
+      (infix@C \2D sLen~5 1@2))1@2))
+   (if@,9
+    (elif@3
+     (infix@2 <= l~2 f@3)
+     (stmts@8
+      (ret .))))
+   (let@4,A newLen . . .
+    (infix@B \2D l~2 f@2))
+   (let@4,B src . . .
+    (call@D rawData~7 s@1))
+   (if@,C
+    (elif@3
+     (infix@7 <= newLen~7 PayloadSize@3)
+     (stmts~1,1
+      (call@8 setSSLen~8 result@1 newLen@9)
+      (call@7,1 copyMem~7
+       (call@B inlinePtrV~A result@1)
+       (cast@L pointer@5
+        (infix@U \2B
+         (cast~G uint@5 src@B)
+         (call@6 uint~4 f@1)))newLen@11)))
+    (else@,3
+     (stmts@2,1
+      (let@4 p . . .
+       (cast@4
+        (ptr@5 LongString@4)
+        (call@Q alloc~5
+         (infix@M \2B LongStringDataOffset~L newLen@2))))
+      (if@,1
+       (elif@3
+        (infix@2 != p~2
+         (nil@3))
+        (stmts~1,1
+         (asgn@5
+          (dot~4 p~1 rc@1)0@2)
+         (asgn@A,1
+          (dot~9 p~1 fullLen@1)newLen@2)
+         (asgn@A,2
+          (dot~9 p~1 capImpl@1)newLen@2)
+         (call@7,3 copyMem~7
+          (cmd@6 addr~5
+           (at@6
+            (dot~5 p~1 data@1)0@1))
+          (cast@H pointer@5
+           (infix@U \2B
+            (cast~G uint@5 src@B)
+            (call@6 uint~4 f@1)))newLen@x)
+         (asgn@C,4
+          (dot~6 result~6 more@1)p@2)
+         (call@8,5 setSSLen~8 result@1 HeapSlen@9)
+         (call@7,6 copyMem~7
+          (call@B inlinePtrV~A result@1)
+          (cmd@Q addr~5
+           (at@6
+            (dot~5 p~1 data@1)0@1))AlwaysAvail@b)))
+       (else@,8
+        (stmts@2,1
+         (cmd strOom result@7
+          (infix@a \2B LongStringDataOffset~L newLen@2))))))))))
+ (func@,AI substr@5 x . .
+  (params@C
+   (param@1 s . . string@3 .)
+   (param@C first . . . 0@8))string@O . .
+  (stmts@2,1
+   (comment)
+   (asgn@7,1 result~7
+    (call@8 substr~6 s@1 first@4
+     (call@F high~4 s@1)))))
+ (proc@,AO bswap64@5 . . .
+  (params@C
+   (param@1 x . . uint64@3 .))uint64@D
+  (pragmas@W
+   (kv@B intrinsic~9 "Bswap"@2)noSideEffect@M). .)
+ (proc@,AP ctz64@5 . . .
+  (params@A
+   (param@1 x . . uint64@3 .))int32@D
+  (pragmas@W
+   (kv@B intrinsic~9 "Ctz"@2)noSideEffect@K). .)
+ (proc@,AQ clz64@5 . . .
+  (params@A
+   (param@1 x . . uint64@3 .))int32@D
+  (pragmas@W
+   (kv@B intrinsic~9 "Clz"@2)noSideEffect@K). .)
+ (func@,AS bswap@5 . . .
+  (params@A
+   (param@1 x . . uint@3 .))uint@B
+  (pragmas@Q inline@2).
+  (stmts@d
+   (call@4 uint~4
+    (call@8 bswap64~7
+     (call@7 uint64~6 x@1)))))
+ (func@,AT ctzImpl@5 . . .
+  (params@C
+   (param@1 x . . uint@3 .))int@B
+  (pragmas@R inline@2).
+  (stmts@e
+   (call@3 int~3
+    (call@6 ctz64~5
+     (call@7 uint64~6 x@1)))))
+ (func@,AU clzImpl@5 . . .
+  (params@C
+   (param@1 x . . uint@3 .))int@B
+  (pragmas@R inline@2).
+  (stmts@e
+   (call@3 int~3
+    (call@6 clz64~5
+     (call@7 uint64~6 x@1)))))
+ (comment@,AW)
+ (func@,AZ swarKey@5 . . .
+  (params@C
+   (param@1 x . . uint@3 .))uint@B
+  (pragmas@S inline@2).
+  (stmts@2,1
+   (when
+    (elif@5
+     (call@7 defined~7 bigEndian@1)
+     (stmts@K
+      (infix@2 shl x~2 8@4)))
+    (else@,1
+     (stmts@6
+      (call@5 bswap~5
+       (infix@3 shr x~2 8@4)))))))
+ (comment@,Ad)
+ (func@,Af swarCharMask@5 . . .
+  (params@H
+   (param@1 n . . int@3 .))uint@A
+  (pragmas@W inline@2).
+  (stmts@2,1
+   (when
+    (elif@5
+     (call@7 defined~7 bigEndian@1)
+     (stmts~3,1
+      (if
+       (elif@3
+        (infix@2 == n~2 0@3)
+        (stmts@8 0u))
+       (else@,1
+        (stmts@6
+         (infix@G and
+          (par~G
+           (infix@9 shr
+            (prefix~8 not 0u@4)8@4))
+          (par@4
+           (infix@9 shl
+            (prefix~8 not 0u@4)
+            (call@8 uint~4
+             (infix@J *
+              (par~I
+               (infix@D \2D AlwaysAvail~C n@2))8@2))))))))))
+    (else@,3
+     (stmts@2,1
+      (infix@U shl
+       (par~U
+        (infix@N \2D
+         (par~M
+          (infix@5 shl 1u~4
+           (call@8 uint~4
+            (infix@3 * n~2 8@2))))1u@2))8@4))))))
+ (template@,Am inlinePtrOf@9 . . .
+  (params@K
+   (param@1 p . .
+    (ptr@3 string@4).))
+  (ptr@H
+   (at@I UncheckedArray~E char@1)). .
+  (stmts@2,1
+   (comment)
+   (cast@,1
+    (ptr@5
+     (at@I UncheckedArray~E char@1))
+    (infix@j \2B
+     (cast~E uint@5 p@B)1u@2))))
+ (template@,Aq tailPtrOf@9 . . .
+  (params@I
+   (param@1 p . .
+    (ptr@3 string@4).))
+  (ptr@H
+   (at@I UncheckedArray~E char@1)). .
+  (stmts@2,1
+   (comment)
+   (cast@,2
+    (ptr@5
+     (at@I UncheckedArray~E char@1))
+    (infix@p \2B
+     (infix~6 \2B
+      (cast~E uint@5 p@B)1u@2)
+     (call@6 uint~4 AlwaysAvail@1)))))
+ (func@,Av cmpInlineBytes@5 . . .
+  (params@J
+   (param@1 a . .
+    (ptr@6
+     (at@I UncheckedArray~E char@1)).)
+   (param@4 b . .
+    (ptr@3
+     (at@I UncheckedArray~E char@1)).)
+   (param@X n . . int@3 .))int@g
+  (pragmas@13 inline@2).
+  (stmts@2,1
+   (asgn@7 result~7 0@2)
+   (for@4,1
+    (infix@6 \2E\2E< 0~1 n@3)
+    (unpackflat
+     (let i . . ..))
+    (stmts~2,1
+     (let@4 ac . . .
+      (at@6 a~1 i@1))
+     (let@J bc . . .
+      (at@6 b~1 i@1))
+     (if@,1
+      (elif@3
+       (infix@3 < ac~3 bc@2)
+       (stmts@9
+        (ret -1@7))))
+     (if@,2
+      (elif@3
+       (infix@3 > ac~3 bc@2)
+       (stmts@9
+        (ret 1@7))))))))
+ (func@,B2 cmpShortInlineBE@5 . . .
+  (params@L
+   (param@1 abytes . . uint@G .)
+   (param@9 bbytes . . uint@8 .)
+   (param@N aslen . . int@E .)
+   (param@U bslen . . int@7 .))int@h
+  (pragmas@16 inline@2).
+  (stmts@2,1
+   (comment)
+   (let@4,1 minLen . . .
+    (call@C min~3 aslen@1 bslen@8))
+   (if@,2
+    (elif@3
+     (infix@7 > minLen~7 0@2)
+     (stmts~1,1
+      (let@4 shifted . . .
+       (infix@U shl
+        (par~K
+         (infix@8 xor abytes~7 bbytes@4))8@4))
+      (let@4,1 keepMask . . .
+       (infix@J shl
+        (prefix~8 not 0u@4)
+        (call@8 uint~4
+         (infix@P *
+          (par~O
+           (infix@E \2D
+            (call~7 sizeof~6 uint@1)minLen@2))8@2))))
+      (let@4,2 diff . . .
+       (infix@F and shifted~8 keepMask@4))
+      (if@,3
+       (elif@3
+        (infix@5 != diff~5 0@3)
+        (stmts~1,1
+         (let@4 byteFromMSB . . .
+          (infix@S shr
+           (call~7 clzImpl~7 diff@1)3@4))
+         (let@4,1 charShift . . .
+          (call@G uint~4
+           (infix@Y *
+            (par~X
+             (infix@I \2D
+              (infix~4 \2D
+               (call~7 sizeof~6 uint@1)2@2)byteFromMSB@2))8@2)))
+         (let@4,2 ac . . .
+          (infix@S and
+           (par~N
+            (infix@8 shr abytes~7 charShift@4))255u@4))
+         (let@4,3 bc . . .
+          (infix@S and
+           (par~N
+            (infix@8 shr bbytes~7 charShift@4))255u@4))
+         (if@,4
+          (elif@3
+           (infix@3 < ac~3 bc@2)
+           (stmts@9
+            (ret -1@7))))
+         (ret@,5 1@7)))))))
+   (infix@6,D \2D aslen~6 bslen@2)))
+ (func@,BI cmpShortInlineLE@5 . . .
+  (params@L
+   (param@1 abytes . . uint@G .)
+   (param@9 bbytes . . uint@8 .)
+   (param@N aslen . . int@E .)
+   (param@U bslen . . int@7 .))int@h
+  (pragmas@16 inline@2).
+  (stmts@2,1
+   (comment)
+   (let@4,1 minLen . . .
+    (call@C min~3 aslen@1 bslen@8))
+   (if@,2
+    (elif@3
+     (infix@7 > minLen~7 0@2)
+     (stmts~1,1
+      (let@4 diffMask . . .
+       (infix@Y \2D
+        (par~N
+         (infix@5 shl 1u~4
+          (par@4
+           (infix@8 * minLen~7 8@2))))1u@2))
+      (let@4,1 diff . . .
+       (infix@Z and
+        (par~S
+         (infix@L shr
+          (par~K
+           (infix@8 xor abytes~7 bbytes@4))8@4))diffMask@4))
+      (if@,2
+       (elif@3
+        (infix@5 != diff~5 0@3)
+        (stmts~1,1
+         (let@4 byteShift . . .
+          (infix@c \2B
+           (infix~4 *
+            (par~M
+             (infix@F shr
+              (call~7 ctzImpl~7 diff@1)3@4))8@2)8@2))
+         (let@4,1 ac . . .
+          (infix@S and
+           (par~N
+            (infix@8 shr abytes~7 byteShift@4))255u@4))
+         (let@4,2 bc . . .
+          (infix@S and
+           (par~N
+            (infix@8 shr bbytes~7 byteShift@4))255u@4))
+         (if@,3
+          (elif@3
+           (infix@3 < ac~3 bc@2)
+           (stmts@9
+            (ret -1@7))))
+         (ret@,4 1@7)))))))
+   (infix@6,B \2D aslen~6 bslen@2)))
+ (func@,BW cmpShortInline@5 . . .
+  (params@J
+   (param@1 abytes . . uint@G .)
+   (param@9 bbytes . . uint@8 .)
+   (param@N aslen . . int@E .)
+   (param@U bslen . . int@7 .))int@h
+  (pragmas@14 inline@2).
+  (stmts@2,1
+   (when
+    (elif@5
+     (call@7 defined~7 bigEndian@1)
+     (stmts@K
+      (call@G cmpShortInlineBE~G abytes@1 bbytes@9 aslen@H bslen@O)))
+    (else@,1
+     (stmts@6
+      (call@G cmpShortInlineLE~G abytes@1 bbytes@9 aslen@H bslen@O))))))
+ (func@,Ba cmpStringPtrs@5 . . .
+  (params@I
+   (param@1 a . .
+    (ptr@6 string@4).)
+   (param@4 b . .
+    (ptr@3 string@4).))int@K . .
+  (stmts@2,1
+   (comment)
+   (let@4,1 abytes . . .
+    (dot@A a~1 bytes@1))
+   (let@4,2 bbytes . . .
+    (dot@A b~1 bytes@1))
+   (let@4,3 aslen . . .
+    (call@F ssLenOf~7 abytes@1))
+   (let@4,4 bslen . . .
+    (call@F ssLenOf~7 bbytes@1))
+   (if@,5
+    (elif@3
+     (infix@L and
+      (infix~F <= aslen~6 AlwaysAvail@3)
+      (infix@A <= bslen~6 AlwaysAvail@3))
+     (stmts~1,1
+      (ret
+       (call@L cmpShortInline~E abytes@1 bbytes@9 aslen@H bslen@O)))))
+   (if@,7
+    (elif@3
+     (infix@L and
+      (infix~F <= aslen~6 PayloadSize@3)
+      (infix@A <= bslen~6 PayloadSize@3))
+     (stmts~1,2
+      (let@4 minLen . . .
+       (call@C min~3 aslen@1 bslen@8))
+      (let@4,1 pfxLen . . .
+       (call@C min~3 minLen@1 AlwaysAvail@9))
+      (asgn@7,2 result~7
+       (call@G cmpInlineBytes~E
+        (call@C inlinePtrOf~B a@1)
+        (call@S inlinePtrOf~B b@1)pfxLen@X))
+      (if@,3
+       (elif@3
+        (infix@7 != result~7 0@3)
+        (stmts@D
+         (ret .))))
+      (if@,4
+       (elif@3
+        (infix@7 > minLen~7 AlwaysAvail@2)
+        (stmts~1,1
+         (asgn@7 result~7
+          (call@G cmpInlineBytes~E
+           (call@A tailPtrOf~9 a@1)
+           (call@O tailPtrOf~9 b@1)
+           (infix@a \2D minLen~7 AlwaysAvail@2))))))
+      (if@,6
+       (elif@3
+        (infix@7 == result~7 0@3)
+        (stmts@D
+         (asgn@7 result~7
+          (infix@8 \2D aslen~6 bslen@2)))))
+      (ret@,7 .))))
+   (let@4,L la . . .
+    (if@5
+     (elif@3
+      (infix@6 > aslen~6 PayloadSize@2)
+      (stmts@L
+       (dot@6
+        (dot~5 a~1 more@1)fullLen@1)))
+     (else@d
+      (stmts@6 aslen))))
+   (let@4,M lb . . .
+    (if@5
+     (elif@3
+      (infix@6 > bslen~6 PayloadSize@2)
+      (stmts@L
+       (dot@6
+        (dot~5 b~1 more@1)fullLen@1)))
+     (else@d
+      (stmts@6 bslen))))
+   (let@4,N minLen . . .
+    (call@C min~3 la@1 lb@5))
+   (let@4,O pfxLen . . .
+    (call@C min~3 minLen@1 AlwaysAvail@9))
+   (asgn@7,P result~7
+    (call@G cmpInlineBytes~E
+     (call@C inlinePtrOf~B a@1)
+     (call@S inlinePtrOf~B b@1)pfxLen@X))
+   (if@,Q
+    (elif@3
+     (infix@7 != result~7 0@3)
+     (stmts@D
+      (ret .))))
+   (if@,R
+    (elif@3
+     (infix@7 <= minLen~7 AlwaysAvail@3)
+     (stmts~1,1
+      (asgn@7 result~7
+       (infix@5 \2D la~3 lb@2))
+      (ret@,1 .))))
+   (let@4,V ap . . .
+    (if@5
+     (elif@3
+      (infix@6 > aslen~6 PayloadSize@2)
+      (stmts@L
+       (cast
+        (ptr@5
+         (at@I UncheckedArray~E char@1))
+        (infix@11 \2B
+         (cast~W uint@5
+          (cmd@G addr~5
+           (at@B
+            (dot~5
+             (dot~5 a~1 more@1)data@1)0@1)))
+         (call@6 uint~4 AlwaysAvail@1)))))
+     (else@,1
+      (stmts@6
+       (call@9 tailPtrOf~9 a@1)))))
+   (let@4,X bp . . .
+    (if@5
+     (elif@3
+      (infix@6 > bslen~6 PayloadSize@2)
+      (stmts@L
+       (cast
+        (ptr@5
+         (at@I UncheckedArray~E char@1))
+        (infix@11 \2B
+         (cast~W uint@5
+          (cmd@G addr~5
+           (at@B
+            (dot~5
+             (dot~5 b~1 more@1)data@1)0@1)))
+         (call@6 uint~4 AlwaysAvail@1)))))
+     (else@,1
+      (stmts@6
+       (call@9 tailPtrOf~9 b@1)))))
+   (asgn@7,Z result~7
+    (call@8 cmpMem~6 ap@1 bp@5
+     (infix@G \2D minLen~7 AlwaysAvail@2)))
+   (if@,a
+    (elif@3
+     (infix@7 == result~7 0@3)
+     (stmts@D
+      (asgn@7 result~7
+       (infix@5 \2D la~3 lb@2)))))))
+ (func@,CF prefixMaskImplLE@5 . . .
+  (params@L
+   (param@1 n . . int@3 .))uint@A
+  (pragmas@a inline@2).
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@2 <= n~2 0@3)
+     (stmts@8 0u))
+    (elif@5,1
+     (infix@2 >= n~2 AlwaysAvail@3)
+     (stmts@I
+      (infix@A shr
+       (par~A
+        (prefix@1 not 0u@4))8@4)))
+    (else@,2
+     (stmts@6
+      (infix@M \2D
+       (par~M
+        (infix@5 shl 1u~4
+         (call@8 uint~4
+          (infix@3 * n~2 8@2))))1u@2))))))
+ (func@,CK prefixMaskImplBE@5 . . .
+  (params@L
+   (param@1 n . . int@3 .))uint@A
+  (pragmas@a inline@2).
+  (stmts@2,1
+   (if
+    (elif@3
+     (infix@2 <= n~2 0@3)
+     (stmts@8 0u))
+    (elif@5,1
+     (infix@2 >= n~2 AlwaysAvail@3)
+     (stmts@I
+      (infix@A shl
+       (par~A
+        (prefix@1 not 0u@4))8@4)))
+    (else@,2
+     (stmts@6
+      (prefix not
+       (par@4
+        (infix@g \2D
+         (par~f
+          (infix@5 shl 1u~4
+           (call@8 uint~4
+            (infix@I \2D
+             (infix~4 *
+              (call~7 sizeof~6 uint@1)8@2)
+             (infix@4 * n~2 8@2)))))1u@2))))))))
+ (func@,CP prefixMask@5 . . .
+  (params@F
+   (param@1 n . . int@3 .))uint@A
+  (pragmas@U inline@2).
+  (stmts@2,1
+   (comment)
+   (when@,2
+    (elif@5
+     (call@7 defined~7 bigEndian@1)
+     (stmts@K
+      (call@G prefixMaskImplBE~G n@1)))
+    (else@,1
+     (stmts@6
+      (call@G prefixMaskImplLE~G n@1))))))
+ (func@,CV equalStringsLong@5 . . .
+  (params@L
+   (param@1 a . . string@6 .)
+   (param@4 b . . string@3 .))bool@G
+  (pragmas@g noinline@2).
+  (stmts@2,1
+   (comment)
+   (let@4,B aslen . . .
+    (call@F ssLenOf~7
+     (dot@2 a~1 bytes@1)))
+   (let@4,C bslen . . .
+    (call@F ssLenOf~7
+     (dot@2 b~1 bytes@1)))
+   (let@4,D la . . .
+    (if@5
+     (elif@3
+      (infix@6 > aslen~6 PayloadSize@2)
+      (stmts@L
+       (dot@6
+        (dot~5 a~1 more@1)fullLen@1)))
+     (else@d
+      (stmts@6 aslen))))
+   (let@4,E lb . . .
+    (if@5
+     (elif@3
+      (infix@6 > bslen~6 PayloadSize@2)
+      (stmts@L
+       (dot@6
+        (dot~5 b~1 more@1)fullLen@1)))
+     (else@d
+      (stmts@6 bslen))))
+   (if@,F
+    (elif@3
+     (infix@3 != la~3 lb@3)
+     (stmts@A
+      (ret false@7))))
+   (let@4,G m . . .
+    (call@E prefixMask~A
+     (call@4 min~3 la@1 AlwaysAvail@5)))
+   (if@,H
+    (elif@3
+     (infix@Q !=
+      (par~Q
+       (infix@J and
+        (call~A dropSlen~8
+         (dot@2 a~1 bytes@1))m@4))
+      (par@3
+       (infix@J and
+        (call~A dropSlen~8
+         (dot@2 b~1 bytes@1))m@4)))
+     (stmts@u
+      (ret false@7))))
+   (if@,I
+    (elif@3
+     (infix@3 <= la~3 AlwaysAvail@3)
+     (stmts@J
+      (ret true@7))))
+   (if@,J
+    (elif@3
+     (infix@L and
+      (infix~F <= aslen~6 PayloadSize@3)
+      (infix@A <= bslen~6 PayloadSize@3))
+     (stmts~1,1
+      (let@4 nbits . . .
+       (infix@V *
+        (call~J uint~4
+         (infix@4 \2D la~3 AlwaysAvail@2))8u@2))
+      (let@4,1 mask . . .
+       (infix@N \2D
+        (par~G
+         (infix@5 shl 1u~4 nbits@4))1u@2))
+      (ret@,2
+       (infix@b ==
+        (par~U
+         (infix@K and
+          (cast~J uint@5
+           (dot@C a~1 more@1))mask@4))
+        (par@3
+         (infix@K and
+          (cast~J uint@5
+           (dot@C b~1 more@1))mask@4)))))))
+   (let@4,N ap0 . . .
+    (if@6
+     (elif@3
+      (infix@6 > aslen~6 PayloadSize@2)
+      (stmts~1,1
+       (cast pointer@5
+        (infix@k \2B
+         (cast~W uint@5
+          (cmd@G addr~5
+           (at@B
+            (dot~5
+             (dot~5 a~1 more@1)data@1)0@1)))
+         (call@6 uint~4 AlwaysAvail@1)))))
+     (else@,2
+      (stmts@2,1
+       (call@9 tailPtrOf~9
+        (cmd@C unsafeAddr~B a))))))
+   (let@4,R bp0 . . .
+    (if@6
+     (elif@3
+      (infix@6 > bslen~6 PayloadSize@2)
+      (stmts~1,1
+       (cast pointer@5
+        (infix@k \2B
+         (cast~W uint@5
+          (cmd@G addr~5
+           (at@B
+            (dot~5
+             (dot~5 b~1 more@1)data@1)0@1)))
+         (call@6 uint~4 AlwaysAvail@1)))))
+     (else@,2
+      (stmts@2,1
+       (call@9 tailPtrOf~9
+        (cmd@C unsafeAddr~B b))))))
+   (when@,V
+    (elif@5
+     (call@7 defined~7 nimNoLibc@1)
+     (stmts~3,1
+      (var@4 ap . . .
+       (cast@5 uint@5 ap0@B))
+      (var@4,1 bp . . .
+       (cast@5 uint@5 bp0@B))
+      (var@4,2 left . . .
+       (infix@A \2D la~3 AlwaysAvail@2))
+      (while@,3
+       (infix@B >= left~5
+        (call@9 sizeof~6 uint@1))
+       (stmts@2,1
+        (if
+         (elif@3
+          (infix@L !=
+           (at~3
+            (cast~I
+             (ptr@5 uint@4)ap@F))
+           (at@L
+            (cast~I
+             (ptr@5 uint@4)bp@F)))
+          (stmts@k
+           (ret false@7))))
+        (asgn@3,1 ap~3
+         (infix@5 \2B ap~3
+          (call@6 uint~4
+           (call@7 sizeof~6 uint@1))))
+        (asgn@3,2 bp~3
+         (infix@5 \2B bp~3
+          (call@6 uint~4
+           (call@7 sizeof~6 uint@1))))
+        (asgn@5,3 left~5
+         (infix@7 \2D left~5
+          (call@8 sizeof~6 uint@1)))))
+      (while@,8
+       (infix@B > left~5 0@2)
+       (stmts@2,1
+        (if
+         (elif@3
+          (infix@L !=
+           (at~3
+            (cast~I
+             (ptr@5 char@4)ap@F))
+           (at@L
+            (cast~I
+             (ptr@5 char@4)bp@F)))
+          (stmts@k
+           (ret false@7))))
+        (asgn@3,1 ap~3
+         (infix@5 \2B ap~3 1u@2))
+        (asgn@3,2 bp~3
+         (infix@5 \2B bp~3 1u@2))
+        (cmd@,3 dec left@4)))true@,D))
+    (else@,F
+     (stmts@2,1
+      (infix@Z ==
+       (call~T cmpMem~6 ap0@1 bp0@6
+        (infix@E \2D la~3 AlwaysAvail@2))0@3))))))
+ (func@,DJ equalStrings@5 . . .
+  (params@H
+   (param@1 a . . string@6 .)
+   (param@4 b . . string@3 .))bool@G
+  (pragmas@c alwaysInline@2).
+  (stmts@2,1
+   (comment)
+   (let@4,7 abytes . . .
+    (dot@A a~1 bytes@1))
+   (let@4,8 bbytes . . .
+    (dot@A b~1 bytes@1))
+   (let@4,9 aslen . . .
+    (call@F ssLenOf~7 abytes@1))
+   (let@4,A bslen . . .
+    (call@F ssLenOf~7 bbytes@1))
+   (if@,B
+    (elif@3
+     (infix@L and
+      (infix~F <= aslen~6 AlwaysAvail@3)
+      (infix@A <= bslen~6 AlwaysAvail@3))
+     (stmts~1,1
+      (ret
+       (infix@E == abytes~7 bbytes@3)))))
+   (call@G,D equalStringsLong~G a@1 b@4)))
+ (func@,DZ
+  (quoted@5 ==@1) x . .
+  (params@A
+   (param@1 a . . string@6 .)
+   (param@4 b . . string@3 .))bool@G
+  (pragmas@V alwaysInline@2
+   (kv@P semantics~9 "string.=="@2)).
+  (stmts@2,1
+   (comment)
+   (let@4,2 abytes . . .
+    (dot@A a~1 bytes@1))
+   (let@4,3 bbytes . . .
+    (dot@A b~1 bytes@1))
+   (let@4,4 aslen . . .
+    (call@F ssLenOf~7 abytes@1))
+   (let@4,5 bslen . . .
+    (call@F ssLenOf~7 bbytes@1))
+   (if@,6
+    (elif@3
+     (infix@L and
+      (infix~F <= aslen~6 AlwaysAvail@3)
+      (infix@A <= bslen~6 AlwaysAvail@3))
+     (stmts~1,1
+      (ret
+       (infix@E == abytes~7 bbytes@3)))))
+   (call@G,8 equalStringsLong~G a@1 b@4)))
+ (func@,Dk nimStrAtLe@5 . . .
+  (params@F
+   (param@1 s . . string@3 .)
+   (param@C idx . . int@5 .)
+   (param@M ch . . char@4 .))bool@X
+  (pragmas@r inline@2).
+  (stmts@2,1
+   (asgn@7 result~7
+    (infix@E and
+     (infix~8 < idx~4
+      (dot@3 s~1 len@1))
+     (infix@B <=
+      (at~6 s~1 idx@1)ch@3)))))
+ (func@,Dn cmp@5 x . .
+  (params@9
+   (param@1 a . . string@6 .)
+   (param@4 b . . string@3 .))int@G . .
+  (stmts@2,1
+   (comment)
+   (let@4,1 abytes . . .
+    (dot@A a~1 bytes@1))
+   (let@4,2 bbytes . . .
+    (dot@A b~1 bytes@1))
+   (let@4,3 aslen . . .
+    (call@F ssLenOf~7 abytes@1))
+   (let@4,4 bslen . . .
+    (call@F ssLenOf~7 bbytes@1))
+   (if@,5
+    (elif@3
+     (infix@L and
+      (infix~F <= aslen~6 AlwaysAvail@3)
+      (infix@A <= bslen~6 AlwaysAvail@3))
+     (stmts~1,1
+      (ret
+       (call@L cmpShortInline~E abytes@1 bbytes@9 aslen@H bslen@O)))))
+   (call@D,7 cmpStringPtrs~D
+    (cmd@C unsafeAddr~B a)
+    (cmd@Q unsafeAddr~B b))))
+ (func@,Dx
+  (quoted@5 <=@1) x . .
+  (params@A
+   (param@1 a . . string@6 .)
+   (param@4 b . . string@3 .))bool@G
+  (pragmas@V inline@2).
+  (stmts@i
+   (infix@A <=
+    (call~7 cmp~3 a@1 b@4)0@3)))
+ (func@,Dy
+  (quoted@5 <@1) x . .
+  (params@9
+   (param@1 a . . string@6 .)
+   (param@4 b . . string@3 .))bool@G
+  (pragmas@U inline@2).
+  (stmts@h
+   (infix@A <
+    (call~7 cmp~3 a@1 b@4)0@2)))
+ (func@,E2 startsWithImpl@5 x . .
+  (params@K
+   (param@1 s . . string@B .)
+   (param@4 prefix . . string@8 .))bool@L . .
+  (stmts@2,1
+   (comment)
+   (let@4,6 pbytes . . .
+    (dot@F prefix~6 bytes@1))
+   (let@4,7 pslen . . .
+    (call@F ssLenOf~7 pbytes@1))
+   (let@4,8 sbytes . . .
+    (dot@A s~1 bytes@1))
+   (let@4,9 sslen . . .
+    (call@F ssLenOf~7 sbytes@1))
+   (let@4,C charMask . . .
+    (call@N swarCharMask~C
+     (call@4 min~3 pslen@1 AlwaysAvail@8)))
+   (if@,D
+    (elif@3
+     (infix@M !=
+      (par~M
+       (infix@8 and sbytes~7 charMask@4))
+      (par@3
+       (infix@8 and pbytes~7 charMask@4)))
+     (stmts@m
+      (ret false@7))))
+   (let@4,G sLen . . .
+    (if@7
+     (elif@3
+      (infix@6 > sslen~6 PayloadSize@2)
+      (stmts@L
+       (dot@6
+        (dot~5 s~1 more@1)fullLen@1)))
+     (else@d
+      (stmts@6 sslen))))
+   (let@4,H pLen . . .
+    (if@7
+     (elif@3
+      (infix@6 > pslen~6 PayloadSize@2)
+      (stmts@L
+       (dot@B
+        (dot~5 prefix~6 more@1)fullLen@1)))
+     (else@i
+      (stmts@6 pslen))))
+   (if@,I
+    (elif@3
+     (infix@5 < sLen~5 pLen@2)
+     (stmts@D
+      (ret false@7))))
+   (if@,J
+    (elif@3
+     (infix@5 <= pLen~5 AlwaysAvail@3)
+     (stmts@L
+      (ret true@7))))
+   (let@4,M sTail . . .
+    (if~2,1
+     (elif@3
+      (infix@6 > sslen~6 PayloadSize@2)
+      (stmts~1,1
+       (cast
+        (ptr@5
+         (at@I UncheckedArray~E char@1))
+        (infix@11 \2B
+         (cast~W uint@5
+          (cmd@G addr~5
+           (at@B
+            (dot~5
+             (dot~5 s~1 more@1)data@1)0@1)))
+         (call@6 uint~4 AlwaysAvail@1)))))
+     (else@,2
+      (stmts@2,1
+       (call@9 tailPtrOf~9
+        (cmd@C unsafeAddr~B s))))))
+   (let@4,R pTail . . .
+    (if~2,1
+     (elif@3
+      (infix@6 > pslen~6 PayloadSize@2)
+      (stmts~1,1
+       (cast
+        (ptr@5
+         (at@I UncheckedArray~E char@1))
+        (infix@16 \2B
+         (cast~b uint@5
+          (cmd@G addr~5
+           (at@G
+            (dot~5
+             (dot~5 prefix~6 more@1)data@1)0@1)))
+         (call@6 uint~4 AlwaysAvail@1)))))
+     (else@,2
+      (stmts@2,1
+       (call@9 tailPtrOf~9
+        (cmd@C unsafeAddr~B prefix))))))
+   (infix@f,W ==
+    (call~Z cmpMem~6 sTail@1 pTail@8
+     (infix@K \2D pLen~5 AlwaysAvail@2))0@3)))
+ (func@,Ed newString@5 x . .
+  (params@F
+   (param@1 len . . int@5 .))string@C . .
+  (stmts@2,1
+   (asgn@7 result~7
+    (oconstr@8 string~6
+     (kv@6 bytes~5 0u@2)
+     (kv@H more~4
+      (nil@2))))
+   (if@,1
+    (elif@3
+     (infix@4 <= len~4 0@3)
+     (stmts@A
+      (ret .))))
+   (if@,2
+    (elif@3
+     (infix@4 <= len~4 PayloadSize@3)
+     (stmts~1,1
+      (call@8 setSSLen~8 result@1 len@9)
+      (call@7,1 zeroMem~7
+       (call@B inlinePtrV~A result@1)len@L)))
+    (else@,3
+     (stmts@2,1
+      (let@4 p . . .
+       (cast@4
+        (ptr@5 LongString@4)
+        (call@Q alloc~5
+         (infix@M \2B LongStringDataOffset~L len@2))))
+      (if@,1
+       (elif@3
+        (infix@2 != p~2
+         (nil@3))
+        (stmts~1,1
+         (call@7 zeroMem~7 p@1
+          (infix@P \2B LongStringDataOffset~L len@2))
+         (asgn@5,1
+          (dot~4 p~1 rc@1)0@2)
+         (asgn@A,2
+          (dot~9 p~1 fullLen@1)len@2)
+         (asgn@A,3
+          (dot~9 p~1 capImpl@1)len@2)
+         (asgn@C,4
+          (dot~6 result~6 more@1)p@2)
+         (call@8,5 setSSLen~8 result@1 HeapSlen@9)))
+       (else@,7
+        (stmts@2,1
+         (cmd strOom result@7
+          (infix@a \2B LongStringDataOffset~L len@2))))))))))
+ (func@,Ev newStringOfCap@5 x . .
+  (params@K
+   (param@1 len . . int@5 .))string@C . .
+  (stmts@2,1
+   (comment)
+   (asgn@7,3 result~7
+    (oconstr@8 string~6
+     (kv@6 bytes~5 0u@2)
+     (kv@H more~4
+      (nil@2))))
+   (if@,4
+    (elif@3
+     (infix@4 <= len~4 PayloadSize@3)
+     (stmts@K
+      (ret .))))
+   (let@4,5 p . . .
+    (cast@4
+     (ptr@5 LongString@4)
+     (call@Q alloc~5
+      (infix@M \2B LongStringDataOffset~L len@2))))
+   (if@,6
+    (elif@3
+     (infix@2 != p~2
+      (nil@3))
+     (stmts~1,1
+      (asgn@5
+       (dot~4 p~1 rc@1)0@2)
+      (asgn@A,1
+       (dot~9 p~1 fullLen@1)0@2)
+      (asgn@A,2
+       (dot~9 p~1 capImpl@1)len@2)
+      (asgn@C,3
+       (dot~6 result~6 more@1)p@2)
+      (call@8,4 setSSLen~8 result@1 HeapSlen@9)))
+    (else@,6
+     (stmts@2,1
+      (cmd strOom result@7
+       (infix@a \2B LongStringDataOffset~L len@2)))))))
+ (func@,FD
+  (quoted@5 &@1) x . .
+  (params@9
+   (param@1 a . . string@6 .)
+   (param@4 b . . string@3 .))string@G
+  (pragmas@W
+   (kv@B semantics~9 "string.&"@2)).
+  (stmts@2,1
+   (asgn@7 result~7
+    (oconstr@8 string~6
+     (kv@6 bytes~5 0u@2)
+     (kv@H more~4
+      (nil@2))))
+   (let@4,1 rlen . . .
+    (infix@D \2B
+     (dot~5 a~1 len@1)
+     (dot@3 b~1 len@1)))
+   (if@,2
+    (elif@3
+     (infix@5 == rlen~5 0@3)
+     (stmts@B
+      (ret .))))
+   (if@,3
+    (elif@3
+     (infix@5 <= rlen~5 PayloadSize@3)
+     (stmts~1,1
+      (let@4 al . . .
+       (dot@6 a~1 len@1))
+      (call@8,1 setSSLen~8 result@1 rlen@9)
+      (if@,2
+       (elif@3
+        (infix@3 > al~3 0@2)
+        (stmts@8
+         (call@7 copyMem~7
+          (call@B inlinePtrV~A result@1)
+          (call@S rawData~7 a@1)al@X))))
+      (if@,3
+       (elif@3
+        (infix@6 >
+         (dot~5 b~1 len@1)0@2)
+        (stmts@B
+         (call@7 copyMem~7
+          (call@C inlinePtrAt~B result@1 al@9)
+          (call@X rawData~7 b@1)
+          (dot@d b~1 len@1)))))))
+    (else@,5
+     (stmts@2,1
+      (let@4 p . . .
+       (cast@4
+        (ptr@5 LongString@4)
+        (call@Q alloc~5
+         (infix@M \2B LongStringDataOffset~L rlen@2))))
+      (if@,1
+       (elif@3
+        (infix@2 != p~2
+         (nil@3))
+        (stmts~1,1
+         (asgn@5
+          (dot~4 p~1 rc@1)0@2)
+         (asgn@A,1
+          (dot~9 p~1 fullLen@1)rlen@2)
+         (asgn@A,2
+          (dot~9 p~1 capImpl@1)rlen@2)
+         (let@4,3 al . . .
+          (dot@6 a~1 len@1))
+         (if@,4
+          (elif@3
+           (infix@3 > al~3 0@2)
+           (stmts@8
+            (call@7 copyMem~7
+             (cmd@6 addr~5
+              (at@6
+               (dot~5 p~1 data@1)0@1))
+             (call@O rawData~7 a@1)al@T))))
+         (if@,5
+          (elif@3
+           (infix@6 >
+            (dot~5 b~1 len@1)0@2)
+           (stmts~1,1
+            (call@7 copyMem~7
+             (cast@1 pointer@5
+              (infix@f \2B
+               (cast~R uint@5
+                (cmd@G addr~5
+                 (at@6
+                  (dot~5 p~1 data@1)0@1)))
+               (call@6 uint~4 al@1)))
+             (call@10 rawData~7 b@1)
+             (dot@16 b~1 len@1)))))
+         (asgn@C,7
+          (dot~6 result~6 more@1)p@2)
+         (call@8,8 setSSLen~8 result@1 HeapSlen@9)
+         (call@7,9 copyMem~7
+          (call@B inlinePtrV~A result@1)
+          (cmd@Q addr~5
+           (at@6
+            (dot~5 p~1 data@1)0@1))AlwaysAvail@b)))
+       (else@,B
+        (stmts@2,1
+         (cmd strOom result@7
+          (infix@a \2B LongStringDataOffset~L rlen@2))))))))))
+ (func@,Fc charToString@5 . . .
+  (params@H
+   (param@1 c . . char@3 .))string@B . .
+  (stmts@2,1
+   (asgn@7 result~7
+    (oconstr@8 string~6
+     (kv@6 bytes~5 0u@2)
+     (kv@H more~4
+      (nil@2))))
+   (call@8,1 setSSLen~8 result@1 1@9)
+   (asgn@M,2
+    (at~4
+     (call~8 inlinePtrV~A result@1)0@1)c@2)))
+ (func@,Fh
+  (quoted@5 &@1) x . .
+  (params@9
+   (param@1 x . . string@3 .)
+   (param@C y . . char@3 .))string@M
+  (pragmas@c inline@2).
+  (stmts@p
+   (asgn@7 result~7
+    (infix@4 & x~2
+     (call@E charToString~C y@1)))))
+ (func@,Fi
+  (quoted@5 &@1) x . .
+  (params@9
+   (param@1 x . . char@3 .)
+   (param@A y . . string@3 .))string@M
+  (pragmas@c inline@2).
+  (stmts@p
+   (asgn@7 result~7
+    (infix@I &
+     (call~4 charToString~C x@1)y@2))))
+ (func@,Fk
+  (quoted@5 &=@1) x . .
+  (params@A
+   (param@1 x . .
+    (mut@3 string@4).)
+   (param@G y . . string@3 .)).
+  (pragmas@b inline@2).
+  (stmts@o
+   (cmd@1
+    (dot x~1 add@1)y@5)))
+ (func@,Fl
+  (quoted@5 &=@1) x . .
+  (params@A
+   (param@1 x . .
+    (mut@3 string@4).)
+   (param@G y . . char@3 .)).
+  (pragmas@Z inline@2).
+  (stmts@m
+   (cmd@1
+    (dot x~1 add@1)y@5)))
+ (func@,Fn terminatingZero@5 x . .
+  (params@L
+   (param@1 s . . string@3 .))string@D
+  (pragmas@f inline@2).
+  (stmts@2,1
+   (asgn@7 result~7
+    (infix@4 & s~2 "\00"@2))
+   (cmd@6,1
+    (dot result~6 shrink@1)
+    (dot@9 s~1 len@1))))
+ (func@,Ft borrowCStringUnsafe@5 x . .
+  (params@P
+   (param@1 s . . cstring@3 .)
+   (param@D l . . int@3 .))string@M . .
+  (stmts@2,1
+   (comment)
+   (asgn@7,1 result~7
+    (oconstr@8 string~6
+     (kv@6 bytes~5 0u@2)
+     (kv@H more~4
+      (nil@2))))
+   (if@,2
+    (elif@3
+     (infix@2 <= l~2 0@3)
+     (stmts@8
+      (ret .))))
+   (if@,3
+    (elif@3
+     (infix@2 <= l~2 PayloadSize@3)
+     (stmts~1,1
+      (call@8 setSSLen~8 result@1 l@9)
+      (call@7,1 copyMem~7
+       (call@B inlinePtrV~A result@1)s@L l@O)))
+    (else@,3
+     (stmts@2,1
+      (let@4 p . . .
+       (cast@4
+        (ptr@5 LongString@4)
+        (call@Q alloc~5
+         (infix@M \2B LongStringDataOffset~L l@2))))
+      (if@,1
+       (elif@3
+        (infix@2 != p~2
+         (nil@3))
+        (stmts~1,1
+         (asgn@5
+          (dot~4 p~1 rc@1)0@2)
+         (asgn@A,1
+          (dot~9 p~1 fullLen@1)l@2)
+         (asgn@A,2
+          (dot~9 p~1 capImpl@1)l@2)
+         (call@7,3 copyMem~7
+          (cmd@6 addr~5
+           (at@6
+            (dot~5 p~1 data@1)0@1))s@H l@K)
+         (asgn@C,4
+          (dot~6 result~6 more@1)p@2)
+         (call@8,5 setSSLen~8 result@1 HeapSlen@9)
+         (call@7,6 copyMem~7
+          (call@B inlinePtrV~A result@1)
+          (cmd@Q addr~5
+           (at@6
+            (dot~5 p~1 data@1)0@1))AlwaysAvail@b)))
+       (else@,8
+        (stmts@2,1
+         (cmd strOom result@7
+          (infix@a \2B LongStringDataOffset~L l@2))))))))))
+ (func@,GD borrowCStringUnsafe@5 x . .
+  (params@P
+   (param@1 s . . cstring@3 .))string@E
+  (pragmas@k
+   (kv@9 exportc~7 "nimBorrowCStringUnsafe"@2)).
+  (stmts@2,1
+   (call@J borrowCStringUnsafe~J s@1
+    (call@7 len~3 s@1))))
+ (func@,GG ensureTerminatingZero@5 x . .
+  (params@R
+   (param@1 s . .
+    (mut@3 string@4).)). . .
+  (stmts@2,1
+   (comment)
+   (let@4,3 oldLen . . .
+    (dot@A s~1 len@1))
+   (cmd@1,4
+    (dot s~1 add@1)'\00'@5)
+   (cmd@1,5
+    (dot s~1 shrink@1)oldLen@8)))
+ (func@,GO toCString@5 x . .
+  (params@F
+   (param@1 s . .
+    (mut@3 string@4).))
+  (infix@X not~8 cstring~G
+   (nil~4)). .
+  (stmts@2,1
+   (comment)
+   (call@L,1 ensureTerminatingZero~L s@1)
+   (asgn@7,2 result~7
+    (cast@2
+     (infix@K not~7 cstring~F
+      (nil~3))
+     (call@T rawData~7 s@1)))))
+ (func@,GT fromCString@5 x . .
+  (params@H
+   (param@1 s . . cstring@3 .))string@E . .
+  (stmts@2,1
+   (comment)
+   (asgn@7,1 result~7
+    (oconstr@8 string~6
+     (kv@6 bytes~5 0u@2)
+     (kv@H more~4
+      (nil@2))))
+   (let@4,2 l . . .
+    (call@7 len~3 s@1))
+   (if@,3
+    (elif@3
+     (infix@2 == l~2 0@3)
+     (stmts@8
+      (ret .))))
+   (if@,4
+    (elif@3
+     (infix@2 <= l~2 PayloadSize@3)
+     (stmts~1,1
+      (call@8 setSSLen~8 result@1 l@9)
+      (call@7,1 copyMem~7
+       (call@B inlinePtrV~A result@1)s@L l@O)))
+    (else@,3
+     (stmts@2,1
+      (let@4 p . . .
+       (cast@4
+        (ptr@5 LongString@4)
+        (call@Q alloc~5
+         (infix@M \2B LongStringDataOffset~L l@2))))
+      (if@,1
+       (elif@3
+        (infix@2 != p~2
+         (nil@3))
+        (stmts~1,1
+         (asgn@5
+          (dot~4 p~1 rc@1)0@2)
+         (asgn@A,1
+          (dot~9 p~1 fullLen@1)l@2)
+         (asgn@A,2
+          (dot~9 p~1 capImpl@1)l@2)
+         (call@7,3 copyMem~7
+          (cmd@6 addr~5
+           (at@6
+            (dot~5 p~1 data@1)0@1))s@H l@K)
+         (asgn@C,4
+          (dot~6 result~6 more@1)p@2)
+         (call@8,5 setSSLen~8 result@1 HeapSlen@9)
+         (call@7,6 copyMem~7
+          (call@B inlinePtrV~A result@1)
+          (cmd@Q addr~5
+           (at@6
+            (dot~5 p~1 data@1)0@1))AlwaysAvail@b)))
+       (else@,8
+        (stmts@2,1
+         (cmd strOom result@7
+          (infix@a \2B LongStringDataOffset~L l@2))))))))))
+ (template@,Go
+  (quoted@9 $@1) x . .
+  (params@D
+   (param@1 x . . string@3 .))string@D . .
+  (stmts@Z x)))

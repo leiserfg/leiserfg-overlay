@@ -1,0 +1,3122 @@
+(.nif27)
+(.indexat 110901           )
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+ (const@K,11 :strlit.0.I17663241064981421312. . LongString.0.sysvq0asl
+  (oconstr LongString.0.sysvq0asl
+   (kv fullLen.0 8)
+   (kv rc.0 0)
+   (kv capImpl.0 0)
+   (kv data.0 "<math.h>")))
+ (const@4,25 :strlit.0.I12064251030117205798. . LongString.0.sysvq0asl
+  (oconstr LongString.0.sysvq0asl
+   (kv fullLen.0 8)
+   (kv rc.0 0)
+   (kv capImpl.0 0)
+   (kv data.0 "fcNormal")))
+ (const@4,26 :strlit.0.I13051302242398678779. . LongString.0.sysvq0asl
+  (oconstr LongString.0.sysvq0asl
+   (kv fullLen.0 11)
+   (kv rc.0 0)
+   (kv capImpl.0 0)
+   (kv data.0 "fcSubnormal")))
+ (const@4,28 :strlit.0.I10683379878145369823. . LongString.0.sysvq0asl
+  (oconstr LongString.0.sysvq0asl
+   (kv fullLen.0 9)
+   (kv rc.0 0)
+   (kv capImpl.0 0)
+   (kv data.0 "fcNegZero")))
+ (const@4,2B :strlit.0.I8652872438240444023. . LongString.0.sysvq0asl
+  (oconstr LongString.0.sysvq0asl
+   (kv fullLen.0 8)
+   (kv rc.0 0)
+   (kv capImpl.0 0)
+   (kv data.0 "fcNegInf")))
+ (const@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim :strlit.0.I8031254106179394417. . LongString.0.sysvq0asl
+  (oconstr LongString.0.sysvq0asl
+   (kv fullLen.0 24)
+   (kv rc.0 0)
+   (kv capImpl.0 0)
+   (kv data.0 "ignore runnable examples")))
+ (const@E,1C,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :strlit.0.I15750996627617194403. . LongString.0.sysvq0asl
+  (oconstr LongString.0.sysvq0asl
+   (kv fullLen.0 19)
+   (kv rc.0 0)
+   (kv capImpl.0 0)
+   (kv data.0 "leave uninitialized")))
+ (const@4,h :PI.0.~2 .~2
+  (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)3.141592653589793@4)
+ (const@5,i :TAU.0.~3 .~3
+  (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)6.283185307179586@8)
+ (const@3,j :E.0.~1 .~1
+  (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)2.718281828459045@4)
+ (const@L,l :MaxFloat64Precision.0.~J .~J
+  (i~B,S 64)
+  (suf@4 16 "i64"))
+ (const@L,o :MaxFloat32Precision.0.~J .~J
+  (i~B,P 64)
+  (suf@4 8 "i64"))
+ (const@J,r :MaxFloatPrecision.0.~H .~H
+  (i~9,M 64)
+  (suf@6,~6 16 "i64"))
+ (const@G,v :MinFloatNormal.0.~E .~E
+  (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)2.225073858507201E-308@4)
+ (const@6,11 :CMathHeader.0. . string.0.sysvq0asl
+  (oconstr@E string.0.sysvq0asl
+   (kv bytes.0 7507052477933239550u)
+   (kv more.0
+    (addr strlit.0.I17663241064981421312.))))
+ (const@4,18 :c_fpNormal.0. .
+  (i@6,5 64)
+  (suf@D 0 "i64"))
+ (const@4,19 :c_fpSubnormal.0. .
+  (i@6,4 64)
+  (suf@G 1 "i64"))
+ (const@4,1A :c_fpZero.0. .
+  (i@6,3 64)
+  (suf@B 2 "i64"))
+ (const@4,1B :c_fpInfinite.0. .
+  (i@6,2 64)
+  (suf@F 3 "i64"))
+ (const@4,1C :c_fpNan.0. .
+  (i@6,1 64)
+  (suf@A 4 "i64"))
+ (proc@2,1f :c_frexp.0.@5
+  (params@C
+   (param@1 :x.22 .
+    (f@3 32))
+   (param@D :exponent.0 .
+    (ptr@A
+     (i@b,e,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/ctypes.nim 32
+      (importc "int")))))
+  (f@Y 32)
+  (pragmas@s
+   (importc "frexpf")
+   (header "<math.h>")
+   (smry~s writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)
+    (param 1 1 reads writes slot escapes)))
+  (stmts .))
+ (proc@2,1g :c_frexp.1.@5
+  (params@C
+   (param@1 :x.23 .
+    (f@3 64))
+   (param@D :exponent.1 .
+    (ptr@A
+     (i@b,e,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/ctypes.nim 32
+      (importc "int")))))
+  (f@Y 64)
+  (pragmas@s
+   (importc "frexp")
+   (header "<math.h>")
+   (smry~s writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)
+    (param 1 1 reads writes slot escapes)))
+  (stmts .))
+ (type@E,22 :FloatClass.0.~C .~C
+  (enum@2
+   (u 8)
+   (efld~C,3 :fcNormal.0. 0)
+   (efld~C,4 :fcSubnormal.0. 1)
+   (efld~C,5 :fcZero.0. 2)
+   (efld~C,6 :fcNegZero.0. 3)
+   (efld~C,7 :fcNan.0. 4)
+   (efld~C,8 :fcInf.0. 5)
+   (efld~C,9 :fcNegInf.0. 6)))
+ (proc@2,22 :dollar`.FloatClass.0.
+  (params
+   (param :e.0 . FloatClass.0.))string.0.sysvq0asl
+  (pragmas
+   (smry callsUnknown
+    (param 0 0 reads)))
+  (stmts
+   (var@E :result.3 . string.0.sysvq0asl .)
+   (call@E =wasMoved.2.sysvq0asl
+    (haddr result.3))
+   (case@E e.0
+    (of~C,3
+     (ranges 0)
+     (stmts
+      (ret
+       (oconstr string.0.sysvq0asl
+        (kv bytes.0 7020393216522544894u)
+        (kv more.0
+         (addr strlit.0.I12064251030117205798.))))))
+    (of~C,4
+     (ranges 1)
+     (stmts
+      (ret
+       (oconstr string.0.sysvq0asl
+        (kv bytes.0 8029463441697892094u)
+        (kv more.0
+         (addr strlit.0.I13051302242398678779.))))))
+    (of~C,5
+     (ranges 2)
+     (stmts
+      (ret
+       (oconstr string.0.sysvq0asl
+        (kv bytes.0 31369502048609798u)
+        (kv more.0
+         (nil))))))
+    (of~C,6
+     (ranges 3)
+     (stmts
+      (ret
+       (oconstr string.0.sysvq0asl
+        (kv bytes.0 7303263430539175678u)
+        (kv more.0
+         (addr strlit.0.I10683379878145369823.))))))
+    (of~C,7
+     (ranges 4)
+     (stmts
+      (ret
+       (oconstr string.0.sysvq0asl
+        (kv bytes.0 121364206020101u)
+        (kv more.0
+         (nil))))))
+    (of~C,8
+     (ranges 5)
+     (stmts
+      (ret
+       (oconstr string.0.sysvq0asl
+        (kv bytes.0 112623863686661u)
+        (kv more.0
+         (nil))))))
+    (of~C,9
+     (ranges 6)
+     (stmts
+      (ret
+       (oconstr string.0.sysvq0asl
+        (kv bytes.0 7946996702276445950u)
+        (kv more.0
+         (addr strlit.0.I8652872438240444023.)))))))
+   (ret@2,9 result.3)))
+ (proc@,2O :copySign.0.@5
+  (params@E
+   (param@1 :x.25 .
+    (f@6 32))
+   (param@4 :y.13 .
+    (f@3 32)))
+  (f@H 32)
+  (pragmas@d
+   (importc "copysignf")
+   (header "<math.h>")
+   (smry~d writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)
+    (param 1 1 reads writes slot escapes)))
+  (stmts .))
+ (proc@,2P :copySign.1.@5
+  (params@E
+   (param@1 :x.26 .
+    (f@6 64))
+   (param@4 :y.14 .
+    (f@3 64)))
+  (f@H 64)
+  (pragmas@d
+   (importc "copysign")
+   (header "<math.h>")
+   (smry~d writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)
+    (param 1 1 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.5 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.6 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.5)))
+ (proc@,47 :floor.0.@5
+  (params@B
+   (param@1 :x.32 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@X
+   (importc "floorf")
+   (header "<math.h>")
+   (smry~X writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,48 :floor.1.@5
+  (params@B
+   (param@1 :x.33 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@X
+   (importc "floor")
+   (header "<math.h>")
+   (smry~X writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.9 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.7 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.9)))
+ (proc@,4K :ceil.0.@5
+  (params@A
+   (param@1 :x.34 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@W
+   (importc "ceilf")
+   (header "<math.h>")
+   (smry~W writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,4L :ceil.1.@5
+  (params@A
+   (param@1 :x.35 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@W
+   (importc "ceil")
+   (header "<math.h>")
+   (smry~W writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.10 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.8 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.10)))
+ (proc@,4Y :round.0.@5
+  (params@B
+   (param@1 :x.36 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@X
+   (importc "roundf")
+   (header "<math.h>")
+   (smry~X writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,4Z :round.1.@5
+  (params@B
+   (param@1 :x.37 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@X
+   (importc "round")
+   (header "<math.h>")
+   (smry~X writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.11 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.9 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.11)))
+ (proc@,4l :trunc.0.@5
+  (params@B
+   (param@1 :x.38 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@X
+   (importc "truncf")
+   (header "<math.h>")
+   (smry~X writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,4m :trunc.1.@5
+  (params@B
+   (param@1 :x.39 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@X
+   (importc "trunc")
+   (header "<math.h>")
+   (smry~X writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.12 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.10 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.12)))
+ (proc@,4x :mod.1.@5
+  (params@B
+   (param@1 :x.40 .
+    (f@6 32))
+   (param@4 :y.16 .
+    (f@3 32)))
+  (f@H 32)
+  (pragmas@a
+   (importc "fmodf")
+   (header "<math.h>")
+   (smry~a writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)
+    (param 1 1 reads writes slot escapes)))
+  (stmts .))
+ (proc@,4y :mod.2.@5
+  (params@B
+   (param@1 :x.41 .
+    (f@6 64))
+   (param@4 :y.17 .
+    (f@3 64)))
+  (f@H 64)
+  (pragmas@a
+   (importc "fmod")
+   (header "<math.h>")
+   (smry~a writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)
+    (param 1 1 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.13 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.11 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.13)))
+ (proc@,8Q :sqrt.1.@5
+  (params@A
+   (param@1 :x.54 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@W
+   (importc "sqrtf")
+   (header "<math.h>")
+   (smry~W writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,8R :sqrt.2.@5
+  (params@A
+   (param@1 :x.55 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@W
+   (importc "sqrt")
+   (header "<math.h>")
+   (smry~W writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.22 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.12 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.22)))
+ (proc@,8Z :cbrt.0.@5
+  (params@A
+   (param@1 :x.56 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@W
+   (importc "cbrtf")
+   (header "<math.h>")
+   (smry~W writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,8a :cbrt.1.@5
+  (params@A
+   (param@1 :x.57 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@W
+   (importc "cbrt")
+   (header "<math.h>")
+   (smry~W writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.23 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.13 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.23)))
+ (proc@,8j :pow.0.@5
+  (params@9
+   (param@1 :x.58 .
+    (f@6 32))
+   (param@4 :y.26 .
+    (f@3 32)))
+  (f@H 32)
+  (pragmas@Y
+   (importc "powf")
+   (header "<math.h>")
+   (smry~Y writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)
+    (param 1 1 reads writes slot escapes)))
+  (stmts .))
+ (proc@,8k :pow.1.@5
+  (params@9
+   (param@1 :x.59 .
+    (f@6 64))
+   (param@4 :y.27 .
+    (f@3 64)))
+  (f@H 64)
+  (pragmas@Y
+   (importc "pow")
+   (header "<math.h>")
+   (smry~Y writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)
+    (param 1 1 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.24 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.14 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.24)))
+ (proc@,8x :hypot.1.@5
+  (params@B
+   (param@1 :x.60 .
+    (f@6 32))
+   (param@4 :y.28 .
+    (f@3 32)))
+  (f@H 32)
+  (pragmas@a
+   (importc "hypotf")
+   (header "<math.h>")
+   (smry~a writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)
+    (param 1 1 reads writes slot escapes)))
+  (stmts .))
+ (proc@,8y :hypot.2.@5
+  (params@B
+   (param@1 :x.61 .
+    (f@6 64))
+   (param@4 :y.29 .
+    (f@3 64)))
+  (f@H 64)
+  (pragmas@a
+   (importc "hypot")
+   (header "<math.h>")
+   (smry~a writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)
+    (param 1 1 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.25 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.15 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.25)))
+ (proc@,93 :exp.1.@5
+  (params@9
+   (param@1 :x.62 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@V
+   (importc "expf")
+   (header "<math.h>")
+   (smry~V writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,94 :exp.2.@5
+  (params@9
+   (param@1 :x.63 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@V
+   (importc "exp")
+   (header "<math.h>")
+   (smry~V writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.26 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.16 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.26)))
+ (proc@,9D :ln.1.@5
+  (params@8
+   (param@1 :x.64 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@U
+   (importc "logf")
+   (header "<math.h>")
+   (smry~U writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,9E :ln.2.@5
+  (params@8
+   (param@1 :x.65 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@U
+   (importc "log")
+   (header "<math.h>")
+   (smry~U writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.27 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.17 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.27)))
+ (proc@,9T :log2.0.@5
+  (params@A
+   (param@1 :x.66 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@W
+   (importc "log2f")
+   (header "<math.h>")
+   (smry~W writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,9U :log2.1.@5
+  (params@A
+   (param@1 :x.67 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@W
+   (importc "log2")
+   (header "<math.h>")
+   (smry~W writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.28 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.18 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.28)))
+ (proc@,9h :log10.0.@5
+  (params@B
+   (param@1 :x.68 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@X
+   (importc "log10f")
+   (header "<math.h>")
+   (smry~X writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,9i :log10.1.@5
+  (params@B
+   (param@1 :x.69 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@X
+   (importc "log10")
+   (header "<math.h>")
+   (smry~X writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.29 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.19 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.29)))
+ (proc@,9u :log1p.0.@5
+  (params@B
+   (param@1 :x.70 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@X
+   (importc "log1pf")
+   (header "<math.h>")
+   (smry~X writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,9v :log1p.1.@5
+  (params@B
+   (param@1 :x.71 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@X
+   (importc "log1p")
+   (header "<math.h>")
+   (smry~X writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.30 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.20 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.30)))
+ (proc@,Av :isPowerOfTwo.0.@5
+  (params@I
+   (param@1 :x.74 .
+    (i@3 64)))
+  (bool@A)
+  (pragmas
+   (smry callsUnknown
+    (param 0 0 reads)))
+  (stmts@2,1
+   (var :result.32 .
+    (bool@G,~An).@G,~An)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.21 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (var@F,C :`x.0 .
+    (bool).)
+   (if@F,C
+    (elif
+     (lt@4,1u,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 0@E,B9,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim x.74@A,B9,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim)
+     (stmts
+      (asgn@L `x.0
+       (eq
+        (bitand~D
+         (i@I,1b,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)x.74~2
+         (sub@7
+          (i@G,r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)x.74~2 1@2))0@3))))
+    (else
+     (stmts
+      (stmts
+       (asgn `x.0
+        (false))))))
+   (ret@,C `x.0@F)
+   (ret@d,C result.32)))
+ (proc@,BA :nextPowerOfTwo.0.@5
+  (params@K
+   (param@1 :x.75 .
+    (i@3 64)))
+  (i@A 64)
+  (pragmas
+   (smry callsUnknown
+    (param 0 0 reads)))
+  (stmts@2,1
+   (var :result.33 .
+    (i@8,~9y 64).@8,~9y)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.22 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (asgn@7,C result.33~7
+    (sub@4
+     (i@G,r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)x.75~2 1@2))
+   (stmts@2,E
+    (asgn@7 result.33~7
+     (bitor@9
+      (i@H,1h,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)result.33~7
+      (shr@B
+       (i~L,~AC 64)
+       (cast~7
+        (i 64)result.33)
+       (cast@4
+        (u 64)32)))))
+   (stmts@2,G
+    (asgn@7 result.33~7
+     (bitor@9
+      (i@H,1h,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)result.33~7
+      (shr@B
+       (i~L,~AE 64)
+       (cast~7
+        (i 64)result.33)
+       (cast@4
+        (u 64)16)))))
+   (stmts@2,I
+    (asgn@7 result.33~7
+     (bitor@9
+      (i@H,1h,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)result.33~7
+      (shr@B
+       (i~L,~AG 64)
+       (cast~7
+        (i 64)result.33)
+       (cast@4
+        (u 64)8)))))
+   (asgn@7,J result.33~7
+    (bitor@9
+     (i@H,1h,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)result.33~7
+     (shr@B
+      (i~J,~AH 64)
+      (cast~7
+       (i 64)result.33)
+      (cast@4
+       (u 64)4))))
+   (asgn@7,K result.33~7
+    (bitor@9
+     (i@H,1h,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)result.33~7
+     (shr@B
+      (i~J,~AI 64)
+      (cast~7
+       (i 64)result.33)
+      (cast@4
+       (u 64)2))))
+   (asgn@7,L result.33~7
+    (bitor@9
+     (i@H,1h,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)result.33~7
+     (shr@B
+      (i~J,~AJ 64)
+      (cast~7
+       (i 64)result.33)
+      (cast@4
+       (u 64)1))))
+   (call@7,M \2B=.0.Ihg6mz11.
+    (haddr~7 result.33)
+    (add@5
+     (i@G,l,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1~2
+     (conv@5,3d,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+      (i@U,E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/defaults.nim 64)
+      (le@M,BY,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim x.75~2 0@3))))
+   (ret@N,M result.33)))
+ (const@6,BZ :RadPerDeg.0. .
+  (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)0.017453292519943295@F)
+ (proc@,Bw :sin.1.@5
+  (params@9
+   (param@1 :x.76 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@V
+   (importc "sinf")
+   (header "<math.h>")
+   (smry~V writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,Bx :sin.2.@5
+  (params@9
+   (param@1 :x.77 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@V
+   (importc "sin")
+   (header "<math.h>")
+   (smry~V writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.36 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.23 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.36)))
+ (proc@,C5 :cos.1.@5
+  (params@9
+   (param@1 :x.78 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@V
+   (importc "cosf")
+   (header "<math.h>")
+   (smry~V writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,C6 :cos.2.@5
+  (params@9
+   (param@1 :x.79 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@V
+   (importc "cos")
+   (header "<math.h>")
+   (smry~V writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.37 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.24 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.37)))
+ (proc@,CE :tan.0.@5
+  (params@9
+   (param@1 :x.80 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@V
+   (importc "tanf")
+   (header "<math.h>")
+   (smry~V writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,CF :tan.1.@5
+  (params@9
+   (param@1 :x.81 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@V
+   (importc "tan")
+   (header "<math.h>")
+   (smry~V writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.38 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.25 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.38)))
+ (proc@,CN :arcsin.0.@5
+  (params@C
+   (param@1 :x.82 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@Y
+   (importc "asinf")
+   (header "<math.h>")
+   (smry~Y writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,CO :arcsin.1.@5
+  (params@C
+   (param@1 :x.83 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@Y
+   (importc "asin")
+   (header "<math.h>")
+   (smry~Y writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.39 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.26 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.39)))
+ (proc@,CW :arccos.0.@5
+  (params@C
+   (param@1 :x.84 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@Y
+   (importc "acosf")
+   (header "<math.h>")
+   (smry~Y writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,CX :arccos.1.@5
+  (params@C
+   (param@1 :x.85 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@Y
+   (importc "acos")
+   (header "<math.h>")
+   (smry~Y writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.40 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.27 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.40)))
+ (proc@,Cf :arctan.0.@5
+  (params@C
+   (param@1 :x.86 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@Y
+   (importc "atanf")
+   (header "<math.h>")
+   (smry~Y writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,Cg :arctan.1.@5
+  (params@C
+   (param@1 :x.87 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@Y
+   (importc "atan")
+   (header "<math.h>")
+   (smry~Y writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.41 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.28 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.41)))
+ (proc@,Cp :arctan2.1.@5
+  (params@D
+   (param@1 :y.31 .
+    (f@6 32))
+   (param@4 :x.88 .
+    (f@3 32)))
+  (f@H 32)
+  (pragmas@c
+   (importc "atan2f")
+   (header "<math.h>")
+   (smry~c writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)
+    (param 1 1 reads writes slot escapes)))
+  (stmts .))
+ (proc@,Cq :arctan2.2.@5
+  (params@D
+   (param@1 :y.32 .
+    (f@6 64))
+   (param@4 :x.89 .
+    (f@3 64)))
+  (f@H 64)
+  (pragmas@c
+   (importc "atan2")
+   (header "<math.h>")
+   (smry~c writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)
+    (param 1 1 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.42 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.29 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.42)))
+ (proc@,D1 :sinh.0.@5
+  (params@A
+   (param@1 :x.90 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@W
+   (importc "sinhf")
+   (header "<math.h>")
+   (smry~W writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,D2 :sinh.1.@5
+  (params@A
+   (param@1 :x.91 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@W
+   (importc "sinh")
+   (header "<math.h>")
+   (smry~W writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.43 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.30 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.43)))
+ (proc@,DA :cosh.0.@5
+  (params@A
+   (param@1 :x.92 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@W
+   (importc "coshf")
+   (header "<math.h>")
+   (smry~W writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,DB :cosh.1.@5
+  (params@A
+   (param@1 :x.93 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@W
+   (importc "cosh")
+   (header "<math.h>")
+   (smry~W writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.44 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.31 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.44)))
+ (proc@,DJ :tanh.0.@5
+  (params@A
+   (param@1 :x.94 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@W
+   (importc "tanhf")
+   (header "<math.h>")
+   (smry~W writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,DK :tanh.1.@5
+  (params@A
+   (param@1 :x.95 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@W
+   (importc "tanh")
+   (header "<math.h>")
+   (smry~W writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.45 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.32 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.45)))
+ (proc@,DS :arcsinh.0.@5
+  (params@D
+   (param@1 :x.96 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@Z
+   (importc "asinhf")
+   (header "<math.h>")
+   (smry~Z writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,DT :arcsinh.1.@5
+  (params@D
+   (param@1 :x.97 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@Z
+   (importc "asinh")
+   (header "<math.h>")
+   (smry~Z writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,DY :arccosh.0.@5
+  (params@D
+   (param@1 :x.98 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@Z
+   (importc "acoshf")
+   (header "<math.h>")
+   (smry~Z writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,DZ :arccosh.1.@5
+  (params@D
+   (param@1 :x.99 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@Z
+   (importc "acosh")
+   (header "<math.h>")
+   (smry~Z writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,De :arctanh.0.@5
+  (params@D
+   (param@1 :x.100 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@Z
+   (importc "atanhf")
+   (header "<math.h>")
+   (smry~Z writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,Df :arctanh.1.@5
+  (params@D
+   (param@1 :x.101 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@Z
+   (importc "atanh")
+   (header "<math.h>")
+   (smry~Z writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,Dl :erf.0.@5
+  (params@9
+   (param@1 :x.102 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@V
+   (importc "erff")
+   (header "<math.h>")
+   (smry~V writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,Dm :erf.1.@5
+  (params@9
+   (param@1 :x.103 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@V
+   (importc "erf")
+   (header "<math.h>")
+   (smry~V writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,Do :erfc.0.@5
+  (params@A
+   (param@1 :x.104 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@W
+   (importc "erfcf")
+   (header "<math.h>")
+   (smry~W writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,Dp :erfc.1.@5
+  (params@A
+   (param@1 :x.105 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@W
+   (importc "erfc")
+   (header "<math.h>")
+   (smry~W writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,Dr :gamma.0.@5
+  (params@B
+   (param@1 :x.106 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@X
+   (importc "tgammaf")
+   (header "<math.h>")
+   (smry~X writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,Ds :gamma.1.@5
+  (params@B
+   (param@1 :x.107 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@X
+   (importc "tgamma")
+   (header "<math.h>")
+   (smry~X writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.46 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.33 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (ret@A,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim result.46)))
+ (proc@,E1 :lgamma.0.@5
+  (params@C
+   (param@1 :x.108 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas@Y
+   (importc "lgammaf")
+   (header "<math.h>")
+   (smry~Y writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts .))
+ (proc@,E2 :lgamma.1.@5
+  (params@C
+   (param@1 :x.109 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas@Y
+   (importc "lgamma")
+   (header "<math.h>")
+   (smry~Y writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@2,1
+   (var :result.47 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (ret@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim result.47)))
+ (proc@,E9 :cot.0.@5
+  (params@9
+   (param@1 :x.110 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@X
+   (var@8 :result.48 .
+    (f~N,~CU 32).~N,~CU)
+   (var@A :`x.34 .
+    (f~T,~1v 32)
+    (call tan.0. x.110@4))
+   (asgn@8 result.48
+    (div
+     (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+     (suf~8 1.0 "f32")`x.34@2))
+   (ret@E result.48)))
+ (proc@,EA :cot.1.@5
+  (params@9
+   (param@1 :x.111 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@X
+   (var@4 :result.49 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (var@6 :`x.35 .
+    (f~P,~1v 64)
+    (call tan.1. x.111@4))
+   (asgn@4 result.49
+    (div
+     (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4 `x.35@2))
+   (ret@A result.49)))
+ (proc@,EB :sec.0.@5
+  (params@9
+   (param@1 :x.112 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@X
+   (var@8 :result.50 .
+    (f~N,~CW 32).~N,~CW)
+   (var@A :`x.36 .
+    (f~T,~26 32)
+    (call cos.1. x.112@4))
+   (asgn@8 result.50
+    (div
+     (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+     (suf~8 1.0 "f32")`x.36@2))
+   (ret@E result.50)))
+ (proc@,EC :sec.1.@5
+  (params@9
+   (param@1 :x.113 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@X
+   (var@4 :result.51 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (var@6 :`x.37 .
+    (f~P,~26 64)
+    (call cos.2. x.113@4))
+   (asgn@4 result.51
+    (div
+     (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4 `x.37@2))
+   (ret@A result.51)))
+ (proc@,ED :csc.0.@5
+  (params@9
+   (param@1 :x.114 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@X
+   (var@8 :result.52 .
+    (f~N,~CY 32).~N,~CY)
+   (var@A :`x.38 .
+    (f~T,~2H 32)
+    (call sin.1. x.114@4))
+   (asgn@8 result.52
+    (div
+     (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+     (suf~8 1.0 "f32")`x.38@2))
+   (ret@E result.52)))
+ (proc@,EE :csc.1.@5
+  (params@9
+   (param@1 :x.115 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@X
+   (var@4 :result.53 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (var@6 :`x.39 .
+    (f~P,~2H 64)
+    (call sin.2. x.115@4))
+   (asgn@4 result.53
+    (div
+     (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4 `x.39@2))
+   (ret@A result.53)))
+ (proc@,EF :coth.0.@5
+  (params@A
+   (param@1 :x.116 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@Y
+   (var@8 :result.54 .
+    (f~O,~Ca 32).~O,~Ca)
+   (var@A :`x.40 .
+    (f~U,~w 32)
+    (call tanh.0. x.116@5))
+   (asgn@8 result.54
+    (div
+     (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+     (suf~8 1.0 "f32")`x.40@2))
+   (ret@F result.54)))
+ (proc@,EG :coth.1.@5
+  (params@A
+   (param@1 :x.117 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@Y
+   (var@4 :result.55 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (var@6 :`x.41 .
+    (f~Q,~w 64)
+    (call tanh.1. x.117@5))
+   (asgn@4 result.55
+    (div
+     (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4 `x.41@2))
+   (ret@B result.55)))
+ (proc@,EH :sech.0.@5
+  (params@A
+   (param@1 :x.118 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@Y
+   (var@8 :result.56 .
+    (f~O,~Cc 32).~O,~Cc)
+   (var@A :`x.42 .
+    (f~U,~17 32)
+    (call cosh.0. x.118@5))
+   (asgn@8 result.56
+    (div
+     (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+     (suf~8 1.0 "f32")`x.42@2))
+   (ret@F result.56)))
+ (proc@,EI :sech.1.@5
+  (params@A
+   (param@1 :x.119 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@Y
+   (var@4 :result.57 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (var@6 :`x.43 .
+    (f~Q,~17 64)
+    (call cosh.1. x.119@5))
+   (asgn@4 result.57
+    (div
+     (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4 `x.43@2))
+   (ret@B result.57)))
+ (proc@,EJ :csch.0.@5
+  (params@A
+   (param@1 :x.120 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@Y
+   (var@8 :result.58 .
+    (f~O,~Ce 32).~O,~Ce)
+   (var@A :`x.44 .
+    (f~U,~1I 32)
+    (call sinh.0. x.120@5))
+   (asgn@8 result.58
+    (div
+     (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+     (suf~8 1.0 "f32")`x.44@2))
+   (ret@F result.58)))
+ (proc@,EK :csch.1.@5
+  (params@A
+   (param@1 :x.121 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads writes slot escapes)))
+  (stmts@Y
+   (var@4 :result.59 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (var@6 :`x.45 .
+    (f~Q,~1I 64)
+    (call sinh.1. x.121@5))
+   (asgn@4 result.59
+    (div
+     (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4 `x.45@2))
+   (ret@B result.59)))
+ (proc@,EL :arccot.0.@5
+  (params@C
+   (param@1 :x.122 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads)))
+  (stmts@a
+   (var@6 :result.60 .
+    (f~O,~Cg 32).~O,~Cg)
+   (var :`x.46 .
+    (f~M,~1g 32)
+    (call arctan.0.
+     (div@F
+      (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+      (suf~8 1.0 "f32")x.122@2)))
+   (asgn@6 result.60 `x.46~6)
+   (ret@H result.60)))
+ (proc@,EM :arccot.1.@5
+  (params@C
+   (param@1 :x.123 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads)))
+  (stmts@a
+   (var@6 :result.61 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (var :`x.47 .
+    (f~M,~1g 64)
+    (call arctan.1.
+     (div@B
+      (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4 x.123@2)))
+   (asgn@6 result.61 `x.47~6)
+   (ret@D result.61)))
+ (proc@,EN :arcsec.0.@5
+  (params@C
+   (param@1 :x.124 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads)))
+  (stmts@a
+   (var@6 :result.62 .
+    (f~O,~Ci 32).~O,~Ci)
+   (var :`x.48 .
+    (f~M,~1r 32)
+    (call arccos.0.
+     (div@F
+      (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+      (suf~8 1.0 "f32")x.124@2)))
+   (asgn@6 result.62 `x.48~6)
+   (ret@H result.62)))
+ (proc@,EO :arcsec.1.@5
+  (params@C
+   (param@1 :x.125 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads)))
+  (stmts@a
+   (var@6 :result.63 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (var :`x.49 .
+    (f~M,~1r 64)
+    (call arccos.1.
+     (div@B
+      (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4 x.125@2)))
+   (asgn@6 result.63 `x.49~6)
+   (ret@D result.63)))
+ (proc@,EP :arccsc.0.@5
+  (params@C
+   (param@1 :x.126 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads)))
+  (stmts@a
+   (var@6 :result.64 .
+    (f~O,~Ck 32).~O,~Ck)
+   (var :`x.50 .
+    (f~M,~22 32)
+    (call arcsin.0.
+     (div@F
+      (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+      (suf~8 1.0 "f32")x.126@2)))
+   (asgn@6 result.64 `x.50~6)
+   (ret@H result.64)))
+ (proc@,EQ :arccsc.1.@5
+  (params@C
+   (param@1 :x.127 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads)))
+  (stmts@a
+   (var@6 :result.65 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (var :`x.51 .
+    (f~M,~22 64)
+    (call arcsin.1.
+     (div@B
+      (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4 x.127@2)))
+   (asgn@6 result.65 `x.51~6)
+   (ret@D result.65)))
+ (proc@,ER :arccoth.0.@5
+  (params@D
+   (param@1 :x.128 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads)))
+  (stmts@b
+   (var@7 :result.66 .
+    (f~Q,~Cm 32).~Q,~Cm)
+   (var :`x.52 .
+    (f~N,~n 32)
+    (call arctanh.0.
+     (div@G
+      (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+      (suf~8 1.0 "f32")x.128@2)))
+   (asgn@7 result.66 `x.52~7)
+   (ret@I result.66)))
+ (proc@,ES :arccoth.1.@5
+  (params@D
+   (param@1 :x.129 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads)))
+  (stmts@b
+   (var@7 :result.67 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (var :`x.53 .
+    (f~N,~n 64)
+    (call arctanh.1.
+     (div@C
+      (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4 x.129@2)))
+   (asgn@7 result.67 `x.53~7)
+   (ret@E result.67)))
+ (proc@,ET :arcsech.0.@5
+  (params@D
+   (param@1 :x.130 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads)))
+  (stmts@b
+   (var@7 :result.68 .
+    (f~Q,~Co 32).~Q,~Co)
+   (var :`x.54 .
+    (f~N,~v 32)
+    (call arccosh.0.
+     (div@G
+      (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+      (suf~8 1.0 "f32")x.130@2)))
+   (asgn@7 result.68 `x.54~7)
+   (ret@I result.68)))
+ (proc@,EU :arcsech.1.@5
+  (params@D
+   (param@1 :x.131 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads)))
+  (stmts@b
+   (var@7 :result.69 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (var :`x.55 .
+    (f~N,~v 64)
+    (call arccosh.1.
+     (div@C
+      (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4 x.131@2)))
+   (asgn@7 result.69 `x.55~7)
+   (ret@E result.69)))
+ (proc@,EV :arccsch.0.@5
+  (params@D
+   (param@1 :x.132 .
+    (f@3 32)))
+  (f@E 32)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads)))
+  (stmts@b
+   (var@7 :result.70 .
+    (f~Q,~Cq 32).~Q,~Cq)
+   (var :`x.56 .
+    (f~N,~13 32)
+    (call arcsinh.0.
+     (div@G
+      (f@G,2w,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 32)
+      (suf~8 1.0 "f32")x.132@2)))
+   (asgn@7 result.70 `x.56~7)
+   (ret@I result.70)))
+ (proc@,EW :arccsch.1.@5
+  (params@D
+   (param@1 :x.133 .
+    (f@3 64)))
+  (f@E 64)
+  (pragmas
+   (smry writeGlobal readGlobal callsUnknown
+    (param 0 0 reads)))
+  (stmts@b
+   (var@7 :result.71 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (var :`x.57 .
+    (f~N,~13 64)
+    (call arcsinh.1.
+     (div@C
+      (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)1.0~4 x.133@2)))
+   (asgn@7 result.71 `x.57~7)
+   (ret@E result.71)))
+ (proc@,Er :fac.0.@5
+  (params@9
+   (param@1 :n.0 .
+    (i@3 64)))
+  (i@A 64)
+  (pragmas
+   (smry callsUnknown
+    (param 0 0 reads)))
+  (stmts@2,1
+   (var :result.72 .
+    (i@8,~Df 64).@8,~Df)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.58 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (asgn@7,C result.72~7 1@2)
+   (scope@4,D
+    (stmts
+     (var@R,8,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/iterators.nim :`lf.0 .
+      (i 64)1@B,F6,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim)
+     (var@U,8,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/iterators.nim :`lf.1 .
+      (i 64)n.0@G,F6,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim)
+     (stmts@2,9,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/iterators.nim
+      (var@4,1 :`lf.2 .
+       (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)`lf.0@4)
+      (scope@,2
+       (stmts
+        (while
+         (le@8 `lf.2~2 `lf.1@3)
+         (stmts@2,1
+          (scope
+           (stmts
+            (scope@B,F7,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+             (scope@2,3D,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+              (asgn@2
+               (deref~2
+                (haddr@4,F7,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim result.72))
+               (mul@4
+                (i@8,~2G 64)
+                (deref~2
+                 (haddr@4,F7,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim result.72))`lf.2@E,F7,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim))
+              (lab :returnLabel.0h3)))))
+          (scope@,1
+           (scope@2,F,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+            (asgn@2,1
+             (deref~2
+              (haddr@8,D,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/iterators.nim `lf.2))
+             (add@6
+              (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+              (deref@1
+               (haddr@8,D,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/iterators.nim `lf.2))
+              (conv@U,~F
+               (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)1@1)))
+            (lab :returnLabel.0h5)))))))
+      (lab@,2 :whileStmtLabel.1))))
+   (lab@4,D :forStmtLabel.0)
+   (ret@C,E result.72)))
+ (proc@,F8 :binom.0.@5
+  (params@B
+   (param@1 :n.1 .
+    (i@D,7f,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim 64))
+   (param@4 :k.0 .
+    (i@D,7f,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim 64)))
+  (i@H 64)
+  (pragmas
+   (smry callsUnknown
+    (param 0 0 reads)
+    (param 1 1 reads)))
+  (stmts@2,1
+   (var :result.73 .
+    (i@8,~Dw 64).@8,~Dw)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.59 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (if@,5
+    (elif@3
+     (le@2 k.0~2 0@3)
+     (stmts@8
+      (ret 1@7))))
+   (if@,6
+    (elif@3
+     (lt@4,1u,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim n.1@D,FG,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+      (mul@7,FG,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+       (i@G,x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)2~2 k.0@2))
+     (stmts@B
+      (stmts
+       (var@7 :`x.60 .
+        (i~6,~7 64)
+        (call binom.0. n.1@6
+         (sub@B
+          (i@G,r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)n.1~2 k.0@2)))
+       (asgn result.73 `x.60@7)
+       (ret result.73)))))
+   (asgn@7,7 result.73~7 n.1@2)
+   (scope@4,8
+    (stmts
+     (var@R,8,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/iterators.nim :`lf.3 .
+      (i 64)2@B,FI,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim)
+     (var@U,8,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/iterators.nim :`lf.4 .
+      (i 64)k.0@G,FI,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim)
+     (stmts@2,9,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/iterators.nim
+      (var@4,1 :`lf.5 .
+       (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)`lf.3@4)
+      (scope@,2
+       (stmts
+        (while
+         (le@8 `lf.5~2 `lf.4@3)
+         (stmts@2,1
+          (scope
+           (stmts
+            (asgn@B,FJ,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim result.73~7
+             (div@P
+              (i@I,13,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+              (mul~F
+               (i@G,x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)result.73~7
+               (sub@9
+                (i@G,r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+                (add~4
+                 (i@G,l,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)n.1~2 1@2)`lf.5@2))`lf.5@4))))
+          (call@,1 inc.1.Irn1g7r1.
+           (haddr@4 `lf.5))))))
+      (lab@,2 :whileStmtLabel.1))))
+   (lab@4,8 :forStmtLabel.0)
+   (ret@c,9 result.73)))
+ (proc@T,2W :isNaN.0.Ica2702.
+  (params~4,T
+   (param@1 :x.145 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)))
+  (bool~L,T)
+  (pragmas@9,T
+   (inline)
+   (smry~9,~T callsUnknown
+    (param 0 0 reads writes escapes)))
+  (stmts~R,U
+   (var :result.78 .
+    (bool@G,~2r).@G,~2r)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.61 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (var@,6 :`x.62 .
+    (i@8,~1q 64).@8,~1q)
+   (scope@,6
+    (var :x.0h6 .
+     (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)x.145@8)
+    (scope@2,~1p
+     (stmts@2,4
+      (var@8 :`x.0h8 .
+       (u@5 64).@5)
+      (call@8 copyMem.0.sysvq0asl
+       (addr `x.0h8)
+       (addr x.0h6)
+       (sizeof
+        (u@5 64)))
+      (var@4 :b.0h9 .
+       (u@G,2S,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)`x.0h8@4)
+      (stmts@9,1)
+      (var@8,1 :`x.0h10 .
+       (i 64).)
+      (if@8,1
+       (elif@3
+        (and@e
+         (eq~D
+          (bitand~F
+           (u@I,2A,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+           (shr~8
+            (u@G,2S,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)b.0h9~2 52@4)
+           (suf@4 2047u "u64"))
+          (suf@3 2047u "u64"))
+         (not@2,1m,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+          (eq@7
+           (bitand@12,1N,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+            (u@I,2A,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)b.0h9~2
+            (suf@4 4503599627370495u "u64"))
+           (suf@1U,1N,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 0u "u64"))))
+        (stmts
+         (asgn@1K `x.0h10 1)))
+       (else
+        (stmts
+         (stmts
+          (stmts@1P
+           (asgn@6 `x.0h10 0))))))
+      (asgn@7,1 `x.62~7 `x.0h10@1))
+     (lab :returnLabel.0h11)))
+   (asgn@B,6 result.78
+    (not@2,1m,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+     (eq@7 `x.62@2,37,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 0@G,37,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim)))
+   (ret@E,6 result.78)))
+ (proc@M,8X :almostEqual.0.Ivmzi1f.
+  (params@9,~5P
+   (param@1 :x.147 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64))
+   (param@4 :y.40 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64))
+   (param@A :unitsInLastPlace.2 .
+    (i~V,~1v 64)))
+  (bool@G,~5P)
+  (pragmas
+   (smry callsUnknown
+    (param 0 0 reads)
+    (param 1 1 reads)
+    (param 2 2 reads)))
+  (stmts~K,~5N
+   (var :result.79 .
+    (bool@G,~31).@G,~31)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.63 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (if@,J
+    (elif@3
+     (eq@2 x.147~2 y.40@3)
+     (stmts~1,3
+      (ret
+       (true@7)))))
+   (var@4,N :diff.0 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (scope@4,N
+    (var :x.0h12 .
+     (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+     (sub@D
+      (f@G,31,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)x.147~2 y.40@2))
+    (scope@2,41,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+     (if@,1
+      (elif@3
+       (lt@2 x.0h12~2
+        (conv@2
+         (f@G,1d,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)0))
+       (stmts
+        (asgn@7 diff.0
+         (neg
+          (f@D,2z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)x.0h12@1))))
+      (else
+       (stmts
+        (stmts
+         (stmts@D
+          (asgn@6 diff.0 x.0h12))))))
+     (lab :returnLabel.0h15)))
+   (var@z,O :`x.1 .
+    (bool).)
+   (var@S,O :`x.64 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (scope@S,O
+    (var :x.0h16 .
+     (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+     (add@6
+      (f@G,30,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)x.147~2 y.40@2))
+    (scope@2,41,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+     (if@,1
+      (elif@3
+       (lt@2 x.0h16~2
+        (conv@2
+         (f@G,1d,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)0))
+       (stmts
+        (asgn@7 `x.64
+         (neg
+          (f@D,2z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)x.0h16@1))))
+      (else
+       (stmts
+        (stmts
+         (stmts@D
+          (asgn@6 `x.64 x.0h16))))))
+     (lab :returnLabel.0h19)))
+   (if@z,O
+    (elif
+     (le~n diff.0~5
+      (mul@R
+       (f@G,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+       (mul~D
+        (f@G,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)2.220446049250313E-16@G,B,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/fenv.nim `x.64@2)
+       (conv@3
+        (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)unitsInLastPlace.2@1)))
+     (stmts
+      (asgn `x.1
+       (true))))
+    (else
+     (stmts
+      (stmts
+       (asgn@8 `x.1
+        (lt diff.0~5 2.2250738585072014E-308@C,A,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/fenv.nim))))))
+   (ret@,O `x.1@z)
+   (ret@12,K,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/fenv.nim result.79)))
+ (proc@9,BX :\2B=.0.Ihg6mz11.
+  (params@P,36,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+   (param@1 :x.149 .
+    (ptr@3
+     (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)))
+   (param@B :y.41 .
+    (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64))).@,36,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+  (pragmas@g,36,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+   (inline)
+   (smry@9,BY,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+    (param 0 0 reads writes)
+    (param 1 1 reads)))
+  (stmts@2,37,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+   (asgn@2
+    (deref~2 x.149)
+    (add@4
+     (i@8,~2M 64)
+     (deref~2 x.149)y.41@2))))
+ (proc@Z,C4 :degToRad.0.Ijbttm21.
+  (params@D,~T
+   (param@1 :d.2 .
+    (f 64)))
+  (f@E,~T 64)
+  (pragmas@N,~T
+   (inline)
+   (smry~N,T callsUnknown
+    (param 0 0 reads)))
+  (stmts~X,~S
+   (var :result.80 .
+    (f 64).)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.65 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (asgn@7,7 result.80~7
+    (mul@4
+     (f@G,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)d.2~2
+     (conv@3
+      (f 64)0.017453292519943295@5,~A)))
+   (ret@F,7 result.80)))
+ (proc@V,CU :radToDeg.0.Intoyme1.
+  (params@H,~j
+   (param@1 :r.4 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)))
+  (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+  (pragmas@R,~j
+   (inline)
+   (smry~R,j callsUnknown
+    (param 0 0 reads)))
+  (stmts~T,~i
+   (var :result.81 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (stmts@2,3W,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+    (var :`x.66 . string.0.sysvq0asl
+     (oconstr@8 string.0.sysvq0asl
+      (kv bytes.0 2334397804780677630u)
+      (kv more.0
+       (addr strlit.0.I8031254106179394417.)))))
+   (asgn@7,7 result.81~7
+    (div@4
+     (f@G,33,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)r.4~2
+     (conv@3
+      (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)0.017453292519943295@5,~K)))
+   (ret@F,7 result.81)))
+ (proc@B,F6 :*=.0.Iu9okoo1.
+  (params@P,3C,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+   (param@1 :x.151 .
+    (ptr@3
+     (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)))
+   (param@B :y.42 .
+    (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64))).@,3C,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+  (pragmas@g,3C,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+   (inline)
+   (smry@B,F7,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+    (param 0 0 reads writes)
+    (param 1 1 reads)))
+  (stmts@2,3D,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+   (asgn@2
+    (deref~2 x.151)
+    (mul@4
+     (i@8,~2G 64)
+     (deref~2 x.151)y.42@2))))
+ (proc@9,36 :c_isnan.0.I3164fs1.
+  (params@J,~1q
+   (param@1 :x.152 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)))
+  (i@1,~1q 64)
+  (pragmas
+   (smry callsUnknown
+    (param 0 0 reads writes escapes)))
+  (stmts~5,~1p
+   (var :result.82 .
+    (i@6,~4 64).@6,~4)
+   (stmts@2,4
+    (var@8 :`x.67 .
+     (u@5 64).@5)
+    (call@8 copyMem.0.sysvq0asl
+     (addr `x.67)
+     (addr x.152)
+     (sizeof
+      (u@5 64)))
+    (var@4 :b.2 .
+     (u@G,2S,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)`x.67@4)
+    (stmts@9,1)
+    (var@8,1 :`x.2 .
+     (i 64).)
+    (if@8,1
+     (elif@3
+      (and@e
+       (eq~D
+        (bitand~F
+         (u@I,2A,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+         (shr~8
+          (u@G,2S,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)b.2~2 52@4)
+         (suf@4 2047u "u64"))
+        (suf@3 2047u "u64"))
+       (not@2,1m,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+        (eq@7
+         (bitand@12,1N,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+          (u@I,2A,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)b.2~2
+          (suf@4 4503599627370495u "u64"))
+         (suf@1U,1N,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 0u "u64"))))
+      (stmts
+       (asgn@1K `x.2 1)))
+     (else
+      (stmts
+       (stmts
+        (stmts@1P
+         (asgn@6 `x.2 0))))))
+    (asgn@7,1 result.82~7 `x.2@1))
+   (ret@1f,5 result.82)))
+ (proc@G,3X :abs.0.Iwxvrq71.
+  (params@a,40,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+   (param@1 :x.153 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)))
+  (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+  (pragmas@k,40,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+   (inline)
+   (smry@G,3Y,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+    (param 0 0 reads)result 0))
+  (stmts@2,41,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+   (var :result.83 .
+    (f@F,32,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@c,~1)
+   (var@,1 :`x.3 .
+    (f@D,2z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@D,2z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+   (if@,1
+    (elif@3
+     (lt@2 x.153~2
+      (conv@2
+       (f@G,1d,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim 64)0))
+     (stmts
+      (asgn@7 `x.3
+       (neg
+        (f@D,2z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)x.153@1))))
+    (else
+     (stmts
+      (stmts
+       (stmts@D
+        (asgn@6 `x.3 x.153))))))
+   (asgn@,1 result.83 `x.3)
+   (ret@J,1 result.83)))
+ (proc@4,D,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/iterators.nim :inc.1.Irn1g7r1.
+  (params@L,E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+   (param@1 :x.154 .
+    (ptr@3
+     (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)))).@,E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+  (pragmas@W,E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+   (inline)
+   (smry@4,D,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/iterators.nim
+    (param 0 0 reads writes)))
+  (stmts@2,F,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+   (asgn@2,1
+    (deref~2 x.154)
+    (add@6
+     (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+     (deref@1 x.154)
+     (conv@U,~F
+      (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)1@1)))))
+ (type@b,G,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/openarrays.nim :openArray.0.Ij9i6zj. .
+  (object~A,~A .
+   (fld~N,1 :a.0 .
+    (aptr@3
+     (i@I 64)))
+   (fld~N,2 :len.0 .
+    (i@5 64))))
+ (type@L,2r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :seq.0.Iotb7mc. .
+  (object~9,~2l .
+   (fld~8,1 :len.0 .
+    (i@5 64))
+   (fld~8,2 :data.0 .
+    (aptr@6
+     (i@I 64)))))
+ (type@L,2r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :seq.0.Izimvvd1. .
+  (object~9,~2l .
+   (fld~8,1 :len.0 .
+    (i@5 64))
+   (fld~8,2 :data.0 .
+    (aptr@6
+     (f@I 64)))))
+ (type@M,N,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/openarrays.nim :openArray.0.I8jqt5c1. .
+  (object@5,~H .
+   (fld~N,1 :a.0 .
+    (aptr@3
+     (f@I 64)))
+   (fld~N,2 :len.0 .
+    (i@5 64))))
+ (proc@,D,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :=destroy.1.Iez2nr5.
+  (params@J
+   (param@1 :s.4 . seq.0.Iotb7mc.@6)).
+  (pragmas
+   (smry callsUnknown
+    (param 0 0 reads writes escapes)))
+  (stmts@2,1
+   (if
+    (elif@3
+     (not@2,1m,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+      (eq@7
+       (dot@6,E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim s.4~1 data.0 0)
+       (nil@A,8,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+        (aptr
+         (i@I 64)))))
+     (stmts~1,1
+      (var@4 :i.9 .
+       (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)0@4)
+      (scope@,1
+       (stmts
+        (while
+         (lt@8 i.9~2
+          (dot@3 s.4~1 len.0 0))
+         (stmts@2,1 .@A
+          (scope@,1
+           (scope@2,F,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+            (asgn@2,1
+             (deref~2
+              (haddr@A,I,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim i.9))
+             (add@6
+              (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+              (deref@1
+               (haddr@A,I,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim i.9))
+              (conv@U,~F
+               (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)1@1)))
+            (lab :returnLabel.0h21)))))))
+      (lab@,1 :whileStmtLabel.0)
+      (call@,4 dealloc.1.sysvq0asl
+       (conv@9
+        (ptr@J,2s,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+         (void))
+        (conv
+         (ptr@J,2s,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+          (void))
+         (dot s.4~1 data.0 0)))))))))
+ (proc@,L,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :=wasMoved.1.Ia0kll01.
+  (params@K
+   (param@1 :s.5 .
+    (ptr@3 seq.0.Iotb7mc.@7))).
+  (pragmas@a
+   (inline)
+   (smry~a
+    (param 0 0 reads writes)))
+  (stmts@2,1
+   (asgn@6
+    (dot~5
+     (deref~1 s.5)len.0 0)0@2)
+   (asgn@7,1
+    (dot~6
+     (deref~1 s.5)data.0 0)
+    (nil@1,~F
+     (aptr
+      (i@I 64))))))
+ (proc@,1U,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :=dup.1.Is27omc.
+  (params@F
+   (param@1 :a.6 . seq.0.Iotb7mc.@6))seq.0.Iotb7mc.@G
+  (pragmas
+   (smry callsUnknown
+    (param 0 0 reads)))
+  (stmts@2,1
+   (var@7 :result.84 . seq.0.Iotb7mc.@D,~1 .@E,~1)
+   (var@9 :`x.68 . seq.0.Iotb7mc.@5,~R
+    (call newSeqUninit.0.I7whkjh1.
+     (dot@H a.6~1 len.0 0)))
+   (asgn@7 result.84~7 `x.68@2)
+   (var@4,1 :i.10 .
+    (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)0@4)
+   (scope@,2
+    (stmts
+     (while
+      (lt@8 i.10~2
+       (dot@3 a.6~1 len.0 0))
+      (stmts@2,1
+       (asgn@H
+        (pat~A
+         (dot result.84~6 data.0 0)i.10@6)
+        (pat@A
+         (dot a.6~1 data.0 0)i.10@6))
+       (scope@,1
+        (scope@2,F,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+         (asgn@2,1
+          (deref~2
+           (haddr@8,1Z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim i.10))
+          (add@6
+           (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+           (deref@1
+            (haddr@8,1Z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim i.10))
+           (conv@U,~F
+            (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)1@1)))
+         (lab :returnLabel.0h23)))))))
+   (lab@,2 :whileStmtLabel.0)
+   (ret@6,4 result.84)))
+ (proc@,20,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :=copy.1.Iw71th7.
+  (params@G
+   (param@1 :dest.2 .
+    (ptr@6 seq.0.Iotb7mc.@7))
+   (param@J :src.2 . seq.0.Iotb7mc.@8)).
+  (pragmas
+   (smry callsUnknown
+    (param 0 0 reads writes escapes)
+    (param 1 1 reads)))
+  (stmts@2,1
+   (if
+    (elif@3
+     (eq@A
+      (dot~6
+       (deref~4 dest.2)data.0 0)
+      (dot@6 src.2~3 data.0 0))
+     (stmts@N
+      (ret .))))
+   (if@,1
+    (elif@3
+     (lt@8
+      (dot~5 src.2~3 len.0 0)
+      (dot@6
+       (deref~4 dest.2)len.0 0))
+     (stmts~1,1
+      (var@4 :i.11 .
+       (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+       (dot@7 src.2~3 len.0 0))
+      (scope@,1
+       (stmts
+        (while
+         (lt@8 i.11~2
+          (dot@6
+           (deref~4 dest.2)len.0 0))
+         (stmts@2,1 .@A
+          (call@,1 inc.1.Irn1g7r1.
+           (haddr@4 i.11))))))
+      (lab@,1 :whileStmtLabel.0)))
+    (else
+     (stmts
+      (stmts
+       (var@A,5 :`x.69 .
+        (i@1,~1x 64)
+        (call capInBytes.0.Ilkynur1.
+         (deref~5 dest.2)))
+       (if
+        (elif@5,5
+         (lt@G `x.69~B
+          (mul@A
+           (i@G,x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+           (dot~5 src.2~3 len.0 0)
+           (sizeof@8
+            (i 64))))
+         (stmts~3,1
+          (var@I :`x.70 .
+           (i~9,~1y 64)
+           (call capInBytes.0.Ilkynur1.
+            (deref~5 dest.2)))
+          (var@4 :oldCap.0 .
+           (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+           (div@P
+            (i@I,13,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)`x.70~B
+            (sizeof@A
+             (i 64))))
+          (var@4,1 :newCap.0 .
+           (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+           (call@9 recalcCap.0.sysvq0asl oldCap.0@A
+            (sub@Q
+             (i@G,r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+             (dot~5 src.2~3 len.0 0)oldCap.0@2)))
+          (var@4,2 :memSize.0 .
+           (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+           (call@A memSizeInBytes.0.Iqj0wsf. newCap.0@I))
+          (var@e,3 :`x.71 .
+           (ptr@R,2n,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+            (void))
+           (call realloc.1.sysvq0asl
+            (conv@C
+             (ptr@J,2n,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+              (void))
+             (conv
+              (ptr@J,2s,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+               (void))
+              (dot
+               (deref~4 dest.2)data.0 0)))memSize.0@J))
+          (asgn@A,3
+           (dot~6
+            (deref~4 dest.2)data.0 0)
+           (cast@2
+            (aptr@5
+             (i@I 64))`x.71@S))
+          (if@,4
+           (elif@3
+            (eq@A
+             (dot~6
+              (deref~4 dest.2)data.0 0)
+             (nil~7,~24
+              (aptr
+               (i@I 64))))
+            (stmts~1,1
+             (asgn@9
+              (dot~5
+               (deref~4 dest.2)len.0 0)0@2)
+             (stmts@2,2
+              (call oomHandler.0.sysvq0asl memSize.0@B))
+             (ret@,3 .)))))))))))
+   (asgn@9,G
+    (dot~5
+     (deref~4 dest.2)len.0 0)
+    (dot@5 src.2~3 len.0 0))
+   (var@4,H :i.12 .
+    (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)0@4)
+   (scope@,I
+    (stmts
+     (while
+      (lt@8 i.12~2
+       (dot@6
+        (deref~4 dest.2)len.0 0))
+      (stmts@2,1
+       (stmts@2,Y,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+        (asgn@7
+         (pat~6
+          (dot@8,2K,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+           (deref~4 dest.2)data.0 0)i.12@E,2K,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim)
+         (pat@T,2K,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+          (dot src.2~3 data.0 0)i.12@6)))
+       (call@,1 inc.1.Irn1g7r1.
+        (haddr@4 i.12))))))
+   (lab@,I :whileStmtLabel.1)))
+ (proc@,D,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :=destroy.1.Ittbaxj1.
+  (params@J
+   (param@1 :s.7 . seq.0.Izimvvd1.@6)).
+  (pragmas
+   (smry callsUnknown
+    (param 0 0 reads writes escapes)))
+  (stmts@2,1
+   (if
+    (elif@3
+     (not@2,1m,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+      (eq@7
+       (dot@6,E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim s.7~1 data.0 0)
+       (nil@A,8,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+        (aptr
+         (f@I 64)))))
+     (stmts~1,1
+      (var@4 :i.13 .
+       (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)0@4)
+      (scope@,1
+       (stmts
+        (while
+         (lt@8 i.13~2
+          (dot@3 s.7~1 len.0 0))
+         (stmts@2,1 .@A
+          (scope@,1
+           (scope@2,F,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+            (asgn@2,1
+             (deref~2
+              (haddr@A,I,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim i.13))
+             (add@6
+              (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+              (deref@1
+               (haddr@A,I,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim i.13))
+              (conv@U,~F
+               (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)1@1)))
+            (lab :returnLabel.0h25)))))))
+      (lab@,1 :whileStmtLabel.0)
+      (call@,4 dealloc.1.sysvq0asl
+       (conv@9
+        (ptr@J,2s,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+         (void))
+        (conv
+         (ptr@J,2s,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+          (void))
+         (dot s.7~1 data.0 0)))))))))
+ (proc@,L,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :=wasMoved.1.Iu8y1ro1.
+  (params@K
+   (param@1 :s.8 .
+    (ptr@3 seq.0.Izimvvd1.@7))).
+  (pragmas@a
+   (inline)
+   (smry~a
+    (param 0 0 reads writes)))
+  (stmts@2,1
+   (asgn@6
+    (dot~5
+     (deref~1 s.8)len.0 0)0@2)
+   (asgn@7,1
+    (dot~6
+     (deref~1 s.8)data.0 0)
+    (nil@1,~F
+     (aptr
+      (f@I 64))))))
+ (proc@,1U,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :=dup.1.Imfj8kj.
+  (params@F
+   (param@1 :a.7 . seq.0.Izimvvd1.@6))seq.0.Izimvvd1.@G
+  (pragmas
+   (smry callsUnknown
+    (param 0 0 reads)))
+  (stmts@2,1
+   (var@7 :result.85 . seq.0.Izimvvd1.@D,~1 .@E,~1)
+   (var@9 :`x.72 . seq.0.Izimvvd1.@5,~R
+    (call newSeqUninit.0.I02czk9.
+     (dot@H a.7~1 len.0 0)))
+   (asgn@7 result.85~7 `x.72@2)
+   (var@4,1 :i.14 .
+    (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)0@4)
+   (scope@,2
+    (stmts
+     (while
+      (lt@8 i.14~2
+       (dot@3 a.7~1 len.0 0))
+      (stmts@2,1
+       (asgn@H
+        (pat~A
+         (dot result.85~6 data.0 0)i.14@6)
+        (pat@A
+         (dot a.7~1 data.0 0)i.14@6))
+       (scope@,1
+        (scope@2,F,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim
+         (asgn@2,1
+          (deref~2
+           (haddr@8,1Z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim i.14))
+          (add@6
+           (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+           (deref@1
+            (haddr@8,1Z,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim i.14))
+           (conv@U,~F
+            (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)1@1)))
+         (lab :returnLabel.0h27)))))))
+   (lab@,2 :whileStmtLabel.0)
+   (ret@6,4 result.85)))
+ (proc@,20,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :=copy.1.I6bjvy8.
+  (params@G
+   (param@1 :dest.3 .
+    (ptr@6 seq.0.Izimvvd1.@7))
+   (param@J :src.3 . seq.0.Izimvvd1.@8)).
+  (pragmas
+   (smry callsUnknown
+    (param 0 0 reads writes escapes)
+    (param 1 1 reads)))
+  (stmts@2,1
+   (if
+    (elif@3
+     (eq@A
+      (dot~6
+       (deref~4 dest.3)data.0 0)
+      (dot@6 src.3~3 data.0 0))
+     (stmts@N
+      (ret .))))
+   (if@,1
+    (elif@3
+     (lt@8
+      (dot~5 src.3~3 len.0 0)
+      (dot@6
+       (deref~4 dest.3)len.0 0))
+     (stmts~1,1
+      (var@4 :i.15 .
+       (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+       (dot@7 src.3~3 len.0 0))
+      (scope@,1
+       (stmts
+        (while
+         (lt@8 i.15~2
+          (dot@6
+           (deref~4 dest.3)len.0 0))
+         (stmts@2,1 .@A
+          (call@,1 inc.1.Irn1g7r1.
+           (haddr@4 i.15))))))
+      (lab@,1 :whileStmtLabel.0)))
+    (else
+     (stmts
+      (stmts
+       (var@A,5 :`x.73 .
+        (i@1,~1x 64)
+        (call capInBytes.0.Ip5tpl61.
+         (deref~5 dest.3)))
+       (if
+        (elif@5,5
+         (lt@G `x.73~B
+          (mul@A
+           (i@G,x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+           (dot~5 src.3~3 len.0 0)
+           (sizeof@8
+            (f 64))))
+         (stmts~3,1
+          (var@I :`x.74 .
+           (i~9,~1y 64)
+           (call capInBytes.0.Ip5tpl61.
+            (deref~5 dest.3)))
+          (var@4 :oldCap.1 .
+           (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+           (div@P
+            (i@I,13,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)`x.74~B
+            (sizeof@A
+             (f 64))))
+          (var@4,1 :newCap.1 .
+           (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+           (call@9 recalcCap.0.sysvq0asl oldCap.1@A
+            (sub@Q
+             (i@G,r,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)
+             (dot~5 src.3~3 len.0 0)oldCap.1@2)))
+          (var@4,2 :memSize.1 .
+           (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+           (call@A memSizeInBytes.0.I9xmoo4. newCap.1@I))
+          (var@e,3 :`x.75 .
+           (ptr@R,2n,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+            (void))
+           (call realloc.1.sysvq0asl
+            (conv@C
+             (ptr@J,2n,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+              (void))
+             (conv
+              (ptr@J,2s,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+               (void))
+              (dot
+               (deref~4 dest.3)data.0 0)))memSize.1@J))
+          (asgn@A,3
+           (dot~6
+            (deref~4 dest.3)data.0 0)
+           (cast@2
+            (aptr@5
+             (f@I 64))`x.75@S))
+          (if@,4
+           (elif@3
+            (eq@A
+             (dot~6
+              (deref~4 dest.3)data.0 0)
+             (nil~7,~24
+              (aptr
+               (f@I 64))))
+            (stmts~1,1
+             (asgn@9
+              (dot~5
+               (deref~4 dest.3)len.0 0)0@2)
+             (stmts@2,2
+              (call oomHandler.0.sysvq0asl memSize.1@B))
+             (ret@,3 .)))))))))))
+   (asgn@9,G
+    (dot~5
+     (deref~4 dest.3)len.0 0)
+    (dot@5 src.3~3 len.0 0))
+   (var@4,H :i.16 .
+    (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)0@4)
+   (scope@,I
+    (stmts
+     (while
+      (lt@8 i.16~2
+       (dot@6
+        (deref~4 dest.3)len.0 0))
+      (stmts@2,1
+       (stmts@2,Y,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system.nim
+        (asgn@7
+         (pat~6
+          (dot@8,2K,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+           (deref~4 dest.3)data.0 0)i.16@E,2K,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim)
+         (pat@T,2K,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+          (dot src.3~3 data.0 0)i.16@6)))
+       (call@,1 inc.1.Irn1g7r1.
+        (haddr@4 i.16))))))
+   (lab@,I :whileStmtLabel.1)))
+ (proc@Q,1V,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :newSeqUninit.0.I7whkjh1.
+  (params~5,~R
+   (param@1 :size.4 .
+    (i@6 64)))seq.0.Iotb7mc.~A,~R
+  (pragmas@F,~R
+   (inline)
+   (smry~F,R callsUnknown
+    (param 0 0 reads)))
+  (stmts~O,~Q
+   (var :result.86 . seq.0.Iotb7mc.@E,~1 .@F,~1)
+   (if@,1
+    (elif@3
+     (eq@5 size.4~5 0@3)
+     (stmts~1,1
+      (asgn@7 result.86~7
+       (oconstr@8 seq.0.Iotb7mc.@2,1k
+        (kv@4 len.0~3 size.4@2)
+        (kv@G data.0~4
+         (nil~P,~z
+          (aptr
+           (i@I 64))))))))
+    (else
+     (stmts
+      (stmts
+       (stmts@2,3
+        (var@4 :memSize.2 .
+         (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+         (call@A memSizeInBytes.0.Iqj0wsf. size.4@I))
+        (var@z,1 :`x.76 .
+         (ptr@F,2d,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+          (void))
+         (call alloc.1.sysvq0asl memSize.2@6))
+        (asgn@7,1 result.86~7
+         (oconstr@8 seq.0.Iotb7mc.@2,1h
+          (kv@4 len.0~3 size.4@2)
+          (kv@G data.0~4
+           (cast@2
+            (aptr@5
+             (i@I 64))`x.76@S))))
+        (if@,2
+         (elif@3
+          (not@2,1m,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+           (eq@7
+            (dot@D,1B,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim result.86~6 data.0 0)
+            (nil@A,8,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+             (aptr
+              (i@I 64)))))
+          (stmts~1,1
+           (var :`x.77 . string.0.sysvq0asl
+            (oconstr@8 string.0.sysvq0asl
+             (kv bytes.0 8439857260806892798u)
+             (kv more.0
+              (addr strlit.0.I15750996627617194403.))))))
+         (else
+          (stmts
+           (stmts
+            (stmts@2,3
+             (asgn@B
+              (dot~5 result.86~6 len.0 0)0@2)
+             (stmts@2,2
+              (call oomHandler.0.sysvq0asl memSize.2@B))))))))))))
+   (ret@H,B result.86)))
+ (proc@B,27,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :capInBytes.0.Ilkynur1.
+  (params@7,~1x
+   (param@1 :s.10 . seq.0.Iotb7mc.@6))
+  (i@2,~1x 64)
+  (pragmas@O,~1x
+   (inline)
+   (smry~O,1x callsUnknown
+    (param 0 0 reads writes escapes)))
+  (stmts~9,~1w
+   (var@7 :result.87 .
+    (i@D,V,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim 64).@D,V,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim)
+   (var@9 :`x.4 .
+    (i@G,2x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim 64).@G,2x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim)
+   (if@9
+    (elif@3
+     (not@2,1m,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+      (eq@7
+       (dot@F,B,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim s.10~1 data.0 0)
+       (nil@A,8,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+        (aptr
+         (i@I 64)))))
+     (stmts
+      (var@F :`x.78 .
+       (i@G,2x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim 64)
+       (call allocatedSize.0.sysvq0asl
+        (conv@F
+         (ptr@P,2x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+          (void))
+         (conv
+          (ptr@J,2s,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+           (void))
+          (dot s.10~1 data.0 0)))))
+      (asgn@F `x.4 `x.78)))
+    (else
+     (stmts
+      (stmts
+       (stmts@e
+        (asgn@6 `x.4 0))))))
+   (asgn@7 result.87~7 `x.4@2)
+   (ret@t result.87)))
+ (proc@Z,2A,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :memSizeInBytes.0.Iqj0wsf.
+  (params~D,~1l
+   (param@1 :size.5 .
+    (i@6 64)))
+  (i~M,~1l 64)
+  (pragmas@4,~1l
+   (inline)
+   (smry~4,1l
+    (param 0 0 reads)))
+  (stmts~X,~1k
+   (var :result.88 .
+    (i@D,V,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim 64).@D,V,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim)
+   (stmts@2,1
+    (stmts@E
+     (var :`constRefTemp.0 .
+      (i@G,x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@G,x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+     (keepovf
+      (mul
+       (i@G,x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)size.5~5
+       (sizeof@8
+        (i 64)))`constRefTemp.0))
+    (asgn@7 result.88~7 `constRefTemp.0@7)
+    (if@,1
+     (elif@3
+      (ovf@C)
+      (stmts~1,2
+       (asgn@7 result.88~7
+        (suf@6 9223372036854775807 "i64"))))))
+   (ret@H,4 result.88)))
+ (proc@Q,1V,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :newSeqUninit.0.I02czk9.
+  (params~5,~R
+   (param@1 :size.6 .
+    (i@6 64)))seq.0.Izimvvd1.~A,~R
+  (pragmas@F,~R
+   (inline)
+   (smry~F,R callsUnknown
+    (param 0 0 reads)))
+  (stmts~O,~Q
+   (var :result.89 . seq.0.Izimvvd1.@E,~1 .@F,~1)
+   (if@,1
+    (elif@3
+     (eq@5 size.6~5 0@3)
+     (stmts~1,1
+      (asgn@7 result.89~7
+       (oconstr@8 seq.0.Izimvvd1.@2,1k
+        (kv@4 len.0~3 size.6@2)
+        (kv@G data.0~4
+         (nil~P,~z
+          (aptr
+           (f@I 64))))))))
+    (else
+     (stmts
+      (stmts
+       (stmts@2,3
+        (var@4 :memSize.3 .
+         (i@A,1E,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim 64)
+         (call@A memSizeInBytes.0.I9xmoo4. size.6@I))
+        (var@z,1 :`x.79 .
+         (ptr@F,2d,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+          (void))
+         (call alloc.1.sysvq0asl memSize.3@6))
+        (asgn@7,1 result.89~7
+         (oconstr@8 seq.0.Izimvvd1.@2,1h
+          (kv@4 len.0~3 size.6@2)
+          (kv@G data.0~4
+           (cast@2
+            (aptr@5
+             (f@I 64))`x.79@S))))
+        (if@,2
+         (elif@3
+          (not@2,1m,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+           (eq@7
+            (dot@D,1B,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim result.89~6 data.0 0)
+            (nil@A,8,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+             (aptr
+              (f@I 64)))))
+          (stmts~1,1
+           (var :`x.80 . string.0.sysvq0asl
+            (oconstr@8 string.0.sysvq0asl
+             (kv bytes.0 8439857260806892798u)
+             (kv more.0
+              (addr strlit.0.I15750996627617194403.))))))
+         (else
+          (stmts
+           (stmts
+            (stmts@2,3
+             (asgn@B
+              (dot~5 result.89~6 len.0 0)0@2)
+             (stmts@2,2
+              (call oomHandler.0.sysvq0asl memSize.3@B))))))))))))
+   (ret@H,B result.89)))
+ (proc@B,27,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :capInBytes.0.Ip5tpl61.
+  (params@7,~1x
+   (param@1 :s.11 . seq.0.Izimvvd1.@6))
+  (i@2,~1x 64)
+  (pragmas@O,~1x
+   (inline)
+   (smry~O,1x callsUnknown
+    (param 0 0 reads writes escapes)))
+  (stmts~9,~1w
+   (var@7 :result.90 .
+    (i@D,V,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim 64).@D,V,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim)
+   (var@9 :`x.5 .
+    (i@G,2x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim 64).@G,2x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim)
+   (if@9
+    (elif@3
+     (not@2,1m,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/comparisons.nim
+      (eq@7
+       (dot@F,B,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim s.11~1 data.0 0)
+       (nil@A,8,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim
+        (aptr
+         (f@I 64)))))
+     (stmts
+      (var@F :`x.81 .
+       (i@G,2x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim 64)
+       (call allocatedSize.0.sysvq0asl
+        (conv@F
+         (ptr@P,2x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+          (void))
+         (conv
+          (ptr@J,2s,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/memory.nim
+           (void))
+          (dot s.11~1 data.0 0)))))
+      (asgn@F `x.5 `x.81)))
+    (else
+     (stmts
+      (stmts
+       (stmts@e
+        (asgn@6 `x.5 0))))))
+   (asgn@7 result.90~7 `x.5@2)
+   (ret@t result.90)))
+ (proc@Z,2A,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/seqimpl.nim :memSizeInBytes.0.I9xmoo4.
+  (params~D,~1l
+   (param@1 :size.7 .
+    (i@6 64)))
+  (i~M,~1l 64)
+  (pragmas@4,~1l
+   (inline)
+   (smry~4,1l
+    (param 0 0 reads)))
+  (stmts~X,~1k
+   (var :result.91 .
+    (i@D,V,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim 64).@D,V,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/basic_types.nim)
+   (stmts@2,1
+    (stmts@E
+     (var :`constRefTemp.0 .
+      (i@G,x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64).@G,x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim)
+     (keepovf
+      (mul
+       (i@G,x,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/arithmetics.nim 64)size.7~5
+       (sizeof@8
+        (f 64)))`constRefTemp.0))
+    (asgn@7 result.91~7 `constRefTemp.0@7)
+    (if@,1
+     (elif@3
+      (ovf@C)
+      (stmts~1,2
+       (asgn@7 result.91~7
+        (suf@6 9223372036854775807 "i64"))))))
+   (ret@H,4 result.91)))
+ (gvar :`iniGuard.0. .
+  (bool).)
+ (proc :`ini.0.
+  (params).
+  (pragmas
+   (smry writeGlobal callsUnknown))
+  (stmts
+   (if
+    (elif `iniGuard.0.
+     (stmts
+      (ret .))))
+   (asgn `iniGuard.0.
+    (true))
+   (call `ini.0.sysvq0asl)
+   (call `ini.0.assy765wm)
+   (call `ini.0.fen2xhzfd))))(.index@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/math.nim
+ (h strlit.0.I17663241064981421312. 138)
+ (h strlit.0.I12064251030117205798. 188)
+ (h strlit.0.I13051302242398678779. 188)
+ (h strlit.0.I10683379878145369823. 192)
+ (h strlit.0.I8652872438240444023. 189)
+ (h strlit.0.I8031254106179394417. 187)
+ (h strlit.0.I15750996627617194403. 297)
+ (h PI.0. 301)
+ (h TAU.0. 164)
+ (h E.0. 165)
+ (h MaxFloat64Precision.0. 163)
+ (h MaxFloat32Precision.0. 75)
+ (h MaxFloatPrecision.0. 74)
+ (h MinFloatNormal.0. 76)
+ (h CMathHeader.0. 181)
+ (h c_fpNormal.0. 179)
+ (h c_fpSubnormal.0. 62)
+ (h c_fpZero.0. 65)
+ (h c_fpInfinite.0. 60)
+ (h c_fpNan.0. 64)
+ (x c_frexp.0. 59)
+ (x c_frexp.1. 465)
+ (h FloatClass.0. 464)
+ (x@G,22 fcNormal.0. 52)
+ (x@G,22 fcSubnormal.0. 29)
+ (x@G,22 fcZero.0. 32)
+ (x@G,22 fcNegZero.0. 27)
+ (x@G,22 fcNan.0. 30)
+ (x@G,22 fcInf.0. 26)
+ (x@G,22 fcNegInf.0. 26)
+ (x dollar`.FloatClass.0. 31)
+ (x copySign.0. 1591)
+ (x copySign.1. 325)
+ (x floor.0. 980)
+ (x floor.1. 243)
+ (x ceil.0. 898)
+ (x ceil.1. 241)
+ (x round.0. 898)
+ (x round.1. 243)
+ (x trunc.0. 900)
+ (x trunc.1. 243)
+ (x mod.1. 901)
+ (x mod.2. 316)
+ (x sqrt.1. 974)
+ (x sqrt.2. 241)
+ (x cbrt.0. 899)
+ (x cbrt.1. 241)
+ (x pow.0. 899)
+ (x pow.1. 315)
+ (x hypot.1. 973)
+ (x hypot.2. 319)
+ (x exp.1. 977)
+ (x exp.2. 239)
+ (x ln.1. 897)
+ (x ln.2. 238)
+ (x log2.0. 896)
+ (x log2.1. 241)
+ (x log10.0. 899)
+ (x log10.1. 243)
+ (x log1p.0. 901)
+ (x log1p.1. 243)
+ (x isPowerOfTwo.0. 901)
+ (x nextPowerOfTwo.0. 1334)
+ (h RadPerDeg.0. 2930)
+ (x sin.1. 171)
+ (x sin.2. 239)
+ (x cos.1. 897)
+ (x cos.2. 239)
+ (x tan.0. 897)
+ (x tan.1. 239)
+ (x arcsin.0. 897)
+ (x arcsin.1. 243)
+ (x arccos.0. 901)
+ (x arccos.1. 243)
+ (x arctan.0. 901)
+ (x arctan.1. 243)
+ (x arctan2.1. 901)
+ (x arctan2.2. 321)
+ (x sinh.0. 979)
+ (x sinh.1. 241)
+ (x cosh.0. 899)
+ (x cosh.1. 241)
+ (x tanh.0. 899)
+ (x tanh.1. 241)
+ (x arcsinh.0. 899)
+ (x arcsinh.1. 245)
+ (x arccosh.0. 244)
+ (x arccosh.1. 245)
+ (x arctanh.0. 244)
+ (x arctanh.1. 246)
+ (x erf.0. 245)
+ (x erf.1. 240)
+ (x erfc.0. 239)
+ (x erfc.1. 242)
+ (x gamma.0. 241)
+ (x gamma.1. 245)
+ (x lgamma.0. 903)
+ (x lgamma.1. 246)
+ (x cot.0. 630)
+ (x cot.1. 509)
+ (x sec.0. 700)
+ (x sec.1. 509)
+ (x csc.0. 700)
+ (x csc.1. 509)
+ (x coth.0. 700)
+ (x coth.1. 510)
+ (x sech.0. 701)
+ (x sech.1. 511)
+ (x csch.0. 702)
+ (x csch.1. 511)
+ (x arccot.0. 702)
+ (x arccot.1. 498)
+ (x arcsec.0. 688)
+ (x arcsec.1. 498)
+ (x arccsc.0. 688)
+ (x arccsc.1. 498)
+ (x arccoth.0. 688)
+ (x arccoth.1. 499)
+ (x arcsech.0. 689)
+ (x arcsech.1. 499)
+ (x arccsch.0. 689)
+ (x arccsch.1. 500)
+ (x fac.0. 690)
+ (x binom.0. 3082)
+ (x isNaN.0.Ica2702. 3465)
+ (x almostEqual.0.Ivmzi1f. 2831)
+ (x \2B=.0.Ihg6mz11. 4329)
+ (x degToRad.0.Ijbttm21. 1032)
+ (x radToDeg.0.Intoyme1. 749)
+ (x *=.0.Iu9okoo1. 1294)
+ (x c_isnan.0.I3164fs1. 1030)
+ (x abs.0.Iwxvrq71. 1831)
+ (x inc.1.Irn1g7r1. 1664)
+ (h openArray.0.Ij9i6zj. 1205)
+ (h seq.0.Iotb7mc. 240)
+ (h seq.0.Izimvvd1. 236)
+ (h openArray.0.I8jqt5c1. 237)
+ (x =destroy.1.Iez2nr5. 241)
+ (x =wasMoved.1.Ia0kll01. 2192)
+ (x =dup.1.Is27omc. 427)
+ (x =copy.1.Iw71th7. 1640)
+ (x =destroy.1.Ittbaxj1. 4685)
+ (x =wasMoved.1.Iu8y1ro1. 2198)
+ (x =dup.1.Imfj8kj. 428)
+ (x =copy.1.I6bjvy8. 1643)
+ (x newSeqUninit.0.I7whkjh1. 4687)
+ (x capInBytes.0.Ilkynur1. 2233)
+ (x memSizeInBytes.0.Iqj0wsf. 1949)
+ (x newSeqUninit.0.I02czk9. 1235)
+ (x capInBytes.0.Ip5tpl61. 2236)
+ (x memSizeInBytes.0.I9xmoo4. 1950)
+ (h `iniGuard.0. 1235)
+ (x `ini.0. 34))

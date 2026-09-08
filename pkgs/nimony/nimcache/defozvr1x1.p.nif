@@ -1,0 +1,214 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/defaults.nim
+ (type@H HasDefault~C x . .
+  (concept@2 . . .
+   (stmts~H,1
+    (proc default@5 . . .
+     (params@C
+      (param@1 _ . .
+       (at@B typedesc~8 Self@1).))Self@L . . .))))
+ (template@,3 default@9 x . .
+  (params@H
+   (param@1 x . .
+    (at@B typedesc~8 bool@1).))bool@L . .
+  (stmts@j false))
+ (template@,4 default@9 x . .
+  (params@H
+   (param@1 x . .
+    (at@B typedesc~8 char@1).))char@L . .
+  (stmts@j '\00'))
+ (template@,7 default@9 x . .
+  (params@H
+   (param@1 x . .
+    (at@B typedesc~8 int8@1).))int8@L . .
+  (stmts@j
+   (suf 0 "i8")))
+ (template@,8 default@9 x . .
+  (params@H
+   (param@1 x . .
+    (at@B typedesc~8 uint8@1).))uint8@M . .
+  (stmts@l
+   (suf 0u "u8")))
+ (template@,9 default@9 x . .
+  (params@H
+   (param@1 x . .
+    (at@B typedesc~8 int16@1).))int16@M . .
+  (stmts@l
+   (suf 0 "i16")))
+ (template@,A default@9 x . .
+  (params@H
+   (param@1 x . .
+    (at@B typedesc~8 uint16@1).))uint16@N . .
+  (stmts@n
+   (suf 0u "u16")))
+ (template@,B default@9 x . .
+  (params@H
+   (param@1 x . .
+    (at@B typedesc~8 int32@1).))int32@M . .
+  (stmts@l
+   (suf 0 "i32")))
+ (template@,C default@9 x . .
+  (params@H
+   (param@1 x . .
+    (at@B typedesc~8 uint32@1).))uint32@N . .
+  (stmts@n
+   (suf 0u "u32")))
+ (template@,D default@9 x . .
+  (params@H
+   (param@1 x . .
+    (at@B typedesc~8 int64@1).))int64@M . .
+  (stmts@l
+   (suf 0 "i64")))
+ (template@,E default@9 x . .
+  (params@H
+   (param@1 x . .
+    (at@B typedesc~8 uint64@1).))uint64@N . .
+  (stmts@n
+   (suf 0u "u64")))
+ (template@,F default@9 x . .
+  (params@H
+   (param@1 x . .
+    (at@B typedesc~8 float32@1).))float32@O . .
+  (stmts@p
+   (suf 0.0 "f32")))
+ (template@,G default@9 x . .
+  (params@H
+   (param@1 x . .
+    (at@B typedesc~8 float64@1).))float64@O . .
+  (stmts@p
+   (suf 0.0 "f64")))
+ (template@,H default@9 x . .
+  (params@H
+   (param@1 x . .
+    (at@B typedesc~8 string@1).))string@N . .
+  (stmts@n ""))
+ (template@,I default@9 x .
+  (typevars@H
+   (typevar@1 T . . enum@3 .))
+  (params@Q
+   (param@1 x . .
+    (at@B typedesc~8 T@1).))T@I . .
+  (stmts@m
+   (call@3 low~3 T@1)))
+ (template@,K default@9 x .
+  (typevars@H
+   (typevar@1 T . .
+    (cmd@7
+     (nil~4)
+     (par
+      (ptr@1))).))
+  (params@V
+   (param@1 x . .
+    (at@B typedesc~8 T@1).))T@I . .
+  (stmts@r
+   (call@1 T~1
+    (nil@1))))
+ (template@,L default@9 x .
+  (typevars@H
+   (typevar@1 T . .
+    (cmd@7
+     (nil~4)
+     (par
+      (ref@1))).))
+  (params@V
+   (param@1 x . .
+    (at@B typedesc~8 T@1).))T@I . .
+  (stmts@r
+   (call@1 T~1
+    (nil@1))))
+ (template@,M default@9 x .
+  (typevars@H
+   (typevar@1 T . .
+    (cmd@7
+     (nil~4)
+     (par
+      (proctype@5))).))
+  (params@W
+   (param@1 x . .
+    (at@B typedesc~8 T@1).))T@I . .
+  (stmts@s
+   (call@1 T~1
+    (nil@1))))
+ (template@,N default@9 x . .
+  (params@H
+   (param@1 x . .
+    (at@B typedesc~8
+     (cmd@5
+      (nil~4)pointer)).))
+  (cmd@W
+   (nil~4)pointer). .
+  (stmts@x
+   (nil)))
+ (template@,O default@9 x . .
+  (params@H
+   (param@1 x . .
+    (at@B typedesc~8
+     (cmd@5
+      (nil~4)cstring)).))
+  (cmd@W
+   (nil~4)cstring). .
+  (stmts@x
+   (nil)))
+ (func@,Q default@5 x .
+  (typevars@D
+   (typevar@1 T . .
+    (distinct@3).))
+  (params@Q
+   (param@1 x . .
+    (at@B typedesc~8 T@1).))T@I
+  (pragmas@k
+   (kv@7 magic~5 DefaultDistinct@2)). .)
+ (func@,R default@5 x .
+  (typevars@D
+   (typevar@1 T . .
+    (object@3).))
+  (params@O
+   (param@1 x . .
+    (at@B typedesc~8 T@1).))T@I
+  (pragmas@i
+   (kv@7 magic~5 DefaultObj@2)). .)
+ (func@,S default@5 x .
+  (typevars@D
+   (typevar@1 T . .
+    (tuple@8).))
+  (params@N
+   (param@1 x . .
+    (at@B typedesc~8 T@1).))T@I
+  (pragmas@h
+   (kv@7 magic~5 DefaultTup@2)). .)
+ (func@,U default@5 x .
+  (typevars@D
+   (typevar@1 I . . Ordinal@3 .)
+   (typevar@D T . . HasDefault@3 .))
+  (params@e
+   (param@1 x . .
+    (at@B typedesc~8
+     (at@6 array~5 I@1 T@4)).))
+  (at@X array~5 I@1 T@4)
+  (pragmas@1I inline@2 noinit@A nodestroy@I).
+  (stmts@2,1
+   (for@4
+    (infix@M \2E\2E
+     (call~E low~3
+      (at@6 array~5 I@1 T@4))
+     (call@7 high~4
+      (at@6 array~5 I@1 T@4)))
+    (unpackflat
+     (let i . . ..))
+    (stmts~2,1
+     (asgn@A
+      (at~4 result~6 i@1)
+      (call@9 default~7 T@1))))))
+ (template@,Y default@9 x .
+  (typevars@H
+   (typevar@1 T . . . .))
+  (params@K
+   (param@1 x . .
+    (at@B typedesc~8
+     (at@4 set~3 T@1)).))
+  (at@Q set~3 T@1). .
+  (stmts@2,1
+   (comment)
+   (curly@,1))))

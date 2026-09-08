@@ -1,0 +1,152 @@
+(.nif27)
+(.vendor "Nifler")
+(.dialect "nim-parsed")
+(stmts@,1,../../../../../../nix/store/k6w9mr6jan950vv5lxkfzgh0pw94jgjv-nimony-0.6.0/lib/std/system/iterators.nim
+ (iterator
+  (quoted@9 \2E\2E<@1) x .
+  (typevars@F
+   (typevar@1 T . . Ordinal@3 .))
+  (params@R
+   (param@1 a . . T@6 .)
+   (param@4 b . . T@3 .))T@B
+  (pragmas@e inline@2).
+  (stmts@2,1
+   (comment)
+   (var@4,1 i . . . a@4)
+   (while@,2
+    (infix@8 < i~2 b@2)
+    (stmts@2,1
+     (yld i@6)
+     (cmd@,1 inc i@4)))))
+ (iterator@,7
+  (quoted@9 \2E\2E@1) x .
+  (typevars@E
+   (typevar@1 T . . Ordinal@3 .))
+  (params@Q
+   (param@1 a . . T@6 .)
+   (param@4 b . . T@3 .))T@B
+  (pragmas@d inline@2).
+  (stmts@2,1
+   (comment)
+   (var@4,1 i . . . a@4)
+   (while@,2
+    (infix@8 <= i~2 b@3)
+    (stmts@2,1
+     (yld i@6)
+     (cmd@,1 inc i@4)))))
+ (iterator@,E
+  (quoted@9 >\2E\2E@1) x .
+  (typevars@F
+   (typevar@1 T . . Ordinal@3 .))
+  (params@R
+   (param@1 a . . T@6 .)
+   (param@4 b . . T@3 .))T@B
+  (pragmas@e inline@2).
+  (stmts@2,1
+   (comment)
+   (var@4,1 i . . . a@4)
+   (while@,2
+    (infix@8 >= i~2 b@3)
+    (stmts@2,1
+     (yld i@6)
+     (if@,1
+      (elif@3
+       (infix@2 == i~2 b@3)
+       (stmts@8
+        (break .))))
+     (cmd@,2 dec i@4)))))
+ (iterator@,M countdown@9 x .
+  (typevars@J
+   (typevar@1 T . . Ordinal@6 .)
+   (typevar@4 V . . Ordinal@3 .))
+  (params@Y
+   (param@1 a . . T@6 .)
+   (param@4 b . . T@3 .)
+   (param@A step . . V@6
+    (call@B T~1 1@1)))T@R
+  (pragmas@11 inline@2).
+  (stmts@2,1
+   (comment)
+   (var@4,7 res . . . a@6)
+   (if@,8
+    (elif@3
+     (infix@4 >= res~4 b@3)
+     (stmts~1,1
+      (while true@6
+       (stmts@2,1
+        (yld res@6)
+        (if@,1
+         (elif@3
+          (infix@4 < res~4
+           (call@6 succ~4 b@1 step@4))
+          (stmts~1,1
+           (break .))))
+        (call@3,3 dec~3 res@1 step@6))))))))
+ (iterator@,c countup@9 x .
+  (typevars@H
+   (typevar@1 T . . Ordinal@3 .))
+  (params@T
+   (param@1 a . . T@6 .)
+   (param@4 b . . T@3 .)
+   (param@A step . . Positive@6 1@H))T@V
+  (pragmas@10 inline@2).
+  (stmts@2,1
+   (comment)
+   (var@4,4 res . . . a@6)
+   (while@,5
+    (infix@A <= res~4 b@3)
+    (stmts@2,1
+     (yld res@6)
+     (call@3,1 inc~3 res@1 step@6)))))
+ (iterator@,o fields@9 x .
+  (typevars@G
+   (typevar@1 T . .
+    (infix@8 |
+     (tuple)
+     (object@1)).))
+  (params@X
+   (param@1 x . . T@3 .))untyped@8
+  (pragmas@n
+   (kv~g,1 magic~5 "Fields"@2)noSideEffect~U,1). .)
+ (iterator@,w fields@9 x .
+  (typevars@G
+   (typevar@1 T . .
+    (infix@8 |
+     (tuple)
+     (object@1)).))
+  (params@X
+   (param@1 x . . T@6 .)
+   (param@4 y . . T@3 .))
+  (tuple@B
+   (kv@H key string@5)
+   (kv@U val untyped@5))
+  (pragmas@1F
+   (kv~18,1 magic~5 "Fields"@2)noSideEffect~w,1). .)
+ (iterator@,14 fieldPairs@9 x .
+  (typevars@K
+   (typevar@1 T . .
+    (infix@8 |
+     (tuple)
+     (object@1)).))
+  (params@b
+   (param@1 x . . T@3 .))
+  (tuple@8
+   (kv@E key string@5)
+   (kv@R val untyped@5))
+  (pragmas@1G
+   (kv~19,1 magic~5 "FieldPairs"@2)noSideEffect~t,1). .)
+ (iterator@,1K fieldPairs@9 x .
+  (typevars@K
+   (typevar@1 T . .
+    (infix@8 |
+     (tuple)
+     (object@1)).))
+  (params@b
+   (param@1 x . . T@6 .)
+   (param@4 y . . T@3 .))
+  (tuple@B
+   (kv~Z,1 key string@5)
+   (kv~M,1 a untyped@6)
+   (kv~J,1 b untyped@3))
+  (pragmas@U,1
+   (kv~N,1 magic~5 "FieldPairs"@2)noSideEffect~7,1). .))
