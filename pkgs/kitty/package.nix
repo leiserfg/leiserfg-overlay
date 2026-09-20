@@ -58,8 +58,8 @@ buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "kovidgoyal";
     repo = "kitty";
-    rev = "d124d4f0976720a127c022e967d30f05df99399e";
-    hash = "sha256-HX4Gn3XuiLR+Yw5UfI+A3Yn2KkQ5i+lGYngKQb3nal4=";
+    rev = "719c61a12bf192bdaaf8dc3e26acb4f853dfd7fa";
+    hash = "sha256-SfNgK+K0I/BuegC/FGfTxQzXSpKsi71RyoQWExpFnPg=";
 
   };
 
@@ -67,7 +67,7 @@ buildPythonApplication rec {
     (buildGo126Module {
       pname = "kitty-go-modules";
       inherit src version;
-      vendorHash = "sha256-12d6+MX/fijASzj4svdc8+bjjUmnkS1lQ4uGPTove7I=";
+      vendorHash = "sha256-G+eaFOFMIIu2Qo5Mgr3ejwoYrYmNv3EIdEEraDPIdeY=";
     }).goModules;
 
   buildInputs = [
