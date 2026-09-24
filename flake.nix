@@ -86,7 +86,7 @@
         # wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
         # wayscriber = pkgs.callPackage ./pkgs/wayscriber { };
         # pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
-        kitty = pkgs.callPackage ./pkgs/kitty/package.nix { };
+        # kitty = pkgs.callPackage ./pkgs/kitty/package.nix { };
         # open-jai = pkgs.callPackage ./pkgs/open-jai { };
       };
 
@@ -107,7 +107,7 @@
           # jpegli
           # wl_shimeji
           # pixieditor
-          kitty
+          # kitty
           # open-jai
           ;
         default = nimony;
