@@ -25,7 +25,7 @@ stdenv.mkDerivation {
     # Compile the three binaries
     nim c -d:release src/arkham/arkham.nim
     nim c -d:release src/nifasm/nifasm.nim
-    nim c -d:release src/ithaqua/ithaqua.nim
+    nim c -d:release src/jorogumo/jorogumo.nim
   '';
 
   installPhase = ''
@@ -38,7 +38,7 @@ stdenv.mkDerivation {
     cp src/nifasm/nifasm $out/bin/nifasm
     
     # Install ithaqua
-    cp bin/ithaqua $out/bin/ithaqua
+    cp bin/jorogumo $out/bin/jorogumo
   '';
 
   meta = with lib; {
