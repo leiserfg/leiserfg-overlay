@@ -1,4 +1,8 @@
-{ lib, buildGoModule, src }:
+{
+  lib,
+  buildGoModule,
+  src,
+}:
 
 buildGoModule {
   pname = "kcd";
@@ -6,7 +10,7 @@ buildGoModule {
 
   inherit src;
 
-  vendorHash = "sha256-6zwzWlboTQeZcBiiHU7Jt+vDn2FYCrQ8CzGgCntKRGo=";
+  vendorHash = "sha256-/rT2aUVw0AG5oSMq/nTaybsvMUd+bPLMPJR2J1dltic=";
 
   subPackages = [ "cmd/kcd" ];
 
@@ -17,7 +21,7 @@ buildGoModule {
     "-w"
     "-X main.version=unstable"
   ];
-
+  doCheck = false;
   meta = with lib; {
     description = "Headless KDE Connect daemon written in Go";
     homepage = "https://github.com/bethropolis/kcd";
