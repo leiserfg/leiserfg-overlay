@@ -186,6 +186,23 @@
         "url": "https://github.com/bellini666/pytest-language-server"
       }
     },
+    "raddebugger": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792037858,
+        "narHash": "sha256-0rjJM7M+39+hxiianDvNBc78pHQO7l83W/41LSIZQ3U=",
+        "ref": "refs/heads/master",
+        "rev": "8036f7bed03f096e19cdf02ba0c90cda77ed4e16",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/EpicGames/raddebugger"
+      },
+      "original": {
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/EpicGames/raddebugger"
+      }
+    },
     "root": {
       "inputs": {
         "calepin": "calepin",
@@ -195,6 +212,7 @@
         "nimony": "nimony",
         "nixpkgs": "nixpkgs",
         "pytest-language-server": "pytest-language-server",
+        "raddebugger": "raddebugger",
         "sokol-tools-bin": "sokol-tools-bin"
       }
     },

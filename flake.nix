@@ -37,6 +37,10 @@
     flake = false;
   };
 
+  inputs.raddebugger = {
+    url = "git+https://github.com/EpicGames/raddebugger?shallow=1";
+    flake = false;
+  };
 
   # inputs.hyprland = {
   #   url = "git+https://github.com/hyprwm/Hyprland/?shallow=1";
@@ -54,6 +58,7 @@
       sokol-tools-bin,
       kcd,
       nativenif,
+      raddebugger,
       ...
     }@inputs:
     let
@@ -83,6 +88,7 @@
         };
         sokol-shdc = pkgs.callPackage ./pkgs/sokol-tools { src = sokol-tools-bin; };
         kcd = pkgs.callPackage ./pkgs/kcd { src = kcd; };
+        raddebugger = pkgs.callPackage ./pkgs/raddebugger { src = raddebugger; };
         # wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
         # wayscriber = pkgs.callPackage ./pkgs/wayscriber { };
         # pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
@@ -104,6 +110,7 @@
           nativenif
           sokol-shdc
           kcd
+          raddebugger
           # jpegli
           # wl_shimeji
           # pixieditor
