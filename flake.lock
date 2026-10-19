@@ -100,10 +100,10 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1792111825,
-        "narHash": "sha256-JGHcOy4DiaRzvPTHEJ7O528V1yyjNZZlDc7p8rmND2E=",
+        "lastModified": 1792381975,
+        "narHash": "sha256-jXmORmL8tbeyDo7/FiPk68P+UBctz/vph2x8XMHg1uM=",
         "ref": "refs/heads/main",
-        "rev": "b711aa741409cd51bac109375cc6597c8b8f76cc",
+        "rev": "84a9f135716cbcdc1fa58ab3c52b85f9a1a0cd0f",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/numtide/llm-agents.nix"
@@ -117,10 +117,10 @@
     "nativenif": {
       "flake": false,
       "locked": {
-        "lastModified": 1792092684,
-        "narHash": "sha256-kaM7vyI2JlSilEqBoleE3pk0pBiQrRhMx+WXZiEYsYw=",
+        "lastModified": 1792213230,
+        "narHash": "sha256-/tTLQBMa5tQ0OOhtfl4oPTiH6umd4tPaLuGsp+ZF+zk=",
         "ref": "refs/heads/master",
-        "rev": "f46782cabbbad9d1a6843b4ceaab2b99d692283b",
+        "rev": "d2fb4ce249734766ec4b80b5fae89528c5b561d4",
         "shallow": true,
         "submodules": true,
         "type": "git",
@@ -136,10 +136,10 @@
     "nimony": {
       "flake": false,
       "locked": {
-        "lastModified": 1792094853,
-        "narHash": "sha256-Esc2+ZwNL+n6+gp4TkyPyg0+BsrXVXCTkwBvb3CITBs=",
+        "lastModified": 1792397519,
+        "narHash": "sha256-GRSNbLXkr+hLw2oFJi2in6Gs4mEnVkcaFQ0T2df8ot8=",
         "ref": "refs/heads/master",
-        "rev": "6e868682b5ac2d745a4dbd0cbd3ddfe0095a1b88",
+        "rev": "2886287b74eeb134191d9ee51d8a27ae658d2e05",
         "shallow": true,
         "submodules": true,
         "type": "git",
@@ -154,10 +154,10 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1791956154,
-        "narHash": "sha256-jBYGPi4udQ9uo4KQp9m2J0546nJVQitG15gvZSaVVAs=",
+        "lastModified": 1792094642,
+        "narHash": "sha256-zp8ToDMnqZcu4o4IH9pdwXFXGp7yLm/M0dEnNWnyd7I=",
         "ref": "nixos-unstable",
-        "rev": "55bfb4d7437bd4e09ab7cba58a43bd68eb310044",
+        "rev": "fe13242281a67641c0102cdb1087f0ebe586c7df",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/NixOS/nixpkgs"
@@ -189,10 +189,10 @@
     "raddebugger": {
       "flake": false,
       "locked": {
-        "lastModified": 1792037858,
-        "narHash": "sha256-0rjJM7M+39+hxiianDvNBc78pHQO7l83W/41LSIZQ3U=",
+        "lastModified": 1792202668,
+        "narHash": "sha256-+xX9R7PIbXYFOJSAPs9QoIYszi5w7YssrtmncvJk5xE=",
         "ref": "refs/heads/master",
-        "rev": "8036f7bed03f096e19cdf02ba0c90cda77ed4e16",
+        "rev": "62b715a30e5da6b8d7e02372a8e7458feab1df97",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/EpicGames/raddebugger"
