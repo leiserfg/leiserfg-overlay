@@ -100,10 +100,10 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1792381975,
-        "narHash": "sha256-jXmORmL8tbeyDo7/FiPk68P+UBctz/vph2x8XMHg1uM=",
+        "lastModified": 1792708153,
+        "narHash": "sha256-WA8ApztLScSY330voQfUR28FS+erMCphfFMPy+/aIF0=",
         "ref": "refs/heads/main",
-        "rev": "84a9f135716cbcdc1fa58ab3c52b85f9a1a0cd0f",
+        "rev": "d026657ab1ee7ec8a7ca0509e17657d5247ddc42",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/numtide/llm-agents.nix"
@@ -136,10 +136,10 @@
     "nimony": {
       "flake": false,
       "locked": {
-        "lastModified": 1792397519,
-        "narHash": "sha256-GRSNbLXkr+hLw2oFJi2in6Gs4mEnVkcaFQ0T2df8ot8=",
+        "lastModified": 1792702245,
+        "narHash": "sha256-DHksADFpM0L0tJb4zeQAMn7v4LxKmSRJwPKiKgrVdcs=",
         "ref": "refs/heads/master",
-        "rev": "2886287b74eeb134191d9ee51d8a27ae658d2e05",
+        "rev": "c5dc002e3559351433af18396cd57773fe043063",
         "shallow": true,
         "submodules": true,
         "type": "git",
@@ -154,10 +154,10 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1792094642,
-        "narHash": "sha256-zp8ToDMnqZcu4o4IH9pdwXFXGp7yLm/M0dEnNWnyd7I=",
+        "lastModified": 1792502884,
+        "narHash": "sha256-IoNisKcGbUjdd45qCqywGMCYmZ5EnkxezvLII0FWwNA=",
         "ref": "nixos-unstable",
-        "rev": "fe13242281a67641c0102cdb1087f0ebe586c7df",
+        "rev": "02c087f3fe673c9e317f206a627cb6b910336dbe",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/NixOS/nixpkgs"
@@ -172,10 +172,10 @@
     "pytest-language-server": {
       "flake": false,
       "locked": {
-        "lastModified": 1791622116,
-        "narHash": "sha256-Iyn7dh9YBXkaSRa5vRLUwunVMIhekp/0OwPaiVPgSWA=",
+        "lastModified": 1792424862,
+        "narHash": "sha256-B7T4jPrUNMk7ZGASdto7OpVO+xXxXVOvxDKW5CcwbMM=",
         "ref": "refs/heads/master",
-        "rev": "c0d19b0e6f90496a22e7a23a1eda3e09bc655d86",
+        "rev": "22d4952d9464aa183030ca7d784fa6f806c88320",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/bellini666/pytest-language-server"
@@ -189,10 +189,10 @@
     "raddebugger": {
       "flake": false,
       "locked": {
-        "lastModified": 1792202668,
-        "narHash": "sha256-+xX9R7PIbXYFOJSAPs9QoIYszi5w7YssrtmncvJk5xE=",
+        "lastModified": 1792507179,
+        "narHash": "sha256-y76eVv2SkDeaesHuBFmiHQ6bd2rnkbt9j2qE3fm8B/E=",
         "ref": "refs/heads/master",
-        "rev": "62b715a30e5da6b8d7e02372a8e7458feab1df97",
+        "rev": "771f63dd35d3d17f0c7914c5031959282802be5f",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/EpicGames/raddebugger"
