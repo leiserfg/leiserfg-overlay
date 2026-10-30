@@ -100,10 +100,10 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1792708153,
-        "narHash": "sha256-WA8ApztLScSY330voQfUR28FS+erMCphfFMPy+/aIF0=",
+        "lastModified": 1793327251,
+        "narHash": "sha256-lDSha55ZGpxunO3nMWMRLZFgDm0UHf2snDGaDZ7hLRY=",
         "ref": "refs/heads/main",
-        "rev": "d026657ab1ee7ec8a7ca0509e17657d5247ddc42",
+        "rev": "0e84d658b3107c5a5e8653449a4c22687dc8024c",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/numtide/llm-agents.nix"
@@ -117,10 +117,10 @@
     "nativenif": {
       "flake": false,
       "locked": {
-        "lastModified": 1792213230,
-        "narHash": "sha256-/tTLQBMa5tQ0OOhtfl4oPTiH6umd4tPaLuGsp+ZF+zk=",
+        "lastModified": 1793186452,
+        "narHash": "sha256-C1sI9QPBZlJ/HDqaS+TBJCGd5GWBBaPdDRrkcNbXqlc=",
         "ref": "refs/heads/master",
-        "rev": "d2fb4ce249734766ec4b80b5fae89528c5b561d4",
+        "rev": "96e4919b20434d3e8892a044dae8cb8369b56b74",
         "shallow": true,
         "submodules": true,
         "type": "git",
@@ -136,10 +136,10 @@
     "nimony": {
       "flake": false,
       "locked": {
-        "lastModified": 1792702245,
-        "narHash": "sha256-DHksADFpM0L0tJb4zeQAMn7v4LxKmSRJwPKiKgrVdcs=",
+        "lastModified": 1793295302,
+        "narHash": "sha256-SXkFlraFyLAWoAbtSF0xM/3RTgBexEqlB9sxZ5o3KWE=",
         "ref": "refs/heads/master",
-        "rev": "c5dc002e3559351433af18396cd57773fe043063",
+        "rev": "a987a15d937e1fbf672bd9187716d26a31e5e6e3",
         "shallow": true,
         "submodules": true,
         "type": "git",
@@ -154,10 +154,10 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1792502884,
-        "narHash": "sha256-IoNisKcGbUjdd45qCqywGMCYmZ5EnkxezvLII0FWwNA=",
+        "lastModified": 1793110635,
+        "narHash": "sha256-dhoW6VgFWlaodSY5jrBn+CF2FLmaUvDVgM7+C7T2+NM=",
         "ref": "nixos-unstable",
-        "rev": "02c087f3fe673c9e317f206a627cb6b910336dbe",
+        "rev": "31ecbaca1bdefa45dffc409f0250bd8039ea0010",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/NixOS/nixpkgs"
@@ -172,10 +172,10 @@
     "pytest-language-server": {
       "flake": false,
       "locked": {
-        "lastModified": 1792424862,
-        "narHash": "sha256-B7T4jPrUNMk7ZGASdto7OpVO+xXxXVOvxDKW5CcwbMM=",
+        "lastModified": 1792921047,
+        "narHash": "sha256-dTcJf9bDxRFpVxJAOrxLtj5UccJ9A5yaZi7x4Yf1TbM=",
         "ref": "refs/heads/master",
-        "rev": "22d4952d9464aa183030ca7d784fa6f806c88320",
+        "rev": "abfaaf2151bd1d360f17bc4baa93e1cd1cf6a43d",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/bellini666/pytest-language-server"
