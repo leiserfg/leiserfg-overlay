@@ -26,12 +26,12 @@
 let
   pname = "eden-emulator";
   version = "0.2.0";
-  sha256 = "sha256-tl1o+BgsH6cS4cYt0zBikXIlD/YVSpy9kzmBBLbPQOI=";
+  sha256 = "sha256-R+lRNSI7kAA3UcB7eCOyxoNOS/+AgAVpw6v0YEpXBKE=";
 
   src = fetchurl {
 
     # url = "https://stable.eden-emu.dev/v0.2.0/Eden-Linux-v0.2.0-rog-ally-clang-pgo.AppImage";
-    url = "https://nightly.eden-emu.dev/v1792353251.de7e6e01d4/Eden-Linux-de7e6e01d4-steamdeck-clang-pgo.AppImage";
+    url = "https://nightly.eden-emu.dev/v1793745818.07677aa500/Eden-Linux-07677aa500-steamdeck-clang-pgo.AppImage";
     inherit sha256;
   };
 
