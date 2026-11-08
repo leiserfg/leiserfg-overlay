@@ -78,6 +78,16 @@
           src = pytest-language-server;
         };
         pi = llm-agents.packages.x86_64-linux.pi;
+        rbw = prev.rbw.overrideAttrs (old: {
+          version = "1.15.0-unstable-2026-11-08";
+          src = final.fetchFromGitHub {
+            owner = "leiserfg";
+            repo = "rbw";
+            rev = "fbffcd0bce40ebba3cb57e2e7cb7e14dd1c460a6";
+            hash = "sha256-LgE31glIGO37gzFv66va5hsmcIQ3qsL661McM4OR/tQ=";
+          };
+          cargoHash = "sha256-dIDv6mzdtzJXWBQSUX9eILM53C/HGGk+onGo/dHbTAU=";
+        });
         # jpegli = pkgs.callPackage ./pkgs/jpgli { };
         # hyprland = inputs.hyprland.packages.x86_64-linux.default;
         eden-emu = pkgs.kdePackages.callPackage ./pkgs/torzu/eden_appimage.nix { };
@@ -99,6 +109,7 @@
       packages.x86_64-linux = rec {
         inherit (pkgs)
           pi
+          rbw
           # hyprland
           # wayscriber
           eden-emu
