@@ -27,11 +27,6 @@
     flake = false;
   };
 
-  inputs.kcd = {
-    url = "git+https://github.com/bethropolis/kcd?shallow=1";
-    flake = false;
-  };
-
   inputs.nativenif = {
     url = "git+https://github.com/nim-lang/nativenif?shallow=1&submodules=1";
     flake = false;
@@ -56,7 +51,6 @@
       pytest-language-server,
       nimony,
       sokol-tools-bin,
-      kcd,
       nativenif,
       raddebugger,
       ...
@@ -97,7 +91,7 @@
           nimony-src = nimony;
         };
         sokol-shdc = pkgs.callPackage ./pkgs/sokol-tools { src = sokol-tools-bin; };
-        kcd = pkgs.callPackage ./pkgs/kcd { src = kcd; };
+        kcd = pkgs.callPackage ./pkgs/kcd { };
         raddebugger = pkgs.callPackage ./pkgs/raddebugger { src = raddebugger; };
         # wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
         # wayscriber = pkgs.callPackage ./pkgs/wayscriber { };
