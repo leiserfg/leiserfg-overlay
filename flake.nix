@@ -73,14 +73,14 @@
         };
         pi = llm-agents.packages.x86_64-linux.pi;
         rbw = prev.rbw.overrideAttrs (old: {
-          version = "1.15.0-unstable-2026-11-08";
+          version = "1.15.0-unstable-2026-11-15";
           src = final.fetchFromGitHub {
             owner = "leiserfg";
             repo = "rbw";
-            rev = "fbffcd0bce40ebba3cb57e2e7cb7e14dd1c460a6";
-            hash = "sha256-LgE31glIGO37gzFv66va5hsmcIQ3qsL661McM4OR/tQ=";
+            rev = "c030b89263fa0e5393ae2b2cf4c0bebc2b66bdd8";
+            hash = "sha256-h3CwnSiciKIcVVBVsCm6mpsJrF4Xe5r4WR5UOugAHB0=";
           };
-          cargoHash = "sha256-dIDv6mzdtzJXWBQSUX9eILM53C/HGGk+onGo/dHbTAU=";
+          cargoHash = "sha256-iXmdUHPyNzSBd+yayrobbbEdJn7/RJmWrOD3AfEQZuI=";
         });
         # jpegli = pkgs.callPackage ./pkgs/jpgli { };
         # hyprland = inputs.hyprland.packages.x86_64-linux.default;
