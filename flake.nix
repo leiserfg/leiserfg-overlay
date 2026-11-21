@@ -77,8 +77,8 @@
           src = final.fetchFromGitHub {
             owner = "ggml-org";
             repo = "llama.cpp";
-            rev = "44c20b1c0a1c77fd629fc5d032a5d7fa5843ebca";
-            hash = "sha256-FA3PTxQoaYnlIBz42xrytuWK8i2+PSV0Jfv/cTt1vwI=";
+            rev = "e6d624b9a4b95c6b52f5ca384d70b75581f9821a";
+            hash = "sha256-Bu4XyemVd4R5v/Zs6c8nzpmW6nxYCBHSTJcOgA+3No8=";
           };
           npmRoot = "ui/apps/chat";
           npmDepsHash = "sha256-3kJJJGgPvtoRozjjvXJ97ljxzt0tshwi88UUd1D3VsI=";
