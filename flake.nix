@@ -71,7 +71,26 @@
         pytest-language-server = pkgs.callPackage ./pkgs/pytest-language-server {
           src = pytest-language-server;
         };
-        pi = llm-agents.packages.x86_64-linux.pi;
+
+        llama-cpp-vulkan = prev.llama-cpp-vulkan.overrideAttrs (old: {
+          version = "unstable-2026-11-21";
+          src = final.fetchFromGitHub {
+            owner = "ggml-org";
+            repo = "llama.cpp";
+            rev = "44c20b1c0a1c77fd629fc5d032a5d7fa5843ebca";
+            hash = "sha256-FA3PTxQoaYnlIBz42xrytuWK8i2+PSV0Jfv/cTt1vwI=";
+          };
+          npmRoot = "ui/apps/chat";
+          npmDepsHash = "sha256-3kJJJGgPvtoRozjjvXJ97ljxzt0tshwi88UUd1D3VsI=";
+          doCheck = false;
+          preConfigure = ''
+            pushd ui/apps/chat
+            LLAMA_UI_OUT_DIR="$PWD/dist" npm run build
+            popd
+          '';
+          cmakeFlags = old.cmakeFlags ++ [ (final.lib.cmakeBool "LLAMA_USE_PREBUILT_UI" false) ];
+        });
+
         rbw = prev.rbw.overrideAttrs (old: {
           version = "1.15.0-unstable-2026-11-15";
           src = final.fetchFromGitHub {
@@ -86,7 +105,7 @@
         # hyprland = inputs.hyprland.packages.x86_64-linux.default;
         eden-emu = pkgs.kdePackages.callPackage ./pkgs/torzu/eden_appimage.nix { };
         nimony = pkgs.callPackage ./pkgs/nimony { src = nimony; };
-        nativenif = pkgs.callPackage ./pkgs/nativenif { 
+        nativenif = pkgs.callPackage ./pkgs/nativenif {
           src = nativenif;
           nimony-src = nimony;
         };
@@ -102,7 +121,7 @@
 
       packages.x86_64-linux = rec {
         inherit (pkgs)
-          pi
+          llama-cpp-vulkan
           rbw
           # hyprland
           # wayscriber
