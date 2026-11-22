@@ -72,22 +72,17 @@
           src = pytest-language-server;
         };
 
-        llama-cpp-vulkan = prev.llama-cpp-vulkan.overrideAttrs (old: {
-          version = "unstable-2026-11-21";
+        llama-cpp-vulkan-unsloth = prev.llama-cpp-vulkan.overrideAttrs (old: {
+          version = "b12588-mix-c0c3de8";
           src = final.fetchFromGitHub {
-            owner = "ggml-org";
+            owner = "unslothai";
             repo = "llama.cpp";
-            rev = "e6d624b9a4b95c6b52f5ca384d70b75581f9821a";
-            hash = "sha256-Bu4XyemVd4R5v/Zs6c8nzpmW6nxYCBHSTJcOgA+3No8=";
+            rev = "b12588-mix-c0c3de8";
+            hash = "sha256-3FOH7ZnBDRWG6X8HHMhAUi0Lgr9NEK5FE+Lh1sQhUbw=";
           };
-          npmRoot = "ui/apps/chat";
-          npmDepsHash = "sha256-3kJJJGgPvtoRozjjvXJ97ljxzt0tshwi88UUd1D3VsI=";
+          npmRoot = "tools/ui";
+          npmDepsHash = "sha256-XLtEZsSFdk+2SyfXzBp8HQ2e27PQPpDCn1YjePU1/9w=";
           doCheck = false;
-          preConfigure = ''
-            pushd ui/apps/chat
-            LLAMA_UI_OUT_DIR="$PWD/dist" npm run build
-            popd
-          '';
           cmakeFlags = old.cmakeFlags ++ [ (final.lib.cmakeBool "LLAMA_USE_PREBUILT_UI" false) ];
         });
 
@@ -121,7 +116,7 @@
 
       packages.x86_64-linux = rec {
         inherit (pkgs)
-          llama-cpp-vulkan
+          llama-cpp-vulkan-unsloth
           rbw
           # hyprland
           # wayscriber
