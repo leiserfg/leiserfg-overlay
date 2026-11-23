@@ -72,20 +72,6 @@
           src = pytest-language-server;
         };
 
-        llama-cpp-vulkan-unsloth = prev.llama-cpp-vulkan.overrideAttrs (old: {
-          version = "b12588-mix-c0c3de8";
-          src = final.fetchFromGitHub {
-            owner = "unslothai";
-            repo = "llama.cpp";
-            rev = "b12588-mix-c0c3de8";
-            hash = "sha256-3FOH7ZnBDRWG6X8HHMhAUi0Lgr9NEK5FE+Lh1sQhUbw=";
-          };
-          npmRoot = "tools/ui";
-          npmDepsHash = "sha256-XLtEZsSFdk+2SyfXzBp8HQ2e27PQPpDCn1YjePU1/9w=";
-          doCheck = false;
-          cmakeFlags = old.cmakeFlags ++ [ (final.lib.cmakeBool "LLAMA_USE_PREBUILT_UI" false) ];
-        });
-
         rbw = prev.rbw.overrideAttrs (old: {
           version = "1.15.0-unstable-2026-11-15";
           src = final.fetchFromGitHub {
@@ -110,13 +96,12 @@
         # wl_shimeji = pkgs.callPackage ./pkgs/wl_shimeji { };
         # wayscriber = pkgs.callPackage ./pkgs/wayscriber { };
         # pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
-        # kitty = pkgs.callPackage ./pkgs/kitty/package.nix { };
+        kitty = pkgs.callPackage ./pkgs/kitty/package.nix { };
         # open-jai = pkgs.callPackage ./pkgs/open-jai { };
       };
 
       packages.x86_64-linux = rec {
         inherit (pkgs)
-          llama-cpp-vulkan-unsloth
           rbw
           # hyprland
           # wayscriber
@@ -133,7 +118,7 @@
           # jpegli
           # wl_shimeji
           # pixieditor
-          # kitty
+           kitty
           # open-jai
           ;
         default = nimony;

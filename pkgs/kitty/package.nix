@@ -19,6 +19,7 @@
   libxkbcommon,
   libxi,
   libxext,
+  libxrender,
   wayland-protocols,
   wayland,
   xxhash,
@@ -40,34 +41,36 @@
   zsh,
   fish,
   nixosTests,
-  go_1_26,
-  buildGo126Module,
+  go_1_27,
+  buildGoModule,
   nix-update-script,
   makeBinaryWrapper,
   darwin,
   cairo,
   shader-slang,
+  vulkan-headers,
+  vulkan-loader,
+  vulkan-validation-layers,
 }:
 
 with python3Packages;
 buildPythonApplication rec {
   pname = "kitty";
-  version = "0.48.1-unstable";
+  version = "0.51.1";
   pyproject = false;
 
   src = fetchFromGitHub {
     owner = "kovidgoyal";
     repo = "kitty";
-    rev = "719c61a12bf192bdaaf8dc3e26acb4f853dfd7fa";
-    hash = "sha256-SfNgK+K0I/BuegC/FGfTxQzXSpKsi71RyoQWExpFnPg=";
-
+    rev = "7b46dba272a37ba8c6117aff7903c1b793530b82"; # gpu branch
+    hash = "sha256-j6JCdOBQeASpdRtELfi4LiVl7qYcg6nMaHtCnkl5wdo=";
   };
 
   goModules =
-    (buildGo126Module {
+    (buildGoModule.override { go = go_1_27; } {
       pname = "kitty-go-modules";
       inherit src version;
-      vendorHash = "sha256-G+eaFOFMIIu2Qo5Mgr3ejwoYrYmNv3EIdEEraDPIdeY=";
+      vendorHash = "sha256-fur8v4/MaorI7oPgzAUOD3TLIu2dNi3zZY60dL1gUoY=";
     }).goModules;
 
   buildInputs = [
@@ -79,7 +82,6 @@ buildPythonApplication rec {
     matplotlib
     openssl.dev
     xxhash
-    shader-slang
   ]
   ++ lib.optionals stdenv.hostPlatform.isDarwin [
     libpng
@@ -97,6 +99,10 @@ buildPythonApplication rec {
     libxkbcommon
     libxi
     libxext
+    libxrender
+    vulkan-headers
+    vulkan-loader
+    vulkan-validation-layers
     wayland-protocols
     wayland
     dbus
@@ -114,7 +120,7 @@ buildPythonApplication rec {
     sphinx-design
     sphinxext-opengraph
     sphinx-inline-tabs
-    go_1_26
+    go_1_27
     fontconfig
     makeBinaryWrapper
     shader-slang
@@ -152,6 +158,16 @@ buildPythonApplication rec {
       libxkbcommon = "${lib.getLib libxkbcommon}/lib/libxkbcommon.so.0";
     })
   ];
+
+  postPatch = lib.optionalString stdenv.hostPlatform.isLinux ''
+    substituteInPlace glfw/x11_init.c \
+      --replace-fail 'libXi.so.6'       '${lib.getLib libxi}/lib/libXi.so.6' \
+      --replace-fail 'libXrandr.so.2'   '${lib.getLib libxrandr}/lib/libXrandr.so.2' \
+      --replace-fail 'libXcursor.so.1'  '${lib.getLib libxcursor}/lib/libXcursor.so.1' \
+      --replace-fail 'libXinerama.so.1' '${lib.getLib libxinerama}/lib/libXinerama.so.1' \
+      --replace-fail 'libXext.so.6'     '${lib.getLib libxext}/lib/libXext.so.6' \
+      --replace-fail 'libXrender.so.1'  '${lib.getLib libxrender}/lib/libXrender.so.1'
+  '';
 
   hardeningDisable = [
     # causes redefinition of _FORTIFY_SOURCE
@@ -245,17 +261,20 @@ buildPythonApplication rec {
       substituteInPlace kitty_tests/fonts.py \
         --replace test_fallback_font_not_last_resort no_test_fallback_font_not_last_resort
 
-
       # theme collection test starts an http server
       rm tools/themes/collection_test.go
       # passwd_test tries to exec /usr/bin/dscl
       rm tools/utils/passwd_test.go
     ''
     + ''
+      # The sandbox may not provide any monospace fonts for this fontconfig test.
+      substituteInPlace kitty_tests/fonts.py \
+        --replace test_font_selection_api no_test_font_selection_api
+
       # These depend on files that are not available in the sandbox
       rm tools/utils/machine_id/api_test.go
 
-      # Memory cgroup tests do not work in the sandbox
+      # These depend on cgroups and other resources that don't work as the tests expect in the sandbox
       rm kitty_tests/child.py
     '';
 
@@ -296,14 +315,16 @@ buildPythonApplication rec {
 
     # dereference the `kitty` symlink to make sure the actual executable
     # is wrapped on macOS as well (and not just the symlink)
-    wrapProgram $(realpath "$out/bin/kitty") \
-      --suffix PATH : "$out/bin:${
-        lib.makeBinPath [
-          imagemagick
-          ncurses.dev
-        ]
-      }" \
-      --set SLANGC "${shader-slang}/bin/slangc"
+    wrapProgram $(realpath "$out/bin/kitty") --suffix PATH : "$out/bin:${
+      lib.makeBinPath [
+        imagemagick
+        ncurses.dev
+        shader-slang
+      ]
+    }" ${lib.optionalString stdenv.hostPlatform.isLinux ''
+      --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ vulkan-loader ]}" \
+      --set VK_ADD_LAYER_PATH "${vulkan-validation-layers}/share/vulkan/explicit_layer.d"
+    ''}
 
     installShellCompletion --cmd kitty \
       --bash <("$out/bin/kitty" +complete setup bash) \
