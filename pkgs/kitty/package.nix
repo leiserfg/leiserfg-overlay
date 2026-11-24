@@ -6,6 +6,8 @@
   python3Packages,
   libunistring,
   harfbuzz,
+  fribidi,
+  brotli,
   fontconfig,
   pkg-config,
   ncurses,
@@ -75,6 +77,7 @@ buildPythonApplication rec {
 
   buildInputs = [
     harfbuzz
+    fribidi
     ncurses
     simde
     lcms2
@@ -90,6 +93,7 @@ buildPythonApplication rec {
   ]
   ++ lib.optionals stdenv.hostPlatform.isLinux [
     fontconfig
+    brotli
     libunistring
     libcanberra
     libx11
