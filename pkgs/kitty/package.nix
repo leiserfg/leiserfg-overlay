@@ -62,8 +62,8 @@ buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "kovidgoyal";
     repo = "kitty";
-    rev = "7b46dba272a37ba8c6117aff7903c1b793530b82"; # gpu branch
-    hash = "sha256-j6JCdOBQeASpdRtELfi4LiVl7qYcg6nMaHtCnkl5wdo=";
+    rev = "3bebcee55e374601d1f1a88cf7ac78834382a5a0"; # master
+    hash = "sha256-vyPB6yK4NBjph8hipMMhnD6RyFlz0bASFTd2GOJuOnI=";
   };
 
   goModules =
