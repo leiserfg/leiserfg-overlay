@@ -2,19 +2,20 @@
   description = "My home-brew packages";
 
   inputs.nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
-  inputs.llm-agents = {
-    url = "git+https://github.com/numtide/llm-agents.nix?shallow=1";
-    inputs.nixpkgs.follows = "nixpkgs"; # I don't wanna use the cache
-  };
 
-  inputs.calepin = {
-    url = "git+https://github.com/vincentarelbundock/calepin?shallow=1";
-    flake = false;
-  };
+  # inputs.calepin = {
+  #   url = "git+https://github.com/vincentarelbundock/calepin?shallow=1";
+  #   flake = false;
+  # };
 
   inputs.pytest-language-server = {
     url = "git+https://github.com/bellini666/pytest-language-server?shallow=1";
     flake = false;
+  };
+
+  inputs.luciole = {
+    url = "git+https://github.com/noctalia-dev/luciole?shallow=1";
+    inputs.nixpkgs.follows = "nixpkgs";
   };
 
   inputs.nimony = {
@@ -46,8 +47,7 @@
     {
       self,
       nixpkgs,
-      llm-agents,
-      calepin,
+      # calepin,
       pytest-language-server,
       nimony,
       sokol-tools-bin,
@@ -67,7 +67,8 @@
         # glslviewer = pkgs.callPackage ./pkgs/glslviewer {
         #   inherit (pkgs.darwin.apple_sdk.frameworks) Cocoa;
         # };
-        calepin = pkgs.callPackage ./pkgs/calepin { src = calepin; };
+        # calepin = pkgs.callPackage ./pkgs/calepin { src = calepin; };
+
         pytest-language-server = pkgs.callPackage ./pkgs/pytest-language-server {
           src = pytest-language-server;
         };
@@ -90,6 +91,7 @@
           src = nativenif;
           nimony-src = nimony;
         };
+        luciole = inputs.luciole.packages.x86_64-linux.default;
         sokol-shdc = pkgs.callPackage ./pkgs/sokol-tools { src = sokol-tools-bin; };
         kcd = pkgs.callPackage ./pkgs/kcd { };
         raddebugger = pkgs.callPackage ./pkgs/raddebugger { src = raddebugger; };
@@ -108,7 +110,7 @@
           eden-emu
           # noctalia_5
           # glslviewer
-          calepin
+          # calepin
           pytest-language-server
           nimony
           nativenif
@@ -118,7 +120,8 @@
           # jpegli
           # wl_shimeji
           # pixieditor
-           kitty
+          kitty
+          luciole
           # open-jai
           ;
         default = nimony;
