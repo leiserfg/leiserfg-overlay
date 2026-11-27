@@ -99,7 +99,9 @@
         # wayscriber = pkgs.callPackage ./pkgs/wayscriber { };
         # pixieditor = pkgs.callPackage ./pkgs/pixieditor/package.nix { };
         kitty = pkgs.callPackage ./pkgs/kitty/package.nix { };
+        llama-cpp-vulkan = pkgs.callPackage ./pkgs/llama-cpp/package.nix { vulkanSupport = true; };
         # open-jai = pkgs.callPackage ./pkgs/open-jai { };
+
       };
 
       packages.x86_64-linux = rec {
@@ -122,6 +124,7 @@
           # pixieditor
           kitty
           luciole
+          llama-cpp-vulkan
           # open-jai
           ;
         default = nimony;
