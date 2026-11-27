@@ -17,12 +17,6 @@ stdenv.mkDerivation {
   env.HOME = "/tmp";
   env.XDG_CACHE_HOME = "/tmp/.cache";
 
-  postPatch = ''
-    substituteInPlace src/nimony/deps.nim \
-      --replace-fail 'result = root / "stdcache" / bin / uhashBase36(b.extract())' \
-        'result = getCacheDir("nimony") / "stdlib" / uhashBase36(root) / bin / uhashBase36(b.extract())'
-  '';
-
   buildPhase = ''
     cp ${./parser.nim} src/nifler/nimparser/parser.nim
 
